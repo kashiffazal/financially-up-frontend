@@ -450,59 +450,66 @@ export default function ApplyTfnAbnsPage() {
       key: "attachments",
       width: 120,
       render: (_, record) => {
-        // Only show the proofOfID for the resolved variant, not all variants
-        const resolved = resolveFormVariant(record);
-        let proofFiles = [];
+        let menuItems = [];
+        let keyIndex = 0;
 
-        // Parse the resolved proofOfID field — handles JSON arrays, plain URLs, and comma-separated strings
-        const proofField = resolved.proofOfID;
-        if (Array.isArray(proofField)) {
-          proofFiles = proofField;
-        } else if (typeof proofField === "string" && proofField.trim()) {
-          try {
-            const parsed = JSON.parse(proofField);
-            if (Array.isArray(parsed)) proofFiles = parsed;
-            else if (typeof parsed === "string" && parsed.trim()) proofFiles = [parsed];
-          } catch {
-            // Not valid JSON — treat as plain URL string or comma-separated URLs
-            proofFiles = proofField.split(",").map((s) => s.trim()).filter(Boolean);
+        const addAttachment = (label, url) => {
+          if (!url || typeof url !== "string" || url.trim() === "") return;
+          menuItems.push({
+            key: `attach-${keyIndex++}`,
+            icon: <LinkOutlined />,
+            label: label,
+            onClick: () => window.open(url, "_blank"),
+          });
+        };
+
+        const processField = (labelPrefix, fieldData) => {
+          if (!fieldData) return;
+          let urls = [];
+          if (Array.isArray(fieldData)) {
+            urls = fieldData;
+          } else if (typeof fieldData === "string" && fieldData.trim() !== "") {
+            try {
+              const parsed = JSON.parse(fieldData);
+              urls = Array.isArray(parsed) ? parsed : [parsed];
+            } catch {
+              urls = fieldData.split(",").map((u) => u.trim()).filter(Boolean);
+            }
           }
-        }
+          
+          if (urls.length === 1) {
+             addAttachment(labelPrefix, urls[0]);
+          } else {
+             urls.forEach((url, i) => addAttachment(`${labelPrefix} ${i + 1}`, url));
+          }
+        };
+
+        processField("ID (Individual)", record.proofOfID);
+        processField("ID (Sole Trader)", record.proofOfID_Sole);
+        processField("ID (Company)", record.proofOfID_CompanyABN);
+        processField("ID (Trust)", record.proofOfID_TrustABN);
+        processField("ID (Partnership)", record.proofOfID_PartnershipABN);
 
         // Check if signature URL exists
         const hasSignature =
           record.signature &&
           typeof record.signature === "string" &&
-          record.signature.startsWith("http");
+          record.signature.trim() !== "";
 
-        // Total attachment count (proofOfID files + signature if exists)
-        const totalAttachments = proofFiles.length + (hasSignature ? 1 : 0);
+        if (hasSignature) {
+           menuItems.push({
+             key: "signature",
+             icon: <FormOutlined />,
+             label: "Signature",
+             onClick: () => window.open(record.signature, "_blank"),
+           });
+        }
+
+        const totalAttachments = menuItems.length;
 
         if (totalAttachments === 0) {
           return <Text type="secondary">—</Text>;
         }
-
-        // Build dropdown menu items
-        const menuItems = [
-          // Proof of ID files
-          ...proofFiles.map((fileUrl, index) => ({
-            key: `proof-${index}`,
-            icon: <LinkOutlined />,
-            label: `ID Document ${index + 1}`,
-            onClick: () => window.open(fileUrl, "_blank"),
-          })),
-          // Signature URL (if exists)
-          ...(hasSignature
-            ? [
-                {
-                  key: "signature",
-                  icon: <FormOutlined />,
-                  label: "Signature",
-                  onClick: () => window.open(record.signature, "_blank"),
-                },
-              ]
-            : []),
-        ];
 
         return (
           <Tooltip title={`${totalAttachments} Attachment(s)`}>
