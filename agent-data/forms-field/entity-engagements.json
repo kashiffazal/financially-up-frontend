@@ -1,0 +1,30 @@
+{
+  "TypeOfEntity": "String",
+  "LegalName": "String",
+  "TFN": "String",
+  "ABN": "String",
+  "TradingName": "String", //1st
+  "RegisteredAddress": "String",
+  "housenumber": "String",
+  "street": "String",
+  "suburb": "String",
+  "postcode": "String",
+  "state": "String", //2nd
+  "PhoneNumber": "String",
+  "email": "String", //3rd
+  "AccountNumber": "String",
+  "BSB": "String",
+  "NameOfAccount": "String", //4th
+  "ListOfDirectors": "String",
+  "FormerAccountantName": "String",
+  "FormerPhoneNumber": "String",
+  "Formeremail": "String", //5th
+  "Terms_Conditions": "String",
+  "proofOfID": "String", //6th
+  "signature": "String",
+  "latitude": "Number",
+  "longitude": "Number",
+  "postalAddress": "String",
+  "formType": "String",
+  "TrustDeed": "String"
+}
