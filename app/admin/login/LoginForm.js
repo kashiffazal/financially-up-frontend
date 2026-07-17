@@ -3,7 +3,7 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function LoginForm({
   onFinish,
@@ -87,18 +87,18 @@ export default function LoginForm({
         </div>
 
         <Form.Item className="pt-2">
-          <Link href="/admin/dashboard">
-            <Button
-              type="primary"
-              htmlType="submit"
-              loading={loading}
-              block
-              size="large"
-              className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all duration-200 shadow-sm"
-            >
-              Sign In
-            </Button>
-          </Link>
+          {/* <Link href="/admin/dashboard"> */}
+          <Button
+            type="primary"
+            htmlType="submit"
+            loading={loading}
+            block
+            size="large"
+            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all duration-200 shadow-sm"
+          >
+            Sign In
+          </Button>
+          {/* </Link> */}
         </Form.Item>
       </Form>
     </div>

@@ -18,11 +18,20 @@ export default function Login() {
   // Handle Login submission
   const handleLogin = (values) => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    console.log(values);
+
+    setLoading(false);
+    if (
+      values.email === "admin@financiallyup.com.au" &&
+      values.password === "123456"
+    ) {
       message.success("Welcome back, Kashif!");
+      localStorage.setItem("login", "true");
       router.push("/admin/dashboard");
-    }, 1200);
+    } else {
+      message.error("Invalid email or password");
+      localStorage.setItem("login", "false");
+    }
   };
 
   // Handle Forgot Password submission
@@ -185,4 +194,3 @@ export default function Login() {
     </div>
   );
 }
-

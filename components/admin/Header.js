@@ -1,6 +1,6 @@
 // "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Dropdown, message, Input, Badge } from "antd";
 import {
@@ -25,10 +25,11 @@ export default function Header({ collapsed, setCollapsed }) {
   // Handle logout
   const handleLogout = () => {
     message.loading("Logging out...", 0.8);
-    setTimeout(() => {
-      message.success("Logged out successfully.");
-      router.push("/admin/login");
-    }, 800);
+    localStorage.setItem("login", "false");
+    // setTimeout(() => {
+    // message.success("Logged out successfully.");
+    router.push("/admin/login");
+    // }, 800);
   };
 
   // User dropdown menu items
@@ -54,6 +55,13 @@ export default function Header({ collapsed, setCollapsed }) {
       onClick: handleLogout,
     },
   ];
+
+  useEffect(() => {
+    let login = localStorage.getItem("login");
+    if (login !== "true") {
+      router.push("/admin/login");
+    }
+  }, []);
 
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-6 bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800 transition-colors duration-300">
