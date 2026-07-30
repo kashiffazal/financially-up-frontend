@@ -1,0 +1,43 @@
+/* Magic Animated Border Beam Effect (Aspect-Ratio Proof) */
+@keyframes magicBeamSpinCentered {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.magicBorderContainer {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 2px;
+  background: rgba(226, 232, 240, 0.7);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(.dark) .magicBorderContainer {
+  background: rgba(39, 39, 42, 0.7);
+}
+
+.magicBorderContainer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400%;
+  height: 400%;
+  aspect-ratio: 1 / 1;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0%,
+    transparent 70%,
+    var(--brand-primary) 82%,
+    #36cfc9 90%,
+    #95de64 96%,
+    transparent 100%
+  );
+  animation: magicBeamSpinCentered 4s linear infinite;
+  z-index: 0;
+}

@@ -1,0 +1,12 @@
+/* Individual Services Why Us Styles */
+.statRow {
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--brand-primary);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.statRow:hover {
+  transform: translateX(4px);
+  border-color: var(--brand-border-hover);
+}

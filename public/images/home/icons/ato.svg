@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 172 44" fill="none">
+  <!-- ATO Star Crest Badge -->
+  <path d="M 28 10 L 32 20 L 42 22 L 34 28 L 37 38 L 28 32 L 19 38 L 22 28 L 14 22 L 24 20 Z" fill="#008043"/>
+  <circle cx="28" cy="25" r="4.5" fill="#ffffff"/>
+  <circle cx="28" cy="25" r="2.5" fill="#008043"/>
+  
+  <!-- ATO Text -->
+  <text x="56" y="34" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="26" fill="#008043" letter-spacing="1.5">ATO</text>
+  <text x="56" y="46" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="8.5" fill="#008043" letter-spacing="0.5">AUSTRALIAN TAXATION OFFICE</text>
+</svg>

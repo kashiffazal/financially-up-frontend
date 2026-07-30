@@ -1,0 +1,79 @@
+/* CTA Banner Animated Gradient Background & Circles */
+@keyframes ctaGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.ctaGradientAnimated {
+  background: linear-gradient(-45deg, var(--brand-primary-active), var(--brand-primary), var(--brand-primary-hover), var(--brand-primary-active));
+  background-size: 300% 300%;
+  animation: ctaGradientShift 8s ease infinite;
+}
+
+:global(.dark) .ctaGradientAnimated {
+  background: linear-gradient(-45deg, #0a1b13, #022415, #004725, #0d2818);
+  background-size: 300% 300%;
+  animation: ctaGradientShift 8s ease infinite;
+}
+
+/* CTA Decorative Circle Animations */
+@keyframes ctaCircleMove1 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.65;
+  }
+  25% {
+    transform: translate(80px, 50px) scale(1.15);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(120px, -30px) scale(1.25);
+    opacity: 0.70;
+  }
+  75% {
+    transform: translate(50px, 70px) scale(1.1);
+    opacity: 0.90;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.65;
+  }
+}
+
+@keyframes ctaCircleMove2 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.60;
+  }
+  25% {
+    transform: translate(-100px, -60px) scale(1.2);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-150px, 40px) scale(1.3);
+    opacity: 0.70;
+  }
+  75% {
+    transform: translate(-60px, -80px) scale(1.15);
+    opacity: 0.90;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.60;
+  }
+}
+
+.animateCtaCircle1 {
+  animation: ctaCircleMove1 12s ease-in-out infinite;
+}
+
+.animateCtaCircle2 {
+  animation: ctaCircleMove2 15s ease-in-out infinite;
+}

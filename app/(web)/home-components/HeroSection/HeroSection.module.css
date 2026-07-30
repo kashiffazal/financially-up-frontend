@@ -1,0 +1,39 @@
+/* Floating Pill Badges Animations for Hero Section */
+@keyframes floatPillSmooth {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.03);
+  }
+}
+
+@keyframes floatPillSlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-9px) scale(1.02);
+  }
+}
+
+@keyframes floatPillAlt {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(11px) scale(1.03);
+  }
+}
+
+.animateFloatPill {
+  animation: floatPillSmooth 4.5s ease-in-out infinite;
+}
+
+.animateFloatPillSlow {
+  animation: floatPillSlow 5.5s ease-in-out infinite;
+}
+
+.animateFloatPillAlt {
+  animation: floatPillAlt 5s ease-in-out infinite;
+}

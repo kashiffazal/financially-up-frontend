@@ -1,65 +1,71 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+  }
+}
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --brand-primary: #008043;
+  --brand-primary-hover: #006635;
+  --brand-primary-active: #004d28;
+  --brand-primary-soft: #eaf7f0;
+  --brand-primary-light: #eefaf3;
+  --brand-border-hover: #52c480;
+
+  --brand-bg-lighter: #eefaf3;
+  --brand-bg-lighter-m: #def1e5;
+  --brand-bg-lighter-m2: #f2f9f5;
+  --brand-bg-lighter-m3: #e8f5ed;
 }
 
 .dark {
-  --background: #121214; /* Soft dark-gray for the body background */
-  --foreground: #f1f5f3;
+  --brand-primary-soft: #0b3822;
+  --brand-primary-light: #072e1c;
+  --brand-border-hover: #10b981;
+
+  --brand-bg-lighter: #072e1c;
+  --brand-bg-lighter-m: #050d09;
+  --brand-bg-lighter-m2: #0a1a12;
+  --brand-bg-lighter-m3: #07140e;
 }
 
 @theme {
-  --color-zinc-950: #121214; /* Softer dark-gray body background */
-  --color-zinc-900: #1e1e24; /* Softer dark-gray for cards/panels/sidebar */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-brand-primary-active: var(--brand-primary-active);
+  --color-brand-primary-soft: var(--brand-primary-soft);
+  --color-brand-primary-light: var(--brand-primary-light);
+  --color-brand-border-hover: var(--brand-border-hover);
+  --color-brand-bg-lighter: var(--brand-bg-lighter);
+  --color-brand-bg-lighter-m: var(--brand-bg-lighter-m);
+  --color-brand-bg-lighter-m2: var(--brand-bg-lighter-m2);
+  --color-brand-bg-lighter-m3: var(--brand-bg-lighter-m3);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-/* Custom Keyframes and Classes for Mesh Gradient Animation */
-@keyframes gradient-mesh {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-mesh-gradient {
-  background: linear-gradient(-45deg, #00331a, #008043, #059669, #022c22);
-  background-size: 300% 300%;
-  animation: gradient-mesh 8s ease infinite; /* Speed up to 8s for more active animation */
-}
-
-/* Dark mode specific mesh gradient for the login panel */
-.dark .animate-mesh-gradient {
-  background: linear-gradient(-45deg, #022415, #004725, #0a1b13, #121214);
-  background-size: 300% 300%;
-}
-
-/* Glassmorphism utility */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.dark .glass-panel {
-  background: rgba(30, 30, 36, 0.25);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  font-family:
+    var(--font-geist-sans),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 /* Custom scrollbars for sidebar and content */
@@ -73,69 +79,25 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.3);
-  border-radius: 4px;
+  background: #cbd5e1;
+  border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(75, 85, 99, 0.5);
+  background: #334155;
 }
 
-/* Custom Keyframes and Classes for Liquid Fluid Swirling Blobs */
-@keyframes float-blob-1 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  33% {
-    transform: translate(60px, -80px) scale(1.22) rotate(120deg);
-  }
-  66% {
-    transform: translate(-45px, 45px) scale(0.85) rotate(240deg);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
-@keyframes float-blob-2 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  50% {
-    transform: translate(-90px, 70px) scale(1.3) rotate(-180deg);
-  }
+/* Global Zero-Padding Override for Ant Design Modals */
+.ant-modal-root .ant-modal-content {
+  padding: 0 !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
 }
 
-@keyframes float-blob-3 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  45% {
-    transform: translate(80px, -50px) scale(0.8) rotate(90deg);
-  }
+.ant-modal-root .ant-modal-body {
+  padding: 0 !important;
 }
-
-@keyframes float-blob-4 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  50% {
-    transform: translate(-40px, -40px) scale(1.15) rotate(180deg);
-  }
-}
-
-.animate-blob-1 {
-  animation: float-blob-1 6s ease-in-out infinite; /* Speed up to 6s */
-}
-
-.animate-blob-2 {
-  animation: float-blob-2 8s ease-in-out infinite; /* Speed up to 8s */
-}
-
-.animate-blob-3 {
-  animation: float-blob-3 5s ease-in-out infinite; /* Speed up to 5s */
-}
-
-.animate-blob-4 {
-  animation: float-blob-4 9s ease-in-out infinite; /* Speed up to 9s */
-}
-
-
-

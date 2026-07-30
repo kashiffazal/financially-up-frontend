@@ -1,0 +1,21 @@
+/* Footer Link Hover Animation */
+.footerLink {
+  position: relative;
+  padding-left: 0;
+  transition: padding-left 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+}
+
+.footerLink:hover {
+  padding-left: 6px;
+}
+
+.footerLink .footerLinkIcon {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footerLink:hover .footerLinkIcon {
+  opacity: 1;
+  transform: translateX(0);
+}

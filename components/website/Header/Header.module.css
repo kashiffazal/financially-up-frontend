@@ -1,0 +1,24 @@
+/* Top Bar Animated Primary Gradient */
+@keyframes topbarShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.topbarGradientAnimated {
+  background: linear-gradient(90deg, var(--brand-primary-active), var(--brand-primary), var(--brand-primary-hover), var(--brand-primary));
+  background-size: 250% 250%;
+  animation: topbarShift 10s ease infinite;
+}
+
+:global(.dark) .topbarGradientAnimated {
+  background: linear-gradient(90deg, #061f13, #0b3822, #072e1c, #09331e);
+  background-size: 250% 250%;
+  animation: topbarShift 10s ease infinite;
+}

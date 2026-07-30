@@ -1,0 +1,58 @@
+/* ==========================================================================
+   FINANCIALLY UP - ADMIN PORTAL CSS (admin.css)
+   Contains admin tables, sidebar, dashboard, mesh gradient, and ERP panel styles.
+   ========================================================================== */
+
+/* Custom Keyframes and Classes for Admin Mesh Gradient Animation */
+@keyframes admin-gradient-mesh {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.admin-animate-mesh-gradient {
+  background: linear-gradient(-45deg, #00331a, #008043, #059669, #022c22);
+  background-size: 300% 300%;
+  animation: admin-gradient-mesh 8s ease infinite;
+}
+
+.dark .admin-animate-mesh-gradient {
+  background: linear-gradient(-45deg, #022415, #004725, #0a1b13, #121214);
+  background-size: 300% 300%;
+}
+
+/* Admin Glassmorphism Panel */
+.admin-glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dark .admin-glass-panel {
+  background: rgba(30, 30, 36, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Admin Table Custom Scrollbars */
+.admin-table-container ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.admin-table-container ::-webkit-scrollbar-thumb {
+  background: rgba(0, 128, 67, 0.25);
+  border-radius: 4px;
+}
+
+.dark .admin-table-container ::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+}

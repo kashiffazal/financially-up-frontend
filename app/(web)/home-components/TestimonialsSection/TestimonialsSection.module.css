@@ -1,0 +1,22 @@
+/* Equal Height Slick Carousel */
+.equalHeightCarousel :global(.slick-track) {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.equalHeightCarousel :global(.slick-slide) {
+  height: auto !important;
+}
+
+.equalHeightCarousel :global(.slick-slide > div) {
+  height: 100% !important;
+  display: flex !important;
+  flex: 1 1 auto !important;
+}
+
+.equalHeightCarousel :global(.slick-slide > div > div) {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex: 1 1 auto !important;
+}

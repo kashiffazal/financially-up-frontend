@@ -1,0 +1,9 @@
+/* Why Choose Us Section Styles */
+.featureTile {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
+}
+
+.featureTile:hover {
+  border-color: #6ee7b7;
+  box-shadow: 0 10px 25px -5px rgba(0, 128, 67, 0.12);
+}

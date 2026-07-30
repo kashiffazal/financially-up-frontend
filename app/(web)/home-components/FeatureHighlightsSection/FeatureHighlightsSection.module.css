@@ -1,0 +1,10 @@
+/* Feature Highlights Section Styles */
+.highlightCard {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.highlightCard:hover {
+  border-color: #86efac;
+  box-shadow: 0 20px 30px -10px rgba(0, 128, 67, 0.1);
+  transform: translateY(-6px);
+}

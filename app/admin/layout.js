@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Sidebar from '../../components/admin/Sidebar';
 import Header from '../../components/admin/Header';
 import Footer from '../../components/admin/Footer';
+import './admin.css';
 
 export default function AdminLayout({ children }) {
   const pathname = usePathname();
