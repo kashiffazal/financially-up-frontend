@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
-import { ArrowRightOutlined, CheckCircleFilled } from '@ant-design/icons';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
+import { ArrowRightOutlined, CheckCircleFilled } from "@ant-design/icons";
 
 export default function IndividualTaxReturnOverview() {
   return (
@@ -25,22 +25,29 @@ export default function IndividualTaxReturnOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, our experienced team of tax professionals is dedicated to providing expert assistance with your individual tax returns. We ensure accurate and efficient compliance with the guidelines set forth by the Australian Taxation Office (ATO).
+              At Financially Up, our experienced team of tax professionals is
+              dedicated to providing expert assistance with your individual tax
+              returns. We ensure accurate and efficient compliance with the
+              guidelines set forth by the Australian Taxation Office (ATO).
             </p>
 
-            <ul className="space-y-2.5 pt-2">
+            {/* 2x2 Grid Highlights Chips */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               {[
-                'Fast 48-hour turnarounds on online lodgements',
-                'Maximized work-related & self-education deductions',
-                'Fee-from-refund option available with zero upfront costs',
-                'Registered CPA tax agent review for 100% peace of mind',
+                "Fast 48-hour turnarounds on online lodgements",
+                "Maximized work-related & self-education deductions",
+                "Fee-from-refund option available with zero upfront costs",
+                "Registered CPA tax agent review for 100% peace of mind",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-zinc-200">
-                  <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-base shrink-0" />
-                  <span>{item}</span>
-                </li>
+                <div
+                  key={idx}
+                  className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 hover:bg-brand-primary-soft transition-all"
+                >
+                  <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-sm shrink-0" />
+                  <span className="leading-snug">{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <div className="pt-4">
               <Link href="/book-an-appointment">
@@ -61,12 +68,11 @@ export default function IndividualTaxReturnOverview() {
           <div className="lg:col-span-6 flex justify-center">
             <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
-                src="/images/services/service1.webp"
+                src="/images/services/individual-tax-return.webp"
                 alt="Expert Assistance for Individual Tax Returns"
                 width={550}
                 height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                className="w-full h-[500px] object-cover rounded-2xl"
               />
             </div>
           </div>

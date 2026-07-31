@@ -1,81 +1,97 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Collapse, Tag, Button } from 'antd';
+import React, { useState } from "react";
+import Image from "next/image";
+import { Collapse, Tag, Button } from "antd";
 import {
   DownOutlined,
   QuestionCircleOutlined,
   StarFilled,
   SafetyCertificateOutlined,
   CustomerServiceOutlined,
-} from '@ant-design/icons';
-import ContactUsModal from '@/components/website/ContactUsModal';
-import styles from './FaqSection.module.css';
+} from "@ant-design/icons";
+import ContactUsModal from "@/components/website/ContactUsModal";
+import styles from "./FaqSection.module.css";
 
 export default function FaqSection({
-  badgeTag = 'What We Do',
-  title = 'Our Individual Tax Return Services',
-  subtitle = 'Find fast answers to common questions about our individual tax lodgements, deductions, and CPA services.',
-  image = '/images/services/service1.webp',
-  imageAlt = 'Individual Tax Return Services Overview',
+  badgeTag = "What We Do",
+  title = "Our Individual Tax Return Services",
+  subtitle = "Find fast answers to common questions about our individual tax lodgements, deductions, and CPA services.",
+  image = "/images/services/faq.webp",
+  imageAlt = "Individual Tax Return Services Overview",
   items,
-  defaultActiveKey = '1',
+  defaultActiveKey = "1",
 }) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const defaultFaqs = [
     {
-      key: '1',
-      label: 'Comprehensive Review and Preparation',
+      key: "1",
+      label: "Comprehensive Review and Preparation",
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-          Identifying eligible deductions is crucial for minimizing your taxable income and maximizing your tax savings. Our team at Financially Up will diligently explore all potential deductions applicable to your situation. From commonly claimed deductions to often overlooked ones, we leave no stone unturned in helping you claim every deduction you're entitled to.
+          Identifying eligible deductions is crucial for minimizing your taxable
+          income and maximizing your tax savings. Our team at Financially Up
+          will diligently explore all potential deductions applicable to your
+          situation. From commonly claimed deductions to often overlooked ones,
+          we leave no stone unturned in helping you claim every deduction you're
+          entitled to.
         </p>
       ),
     },
     {
-      key: '2',
-      label: 'Deduction Identification for Tax Savings',
+      key: "2",
+      label: "Deduction Identification for Tax Savings",
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-          Identifying eligible deductions is crucial for minimizing your taxable income and maximizing your tax savings. Our team at Financially Up will diligently explore all potential deductions applicable to your situation. From commonly claimed deductions to often overlooked ones, we leave no stone unturned in helping you claim every deduction you're entitled to.
+          Identifying eligible deductions is crucial for minimizing your taxable
+          income and maximizing your tax savings. Our team at Financially Up
+          will diligently explore all potential deductions applicable to your
+          situation. From commonly claimed deductions to often overlooked ones,
+          we leave no stone unturned in helping you claim every deduction you're
+          entitled to.
         </p>
       ),
     },
     {
-      key: '3',
-      label: 'Lodgment and Compliance Assistance',
+      key: "3",
+      label: "Lodgment and Compliance Assistance",
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-          Our experienced and certified team meticulously reviews every detail of your financial information, applying the latest tax laws and industry-standard practices, to ensure maximum accuracy and compliance.
+          Our experienced and certified team meticulously reviews every detail
+          of your financial information, applying the latest tax laws and
+          industry-standard practices, to ensure maximum accuracy and
+          compliance.
         </p>
       ),
     },
     {
-      key: '4',
-      label: 'Flexible Payment & Fee-From-Refund Options',
+      key: "4",
+      label: "Flexible Payment & Fee-From-Refund Options",
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-          Absolutely, we offer the flexibility to either pay upfront or directly from your tax refund, making the process convenient for you.
+          Absolutely, we offer the flexibility to either pay upfront or directly
+          from your tax refund, making the process convenient for you.
         </p>
       ),
     },
     {
-      key: '5',
-      label: 'Ongoing Support and Tax Planning',
+      key: "5",
+      label: "Ongoing Support and Tax Planning",
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-          We strive to process tax returns swiftly, and typically, our clients receive their tax refunds within 10 working days.
+          We strive to process tax returns swiftly, and typically, our clients
+          receive their tax refunds within 10 working days.
         </p>
       ),
     },
     {
-      key: '6',
-      label: 'Take Control of Your Individual Tax Returns Today',
+      key: "6",
+      label: "Take Control of Your Individual Tax Returns Today",
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-          We strive to process tax returns swiftly, and typically, our clients receive their tax refunds within 10 working days.
+          We strive to process tax returns swiftly, and typically, our clients
+          receive their tax refunds within 10 working days.
         </p>
       ),
     },
@@ -89,7 +105,7 @@ export default function FaqSection({
     label: (
       <div className="flex items-center gap-3">
         <span className="w-7 h-7 rounded-xl bg-brand-primary-soft dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0">
-          {String(idx + 1).padStart(2, '0')}
+          {String(idx + 1).padStart(2, "0")}
         </span>
         <span className="text-slate-900 dark:text-zinc-50 font-bold text-sm sm:text-base">
           {faq.label}
@@ -100,13 +116,14 @@ export default function FaqSection({
   }));
 
   return (
-    <section className={`bg-gradient-to-b from-white via-brand-bg-lighter/50 to-white dark:from-zinc-950 dark:via-zinc-900/40 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.faqSectionWrapper}`}>
+    <section
+      className={`bg-gradient-to-b from-white via-brand-bg-lighter/50 to-white dark:from-zinc-950 dark:via-zinc-900/40 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.faqSectionWrapper}`}
+    >
       {/* Background Ambient Glow Orbs */}
       <div className={styles.glowOrb1} />
       <div className={styles.glowOrb2} />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           {badgeTag && (
@@ -131,17 +148,17 @@ export default function FaqSection({
 
         {/* Two-Column Redesigned Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
-          
           {/* ── Left Column: Rich Interactive Feature Card (Col 5) ── */}
           <div className="lg:col-span-5 space-y-6">
-            <div className={`relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 ${styles.imageCardFrame}`}>
+            <div
+              className={`relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 ${styles.imageCardFrame}`}
+            >
               <Image
                 src={image}
                 alt={imageAlt}
                 width={500}
-                height={450}
-                priority
-                className="w-full h-[320px] sm:h-[380px] object-cover rounded-2xl"
+                height={485}
+                className="w-full h-[485px] object-cover rounded-2xl"
               />
 
               {/* Floating Top Rating Badge */}
@@ -203,28 +220,32 @@ export default function FaqSection({
                 items={formattedFaqs}
                 defaultActiveKey={defaultActiveKey}
                 ghost={false}
-                expandIconPosition="end"
+                expandIconPlacement="end"
                 expandIcon={({ isActive }) => (
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                       isActive
-                        ? 'bg-brand-primary text-white rotate-180 shadow-md'
-                        : 'bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400'
+                        ? "bg-brand-primary text-white rotate-180 shadow-md"
+                        : "bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400"
                     }`}
                   >
-                    <DownOutlined className="text-xs" />
+                    <DownOutlined
+                      className="text-xs"
+                      style={{ color: isActive ? "#fff" : "" }}
+                    />
                   </div>
                 )}
               />
             </div>
           </div>
-
         </div>
-
       </div>
 
       {/* Contact Us Modal Popup for Direct Enquiries */}
-      <ContactUsModal open={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
+      <ContactUsModal
+        open={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </section>
   );
 }

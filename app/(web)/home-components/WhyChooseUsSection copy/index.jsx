@@ -49,7 +49,6 @@ export default function WhyChooseUsSection() {
                   alt="Financially Up Professional Team Meeting"
                   width={550}
                   height={450}
-                  priority
                   className="w-full h-auto object-cover rounded-2xl"
                 />
               </div>

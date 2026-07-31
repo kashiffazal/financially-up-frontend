@@ -29,10 +29,11 @@ export default function TrustedNationwideSection() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[450px]">
               <Image
-                src="/images/home/Over-50K-Companies.webp"
+                src="/images/services/home-Trusted-Nationwide.png"
                 alt="Trusted Nationwide Australian Tax Professional"
                 width={500}
                 height={600}
+                // quality={100}
                 className="w-full h-auto object-contain rounded-2xl drop-shadow-lg"
               />
 

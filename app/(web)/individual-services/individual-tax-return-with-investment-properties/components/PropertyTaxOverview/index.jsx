@@ -1,18 +1,22 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
-import { ArrowRightOutlined, CheckCircleFilled, HomeOutlined } from '@ant-design/icons';
-import styles from './PropertyTaxOverview.module.css';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
+import {
+  ArrowRightOutlined,
+  CheckCircleFilled,
+  HomeOutlined,
+} from "@ant-design/icons";
+import styles from "./PropertyTaxOverview.module.css";
 
 export default function PropertyTaxOverview() {
   const highlights = [
-    'Mortgage interest, council rates & water charge deductions',
-    'Division 40 & 43 depreciation schedule optimization',
-    'Joint property ownership percentage split calculations',
-    'Capital Gains Tax (CGT) planning for property sales',
+    "Mortgage interest, council rates & water charge deductions",
+    "Division 40 & 43 depreciation schedule optimization",
+    "Joint property ownership percentage split calculations",
+    "Capital Gains Tax (CGT) planning for property sales",
   ];
 
   return (
@@ -27,21 +31,31 @@ export default function PropertyTaxOverview() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
-              Expert Assistance for Individual Tax Returns with Investment Properties
+              Expert Assistance for Individual Tax Returns with Investment
+              Properties
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, our team of tax professionals specializes in individual tax returns involving investment properties. We understand the unique tax considerations and complexities that come with rental income. Our goal is to help you maximize your tax benefits while ensuring compliance with the Australian Taxation Office (ATO) regulations.
+              At Financially Up, our team of tax professionals specializes in
+              individual tax returns involving investment properties. We
+              understand the unique tax considerations and complexities that
+              come with rental income. Our goal is to help you maximize your tax
+              benefits while ensuring compliance with the Australian Taxation
+              Office (ATO) regulations.
             </p>
 
-            <ul className="space-y-2.5 pt-2">
+            {/* 2x2 Grid Highlights Chips */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               {highlights.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-zinc-200">
-                  <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-base shrink-0" />
-                  <span>{item}</span>
-                </li>
+                <div
+                  key={idx}
+                  className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 hover:bg-brand-primary-soft transition-all"
+                >
+                  <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-sm shrink-0" />
+                  <span className="leading-snug">{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <div className="pt-4">
               <Link href="/book-an-appointment">
@@ -60,9 +74,11 @@ export default function PropertyTaxOverview() {
 
           {/* Right Graphic Column */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className={`relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3 ${styles.overviewCard}`}>
+            <div
+              className={`relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3 ${styles.overviewCard}`}
+            >
               <Image
-                src="/images/services/service2.webp"
+                src="/images/services/investment-property.webp"
                 alt="Investment Property Tax Returns Specialist"
                 width={550}
                 height={420}

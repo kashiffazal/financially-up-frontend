@@ -114,7 +114,7 @@ export default function SeamlessTaxExperienceSection() {
               {/* Graphic Banner Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
                 <Image
-                  src="/images/services/service2.webp"
+                  src="/images/services/home-Complete-Peace-of-Mind.webp"
                   alt="Seamless Australian Online Tax Service"
                   width={500}
                   height={550}

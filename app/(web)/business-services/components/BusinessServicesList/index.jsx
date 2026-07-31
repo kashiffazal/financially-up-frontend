@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
@@ -13,126 +13,137 @@ import {
   BankOutlined,
   FileProtectOutlined,
   ThunderboltOutlined,
-} from '@ant-design/icons';
-import styles from './BusinessServicesList.module.css';
+} from "@ant-design/icons";
+import styles from "./BusinessServicesList.module.css";
 
 export default function BusinessServicesList() {
   const services = [
     {
-      id: 'sole-trader',
-      number: '01',
-      tag: 'FREELANCERS & TRADIES',
-      badgeText: 'Industry Expense Claims',
+      id: "sole-trader",
+      number: "01",
+      tag: "FREELANCERS & TRADIES",
+      badgeText: "Industry Expense Claims",
       badgeIcon: <ThunderboltOutlined className="text-amber-400 text-sm" />,
       icon: <UserOutlined className="text-brand-primary text-xl" />,
-      title: 'Sole Trader Tax Returns',
+      title: "Sole Trader Tax Returns",
       description:
         "At Financially Up, we specialize in providing expert assistance with sole trader tax returns across a wide range of industries. Our knowledgeable team of tax professionals understands the specific tax obligations and regulations applicable to different types of sole trader businesses. Whether you're a freelancer, IT service provider, security services provider, taxi driver, truck driver, ride-share service provider, delivery driver, or any other type of sole trader, we have the expertise to simplify your tax compliance.",
       highlights: [
-        'Industry-specific expense claim optimization',
-        'Motor vehicle logbook & home office deduction rules',
-        'GST & ABN registration assistance',
-        'CPA tax agent review for 100% peace of mind',
+        "Industry-specific expense claim optimization",
+        "Motor vehicle logbook & home office deduction rules",
+        "GST & ABN registration assistance",
+        "CPA tax agent review for 100% peace of mind",
       ],
-      image: '/images/services/service1.webp',
-      imageAlt: 'Sole Trader Tax Returns Specialist',
-      link: '/business-services/sole-trader',
+      image: "/images/services/sole-trader.webp",
+      imageAlt: "Sole Trader Tax Returns Specialist",
+      link: "/business-services/sole-trader",
       reverseLayout: false,
     },
     {
-      id: 'trust-tax-return',
-      number: '02',
-      tag: 'FAMILY & UNIT TRUSTS',
-      badgeText: 'June 30 Resolution Prep',
-      badgeIcon: <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />,
-      icon: <SafetyCertificateOutlined className="text-brand-primary text-xl" />,
-      title: 'Trust Tax Returns',
+      id: "trust-tax-return",
+      number: "02",
+      tag: "FAMILY & UNIT TRUSTS",
+      badgeText: "June 30 Resolution Prep",
+      badgeIcon: (
+        <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
+      ),
+      icon: (
+        <SafetyCertificateOutlined className="text-brand-primary text-xl" />
+      ),
+      title: "Trust Tax Returns",
       description:
-        'At Financially Up, we specialize in providing expert assistance with trust tax returns for a wide range of trust types. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with different trust structures, including fixed trusts, unit trusts, testamentary trusts, discretionary trusts (family trusts), hybrid trusts, charitable trusts, superannuation trusts, and bare trusts.',
+        "At Financially Up, we specialize in providing expert assistance with trust tax returns for a wide range of trust types. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with different trust structures, including fixed trusts, unit trusts, testamentary trusts, discretionary trusts (family trusts), hybrid trusts, charitable trusts, superannuation trusts, and bare trusts.",
       highlights: [
-        'Family & discretionary trust distribution prep',
-        'Section 100A & 99B compliance risk review',
-        'Unit trust & beneficiary income tax reporting',
-        'Capital gains & dividend streaming optimization',
+        "Family & discretionary trust distribution prep",
+        "Section 100A & 99B compliance risk review",
+        "Unit trust & beneficiary income tax reporting",
+        "Capital gains & dividend streaming optimization",
       ],
-      image: '/images/services/service2.webp',
-      imageAlt: 'Trust Tax Returns Specialist',
-      link: '/business-services/trust-tax-return',
+      image: "/images/services/Trust.webp",
+      imageAlt: "Trust Tax Returns Specialist",
+      link: "/business-services/trust-tax-return",
       reverseLayout: true,
     },
     {
-      id: 'partnership-tax-return',
-      number: '03',
-      tag: 'PARTNERSHIPS',
-      badgeText: 'Partner Profit Splits',
-      badgeIcon: <TeamOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />,
+      id: "partnership-tax-return",
+      number: "03",
+      tag: "PARTNERSHIPS",
+      badgeText: "Partner Profit Splits",
+      badgeIcon: (
+        <TeamOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
+      ),
       icon: <TeamOutlined className="text-brand-primary text-xl" />,
-      title: 'Partnership Tax Returns',
+      title: "Partnership Tax Returns",
       description:
-        'At Financially Up, we specialize in providing expert assistance with partnership tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with partnerships. Whether you have a general partnership, limited partnership, or limited liability partnership, we have the expertise to simplify your tax compliance.',
+        "At Financially Up, we specialize in providing expert assistance with partnership tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with partnerships. Whether you have a general partnership, limited partnership, or limited liability partnership, we have the expertise to simplify your tax compliance.",
       highlights: [
-        'Partnership agreement profit distribution split',
-        'Partner salary & capital contribution tracking',
-        'Joint asset depreciation & instant write-offs',
-        'Individual partner tax return integration',
+        "Partnership agreement profit distribution split",
+        "Partner salary & capital contribution tracking",
+        "Joint asset depreciation & instant write-offs",
+        "Individual partner tax return integration",
       ],
-      image: '/images/services/business-services-img3.webp',
-      imageAlt: 'Partnership Tax Returns Specialist',
-      link: '/business-services/partnership-tax-return',
+      image: "/images/services/Partnership.webp",
+      imageAlt: "Partnership Tax Returns Specialist",
+      link: "/business-services/partnership-tax-return",
       reverseLayout: false,
     },
     {
-      id: 'company-tax-return',
-      number: '04',
-      tag: 'PTY LTD COMPANIES',
-      badgeText: '25% Corporate Tax Rate',
-      badgeIcon: <BankOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />,
+      id: "company-tax-return",
+      number: "04",
+      tag: "PTY LTD COMPANIES",
+      badgeText: "25% Corporate Tax Rate",
+      badgeIcon: (
+        <BankOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
+      ),
       icon: <BankOutlined className="text-brand-primary text-xl" />,
-      title: 'Company Tax Returns',
+      title: "Company Tax Returns",
       description:
-        'At Financially Up, we specialize in providing expert assistance with company tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with companies. Whether you have a small business, a medium-sized enterprise, or a large corporation, we have the expertise to simplify your tax compliance.',
+        "At Financially Up, we specialize in providing expert assistance with company tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with companies. Whether you have a small business, a medium-sized enterprise, or a large corporation, we have the expertise to simplify your tax compliance.",
       highlights: [
-        '25% small business corporate tax rate optimization',
-        'Dividend franking account & credit reporting',
-        'Division 7A loan agreement compliance & monitoring',
-        'Extended ATO tax agent portal lodgement deadlines',
+        "25% small business corporate tax rate optimization",
+        "Dividend franking account & credit reporting",
+        "Division 7A loan agreement compliance & monitoring",
+        "Extended ATO tax agent portal lodgement deadlines",
       ],
-      image: '/images/services/business-services-img4.webp',
-      imageAlt: 'Company Tax Returns Specialist',
-      link: '/business-services/company-tax-return',
+      image: "/images/services/company.webp",
+      imageAlt: "Company Tax Returns Specialist",
+      link: "/business-services/company-tax-return",
       reverseLayout: true,
     },
     {
-      id: 'bas-gst-lodgement',
-      number: '05',
-      tag: 'BAS & GST COMPLIANCE',
-      badgeText: '4-Week ATO Extension',
-      badgeIcon: <FileProtectOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />,
+      id: "bas-gst-lodgement",
+      number: "05",
+      tag: "BAS & GST COMPLIANCE",
+      badgeText: "4-Week ATO Extension",
+      badgeIcon: (
+        <FileProtectOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
+      ),
       icon: <FileProtectOutlined className="text-brand-primary text-xl" />,
-      title: 'BAS/GST Lodgement',
+      title: "BAS/GST Lodgement",
       description:
-        'At Financially Up, we specialize in providing expert assistance with Business Activity Statement (BAS) lodgement and Goods and Services Tax (GST) compliance for all types of entities. Our experienced team of tax professionals understands the unique obligations and complexities associated with BAS and GST.',
+        "At Financially Up, we specialize in providing expert assistance with Business Activity Statement (BAS) lodgement and Goods and Services Tax (GST) compliance for all types of entities. Our experienced team of tax professionals understands the unique obligations and complexities associated with BAS and GST.",
       highlights: [
-        'Quarterly & monthly BAS lodgement with 4-week extension',
-        'PAYG withholding & PAYG instalment calculation',
-        'GST fuel tax credits & payroll reconciliations',
-        'STP Phase 2 year-end payroll finalization',
+        "Quarterly & monthly BAS lodgement with 4-week extension",
+        "PAYG withholding & PAYG instalment calculation",
+        "GST fuel tax credits & payroll reconciliations",
+        "STP Phase 2 year-end payroll finalization",
       ],
-      image: '/images/services/service1.webp',
-      imageAlt: 'BAS and GST Lodgement Specialist',
-      link: '/business-services/bas-gst-lodgement',
+      image: "/images/services/gst.webp",
+      imageAlt: "BAS and GST Lodgement Specialist",
+      link: "/business-services/bas-gst-lodgement",
       reverseLayout: false,
     },
   ];
 
   return (
-    <section className={`bg-gradient-to-b from-white via-brand-bg-lighter/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.sectionWrapper}`}>
+    <section
+      className={`bg-gradient-to-b from-white via-brand-bg-lighter/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.sectionWrapper}`}
+    >
       {/* Background Ambient Glow Orbs */}
       <div className={styles.glowOrb1} />
       <div className={styles.glowOrb2} />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16 lg:space-y-20">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <Tag
@@ -147,7 +158,9 @@ export default function BusinessServicesList() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-500 dark:text-zinc-400 font-normal">
-            From sole traders to PTY LTD companies and family trusts, our CPA business accountants optimize tax efficiency and keep you 100% ATO compliant.
+            From sole traders to PTY LTD companies and family trusts, our CPA
+            business accountants optimize tax efficiency and keep you 100% ATO
+            compliant.
           </p>
         </div>
 
@@ -158,21 +171,21 @@ export default function BusinessServicesList() {
             className={`group bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-12 border border-slate-200/80 dark:border-zinc-800 shadow-sm ${styles.serviceCard}`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
               {/* Image Column */}
               <div
                 className={`lg:col-span-6 ${
-                  service.reverseLayout ? 'lg:order-2' : 'lg:order-1'
+                  service.reverseLayout ? "lg:order-2" : "lg:order-1"
                 }`}
               >
-                <div className={`relative ${styles.serviceImageWrapper} shadow-xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 p-2.5`}>
+                <div
+                  className={`relative ${styles.serviceImageWrapper} shadow-xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 p-2.5`}
+                >
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
                     width={580}
-                    height={440}
-                    priority={idx === 0}
-                    className="w-full h-[320px] sm:h-[380px] object-cover rounded-2xl"
+                    height={550}
+                    className="w-full h-[550px] object-cover rounded-2xl"
                   />
 
                   {/* Number Badge Top-Left */}
@@ -191,7 +204,7 @@ export default function BusinessServicesList() {
               {/* Text Column */}
               <div
                 className={`lg:col-span-6 space-y-6 ${
-                  service.reverseLayout ? 'lg:order-1' : 'lg:order-2'
+                  service.reverseLayout ? "lg:order-1" : "lg:order-2"
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -242,7 +255,6 @@ export default function BusinessServicesList() {
                   </Link>
                 </div>
               </div>
-
             </div>
           </div>
         ))}

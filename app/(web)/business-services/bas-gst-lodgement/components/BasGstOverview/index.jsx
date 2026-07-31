@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
   FileProtectOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function BasGstOverview() {
   const highlights = [
-    'Extra 4-week ATO lodgement & payment extension for BAS',
-    'Quarterly & monthly GST, PAYGW & PAYGI reconciliations',
-    'Single Touch Payroll (STP Phase 2) year-end finalizations',
-    'Registered BAS agent protection against ATO penalties & audits',
+    "Extra 4-week ATO lodgement & payment extension for BAS",
+    "Quarterly & monthly GST, PAYGW & PAYGI reconciliations",
+    "Single Touch Payroll (STP Phase 2) year-end finalizations",
+    "Registered BAS agent protection against ATO penalties & audits",
   ];
 
   return (
@@ -36,7 +36,14 @@ export default function BasGstOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance with Business Activity Statement (BAS) lodgment and Goods and Services Tax (GST) compliance for all types of entities. Our experienced team of tax professionals understands the unique obligations and complexities associated with BAS and GST. Whether you are an individual, partnership, trust, or company, we have the expertise to simplify your compliance process. Contact us today to schedule a meeting with our experienced consultation.
+              At Financially Up, we specialize in providing expert assistance
+              with Business Activity Statement (BAS) lodgment and Goods and
+              Services Tax (GST) compliance for all types of entities. Our
+              experienced team of tax professionals understands the unique
+              obligations and complexities associated with BAS and GST. Whether
+              you are an individual, partnership, trust, or company, we have the
+              expertise to simplify your compliance process. Contact us today to
+              schedule a meeting with our experienced consultation.
             </p>
 
             {/* 2x2 Grid Highlights Chips */}
@@ -69,14 +76,13 @@ export default function BasGstOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
-                src="/images/services/service1.webp"
+                src="/images/services/gst.webp"
                 alt="Expert Assistance for BAS/GST Lodgement"
-                width={550}
-                height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                width={500}
+                height={600}
+                className="w-full h-[600px] object-cover rounded-2xl"
               />
 
               {/* Floating Trust Badge */}

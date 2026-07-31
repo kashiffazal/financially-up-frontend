@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
   TeamOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function PartnershipOverview() {
   const highlights = [
-    'Accurate profit & loss distribution allocation among partners',
-    'Instant asset write-off & joint property depreciation',
-    'Individual partner tax return integration',
-    'Registered CPA tax agent review for 100% ATO compliance',
+    "Accurate profit & loss distribution allocation among partners",
+    "Instant asset write-off & joint property depreciation",
+    "Individual partner tax return integration",
+    "Registered CPA tax agent review for 100% ATO compliance",
   ];
 
   return (
@@ -36,7 +36,13 @@ export default function PartnershipOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance with partnership tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with partnerships. Whether you have a general partnership, limited partnership, or limited liability partnership, we have the expertise to simplify your tax compliance.
+              At Financially Up, we specialize in providing expert assistance
+              with partnership tax returns. Our experienced team of tax
+              professionals understands the unique tax obligations and
+              complexities associated with partnerships. Whether you have a
+              general partnership, limited partnership, or limited liability
+              partnership, we have the expertise to simplify your tax
+              compliance.
             </p>
 
             {/* 2x2 Grid Highlights Chips */}
@@ -69,14 +75,13 @@ export default function PartnershipOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
-                src="/images/services/business-services-img3.webp"
+                src="/images/services/Partnership.webp"
                 alt="Expert Assistance for Partnership Tax Returns"
                 width={550}
-                height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                height={550}
+                className="w-full h-[550px] object-cover rounded-2xl"
               />
 
               {/* Floating Trust Badge */}

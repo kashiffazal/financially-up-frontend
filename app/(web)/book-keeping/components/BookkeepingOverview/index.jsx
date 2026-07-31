@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
   ThunderboltOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function BookkeepingOverview() {
   const highlights = [
-    'Certified Xero, MYOB & QuickBooks cloud bookkeeping',
-    'Real-time bank reconciliation & profit tracking',
-    'Payroll, STP Phase 2 & Superannuation management',
-    'Accurate quarterly BAS & IAS preparation',
+    "Certified Xero, MYOB & QuickBooks cloud bookkeeping",
+    "Real-time bank reconciliation & profit tracking",
+    "Payroll, STP Phase 2 & Superannuation management",
+    "Accurate quarterly BAS & IAS preparation",
   ];
 
   return (
@@ -36,7 +36,11 @@ export default function BookkeepingOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Managing the financial aspects of your business can be a daunting and time-consuming task. That's where the expertise of a professional bookkeeper comes in. At Financially Up, we offer comprehensive bookkeeping services that go beyond mere number crunching.
+              Managing the financial aspects of your business can be a daunting
+              and time-consuming task. That's where the expertise of a
+              professional bookkeeper comes in. At Financially Up, we offer
+              comprehensive bookkeeping services that go beyond mere number
+              crunching.
             </p>
 
             {/* 2x2 Grid Highlights Chips */}
@@ -69,14 +73,13 @@ export default function BookkeepingOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
-                src="/images/services/service2.webp"
+                src="/images/services/book-keeping.webp"
                 alt="Why Hire an Expert Bookkeeper"
                 width={550}
-                height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                height={500}
+                className="w-full h-[500px] object-cover rounded-2xl"
               />
 
               {/* Floating Trust Badge */}

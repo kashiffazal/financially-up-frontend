@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   AuditOutlined,
   SolutionOutlined,
@@ -11,30 +11,42 @@ import {
   TeamOutlined,
   ArrowRightOutlined,
   SafetyOutlined,
-} from '@ant-design/icons';
-import styles from './WhyChooseUsSection.module.css';
+} from "@ant-design/icons";
+import styles from "./WhyChooseUsSection.module.css";
 
 export default function WhyChooseUsSection() {
   const points = [
     {
-      title: 'Precision & Accuracy',
-      description: 'Every financial record is handled with utmost accuracy, leaving no detail overlooked.',
-      icon: <AuditOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      title: "Precision & Accuracy",
+      description:
+        "Every financial record is handled with utmost accuracy, leaving no detail overlooked.",
+      icon: (
+        <AuditOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      title: 'Custom Solutions',
-      description: 'Services tailored around your unique needs, delivering personalised, insightful guidance.',
-      icon: <SolutionOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      title: "Custom Solutions",
+      description:
+        "Services tailored around your unique needs, delivering personalised, insightful guidance.",
+      icon: (
+        <SolutionOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      title: 'Transparency',
-      description: 'Clear, upfront pricing with no hidden charges - a straightforward, uncomplicated experience.',
-      icon: <SafetyCertificateOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      title: "Transparency",
+      description:
+        "Clear, upfront pricing with no hidden charges - a straightforward, uncomplicated experience.",
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      title: 'Knowledgeable Team',
-      description: 'Certified, experienced professionals at the forefront of Australian tax legislation.',
-      icon: <TeamOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      title: "Knowledgeable Team",
+      description:
+        "Certified, experienced professionals at the forefront of Australian tax legislation.",
+      icon: (
+        <TeamOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
@@ -42,22 +54,19 @@ export default function WhyChooseUsSection() {
     <section className="bg-white dark:bg-zinc-950 py-16 sm:py-24 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
           {/* Left Column: Team Graphic with Certified Badge (Col 5) */}
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[460px]">
-              
               {/* Soft Ambient Blur */}
               <div className="absolute inset-4 rounded-3xl bg-emerald-200/50 dark:bg-emerald-950/40 blur-2xl -z-10" />
 
               {/* Main Image Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-emerald-950/10 border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
                 <Image
-                  src="/images/services/service1.webp"
+                  src="/images/services/home-Why-Choose-Us.webp"
                   alt="Financially Up Professional Team Meeting"
                   width={550}
                   height={450}
-                  priority
                   className="w-full h-auto object-cover rounded-2xl"
                 />
               </div>
@@ -68,17 +77,19 @@ export default function WhyChooseUsSection() {
                   <SafetyOutlined />
                 </span>
                 <div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">100% Tax Compliant</div>
-                  <div className="text-xs font-bold text-brand-primary dark:text-emerald-400">Certified Tax Agents</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                    100% Tax Compliant
+                  </div>
+                  <div className="text-xs font-bold text-brand-primary dark:text-emerald-400">
+                    Certified Tax Agents
+                  </div>
                 </div>
               </div>
-
             </div>
           </div>
 
           {/* Right Column: Clean Non-Boxed List Layout (Col 7) */}
           <div className="lg:col-span-7 space-y-6">
-            
             <Tag
               color="green"
               className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400"
@@ -91,7 +102,8 @@ export default function WhyChooseUsSection() {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 font-normal leading-relaxed">
-              We empower Australian businesses and individuals with proactive tax strategies, stress-free lodgements, and full compliance.
+              We empower Australian businesses and individuals with proactive
+              tax strategies, stress-free lodgements, and full compliance.
             </p>
 
             {/* 4 Clean Non-Boxed Feature Rows */}
@@ -135,9 +147,7 @@ export default function WhyChooseUsSection() {
                 </Button>
               </Link>
             </div>
-
           </div>
-
         </div>
       </div>
     </section>

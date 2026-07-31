@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
   SafetyCertificateOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function TrustOverview() {
   const highlights = [
-    'Discretionary (family), unit, fixed & hybrid trust compliance',
-    'June 30 trustee distribution resolution preparation',
-    'ATO Section 100A & Section 99B risk review',
-    'Capital gains & franked dividend streaming optimization',
+    "Discretionary (family), unit, fixed & hybrid trust compliance",
+    "June 30 trustee distribution resolution preparation",
+    "ATO Section 100A & Section 99B risk review",
+    "Capital gains & franked dividend streaming optimization",
   ];
 
   return (
@@ -36,7 +36,15 @@ export default function TrustOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance with trust tax returns for a wide range of trust types. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with different trust structures, including fixed trusts, unit trusts, testamentary trusts, discretionary trusts (family trusts), hybrid trusts, charitable trusts, superannuation trusts, and bare trusts. We have the expertise to simplify your tax compliance regardless of the trust type you have.
+              At Financially Up, we specialize in providing expert assistance
+              with trust tax returns for a wide range of trust types. Our
+              experienced team of tax professionals understands the unique tax
+              obligations and complexities associated with different trust
+              structures, including fixed trusts, unit trusts, testamentary
+              trusts, discretionary trusts (family trusts), hybrid trusts,
+              charitable trusts, superannuation trusts, and bare trusts. We have
+              the expertise to simplify your tax compliance regardless of the
+              trust type you have.
             </p>
 
             {/* 2x2 Grid Highlights Chips */}
@@ -69,14 +77,13 @@ export default function TrustOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
-                src="/images/services/service2.webp"
+                src="/images/services/Trust.webp"
                 alt="Expert Assistance for Trust Tax Returns"
                 width={550}
-                height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                height={595}
+                className="w-full h-[595px] object-cover rounded-2xl"
               />
 
               {/* Floating Trust Badge */}

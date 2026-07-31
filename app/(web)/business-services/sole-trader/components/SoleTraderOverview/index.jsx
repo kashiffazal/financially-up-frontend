@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
   ThunderboltOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function SoleTraderOverview() {
   const highlights = [
-    'Industry-tailored expense claims & deductions',
-    'Motor vehicle & home office logbook optimizations',
-    'Instant asset write-off & equipment write-down strategy',
-    'Fee-from-refund option available for zero out-of-pocket cost',
+    "Industry-tailored expense claims & deductions",
+    "Motor vehicle & home office logbook optimizations",
+    "Instant asset write-off & equipment write-down strategy",
+    "Fee-from-refund option available for zero out-of-pocket cost",
   ];
 
   return (
@@ -36,7 +36,15 @@ export default function SoleTraderOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance with sole trader tax returns across a wide range of industries. Our knowledgeable team of tax professionals understands the specific tax obligations and regulations applicable to different types of sole trader businesses. Whether you're a freelancer, IT service provider, security services provider, taxi driver, truck driver, ride-share service provider, delivery driver, or any other type of sole trader, we have the expertise to simplify your tax compliance.
+              At Financially Up, we specialize in providing expert assistance
+              with sole trader tax returns across a wide range of industries.
+              Our knowledgeable team of tax professionals understands the
+              specific tax obligations and regulations applicable to different
+              types of sole trader businesses. Whether you're a freelancer, IT
+              service provider, security services provider, taxi driver, truck
+              driver, ride-share service provider, delivery driver, or any other
+              type of sole trader, we have the expertise to simplify your tax
+              compliance.
             </p>
 
             {/* 2x2 Grid Highlights Chips */}
@@ -69,14 +77,13 @@ export default function SoleTraderOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
-                src="/images/services/service1.webp"
+                src="/images/services/sole-trader.webp"
                 alt="Expert Assistance for Sole Trader Tax Returns"
                 width={550}
-                height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                height={595}
+                className="w-full h-[595px] object-cover rounded-2xl"
               />
 
               {/* Floating Trust Badge */}

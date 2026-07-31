@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
@@ -11,65 +11,68 @@ import {
   HomeOutlined,
   SafetyCertificateOutlined,
   ThunderboltOutlined,
-} from '@ant-design/icons';
-import styles from './IndividualServicesList.module.css';
+} from "@ant-design/icons";
+import styles from "./IndividualServicesList.module.css";
 
 export default function IndividualServicesList() {
   const services = [
     {
-      id: 'individual-tax-return',
-      number: '01',
-      tag: 'CORE INDIVIDUAL SERVICE',
-      badgeText: 'Fast 48h Lodgement',
+      id: "individual-tax-return",
+      number: "01",
+      tag: "CORE INDIVIDUAL SERVICE",
+      badgeText: "Fast 48h Lodgement",
       badgeIcon: <ThunderboltOutlined className="text-amber-400 text-sm" />,
       icon: <UserOutlined className="text-brand-primary text-xl" />,
-      title: 'Individual Tax Return',
+      title: "Individual Tax Return",
       description:
-        'At Financially Up, our experienced team of tax professionals is dedicated to providing expert assistance with your individual tax returns. We ensure accurate and efficient compliance with the guidelines set forth by the Australian Taxation Office (ATO).',
+        "At Financially Up, our experienced team of tax professionals is dedicated to providing expert assistance with your individual tax returns. We ensure accurate and efficient compliance with the guidelines set forth by the Australian Taxation Office (ATO).",
       highlights: [
-        'Salary, wages & Centrelink lodgements',
-        'Work-from-home, vehicle & tool deductions',
-        'Direct ATO pre-fill data integration',
-        'Senior CPA tax agent review & sign-off',
+        "Salary, wages & Centrelink lodgements",
+        "Work-from-home, vehicle & tool deductions",
+        "Direct ATO pre-fill data integration",
+        "Senior CPA tax agent review & sign-off",
       ],
-      image: '/images/services/service1.webp',
-      imageAlt: 'Individual Tax Return Specialist - Financially Up',
-      href: '/individual-services/individual-tax-return',
-      ctaText: 'Read More',
+      image: "/images/services/individual-tax-return.webp",
+      imageAlt: "Individual Tax Return Specialist - Financially Up",
+      href: "/individual-services/individual-tax-return",
+      ctaText: "Read More",
       reverseLayout: false,
     },
     {
-      id: 'investment-properties',
-      number: '02',
-      tag: 'FOR PROPERTY INVESTORS',
-      badgeText: '100% ATO Compliant',
-      badgeIcon: <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />,
+      id: "investment-properties",
+      number: "02",
+      tag: "FOR PROPERTY INVESTORS",
+      badgeText: "100% ATO Compliant",
+      badgeIcon: (
+        <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
+      ),
       icon: <HomeOutlined className="text-brand-primary text-xl" />,
-      title: 'Individual Tax Return + Investment Property',
+      title: "Individual Tax Return + Investment Property",
       description:
-        'At Financially Up, our team of tax professionals specializes in individual tax returns involving investment properties. We understand the unique tax considerations and deductions applicable to rental property owners.',
+        "At Financially Up, our team of tax professionals specializes in individual tax returns involving investment properties. We understand the unique tax considerations and deductions applicable to rental property owners.",
       highlights: [
-        'Residential & commercial rental income schedules',
-        'Mortgage interest & council rates deductions',
-        'Depreciation schedule (Division 40 & 43) claims',
-        'Capital Gains Tax (CGT) advice on sales',
+        "Residential & commercial rental income schedules",
+        "Mortgage interest & council rates deductions",
+        "Depreciation schedule (Division 40 & 43) claims",
+        "Capital Gains Tax (CGT) advice on sales",
       ],
-      image: '/images/services/service2.webp',
-      imageAlt: 'Investment Property Tax Return Specialist - Financially Up',
-      href: '/individual-services/individual-tax-return-with-investment-properties',
-      ctaText: 'Read More',
+      image: "/images/services/investment-property.webp",
+      imageAlt: "Investment Property Tax Return Specialist - Financially Up",
+      href: "/individual-services/individual-tax-return-with-investment-properties",
+      ctaText: "Read More",
       reverseLayout: true,
     },
   ];
 
   return (
-    <section className={`bg-gradient-to-b from-white via-brand-bg-lighter/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.sectionWrapper}`}>
+    <section
+      className={`bg-gradient-to-b from-white via-brand-bg-lighter/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.sectionWrapper}`}
+    >
       {/* Background Ambient Orbs */}
       <div className={styles.glowOrb1} />
       <div className={styles.glowOrb2} />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16 lg:space-y-20">
-        
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <Tag
@@ -84,7 +87,9 @@ export default function IndividualServicesList() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-500 dark:text-zinc-400 font-normal">
-            Whether you have simple salary income or complex investment property portfolios, our registered CPA accountants maximize your tax deductions safely.
+            Whether you have simple salary income or complex investment property
+            portfolios, our registered CPA accountants maximize your tax
+            deductions safely.
           </p>
         </div>
 
@@ -95,21 +100,21 @@ export default function IndividualServicesList() {
             className={`group bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-12 border border-slate-200/80 dark:border-zinc-800 shadow-sm ${styles.serviceCard}`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
               {/* Image Column */}
               <div
                 className={`lg:col-span-6 ${
-                  service.reverseLayout ? 'lg:order-2' : 'lg:order-1'
+                  service.reverseLayout ? "lg:order-2" : "lg:order-1"
                 }`}
               >
-                <div className={`relative ${styles.serviceImageWrapper} shadow-xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 p-2.5`}>
+                <div
+                  className={`relative ${styles.serviceImageWrapper} shadow-xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 p-2.5`}
+                >
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
                     width={580}
                     height={440}
-                    priority={idx === 0}
-                    className="w-full h-[320px] sm:h-[380px] object-cover rounded-2xl"
+                    className="w-full h-[480px] object-cover rounded-2xl"
                   />
 
                   {/* Number Badge Top-Left */}
@@ -128,7 +133,7 @@ export default function IndividualServicesList() {
               {/* Text Column */}
               <div
                 className={`lg:col-span-6 space-y-6 ${
-                  service.reverseLayout ? 'lg:order-1' : 'lg:order-2'
+                  service.reverseLayout ? "lg:order-1" : "lg:order-2"
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -179,7 +184,6 @@ export default function IndividualServicesList() {
                   </Link>
                 </div>
               </div>
-
             </div>
           </div>
         ))}
