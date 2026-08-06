@@ -109,23 +109,40 @@ export default function TestimonialsSection() {
           autoplay
           dots
           slidesToShow={3}
+          slidesToScroll={1}
           responsive={[
-            { breakpoint: 1024, settings: { slidesToShow: 2 } },
-            { breakpoint: 640, settings: { slidesToShow: 1 } },
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
           ]}
           className={`${styles.equalHeightCarousel} pb-6`}
         >
           {testimonials.map((item, idx) => (
-            <div key={idx} className="px-3 py-2">
-              <div className="bg-white dark:bg-zinc-900 p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full flex flex-col justify-between space-y-6">
+            <div key={idx} className="px-2 sm:px-3 py-2 h-full">
+              <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full h-full min-h-[260px] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <Rate
                       disabled
                       defaultValue={item.stars}
                       className="text-amber-400 text-xs"
                     />
-                    <div className="flex items-center gap-1 text-[11px] font-semibold text-brand-primary dark:text-emerald-400 bg-[#eaf7f0] dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">
+                    <div className="flex items-center gap-1 text-[11px] font-semibold text-brand-primary dark:text-emerald-400 bg-[#eaf7f0] dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full shrink-0">
                       <CheckCircleFilled className="text-[10px]" />
                       <span>Verified Client</span>
                     </div>
@@ -136,17 +153,17 @@ export default function TestimonialsSection() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-zinc-800/80">
+                <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-zinc-800/80 mt-auto">
                   <div
                     className={`w-10 h-10 rounded-full ${item.avatarBg} text-white font-bold text-xs flex items-center justify-center shadow-sm shrink-0`}
                   >
                     {item.initials}
                   </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-50 leading-tight">
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-50 leading-tight truncate">
                       {item.name}
                     </h3>
-                    <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-normal mt-0.5">
+                    <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-normal mt-0.5 truncate">
                       {item.role}
                     </p>
                   </div>

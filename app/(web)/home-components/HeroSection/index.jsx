@@ -133,7 +133,6 @@ export default function HeroSection() {
                 alt="Australian Tax Specialist - Financially Up"
                 width={480}
                 height={480}
-                priority
                 className="w-full h-auto object-contain drop-shadow-xl relative z-0"
               />
 

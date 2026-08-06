@@ -75,15 +75,14 @@ export default function PropertyTaxOverview() {
           {/* Right Graphic Column */}
           <div className="lg:col-span-6 flex justify-center">
             <div
-              className={`relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3 ${styles.overviewCard}`}
+              className={`relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3 ${styles.overviewCard}`}
             >
               <Image
                 src="/images/services/investment-property.webp"
                 alt="Investment Property Tax Returns Specialist"
                 width={550}
                 height={420}
-                priority
-                className="w-full h-auto object-cover rounded-2xl"
+                className="w-full h-[600px] object-cover rounded-2xl"
               />
             </div>
           </div>

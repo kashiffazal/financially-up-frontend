@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --background: #ffffff;
@@ -9,6 +11,15 @@
   .dark {
     --background: #09090b;
     --foreground: #fafafa;
+  }
+
+  a,
+  a:visited,
+  a:hover,
+  a:focus,
+  a:active {
+    color: inherit !important;
+    text-decoration: none !important;
   }
 }
 

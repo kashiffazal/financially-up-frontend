@@ -8,6 +8,7 @@ import { Dropdown, Drawer, Button } from "antd";
 import {
   DownOutlined,
   MenuOutlined,
+  CloseOutlined,
   PhoneOutlined,
   MailOutlined,
   SunOutlined,
@@ -36,6 +37,18 @@ export default function WebsiteHeader() {
   const { isDark, toggleTheme } = useTheme();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [expandedSections, setExpandedSections] = useState({
+    individual: false,
+    business: false,
+    registration: false,
+  });
+
+  const toggleSection = (sectionKey) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [sectionKey]: !prev[sectionKey],
+    }));
+  };
 
   // Individual Tax Dropdown Items with Icons
   const individualTaxItems = [
@@ -376,8 +389,8 @@ export default function WebsiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full transition-colors duration-300">
-      {/* Top Bar with Primary Animated Gradient */}
-      <div className={`${styles.topbarGradientAnimated} text-white py-2.5 px-4 sm:px-8 text-xs font-medium border-b border-emerald-800/40 shadow-sm`}>
+      {/* Top Bar with Primary Animated Gradient (Hidden on Mobile) */}
+      <div className={`hidden sm:block ${styles.topbarGradientAnimated} text-white py-2.5 px-4 sm:px-8 text-xs font-medium border-b border-emerald-800/40 shadow-sm`}>
         <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping inline-block" />
@@ -547,185 +560,359 @@ export default function WebsiteHeader() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Executive Mobile Drawer Design */}
       <Drawer
-        title="Menu"
         placement="right"
         onClose={() => setMobileMenuOpen(false)}
         open={mobileMenuOpen}
+        closeIcon={null}
+        width={340}
+        styles={{
+          body: { padding: 0 },
+          header: { display: "none" },
+        }}
         className="dark:bg-zinc-950 dark:text-zinc-100"
       >
-        <div className="flex flex-col gap-4 text-base font-medium">
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-brand-primary"
-          >
-            Home
-          </Link>
-          <div className="border-t border-slate-100 dark:border-zinc-800 pt-2">
-            <Link
-              href="/individual-services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-xs uppercase text-slate-400 font-bold tracking-wider hover:text-brand-primary block mb-1"
-            >
-              Individual Tax →
+        <div className="flex flex-col h-full bg-slate-50/50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-50 font-sans">
+          {/* Top Bar: Logo on left, Theme switch & Close button on right */}
+          <div className="p-4 border-b border-slate-200/80 dark:border-zinc-800 flex items-center justify-between bg-white dark:bg-zinc-900 shrink-0">
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
+              <Image
+                src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
+                alt="Financially Up Logo"
+                width={130}
+                height={34}
+                className="h-7 w-auto object-contain"
+              />
             </Link>
-            <div className="pl-3 mt-1 flex flex-col gap-2 text-sm">
-              <Link
-                href="/individual-services/individual-tax-return"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="w-9 h-9 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-slate-700 dark:text-zinc-200 flex items-center justify-center cursor-pointer"
+                aria-label="Toggle Theme"
               >
-                <UserOutlined className="text-brand-primary" /> Individual Tax
-                Return
-              </Link>
-              <Link
-                href="/individual-services/individual-tax-return-with-investment-properties"
+                {isDark ? (
+                  <SunOutlined className="text-amber-400 text-sm" />
+                ) : (
+                  <MoonOutlined className="text-slate-600 text-sm" />
+                )}
+              </button>
+
+              <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
+                className="w-9 h-9 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:border-brand-primary hover:text-brand-primary bg-white dark:bg-zinc-900 flex items-center justify-center transition-all cursor-pointer"
+                aria-label="Close Menu"
               >
-                <HomeOutlined className="text-brand-primary" /> Tax Return with
-                Investment Properties
+                <CloseOutlined className="text-sm font-bold" />
+              </button>
+            </div>
+          </div>
+
+          {/* Body Menu Items with Executive Rounded Cards */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            {/* 1. Home */}
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between ${
+                pathname === "/"
+                  ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
+                  : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm ${
+                    pathname === "/"
+                      ? "bg-white/20 text-white"
+                      : "bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                  }`}
+                >
+                  <HomeOutlined />
+                </div>
+                <span className={`text-sm font-semibold ${pathname === "/" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}>
+                  Home
+                </span>
+              </div>
+            </Link>
+
+            {/* 2. Individual Tax Category */}
+            <div className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
+              <button
+                onClick={() => toggleSection("individual")}
+                className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
+                  expandedSections.individual || pathname?.startsWith("/individual-services")
+                    ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
+                    : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
+                    <UserOutlined />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">Individual Tax</span>
+                </div>
+                <DownOutlined
+                  className={`text-xs transition-transform duration-300 ${
+                    expandedSections.individual ? "rotate-180 text-brand-primary" : "text-slate-400"
+                  }`}
+                />
+              </button>
+
+              {expandedSections.individual && (
+                <div className="px-3 pb-3 pt-1 space-y-1 bg-slate-50/50 dark:bg-zinc-950/50 border-t border-slate-100 dark:border-zinc-800/80">
+                  <Link
+                    href="/individual-services/individual-tax-return"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <UserOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Individual Tax Return</span>
+                  </Link>
+                  <Link
+                    href="/individual-services/individual-tax-return-with-investment-properties"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <HomeOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Tax Return with Investment Properties</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* 3. Business Tax Category */}
+            <div className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
+              <button
+                onClick={() => toggleSection("business")}
+                className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
+                  expandedSections.business || pathname?.startsWith("/business-services")
+                    ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
+                    : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
+                    <BankOutlined />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">Business Tax</span>
+                </div>
+                <DownOutlined
+                  className={`text-xs transition-transform duration-300 ${
+                    expandedSections.business ? "rotate-180 text-brand-primary" : "text-slate-400"
+                  }`}
+                />
+              </button>
+
+              {expandedSections.business && (
+                <div className="px-3 pb-3 pt-1 space-y-1 bg-slate-50/50 dark:bg-zinc-950/50 border-t border-slate-100 dark:border-zinc-800/80">
+                  <Link
+                    href="/business-services/sole-trader"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <UserOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Sole Trader Tax Return</span>
+                  </Link>
+                  <Link
+                    href="/business-services/partnership-tax-return"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <TeamOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Partnership Tax Return</span>
+                  </Link>
+                  <Link
+                    href="/business-services/company-tax-return"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <BankOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Company Tax Return</span>
+                  </Link>
+                  <Link
+                    href="/business-services/trust-tax-return"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <SafetyCertificateOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Trust Tax Return</span>
+                  </Link>
+                  <Link
+                    href="/business-services/bas-gst-lodgement"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <AuditOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">BAS / GST Lodgement</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* 4. Bookkeeping */}
+            <Link
+              href="/book-keeping"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between ${
+                pathname === "/book-keeping"
+                  ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
+                  : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm ${
+                    pathname === "/book-keeping"
+                      ? "bg-white/20 text-white"
+                      : "bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                  }`}
+                >
+                  <BookOutlined />
+                </div>
+                <span className={`text-sm font-semibold ${pathname === "/book-keeping" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}>
+                  Bookkeeping
+                </span>
+              </div>
+            </Link>
+
+            {/* 5. Business Registration Category */}
+            <div className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
+              <button
+                onClick={() => toggleSection("registration")}
+                className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
+                  expandedSections.registration || pathname?.includes("/registration-forms")
+                    ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
+                    : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
+                    <FileProtectOutlined />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">Business Registration</span>
+                </div>
+                <DownOutlined
+                  className={`text-xs transition-transform duration-300 ${
+                    expandedSections.registration ? "rotate-180 text-brand-primary" : "text-slate-400"
+                  }`}
+                />
+              </button>
+
+              {expandedSections.registration && (
+                <div className="px-3 pb-3 pt-1 space-y-1 bg-slate-50/50 dark:bg-zinc-950/50 border-t border-slate-100 dark:border-zinc-800/80">
+                  <Link
+                    href="/resources/registration-forms/gst-registrations"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <FileProtectOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">GST Registrations</span>
+                  </Link>
+                  <Link
+                    href="/resources/registration-forms/company-registration"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <SolutionOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Company Registration</span>
+                  </Link>
+                  <Link
+                    href="/resources/registration-forms/changes-to-company-details"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <SwapOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Changes to Company Details</span>
+                  </Link>
+                  <Link
+                    href="/resources/registration-forms/trust-registrations"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <SafetyOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Trust Registrations</span>
+                  </Link>
+                  <Link
+                    href="/resources/registration-forms/smsf-registrations"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <BookOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">SMSF Registrations</span>
+                  </Link>
+                  <Link
+                    href="/resources/registration-forms/business-name-registrations"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <IdcardOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Business Name Registrations</span>
+                  </Link>
+                  <Link
+                    href="/resources/registration-forms/apply-tfn-abns"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                  >
+                    <FormOutlined className="text-brand-primary text-xs" />
+                    <span className="text-slate-800 dark:text-zinc-200">Apply TFN / ABNs</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* 6. Blog */}
+            <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between ${
+                pathname === "/blog"
+                  ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
+                  : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm ${
+                    pathname === "/blog"
+                      ? "bg-white/20 text-white"
+                      : "bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                  }`}
+                >
+                  <FileTextOutlined />
+                </div>
+                <span className={`text-sm font-semibold ${pathname === "/blog" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}>
+                  Blog
+                </span>
+              </div>
+            </Link>
+
+            {/* 7. Prominent CTA Button after Navigation */}
+            <div className="pt-2">
+              <Link
+                href="/book-an-appointment"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2.5 w-full bg-brand-primary hover:bg-brand-primary-hover text-white py-3.5 px-4 rounded-2xl font-extrabold text-sm shadow-md shadow-emerald-600/20 active:scale-98 transition-all"
+              >
+                <span className="text-white font-extrabold">Book an Appointment</span>
+                <ArrowRightOutlined className="text-white text-xs" />
               </Link>
             </div>
           </div>
 
-          <div className="border-t border-slate-100 dark:border-zinc-800 pt-2">
-            <Link
-              href="/business-services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-xs uppercase text-slate-400 font-bold tracking-wider hover:text-brand-primary block mb-1"
-            >
-              Business Tax →
-            </Link>
-            <div className="pl-3 mt-1 flex flex-col gap-2 text-sm">
-              <Link
-                href="/business-services/sole-trader"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <UserOutlined className="text-brand-primary" /> Sole Trader
-              </Link>
-              <Link
-                href="/business-services/partnership-tax-return"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <TeamOutlined className="text-brand-primary" /> Partnership
-              </Link>
-              <Link
-                href="/business-services/company-tax-return"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <BankOutlined className="text-brand-primary" /> Company Tax
-              </Link>
-              <Link
-                href="/business-services/trust-tax-return"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <SafetyCertificateOutlined className="text-brand-primary" /> Trust
-                Tax
-              </Link>
-              <Link
-                href="/business-services/bas-gst-lodgement"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <AuditOutlined className="text-brand-primary" /> BAS / GST
-              </Link>
+          {/* Drawer Footer */}
+          <div className="p-4 border-t border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex items-center justify-between text-xs font-semibold shrink-0">
+            <div className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
+              Direct Contact:
             </div>
-          </div>
 
-          <Link
-            href="/book-keeping"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-brand-primary"
-          >
-            Bookkeeping
-          </Link>
-
-          <div className="border-t border-slate-100 dark:border-zinc-800 pt-2">
-            <span className="text-xs uppercase text-slate-400 font-bold tracking-wider">
-              Business Registration
-            </span>
-            <div className="pl-3 mt-1 flex flex-col gap-2 text-sm">
-              <Link
-                href="/resources/registration-forms/gst-registrations"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <FileProtectOutlined className="text-brand-primary" /> GST
-                Registrations
-              </Link>
-              <Link
-                href="/resources/registration-forms/company-registration"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <SolutionOutlined className="text-brand-primary" /> Company
-                Registration
-              </Link>
-              <Link
-                href="/resources/registration-forms/changes-to-company-details"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <SwapOutlined className="text-brand-primary" /> Changes to Company
-                Details
-              </Link>
-              <Link
-                href="/resources/registration-forms/trust-registrations"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <SafetyOutlined className="text-brand-primary" /> Trust
-                Registrations
-              </Link>
-              <Link
-                href="/resources/registration-forms/smsf-registrations"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <BookOutlined className="text-brand-primary" /> SMSF Registrations
-              </Link>
-              <Link
-                href="/resources/registration-forms/business-name-registrations"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <IdcardOutlined className="text-brand-primary" /> Business Name
-                Registrations
-              </Link>
-              <Link
-                href="/resources/registration-forms/apply-tfn-abns"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2"
-              >
-                <FormOutlined className="text-brand-primary" /> Apply TFN / ABNs
-              </Link>
-            </div>
-          </div>
-
-          <Link
-            href="/blog"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-brand-primary"
-          >
-            Blog
-          </Link>
-
-          <div className="mt-4 pt-4 border-t border-slate-100 dark:border-zinc-800">
-            <Link
-              href="/book-an-appointment"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white py-3 rounded-xl font-semibold text-center"
+            <a
+              href="tel:1300328316"
+              className="text-brand-primary dark:text-emerald-400 flex items-center gap-1.5 font-bold text-xs"
             >
-              <span>Book an Appointment</span>
-              <ArrowRightOutlined />
-            </Link>
+              <PhoneOutlined /> 1300 328 316
+            </a>
           </div>
         </div>
       </Drawer>
