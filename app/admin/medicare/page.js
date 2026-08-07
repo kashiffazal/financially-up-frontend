@@ -323,6 +323,8 @@ export default function MedicarePage() {
     {
       title: "Full Name",
       key: "fullName",
+      fixed: "left",
+      width: 170,
       render: (_, record) =>
         `${record.firstName || ""} ${record.familyName || ""}`.trim() || "-",
       sorter: (a, b) => {
@@ -457,6 +459,7 @@ export default function MedicarePage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)
@@ -651,7 +654,7 @@ export default function MedicarePage() {
             className="mt-4 [&_.ant-table]:text-[13px] [&_.ant-table-cell]:!py-2"
             size="small"
             bordered
-            scroll={{ x: 1000 }}
+            scroll={{ x: 1300 }}
           />
         </Spin>
       </div>

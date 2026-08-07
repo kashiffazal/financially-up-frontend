@@ -323,6 +323,8 @@ export default function BusinessNameRegistrationsPage() {
       title: "Proposed Business Name",
       dataIndex: "businessProposeName",
       key: "businessProposeName",
+      fixed: "left",
+      width: 200,
       render: (val) => val || "-",
       sorter: (a, b) =>
         (a.businessProposeName || "").localeCompare(
@@ -368,6 +370,7 @@ export default function BusinessNameRegistrationsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(

@@ -12,13 +12,19 @@ const RELATIONSHIP_OPTIONS = [
   { value: "Other Representative", label: "Other Authorized Person" },
 ];
 
-export default function Step7AuthoritiesBank({ form }) {
+export default function Step7AuthoritiesBank({ form, formData }) {
   const isSelf = Form.useWatch("isSelf", form);
   const needBank = Form.useWatch("needBank", form);
   const hadPreviousAccountant = Form.useWatch("hadPreviousAccountant", form);
-  const services = Form.useWatch("services", form) || [];
+  const watchedServices = Form.useWatch("services", form);
+  const services = watchedServices || formData?.services || form.getFieldValue("services") || [];
 
-  const isAbnGst = services.includes("ABN Application") || services.includes("GST Registration") || services.includes("Sole Trader BAS");
+  const isAbnGst =
+    services.includes("ABN Application") ||
+    services.includes("ABN Registration") ||
+    services.includes("GST Registration") ||
+    services.includes("Sole Trader BAS") ||
+    services.includes("Sole Trader BAS Lodgement");
 
   return (
     <div className="space-y-8 animate-fadeIn">

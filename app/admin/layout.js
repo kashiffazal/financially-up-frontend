@@ -19,14 +19,14 @@ export default function AdminLayout({ children }) {
   }
 
   return (
-    <div className="flex min-h-screen bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
+    <div className="flex min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
       
       {/* Sidebar navigation panel */}
       <Sidebar collapsed={collapsed} />
 
       {/* Main content body wrapper */}
       <div 
-        className={`flex flex-col flex-1 min-h-screen transition-all duration-300 ${
+        className={`flex flex-col flex-1 min-w-0 min-h-screen transition-all duration-300 ${
           collapsed ? 'pl-20' : 'pl-64'
         }`}
       >
@@ -34,7 +34,7 @@ export default function AdminLayout({ children }) {
         <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
         {/* Dynamic page content container */}
-        <main className="flex-grow p-6 md:p-8 space-y-6 overflow-y-auto">
+        <main className="flex-grow p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
           {children}
         </main>
 

@@ -86,6 +86,12 @@ export default function Sidebar({ collapsed }) {
       href: "/admin/individual-engagement",
     },
     {
+      key: "individual-new",
+      label: "Individual Engagement (New)",
+      icon: <UserOutlined />,
+      href: "/admin/individual-engagement-new",
+    },
+    {
       key: "entity",
       label: "Entity Engagements",
       icon: <TeamOutlined />,

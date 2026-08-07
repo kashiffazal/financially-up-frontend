@@ -676,6 +676,7 @@ export const AntInput = ({
             />
           ) : (
             <Checkbox.Group
+              className={gridClassName || (vertical ? "flex flex-col gap-2" : "w-full")}
               onChange={(val) => {
                 onChange && onChange(val);
               }}

@@ -321,6 +321,8 @@ export default function SmsfRegistrationsPage() {
       title: "SMSF Name",
       dataIndex: "NameOfSMSF",
       key: "NameOfSMSF",
+      fixed: "left",
+      width: 180,
       render: (val) => val || "-",
       sorter: (a, b) => (a.NameOfSMSF || "").localeCompare(b.NameOfSMSF || ""),
     },
@@ -355,6 +357,7 @@ export default function SmsfRegistrationsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)

@@ -383,6 +383,7 @@ export default function ApplyTfnAbnsPage() {
     {
       title: "Form Type",
       key: "formType",
+      fixed: "left",
       width: 160,
       render: (_, record) => {
         const resolved = resolveFormVariant(record);
@@ -546,6 +547,7 @@ export default function ApplyTfnAbnsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)

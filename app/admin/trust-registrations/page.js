@@ -326,6 +326,8 @@ export default function TrustRegistrationsPage() {
       title: "Trust Name",
       dataIndex: "TrustName",
       key: "TrustName",
+      fixed: "left",
+      width: 180,
       render: (val) => val || "-",
       sorter: (a, b) => (a.TrustName || "").localeCompare(b.TrustName || ""),
     },
@@ -366,6 +368,7 @@ export default function TrustRegistrationsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(

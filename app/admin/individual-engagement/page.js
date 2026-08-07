@@ -338,6 +338,8 @@ export default function IndividualEngagement() {
     {
       title: "Name",
       key: "name",
+      fixed: "left",
+      width: 170,
       sorter: (a, b) =>
         (a.FirstName + a.LastName).localeCompare(b.FirstName + b.LastName),
       render: (_, record) => (
@@ -454,6 +456,7 @@ export default function IndividualEngagement() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)

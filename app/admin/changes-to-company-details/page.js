@@ -325,6 +325,8 @@ export default function ChangesToCompanyDetailsPage() {
       title: "Company Name",
       dataIndex: "NameOfCompany",
       key: "NameOfCompany",
+      fixed: "left",
+      width: 180,
       render: (val) => val || "-",
       sorter: (a, b) =>
         (a.NameOfCompany || "").localeCompare(b.NameOfCompany || ""),
@@ -365,6 +367,7 @@ export default function ChangesToCompanyDetailsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(

@@ -319,6 +319,8 @@ export default function EntityEngagementsPage() {
       title: "Entity Type",
       dataIndex: "TypeOfEntity",
       key: "TypeOfEntity",
+      fixed: "left",
+      width: 170,
       render: (val) => val || "-",
       sorter: (a, b) =>
         (a.TypeOfEntity || "").localeCompare(b.TypeOfEntity || ""),
@@ -447,6 +449,7 @@ export default function EntityEngagementsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(

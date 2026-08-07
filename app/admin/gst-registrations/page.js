@@ -328,6 +328,8 @@ export default function GstRegistrationsPage() {
     {
       title: "Full Name",
       key: "fullName",
+      fixed: "left",
+      width: 170,
       render: (_, record) =>
         `${record.firstName || ""} ${record.lastName || ""}`.trim() || "-",
       sorter: (a, b) => {
@@ -371,6 +373,7 @@ export default function GstRegistrationsPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)

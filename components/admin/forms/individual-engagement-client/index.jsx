@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Form, Button, Card, Steps, Modal, App } from "antd";
+import { Form, Button, Card, Steps, App } from "antd";
 import {
   ArrowRightOutlined,
   SaveOutlined,
@@ -9,6 +9,8 @@ import {
   SmileOutlined,
   DeleteOutlined,
   ArrowLeftOutlined,
+  CheckCircleFilled,
+  MailOutlined,
 } from "@ant-design/icons";
 import Step1ServiceSelection from "./Step1ServiceSelection";
 import Step2PersonalInformation from "./Step2PersonalInformation";
@@ -20,6 +22,7 @@ import Step7AuthoritiesBank from "./Step7AuthoritiesBank";
 import Step8EngagementSchedule from "./Step8EngagementSchedule";
 import Step9LegalConsents from "./Step9LegalConsents";
 import Step10ElectronicSignature from "./Step10ElectronicSignature";
+import { createNewIndividualEngagement } from "@/services/newIndividualEngagement.service";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_INDIVIDUAL_ENGAGEMENT_DRAFT";
 
@@ -38,11 +41,12 @@ const STEP_ITEMS = [
 ];
 
 export default function IndividualEngagementClientForm() {
-  const { message, notification } = App.useApp();
+  const { message, notification, modal } = App.useApp();
   const [form] = Form.useForm();
   const [currentStep, setCurrentStep] = useState(0);
   const [formKey, setFormKey] = useState(0);
   const [hasViewedSchedule, setHasViewedSchedule] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     services: [],
     entityService: null,
@@ -94,36 +98,88 @@ export default function IndividualEngagementClientForm() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         // Step 10 Submission Trigger
-        localStorage.removeItem(DRAFT_STORAGE_KEY);
+        const mergedPayload = { ...formData, ...values };
+        setIsSubmitting(true);
+        try {
+          const res = await createNewIndividualEngagement(mergedPayload);
+          
+          // Immediately wipe local storage draft & reset form state
+          localStorage.removeItem(DRAFT_STORAGE_KEY);
+          const emptyState = { services: [], entityService: null };
+          setFormData(emptyState);
+          form.resetFields();
+          form.setFieldsValue(emptyState);
+          setCurrentStep(0);
+          setHasViewedSchedule(false);
+          setFormKey((prev) => prev + 1);
 
-        Modal.success({
-          title: "Engagement Submitted Successfully!",
-          content: (
-            <div className="space-y-3 pt-2">
-              <p className="text-sm text-slate-600 dark:text-zinc-300">
-                Your Individual Client Engagement Application has been received
-                and logged.
-              </p>
-              <div className="p-3 rounded-xl bg-slate-100 dark:bg-zinc-800 text-xs font-mono">
-                <div>
-                  <strong>Status:</strong> Pending Review
+          modal.success({
+            width: 520,
+            icon: null,
+            centered: true,
+            title: null,
+            content: (
+              <div className="pt-2 pb-1 space-y-5 animate-fadeIn">
+                {/* Header Icon & Title */}
+                <div className="text-center space-y-2">
+                  <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center shadow-inner">
+                    <CheckCircleFilled className="text-3xl text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight">
+                    Application Submitted Successfully
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
+                    Thank you for choosing Financially Up. Your Individual Client Engagement Notice has been securely logged.
+                  </p>
                 </div>
-                <div>
-                  <strong>Reference:</strong> ENG-
-                  {Math.floor(100000 + Math.random() * 900000)}
+
+                {/* Reference Details Box */}
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                  <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">Reference Number</span>
+                    <span className="text-sm font-mono font-extrabold text-brand-primary dark:text-emerald-400 px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-900">
+                      {res.referenceNumber || "NENG-2026-0001"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">Engagement Status</span>
+                    <span className="text-xs font-bold text-amber-700 dark:text-amber-300 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-900">
+                      Pending Tax Agent Review
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between pt-0.5">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">Submitted At</span>
+                    <span className="text-xs font-medium text-slate-700 dark:text-zinc-300 font-mono">
+                      {new Date().toLocaleString("en-AU", { dateStyle: "medium", timeStyle: "short" })}
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <strong>Submitted At:</strong>{" "}
-                  {new Date().toLocaleString("en-AU")}
+
+                {/* Next Steps Checklist */}
+                <div className="p-3.5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
+                  <div className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
+                    <MailOutlined className="text-emerald-600 dark:text-emerald-400" />
+                    <span>Next Steps</span>
+                  </div>
+                  <ul className="space-y-1.5 text-slate-600 dark:text-zinc-300 leading-normal pl-5 list-disc">
+                    <li>A copy of your signed Client Engagement Notice has been sent to your email.</li>
+                    <li>Our Tax Agent compliance team will review your application within 1 business day.</li>
+                  </ul>
                 </div>
               </div>
-              <p className="text-xs text-slate-500">
-                Our accountants will review your submission and issue a formal
-                Engagement Acceptance Notice shortly.
-              </p>
-            </div>
-          ),
-        });
+            ),
+            okText: "Return to Form Home",
+            okButtonProps: {
+              className: "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+            },
+            onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+            onCancel: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+          });
+        } catch (apiErr) {
+          message.error(`Submission failed: ${apiErr.message || "Server connection error"}`);
+        } finally {
+          setIsSubmitting(false);
+        }
       }
     } catch (errorInfo) {
       message.error(
@@ -172,7 +228,7 @@ export default function IndividualEngagementClientForm() {
 
   // Clear Draft & Reset Form from scratch
   const handleClearDraft = () => {
-    Modal.confirm({
+    modal.confirm({
       title: "Reset Form & Clear Saved Draft?",
       icon: <DeleteOutlined className="text-red-500" />,
       content:
@@ -292,6 +348,7 @@ export default function IndividualEngagementClientForm() {
           key={formKey}
           form={form}
           layout="vertical"
+          preserve={true}
           initialValues={formData}
           requiredMark="optional"
           className="p-2 sm:p-6"
@@ -302,9 +359,9 @@ export default function IndividualEngagementClientForm() {
           {currentStep === 1 && <Step2PersonalInformation form={form} />}
           {currentStep === 2 && <Step3ResidencyFamily form={form} />}
           {currentStep === 3 && <Step4IncomeProfile form={form} />}
-          {currentStep === 4 && <Step5BasGstSoleTrader form={form} />}
+          {currentStep === 4 && <Step5BasGstSoleTrader form={form} formData={formData} />}
           {currentStep === 5 && <Step6DocumentVerification form={form} />}
-          {currentStep === 6 && <Step7AuthoritiesBank form={form} />}
+          {currentStep === 6 && <Step7AuthoritiesBank form={form} formData={formData} />}
           {currentStep === 7 && (
             <Step8EngagementSchedule
               form={form}
@@ -350,6 +407,7 @@ export default function IndividualEngagementClientForm() {
             <Button
               type="primary"
               size="large"
+              loading={isSubmitting}
               icon={
                 currentStep === 9 ? <CheckOutlined /> : <ArrowRightOutlined />
               }

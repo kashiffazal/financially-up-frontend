@@ -19,11 +19,12 @@ const BAS_SCOPE_OPTIONS = [
   { value: "Lodge Only", label: "Client Prepares, Financially Up Lodges" },
 ];
 
-export default function Step5BasGstSoleTrader({ form }) {
-  const services = Form.useWatch("services", form) || [];
+export default function Step5BasGstSoleTrader({ form, formData }) {
+  const watchedServices = Form.useWatch("services", form);
+  const services = watchedServices || formData?.services || form.getFieldValue("services") || [];
 
-  const isBasSelected = services.includes("Sole Trader BAS");
-  const isAbnSelected = services.includes("ABN Application");
+  const isBasSelected = services.includes("Sole Trader BAS") || services.includes("Sole Trader BAS Lodgement");
+  const isAbnSelected = services.includes("ABN Application") || services.includes("ABN Registration");
   const isGstSelected = services.includes("GST Registration");
 
   // If none of these services selected in Step 1, show friendly skip message

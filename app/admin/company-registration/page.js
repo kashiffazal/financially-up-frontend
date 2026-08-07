@@ -321,6 +321,8 @@ export default function CompanyRegistrationPage() {
       title: "Company Name",
       dataIndex: "companyName",
       key: "companyName",
+      fixed: "left",
+      width: 180,
       render: (val, record) => val || record.proposed_name || "-",
       sorter: (a, b) =>
         (a.companyName || "").localeCompare(b.companyName || ""),
@@ -361,6 +363,7 @@ export default function CompanyRegistrationPage() {
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)

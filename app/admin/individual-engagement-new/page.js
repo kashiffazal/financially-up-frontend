@@ -29,6 +29,7 @@ import {
   QuestionCircleOutlined,
   ClockCircleOutlined,
   CloseCircleOutlined,
+  CloseOutlined,
   PauseCircleOutlined,
   FormOutlined,
   SearchOutlined,
@@ -40,388 +41,314 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import {
-  getEngagements,
-  updateEngagement,
-  deleteEngagement,
-} from "@/services/individualEngagement.service";
+  getNewIndividualEngagements,
+  submitNewIndividualAdminDecision,
+} from "@/services/newIndividualEngagement.service";
 import ExportButtons from "@/components/admin/ExportButtons";
 import IndividualEngagementAdminForm from "@/components/admin/forms/individual-engagement-admin";
+import { API_BASE_URL } from "@/services/apiConfig";
 
 const { Title, Text } = Typography;
 
 // ============================
-// Constants - Status list used across tabs, dropdowns, and tags
+// Status list for Tabs, Tags & Status Changes
 // ============================
 const STATUS_LIST = [
   {
-    key: "New Query",
-    label: "New Query",
-    color: "processing",
-    icon: <QuestionCircleOutlined />,
-  },
-  {
-    key: "Pending",
-    label: "Pending",
+    key: "Pending Review",
+    label: "Pending Review",
     color: "warning",
     icon: <ClockCircleOutlined />,
   },
   {
-    key: "Approved",
-    label: "Approved",
+    key: "Accepted",
+    label: "Accepted",
     color: "success",
     icon: <CheckCircleOutlined />,
   },
   {
-    key: "Disapproved",
-    label: "Disapproved",
-    color: "error",
-    icon: <CloseCircleOutlined />,
+    key: "Conditional Accept",
+    label: "Conditional Accept",
+    color: "processing",
+    icon: <QuestionCircleOutlined />,
   },
   {
-    key: "On Hold",
-    label: "On Hold",
+    key: "Request Information",
+    label: "Request Info",
     color: "purple",
     icon: <PauseCircleOutlined />,
   },
-  { key: "Delete", label: "Delete", color: "error", icon: <DeleteOutlined /> },
-  { key: "Draft", label: "Draft", color: "default", icon: <FormOutlined /> },
+  {
+    key: "Declined",
+    label: "Declined",
+    color: "error",
+    icon: <CloseCircleOutlined />,
+  },
 ];
 
-/**
- * Helper to get the Tag color for a given status string
- * @param {string} status - The status value
- * @returns {string} Ant Design Tag color
- */
 const getStatusColor = (status) => {
   const found = STATUS_LIST.find((s) => s.key === status);
   return found ? found.color : "default";
 };
 
-// Export column definitions - defines which fields to include in CSV/Excel exports
+const getRiskColor = (risk) => {
+  if (risk === "High" || risk === "Unacceptable") return "error";
+  if (risk === "Medium") return "warning";
+  return "success";
+};
+
 const EXPORT_COLUMNS = [
-  { header: "ID", key: "id" },
-  { header: "First Name", key: "FirstName" },
-  { header: "Last Name", key: "LastName" },
-  { header: "Email", key: "email" },
-  { header: "Phone", key: "PhoneNumber" },
-  { header: "Occupation", key: "Occupation" },
-  { header: "Visa Status", key: "VisaStatus" },
-  { header: "DOB", key: "dob" },
-  { header: "Spouse", key: "Spouse" },
-  { header: "No. of Dependants", key: "NoOfDependants" },
-  { header: "Residential Address", key: "Residential_Address" },
-  { header: "Suburb", key: "suburb" },
-  { header: "Postcode", key: "postcode" },
-  { header: "State", key: "state" },
-  { header: "TFN", key: "TFN" },
-  { header: "ABN", key: "ABN" },
-  { header: "Account Name", key: "NameOfAccount" },
-  { header: "BSB", key: "BSB" },
-  { header: "Account Number", key: "AccountNumber" },
+  { header: "Reference", key: "referenceNumber" },
+  { header: "Client Name", key: "client.fullName" },
+  { header: "Email", key: "client.email" },
+  { header: "Mobile", key: "client.mobile" },
+  { header: "Occupation", key: "client.occupation" },
+  { header: "Tax Residency", key: "taxResidency" },
   { header: "Status", key: "status" },
-  { header: "Created At", key: "createdAt" },
+  { header: "Risk Level", key: "riskLevel" },
+  { header: "Submitted At", key: "submittedAt" },
 ];
 
-export default function IndividualEngagement() {
-  // ============================
-  // State Management
-  // ============================
-  const [data, setData] = useState([]); // Table data from API
-  const [loading, setLoading] = useState(false); // Loading spinner state
-  const [activeTab, setActiveTab] = useState("All"); // Active status tab
-  const [searchText, setSearchText] = useState(""); // Search input value
-  const [filterBy, setFilterBy] = useState("Name"); // Selected filter column
+function getFileUrl(relPath) {
+  if (!relPath) return "#";
+  if (relPath.startsWith("http://") || relPath.startsWith("https://"))
+    return relPath;
+  const cleanPath = relPath.startsWith("/") ? relPath : `/${relPath}`;
+  const baseUrl = API_BASE_URL.replace(/\/api\/?$/, "");
+  return `${baseUrl}${cleanPath}`;
+}
 
-  // Pagination state (server-side pagination)
-  const [pagination, setPagination] = useState({
-    current: 1,
-    pageSize: 10,
-    total: 0,
-  });
+export default function NewIndividualEngagementAdminPage() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("All");
+  const [searchText, setSearchText] = useState("");
+  const [filterBy, setFilterBy] = useState("Name");
 
-  // Modal states for the approval popup
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentRecord, setCurrentRecord] = useState(null);
   const [form] = Form.useForm();
 
-  // ============================
-  // Data Fetching
-  // ============================
-
-  /**
-   * Fetch engagements from the API with current filters and pagination.
-   * Called on mount, tab change, pagination change, and after mutations.
-   */
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await getEngagements({
-        page: pagination.current,
-        limit: pagination.pageSize,
-        status: activeTab,
-        search: searchText || undefined,
-      });
+      const res = await getNewIndividualEngagements();
+      let records = res.data || [];
 
-      // Map API records to include a 'key' prop for Ant Design Table
-      const records = result.records.map((record) => ({
-        ...record,
-        key: record.id,
-      }));
+      if (activeTab !== "All") {
+        records = records.filter((r) => r.status === activeTab);
+      }
 
-      setData(records);
-      setPagination((prev) => ({
-        ...prev,
-        total: result.pagination.total,
-      }));
-    } catch (error) {
-      message.error("Failed to fetch engagements. Is the backend running?");
+      if (searchText) {
+        const query = searchText.toLowerCase();
+        records = records.filter((r) => {
+          if (filterBy === "Reference")
+            return r.referenceNumber?.toLowerCase().includes(query);
+          if (filterBy === "Name")
+            return r.client?.fullName?.toLowerCase().includes(query);
+          if (filterBy === "Email")
+            return r.client?.email?.toLowerCase().includes(query);
+          if (filterBy === "Phone")
+            return r.client?.mobile?.toLowerCase().includes(query);
+          if (filterBy === "Occupation")
+            return r.client?.occupation?.toLowerCase().includes(query);
+          if (filterBy === "Tax Residency")
+            return r.taxResidency?.toLowerCase().includes(query);
+          if (filterBy === "Status")
+            return r.status?.toLowerCase().includes(query);
+          if (filterBy === "Risk Level")
+            return r.riskLevel?.toLowerCase().includes(query);
+          return (
+            r.referenceNumber?.toLowerCase().includes(query) ||
+            r.client?.fullName?.toLowerCase().includes(query) ||
+            r.client?.email?.toLowerCase().includes(query) ||
+            r.client?.mobile?.toLowerCase().includes(query) ||
+            r.client?.occupation?.toLowerCase().includes(query) ||
+            r.taxResidency?.toLowerCase().includes(query) ||
+            r.status?.toLowerCase().includes(query) ||
+            r.riskLevel?.toLowerCase().includes(query)
+          );
+        });
+      }
+
+      setData(records.map((r) => ({ ...r, key: r.id })));
+    } catch (err) {
+      message.error("Failed to load new engagement records.");
     } finally {
       setLoading(false);
     }
-  }, [activeTab, pagination.current, pagination.pageSize, searchText]);
+  }, [activeTab, searchText, filterBy]);
 
-  // Fetch data on mount and when dependencies change
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
-  // ============================
-  // Event Handlers
-  // ============================
-
-  /** Handle status tab change - reset to page 1 when switching tabs */
-  const handleTabChange = (key) => {
-    setActiveTab(key);
-    setPagination((prev) => ({ ...prev, current: 1 }));
-  };
-
-  /** Handle Ant Design Table pagination change */
-  const handleTableChange = (paginationConfig) => {
-    setPagination((prev) => ({
-      ...prev,
-      current: paginationConfig.current,
-      pageSize: paginationConfig.pageSize,
-    }));
-  };
-
-  /** Handle search - reset page to 1 when searching */
-  const handleSearch = (e) => {
-    setSearchText(e.target.value);
-    setPagination((prev) => ({ ...prev, current: 1 }));
-  };
-
-  /** Open the approval modal for a specific record */
-  const showApproveModal = (record) => {
+  const showReviewModal = (record) => {
     setCurrentRecord(record);
     setIsModalOpen(true);
   };
 
-  /**
-   * Submit approval - update status to "Approved" and save approvalNotes via API.
-   * The notes are saved in the approvalNotes column in the DB.
-   */
-  const handleApproveSubmit = async (values) => {
+  const handleAdminDecision = async (values) => {
+    setIsSubmitting(true);
     try {
-      await updateEngagement(currentRecord.id, {
-        status: "Approved",
-        approvalNotes: values.notes || null,
-      });
-      message.success(
-        `${currentRecord.FirstName} ${currentRecord.LastName} approved successfully`,
-      );
+      await submitNewIndividualAdminDecision(currentRecord.id, values);
+      message.success("Tax Agent decision submitted successfully.");
       setIsModalOpen(false);
       form.resetFields();
-      fetchData(); // Refresh table data
-    } catch (error) {
-      message.error("Failed to approve engagement");
+      fetchData();
+    } catch (err) {
+      message.error(
+        `Failed to submit Tax Agent decision: ${err.message || "Error"}`,
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  /** Cancel the approval modal */
-  const handleModalCancel = () => {
-    setIsModalOpen(false);
-    form.resetFields();
-  };
-
-  /**
-   * Handle status change - show confirmation modal before updating.
-   * For "Approved" status, redirect to the approval modal instead.
-   * @param {object} record - The engagement record
-   * @param {string} newStatus - The target status to change to
-   */
-  const handleStatusChange = (record, newStatus) => {
-    // If changing to "Approved", use the approval modal flow
-    if (newStatus === "Approved") {
-      showApproveModal(record);
-      return;
-    }
-
-    // For all other statuses, show a confirmation dialog
-    Modal.confirm({
-      title: "Change Status",
-      icon: <ExclamationCircleOutlined style={{ color: "#008043" }} />,
-      content: (
-        <div>
-          <p>
-            Are you sure you want to change the status of{" "}
-            <strong>
-              {record.FirstName} {record.LastName}
-            </strong>{" "}
-            from{" "}
-            <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
-            <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
-          </p>
-        </div>
-      ),
-      okText: "Yes, Change Status",
-      cancelText: "Cancel",
-      okButtonProps: {
-        style: {
-          backgroundColor: "#008043",
-          borderColor: "#008043",
-          borderRadius: 8,
-        },
-      },
-      cancelButtonProps: { style: { borderRadius: 8 } },
-      onOk: async () => {
-        try {
-          await updateEngagement(record.id, { status: newStatus });
-          message.success(`Status changed to "${newStatus}" successfully`);
-          fetchData(); // Refresh table data
-        } catch (error) {
-          message.error("Failed to change status");
-        }
-      },
-    });
-  };
-
-  /** Handle delete action - confirm and delete via API */
-  const handleDelete = async (record) => {
-    Modal.confirm({
-      title: `Delete ${record.FirstName} ${record.LastName}?`,
-      icon: <ExclamationCircleOutlined style={{ color: "#ff4d4f" }} />,
-      content: "This action cannot be undone.",
-      okText: "Delete",
-      okType: "danger",
-      okButtonProps: { style: { borderRadius: 8 } },
-      cancelButtonProps: { style: { borderRadius: 8 } },
-      onOk: async () => {
-        try {
-          await deleteEngagement(record.id);
-          message.success("Engagement deleted successfully");
-          fetchData(); // Refresh table data
-        } catch (error) {
-          message.error("Failed to delete engagement");
-        }
-      },
-    });
-  };
-
-  /**
-   * Fetch ALL records for the current tab for export.
-   * Passed to ExportButtons component as a data provider.
-   */
   const fetchExportData = async () => {
-    const result = await getEngagements({
-      page: 1,
-      limit: 10000, // Fetch all records for export
-      status: activeTab,
-      search: searchText || undefined,
-    });
-    return result.records;
+    const res = await getNewIndividualEngagements();
+    let records = res.data || [];
+
+    if (activeTab !== "All") {
+      records = records.filter((r) => r.status === activeTab);
+    }
+
+    return records;
   };
 
-  // ============================
-  // Table Column Definitions
-  // ============================
   const columns = [
     {
-      title: "Name",
-      key: "name",
+      title: "Reference",
+      dataIndex: "referenceNumber",
+      key: "ref",
+      fixed: "left",
+      width: 170,
       sorter: (a, b) =>
-        (a.FirstName + a.LastName).localeCompare(b.FirstName + b.LastName),
-      render: (_, record) => (
-        <Text strong>
-          {record.FirstName} {record.LastName}
+        (a.referenceNumber || "").localeCompare(b.referenceNumber || ""),
+      render: (ref) => (
+        <Text strong className="font-mono text-[#008043]">
+          {ref}
         </Text>
       ),
     },
     {
+      title: "Name",
+      key: "name",
+      width: 180,
+      sorter: (a, b) =>
+        (a.client?.fullName || "").localeCompare(b.client?.fullName || ""),
+      render: (_, record) => (
+        <Text strong>{record.client?.fullName || "N/A"}</Text>
+      ),
+    },
+    {
       title: "Email",
-      dataIndex: "email",
       key: "email",
-      sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
+      width: 220,
+      sorter: (a, b) =>
+        (a.client?.email || "").localeCompare(b.client?.email || ""),
+      render: (_, record) => record.client?.email || "-",
     },
     {
       title: "Phone",
-      dataIndex: "PhoneNumber",
-      key: "phone",
+      key: "mobile",
+      width: 140,
       sorter: (a, b) =>
-        (a.PhoneNumber || "").localeCompare(b.PhoneNumber || ""),
+        (a.client?.mobile || "").localeCompare(b.client?.mobile || ""),
+      render: (_, record) => record.client?.mobile || "-",
     },
     {
       title: "Occupation",
-      dataIndex: "Occupation",
       key: "occupation",
-      sorter: (a, b) => (a.Occupation || "").localeCompare(b.Occupation || ""),
+      width: 160,
+      render: (_, record) => record.client?.occupation || "-",
     },
     {
-      title: "Visa Status",
-      dataIndex: "VisaStatus",
-      key: "visa",
-      sorter: (a, b) => (a.VisaStatus || "").localeCompare(b.VisaStatus || ""),
+      title: "Tax Residency",
+      dataIndex: "taxResidency",
+      key: "taxResidency",
+      width: 160,
+      render: (residency) => residency || "Australian Resident",
     },
     {
       title: "Attachments",
       key: "attachments",
       width: 120,
       render: (_, record) => {
-        // Parse proofOfID - handle both JSON string from MySQL and already-parsed array
-        let proofFiles = [];
-        if (Array.isArray(record.proofOfID)) {
-          proofFiles = record.proofOfID;
-        } else if (typeof record.proofOfID === "string") {
-          try {
-            const parsed = JSON.parse(record.proofOfID);
-            proofFiles = Array.isArray(parsed) ? parsed : [];
-          } catch {
-            proofFiles = [];
-          }
+        const rawDocs = Array.isArray(record.documents) ? record.documents : [];
+        const docList = [...rawDocs];
+        if (record.identity?.primaryIdPath) {
+          docList.push({
+            documentCategory: "Primary ID",
+            fileName: "Primary Photo ID Document",
+            filePath: record.identity.primaryIdPath,
+          });
         }
+        if (record.identity?.supportingIdPath) {
+          docList.push({
+            documentCategory: "Supporting ID",
+            fileName: "Supporting Identity Document",
+            filePath: record.identity.supportingIdPath,
+          });
+        }
+        const sigList = Array.isArray(record.signatures)
+          ? record.signatures
+          : [];
+        const pdfItems = [];
 
-        // Check if signature URL exists
-        const hasSignature =
-          record.signature &&
-          typeof record.signature === "string" &&
-          record.signature.startsWith("http");
+        if (record.clientPdfPath)
+          pdfItems.push({
+            label: "Client Engagement PDF",
+            url: record.clientPdfPath,
+          });
+        if (record.adminPdfPath)
+          pdfItems.push({
+            label: "Admin Review Package PDF",
+            url: record.adminPdfPath,
+          });
+        if (record.acceptancePdfPath)
+          pdfItems.push({
+            label: "Engagement Acceptance PDF",
+            url: record.acceptancePdfPath,
+          });
+        if (record.auditPdfPath)
+          pdfItems.push({
+            label: "Compliance Audit Report PDF",
+            url: record.auditPdfPath,
+          });
 
-        // Total attachment count (proofOfID files + signature if exists)
-        const totalAttachments = proofFiles.length + (hasSignature ? 1 : 0);
+        const totalAttachments =
+          docList.length +
+          sigList.filter((s) => s.signatureFilePath).length +
+          pdfItems.length;
 
         if (totalAttachments === 0) {
           return <Text type="secondary">-</Text>;
         }
 
-        // Build dropdown menu items
         const menuItems = [
-          // Proof of ID files
-          ...proofFiles.map((fileUrl, index) => ({
-            key: `proof-${index}`,
-            icon: <LinkOutlined />,
-            label: `ID Document ${index + 1}`,
-            onClick: () => window.open(fileUrl, "_blank"),
+          ...pdfItems.map((pdf, idx) => ({
+            key: `pdf-${idx}`,
+            icon: <FilePdfOutlined style={{ color: "#ff4d4f" }} />,
+            label: pdf.label,
+            onClick: () => window.open(getFileUrl(pdf.url), "_blank"),
           })),
-          // Signature URL (if exists)
-          ...(hasSignature
-            ? [
-                {
-                  key: "signature",
-                  icon: <FormOutlined />,
-                  label: "Signature",
-                  onClick: () => window.open(record.signature, "_blank"),
-                },
-              ]
-            : []),
+          ...docList.map((doc, idx) => ({
+            key: `doc-${idx}`,
+            icon: <LinkOutlined />,
+            label: `${doc.documentCategory || "Document"}: ${doc.fileName}`,
+            onClick: () => window.open(getFileUrl(doc.filePath), "_blank"),
+          })),
+          ...sigList
+            .filter((s) => s.signatureFilePath)
+            .map((sig, idx) => ({
+              key: `sig-${idx}`,
+              icon: <FormOutlined />,
+              label: `${sig.signerType || "Client"} Signature Image`,
+              onClick: () =>
+                window.open(getFileUrl(sig.signatureFilePath), "_blank"),
+            })),
         ];
 
         return (
@@ -432,11 +359,11 @@ export default function IndividualEngagement() {
                 size="small"
                 icon={
                   <IdcardOutlined
-                    style={{ color: "#1677ff", fontSize: "16px" }}
+                    style={{ color: "#008043", fontSize: "16px" }}
                   />
                 }
               >
-                <span className="text-xs text-blue-500">
+                <span className="text-xs text-[#008043] font-bold">
                   {totalAttachments}
                 </span>
               </Button>
@@ -449,64 +376,81 @@ export default function IndividualEngagement() {
       title: "Status",
       dataIndex: "status",
       key: "status",
+      width: 140,
       render: (status) => <Tag color={getStatusColor(status)}>{status}</Tag>,
+    },
+    {
+      title: "Risk Level",
+      dataIndex: "riskLevel",
+      key: "risk",
+      width: 120,
+      render: (risk) => <Tag color={getRiskColor(risk)}>{risk || "Low"}</Tag>,
+    },
+    {
+      title: "Submitted At",
+      dataIndex: "submittedAt",
+      key: "submittedAt",
+      width: 130,
+      render: (date) =>
+        date ? new Date(date).toLocaleDateString("en-AU") : "-",
     },
     {
       title: "Actions",
       key: "actions",
+      fixed: "right",
       width: 110,
       render: (_, record) => {
-        // Build the "Change Status" submenu items (exclude current status)
-        const statusSubmenu = STATUS_LIST.filter((s) => s.key !== record.status) // Don't show current status
-          .map((s) => ({
-            key: `status-${s.key}`,
-            icon: s.icon,
-            label: s.label,
-            onClick: () => handleStatusChange(record, s.key),
-          }));
-
         const items = [
-          // View PDF - only show if pdfUrl exists
-          ...(record.pdfUrl
+          {
+            key: "review",
+            icon: <EyeOutlined />,
+            label: "Review & Decision",
+            onClick: () => showReviewModal(record),
+          },
+          ...(record.clientPdfPath
             ? [
                 {
-                  key: "viewPdf",
-                  icon: <FilePdfOutlined style={{ color: "#f5222d" }} />,
-                  label: "View PDF",
-                  onClick: () => window.open(record.pdfUrl, "_blank"),
+                  key: "clientPdf",
+                  icon: <FilePdfOutlined style={{ color: "#ff4d4f" }} />,
+                  label: "Client Engagement PDF",
+                  onClick: () =>
+                    window.open(getFileUrl(record.clientPdfPath), "_blank"),
                 },
               ]
             : []),
-          {
-            key: "view",
-            icon: <EyeOutlined />,
-            label: "View",
-          },
-          {
-            key: "edit",
-            icon: <EditOutlined />,
-            label: "Edit",
-          },
-          {
-            type: "divider",
-          },
-          // Change Status submenu
-          {
-            key: "changeStatus",
-            icon: <SwapOutlined />,
-            label: "Change Status",
-            children: statusSubmenu,
-          },
-          {
-            type: "divider",
-          },
-          {
-            key: "delete",
-            icon: <DeleteOutlined />,
-            label: "Delete",
-            danger: true,
-            onClick: () => handleDelete(record),
-          },
+          ...(record.adminPdfPath
+            ? [
+                {
+                  key: "adminPdf",
+                  icon: <FilePdfOutlined style={{ color: "#008043" }} />,
+                  label: "Admin Review PDF",
+                  onClick: () =>
+                    window.open(getFileUrl(record.adminPdfPath), "_blank"),
+                },
+              ]
+            : []),
+          ...(record.acceptancePdfPath
+            ? [
+                {
+                  key: "acceptancePdf",
+                  icon: <FilePdfOutlined style={{ color: "#008043" }} />,
+                  label: "Engagement Acceptance PDF",
+                  onClick: () =>
+                    window.open(getFileUrl(record.acceptancePdfPath), "_blank"),
+                },
+              ]
+            : []),
+          ...(record.auditPdfPath
+            ? [
+                {
+                  key: "auditPdf",
+                  icon: <FilePdfOutlined style={{ color: "#008043" }} />,
+                  label: "Compliance Audit Report PDF",
+                  onClick: () =>
+                    window.open(getFileUrl(record.auditPdfPath), "_blank"),
+                },
+              ]
+            : []),
         ];
 
         return (
@@ -524,54 +468,39 @@ export default function IndividualEngagement() {
     },
   ];
 
-  // ============================
-  // Tab Definitions
-  // ============================
   const tabItems = [
-    { key: "All", label: "All", icon: <UnorderedListOutlined /> },
-    ...STATUS_LIST.map((s) => ({
-      key: s.key,
-      label: s.label,
-      icon: s.icon,
-    })),
+    { key: "All", label: "All Submissions", icon: <UnorderedListOutlined /> },
+    ...STATUS_LIST.map((s) => ({ key: s.key, label: s.label, icon: s.icon })),
   ];
 
-  // ============================
-  // Render
-  // ============================
   return (
     <div className="min-h-screen">
-      {/* bg-slate-50 dark:bg-zinc-900  */}
-      {/* Page Header: Title + Breadcrumbs */}
+      {/* Header & Breadcrumb */}
       <div className="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4">
         <div>
           <Title
             level={2}
             className="!mb-1 !text-slate-800 dark:!text-slate-100 flex items-center gap-2"
           >
-            <UserOutlined className="text-slate-500" /> Individual Engagements
+            <UserOutlined className="text-[#008043]" /> New Individual
+            Engagement
           </Title>
           <Text className="text-slate-500 dark:text-slate-400">
-            Manage individual client engagements, view applications, and approve
-            new queries.
+            List of all new individual client engagement submissions.
           </Text>
         </div>
         <Breadcrumb
           items={[
             { href: "/admin/dashboard", title: <HomeOutlined /> },
-            { title: "Individual Engagements" },
+            { title: "Individual Engagement (New)" },
           ]}
         />
       </div>
 
-      {/* Main Content Card */}
-      <div className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm overflow-hidden">
+      {/* Main Table Container */}
+      <div className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm space-y-4">
         {/* Status Tabs */}
-        <Tabs
-          activeKey={activeTab}
-          items={tabItems}
-          onChange={handleTabChange}
-        />
+        <Tabs activeKey={activeTab} items={tabItems} onChange={setActiveTab} />
 
         {/* Sub-header: Tab title + Filters + Export */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mt-2 mb-4">
@@ -603,7 +532,10 @@ export default function IndividualEngagement() {
                   { value: "Email", label: "Email" },
                   { value: "Phone", label: "Phone" },
                   { value: "Occupation", label: "Occupation" },
-                  { value: "Visa Status", label: "Visa Status" },
+                  { value: "Tax Residency", label: "Tax Residency" },
+                  { value: "Status", label: "Status" },
+                  { value: "Risk Level", label: "Risk Level" },
+                  { value: "Reference", label: "Reference" },
                 ]}
               />
             </div>
@@ -615,7 +547,7 @@ export default function IndividualEngagement() {
                 placeholder="Filter data..."
                 prefix={<SearchOutlined className="text-slate-400" />}
                 value={searchText}
-                onChange={handleSearch}
+                onChange={(e) => setSearchText(e.target.value)}
                 style={{ width: 220 }}
                 allowClear
               />
@@ -625,52 +557,60 @@ export default function IndividualEngagement() {
                 Export
               </Text>
               <ExportButtons
-                fetchData={fetchExportData}
                 columns={EXPORT_COLUMNS}
-                filenamePrefix={`individual-engagement-${activeTab === "All" ? "All" : activeTab.replace(/\s+/g, "-")}`}
+                dataProvider={fetchExportData}
+                filename={`New_Individual_Engagements_${activeTab}`}
               />
             </div>
           </div>
         </div>
 
-        {/* Data Table with server-side pagination */}
+        {/* Data Table */}
         <Spin spinning={loading}>
           <Table
             columns={columns}
             dataSource={data}
-            pagination={{
-              current: pagination.current,
-              pageSize: pagination.pageSize,
-              total: pagination.total,
-              showSizeChanger: true,
-              showTotal: (total, range) =>
-                `${range[0]}-${range[1]} of ${total} items`,
-            }}
-            onChange={handleTableChange}
-            className="mt-4 [&_.ant-table]:text-[13px] [&_.ant-table-cell]:!py-2"
             size="small"
             bordered
-            scroll={{ x: 1000 }}
+            scroll={{ x: 1500 }}
           />
         </Spin>
       </div>
 
-      {/* Phase 2 Admin Execution Modal */}
+      {/* Part 12 Review & Decision Modal */}
       <Modal
         open={isModalOpen}
-        onCancel={handleModalCancel}
+        onCancel={() => !isSubmitting && setIsModalOpen(false)}
         footer={null}
-        width={900}
-        style={{ top: 20 }}
-        destroyOnClose={true}
-        title={null}
-        closeIcon={null}
+        width={980}
+        destroyOnHidden={true}
+        mask={{ closable: !isSubmitting }}
+        keyboard={!isSubmitting}
+        closable={!isSubmitting}
+        styles={{
+          container: {
+            top: -50,
+            padding: "0px",
+          },
+          close: {
+            top: "-15px",
+            right: "-15px",
+          },
+        }}
+        closeIcon={
+          isSubmitting ? null : (
+            <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-500 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white flex items-center justify-center transition-all shadow-sm hover:scale-105">
+              <CloseOutlined className="text-sm font-black" />
+            </div>
+          )
+        }
       >
         <IndividualEngagementAdminForm
           record={currentRecord}
           form={form}
-          onFinish={handleApproveSubmit}
-          onCancel={handleModalCancel}
+          onFinish={handleAdminDecision}
+          onCancel={() => !isSubmitting && setIsModalOpen(false)}
+          isSubmitting={isSubmitting}
         />
       </Modal>
     </div>
