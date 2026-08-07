@@ -59,7 +59,7 @@ export default function Step8EngagementSchedule({ form, formData, onScheduleView
         type={hasOpenedSchedule ? "success" : "info"}
         showIcon
         icon={hasOpenedSchedule ? <CheckCircleFilled /> : <EyeOutlined />}
-        message={hasOpenedSchedule ? "Engagement Schedule Reviewed" : "Action Required: Open & Review Engagement Schedule"}
+        title={hasOpenedSchedule ? "Engagement Schedule Reviewed" : "Action Required: Open & Review Engagement Schedule"}
         description={
           hasOpenedSchedule
             ? "Thank you for reviewing your Engagement Schedule. You may now proceed to Step 9."

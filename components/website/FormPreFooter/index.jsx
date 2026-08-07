@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import {
   PhoneOutlined,
-  MailOutlined,
   CalendarOutlined,
   SafetyCertificateOutlined,
   LockOutlined,
@@ -12,18 +11,17 @@ import {
   CheckCircleFilled,
   ArrowRightOutlined,
 } from "@ant-design/icons";
-import styles from "./FormPreFooter.module.css";
 
 /**
  * FormPreFooter Component
  * Specialized Pre-Footer section specifically designed for Form & Onboarding pages.
- * Displays assistance options, ATO privacy guarantees, and instant appointment CTA.
+ * Displays assistance options, ATO privacy guarantees, and instant appointment text link.
  */
 export default function FormPreFooter() {
   return (
     <section className="bg-slate-100/80 dark:bg-zinc-900/80 border-t border-slate-200/80 dark:border-zinc-800 py-6 sm:py-8 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-        {/* Compact Top Header Row */}
+        {/* Top Header Row with Primary Color Text Link & Icon */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/60 dark:border-zinc-800/80 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
@@ -39,12 +37,14 @@ export default function FormPreFooter() {
             </div>
           </div>
 
+          {/* Primary Color Text Link with Icon & Hover Micro-Animations */}
           <Link
             href="/book-an-appointment"
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-brand-primary hover:bg-brand-primary-hover !text-white font-bold text-xs shadow-sm transition-colors shrink-0 !no-underline"
+            className="inline-flex items-center gap-2 font-extrabold text-xs sm:text-sm text-brand-primary hover:text-brand-primary-hover dark:text-emerald-400 dark:hover:text-emerald-300 transition-all shrink-0 group !no-underline"
           >
-            <span className="!text-white font-bold">Book 1-on-1 Consultation</span>
-            <ArrowRightOutlined className="!text-white text-xs" />
+            <CalendarOutlined className="text-brand-primary dark:text-emerald-400 text-sm group-hover:scale-110 transition-transform" />
+            <span className="group-hover:underline">Book 1-on-1 Consultation</span>
+            <ArrowRightOutlined className="text-xs transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -60,10 +60,16 @@ export default function FormPreFooter() {
                 Tax Agent Helpline
               </h4>
               <div className="text-xs text-slate-600 dark:text-zinc-400 space-y-0.5">
-                <a href="tel:1300328316" className="font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary transition-colors block">
+                <a
+                  href="tel:1300328316"
+                  className="font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary transition-colors block"
+                >
                   1300 328 316
                 </a>
-                <a href="mailto:info@financiallyup.com.au" className="text-[11px] text-slate-500 hover:text-brand-primary transition-colors block truncate">
+                <a
+                  href="mailto:info@financiallyup.com.au"
+                  className="text-[11px] text-slate-500 hover:text-brand-primary transition-colors block truncate"
+                >
                   info@financiallyup.com.au
                 </a>
               </div>
@@ -92,7 +98,7 @@ export default function FormPreFooter() {
             </div>
           </div>
 
-          {/* ITEM 3: Head Office & Confidentiality Guarantee */}
+          {/* ITEM 3: Head Office */}
           <div className="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
             <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <SafetyCertificateOutlined />

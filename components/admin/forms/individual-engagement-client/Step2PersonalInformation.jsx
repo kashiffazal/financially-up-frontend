@@ -1,19 +1,17 @@
 "use client";
 
 import React from "react";
-import { Form, Input, DatePicker, Select, Radio, Tooltip, Tag } from "antd";
+import { Form, Tooltip, Tag } from "antd";
 import {
   UserOutlined,
   MailOutlined,
   PhoneOutlined,
   HomeOutlined,
   IdcardOutlined,
-  GlobalOutlined,
   InfoCircleOutlined,
   SolutionOutlined,
 } from "@ant-design/icons";
-
-const { TextArea } = Input;
+import { AntInput } from "@/services/antdFields";
 
 // Countries list for Country of Birth
 const COUNTRIES = [
@@ -30,6 +28,13 @@ const EMPLOYMENT_STATUS_OPTIONS = [
   { value: "Retired", label: "Retired / Superannuant" },
   { value: "Unemployed", label: "Unemployed" },
   { value: "Student", label: "Student" },
+];
+
+const TFN_OPTIONS = [
+  { value: "Provided", label: "I will provide my TFN" },
+  { value: "Applied", label: "Applied for TFN (Pending)" },
+  { value: "Exempt", label: "TFN Exemption Applies" },
+  { value: "Later", label: "Provide later" },
 ];
 
 export default function Step2PersonalInformation({ form }) {
@@ -57,58 +62,55 @@ export default function Step2PersonalInformation({ form }) {
       {/* Grid: Name & Basic Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* PI-001: Full Legal Name */}
-        <Form.Item
+        <AntInput
           name="fullName"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Full Legal Name</span>}
-          rules={[{ required: true, message: "Please enter your full legal name." }]}
-          className="mb-0"
-        >
-          <Input
-            prefix={<UserOutlined className="text-slate-400" />}
-            placeholder="e.g. John Alexander Smith"
-            size="large"
-            className="rounded-xl"
-          />
-        </Form.Item>
+          placeholder="e.g. John Alexander Smith"
+          preIconAnt={<UserOutlined className="text-slate-400" />}
+          size="large"
+          className="rounded-xl"
+          reqMsg="Please enter your full legal name."
+          containerClassName="mb-0"
+        />
 
         {/* PI-004: Date of Birth */}
-        <Form.Item
+        <AntInput
+          type="datepicker"
           name="dateOfBirth"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Date of Birth</span>}
-          rules={[{ required: true, message: "Please select your date of birth." }]}
-          className="mb-0"
-        >
-          <DatePicker
-            format="DD/MM/YYYY"
-            placeholder="DD/MM/YYYY"
-            size="large"
-            className="w-full rounded-xl"
-          />
-        </Form.Item>
+          placeholder="DD/MM/YYYY"
+          format="DD/MM/YYYY"
+          size="large"
+          className="w-full rounded-xl"
+          reqMsg="Please select your date of birth."
+          containerClassName="mb-0"
+        />
       </div>
 
       {/* PI-002 & PI-003: Previous Name Question */}
       <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
-        <Form.Item
+        <AntInput
+          type="radio"
           name="hasPreviousName"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Have you ever been known by another name? (Maiden, alias, etc.)</span>}
-          className="mb-0"
-        >
-          <Radio.Group>
-            <Radio value="No">No</Radio>
-            <Radio value="Yes">Yes</Radio>
-          </Radio.Group>
-        </Form.Item>
+          radioOptions={[
+            { value: "No", label: "No" },
+            { value: "Yes", label: "Yes" },
+          ]}
+          noRequired={true}
+          containerClassName="mb-0"
+        />
 
         {hasPreviousName === "Yes" && (
-          <Form.Item
+          <AntInput
             name="previousNames"
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">Previous / Other Names</span>}
-            rules={[{ required: true, message: "Please enter previous name." }]}
-            className="mb-0"
-          >
-            <Input placeholder="Enter previous legal names or maiden name" size="large" className="rounded-xl" />
-          </Form.Item>
+            placeholder="Enter previous legal names or maiden name"
+            size="large"
+            className="rounded-xl"
+            reqMsg="Please enter previous name."
+            containerClassName="mb-0"
+          />
         )}
       </div>
 
@@ -121,193 +123,157 @@ export default function Step2PersonalInformation({ form }) {
           </Tooltip>
         </div>
 
-        <Form.Item
+        <AntInput
+          type="radio"
           name="tfnStatus"
-          initialValue="Provided"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">TFN Provision Options</span>}
-          className="mb-0"
-        >
-          <Radio.Group className="w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-              {[
-                { value: "Provided", label: "I will provide my TFN" },
-                { value: "Applied", label: "Applied for TFN (Pending)" },
-                { value: "Exempt", label: "TFN Exemption Applies" },
-                { value: "Later", label: "Provide later" },
-              ].map((opt) => (
-                <Radio key={opt.value} value={opt.value} className="text-xs">
-                  {opt.label}
-                </Radio>
-              ))}
-            </div>
-          </Radio.Group>
-        </Form.Item>
+          radioOptions={TFN_OPTIONS}
+          gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5"
+          noRequired={true}
+          containerClassName="mb-0"
+        />
 
         {tfnStatus === "Provided" ? (
-          <Form.Item
+          <AntInput
             name="tfn"
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">9-Digit Tax File Number</span>}
+            placeholder="123 456 789"
+            preIconAnt={<IdcardOutlined className="text-slate-400" />}
+            size="large"
+            maxLength={11}
+            className="rounded-xl font-mono tracking-widest"
             rules={[
               { required: true, message: "Please enter your TFN." },
               { pattern: /^\d{3}\s?\d{3}\s?\d{3}$/, message: "Please enter a valid 9-digit Australian TFN." },
             ]}
-            className="mb-0 max-w-xs"
-          >
-            <Input
-              prefix={<IdcardOutlined className="text-slate-400" />}
-              placeholder="123 456 789"
-              size="large"
-              maxLength={11}
-              className="rounded-xl font-mono tracking-widest"
-            />
-          </Form.Item>
+            containerClassName="mb-0 max-w-xs"
+          />
         ) : (
-          <Form.Item
+          <AntInput
+            type="textarea"
             name="tfnExplanation"
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">Explanation for TFN Status</span>}
-            rules={[{ required: true, message: "Please explain your TFN status." }]}
-            className="mb-0"
-          >
-            <TextArea placeholder="Please provide details regarding your TFN application or exemption status..." rows={2} className="rounded-xl" />
-          </Form.Item>
+            placeholder="Please provide details regarding your TFN application or exemption status..."
+            rows={2}
+            className="rounded-xl"
+            reqMsg="Please explain your TFN status."
+            containerClassName="mb-0"
+          />
         )}
       </div>
 
       {/* Birth Location & Citizenship */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* PI-008: City / Town of Birth */}
-        <Form.Item
+        <AntInput
           name="birthCity"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">City / Town of Birth (optional)</span>}
-          className="mb-0"
-        >
-          <Input placeholder="e.g. Sydney, London, Mumbai" size="large" className="rounded-xl" />
-        </Form.Item>
+          placeholder="e.g. Sydney, London, Mumbai"
+          size="large"
+          className="rounded-xl"
+          noRequired={true}
+          containerClassName="mb-0"
+        />
 
         {/* PI-009: Country of Birth */}
-        <Form.Item
+        <AntInput
+          type="select"
           name="birthCountry"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Country of Birth</span>}
-          rules={[{ required: true, message: "Please select your country of birth." }]}
-          className="mb-0"
-        >
-          <Select
-            placeholder="Select Country"
-            size="large"
-            className="rounded-xl"
-            showSearch
-          >
-            {COUNTRIES.map((country) => (
-              <Select.Option key={country} value={country}>
-                {country}
-              </Select.Option>
-            ))}
-          </Select>
-        </Form.Item>
+          options={COUNTRIES}
+          placeholder="Select Country"
+          size="large"
+          className="rounded-xl"
+          filter={true}
+          reqMsg="Please select your country of birth."
+          containerClassName="mb-0"
+        />
       </div>
 
       {/* Contact & Address */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* PI-011: Mobile */}
-        <Form.Item
+        <AntInput
           name="mobile"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Mobile Phone Number</span>}
+          placeholder="0400 000 000"
+          preIconAnt={<PhoneOutlined className="text-slate-400" />}
+          size="large"
+          className="rounded-xl"
           rules={[
             { required: true, message: "Please enter your mobile number." },
             { pattern: /^(?:\+61|0)4\d{8}$/, message: "Please enter a valid Australian mobile number (04xx xxx xxx)." },
           ]}
-          className="mb-0"
-        >
-          <Input
-            prefix={<PhoneOutlined className="text-slate-400" />}
-            placeholder="0400 000 000"
-            size="large"
-            className="rounded-xl"
-          />
-        </Form.Item>
+          containerClassName="mb-0"
+        />
 
         {/* PI-012: Email */}
-        <Form.Item
+        <AntInput
+          type="email"
           name="email"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Email Address</span>}
-          rules={[
-            { required: true, message: "Please enter a valid email address." },
-            { type: "email", message: "Please enter a valid email address." },
-          ]}
-          className="mb-0"
-        >
-          <Input
-            prefix={<MailOutlined className="text-slate-400" />}
-            placeholder="client@example.com.au"
-            size="large"
-            className="rounded-xl"
-          />
-        </Form.Item>
+          placeholder="client@example.com.au"
+          preIconAnt={<MailOutlined className="text-slate-400" />}
+          size="large"
+          className="rounded-xl"
+          reqMsg="Please enter a valid email address."
+          containerClassName="mb-0"
+        />
       </div>
 
       {/* PI-010: Residential Address */}
-      <Form.Item
+      <AntInput
         name="address"
         label={<span className="font-bold text-slate-800 dark:text-zinc-200">Primary Australian Residential Address</span>}
-        rules={[{ required: true, message: "Please enter your residential address." }]}
-        className="mb-0"
-      >
-        <Input
-          prefix={<HomeOutlined className="text-slate-400" />}
-          placeholder="123 Street Name, Suburb, State Postcode"
-          size="large"
-          className="rounded-xl"
-        />
-      </Form.Item>
+        placeholder="123 Street Name, Suburb, State Postcode"
+        preIconAnt={<HomeOutlined className="text-slate-400" />}
+        size="large"
+        className="rounded-xl"
+        reqMsg="Please enter your residential address."
+        containerClassName="mb-0"
+      />
 
       {/* Occupation & Employment */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* PI-013: Occupation */}
-        <Form.Item
+        <AntInput
           name="occupation"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Main Occupation / Job Title</span>}
-          rules={[{ required: true, message: "Please enter your occupation." }]}
-          className="mb-0"
-        >
-          <Input
-            prefix={<SolutionOutlined className="text-slate-400" />}
-            placeholder="e.g. Software Engineer, Nurse, Electrician"
-            size="large"
-            className="rounded-xl"
-          />
-        </Form.Item>
+          placeholder="e.g. Software Engineer, Nurse, Electrician"
+          preIconAnt={<SolutionOutlined className="text-slate-400" />}
+          size="large"
+          className="rounded-xl"
+          reqMsg="Please enter your occupation."
+          containerClassName="mb-0"
+        />
 
         {/* PI-014: Employment Status */}
-        <Form.Item
+        <AntInput
+          type="select"
           name="employmentStatus"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Employment Status</span>}
-          rules={[{ required: true, message: "Please select employment status." }]}
-          className="mb-0"
-        >
-          <Select placeholder="Select Employment Status" size="large" className="rounded-xl">
-            {EMPLOYMENT_STATUS_OPTIONS.map((opt) => (
-              <Select.Option key={opt.value} value={opt.value}>
-                {opt.label}
-              </Select.Option>
-            ))}
-          </Select>
-        </Form.Item>
+          options={EMPLOYMENT_STATUS_OPTIONS}
+          placeholder="Select Employment Status"
+          size="large"
+          className="rounded-xl"
+          reqMsg="Please select employment status."
+          containerClassName="mb-0"
+        />
       </div>
 
       {/* PI-015: About Yourself */}
-      <Form.Item
+      <AntInput
+        type="textarea"
         name="about"
         label={<span className="font-bold text-slate-800 dark:text-zinc-200">Tell us briefly about your tax situation (Optional)</span>}
-        className="mb-0"
-      >
-        <TextArea
-          placeholder="Maximum 500 characters. e.g. Any changes in job, new rental property purchase, foreign assets, or specific advice needed."
-          maxLength={500}
-          showCount
-          rows={3}
-          className="rounded-xl"
-        />
-      </Form.Item>
+        placeholder="Maximum 500 characters. e.g. Any changes in job, new rental property purchase, foreign assets, or specific advice needed."
+        maxLength={500}
+        showCount={true}
+        rows={3}
+        className="rounded-xl"
+        noRequired={true}
+        containerClassName="mb-0"
+      />
     </div>
   );
 }

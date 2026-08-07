@@ -6,17 +6,15 @@ Welcome to the official documentation directory for **Financially Up**. This fol
 
 ## 📄 Available Form Maps & Specifications
 
-### 1. 📋 Individual Client Engagement Form
+### 1. 📋 Individual Client Engagement Form (Phase 1: Client Onboarding)
 - **File:** [`01_INDIVIDUAL_CLIENT_ENGAGEMENT_FORM_MAP.md`](./01_INDIVIDUAL_CLIENT_ENGAGEMENT_FORM_MAP.md)
 - **Live Route:** `/resources/engagement-forms/individual-engagement-form`
 - **Scope:** 10-Step onboarding wizard for individual taxpayers, sole traders, property investors, and ATO representation.
-- **Key Details:**
-  - 52+ Fields audited line-by-line
-  - Complete Option Lists & Sub-options
-  - Mandatory Validation Rules & RegEx Patterns
-  - Conditional Section Rules (Visa, TFN, Spouse, ATO Debt, BAS, ABN, GST, ID Uploads)
-  - Statutory Legal Consents (TASA 2009, Privacy Act 1988, ETA 1999)
-  - Save Draft & Form Reset mechanisms
+
+### 2. 🛡️ Individual Client Engagement Form (Phase 2: Admin Office Execution)
+- **File:** [`02_INDIVIDUAL_CLIENT_ENGAGEMENT_ADMIN_FORM_MAP.md`](./02_INDIVIDUAL_CLIENT_ENGAGEMENT_ADMIN_FORM_MAP.md)
+- **Live Route:** `/admin/individual-engagement`
+- **Scope:** Internal Tax Agent review, 100-point identity verification checks, ATO portal listing, agreed fee confirmation, and formal Tax Agent countersignature.
 
 ---
 

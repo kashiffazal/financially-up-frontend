@@ -1,7 +1,8 @@
 import React from "react";
+import { App } from "antd";
 import FormPageHeader from "../../../../../components/website/FormPageHeader";
 import FormPreFooter from "../../../../../components/website/FormPreFooter";
-import IndividualEngagementClientForm from "../../../../../components/admin/forms/individual-engagement";
+import IndividualEngagementClientForm from "../../../../../components/admin/forms/individual-engagement-client";
 
 export const metadata = {
   title: "Individual Client Engagement Form - Financially Up",
@@ -29,7 +30,9 @@ export default function IndividualEngagementFormPage() {
 
       {/* Main Form Area Container (Max 1200px) */}
       <main className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <IndividualEngagementClientForm />
+        <App>
+          <IndividualEngagementClientForm />
+        </App>
       </main>
 
       {/* Dedicated Form Pre-Footer Assistance & Guarantee Section */}

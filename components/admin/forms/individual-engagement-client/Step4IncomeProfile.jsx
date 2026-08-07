@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { Form, Checkbox, Radio, Input, DatePicker, Upload, Button, Alert, Tag } from "antd";
-import { UploadOutlined, InfoCircleOutlined, WarningOutlined, DollarOutlined } from "@ant-design/icons";
-
-const { TextArea } = Input;
+import { Form, Alert, Tag } from "antd";
+import { WarningOutlined, UploadOutlined } from "@ant-design/icons";
+import { AntInput, AntFileUpload } from "@/services/antdFields";
 
 const INCOME_SOURCES = [
   { value: "Salary/Wages", label: "Salary / Wages (PAYG Income Statement)" },
@@ -44,91 +43,83 @@ export default function Step4IncomeProfile({ form }) {
       </div>
 
       {/* INC-001: Income Checklist */}
-      <Form.Item
+      <AntInput
+        type="checkbox"
         name="incomeActivities"
         label={<span className="font-bold text-slate-800 dark:text-zinc-200">Which income sources apply to your tax return?</span>}
-        rules={[
-          {
-            required: true,
-            validator: (_, v) => (v && v.length > 0 ? Promise.resolve() : Promise.reject(new Error("Please select at least one income source."))),
-          },
-        ]}
-      >
-        <Checkbox.Group className="w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
-            {INCOME_SOURCES.map((inc) => (
-              <label key={inc.value} className="p-3 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 block cursor-pointer">
-                <Checkbox value={inc.value} className="font-bold text-slate-900 dark:text-zinc-100">
-                  {inc.label}
-                </Checkbox>
-              </label>
-            ))}
-          </div>
-        </Checkbox.Group>
-      </Form.Item>
+        group={INCOME_SOURCES}
+        validator={(_, v) => (v && v.length > 0 ? Promise.resolve() : Promise.reject(new Error("Please select at least one income source.")))}
+        designVariant="card"
+        gridClassName="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full"
+      />
 
       {/* Previous Accountant (INC-002 to INC-005) */}
       <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <Form.Item
+        <AntInput
+          type="radio"
           name="hadPreviousAccountant"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Did you use a previous tax agent or accounting firm?</span>}
-          rules={[{ required: true, message: "Please select an option." }]}
-          className="mb-0"
-        >
-          <Radio.Group>
-            <Radio value="No">No, first time using an accountant or self-lodged</Radio>
-            <Radio value="Yes">Yes, previously engaged a tax agent / accountant</Radio>
-          </Radio.Group>
-        </Form.Item>
+          radioOptions={[
+            { value: "No", label: "No, first time using an accountant or self-lodged" },
+            { value: "Yes", label: "Yes, previously engaged a tax agent / accountant" },
+          ]}
+          vertical={true}
+          reqMsg="Please select an option."
+          containerClassName="mb-0"
+        />
 
         {hadPreviousAccountant === "Yes" && (
           <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Form.Item
+              <AntInput
                 name="previousFirm"
                 label={<span className="font-bold text-slate-800 dark:text-zinc-200">Previous Accounting Firm Name</span>}
-                rules={[{ required: true, message: "Please enter the previous firm." }]}
-              >
-                <Input placeholder="Enter accounting firm name" size="large" className="rounded-xl" />
-              </Form.Item>
+                placeholder="Enter accounting firm name"
+                size="large"
+                className="rounded-xl"
+                reqMsg="Please enter the previous firm."
+              />
 
-              <Form.Item
+              <AntInput
+                type="radio"
                 name="authorisePreviousAdvisor"
                 label={<span className="font-bold text-slate-800 dark:text-zinc-200">Authorise Ethical Clearance Contact?</span>}
-              >
-                <Radio.Group>
-                  <Radio value="Authorise">Authorise contact</Radio>
-                  <Radio value="Do Not Authorise">Do not authorise</Radio>
-                </Radio.Group>
-              </Form.Item>
+                radioOptions={[
+                  { value: "Authorise", label: "Authorise contact" },
+                  { value: "Do Not Authorise", label: "Do not authorise" },
+                ]}
+                noRequired={true}
+              />
             </div>
 
-            <Form.Item
+            <AntInput
+              type="textarea"
               name="reasonForChange"
               label={<span className="font-bold text-slate-800 dark:text-zinc-200">Reason for Changing Tax Accountants</span>}
-              rules={[{ required: true, message: "Please provide a reason." }]}
-              className="mb-0"
-            >
-              <TextArea placeholder="Briefly describe your reason for changing accountants..." rows={2} className="rounded-xl" />
-            </Form.Item>
+              placeholder="Briefly describe your reason for changing accountants..."
+              rows={2}
+              className="rounded-xl"
+              reqMsg="Please provide a reason."
+              containerClassName="mb-0"
+            />
           </div>
         )}
       </div>
 
       {/* ATO Debt & Audit Matters (INC-006 to INC-010) */}
       <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <Form.Item
+        <AntInput
+          type="radio"
           name="atoIssues"
           label={<span className="font-bold text-slate-800 dark:text-zinc-200">Do you have any existing ATO debts, audits, disputes, or overdue lodgements?</span>}
-          rules={[{ required: true, message: "Please select an option." }]}
-          className="mb-0"
-        >
-          <Radio.Group>
-            <Radio value="No">No ATO issues or debt</Radio>
-            <Radio value="Yes">Yes, ATO debt / audit / review</Radio>
-            <Radio value="Unsure">Unsure / Need ATO status check</Radio>
-          </Radio.Group>
-        </Form.Item>
+          radioOptions={[
+            { value: "No", label: "No ATO issues or debt" },
+            { value: "Yes", label: "Yes, ATO debt / audit / review" },
+            { value: "Unsure", label: "Unsure / Need ATO status check" },
+          ]}
+          reqMsg="Please select an option."
+          containerClassName="mb-0"
+        />
 
         {atoIssues && atoIssues !== "No" && (
           <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
@@ -136,45 +127,53 @@ export default function Step4IncomeProfile({ form }) {
               type="warning"
               showIcon
               icon={<WarningOutlined />}
-              message="Priority ATO Review Workflow"
+              title="Priority ATO Review Workflow"
               description="Notice: Our registered tax agents will conduct an immediate Tax Agent Portal lookup to review your ATO status and payment arrangement options."
               className="rounded-xl border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200"
             />
 
-            <Form.Item
+            <AntInput
+              type="textarea"
               name="atoExplanation"
               label={<span className="font-bold text-slate-800 dark:text-zinc-200">Describe the ATO Matter or Debt</span>}
-              rules={[{ required: true, message: "Please provide details." }]}
-            >
-              <TextArea placeholder="Provide details regarding the ATO debt amount, audit notice, or correspondence..." rows={3} className="rounded-xl" />
-            </Form.Item>
+              placeholder="Provide details regarding the ATO debt amount, audit notice, or correspondence..."
+              rows={3}
+              className="rounded-xl"
+              reqMsg="Please provide details."
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Form.Item
+              <AntInput
+                type="datepicker"
                 name="noticeDate"
                 label={<span className="font-bold text-slate-800 dark:text-zinc-200">ATO Notice Date</span>}
-              >
-                <DatePicker format="DD/MM/YYYY" placeholder="DD/MM/YYYY" size="large" className="w-full rounded-xl" />
-              </Form.Item>
+                placeholder="DD/MM/YYYY"
+                format="DD/MM/YYYY"
+                size="large"
+                className="w-full rounded-xl"
+                noRequired={true}
+              />
 
-              <Form.Item
+              <AntInput
+                type="datepicker"
                 name="dueDate"
                 label={<span className="font-bold text-slate-800 dark:text-zinc-200">ATO Due Date</span>}
-              >
-                <DatePicker format="DD/MM/YYYY" placeholder="DD/MM/YYYY" size="large" className="w-full rounded-xl" />
-              </Form.Item>
+                placeholder="DD/MM/YYYY"
+                format="DD/MM/YYYY"
+                size="large"
+                className="w-full rounded-xl"
+                noRequired={true}
+              />
             </div>
 
-            <Form.Item
+            <AntFileUpload
               name="atoDocuments"
               label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload ATO Letters / Notices</span>}
-            >
-              <Upload beforeUpload={() => false} maxCount={3}>
-                <Button icon={<UploadOutlined className="text-brand-primary" />} className="rounded-xl">
-                  Attach ATO Notice (PDF/JPG/PNG)
-                </Button>
-              </Upload>
-            </Form.Item>
+              icon={<UploadOutlined className="text-brand-primary text-xl" />}
+              heading="Attach ATO Notice (PDF/JPG/PNG)"
+              maxCount={3}
+              noRequired={true}
+            />
           </div>
         )}
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Form, Button, Card, Steps, message, Modal, notification } from "antd";
+import { Form, Button, Card, Steps, Modal, App } from "antd";
 import {
   ArrowRightOutlined,
   SaveOutlined,
@@ -38,6 +38,7 @@ const STEP_ITEMS = [
 ];
 
 export default function IndividualEngagementClientForm() {
+  const { message, notification } = App.useApp();
   const [form] = Form.useForm();
   const [currentStep, setCurrentStep] = useState(0);
   const [formKey, setFormKey] = useState(0);
@@ -56,21 +57,22 @@ export default function IndividualEngagementClientForm() {
         if (savedDraft && savedDraft.data) {
           setFormData(savedDraft.data);
           form.setFieldsValue(savedDraft.data);
-          if (typeof savedDraft.step === "number" && savedDraft.step >= 0 && savedDraft.step <= 9) {
+          if (
+            typeof savedDraft.step === "number" &&
+            savedDraft.step >= 0 &&
+            savedDraft.step <= 9
+          ) {
             setCurrentStep(savedDraft.step);
           }
-          notification.info({
-            message: "Draft Restored",
-            description: `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
-            placement: "topRight",
-            duration: 4,
-          });
+          message.info(
+            `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
+          );
         }
       }
     } catch (e) {
       console.error("Error loading saved form draft:", e);
     }
-  }, [form]);
+  }, [form, message]);
 
   // Handle Next Button Click across steps
   const handleNext = async () => {
@@ -173,7 +175,8 @@ export default function IndividualEngagementClientForm() {
     Modal.confirm({
       title: "Reset Form & Clear Saved Draft?",
       icon: <DeleteOutlined className="text-red-500" />,
-      content: "Are you sure you want to clear your saved draft and start over from scratch? All entered information will be permanently deleted.",
+      content:
+        "Are you sure you want to clear your saved draft and start over from scratch? All entered information will be permanently deleted.",
       okText: "Yes, Reset Form",
       okType: "danger",
       cancelText: "Cancel",

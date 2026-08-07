@@ -566,7 +566,7 @@ export default function WebsiteHeader() {
         onClose={() => setMobileMenuOpen(false)}
         open={mobileMenuOpen}
         closeIcon={null}
-        width={340}
+        size={340}
         styles={{
           body: { padding: 0 },
           header: { display: "none" },
