@@ -1,0 +1,153 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 5 - Step 4: Income & Tax Profile
+Step Objective
+Collect the client's income sources, previous accountant information and any ATO issues. The answers determine document requests, review flags and follow-up workflow.
+Business Rules
+At least one income/activity should be selected.
+Previous accountant questions appear only when applicable.
+ATO debt, audits or unresolved correspondence require additional information and document upload.
+Disputes with a previous accountant create an internal review flag.
+ATO issues create a priority review task.
+Field Specifications
+INC-001 - Income & Activity
+Database Field
+incomeActivities
+Ant Design Component
+Checkbox.Group
+Required
+Yes
+Visible When
+Always
+Options / Placeholder
+Salary/Wages; Government Payments; Interest; Dividends/Funds; Rental Property; Capital Gains; Cryptocurrency; Foreign Income/Assets; Super/Pension; Employee Shares; Sole Trader/Contractor Income; Other
+Validation Message
+Please select at least one income source.
+INC-002 - Previous Accountant?
+Database Field
+hadPreviousAccountant
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Options / Placeholder
+Yes / No
+Validation Message
+Please select an option.
+INC-003 - Previous Firm
+Database Field
+previousFirm
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+hadPreviousAccountant=Yes
+Options / Placeholder
+Enter firm name
+Validation Message
+Please enter the previous firm.
+INC-004 - Reason for Change
+Database Field
+reasonForChange
+Ant Design Component
+TextArea
+Required
+Conditional
+Visible When
+hadPreviousAccountant=Yes
+Options / Placeholder
+Describe reason
+Validation Message
+Please provide a reason.
+INC-005 - Authorise Contact?
+Database Field
+authorisePreviousAdvisor
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+hadPreviousAccountant=Yes
+Options / Placeholder
+Authorise / Do Not Authorise
+Validation Message
+INC-006 - ATO Issues
+Database Field
+atoIssues
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Options / Placeholder
+No / Yes / Unsure
+Validation Message
+Please select an option.
+INC-007 - ATO Explanation
+Database Field
+atoExplanation
+Ant Design Component
+TextArea
+Required
+Conditional
+Visible When
+atoIssues!=No
+Options / Placeholder
+Describe issue
+Validation Message
+Please provide details.
+INC-008 - Notice Date
+Database Field
+noticeDate
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+atoIssues!=No
+Options / Placeholder
+Validation Message
+Please select notice date.
+INC-009 - Due Date
+Database Field
+dueDate
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+atoIssues!=No
+Options / Placeholder
+Validation Message
+Please select due date.
+INC-010 - Supporting Documents
+Database Field
+atoDocuments
+Ant Design Component
+Upload
+Required
+Conditional
+Visible When
+atoIssues!=No
+Options / Placeholder
+PDF/JPG/PNG
+Validation Message
+Please upload supporting documents.
+Conditional Logic
+If Previous Accountant = Yes → Display Previous Firm, Reason for Change and Authorisation fields.
+If Reason for Change indicates dispute or involuntary disengagement → Create Internal Review Flag.
+If ATO Issues = Yes or Unsure → Display explanation, notice date, due date and upload fields.
+If ATO Issues = Yes or Unsure → Create Priority Review Task for accountant.
+Internal System Actions
+Flag disputed previous accountant relationships.
+Create priority review for ATO matters.
+Link uploaded ATO documents to engagement.
+Include selected income types in dynamic document request engine.
+Acceptance Criteria
+At least one income source is selected.
+Conditional fields remain hidden until triggered.
+ATO uploads are mandatory when displayed.
+Review flags are generated correctly.
+Submitted values are stored successfully.

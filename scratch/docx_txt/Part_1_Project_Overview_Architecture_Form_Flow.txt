@@ -1,0 +1,83 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 1 - Project Overview, Architecture, User Roles & Form Flow
+Source Document: Financially Up Pty Ltd Individual Engagement - Latest Specification v2.1 (24 July 2026). This document summarizes and structures the specification for software implementation. 
+1. Project Overview
+The Individual Engagement System is an online onboarding portal used by Financially Up Pty Ltd. It allows individual clients and sole traders to engage Financially Up for taxation and related services. The portal collects client information, identity documents, authorities, consents and electronic signatures before an accountant reviews the engagement.
+2. Objectives
+Provide a guided multi-step engagement wizard.
+Display only relevant questions using conditional logic.
+Collect legally required authorities and declarations.
+Support identity verification and document uploads.
+Generate an Engagement Schedule automatically.
+Keep the engagement in Pending Review until accepted by staff.
+Provide a secure administration portal for internal review.
+3. Recommended Technology Stack
+Layer
+Recommendation
+Frontend
+Next.js + Ant Design
+Backend
+Node.js API
+Database
+MySQL
+Authentication
+JWT / Secure Sessions
+Storage
+Private object storage
+PDF
+Server-side generation
+Email
+SMTP / Transactional email
+4. User Roles
+Client
+Completes the engagement form, uploads documents, signs electronically.
+Accountant
+Reviews submissions, requests more information, accepts or declines engagements.
+Administrator
+Manages configuration, document rules, fees, users and audit logs.
+5. High-Level Client Workflow
+1. Select Services
+2. Enter Personal Information
+3. Residency & Family
+4. Income & Tax Profile
+5. BAS / ABN / GST
+6. Upload Documents & Verify Identity
+7. Authorities & Representative
+8. Review Engagement Schedule
+9. Legal Consents
+10. Electronic Signature
+11. Submit (Status = Pending Review)
+6. Internal Workflow
+Submission received
+Identity review
+Risk review
+Conflict check
+AML / CTF review (when applicable)
+Sanctions review (when applicable)
+Decision: Accept / Conditional Accept / Request Information / Decline
+Generate Engagement Acceptance Notice
+7. Client vs Admin Responsibilities
+Area
+Client
+Admin
+Personal Details
+✓
+View only
+Identity Upload
+✓
+Review
+Authorities
+✓
+Verify
+Electronic Signature
+✓
+View
+Risk Rating
+✓
+AML Review
+✓
+Sanctions
+✓
+Acceptance
+✓
+8. Future Parts
+Subsequent documents will provide detailed field-by-field specifications for each wizard step, including Ant Design components, validation rules, conditional logic, database mapping, and API considerations.

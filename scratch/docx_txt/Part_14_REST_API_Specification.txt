@@ -1,0 +1,81 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 14 - REST API Specification
+Purpose
+This document proposes REST API endpoints for the Individual Engagement System. The endpoints are designed to support the workflow defined in the Financially Up specification. Endpoint names and payloads are implementation recommendations.
+General Standards
+Use JSON request/response bodies.
+Authenticate protected endpoints with JWT.
+Use HTTPS for all requests.
+Return standard HTTP status codes.
+Log all administrative actions.
+Endpoint Summary
+Method
+Endpoint
+Purpose
+POST
+/api/engagements
+Create a new engagement
+GET
+/api/engagements/{id}
+Get engagement details
+PUT
+/api/engagements/{id}
+Update engagement
+POST
+/api/engagements/{id}/documents
+Upload supporting document
+POST
+/api/engagements/{id}/signature
+Submit electronic signature
+GET
+/api/engagements/{id}/schedule
+Generate/View engagement schedule
+POST
+/api/admin/engagements/{id}/accept
+Accept engagement
+POST
+/api/admin/engagements/{id}/request-info
+Request additional information
+POST
+/api/admin/engagements/{id}/decline
+Decline engagement
+GET
+/api/admin/dashboard
+Dashboard summary
+Example Create Engagement Request
+{  "services": ["Individual Tax Return"],  "fullName": "John Smith",  "email": "john@example.com",  "mobile": "0400000000"}
+Example Response
+{  "success": true,  "engagementId": 125,  "status": "Pending Review"}
+Standard Status Codes
+Code
+Meaning
+200
+Success
+201
+Created
+400
+Validation Error
+401
+Unauthorized
+403
+Forbidden
+404
+Not Found
+409
+Conflict
+500
+Server Error
+Workflow Mapping
+Client creates engagement.
+Documents uploaded.
+Identity verified.
+Engagement Schedule generated.
+Client signs electronically.
+Status changes to Pending Review.
+Admin reviews and decides.
+Accepted engagements generate Engagement Acceptance Notice.
+Security Requirements
+Validate all input server-side.
+Virus-scan uploaded files.
+Restrict admin endpoints by role.
+Do not expose TFNs or bank details in responses.
+Maintain audit logs for every admin action.

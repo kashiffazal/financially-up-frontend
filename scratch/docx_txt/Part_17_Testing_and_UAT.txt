@@ -1,0 +1,91 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 17 - Testing & User Acceptance Testing (UAT)
+Purpose
+This document defines the testing strategy for the Individual Engagement System. It covers functional testing, validation testing, conditional logic testing, security verification, and user acceptance testing before production deployment.
+1. Functional Testing
+Verify every wizard step loads successfully.
+Verify users can navigate Next and Previous.
+Verify data is retained between steps.
+Verify completed engagement is saved successfully.
+Verify generated PDF matches submitted data.
+2. Validation Testing
+Required fields display appropriate validation messages.
+Email validation accepts only valid email addresses.
+Phone validation follows configured format.
+Conditional required fields validate correctly.
+Submission is blocked until validation passes.
+3. Conditional Logic Testing
+TFN appears only for applicable services.
+Visa section appears only for non-Australian citizens.
+Spouse fields appear only when applicable.
+Representative section appears only when selected.
+BAS / ABN / GST sections display correctly.
+Consent and signature steps remain locked until prerequisites are met.
+4. Upload Testing
+Supported file types upload successfully.
+Unsupported file types are rejected.
+Maximum file size is enforced.
+Uploaded files can be previewed and replaced before submission.
+Required uploads prevent submission when missing.
+5. Admin Workflow Testing
+Pending Review queue displays new engagements.
+Accountant can request more information.
+Accountant can accept or decline an engagement.
+Audit trail records all decisions.
+Role permissions prevent unauthorized actions.
+6. Security Testing
+Sensitive fields are masked where required.
+Users cannot access another client's engagement.
+Admin endpoints require authentication.
+Document access follows role permissions.
+Audit logs cannot be modified.
+7. Browser & Device Testing
+Google Chrome
+Microsoft Edge
+Mozilla Firefox
+Safari
+Responsive layouts for desktop, tablet and mobile
+8. User Acceptance Testing (UAT)
+Test ID
+Scenario
+Expected Result
+Status
+UAT-001
+Complete standard tax engagement
+Submitted successfully
+Pass/Fail
+UAT-002
+Submit with missing required field
+Validation shown
+Pass/Fail
+UAT-003
+Upload invalid document type
+Upload rejected
+Pass/Fail
+UAT-004
+Representative workflow
+Authority required
+Pass/Fail
+UAT-005
+Accept engagement in admin
+Status updated
+Pass/Fail
+UAT-006
+Decline engagement
+Decision recorded
+Pass/Fail
+UAT-007
+Generate engagement PDF
+PDF generated
+Pass/Fail
+9. Pre-Go-Live Checklist
+All functional tests passed.
+All validation tests passed.
+Security review completed.
+Database backup configured.
+Email delivery verified.
+PDF generation verified.
+Production environment configured.
+Admin users trained.
+Client acceptance received.
+Conclusion
+The system should only be released after all critical and high-priority defects have been resolved and all UAT scenarios have been successfully completed.

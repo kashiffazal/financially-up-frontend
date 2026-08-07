@@ -71,7 +71,7 @@ export default function WebsiteFooter() {
               {/* Company Description */}
               <p className="text-[13px] leading-relaxed text-slate-600 dark:text-slate-300/90 max-w-md">
                 Financially Up is Australia’s premier online accounting &amp;
-                taxation platform — connecting individuals, sole traders, and
+                taxation platform - connecting individuals, sole traders, and
                 businesses with registered tax agents for stress-free
                 lodgements.
               </p>

@@ -1,0 +1,76 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 2 - Step 1: Service Selection
+Purpose
+This step determines the services requested by the client and drives the remaining wizard using conditional logic.
+Business Requirements
+Client must select at least one service.
+Questions shown later depend on selected services.
+If entity-related work is selected, a separate Entity Engagement must be created while allowing the individual engagement to continue.
+Field Specifications
+SRV-001 - What would you like help with?
+Database Field
+services
+Ant Design Component
+Checkbox.Group
+Input Type
+Multiple Selection
+Required
+Yes
+Placeholder
+Select one or more services
+Visible When
+Always visible
+Validation
+At least one option must be selected.
+Error Message
+Please select at least one service.
+Options:
+Individual Tax Return
+Prior-Year Return
+Amendment
+Rental Property
+Capital Gains
+Cryptocurrency
+Foreign Income / Residency
+Tax Planning
+ATO Matter
+Sole Trader BAS
+ABN Application
+GST Registration
+Other
+SRV-002 - Does the service relate to a company, trust, partnership or another entity?
+Database Field
+entityService
+Ant Design Component
+Radio.Group
+Input Type
+Single Selection
+Required
+Yes
+Placeholder
+-
+Visible When
+Always visible
+Validation
+Must select one option.
+Error Message
+Please select an option.
+Options:
+No
+Yes
+Unsure
+Conditional Logic
+If Entity Service = Yes
+Continue the Individual Engagement wizard.
+Automatically create a linked Business / Entity Engagement record.
+Notify internal staff that a second engagement is required.
+Do not ask company/trust fields inside this individual form.
+If Entity Service = No or Unsure
+Continue normal Individual Engagement flow.
+Recommended Ant Design Model
+{  services: [],  entityService: null}
+Acceptance Criteria
+User cannot continue without selecting at least one service.
+Entity question is mandatory.
+Entity fields are not collected in this form.
+Selection is stored successfully.
+Next step depends on selected services.

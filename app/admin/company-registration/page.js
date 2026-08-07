@@ -50,7 +50,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -97,7 +97,7 @@ const getStatusColor = (status) => {
   return found ? found.color : "default";
 };
 
-// Export column definitions — defines which fields to include in CSV/Excel exports
+// Export column definitions - defines which fields to include in CSV/Excel exports
 const EXPORT_COLUMNS = [
   { header: "ID", key: "id" },
   { header: "Company Name", key: "companyName" },
@@ -175,7 +175,7 @@ export default function CompanyRegistrationPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -190,7 +190,7 @@ export default function CompanyRegistrationPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -203,7 +203,7 @@ export default function CompanyRegistrationPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -230,7 +230,7 @@ export default function CompanyRegistrationPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -321,7 +321,7 @@ export default function CompanyRegistrationPage() {
       title: "Company Name",
       dataIndex: "companyName",
       key: "companyName",
-      render: (val, record) => val || record.proposed_name || "—",
+      render: (val, record) => val || record.proposed_name || "-",
       sorter: (a, b) =>
         (a.companyName || "").localeCompare(b.companyName || ""),
     },
@@ -331,7 +331,7 @@ export default function CompanyRegistrationPage() {
       render: (_, record) =>
         `${record.isFirst_name || ""} ${record.isMiddle_name || ""} ${record.isLast_name || ""}`
           .replace(/\s+/g, " ")
-          .trim() || "—",
+          .trim() || "-",
       sorter: (a, b) => {
         const aName = `${a.isFirst_name || ""} ${a.isLast_name || ""}`;
         const bName = `${b.isFirst_name || ""} ${b.isLast_name || ""}`;
@@ -342,14 +342,14 @@ export default function CompanyRegistrationPage() {
       title: "ABN",
       dataIndex: "name_ABN",
       key: "name_ABN",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.name_ABN || "").localeCompare(b.name_ABN || ""),
     },
     {
       title: "Email",
       dataIndex: "email",
       key: "email",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
     },
     {
@@ -373,7 +373,7 @@ export default function CompanyRegistrationPage() {
           }));
 
         const items = [
-          // View PDF — only show if pdfUrl exists
+          // View PDF - only show if pdfUrl exists
           ...(record.pdfUrl
             ? [
                 {
@@ -559,7 +559,7 @@ export default function CompanyRegistrationPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -584,4 +584,3 @@ export default function CompanyRegistrationPage() {
     </div>
   );
 }
-

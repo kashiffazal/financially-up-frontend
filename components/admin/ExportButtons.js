@@ -4,7 +4,7 @@
  * ExportButtons Component
  * ========================
  * Reusable export component for CSV and Excel downloads.
- * Used across all admin modules — just pass the data, columns config, and filename.
+ * Used across all admin modules - just pass the data, columns config, and filename.
  *
  * Props:
  * @param {Function} fetchData - Async function that returns the full dataset for export (not paginated)
@@ -39,7 +39,7 @@ const exportToCSV = (records, columns, filename) => {
   // Build CSV header row from column definitions
   const headers = columns.map((col) => col.header).join(",");
 
-  // Build CSV data rows — escape commas and quotes in cell values
+  // Build CSV data rows - escape commas and quotes in cell values
   const rows = records.map((record) =>
     columns
       .map((col) => {
@@ -51,12 +51,16 @@ const exportToCSV = (records, columns, filename) => {
           value = String(value);
         }
         // Escape double quotes and wrap in quotes if contains special characters
-        if (value.includes(",") || value.includes('"') || value.includes("\n")) {
+        if (
+          value.includes(",") ||
+          value.includes('"') ||
+          value.includes("\n")
+        ) {
           value = `"${value.replace(/"/g, '""')}"`;
         }
         return value;
       })
-      .join(",")
+      .join(","),
   );
 
   const csvContent = [headers, ...rows].join("\n");
@@ -83,11 +87,9 @@ const exportToCSV = (records, columns, filename) => {
  */
 const exportToExcel = (records, columns, filename) => {
   // Build HTML table header
-  const headerRow = columns
-    .map((col) => `<th>${col.header}</th>`)
-    .join("");
+  const headerRow = columns.map((col) => `<th>${col.header}</th>`).join("");
 
-  // Build HTML table data rows — escape HTML special characters
+  // Build HTML table data rows - escape HTML special characters
   const dataRows = records
     .map((record) => {
       const cells = columns
@@ -96,7 +98,7 @@ const exportToExcel = (records, columns, filename) => {
           if (value === null || value === undefined) value = "";
           else if (typeof value === "object") value = JSON.stringify(value);
           else value = String(value);
-          
+
           return `<td>${value
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")}</td>`;
@@ -127,11 +129,15 @@ const exportToExcel = (records, columns, filename) => {
   URL.revokeObjectURL(url);
 };
 
-export default function ExportButtons({ fetchData, columns, filenamePrefix = "export" }) {
+export default function ExportButtons({
+  fetchData,
+  columns,
+  filenamePrefix = "export",
+}) {
   const [loading, setLoading] = useState(false);
 
   /**
-   * Handle export — calls fetchData to get ALL records,
+   * Handle export - calls fetchData to get ALL records,
    * then exports to the requested format.
    * @param {string} format - "csv" or "excel"
    */

@@ -49,7 +49,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -97,7 +97,7 @@ const getStatusColor = (status) => {
 };
 
 /**
- * Form type variant suffixes — maps each form type to its field suffix.
+ * Form type variant suffixes - maps each form type to its field suffix.
  * The base TFN fields have no suffix, while Sole/Company/Trust/Partnership
  * each have their own suffixed columns in the database.
  */
@@ -131,7 +131,7 @@ const resolveFormVariant = (record) => {
       };
     }
   }
-  // Fallback — no variant matched, return empty
+  // Fallback - no variant matched, return empty
   return {
     formTypeLabel: record.formType || "Unknown",
     firstName: "",
@@ -142,7 +142,7 @@ const resolveFormVariant = (record) => {
   };
 };
 
-// Export column definitions — uses resolved fields for CSV/Excel exports
+// Export column definitions - uses resolved fields for CSV/Excel exports
 const EXPORT_COLUMNS = [
   { header: "ID", key: "id" },
   { header: "Form Type", key: "_formType" },
@@ -220,7 +220,7 @@ export default function ApplyTfnAbnsPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -235,7 +235,7 @@ export default function ApplyTfnAbnsPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -248,7 +248,7 @@ export default function ApplyTfnAbnsPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -275,7 +275,7 @@ export default function ApplyTfnAbnsPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -301,8 +301,8 @@ export default function ApplyTfnAbnsPage() {
                 {resolved.firstName} {resolved.lastName}
               </strong>{" "}
               from{" "}
-              <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
-              <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
+              <Tag color={getStatusColor(record.status)}>{record.status}</Tag>{" "}
+              to <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
             </p>
           </div>
         );
@@ -329,7 +329,7 @@ export default function ApplyTfnAbnsPage() {
     });
   };
 
-  /** Handle delete action — confirm and delete via API */
+  /** Handle delete action - confirm and delete via API */
   const handleDelete = async (record) => {
     const resolved = resolveFormVariant(record);
     Modal.confirm({
@@ -411,7 +411,7 @@ export default function ApplyTfnAbnsPage() {
       key: "fullName",
       render: (_, record) => {
         const resolved = resolveFormVariant(record);
-        return `${resolved.firstName} ${resolved.lastName}`.trim() || "—";
+        return `${resolved.firstName} ${resolved.lastName}`.trim() || "-";
       },
       sorter: (a, b) => {
         const aName = `${resolveFormVariant(a).firstName} ${resolveFormVariant(a).lastName}`;
@@ -424,7 +424,7 @@ export default function ApplyTfnAbnsPage() {
       key: "phoneNumber",
       render: (_, record) => {
         const resolved = resolveFormVariant(record);
-        return resolved.phoneNumber || "—";
+        return resolved.phoneNumber || "-";
       },
       sorter: (a, b) => {
         const aPhone = resolveFormVariant(a).phoneNumber;
@@ -437,7 +437,7 @@ export default function ApplyTfnAbnsPage() {
       key: "email",
       render: (_, record) => {
         const resolved = resolveFormVariant(record);
-        return resolved.email || "—";
+        return resolved.email || "-";
       },
       sorter: (a, b) => {
         const aEmail = resolveFormVariant(a).email;
@@ -473,14 +473,19 @@ export default function ApplyTfnAbnsPage() {
               const parsed = JSON.parse(fieldData);
               urls = Array.isArray(parsed) ? parsed : [parsed];
             } catch {
-              urls = fieldData.split(",").map((u) => u.trim()).filter(Boolean);
+              urls = fieldData
+                .split(",")
+                .map((u) => u.trim())
+                .filter(Boolean);
             }
           }
-          
+
           if (urls.length === 1) {
-             addAttachment(labelPrefix, urls[0]);
+            addAttachment(labelPrefix, urls[0]);
           } else {
-             urls.forEach((url, i) => addAttachment(`${labelPrefix} ${i + 1}`, url));
+            urls.forEach((url, i) =>
+              addAttachment(`${labelPrefix} ${i + 1}`, url),
+            );
           }
         };
 
@@ -497,18 +502,18 @@ export default function ApplyTfnAbnsPage() {
           record.signature.trim() !== "";
 
         if (hasSignature) {
-           menuItems.push({
-             key: "signature",
-             icon: <FormOutlined />,
-             label: "Signature",
-             onClick: () => window.open(record.signature, "_blank"),
-           });
+          menuItems.push({
+            key: "signature",
+            icon: <FormOutlined />,
+            label: "Signature",
+            onClick: () => window.open(record.signature, "_blank"),
+          });
         }
 
         const totalAttachments = menuItems.length;
 
         if (totalAttachments === 0) {
-          return <Text type="secondary">—</Text>;
+          return <Text type="secondary">-</Text>;
         }
 
         return (
@@ -544,16 +549,17 @@ export default function ApplyTfnAbnsPage() {
       width: 110,
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)
-        const statusSubmenu = STATUS_LIST.filter((s) => s.key !== record.status)
-          .map((s) => ({
-            key: `status-${s.key}`,
-            icon: s.icon,
-            label: s.label,
-            onClick: () => handleStatusChange(record, s.key),
-          }));
+        const statusSubmenu = STATUS_LIST.filter(
+          (s) => s.key !== record.status,
+        ).map((s) => ({
+          key: `status-${s.key}`,
+          icon: s.icon,
+          label: s.label,
+          onClick: () => handleStatusChange(record, s.key),
+        }));
 
         const items = [
-          // View PDF — only show if pdfUrl exists
+          // View PDF - only show if pdfUrl exists
           ...(record.pdfUrl
             ? [
                 {
@@ -639,7 +645,8 @@ export default function ApplyTfnAbnsPage() {
             <IdcardOutlined className="text-slate-500" /> Apply TFN & ABNs
           </Title>
           <Text className="text-slate-500 dark:text-slate-400">
-            Manage applications for TFNs and ABNs for individuals, companies, partnerships, and trusts.
+            Manage applications for TFNs and ABNs for individuals, companies,
+            partnerships, and trusts.
           </Text>
         </div>
         <Breadcrumb
@@ -739,7 +746,7 @@ export default function ApplyTfnAbnsPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -764,4 +771,3 @@ export default function ApplyTfnAbnsPage() {
     </div>
   );
 }
-

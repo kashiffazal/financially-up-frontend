@@ -1,0 +1,172 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 16 - Complete Conditional Logic Matrix
+Purpose
+This document consolidates the show/hide rules and workflow dependencies used throughout the client engagement wizard. It serves as a single reference for implementing conditional logic in Next.js and Ant Design.
+Implementation Principles
+Evaluate conditions whenever a dependent field changes.
+Hidden fields should not be validated.
+Clear hidden field values unless business rules require retention.
+Create internal review flags where specified.
+Server-side validation must enforce the same conditions.
+Conditional Logic Matrix
+Rule ID
+Trigger Field
+Trigger Value
+Action
+Affected Fields
+System Action
+CL-001
+Services
+Tax-related service selected
+Show
+TFN
+Require TFN validation
+CL-002
+Have previous name
+Yes
+Show
+Previous Name
+Store previous names
+CL-003
+Australian Citizen
+No
+Show
+Visa fields
+Require visa evidence
+CL-004
+Tax Residency
+Became/Ceased/Unsure
+Show
+Residency details
+Create accountant review flag
+CL-005
+Has Spouse
+Yes
+Show
+Spouse fields
+Allow spouse engagement
+CL-006
+Prepare spouse return
+Yes
+Create
+Linked engagement
+Notify staff
+CL-007
+Has Dependants
+Yes
+Show
+Dependant count
+Store dependant data
+CL-008
+Previous Accountant
+Yes
+Show
+Firm / Reason / Authority
+Enable adviser authority
+CL-009
+ATO Issues
+Yes or Unsure
+Show
+ATO details & uploads
+Priority review
+CL-010
+BAS selected
+True
+Show
+BAS section
+Enable BAS workflow
+CL-011
+ABN service
+True
+Show
+ABN section
+Validate ABN
+CL-012
+GST service
+True
+Show
+GST section
+Enable GST workflow
+CL-013
+Identity Method
+Upload ID
+Show
+Primary & Supporting ID
+Require uploads
+CL-014
+Identity Method
+No Photo ID
+Show
+Alternative evidence
+Manual review
+CL-015
+Biometric Verification
+Selected
+Show
+Biometric consent
+Consent required
+CL-016
+Completing for yourself
+No
+Show
+Representative fields
+Verify authority
+CL-017
+Representative Type
+Guardian/Attorney/Executor
+Require
+Authority document
+Manual review
+CL-018
+Bank Details Required
+Yes
+Show
+Bank fields
+Validate account
+CL-019
+ABN/GST selected
+True
+Show
+ABR Authority
+Require authority
+CL-020
+Previous Accountant
+Yes
+Show
+Previous Adviser Authority
+Store response
+CL-021
+Documents Opened
+All opened
+Enable
+Consent step
+Allow next step
+CL-022
+Mandatory Consents
+Accepted
+Enable
+Signature step
+Allow signature
+CL-023
+Signature
+Captured
+Enable
+Submit button
+Generate package
+CL-024
+Submission
+Completed
+Update
+Status
+Set Pending Review
+Developer Notes
+Use Form.useWatch() or equivalent state management for dependent fields.
+Avoid validating hidden controls.
+Display clear transition animations when sections appear.
+Log automatic review flags for admin users.
+Retain an audit history of workflow decisions.
+Acceptance Criteria
+Every conditional rule behaves consistently.
+Hidden fields are excluded from validation.
+Review flags are generated correctly.
+Navigation reflects current conditions.
+Submission is blocked until all active conditions are satisfied.

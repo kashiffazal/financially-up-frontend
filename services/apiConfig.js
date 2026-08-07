@@ -12,7 +12,7 @@
  *   fetch(`${API_BASE_URL}/individual-engagement`);
  */
 
-// Backend API base URL — reads from Next.js env or falls back to localhost
+// Backend API base URL - reads from Next.js env or falls back to localhost
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 /**

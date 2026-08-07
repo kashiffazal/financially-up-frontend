@@ -1,0 +1,125 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 13 - Database Design (MySQL / Sequelize)
+Purpose
+This document proposes a relational database structure to support the Individual Engagement workflow. The design is based on the uploaded Financially Up specification and organizes client, engagement, document, consent and review data into separate tables.
+Database Design Principles
+Normalize reusable entities.
+Store client-facing and internal review data separately.
+Never expose full TFNs in logs or generated PDFs.
+Keep audit records immutable.
+Use foreign keys for all related entities.
+Table: clients
+Column
+Type / Notes
+id
+BIGINT PK
+full_name
+VARCHAR(150)
+dob
+DATE
+email
+VARCHAR(255)
+mobile
+VARCHAR(30)
+masked_tfn
+VARCHAR(20)
+created_at
+DATETIME
+Table: engagements
+Column
+Type / Notes
+id
+BIGINT PK
+client_id
+FK -> clients.id
+status
+ENUM(Pending Review, Accepted, Conditional, Declined)
+service_year
+VARCHAR(20)
+created_at
+DATETIME
+Table: engagement_services
+Column
+Type / Notes
+id
+BIGINT PK
+engagement_id
+FK
+service_name
+VARCHAR(100)
+Table: uploaded_documents
+Column
+Type / Notes
+id
+BIGINT PK
+engagement_id
+FK
+document_type
+VARCHAR(100)
+file_path
+TEXT
+status
+ENUM(Required,Optional,Received)
+Table: identity_verifications
+Column
+Type / Notes
+id
+BIGINT PK
+engagement_id
+FK
+method
+VARCHAR(50)
+status
+VARCHAR(30)
+Table: consents
+Column
+Type / Notes
+id
+BIGINT PK
+engagement_id
+FK
+consent_type
+VARCHAR(100)
+accepted
+BOOLEAN
+accepted_at
+DATETIME
+Table: audit_logs
+Column
+Type / Notes
+id
+BIGINT PK
+engagement_id
+FK
+action
+VARCHAR(255)
+performed_by
+BIGINT
+created_at
+DATETIME
+Relationships
+clients 1 -> many engagements
+engagements 1 -> many engagement_services
+engagements 1 -> many uploaded_documents
+engagements 1 -> many consents
+engagements 1 -> many audit_logs
+engagements 1 -> 1 identity_verifications
+Recommended Sequelize Models
+Client
+Engagement
+EngagementService
+UploadedDocument
+IdentityVerification
+Consent
+AuditLog
+Indexes
+clients.email
+clients.mobile
+engagements.status
+engagements.client_id
+uploaded_documents.engagement_id
+audit_logs.engagement_id
+Security Notes
+Encrypt TFNs at rest.
+Mask sensitive values in UI and PDFs.
+Restrict document access using role-based permissions.
+Do not log full TFNs or bank details.

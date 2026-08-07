@@ -50,7 +50,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -175,7 +175,7 @@ export default function MedicarePage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -190,7 +190,7 @@ export default function MedicarePage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -203,7 +203,7 @@ export default function MedicarePage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -230,7 +230,7 @@ export default function MedicarePage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -281,7 +281,7 @@ export default function MedicarePage() {
     });
   };
 
-  /** Handle delete action — confirm and delete via API */
+  /** Handle delete action - confirm and delete via API */
   const handleDelete = async (record) => {
     Modal.confirm({
       title: `Delete ${record.firstName} ${record.familyName}?`,
@@ -324,7 +324,7 @@ export default function MedicarePage() {
       title: "Full Name",
       key: "fullName",
       render: (_, record) =>
-        `${record.firstName || ""} ${record.familyName || ""}`.trim() || "—",
+        `${record.firstName || ""} ${record.familyName || ""}`.trim() || "-",
       sorter: (a, b) => {
         const aName = `${a.firstName || ""} ${a.familyName || ""}`;
         const bName = `${b.firstName || ""} ${b.familyName || ""}`;
@@ -347,7 +347,7 @@ export default function MedicarePage() {
       title: "Medicare No",
       dataIndex: "medicareNumber",
       key: "medicareNumber",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) =>
         (a.medicareNumber || "").localeCompare(b.medicareNumber || ""),
     },
@@ -379,25 +379,33 @@ export default function MedicarePage() {
               const parsed = JSON.parse(fieldData);
               urls = Array.isArray(parsed) ? parsed : [parsed];
             } catch {
-              urls = fieldData.split(",").map((u) => u.trim()).filter(Boolean);
+              urls = fieldData
+                .split(",")
+                .map((u) => u.trim())
+                .filter(Boolean);
             }
           }
-          
+
           if (urls.length === 1) {
-             addAttachment(labelPrefix, urls[0]);
+            addAttachment(labelPrefix, urls[0]);
           } else {
-             urls.forEach((url, i) => addAttachment(`${labelPrefix} ${i + 1}`, url));
+            urls.forEach((url, i) =>
+              addAttachment(`${labelPrefix} ${i + 1}`, url),
+            );
           }
         };
 
         processField("Appeal Decision", record.AppealAgainstDecision);
-        processField("PR Letter", record.RecievedDateOfLetterForPermanentResidence);
+        processField(
+          "PR Letter",
+          record.RecievedDateOfLetterForPermanentResidence,
+        );
         processField("Visa Evidence", record.evidenceoOfVisaEndorsed);
         processField("Medical Insurance", record.medicalInsurance);
         processField("Residency Status", record.ResidencyStatusAttachment);
         processField("Passport", record.passportCopy);
         processField("Other Doc", record.otherDocuments);
-        
+
         // Check if signature URL exists
         const hasSignature =
           record.signature &&
@@ -405,18 +413,18 @@ export default function MedicarePage() {
           record.signature.trim() !== "";
 
         if (hasSignature) {
-           menuItems.push({
-             key: "signature",
-             icon: <FormOutlined />,
-             label: "Signature",
-             onClick: () => window.open(record.signature, "_blank"),
-           });
+          menuItems.push({
+            key: "signature",
+            icon: <FormOutlined />,
+            label: "Signature",
+            onClick: () => window.open(record.signature, "_blank"),
+          });
         }
 
         const totalAttachments = menuItems.length;
 
         if (totalAttachments === 0) {
-          return <Text type="secondary">—</Text>;
+          return <Text type="secondary">-</Text>;
         }
 
         return (
@@ -461,7 +469,7 @@ export default function MedicarePage() {
           }));
 
         const items = [
-          // View PDF — only show if pdfUrl exists
+          // View PDF - only show if pdfUrl exists
           ...(record.pdfUrl
             ? [
                 {
@@ -574,7 +582,8 @@ export default function MedicarePage() {
               level={4}
               className="!mb-1 !text-slate-800 dark:!text-slate-100"
             >
-              {activeTab === "All" ? "Regular" : activeTab} Medicare Applications
+              {activeTab === "All" ? "Regular" : activeTab} Medicare
+              Applications
             </Title>
             <Text className="text-slate-500 dark:text-slate-400 text-sm">
               List of {activeTab === "All" ? "all" : activeTab.toLowerCase()}{" "}
@@ -647,7 +656,7 @@ export default function MedicarePage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -672,4 +681,3 @@ export default function MedicarePage() {
     </div>
   );
 }
-

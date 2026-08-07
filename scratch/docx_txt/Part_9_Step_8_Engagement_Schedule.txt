@@ -1,0 +1,118 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 9 - Step 8: Engagement Schedule
+Step Objective
+Generate a client-specific Engagement Schedule summarising the exact scope of work. The schedule is automatically produced from the client's responses and must be reviewed before the client signs the engagement.
+Business Rules
+Engagement Schedule is generated automatically and is read-only for the client.
+It must be displayed before the consent and signature step.
+Submission is blocked until the client opens the Engagement Schedule.
+The schedule is versioned and stored with the signed engagement.
+A written Engagement Acceptance Notice is still required after internal review.
+Schedule Fields
+ID
+Field
+Type
+Required
+Description
+ENG-001
+Client Name
+Auto
+Required
+Client full legal name
+ENG-002
+Client Reference
+Auto
+Required
+Internal reference number
+ENG-003
+Accepted Service
+Auto
+Required
+Based on selected services
+ENG-004
+Tax Year / BAS Period
+Auto
+Required
+Relevant period
+ENG-005
+Deliverables
+Auto
+Required
+Return / BAS / Registration / Advice
+ENG-006
+Included Work
+Auto
+Required
+Scope included
+ENG-007
+Excluded Work
+Auto
+Required
+Out of scope services
+ENG-008
+Client Information Deadline
+Date
+Required
+Completion deadline
+ENG-009
+Expected Completion
+Date
+Required
+Target completion
+ENG-010
+Statutory Lodgement Deadline
+Date
+Conditional
+Known statutory deadline
+ENG-011
+Fees
+Currency
+Required
+Fixed fee / hourly / GST
+ENG-012
+Urgent Work Limit
+Currency
+Required
+Emergency limit
+ENG-013
+Special Conditions
+TextArea
+Optional
+Identity/payment/risk conditions
+ENG-014
+Responsible Accountant
+Auto
+Required
+Assigned reviewer
+ENG-015
+Engagement Term
+Auto
+Required
+Continuing until terminated
+ENG-016
+Acceptance Date
+Auto
+System
+Populated after written acceptance
+Generation Rules
+Populate services from Step 1.
+Populate client details from previous steps.
+Calculate included/excluded work based on selected services.
+Display configured fees and conditions.
+Generate a PDF-ready summary.
+Version every generated schedule.
+Client Workflow
+System generates Engagement Schedule.
+Client reviews summary.
+Client opens full Terms & Conditions.
+Client proceeds to consent screen.
+Internal Workflow
+Accountant reviews generated schedule.
+Amend scope if required.
+Issue Engagement Acceptance Notice after approval.
+Store final accepted version with audit trail.
+Acceptance Criteria
+Schedule is generated automatically.
+Client cannot edit generated values.
+Client must open the schedule before signing.
+Version number is stored.
+Final PDF matches accepted schedule.

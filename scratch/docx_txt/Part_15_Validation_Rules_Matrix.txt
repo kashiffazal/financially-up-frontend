@@ -1,0 +1,120 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 15 - Validation Rules Matrix
+Purpose
+This document consolidates the validation requirements for the client engagement wizard. It is intended as a developer reference for implementing Ant Design form validation.
+Validation Principles
+Perform client-side validation using Ant Design Form rules.
+Repeat all critical validation on the server.
+Display clear error messages.
+Hide validation for fields that are not currently visible.
+Prevent submission until all mandatory validations pass.
+Validation Matrix
+Field
+Required
+Condition
+Validation
+Error Message
+Notes
+Services
+Yes
+Always
+At least one option
+Please select at least one service.
+Checkbox.Group
+Entity Service
+Yes
+Always
+Selection required
+Please select an option.
+Radio.Group
+Full Legal Name
+Yes
+Always
+Max 150 chars
+Please enter your full legal name.
+Input
+Date of Birth
+Yes
+Always
+Valid date
+Please select your date of birth.
+DatePicker
+TFN
+Conditional
+Tax services
+9 digits
+Please enter a valid TFN.
+Hide when not required
+Email
+Yes
+Always
+Valid email
+Please enter a valid email address.
+Email format
+Mobile
+Yes
+Always
+Australian phone
+Please enter a valid mobile number.
+Phone validation
+Visa Evidence
+Conditional
+Non-citizen
+Upload required
+Please upload visa evidence.
+Upload
+ATO Documents
+Conditional
+ATO Issue
+Upload required
+Please upload supporting documents.
+Upload
+Identity Method
+Yes
+Always
+Selection required
+Please select an identity verification method.
+Radio.Group
+Primary ID
+Conditional
+Upload ID
+Required upload
+Please upload a primary ID.
+Upload
+Authority Document
+Conditional
+Representative
+Required upload
+Please upload the authority document.
+Upload
+ATO Authority
+Yes
+Always
+Checkbox
+You must authorise Financially Up.
+Checkbox
+Consent
+Yes
+Always
+Checkbox
+You must accept before continuing.
+Checkbox
+Electronic Signature
+Yes
+Always
+Signature present
+Please provide your signature.
+Signature
+Upload Validation
+Accepted file types should be configurable (e.g. PDF, JPG, JPEG, PNG).
+Maximum file size should be configurable.
+Reject unsupported file types.
+Prevent empty uploads.
+Support document replacement before submission.
+Blocking Rules
+Mandatory fields incomplete.
+Required uploads missing.
+Required consents not accepted.
+Signature missing.
+Mandatory conditional fields incomplete.
+Recommended Ant Design Example
+rules={[  { required: true, message: 'Please enter your full legal name.' },  { max: 150, message: 'Maximum 150 characters allowed.' }]}

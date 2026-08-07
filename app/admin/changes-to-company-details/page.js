@@ -49,7 +49,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -174,7 +174,7 @@ export default function ChangesToCompanyDetailsPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -189,7 +189,7 @@ export default function ChangesToCompanyDetailsPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -202,7 +202,7 @@ export default function ChangesToCompanyDetailsPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -229,7 +229,7 @@ export default function ChangesToCompanyDetailsPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -249,7 +249,9 @@ export default function ChangesToCompanyDetailsPage() {
         <div>
           <p>
             Are you sure you want to change the status of{" "}
-            <strong>{record.NameOfCompany || `${record.fname} ${record.lname}`}</strong>{" "}
+            <strong>
+              {record.NameOfCompany || `${record.fname} ${record.lname}`}
+            </strong>{" "}
             from{" "}
             <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
             <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
@@ -278,7 +280,7 @@ export default function ChangesToCompanyDetailsPage() {
     });
   };
 
-  /** Handle delete action — confirm and delete via API */
+  /** Handle delete action - confirm and delete via API */
   const handleDelete = async (record) => {
     Modal.confirm({
       title: `Delete ${record.NameOfCompany || `${record.fname} ${record.lname}`}?`,
@@ -309,7 +311,9 @@ export default function ChangesToCompanyDetailsPage() {
     });
     return result.records.map((r) => ({
       ...r,
-      _contactName: `${r.fname || ""} ${r.mname || ""} ${r.lname || ""}`.replace(/\s+/g, " ").trim(),
+      _contactName: `${r.fname || ""} ${r.mname || ""} ${r.lname || ""}`
+        .replace(/\s+/g, " ")
+        .trim(),
     }));
   };
 
@@ -321,7 +325,7 @@ export default function ChangesToCompanyDetailsPage() {
       title: "Company Name",
       dataIndex: "NameOfCompany",
       key: "NameOfCompany",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) =>
         (a.NameOfCompany || "").localeCompare(b.NameOfCompany || ""),
     },
@@ -329,7 +333,7 @@ export default function ChangesToCompanyDetailsPage() {
       title: "ACN/ABN",
       dataIndex: "ACNorABN",
       key: "ACNorABN",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.ACNorABN || "").localeCompare(b.ACNorABN || ""),
     },
     {
@@ -338,7 +342,7 @@ export default function ChangesToCompanyDetailsPage() {
       render: (_, record) =>
         `${record.fname || ""} ${record.mname || ""} ${record.lname || ""}`
           .replace(/\s+/g, " ")
-          .trim() || "—",
+          .trim() || "-",
       sorter: (a, b) => {
         const aName = `${a.fname || ""} ${a.lname || ""}`;
         const bName = `${b.fname || ""} ${b.lname || ""}`;
@@ -349,7 +353,7 @@ export default function ChangesToCompanyDetailsPage() {
       title: "Email",
       dataIndex: "email",
       key: "email",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
     },
     {
@@ -364,7 +368,7 @@ export default function ChangesToCompanyDetailsPage() {
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(
-          (s) => s.key !== record.status
+          (s) => s.key !== record.status,
         ).map((s) => ({
           key: `status-${s.key}`,
           icon: s.icon,
@@ -442,7 +446,8 @@ export default function ChangesToCompanyDetailsPage() {
             level={2}
             className="!mb-1 !text-slate-800 dark:!text-slate-100 flex items-center gap-2"
           >
-            <EditOutlined className="text-slate-500" /> Changes to Company Details
+            <EditOutlined className="text-slate-500" /> Changes to Company
+            Details
           </Title>
           <Text className="text-slate-500 dark:text-slate-400">
             Manage requests to change company details.
@@ -472,7 +477,8 @@ export default function ChangesToCompanyDetailsPage() {
               level={4}
               className="!mb-1 !text-slate-800 dark:!text-slate-100"
             >
-              {activeTab === "All" ? "Regular" : activeTab} Changes to Company Details
+              {activeTab === "All" ? "Regular" : activeTab} Changes to Company
+              Details
             </Title>
             <Text className="text-slate-500 dark:text-slate-400 text-sm">
               List of {activeTab === "All" ? "all" : activeTab.toLowerCase()}{" "}
@@ -545,7 +551,7 @@ export default function ChangesToCompanyDetailsPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -570,4 +576,3 @@ export default function ChangesToCompanyDetailsPage() {
     </div>
   );
 }
-

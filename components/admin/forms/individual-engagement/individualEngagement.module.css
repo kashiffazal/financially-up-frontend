@@ -1,0 +1,50 @@
+/* Individual Engagement Form Custom Styles */
+
+.serviceOptionCard {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  cursor: pointer;
+}
+
+.serviceOptionCard:hover {
+  border-color: var(--brand-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 128, 67, 0.08);
+}
+
+:global(.dark) .serviceOptionCard {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+:global(.dark) .serviceOptionCard:hover {
+  border-color: var(--brand-border-hover);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.selectedCard {
+  border-color: var(--brand-primary) !important;
+  background-color: var(--brand-primary-soft) !important;
+}
+
+:global(.dark) .selectedCard {
+  border-color: var(--brand-border-hover) !important;
+  background-color: var(--brand-primary-soft) !important;
+}
+
+.radioOptionCard {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.radioOptionCard:hover {
+  border-color: var(--brand-primary);
+}
+
+:global(.dark) .radioOptionCard {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+:global(.dark) .radioOptionCard:hover {
+  border-color: var(--brand-border-hover);
+}
+

@@ -1,0 +1,58 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 18 - PDF Generation, Email Workflow & AI Development Guide
+Purpose
+This document complements Parts 1-17 and explains how the completed engagement should be converted into professional PDFs, emailed to clients and staff, and implemented as a new module within the existing Financially Up website and admin portal.
+1. Recommended Architecture
+Frontend: Next.js + Ant Design
+Backend: Node.js + Express/Nest (existing API)
+MySQL + Sequelize
+Puppeteer for PDF generation
+Nodemailer (or SMTP provider) for email delivery
+Background queue (BullMQ + Redis) for PDF/email jobs (recommended)
+2. PDF Types
+PDF
+Recipient
+When
+Contents
+Client Engagement PDF
+Client
+Immediately after submission
+Client answers, engagement schedule, declarations, signature, terms.
+Admin Review PDF
+Internal Staff
+Immediately after submission
+Client answers plus review summary, checklist and internal metadata. Exclude AML notes until completed.
+Engagement Acceptance Notice
+Client
+After accountant accepts
+Official acceptance letter with final engagement terms.
+3. Email Workflow
+Client submits engagement.
+Save all data.
+Generate Client PDF.
+Generate Admin PDF.
+Email Client PDF to the client.
+Email Admin PDF to configured staff mailbox.
+Set status to Pending Review.
+When accepted, generate Acceptance PDF and email the client.
+4. Recommended Project Structure
+src/  pdf/    ClientEngagementPDF.tsx    AdminReviewPDF.tsx    EngagementAcceptancePDF.tsx    components/    styles/  jobs/    generatePdf.ts    sendEmail.ts  templates/    client-email.html    admin-email.html
+5. AI Development Context
+Provide Parts 1-18 together as the project specification. Instruct the AI to treat these documents as the authoritative source for requirements and not invent business rules.
+6. Recommended AI Models
+Model
+Best Use
+Recommendation
+Claude Opus 4.1/4.6 Thinking
+Architecture, refactoring, complex implementation
+⭐⭐⭐⭐⭐ Recommended
+Gemini 2.5 Pro
+Large codebase implementation and long context
+⭐⭐⭐⭐⭐ Recommended
+Gemini 2.5 Flash
+Fast iterative coding
+⭐⭐⭐⭐
+GPT-5.5
+Planning, debugging, architecture, implementation support
+⭐⭐⭐⭐⭐
+7. Initial AI Prompt
+You are the lead senior full-stack engineer for the Financially Up Individual Engagement System.Read Parts 1-18 of the specification before writing code.Rules:- Follow the specifications exactly.- Do not invent business rules.- Build a new Engagement module inside the existing Next.js website and Admin Portal.- Use Ant Design for all UI.- Use Sequelize + MySQL.- Use reusable React components.- Implement every validation and conditional rule from the specification.- Generate professional PDFs using Puppeteer.- Generate Client PDF and Admin PDF after submission.- Email the correct PDF to the correct recipient.- Keep client and admin workflows separate.- Write clean, production-ready, documented TypeScript code.- Before implementing each feature, explain your approach briefly and identify any ambiguity in the specification.

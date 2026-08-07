@@ -395,7 +395,7 @@ export default function WebsiteHeader() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping inline-block" />
             <span className="tracking-wide">
-              Trusted Australian Accountants — 100% Online, ATO Compliant
+              Trusted Australian Accountants - 100% Online, ATO Compliant
             </span>
           </div>
           <div className="flex items-center gap-6">

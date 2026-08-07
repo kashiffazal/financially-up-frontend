@@ -14,3 +14,8 @@ This version has breaking changes - APIs, conventions, and file structure may al
    - `[ComponentName].module.css` for component-specific styling.
 3. **Shared / Global CSS**: Keep utility classes, design tokens, and global resets in `app/(web)/web.css`.
 4. **Future Pages & Components**: Always follow this Component Folder + JSX + CSS Module structure for all web pages and components.
+
+# Planning & Execution Rule
+
+ALWAYS present a comprehensive implementation plan first and wait for explicit user approval BEFORE writing any code or making source code changes.
+

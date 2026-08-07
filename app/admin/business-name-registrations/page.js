@@ -50,7 +50,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -97,7 +97,7 @@ const getStatusColor = (status) => {
   return found ? found.color : "default";
 };
 
-// Export column definitions — defines which fields to include in CSV/Excel exports
+// Export column definitions - defines which fields to include in CSV/Excel exports
 const EXPORT_COLUMNS = [
   { header: "ID", key: "id" },
   { header: "Proposed Business Name", key: "businessProposeName" },
@@ -176,7 +176,7 @@ export default function BusinessNameRegistrationsPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -191,7 +191,7 @@ export default function BusinessNameRegistrationsPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -204,7 +204,7 @@ export default function BusinessNameRegistrationsPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -231,7 +231,7 @@ export default function BusinessNameRegistrationsPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -251,8 +251,7 @@ export default function BusinessNameRegistrationsPage() {
         <div>
           <p>
             Are you sure you want to change the status of{" "}
-            <strong>{record.Name || record.businessProposeName}</strong>{" "}
-            from{" "}
+            <strong>{record.Name || record.businessProposeName}</strong> from{" "}
             <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
             <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
           </p>
@@ -280,7 +279,7 @@ export default function BusinessNameRegistrationsPage() {
     });
   };
 
-  /** Handle delete action — confirm and delete via API */
+  /** Handle delete action - confirm and delete via API */
   const handleDelete = async (record) => {
     Modal.confirm({
       title: `Delete ${record.Name || record.businessProposeName}?`,
@@ -324,36 +323,40 @@ export default function BusinessNameRegistrationsPage() {
       title: "Proposed Business Name",
       dataIndex: "businessProposeName",
       key: "businessProposeName",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) =>
-        (a.businessProposeName || "").localeCompare(b.businessProposeName || ""),
+        (a.businessProposeName || "").localeCompare(
+          b.businessProposeName || "",
+        ),
     },
     {
       title: "Name",
       dataIndex: "Name",
       key: "Name",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.Name || "").localeCompare(b.Name || ""),
     },
     {
       title: "Phone",
       key: "phone",
-      render: (_, record) => record.PhoneNumber || record.phone || "—",
+      render: (_, record) => record.PhoneNumber || record.phone || "-",
       sorter: (a, b) =>
-        (a.PhoneNumber || a.phone || "").localeCompare(b.PhoneNumber || b.phone || ""),
+        (a.PhoneNumber || a.phone || "").localeCompare(
+          b.PhoneNumber || b.phone || "",
+        ),
     },
     {
       title: "Email",
       dataIndex: "email",
       key: "email",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
     },
     {
       title: "ABN",
       dataIndex: "ABN",
       key: "ABN",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.ABN || "").localeCompare(b.ABN || ""),
     },
     {
@@ -368,7 +371,7 @@ export default function BusinessNameRegistrationsPage() {
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(
-          (s) => s.key !== record.status
+          (s) => s.key !== record.status,
         ).map((s) => ({
           key: `status-${s.key}`,
           icon: s.icon,
@@ -446,7 +449,8 @@ export default function BusinessNameRegistrationsPage() {
             level={2}
             className="!mb-1 !text-slate-800 dark:!text-slate-100 flex items-center gap-2"
           >
-            <ShopOutlined className="text-slate-500" /> Business Name Registrations
+            <ShopOutlined className="text-slate-500" /> Business Name
+            Registrations
           </Title>
           <Text className="text-slate-500 dark:text-slate-400">
             Manage business name registration applications.
@@ -476,7 +480,8 @@ export default function BusinessNameRegistrationsPage() {
               level={4}
               className="!mb-1 !text-slate-800 dark:!text-slate-100"
             >
-              {activeTab === "All" ? "Regular" : activeTab} Business Name Registrations
+              {activeTab === "All" ? "Regular" : activeTab} Business Name
+              Registrations
             </Title>
             <Text className="text-slate-500 dark:text-slate-400 text-sm">
               List of {activeTab === "All" ? "all" : activeTab.toLowerCase()}{" "}
@@ -494,7 +499,10 @@ export default function BusinessNameRegistrationsPage() {
                 onChange={setFilterBy}
                 style={{ width: 140 }}
                 options={[
-                  { value: "Proposed Business Name", label: "Proposed Business Name" },
+                  {
+                    value: "Proposed Business Name",
+                    label: "Proposed Business Name",
+                  },
                   { value: "Name", label: "Name" },
                   { value: "Phone", label: "Phone" },
                   { value: "Email", label: "Email" },
@@ -550,7 +558,7 @@ export default function BusinessNameRegistrationsPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -575,4 +583,3 @@ export default function BusinessNameRegistrationsPage() {
     </div>
   );
 }
-

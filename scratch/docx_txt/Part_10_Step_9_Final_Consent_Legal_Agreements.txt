@@ -1,0 +1,91 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 10 - Step 9: Final Consent & Legal Agreements
+Step Objective
+Before the client signs the engagement, all required legal documents must be opened and the required consents recorded separately. No checkbox may be pre-selected.
+Business Rules
+All required documents must be opened before the signature step is enabled.
+Every consent is stored independently in the audit trail.
+No checkbox or radio option may be pre-selected.
+If biometric verification is not used, biometric consent must remain hidden.
+Recording consent is optional and shown only when interviews are recorded.
+Submission is blocked until all mandatory consents are accepted.
+A. Required Documents
+ID
+Document
+Status
+DOCVIEW-001
+Engagement Schedule
+Required
+DOCVIEW-002
+Terms & Conditions
+Required
+DOCVIEW-003
+Privacy Collection Notice
+Required
+DOCVIEW-004
+Privacy Policy
+Required
+DOCVIEW-005
+TPB Client Information Statement
+Required
+B. Consent Controls
+ID
+Consent
+Component
+Requirement
+Notes
+CONSENT-001
+Agreement to Engagement Schedule & Terms
+Checkbox
+Required
+I have opened, read and agree to the Engagement Schedule and Terms.
+CONSENT-002
+Privacy & TPB Acknowledgement
+Checkbox
+Required
+I acknowledge the Privacy Collection Notice, Privacy Policy and TPB Statement.
+CONSENT-003
+ATO / ABR Authority
+Checkbox
+Required
+I authorise Financially Up to act within the accepted scope.
+CONSENT-004
+Technology & Overseas Processing
+Radio.Group
+Required
+Yes / No
+CONSENT-005
+Biometric Verification
+Checkbox
+Conditional
+Only when biometric verification is selected.
+CONSENT-006
+Audio / Video Recording
+Checkbox
+Optional
+Only when interview recording is proposed.
+Client Declarations
+I confirm the information supplied is true and complete.
+I have disclosed all relevant income, deductions, GST matters and overseas matters.
+I will notify Financially Up of changes or errors.
+I remain responsible for reviewing documents before lodgement.
+I understand Financially Up cannot guarantee taxation outcomes.
+I will not request false or misleading information.
+I understand my engagement remains Pending Review until accepted.
+I consent to electronic transactions and electronic signature.
+Blocking Conditions
+Required documents not opened.
+Mandatory consent missing.
+Technology consent not answered.
+Biometric consent missing when biometric verification is selected.
+Audit Trail Requirements
+Record document open timestamps.
+Store consent wording and selections.
+Store document version numbers.
+Store date/time of acceptance.
+Record IP/device information where implemented.
+Link all consents to the final engagement.
+Acceptance Criteria
+Client cannot continue without mandatory consents.
+No consent is pre-selected.
+Conditional consents appear only when applicable.
+Audit trail is generated successfully.

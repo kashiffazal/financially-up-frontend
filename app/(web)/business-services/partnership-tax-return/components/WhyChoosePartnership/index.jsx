@@ -1,37 +1,43 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   TeamOutlined,
   DollarOutlined,
   SolutionOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChoosePartnership() {
   const whyChoosePoints = [
     {
-      step: '01',
-      tag: 'Agreement Compliance',
-      title: 'Agreement & Income Split Compliance',
-      desc: 'Maintaining accurate partnership income allocation in accordance with your partnership agreement is essential. We calculate partner share percentages, salaries, and interest distributions accurately for seamless tax reporting.',
-      icon: <TeamOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "01",
+      tag: "Agreement Compliance",
+      title: "Agreement & Income Split Compliance",
+      desc: "Maintaining accurate partnership income allocation in accordance with your partnership agreement is essential. We calculate partner share percentages, salaries, and interest distributions accurately for seamless tax reporting.",
+      icon: (
+        <TeamOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '02',
-      tag: 'Tax Savings',
-      title: 'Maximizing Partnership Deductions',
-      desc: 'We explore all eligible partnership business deductions—including equipment depreciation, instant asset write-offs, commercial lease expenses, and partner motor vehicle claims—to reduce net income before distribution.',
-      icon: <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "02",
+      tag: "Tax Savings",
+      title: "Maximizing Partnership Deductions",
+      desc: "We explore all eligible partnership business deductions-including equipment depreciation, instant asset write-offs, commercial lease expenses, and partner motor vehicle claims-to reduce net income before distribution.",
+      icon: (
+        <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '03',
-      tag: 'Audit Protection',
-      title: 'Streamlining Reporting & Accounts',
-      desc: 'Maintaining accurate records and fulfilling reporting obligations is essential for partnerships. We simplify the process by providing effective record-keeping guidance and preparing financial statements accurately.',
-      icon: <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "03",
+      tag: "Audit Protection",
+      title: "Streamlining Reporting & Accounts",
+      desc: "Maintaining accurate records and fulfilling reporting obligations is essential for partnerships. We simplify the process by providing effective record-keeping guidance and preparing financial statements accurately.",
+      icon: (
+        <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
@@ -51,7 +57,8 @@ export default function WhyChoosePartnership() {
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Expert partnership accountants ensuring fair profit distributions, partner return integrations, and complete ATO compliance.
+            Expert partnership accountants ensuring fair profit distributions,
+            partner return integrations, and complete ATO compliance.
           </p>
         </div>
 

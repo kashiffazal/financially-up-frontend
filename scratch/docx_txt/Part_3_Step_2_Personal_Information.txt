@@ -1,0 +1,276 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 3 - Step 2: Personal Information
+Step Objective
+Collect the client's identity and contact information required to prepare the engagement. Many fields are conditionally displayed based on the selected services and user responses.
+Business Rules
+Only collect information reasonably required for the selected services.
+TFN is only displayed when the selected service requires it.
+Previous Name is displayed only when the client confirms they have used another name.
+Country of Birth is mandatory.
+About Yourself is limited to 500 characters.
+PI-001 - Full Legal Name
+Database Field
+fullName
+Ant Design Component
+Input
+Input Type
+Text
+Required
+Yes
+Visible When
+Always
+Placeholder
+Enter your full legal name
+Validation Message
+Please enter your full legal name.
+Developer Notes
+Exactly as shown on official records.
+PI-002 - Have you used another name?
+Database Field
+hasPreviousName
+Ant Design Component
+Radio.Group
+Input Type
+Boolean
+Required
+No
+Visible When
+Always
+Placeholder
+-
+Validation Message
+-
+Developer Notes
+-
+PI-003 - Previous / Other Names
+Database Field
+previousNames
+Ant Design Component
+Input
+Input Type
+Text
+Required
+Conditional
+Visible When
+hasPreviousName=Yes
+Placeholder
+Enter previous name
+Validation Message
+Please enter previous name.
+Developer Notes
+-
+PI-004 - Date of Birth
+Database Field
+dateOfBirth
+Ant Design Component
+DatePicker
+Input Type
+Date
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please select your date of birth.
+Developer Notes
+-
+PI-005 - Tax File Number
+Database Field
+tfn
+Ant Design Component
+Input
+Input Type
+Text
+Required
+Conditional
+Visible When
+Tax related services
+Placeholder
+Enter TFN
+Validation Message
+Please enter your TFN.
+Developer Notes
+Accept 9 digits after removing spaces.
+PI-006 - TFN Status
+Database Field
+tfnStatus
+Ant Design Component
+Radio.Group
+Input Type
+Option
+Required
+Conditional
+Visible When
+When TFN unavailable
+Placeholder
+-
+Validation Message
+-
+Developer Notes
+Options: I don't have TFN / Applied / Cannot provide now
+PI-007 - TFN Explanation
+Database Field
+tfnExplanation
+Ant Design Component
+TextArea
+Input Type
+Text
+Required
+Conditional
+Visible When
+Alternative TFN selected
+Placeholder
+-
+Validation Message
+Please explain.
+Developer Notes
+-
+PI-008 - City / Town of Birth
+Database Field
+birthCity
+Ant Design Component
+Input
+Input Type
+Text
+Required
+No
+Visible When
+Always
+Placeholder
+-
+Validation Message
+-
+Developer Notes
+-
+PI-009 - Country of Birth
+Database Field
+birthCountry
+Ant Design Component
+Select
+Input Type
+Country
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please select your country of birth.
+Developer Notes
+-
+PI-010 - Residential Address
+Database Field
+address
+Ant Design Component
+Input
+Input Type
+Text
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please enter your residential address.
+Developer Notes
+-
+PI-011 - Mobile Number
+Database Field
+mobile
+Ant Design Component
+Input
+Input Type
+Phone
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please enter your mobile number.
+Developer Notes
+Australian mobile validation.
+PI-012 - Email Address
+Database Field
+email
+Ant Design Component
+Input
+Input Type
+Email
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please enter a valid email address.
+Developer Notes
+-
+PI-013 - Occupation
+Database Field
+occupation
+Ant Design Component
+Input
+Input Type
+Text
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please enter your occupation.
+Developer Notes
+-
+PI-014 - Employment Status
+Database Field
+employmentStatus
+Ant Design Component
+Select
+Input Type
+Option
+Required
+Yes
+Visible When
+Always
+Placeholder
+-
+Validation Message
+Please select employment status.
+Developer Notes
+-
+PI-015 - Tell us briefly about yourself
+Database Field
+about
+Ant Design Component
+TextArea
+Input Type
+Text
+Required
+No
+Visible When
+Always
+Placeholder
+Maximum 500 characters
+Validation Message
+-
+Developer Notes
+Occupation, family, investments, overseas connections.
+Conditional Logic
+If 'Have you used another name?' = Yes → Display Previous / Other Names.
+If selected service requires TFN → Display TFN field.
+If TFN alternative selected → Hide mandatory TFN input, display Explanation field and create accountant review flag.
+Acceptance Criteria
+Full Legal Name is mandatory.
+Date of Birth is mandatory.
+Country of Birth is mandatory.
+Email must be valid.
+Mobile number must be valid.
+TFN only appears for applicable services.
+About Yourself accepts a maximum of 500 characters.

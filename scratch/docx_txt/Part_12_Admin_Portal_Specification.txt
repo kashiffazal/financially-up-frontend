@@ -1,0 +1,107 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 12 - Admin Portal Specification
+Purpose
+This document specifies the internal administration portal used by Financially Up staff after a client submits an engagement. These screens are internal only and must never be visible in the client-facing portal.
+User Roles
+Role
+Responsibilities
+Administrator
+Manage users, configuration, document rules, fees and system settings.
+Accountant
+Review engagements, request information, accept or decline engagements.
+Compliance Officer
+Review AML/CTF, sanctions and high-risk engagements.
+1. Dashboard
+Pending Review queue
+Accepted engagements
+Conditional Accept
+Request Information
+Declined engagements
+High-risk engagements
+AML/CTF review queue
+Recent activity and notifications
+2. Engagement Details Screen
+Client profile
+Submitted wizard answers
+Uploaded documents
+Generated Engagement Schedule
+Signed PDF
+Consent history
+Timeline of events
+Internal notes
+3. Internal Review Checklist
+Requirement ID
+Checklist Item
+ADM-001
+Mandatory fields complete
+ADM-002
+Identity verified
+ADM-003
+Representative authority verified
+ADM-004
+Engagement Schedule complete
+ADM-005
+Conflict check completed
+ADM-006
+Previous adviser reviewed
+ADM-007
+Risk assessment completed
+ADM-008
+TPB disclosure current
+ADM-009
+AML/CTF review (if applicable)
+ADM-010
+Sanctions review (if applicable)
+4. Risk Assessment
+Level
+Examples
+Action
+Low
+Verified identity, standard tax return
+Normal review
+Medium
+Foreign income, crypto, overdue lodgements
+Senior review
+High
+Identity concerns, major inconsistencies
+Enhanced review
+Unacceptable
+False identity, fraudulent documents
+Decline engagement
+5. AML / CTF Review
+Determine whether a designated service is involved.
+Open AML onboarding only when required.
+Verify beneficial ownership where applicable.
+Record source of funds/wealth if required.
+Escalate uncertain cases to the Compliance Officer.
+6. Sanctions Review
+Check overseas activity.
+Check high-risk jurisdictions.
+Review name matches.
+Pause engagement if a sanctions concern exists.
+Escalate before proceeding.
+7. Available Decisions
+Accept
+Conditional Accept
+Request Information
+Enhanced Monitoring
+Escalate
+Decline
+8. Audit Trail
+Staff member
+Date/time
+Status history
+Review notes
+Document versions
+Generated notices
+Email delivery logs
+9. Permissions
+Role-based access control
+Restrict TFN, ID images and bank details
+Restrict AML/CTF records
+Log every view, edit and export action
+Acceptance Criteria
+Client cannot access admin screens.
+Only authorised staff can change engagement status.
+Every decision is audited.
+High-risk engagements require escalation.
+Accepted engagements generate an Engagement Acceptance Notice.

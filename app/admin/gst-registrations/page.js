@@ -50,7 +50,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -97,7 +97,7 @@ const getStatusColor = (status) => {
   return found ? found.color : "default";
 };
 
-// Export column definitions — defines which fields to include in CSV/Excel exports
+// Export column definitions - defines which fields to include in CSV/Excel exports
 const EXPORT_COLUMNS = [
   { header: "ID", key: "id" },
   { header: "Full Name", key: "_fullName" },
@@ -176,7 +176,7 @@ export default function GstRegistrationsPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -191,7 +191,7 @@ export default function GstRegistrationsPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -204,7 +204,7 @@ export default function GstRegistrationsPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -231,7 +231,7 @@ export default function GstRegistrationsPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -282,7 +282,7 @@ export default function GstRegistrationsPage() {
     });
   };
 
-  /** Handle delete action — confirm and delete via API */
+  /** Handle delete action - confirm and delete via API */
   const handleDelete = async (record) => {
     Modal.confirm({
       title: `Delete ${record.firstName} ${record.lastName}?`,
@@ -329,7 +329,7 @@ export default function GstRegistrationsPage() {
       title: "Full Name",
       key: "fullName",
       render: (_, record) =>
-        `${record.firstName || ""} ${record.lastName || ""}`.trim() || "—",
+        `${record.firstName || ""} ${record.lastName || ""}`.trim() || "-",
       sorter: (a, b) => {
         const aName = `${a.firstName || ""} ${a.lastName || ""}`;
         const bName = `${b.firstName || ""} ${b.lastName || ""}`;
@@ -358,7 +358,7 @@ export default function GstRegistrationsPage() {
       title: "Business Structure",
       dataIndex: "businessStructure",
       key: "businessStructure",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) =>
         (a.businessStructure || "").localeCompare(b.businessStructure || ""),
     },
@@ -375,7 +375,7 @@ export default function GstRegistrationsPage() {
       render: (_, record) => {
         // Build the "Change Status" submenu items (exclude current status)
         const statusSubmenu = STATUS_LIST.filter(
-          (s) => s.key !== record.status
+          (s) => s.key !== record.status,
         ).map((s) => ({
           key: `status-${s.key}`,
           icon: s.icon,
@@ -384,7 +384,7 @@ export default function GstRegistrationsPage() {
         }));
 
         const items = [
-          // View PDF — only show if pdfUrl exists
+          // View PDF - only show if pdfUrl exists
           ...(record.pdfUrl
             ? [
                 {
@@ -571,7 +571,7 @@ export default function GstRegistrationsPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -596,4 +596,3 @@ export default function GstRegistrationsPage() {
     </div>
   );
 }
-

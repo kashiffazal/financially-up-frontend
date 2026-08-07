@@ -1,0 +1,271 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 4 - Step 3: Residency & Family Information
+Step Objective
+Collect citizenship, tax residency, spouse and dependant information. This step is highly conditional and determines whether additional residency review is required.
+Business Rules
+Australian citizenship must always be collected.
+Tax residency must always be collected.
+Visa questions are only shown when the client is not an Australian citizen.
+If residency changed or is uncertain, create an accountant review flag.
+Spouse details are only collected when the client had a spouse during the relevant year.
+Do not collect spouse identity documents in this form; create a separate engagement if Financially Up will prepare the spouse's return.
+Only collect the minimum dependant information required for tax purposes.
+RES-001 - Are you an Australian citizen?
+Database Field
+isAustralianCitizen
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Placeholder / Options
+Yes / No
+Validation Message
+Please select your citizenship status.
+RES-002 - Australian tax residency
+Database Field
+taxResidency
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Placeholder / Options
+Resident / Became Resident / Ceased Residence / Foreign Resident / Unsure
+Validation Message
+Please select your tax residency.
+RES-003 - Country of Citizenship
+Database Field
+citizenshipCountry
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+Citizen = No
+Placeholder / Options
+-
+Validation Message
+Please select your country of citizenship.
+RES-004 - Visa Status
+Database Field
+visaStatus
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+Citizen = No
+Placeholder / Options
+-
+Validation Message
+Please select your visa status.
+RES-005 - Visa Subclass
+Database Field
+visaSubclass
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+Citizen = No
+Placeholder / Options
+-
+Validation Message
+Please enter visa subclass.
+RES-006 - Visa Expiry
+Database Field
+visaExpiry
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+Citizen = No
+Placeholder / Options
+-
+Validation Message
+Please select visa expiry.
+RES-007 - First Arrival Date
+Database Field
+arrivalDate
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+Citizen = No
+Placeholder / Options
+-
+Validation Message
+Please select arrival date.
+RES-008 - Visa Evidence
+Database Field
+visaEvidence
+Ant Design Component
+Upload
+Required
+Conditional
+Visible When
+Citizen = No
+Placeholder / Options
+PDF/JPG/PNG
+Validation Message
+Please upload visa evidence.
+RES-009 - Arrival Date (Residency Change)
+Database Field
+residentArrival
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+Residency changed
+Placeholder / Options
+-
+Validation Message
+-
+RES-010 - Departure Date
+Database Field
+residentDeparture
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+Residency changed
+Placeholder / Options
+-
+Validation Message
+-
+RES-011 - Foreign Country
+Database Field
+foreignCountry
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+Residency changed
+Placeholder / Options
+-
+Validation Message
+-
+RES-012 - Foreign Income / Assets
+Database Field
+foreignInfo
+Ant Design Component
+TextArea
+Required
+Conditional
+Visible When
+Residency changed
+Placeholder / Options
+-
+Validation Message
+Describe overseas income/assets.
+FAM-001 - Did you have a spouse?
+Database Field
+hasSpouse
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Placeholder / Options
+Yes / No
+Validation Message
+Please select an option.
+FAM-002 - Spouse Full Name
+Database Field
+spouseName
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+hasSpouse = Yes
+Placeholder / Options
+-
+Validation Message
+Please enter spouse name.
+FAM-003 - Spouse Date of Birth
+Database Field
+spouseDob
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+hasSpouse = Yes
+Placeholder / Options
+-
+Validation Message
+Please select DOB.
+FAM-004 - Estimated Taxable Income
+Database Field
+spouseIncome
+Ant Design Component
+InputNumber
+Required
+Conditional
+Visible When
+hasSpouse = Yes
+Placeholder / Options
+-
+Validation Message
+Enter estimated income.
+FAM-005 - Prepare spouse return?
+Database Field
+prepareSpouseReturn
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+hasSpouse = Yes
+Placeholder / Options
+Yes / No
+Validation Message
+-
+FAM-006 - Did you have dependants?
+Database Field
+hasDependants
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Placeholder / Options
+Yes / No
+Validation Message
+-
+FAM-007 - Number of Dependants
+Database Field
+dependantCount
+Ant Design Component
+InputNumber
+Required
+Conditional
+Visible When
+hasDependants = Yes
+Placeholder / Options
+-
+Validation Message
+Enter number of dependants.
+Conditional Logic Matrix
+If Australian Citizen = Yes → Hide all visa-related fields.
+If Australian Citizen = No → Display Country of Citizenship, Visa Status, Visa Subclass, Visa Expiry, Arrival Date and Visa Evidence.
+If Tax Residency = Became Resident, Ceased Residence or Unsure → Display residency change questions and create accountant review flag.
+If Has Spouse = Yes → Display spouse information fields.
+If Prepare Spouse Return = Yes → Create separate spouse engagement after submission.
+If Has Dependants = Yes → Display dependant count.
+Acceptance Criteria
+Visa fields remain hidden for Australian citizens.
+Visa fields are mandatory when displayed.
+Residency review flag is created when applicable.
+Spouse fields are hidden unless required.
+Dependant fields are hidden unless required.

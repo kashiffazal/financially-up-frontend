@@ -1,37 +1,43 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   UserOutlined,
   DollarOutlined,
   SolutionOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChooseSoleTrader() {
   const whyChoosePoints = [
     {
-      step: '01',
-      tag: 'Industry Expertise',
-      title: 'Industry-Specific Knowledge',
-      desc: 'With years of experience serving sole traders across tradies, IT freelancers, ride-share drivers, and consultants, we deliver tailored tax advice that addresses your unique business environment.',
-      icon: <UserOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "01",
+      tag: "Industry Expertise",
+      title: "Industry-Specific Knowledge",
+      desc: "With years of experience serving sole traders across tradies, IT freelancers, ride-share drivers, and consultants, we deliver tailored tax advice that addresses your unique business environment.",
+      icon: (
+        <UserOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '02',
-      tag: 'Maximize Deductions',
-      title: 'Maximizing Industry Deductions',
-      desc: 'We identify and maximize deductions specific to your trade—including vehicle logbooks, home office running costs, specialized tools, protective gear, and professional registration fees.',
-      icon: <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "02",
+      tag: "Maximize Deductions",
+      title: "Maximizing Industry Deductions",
+      desc: "We identify and maximize deductions specific to your trade-including vehicle logbooks, home office running costs, specialized tools, protective gear, and professional registration fees.",
+      icon: (
+        <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '03',
-      tag: 'Streamlined Systems',
-      title: 'Streamlining Record-Keeping',
-      desc: 'We assist with setting up receipt capture software, bank feed rules, and GST reporting so you stay organized throughout the year without getting bogged down in bookkeeping paperwork.',
-      icon: <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "03",
+      tag: "Streamlined Systems",
+      title: "Streamlining Record-Keeping",
+      desc: "We assist with setting up receipt capture software, bank feed rules, and GST reporting so you stay organized throughout the year without getting bogged down in bookkeeping paperwork.",
+      icon: (
+        <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
@@ -51,7 +57,8 @@ export default function WhyChooseSoleTrader() {
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Personalized tax solutions designed for freelancers, tradies, contractors, and sole proprietors across Australia.
+            Personalized tax solutions designed for freelancers, tradies,
+            contractors, and sole proprietors across Australia.
           </p>
         </div>
 

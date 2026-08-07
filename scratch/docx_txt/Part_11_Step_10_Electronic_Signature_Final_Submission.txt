@@ -1,0 +1,92 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 11 - Step 10: Electronic Signature & Final Submission
+Step Objective
+Capture the client's legally binding electronic signature, record all required audit evidence, finalize the engagement package, and submit the engagement for internal review. After submission, the engagement status must remain 'Pending Review' until Financially Up issues a written Engagement Acceptance Notice.
+Business Rules
+Client must complete all previous steps before signing.
+Signature is blocked until mandatory documents are opened and required consents are accepted.
+Electronic signature must be linked to the exact document versions accepted.
+Submission does not mean the engagement has been accepted.
+Status after submission is 'Pending Review'.
+Only authorised staff may change the engagement to Accepted, Conditional Accept, Request Information or Declined.
+Field Specifications
+ID
+Field
+Component
+Required
+Notes
+SIG-001
+Full Legal Name
+Input
+Required
+Pre-filled from client details
+SIG-002
+Electronic Signature
+Signature Canvas
+Required
+Typed or drawn signature
+SIG-003
+Email Verification
+OTP / Email
+Optional
+If enabled
+SIG-004
+Mobile Verification
+OTP / SMS
+Optional
+If enabled
+SIG-005
+Submission Date & Time
+System
+Automatic
+Server timestamp
+SIG-006
+Document Version
+System
+Automatic
+Current published versions
+SIG-007
+Integrity Hash
+System
+Automatic
+Generated after submission
+Submission Workflow
+Validate all required steps.
+Verify mandatory documents have been opened.
+Verify all required consents.
+Capture electronic signature.
+Generate integrity hash.
+Save audit evidence.
+Generate engagement PDF.
+Set status = Pending Review.
+Send confirmation email to client.
+Notify internal review team.
+Audit Trail Requirements
+Exact versions of all accepted documents.
+Consent selections.
+Date and time of signature.
+IP address and device information (where implemented).
+Signer authentication method.
+Submission status history.
+Generated PDF version reference.
+Generated Client PDF
+Completed client-facing engagement form.
+Engagement Schedule.
+Terms & Conditions.
+Privacy Collection Notice.
+Privacy Policy.
+TPB Client Information Statement.
+Recorded authorities and consents.
+Electronic signature record.
+Masked TFN only (never full TFN).
+Exclude internal notes, AML/CTF data, sanctions, risk ratings and staff comments.
+Email Delivery Requirements
+Automatically email the accepted engagement copy after Financially Up accepts the engagement.
+Record recipient email, sent time and delivery status.
+Create a follow-up task if delivery fails.
+Provide a read-only PDF or tamper-evident format.
+Acceptance Criteria
+Client cannot submit without completing all required steps.
+Signature is captured successfully.
+Audit trail is complete.
+Status changes to Pending Review.
+Engagement package is generated successfully.

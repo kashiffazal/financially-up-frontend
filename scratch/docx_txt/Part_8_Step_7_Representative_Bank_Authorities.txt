@@ -1,0 +1,177 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 8 - Step 7: Representative, Bank Details & Authorities
+Step Objective
+Collect representative information (where applicable), bank details when required, and the client authorities required to interact with the ATO, ABR and previous advisers.
+Business Rules
+Default assumption is the client is completing the form for themselves.
+If a representative completes the form, both identities and authority must be verified.
+Estate and deceased matters must not continue in this workflow and must be redirected to the appropriate engagement.
+Bank details are only collected when required by the selected service.
+ATO Authority is mandatory.
+ABR Authority is mandatory only when ABN/GST services are selected.
+Previous Adviser Authority is displayed only if the client had a previous accountant.
+Representative
+REP-001 - Are you completing this form for yourself?
+Database Field
+isSelf
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Always
+Options / Placeholder
+Yes / No
+REP-002 - Representative Full Name
+Database Field
+repName
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+isSelf=No
+Options / Placeholder
+-
+REP-003 - Relationship
+Database Field
+relationship
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+isSelf=No
+Options / Placeholder
+Parent / Guardian / Attorney / Executor / Other
+REP-004 - Authority Document
+Database Field
+authorityDoc
+Ant Design Component
+Upload
+Required
+Conditional
+Visible When
+isSelf=No
+Options / Placeholder
+PDF/JPG/PNG
+REP-005 - Authority Description
+Database Field
+authorityDesc
+Ant Design Component
+TextArea
+Required
+Conditional
+Visible When
+isSelf=No
+Options / Placeholder
+-
+Bank Details
+BANK-001 - Are bank details required?
+Database Field
+needBank
+Ant Design Component
+Radio.Group
+Required
+Yes
+Visible When
+Conditional
+Options / Placeholder
+Yes / No / Unsure
+BANK-002 - Account Name
+Database Field
+accountName
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+needBank=Yes
+Options / Placeholder
+-
+BANK-003 - BSB
+Database Field
+bsb
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+needBank=Yes
+Options / Placeholder
+6 digits
+BANK-004 - Account Number
+Database Field
+accountNumber
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+needBank=Yes
+Options / Placeholder
+Masked after submission
+BANK-005 - Confirm Account Ownership
+Database Field
+confirmOwnership
+Ant Design Component
+Checkbox
+Required
+Conditional
+Visible When
+needBank=Yes
+Options / Placeholder
+-
+Authorities
+AUTH-001 - ATO Authority
+Database Field
+atoAuthority
+Ant Design Component
+Checkbox
+Required
+Yes
+Visible When
+Always
+Options / Placeholder
+-
+AUTH-002 - ABR Authority
+Database Field
+abrAuthority
+Ant Design Component
+Checkbox
+Required
+Conditional
+Visible When
+ABN/GST selected
+Options / Placeholder
+-
+AUTH-003 - Previous Adviser Authority
+Database Field
+previousAuthority
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+Previous accountant = Yes
+Options / Placeholder
+Authorise / Do Not Authorise
+Conditional Logic
+If 'Completing for Yourself' = No → Display representative fields and verify both client and representative.
+If representative is Guardian, Attorney or Executor → Require authority document before submission.
+If matter relates to a deceased estate → Stop workflow and redirect to Estate Engagement.
+If bank details are required → Display bank fields and verify account ownership.
+If ABN/GST service selected → Display ABR Authority.
+If previous accountant exists → Display Previous Adviser Authority.
+Internal Actions
+Create manual review for representative engagements.
+Verify authority documents before acceptance.
+Mask bank account details after submission.
+Re-verify changed bank details through a trusted communication channel.
+Record ATO/ABR authority selections in the audit log.
+Acceptance Criteria
+Representative fields remain hidden unless required.
+Authority documents are mandatory for representatives.
+Estate engagements cannot continue in this wizard.
+Bank details are only requested when applicable.
+ATO Authority must be accepted before submission.
+ABR Authority is required only for ABN/GST services.

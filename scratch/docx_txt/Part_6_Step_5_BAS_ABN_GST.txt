@@ -1,0 +1,340 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 6 - Step 5: BAS / ABN / GST
+Step Objective
+Collect information for Sole Trader BAS, ABN and GST services. All sections are conditional and only appear when the corresponding service was selected during Step 1.
+Business Rules
+Only individual / sole trader information is collected in this module.
+Never collect Company, Trust, Partnership or SMSF identifiers in this form.
+Display BAS fields only if Sole Trader BAS service is selected.
+Display ABN fields only if ABN Application or existing sole trader ABN is relevant.
+Display GST fields only if GST Registration service is selected.
+Existing ABN must be validated and confirmed as belonging to the individual.
+Invalid ABN blocks submission unless manually overridden by authorised staff.
+BAS Fields
+BAS-001 - Existing ABN
+Database Field
+existingAbn
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+11-digit ABN
+BAS-002 - ABN Status
+Database Field
+abnStatus
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Existing / No ABN / Application Requested / Unsure
+BAS-003 - BAS Period
+Database Field
+basPeriod
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Select period
+BAS-004 - Reporting Frequency
+Database Field
+reportingFrequency
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Monthly / Quarterly / Annual
+BAS-005 - GST Status
+Database Field
+gstStatus
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Registered / Not Registered
+BAS-006 - Overdue BAS
+Database Field
+overdueBas
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Yes / No
+BAS-007 - Records Complete
+Database Field
+recordsComplete
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Yes / No
+BAS-008 - Maintained By
+Database Field
+recordsMaintainedBy
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Client / Bookkeeper / Accountant
+BAS-009 - Payroll / PAYG
+Database Field
+hasPayroll
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Yes / No
+BAS-010 - Scope
+Database Field
+basScope
+Ant Design Component
+Checkbox.Group
+Required
+Conditional
+Visible When
+BAS selected
+Placeholder / Options
+Prepare / Review GST / Reconcile / Correct Records / Lodge Only
+ABN Fields
+ABN-001 - Proposed Start Date
+Database Field
+businessStartDate
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+-
+ABN-002 - Business Activity
+Database Field
+businessActivity
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+-
+ABN-003 - Business Location
+Database Field
+businessLocation
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+-
+ABN-004 - Expected Turnover
+Database Field
+expectedTurnover
+Ant Design Component
+InputNumber
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+-
+ABN-005 - Expectation of Profit
+Database Field
+profitExpectation
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+Yes / No
+ABN-006 - Employees?
+Database Field
+hasEmployees
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+Yes / No
+ABN-007 - Register GST?
+Database Field
+registerGST
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+Yes / No
+ABN-008 - Register PAYG?
+Database Field
+registerPAYG
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+ABN service
+Placeholder / Options
+Yes / No
+GST Fields
+GST-001 - Existing ABN
+Database Field
+gstAbn
+Ant Design Component
+Input
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+-
+GST-002 - Effective Date
+Database Field
+gstEffectiveDate
+Ant Design Component
+DatePicker
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+-
+GST-003 - Expected GST Turnover
+Database Field
+gstTurnover
+Ant Design Component
+InputNumber
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+-
+GST-004 - Registration Type
+Database Field
+gstRegistrationType
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+Compulsory / Voluntary / Unsure
+GST-005 - Accounting Method
+Database Field
+accountingMethod
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+Cash / Non-Cash / Advise Me
+GST-006 - BAS Frequency
+Database Field
+gstBasFrequency
+Ant Design Component
+Select
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+-
+GST-007 - Fuel Tax Credits
+Database Field
+fuelTaxCredits
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+Yes / No
+GST-008 - Imports
+Database Field
+imports
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+Yes / No
+GST-009 - Exports
+Database Field
+exports
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+Yes / No
+GST-010 - Digital Sales
+Database Field
+digitalSales
+Ant Design Component
+Radio.Group
+Required
+Conditional
+Visible When
+GST service
+Placeholder / Options
+Yes / No
+Conditional Logic
+If BAS service selected → Show BAS section only.
+If ABN Application selected → Show ABN section.
+If GST Registration selected → Show GST section.
+If Existing ABN entered → Validate checksum and confirm ownership.
+If ABR lookup is enabled → Retrieve ABN status, entity name, entity type and GST registration for confirmation.
+If ABN belongs to a company, trust or partnership → Stop process and direct user to the Entity Engagement Form.
+Internal Actions
+Create review flag when ABN validation fails.
+Store ABN in protected format.
+Record validation status and ABR lookup result.
+Do not expose full TFN in logs or generated PDFs.
+Acceptance Criteria
+Only relevant sections are displayed.
+ABN checksum validation works.
+Entity ABNs are rejected from this workflow.
+Conditional questions appear correctly.
+All values are stored successfully.

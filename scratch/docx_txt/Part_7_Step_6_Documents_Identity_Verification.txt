@@ -1,0 +1,104 @@
+﻿Financially Up Individual Engagement SystemDeveloper SpecificationPart 7 - Step 6: Documents & Identity Verification
+Step Objective
+Collect all supporting documents required for the selected services and verify the client's identity using one of the approved verification methods. This section is driven by configurable business rules.
+Business Rules
+Document requests must be generated dynamically based on selected services and client profile.
+Document rules must be configurable by administrators without code changes.
+Identity verification method is mandatory.
+Offer live video before requesting a selfie for remote verification.
+Selfie is only required when the approved verification procedure requires it.
+If no photo ID is available, alternative evidence and manual review are required.
+Biometric verification requires a separate consent.
+A. Dynamic Document Request Engine
+Requirement ID
+Description
+DOC-001
+Rules Engine: Administrator can configure required documents by service, income type, residency, BAS period, ATO matter, identity method and review status.
+DOC-002
+Upload Types: PDF, JPG, JPEG, PNG (configurable)
+DOC-003
+Maximum File Size: Configurable (recommended 10-20 MB)
+DOC-004
+Mandatory Documents: Can be marked Required or Optional
+DOC-005
+Due Date: Support document due dates
+DOC-006
+Not Available: Allow user to provide explanation if document is unavailable
+DOC-007
+Accountant Requests: Accountants can request additional documents after submission
+B. Identity Verification Fields
+ID-001 - Identity Verification Method
+Database Field
+identityMethod
+Ant Design Component
+Radio.Group
+Required
+Required
+Visible When
+Live Video / In Person / Upload ID / Electronic Verification / No Photo ID
+ID-002 - Primary Photo ID
+Database Field
+primaryId
+Ant Design Component
+Upload
+Required
+Conditional
+Visible When
+Driver Licence / Passport / Photo Card
+ID-003 - Supporting ID
+Database Field
+supportingId
+Ant Design Component
+Upload
+Required
+Conditional
+Visible When
+Medicare / Birth Certificate / Citizenship / Visa / Name Change
+ID-004 - No Photo ID Reason
+Database Field
+noPhotoIdReason
+Ant Design Component
+TextArea
+Required
+Conditional
+Visible When
+Shown only if 'No Photo ID' selected
+ID-005 - Selfie
+Database Field
+selfie
+Ant Design Component
+Upload
+Required
+Conditional
+Visible When
+Only when verification procedure requires
+ID-006 - Biometric Consent
+Database Field
+biometricConsent
+Ant Design Component
+Checkbox
+Required
+Conditional
+Visible When
+Shown only when biometric verification is used
+Identity Verification Flow
+Client selects identity verification method.
+If Live Video -> Schedule/complete live visual verification.
+If Upload ID -> Upload primary and supporting documents.
+If Electronic Verification -> Complete approved eID process.
+If No Photo ID -> Collect alternative evidence and send for manual review.
+If Biometric verification is used -> Require separate consent before continuing.
+Security & Storage Requirements
+Store uploaded files in private storage.
+Do not include ID images in generated client PDFs.
+Separate ID images from engagement records.
+Restrict access using role-based permissions.
+Automatically delete or restrict raw ID/selfie images according to retention policy.
+Maintain audit logs for upload, view and deletion events.
+Acceptance Criteria
+Identity method is mandatory.
+Conditional fields appear only when applicable.
+Required uploads cannot be skipped.
+Alternative identity path works without photo ID.
+Biometric consent is required only when biometric verification is selected.
+All uploaded files are stored securely.

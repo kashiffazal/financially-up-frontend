@@ -50,7 +50,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -97,16 +97,16 @@ const getStatusColor = (status) => {
   return found ? found.color : "default";
 };
 
-// Export column definitions — defines which fields to include in CSV/Excel exports
+// Export column definitions - defines which fields to include in CSV/Excel exports
 const EXPORT_COLUMNS = [
-      { header: "ID", key: "id" },
-      { header: "SMSF Name", key: "NameOfSMSF" },
-      { header: "Founder", key: "Founder" },
-      { header: "Client Name", key: "NameClient" },
-      { header: "Phone", key: "mobileNumber" },
-      { header: "Status", key: "status" },
-      { header: "Created At", key: "createdAt" }
-    ];
+  { header: "ID", key: "id" },
+  { header: "SMSF Name", key: "NameOfSMSF" },
+  { header: "Founder", key: "Founder" },
+  { header: "Client Name", key: "NameClient" },
+  { header: "Phone", key: "mobileNumber" },
+  { header: "Status", key: "status" },
+  { header: "Created At", key: "createdAt" },
+];
 
 export default function SmsfRegistrationsPage() {
   // ============================
@@ -175,7 +175,7 @@ export default function SmsfRegistrationsPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -190,7 +190,7 @@ export default function SmsfRegistrationsPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -203,7 +203,7 @@ export default function SmsfRegistrationsPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -230,7 +230,7 @@ export default function SmsfRegistrationsPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -250,10 +250,7 @@ export default function SmsfRegistrationsPage() {
         <div>
           <p>
             Are you sure you want to change the status of{" "}
-            <strong>
-              {record.NameOfSMSF || record.NameClient}
-            </strong>{" "}
-            from{" "}
+            <strong>{record.NameOfSMSF || record.NameClient}</strong> from{" "}
             <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
             <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
           </p>
@@ -324,29 +321,30 @@ export default function SmsfRegistrationsPage() {
       title: "SMSF Name",
       dataIndex: "NameOfSMSF",
       key: "NameOfSMSF",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.NameOfSMSF || "").localeCompare(b.NameOfSMSF || ""),
     },
     {
       title: "Client Name",
       dataIndex: "NameClient",
       key: "NameClient",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.NameClient || "").localeCompare(b.NameClient || ""),
     },
     {
       title: "Founder",
       dataIndex: "Founder",
       key: "Founder",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.Founder || "").localeCompare(b.Founder || ""),
     },
     {
       title: "Phone",
       dataIndex: "mobileNumber",
       key: "mobileNumber",
-      render: (val) => val || "—",
-      sorter: (a, b) => (a.mobileNumber || "").localeCompare(b.mobileNumber || ""),
+      render: (val) => val || "-",
+      sorter: (a, b) =>
+        (a.mobileNumber || "").localeCompare(b.mobileNumber || ""),
     },
     {
       title: "Status",
@@ -369,7 +367,7 @@ export default function SmsfRegistrationsPage() {
           }));
 
         const items = [
-          // View PDF — only show if pdfUrl exists
+          // View PDF - only show if pdfUrl exists
           ...(record.pdfUrl
             ? [
                 {
@@ -452,7 +450,8 @@ export default function SmsfRegistrationsPage() {
             level={2}
             className="!mb-1 !text-slate-800 dark:!text-slate-100 flex items-center gap-2"
           >
-            <SafetyCertificateOutlined className="text-slate-500" /> SMSF Registrations
+            <SafetyCertificateOutlined className="text-slate-500" /> SMSF
+            Registrations
           </Title>
           <Text className="text-slate-500 dark:text-slate-400">
             Manage Self Managed Super Fund applications.
@@ -555,7 +554,7 @@ export default function SmsfRegistrationsPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -580,4 +579,3 @@ export default function SmsfRegistrationsPage() {
     </div>
   );
 }
-

@@ -50,7 +50,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 const { Title, Text } = Typography;
 
 // ============================
-// Constants — Status list used across tabs, dropdowns, and tags
+// Constants - Status list used across tabs, dropdowns, and tags
 // ============================
 const STATUS_LIST = [
   {
@@ -176,7 +176,7 @@ export default function EntityEngagementsPage() {
   // Event Handlers
   // ============================
 
-  /** Handle status tab change — reset to page 1 when switching tabs */
+  /** Handle status tab change - reset to page 1 when switching tabs */
   const handleTabChange = (key) => {
     setActiveTab(key);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -191,7 +191,7 @@ export default function EntityEngagementsPage() {
     }));
   };
 
-  /** Handle search — reset page to 1 when searching */
+  /** Handle search - reset page to 1 when searching */
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     setPagination((prev) => ({ ...prev, current: 1 }));
@@ -204,7 +204,7 @@ export default function EntityEngagementsPage() {
   };
 
   /**
-   * Submit approval — update status to "Approved" and save approvalNotes via API.
+   * Submit approval - update status to "Approved" and save approvalNotes via API.
    * The notes are saved in the approvalNotes column in the DB.
    */
   const handleApproveSubmit = async (values) => {
@@ -231,7 +231,7 @@ export default function EntityEngagementsPage() {
   };
 
   /**
-   * Handle status change — show confirmation modal before updating.
+   * Handle status change - show confirmation modal before updating.
    * For "Approved" status, redirect to the approval modal instead.
    * @param {object} record - The engagement record
    * @param {string} newStatus - The target status to change to
@@ -251,8 +251,7 @@ export default function EntityEngagementsPage() {
         <div>
           <p>
             Are you sure you want to change the status of{" "}
-            <strong>{record.LegalName || record.TradingName}</strong>{" "}
-            from{" "}
+            <strong>{record.LegalName || record.TradingName}</strong> from{" "}
             <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
             <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
           </p>
@@ -280,7 +279,7 @@ export default function EntityEngagementsPage() {
     });
   };
 
-  /** Handle delete action — confirm and delete via API */
+  /** Handle delete action - confirm and delete via API */
   const handleDelete = async (record) => {
     Modal.confirm({
       title: `Delete ${record.LegalName || record.TradingName}?`,
@@ -320,7 +319,7 @@ export default function EntityEngagementsPage() {
       title: "Entity Type",
       dataIndex: "TypeOfEntity",
       key: "TypeOfEntity",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) =>
         (a.TypeOfEntity || "").localeCompare(b.TypeOfEntity || ""),
     },
@@ -328,14 +327,14 @@ export default function EntityEngagementsPage() {
       title: "Legal Name",
       dataIndex: "LegalName",
       key: "LegalName",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.LegalName || "").localeCompare(b.LegalName || ""),
     },
     {
       title: "Phone",
       dataIndex: "PhoneNumber",
       key: "PhoneNumber",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) =>
         (a.PhoneNumber || "").localeCompare(b.PhoneNumber || ""),
     },
@@ -343,7 +342,7 @@ export default function EntityEngagementsPage() {
       title: "Email",
       dataIndex: "email",
       key: "email",
-      render: (val) => val || "—",
+      render: (val) => val || "-",
       sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
     },
     {
@@ -351,16 +350,22 @@ export default function EntityEngagementsPage() {
       key: "attachments",
       width: 120,
       render: (_, record) => {
-        // Parse proofOfID — handle JSON string, array, or single URL
+        // Parse proofOfID - handle JSON string, array, or single URL
         let proofFiles = [];
         if (Array.isArray(record.proofOfID)) {
           proofFiles = record.proofOfID;
-        } else if (typeof record.proofOfID === "string" && record.proofOfID.trim() !== "") {
+        } else if (
+          typeof record.proofOfID === "string" &&
+          record.proofOfID.trim() !== ""
+        ) {
           try {
             const parsed = JSON.parse(record.proofOfID);
             proofFiles = Array.isArray(parsed) ? parsed : [parsed];
           } catch {
-            proofFiles = record.proofOfID.split(",").map((u) => u.trim()).filter(Boolean);
+            proofFiles = record.proofOfID
+              .split(",")
+              .map((u) => u.trim())
+              .filter(Boolean);
           }
         }
 
@@ -380,7 +385,7 @@ export default function EntityEngagementsPage() {
           proofFiles.length + (hasTrustDeed ? 1 : 0) + (hasSignature ? 1 : 0);
 
         if (totalAttachments === 0) {
-          return <Text type="secondary">—</Text>;
+          return <Text type="secondary">-</Text>;
         }
 
         const menuItems = [
@@ -445,7 +450,7 @@ export default function EntityEngagementsPage() {
       width: 110,
       render: (_, record) => {
         const statusSubmenu = STATUS_LIST.filter(
-          (s) => s.key !== record.status
+          (s) => s.key !== record.status,
         ).map((s) => ({
           key: `status-${s.key}`,
           icon: s.icon,
@@ -626,7 +631,7 @@ export default function EntityEngagementsPage() {
         </Spin>
       </div>
 
-      {/* Approval Modal Middleware — shown when approving a record */}
+      {/* Approval Modal Middleware - shown when approving a record */}
       <Modal
         title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
         open={isModalOpen}
@@ -651,4 +656,3 @@ export default function EntityEngagementsPage() {
     </div>
   );
 }
-
