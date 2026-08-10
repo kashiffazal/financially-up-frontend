@@ -102,7 +102,7 @@ export default function IndividualEngagementClientForm() {
         setIsSubmitting(true);
         try {
           const res = await createNewIndividualEngagement(mergedPayload);
-          
+
           // Immediately wipe local storage draft & reset form state
           localStorage.removeItem(DRAFT_STORAGE_KEY);
           const emptyState = { services: [], entityService: null };
@@ -129,28 +129,38 @@ export default function IndividualEngagementClientForm() {
                     Application Submitted Successfully
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
-                    Thank you for choosing Financially Up. Your Individual Client Engagement Notice has been securely logged.
+                    Thank you for choosing Financially Up. Your Individual
+                    Client Engagement Notice has been securely logged.
                   </p>
                 </div>
 
                 {/* Reference Details Box */}
                 <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
-                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">Reference Number</span>
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
+                      Reference Number
+                    </span>
                     <span className="text-sm font-mono font-extrabold text-brand-primary dark:text-emerald-400 px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-900">
                       {res.referenceNumber || "NENG-2026-0001"}
                     </span>
                   </div>
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
-                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">Engagement Status</span>
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
+                      Engagement Status
+                    </span>
                     <span className="text-xs font-bold text-amber-700 dark:text-amber-300 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-900">
                       Pending Tax Agent Review
                     </span>
                   </div>
                   <div className="flex items-center justify-between pt-0.5">
-                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">Submitted At</span>
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
+                      Submitted At
+                    </span>
                     <span className="text-xs font-medium text-slate-700 dark:text-zinc-300 font-mono">
-                      {new Date().toLocaleString("en-AU", { dateStyle: "medium", timeStyle: "short" })}
+                      {new Date().toLocaleString("en-AU", {
+                        dateStyle: "medium",
+                        timeStyle: "short",
+                      })}
                     </span>
                   </div>
                 </div>
@@ -162,21 +172,30 @@ export default function IndividualEngagementClientForm() {
                     <span>Next Steps</span>
                   </div>
                   <ul className="space-y-1.5 text-slate-600 dark:text-zinc-300 leading-normal pl-5 list-disc">
-                    <li>A copy of your signed Client Engagement Notice has been sent to your email.</li>
-                    <li>Our Tax Agent compliance team will review your application within 1 business day.</li>
+                    <li>
+                      A copy of your signed Client Engagement Notice has been
+                      sent to your email.
+                    </li>
+                    <li>
+                      Our Tax Agent compliance team will review your application
+                      within 1 business day.
+                    </li>
                   </ul>
                 </div>
               </div>
             ),
             okText: "Return to Form Home",
             okButtonProps: {
-              className: "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+              className:
+                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
             },
             onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
             onCancel: () => window.scrollTo({ top: 0, behavior: "smooth" }),
           });
         } catch (apiErr) {
-          message.error(`Submission failed: ${apiErr.message || "Server connection error"}`);
+          message.error(
+            `Submission failed: ${apiErr.message || "Server connection error"}`,
+          );
         } finally {
           setIsSubmitting(false);
         }
@@ -215,7 +234,7 @@ export default function IndividualEngagementClientForm() {
       setFormData(mergedData);
 
       notification.success({
-        message: "Draft Saved Successfully!",
+        title: "Draft Saved Successfully!",
         description: `Your form progress (Step ${currentStep + 1}: ${STEP_ITEMS[currentStep].title}) has been saved to your device. You can close this window and return anytime.`,
         icon: <SaveOutlined className="text-emerald-500" />,
         placement: "topRight",
@@ -359,9 +378,13 @@ export default function IndividualEngagementClientForm() {
           {currentStep === 1 && <Step2PersonalInformation form={form} />}
           {currentStep === 2 && <Step3ResidencyFamily form={form} />}
           {currentStep === 3 && <Step4IncomeProfile form={form} />}
-          {currentStep === 4 && <Step5BasGstSoleTrader form={form} formData={formData} />}
+          {currentStep === 4 && (
+            <Step5BasGstSoleTrader form={form} formData={formData} />
+          )}
           {currentStep === 5 && <Step6DocumentVerification form={form} />}
-          {currentStep === 6 && <Step7AuthoritiesBank form={form} formData={formData} />}
+          {currentStep === 6 && (
+            <Step7AuthoritiesBank form={form} formData={formData} />
+          )}
           {currentStep === 7 && (
             <Step8EngagementSchedule
               form={form}
