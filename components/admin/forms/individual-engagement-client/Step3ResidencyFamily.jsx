@@ -8,6 +8,7 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import { AntInput, AntFileUpload } from "@/services/antdFields";
+import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const VISA_STATUS_OPTIONS = [
   "Permanent Resident (PR)",
@@ -104,10 +105,13 @@ export default function Step3ResidencyFamily({ form }) {
         {/* Conditional Visa Questions when Citizen = No (RES-003 to RES-008) */}
         {isAustralianCitizen === "No" && (
           <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
-            <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
-              <GlobalOutlined className="text-brand-primary" /> Citizenship &
-              Visa Information
-            </h4>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
+                <GlobalOutlined className="text-brand-primary" /> Citizenship &
+                Visa Information
+              </h4>
+              <PrivacyCollectionNoticeTrigger category="visa" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <AntInput
                 name="citizenshipCountry"

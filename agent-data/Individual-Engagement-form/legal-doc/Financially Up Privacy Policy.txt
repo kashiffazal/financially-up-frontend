@@ -1,0 +1,47 @@
+8. Financially Up Privacy Policy
+Version 2.1 | Effective 24 July 2026
+1. Our privacy commitment
+Financially Up Pty Ltd ABN 84 659 717 263 is committed to protecting personal information and client confidentiality. Our policy is to manage personal information consistently with the Australian Privacy Principles across the practice, whether or not a particular exemption might otherwise apply, together with TFN, TPB, taxation and AML/CTF obligations.
+2. Who this policy covers
+This policy applies to clients, prospective clients, representatives, spouses and dependants whose information is relevant, website and online engagement-form users, referrers, suppliers, contractors, applicants and people connected with a client’s affairs.
+3. Information we collect
+We may collect identity and contact details, date/place of birth, addresses, occupation, tax and financial records, income and deductions, assets and liabilities, TFNs and other government identifiers, bank details, ID documents, identity photographs, visa/residency information, spouse/dependant information, communications, authority documents, risk and AML/CTF information, and online-form/security logs.
+4. How we collect information
+We collect through forms, secure uploads, online engagement-form activity, email, telephone, video, in-person meetings, ATO/ABR systems, authorised representatives, previous advisers, public registers, identity/screening providers, software integrations and website cookies or analytics.
+5. Why we collect, use and hold information
+Purposes include assessing and accepting engagements, verifying identity and authority, preparing and lodging accepted work, communicating, managing deadlines and fees, preventing fraud, sanctions and AML/CTF compliance, quality management, supervision, insurance, complaints, legal claims, security and recordkeeping.
+6. TFNs and government identifiers
+TFN information is handled only for purposes permitted by law and in accordance with the Privacy (Tax File Number) Rule 2015. We do not adopt a government identifier as our own client identifier and do not use or disclose government identifiers except where authorised.
+7. Sensitive and biometric information
+Where facial matching or liveness technology is used, biometric templates and related data may be sensitive information. We collect it only where reasonably necessary, with separate consent or another lawful basis, and after explaining the purpose, provider, retention and alternative method.
+We conduct a privacy impact assessment before introducing or materially changing automated facial-recognition technology.
+8. Usual disclosures
+We may disclose information to the ATO, ABR, TPB, AUSTRAC, courts, law-enforcement and other authorities where authorised or required; approved professional advisers, insurers, security and debt-recovery providers; approved third-party technology and professional service providers; and appropriately authorised and supervised onshore and offshore personnel where access is reasonably required to provide, secure, administer, supervise or support the agreed services.
+We do not sell personal information.
+9. Third-party software and overseas access
+Financially Up uses approved third-party professional software, cloud and data-hosting services, secure portals, electronic-signature systems, identity-verification services, taxation and accounting software, document-management systems, communications platforms, workflow and automation tools, cyber-security, backup, payment and technical-support providers. Financially Up may also use authorised and supervised employees, contractors and service personnel located in Australia and overseas.
+Personal information may be accessed, processed, transmitted or stored in Australia and overseas locations in which those providers or authorised personnel operate. Financially Up takes reasonable contractual, technical and organisational steps to protect information, restrict access to legitimate business purposes and require appropriate confidentiality and security.
+Financially Up may replace or change providers and systems where the processing remains substantially consistent with the purposes described in this Privacy Policy. Where a material change creates a new purpose, significantly expands the information disclosed, introduces biometric processing, materially changes outsourced professional services, or otherwise requires additional notification or permission, Financially Up will provide an appropriate notice and obtain further consent where required.
+10. AI and data-use restrictions
+Approved AI-assisted tools may be used only within Financially Up’s controls. Providers must not use client information to train public/shared models, advertise, sell data, retain data beyond approved periods or transfer it to undisclosed locations. Material outputs are subject to human review.
+11. Data quality and minimisation
+We seek to collect only information reasonably necessary for the service, maintain accuracy and avoid unnecessary copies. We may ask you to update or correct information. We minimise display of TFNs, ID numbers and bank details.
+12. Security
+Controls include secure systems, encryption, multi-factor authentication, role-based access, least privilege, logging, confidentiality obligations, staff training, secure backups, vulnerability management, incident response and secure destruction. No security system can eliminate every risk, but we take reasonable steps appropriate to the sensitivity of the information.
+13. Retention and deletion
+We retain information for periods required by taxation, TPB, AML/CTF, professional, insurance and legal obligations and our approved retention schedule. Raw ID/selfie data is deleted or access-restricted after the approved verification period unless longer retention is legally required. Legal holds may suspend deletion.
+When information is no longer required, we take reasonable steps to destroy or de-identify it.
+14. Access and correction
+You may request access to or correction of personal information by contacting the Privacy Officer. We may verify identity, charge only where lawful and reasonable, and refuse or limit access where the law permits, giving reasons and available complaint options.
+15. Direct marketing
+We may send service communications and, where permitted, marketing about relevant services. Marketing messages will provide an unsubscribe method. Unsubscribing from marketing does not stop necessary service, security or regulatory communications.
+16. Website, cookies and analytics
+Our website and online engagement form may use essential cookies, security tools and analytics. We will provide an appropriate cookie notice and controls where required. Third-party website links are governed by their own privacy practices.
+17. Automated decisions
+Where an automated system materially assists a decision affecting client acceptance, identity or risk, we will describe the general use in this policy where required and maintain appropriate human oversight, testing and review.
+18. Data breaches
+We maintain a response plan to contain, assess and remediate suspected breaches, preserve evidence and notify affected people and the OAIC where the Notifiable Data Breaches scheme requires notification.
+19. Privacy complaints
+Contact the Privacy Officer at [insert email/address]. We aim to acknowledge a complaint within 2 business days and provide an outcome or progress update within 20 business days. If unresolved, you may have the right to contact the OAIC.
+20. Contact and policy changes
+Privacy Officer: [insert name/role, email, telephone and postal address]. We may update this policy for future collection and engagements. The effective date and prior versions will be retained.

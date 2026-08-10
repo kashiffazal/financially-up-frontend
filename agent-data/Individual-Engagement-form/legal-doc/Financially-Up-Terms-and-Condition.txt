@@ -1,0 +1,145 @@
+6. Financially Up Terms and Conditions
+Client-facing pop-up text. Version 2.1 | Effective 24 July 2026
+1. Parties and contract documents
+These Terms form part of the engagement between Financially Up Pty Ltd ABN 84 659 717 263 (Financially Up, we, us or our) and the individual named in the Client Details and Service Form (you or your).
+The engagement consists of the written Engagement Acceptance Notice, Engagement Schedule, accepted client form, these Terms, Privacy Collection Notice, Privacy Policy, TPB Client Information Statement, recorded authorities and consents, and any written variation accepted by both parties.
+2. Submission, acceptance and commencement
+Submitting a form does not require Financially Up to accept the engagement. We may complete identity, capacity, authority, conflict, risk, sanctions, professional and AML/CTF checks before deciding whether to act.
+The engagement commences only when Financially Up issues a written Engagement Acceptance Notice identifying the accepted services, period, fee and conditions. Preliminary enquiries, quotations, identity checks, file review, risk assessment and conflict checks do not constitute acceptance and do not make Financially Up responsible for a deadline.
+3. Scope and Engagement Schedule
+We will provide only the services expressly listed in the Engagement Schedule for the stated client and period. The Schedule records the deliverables, inclusions, exclusions, information deadline, expected timing, fee and special conditions.
+Additional years, entities, transactions, representations, bookkeeping corrections, audit work, objections or advice are outside scope unless accepted in a written variation.
+4. Excluded professional services
+Unless expressly listed in the Engagement Schedule, Financially Up does not provide legal, financial product, investment, credit, mortgage, immigration, insolvency, valuation, audit, assurance or forensic services. You should obtain advice from an appropriately qualified and licensed professional where required.
+A referral or introduction does not make Financially Up responsible for another provider’s advice or services.
+5. BAS service scope
+The Engagement Schedule must state whether Financially Up will prepare from client-maintained records, review GST coding, perform bank or payroll reconciliations, correct records, review prior periods, calculate fuel tax credits, or prepare and lodge only.
+Where Financially Up does not maintain the underlying records, we may rely on the records supplied and will not independently verify every transaction or balance. Transaction coding, reconciliation, payroll review, prior-period corrections and bookkeeping reconstruction are excluded unless expressly included.
+6. Client responsibilities
+You must provide complete, truthful, accurate and timely information and documents, respond to reasonable requests, keep contact and authority details current and disclose matters relevant to the accepted service.
+You must not request Financially Up or any person working for it to create, backdate, alter, conceal, omit or misrepresent information or to lodge material that is false, misleading, unsupported, unlawful or unethical.
+Disclose all relevant income, deductions, assets, liabilities, investments, overseas interests, cryptocurrency, business activity and GST matters.
+Maintain records required by law.
+Review all documents before approval.
+Notify us immediately of errors, changes, regulator correspondence and deadlines.
+Cooperate with identity, sanctions, fraud prevention, acceptance and AML/CTF procedures.
+7. Records and substantiation
+You are responsible for keeping records that substantiate information and claims. We may request evidence and may omit a claim, delay lodgment or decline to act if information is incomplete, inconsistent or unreliable.
+Unless expressly agreed, we do not take custody of original records. You should retain originals for the required period even where copies are supplied.
+8. ATO reviews and audits
+The taxation system generally operates on self-assessment. The ATO may review, amend or audit information after lodgment.
+You are responsible for producing evidence supporting income, deductions, GST credits, offsets, losses and gains. A verbal statement, estimate, bank transaction or accounting entry may not by itself be sufficient evidence.
+Audit, objection, information-request, remission and payment-arrangement assistance is included only where stated in the Engagement Schedule or separately accepted.
+Where an adverse outcome is caused by incomplete, inaccurate or late information, failure to keep evidence or failure to follow advice, you remain responsible for the resulting tax, interest, penalties and additional costs, except to the extent caused by our failure to exercise the care required by law.
+9. Professional responsibilities
+Financially Up will perform accepted services with the reasonable care and skill required by law and applicable professional standards. We will act honestly and with integrity, manage conflicts, protect confidentiality, take reasonable care in ascertaining relevant circumstances and applying taxation laws, and maintain supervision and quality-management arrangements.
+We may refuse any instruction that we reasonably consider unlawful, misleading, unsupported, unethical, outside scope or competence, or inconsistent with a legal or professional obligation.
+10. Reliance, no assurance and fraud limitations
+Unless an audit or assurance service is expressly accepted, we may rely on information and documents supplied by you and authorised third parties. We may make enquiries and request evidence but do not independently audit every item.
+The engagement cannot be relied upon to detect or disclose every fraud, irregularity, illegal act, misappropriation or error. This limitation does not permit us to ignore indicators that must be addressed under law or professional standards.
+You remain responsible for the completeness and accuracy of information and for approving each document before lodgment.
+11. Estimates and professional judgement
+We will use an estimate only where there is a reasonable and lawful basis and may document the assumptions and limitations. We may delay or refuse work where reliable information cannot be obtained.
+12. Separate lodgment declarations
+You must review and approve each return, BAS, application or approved form before lodgment and provide the separate written declaration required for that specific document. This engagement is not a bulk declaration for future lodgments.
+13. ATO authority
+Within the accepted scope, you authorise us to add or maintain you on our ATO client list where permitted, access relevant ATO accounts, communicate with the ATO, receive correspondence, prepare documents and lodge documents you separately approve.
+This authority does not permit us to make a material election, settle a dispute, withdraw an objection, accept an amended assessment or enter a binding payment arrangement without your further instruction where required. You must personally complete any client-to-agent linking or other personal nomination.
+14. ABR authority
+Where an ABN, GST, PAYG withholding or other ABR service is accepted, you authorise us to communicate with the ABR, access relevant information, prepare applications and updates, and submit documents you separately approve.
+You confirm that the activity described is genuine and the information is accurate. Registration or approval is not guaranteed.
+15. Previous adviser authority
+Where you give permission, we may contact your previous accountant or tax agent and request information reasonably relevant to client acceptance, outstanding work, transfer of records and professional matters. We may decline or condition the engagement if necessary information or concerns cannot be resolved.
+16. Identity, representatives and capacity
+We must verify the identity of clients and representatives before providing tax agent or BAS services and may repeat checks where circumstances or risk change. Verification may be visual in person or by live video, by secure document upload, an approved electronic service, ATO-source methods, certified documents or another reasonable method.
+Where another person acts for you, we must verify both identities and establish the person’s authority. We may require additional documents for minors, guardians, attorneys, executors and administrators and may route an estate or entity to a separate engagement.
+We may delay or decline service if identity, authority, capacity or document authenticity cannot be reasonably established.
+17. Biometric and identity images
+We will offer a non-biometric identity method where reasonably available. If automated facial matching or liveness technology is used, we will obtain separate consent and explain the provider, purpose, data processed, retention and alternative method.
+We will minimise retention of raw ID and selfie images and keep the verification record separately. Approved providers must not use client images or information to train public or shared models or for unrelated purposes.
+18. AML/CTF obligations
+From 1 July 2026, certain professional services are regulated under the Anti-Money Laundering and Counter-Terrorism Financing Act. Ordinary tax-return, BAS, ABN or GST work is not automatically a designated service, but obligations may apply where the actual service involves a regulated transaction, structure, company or trust service, client property, financing, nominee arrangement or registered-office service.
+Where applicable, we may identify and verify clients, representatives, beneficial owners and controllers; understand the purpose and intended nature of the service; assess source of funds or wealth; conduct PEP, sanctions and other screening; monitor the relationship; retain records; and make reports required or permitted by law.
+We may delay, restrict, suspend or decline a service where due diligence cannot be completed or risk is outside our appetite. The law may prohibit us from telling you about certain reports, suspicions or communications.
+19. Australian sanctions
+Australian sanctions obligations may apply independently of the AML/CTF designated-service rules. We may conduct risk-based screening against the Australian Consolidated List and request further information where there is overseas activity, a higher-risk jurisdiction, cross-border funds, unusual ownership, a name match or another sanctions indicator.
+We may pause or decline work and seek legal advice if a possible sanctions match or prohibited dealing is identified.
+20. Confidentiality
+We will keep information about your affairs confidential and disclose it only with permission, where reasonably necessary and permitted within the engagement, or where a legal or professional duty permits or requires disclosure.
+Authorised internal access by personnel who need the information to perform, supervise, review, secure or administer the service is not a disclosure outside Financially Up.
+21. Technology, third-party providers and blended service team
+Financially Up may use approved professional software, cloud and data-hosting services, secure client portals, electronic-signature systems, identity-verification services, taxation and accounting software, document-management systems, communications platforms, payment services, workflow and automation tools, cyber-security services, backup services, technical-support providers and other professional service providers reasonably required to deliver and support the agreed services. Financially Up may also use appropriately qualified, authorised and supervised employees, contractors and service personnel located in Australia and overseas to perform assigned administrative, data-processing, reconciliation, bookkeeping, document-management, tax-preparation support, technical-support and quality-control activities.
+Client information may therefore be collected, accessed, processed, transmitted or securely stored in Australia and overseas locations in which these providers or authorised personnel operate. Access will be limited to information reasonably required for the assigned purpose and will be subject to confidentiality obligations, access controls, security measures, contractual safeguards, training and supervision. Tax agent and BAS agent services remain subject to the supervision and review of an Australian registered tax agent, and Financially Up remains responsible for the professional services it provides.
+By accepting this engagement, you authorise these arrangements and acknowledge that Financially Up may change or replace providers, systems, infrastructure or personnel from time to time without requiring a new engagement agreement, provided that the nature and purpose of the processing remain substantially consistent with this engagement and Financially Up continues to comply with applicable confidentiality, privacy, professional and security obligations.
+Financially Up will give additional notice and obtain further permission where required by law or professional standards, including where a change materially expands the purpose of disclosure, the categories of information involved, biometric processing, the nature or extent of outsourced professional services, or overseas access beyond the arrangements reasonably contemplated by this clause.
+22. Artificial intelligence and provider restrictions
+Approved technology may assist with document extraction, classification, drafting, quality checks or workflow automation. Material tax work must receive appropriate human review before being provided to you or lodged.
+Providers must not sell client information, use it for advertising, train public or shared models, retain it beyond the approved period, transfer it to undisclosed locations or appoint material subprocessors contrary to Financially Up’s controls.
+23. Privacy
+Financially Up’s policy is to manage personal information consistently with the Australian Privacy Principles across the practice, in addition to the Privacy (Tax File Number) Rule 2015, TPB confidentiality obligations, AML/CTF privacy requirements and other applicable laws.
+If you do not provide information reasonably required for the engagement, we may be unable to verify identity, assess or accept the engagement, provide the service or comply with law.
+24. Information about spouses and other people
+Where you provide personal information about a spouse, dependant, representative or another person, you confirm that the information is relevant and that you are authorised to provide it. We may provide that person with a privacy notice where required.
+A spouse for whom we provide services must complete a separate engagement and identity process.
+25. Electronic communications and signatures
+You consent to electronic transactions and to communications, documents, approvals, notices and signatures through the online engagement form, email, SMS or another agreed electronic system. Our method must reasonably identify the signer, show their intention and preserve the integrity and accessibility of the accepted record.
+You must keep contact details current. A notice is treated as received when delivered to the nominated email or postal address unless we receive a failure notice or the law requires another method.
+Electronic acceptance will not be used where a law, regulator or prescribed form requires another signature, witnessing, certification or lodgment method.
+26. Electronic communication and cybersecurity responsibilities
+You must protect passwords, access codes and devices, use multi-factor authentication where available and verify unusual payment or bank-detail instructions through a trusted channel. Tell us immediately if you suspect unauthorised access, identity theft or compromised communications.
+We are not responsible for loss caused by your failure to take these precautions, except to the extent we failed to exercise reasonable care or the law provides otherwise.
+27. Fees, GST and quotations
+Fees are charged according to the Engagement Schedule, including whether GST is included or additional. Government fees and approved third-party costs may be charged separately.
+A quotation assumes the information supplied is complete and accurate. Additional transactions, incomplete records, prior-period corrections, urgent work, expanded scope or undisclosed circumstances may require a written variation.
+28. Scope and fee variations
+We will not perform material out-of-scope work or incur material third-party costs without your prior written approval. If immediate action is reasonably necessary to protect you from an imminent deadline or prejudice, we may perform work only up to the emergency limit stated in the Engagement Schedule and will notify you as soon as practicable.
+29. Payment terms
+Invoices are payable by the stated due date. We may require a deposit, advance payment, direct debit, payment before lodgment or payment of overdue amounts before starting or continuing work, subject to law and professional obligations.
+If you dispute an invoice, notify us promptly with the disputed amount, reasons and supporting information. The undisputed amount remains payable.
+30. Overdue accounts and debt recovery
+After reasonable notice, we may suspend work, decline to lodge incomplete or unapproved work, terminate the engagement, refer the debt to a collection agency or solicitor, or commence lawful recovery proceedings.
+You may be required to reimburse reasonable recovery costs actually and lawfully incurred. We may disclose information reasonably necessary for lawful recovery. We will report to a credit reporting body or service only where legally entitled and after required notices and procedures.
+We will not use harassment, misleading conduct, unconscionable conduct or unlawful collection activity. Contact us promptly if you seek consideration of a hardship arrangement.
+31. Client money and fee-from-refund services
+This engagement does not authorise Financially Up to receive, hold, control or disburse client money or deduct fees from a refund. Any such arrangement requires a separate written client-money agreement, authority, risk assessment and process complying with applicable professional and AML/CTF requirements.
+32. Bank instructions
+Where bank details are required, you must check their accuracy and confirm ownership or authority. We may verify changed details and delay processing where fraud concerns exist. We are not responsible for funds sent to incorrect details supplied or approved by you, except to the extent caused by our failure to exercise reasonable care.
+33. Client records and workpapers
+Original client records remain yours. Our internal checklists, calculations, risk assessments, notes, templates, methodologies and workpapers remain Financially Up’s property unless the law provides otherwise.
+On request and subject to law, confidentiality, payment and professional obligations, we will provide client-owned records or reasonable transition copies. Restricted AML/CTF, suspicious-matter, legal, internal risk and security records may be withheld where required or permitted.
+34. Joint clients, spouses and no-secrets protocol
+Each spouse or connected person is a separate client and requires separate identity, authority and engagement records. Where we expressly accept a joint engagement, information relevant to the joint matter received from one joint client may be shared with the other joint client.
+We will not accept an instruction to keep information relevant to a joint engagement secret from another joint client. If a material conflict, separation or dispute arises, we may cease acting for one or all affected clients and recommend independent advice.
+35. Advice, intended use and no privilege
+Advice is provided only to the named client, for the stated purpose and period, based on facts, assumptions and law known at the time. It must not be altered, distributed or relied on by another person without our written consent.
+We are not required to update completed advice after the engagement ends unless an ongoing service is accepted.
+Communications with an accountant are confidential subject to law but are not necessarily protected by legal professional privilege. The ATO has statutory information-gathering powers. Any administrative accountants’ concession is not equivalent to legal professional privilege.
+36. Complaints
+Please first contact Financially Up’s Complaints Officer. We aim to acknowledge a complaint within 2 business days, investigate it fairly and provide an outcome or progress update within 20 business days, subject to complexity.
+You may also use the TPB complaint process for tax agent services and, where applicable, the OAIC process for privacy complaints. This procedure does not limit any legal or regulatory right.
+37. Suspension and termination
+Once accepted, the engagement continues until either you or Financially Up terminates it by written notice. Written notice may be given by email or signed letter sent to the most recent contact details provided by the receiving party.
+Financially Up may suspend or terminate the engagement where fees remain unpaid, required information is not provided, identity, authority or due-diligence requirements cannot be completed, instructions appear unlawful, false, misleading, unsupported or unethical, a conflict arises, you engage in abusive or dishonest conduct, the engagement presents an unacceptable professional, legal, sanctions, AML/CTF or security risk, continuing would breach a legal or professional obligation, or the relationship of trust and confidence has materially broken down.
+A termination notice issued by Financially Up will, where reasonably practicable, identify the effective date, work completed, outstanding fees, known deadlines and records available for transfer. Following termination, you are responsible for appointing another adviser and managing future deadlines. Financially Up has no ongoing monitoring, reminder, lodgment or advisory obligation after the effective termination date.
+Prepaid fees will be applied to work performed and committed costs, with any refundable balance handled according to law and the Engagement Schedule. Termination does not affect accrued fees, completed work, existing rights or the continuing operation of confidentiality, privacy, recordkeeping, intellectual-property, liability, debt-recovery and dispute provisions.
+38. Continuing and recurring engagements
+Unless terminated in writing by either party, this engagement continues for recurring services of the same or substantially similar nature described in the Engagement Schedule.
+Continuation does not automatically expand the scope to additional entities, services, financial years, transactions, audits, objections, advisory matters or work not previously accepted. Each tax return, BAS, registration, application or other lodgment remains subject to you providing the required information, agreeing to the applicable fee or service confirmation, and providing the separate declaration and approval required for that lodgment.
+Financially Up may periodically review the engagement and request updated personal details, identity information, risk information, authorities, service requirements or records. Financially Up may also propose updated fees, scope, terms or service arrangements where law, professional standards, technology, risk, your circumstances or the nature of the services changes.
+A material change to contractual scope, fees, responsibilities or client rights will be communicated in writing and will require acceptance where required by law, professional standards or the nature of the change. Non-material administrative, contact, system or procedural updates do not require a new engagement agreement.
+39. Liability, consumer rights and proportionate responsibility
+Nothing in the engagement excludes or limits a consumer guarantee, professional obligation, remedy or liability that cannot lawfully be excluded or limited.
+To the extent permitted by law, we are not liable for loss caused by incomplete, inaccurate, misleading or late information; failure to keep records or follow advice; unauthorised alteration, distribution or use of our work; or events outside our reasonable control, except to the extent caused by our failure to exercise the care required by law.
+Liability is reduced to the extent you or another person contributed to the loss. Each party must take reasonable steps to mitigate loss. We are not liable for indirect or consequential loss that was not reasonably foreseeable, subject to law.
+Financially Up maintains professional indemnity insurance covering the practice and responsible practitioner, subject to the policy terms, limits and exclusions.
+40. Narrow client indemnity
+To the extent permitted by law, you indemnify Financially Up and its personnel against a third-party claim arising directly from information you knowingly supplied as false or fraudulent, your unauthorised alteration or distribution of our work, or use for a purpose expressly prohibited by the engagement. This indemnity does not apply to loss caused by Financially Up’s negligence, misconduct, breach of contract, professional obligation or law.
+41. Professional Standards Scheme
+Where Financially Up is a current participant in an approved Professional Standards Scheme and the engagement is covered by that scheme, the prescribed disclosure statement and applicable statutory limitation operate according to the scheme and legislation. The engagement form and generated client copy must display the exact prescribed statement only after Financially Up has confirmed current entity participation and coverage.
+42. Events outside reasonable control
+We are not responsible for delay or failure caused by events outside reasonable control, including government or provider outages, cyber incidents despite reasonable safeguards, natural disasters, telecommunications failure, serious illness, industrial action or delays by clients or third parties. We will take reasonable steps to minimise disruption.
+43. Changes, governing law and severability
+A material scope, fee, responsibility or client-rights change must be communicated in writing and agreed where required by law, professional standards or the nature of the change. Non-material administrative, contact, system, provider or procedural changes permitted by clause 21 do not require a new engagement agreement.
+The engagement is governed by South Australian and Commonwealth law. Mandatory forum rights are preserved. If a provision is invalid, it is read down or severed to the minimum extent necessary without affecting the rest of the agreement.
+44. Electronic acceptance
+By completing the separate acceptance controls and electronic signature, you confirm you had the opportunity to open, read, save and understand the engagement documents and intend to be bound by the accepted terms and permissions.

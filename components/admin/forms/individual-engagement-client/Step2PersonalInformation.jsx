@@ -12,6 +12,7 @@ import {
   SolutionOutlined,
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 // Countries list for Country of Birth
 const COUNTRIES = [
@@ -116,11 +117,14 @@ export default function Step2PersonalInformation({ form }) {
 
       {/* TFN Section (PI-005, PI-006, PI-007) */}
       <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
-        <div className="flex items-center gap-2">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100">Tax File Number (TFN)</h3>
-          <Tooltip title="Your TFN is encrypted under strict Australian Privacy Act and ATO guidelines. Providing your TFN is voluntary under law, but without it, tax return lodgement cannot proceed.">
-            <InfoCircleOutlined className="text-slate-400 hover:text-brand-primary cursor-pointer text-xs" />
-          </Tooltip>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">Tax File Number (TFN)</h3>
+            <Tooltip title="Your TFN is encrypted under strict Australian Privacy Act and ATO guidelines. Providing your TFN is voluntary under law, but without it, tax return lodgement cannot proceed.">
+              <InfoCircleOutlined className="text-slate-400 hover:text-brand-primary cursor-pointer text-xs" />
+            </Tooltip>
+          </div>
+          <PrivacyCollectionNoticeTrigger category="tfn" />
         </div>
 
         <AntInput

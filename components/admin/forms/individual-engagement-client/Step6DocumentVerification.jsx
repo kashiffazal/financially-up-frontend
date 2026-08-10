@@ -4,6 +4,7 @@ import React from "react";
 import { Form, Tag } from "antd";
 import { IdcardOutlined, UploadOutlined, CameraOutlined } from "@ant-design/icons";
 import { AntInput, AntFileUpload } from "@/services/antdFields";
+import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const IDENTITY_METHOD_OPTIONS = [
   { value: "Upload ID", title: "Upload Photo ID & Documents", desc: "Upload Driver's License or Passport (Quickest)" },
@@ -51,9 +52,12 @@ export default function Step6DocumentVerification({ form }) {
       {/* Document Uploads (When Upload ID or Electronic selected - ID-002, ID-003, ID-005, ID-006) */}
       {(identityMethod === "Upload ID" || identityMethod === "Electronic Verification" || !identityMethod) && (
         <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
-          <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
-            <IdcardOutlined className="text-brand-primary" /> Required Photo ID & Supporting Documents
-          </h3>
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+            <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
+              <IdcardOutlined className="text-brand-primary" /> Required Photo ID & Supporting Documents
+            </h3>
+            <PrivacyCollectionNoticeTrigger category="id" />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Primary ID (ID-002) */}
@@ -80,6 +84,10 @@ export default function Step6DocumentVerification({ form }) {
           {/* Selfie Photo (ID-005 - Conditional for remote verification) */}
           {identityMethod === "Electronic Verification" && (
             <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Biometric Identity Verification Notice:</span>
+                <PrivacyCollectionNoticeTrigger category="biometric" />
+              </div>
               <AntFileUpload
                 name="selfie"
                 label={<span className="font-bold text-slate-800 dark:text-zinc-200">Selfie / Photo Identification (Holding ID)</span>}

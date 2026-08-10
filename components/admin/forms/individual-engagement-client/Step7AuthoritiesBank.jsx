@@ -4,6 +4,7 @@ import React from "react";
 import { Form, Tag } from "antd";
 import { UploadOutlined, BankOutlined, SafetyCertificateOutlined, UserSwitchOutlined } from "@ant-design/icons";
 import { AntInput, AntFileUpload } from "@/services/antdFields";
+import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const RELATIONSHIP_OPTIONS = [
   { value: "Parent / Guardian", label: "Parent / Legal Guardian" },
@@ -125,9 +126,12 @@ export default function Step7AuthoritiesBank({ form, formData }) {
 
         {needBank === "Yes" && (
           <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
-            <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
-              <BankOutlined className="text-brand-primary" /> Australian Bank Account Details
-            </h4>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
+                <BankOutlined className="text-brand-primary" /> Australian Bank Account Details
+              </h4>
+              <PrivacyCollectionNoticeTrigger category="bank" />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <AntInput
