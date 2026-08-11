@@ -102,13 +102,138 @@ body {
   background: #94a3b8;
 }
 
-/* Global Zero-Padding Override for Ant Design Modals */
+/* Global Checkbox Alignment: Start from first line, not vertically centered in middle */
+.ant-checkbox-wrapper {
+  display: inline-flex !important;
+  align-items: flex-start !important;
+}
+
+.ant-checkbox-wrapper .ant-checkbox {
+  margin-top: 3px !important;
+  align-self: flex-start !important;
+}
+
+.ant-checkbox-wrapper span:last-child {
+  padding-left: 8px !important;
+  line-height: 1.5 !important;
+}
+
+/* Global Zero-Padding & Radius Override for Ant Design Modals */
 .ant-modal-root .ant-modal-content {
   padding: 0 !important;
-  border-radius: 24px !important;
+  border-radius: 20px !important;
   overflow: hidden !important;
 }
 
 .ant-modal-root .ant-modal-body {
   padding: 0 !important;
+}
+
+/* Ant Design Modal Close Button Fix (Prevent touching top border/overflow) */
+.ant-modal-root .ant-modal-close {
+  top: 18px !important;
+  right: 20px !important;
+  color: #64748b !important;
+  z-index: 50 !important;
+  border-radius: 9999px !important;
+  padding: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-modal-root .ant-modal-close:hover {
+  color: #0f172a !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.ant-form-item-explain-error {
+  position: absolute !important;
+}
+
+/* Multi-Page Printing Support for Modal Documents */
+@media print {
+  /* 1. Hide header, footer, navigation, sidebars, close button & modal footer actions */
+  header,
+  footer,
+  nav,
+  aside,
+  .no-print,
+  .ant-modal-footer,
+  .ant-modal-close,
+  .ant-modal-mask {
+    display: none !important;
+  }
+
+  /* 2. Hide background main web page when modal is active */
+  body main,
+  body #__next > *:not(.ant-modal-root) {
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* 3. Ensure ant-modal-root and all children are fully visible */
+  .ant-modal-root,
+  .ant-modal-wrap,
+  .ant-modal,
+  .ant-modal-content,
+  .ant-modal-body,
+  .ant-modal-body * {
+    visibility: visible !important;
+  }
+
+  .ant-modal-root {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ant-modal-wrap {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .ant-modal {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    top: 0 !important;
+  }
+
+  .ant-modal-content {
+    position: static !important;
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .ant-modal-body {
+    position: static !important;
+    display: block !important;
+    padding: 20px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* High contrast exact colors for print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }

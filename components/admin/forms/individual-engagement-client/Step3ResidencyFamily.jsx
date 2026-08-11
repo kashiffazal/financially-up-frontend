@@ -99,14 +99,14 @@ export default function Step3ResidencyFamily({ form }) {
             { value: "No", label: "No, Foreign Citizen / Permanent Resident" },
           ]}
           reqMsg="Please select your citizenship status."
-          containerClassName="mb-0"
+          containerClassName="!mb-4"
         />
 
         {/* Conditional Visa Questions when Citizen = No (RES-003 to RES-008) */}
         {isAustralianCitizen === "No" && (
           <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
-              <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-4">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
                 <GlobalOutlined className="text-brand-primary" /> Citizenship &
                 Visa Information
               </h4>
@@ -124,6 +124,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="rounded-xl"
                 reqMsg="Please select your country of citizenship."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -139,6 +140,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="rounded-xl"
                 reqMsg="Please select your visa status."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -152,6 +154,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="rounded-xl"
                 reqMsg="Please enter visa subclass."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -167,6 +170,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 reqMsg="Please select visa expiry date."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -182,6 +186,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 reqMsg="Please select arrival date."
+                containerClassName="!mb-2"
               />
 
               <AntFileUpload
@@ -213,18 +218,18 @@ export default function Step3ResidencyFamily({ form }) {
           radioOptions={RESIDENCY_OPTIONS}
           reqMsg="Please select your tax residency."
           gridClassName="grid grid-cols-1 sm:grid-cols-2 gap-3"
-          containerClassName="mb-0"
+          containerClassName="!mb-0"
         />
 
         {/* Residency Change Details (RES-009 to RES-012) */}
         {residencyChanged && (
-          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4 mt-4">
             <Alert
               type="warning"
               showIcon
               title="Residency Status Review Required"
               description="Notice: Changes in tax residency during the financial year affect your tax-free threshold and CGT asset rules. Our accountants will conduct a detailed residency review."
-              className="rounded-xl border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200 !mb-4"
+              className="rounded-xl border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200 !mb-6"
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -241,6 +246,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 noRequired={true}
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -256,6 +262,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 noRequired={true}
+                containerClassName="!mb-2"
               />
             </div>
 
@@ -270,6 +277,7 @@ export default function Step3ResidencyFamily({ form }) {
               size="large"
               className="rounded-xl"
               noRequired={true}
+              containerClassName="!mb-6"
             />
 
             <AntInput
@@ -284,6 +292,7 @@ export default function Step3ResidencyFamily({ form }) {
               rows={3}
               className="rounded-xl"
               noRequired={true}
+              containerClassName="!mb-0"
             />
           </div>
         )}
@@ -309,7 +318,7 @@ export default function Step3ResidencyFamily({ form }) {
         />
 
         {hasSpouse === "Yes" && (
-          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4 mt-4">
             <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
               <TeamOutlined className="text-brand-primary" /> Spouse Information
             </h4>
@@ -325,6 +334,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="rounded-xl"
                 reqMsg="Please enter spouse name."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -340,6 +350,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 reqMsg="Please select DOB."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -356,6 +367,7 @@ export default function Step3ResidencyFamily({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 noRequired={true}
+                containerClassName="!mb-2"
               />
             </div>
 
@@ -373,7 +385,7 @@ export default function Step3ResidencyFamily({ form }) {
                 { value: "No", label: "No, spouse lodges separately" },
               ]}
               noRequired={true}
-              containerClassName="mb-0"
+              containerClassName="!mb-0"
             />
           </div>
         )}
@@ -413,7 +425,7 @@ export default function Step3ResidencyFamily({ form }) {
             size="large"
             className="w-full rounded-xl"
             reqMsg="Enter number of dependants."
-            containerClassName="mb-0 max-w-xs"
+            containerClassName="!mt-4 !mb-0 max-w-xs"
           />
         )}
       </div>

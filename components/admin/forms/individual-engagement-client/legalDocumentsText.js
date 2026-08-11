@@ -1,10 +1,13 @@
 /**
  * Legal Documents Text Data Source
  * =================================
- * Contains full statutory text for:
+ * Contains exact statutory texts for:
  * 1. Financially Up Terms and Conditions (Version 2.1 | Effective 24 July 2026)
  * 2. Financially Up Privacy Policy (Version 2.1 | Effective 24 July 2026)
  * 3. TPB Client Information Statement
+ * 4. Privacy Collection Notice (Exact Client-Facing APP 5 Notice)
+ * 5. Technology, Outsourcing & Overseas Processing Notice
+ * 6. ATO Audit & Substantiation Declaration (Section 5.4 Exact Wording)
  */
 
 export const TERMS_AND_CONDITIONS_INFO = {
@@ -61,7 +64,7 @@ export const TERMS_AND_CONDITIONS_INFO = {
 };
 
 export const PRIVACY_POLICY_INFO = {
-  title: "Financially Up Privacy Policy & TPB Statement",
+  title: "Financially Up Privacy Policy",
   version: "2.1",
   effectiveDate: "24 July 2026",
   documentType: "PRIVACY",
@@ -88,4 +91,35 @@ export const PRIVACY_POLICY_INFO = {
     { id: 19, title: "19. Privacy complaints", text: "Contact the Privacy Officer at info@financiallyup.com.au. We aim to acknowledge a complaint within 2 business days and provide an outcome or progress update within 20 business days. If unresolved, you may have the right to contact the OAIC." },
     { id: 20, title: "20. Contact and policy changes", text: "Privacy Officer: Financially Up Privacy Team, Level 5, 100 Walker St, North Sydney NSW 2060. We may update this policy for future collection and engagements. The effective date and prior versions will be retained." }
   ]
+};
+
+export const EXACT_PRIVACY_COLLECTION_NOTICE_TEXT = {
+  title: "Privacy Collection Notice",
+  version: "2.1",
+  effectiveDate: "24 July 2026",
+  documentType: "PRIVACY_COLLECTION_NOTICE",
+  fullText: "Financially Up Pty Ltd collects personal, taxation, financial, business, identity, contact and, where relevant, residency, visa and AML/CTF information to assess and accept engagements, verify identity and authority, provide accounting and taxation services, communicate with you and authorities, manage fees, prevent fraud, maintain security, meet professional obligations and comply with taxation, privacy, sanctions and AML/CTF laws. We may collect information from you and, with authority or where permitted, from the ATO, ABR, previous advisers, government agencies, public registers, identity providers and authorised persons. We may disclose relevant information to government authorities where authorised or required and to approved technology, cloud, identity-verification, electronic-signature, accounting, taxation, communications, security, professional-support and other service providers reasonably required to provide and support the agreed services. Information may also be accessed by appropriately authorised and supervised Financially Up personnel located in Australia and overseas, subject to confidentiality, security, access-control and supervision requirements. If you do not provide required information, we may be unable to verify identity, accept the engagement or provide the service. Our Privacy Policy explains security, overseas access, retention, access, correction, complaints and eligible data breaches."
+};
+
+export const TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO = {
+  title: "Technology, Outsourcing and Overseas Processing Notice",
+  version: "2.1",
+  effectiveDate: "24 July 2026",
+  documentType: "TECHNOLOGY_NOTICE",
+  fullText: "Financially Up may use approved professional software, cloud and data-hosting services, secure client portals, electronic-signature systems, identity-verification services, taxation and accounting software, document-management systems, communications platforms, payment services, workflow and automation tools, cyber-security services, backup services, technical-support providers and other professional service providers reasonably required to deliver and support the agreed services. Financially Up may also use appropriately qualified, authorised and supervised employees, contractors and service personnel located in Australia and overseas to perform assigned administrative, data-processing, reconciliation, bookkeeping, document-management, tax-preparation support, technical-support and quality-control activities. Client information may therefore be collected, accessed, processed, transmitted or securely stored in Australia and overseas locations in which these providers or authorised personnel operate. Access will be limited to information reasonably required for the assigned purpose and will be subject to confidentiality obligations, access controls, security measures, contractual safeguards, training and supervision. Tax agent and BAS agent services remain subject to the supervision and review of an Australian registered tax agent, and Financially Up remains responsible for the professional services it provides. By accepting this engagement, the client authorises these arrangements and acknowledges that Financially Up may change or replace providers, systems, infrastructure or personnel from time to time without requiring a new engagement agreement, provided that the nature and purpose of processing remain substantially consistent with the engagement and Financially Up continues to comply with applicable confidentiality, privacy, professional and security obligations. Financially Up will give additional notice and obtain further permission where required by law or professional standards, including where a change materially expands the purpose of disclosure, the categories of information involved, biometric processing, the nature or extent of outsourced professional services, or overseas access beyond the arrangements reasonably contemplated by this notice."
+};
+
+export const TPB_STATEMENT_INFO = {
+  title: "TPB Client Information Statement",
+  version: "2.1",
+  effectiveDate: "24 July 2026",
+  documentType: "TPB_STATEMENT",
+  fullText: "Financially Up is a registered tax agent. The Tax Practitioners Board maintains a public register of registered tax and BAS agents and provides a complaint process. Financially Up must act honestly and with integrity, lawfully in the client’s best interests, protect confidential information, manage conflicts, provide competent services and take reasonable care. Clients must provide truthful, complete and timely information, keep required records, review documents before approval and cooperate with reasonable requests."
+};
+
+export const ATO_AUDIT_DECLARATION_INFO = {
+  title: "ATO Audit and Substantiation Declaration",
+  version: "2.1",
+  documentType: "ATO_AUDIT_DECLARATION",
+  fullText: "I understand that the taxation system generally operates on self-assessment and the ATO may review or audit information after lodgment. I accept responsibility for providing complete and accurate information and for retaining and producing the records required to substantiate my income, deductions, GST credits, capital gains and other claims. Financially Up may assist with an ATO review or audit only where included in the Engagement Schedule or under a separate written engagement and fee. Financially Up cannot guarantee that the ATO will accept a claim or document."
 };

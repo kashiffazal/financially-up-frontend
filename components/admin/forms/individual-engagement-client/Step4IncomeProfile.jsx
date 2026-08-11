@@ -109,11 +109,11 @@ export default function Step4IncomeProfile({ form }) {
           ]}
           vertical={true}
           reqMsg="Please select an option."
-          containerClassName="mb-0"
+          containerClassName="!mb-0"
         />
 
         {hadPreviousAccountant === "Yes" && (
-          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4 mt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <AntInput
                 name="previousFirm"
@@ -126,6 +126,7 @@ export default function Step4IncomeProfile({ form }) {
                 size="large"
                 className="rounded-xl"
                 reqMsg="Please enter the previous firm."
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -141,6 +142,7 @@ export default function Step4IncomeProfile({ form }) {
                   { value: "Do Not Authorise", label: "Do not authorise" },
                 ]}
                 noRequired={true}
+                containerClassName="!mb-2"
               />
             </div>
 
@@ -156,7 +158,7 @@ export default function Step4IncomeProfile({ form }) {
               rows={2}
               className="rounded-xl"
               reqMsg="Please provide a reason."
-              containerClassName="mb-0"
+              containerClassName="!mb-0"
             />
           </div>
         )}
@@ -179,11 +181,11 @@ export default function Step4IncomeProfile({ form }) {
             { value: "Unsure", label: "Unsure / Need ATO status check" },
           ]}
           reqMsg="Please select an option."
-          containerClassName="mb-0"
+          containerClassName="!mb-0"
         />
 
         {atoIssues && atoIssues !== "No" && (
-          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+          <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4 mt-2">
             <Alert
               type="warning"
               showIcon
@@ -205,9 +207,10 @@ export default function Step4IncomeProfile({ form }) {
               rows={3}
               className="rounded-xl"
               reqMsg="Please provide details."
+              containerClassName="!mb-0"
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <AntInput
                 type="datepicker"
                 name="noticeDate"
@@ -221,6 +224,7 @@ export default function Step4IncomeProfile({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 noRequired={true}
+                containerClassName="!mb-2"
               />
 
               <AntInput
@@ -236,6 +240,7 @@ export default function Step4IncomeProfile({ form }) {
                 size="large"
                 className="w-full rounded-xl"
                 noRequired={true}
+                containerClassName="!mb-2"
               />
             </div>
 
@@ -250,6 +255,7 @@ export default function Step4IncomeProfile({ form }) {
               heading="Attach ATO Notice (PDF/JPG/PNG)"
               maxCount={3}
               noRequired={true}
+              containerClassName="!mb-0"
             />
           </div>
         )}

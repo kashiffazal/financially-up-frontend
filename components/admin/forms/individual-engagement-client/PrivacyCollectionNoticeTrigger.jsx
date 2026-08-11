@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Tag } from "antd";
 import { InfoCircleOutlined, SafetyCertificateOutlined, PrinterOutlined, FileProtectOutlined } from "@ant-design/icons";
+import { EXACT_PRIVACY_COLLECTION_NOTICE_TEXT } from "./legalDocumentsText";
 
 /**
  * Privacy Collection Notice Content per Field Category
@@ -122,7 +123,8 @@ export default function PrivacyCollectionNoticeTrigger({ category = "tfn", onOpe
           setShowFull(false);
         }}
         width={750}
-        style={{ top: 30 }}
+        centered={true}
+        getContainer={() => typeof document !== 'undefined' ? document.body : null}
         footer={[
           <div key="modal-footer" className="flex items-center justify-between w-full px-2">
             <Button
@@ -194,17 +196,14 @@ export default function PrivacyCollectionNoticeTrigger({ category = "tfn", onOpe
             </div>
           ) : (
             <div className="space-y-4 text-xs leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
-              <p className="text-slate-700 dark:text-zinc-300 italic m-0">
-                {FULL_PRIVACY_COLLECTION_NOTICE_TEXT.overview}
-              </p>
-              {FULL_PRIVACY_COLLECTION_NOTICE_TEXT.sections.map((sec, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-1">
-                  <h4 className="font-bold text-slate-900 dark:text-zinc-100 text-xs m-0 text-brand-primary dark:text-emerald-400">
-                    {sec.title}
-                  </h4>
-                  <p className="text-slate-700 dark:text-zinc-300 m-0">{sec.text}</p>
-                </div>
-              ))}
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2">
+                <h4 className="font-bold text-slate-900 dark:text-zinc-100 text-xs m-0 text-brand-primary dark:text-emerald-400">
+                  Full Statutory Privacy Collection Notice (APP 5)
+                </h4>
+                <p className="text-slate-700 dark:text-zinc-300 m-0 leading-relaxed font-sans">
+                  {EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.fullText}
+                </p>
+              </div>
             </div>
           )}
         </div>
