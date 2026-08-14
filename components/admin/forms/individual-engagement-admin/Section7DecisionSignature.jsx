@@ -7,12 +7,24 @@ import { AntInput, AntFileUpload } from "@/services/antdFields";
 import AdminSignatureCanvas from "./AdminSignatureCanvas";
 
 const DECISION_OPTIONS = [
-  { value: "Accept", label: "Accept — Generate Engagement Acceptance Notice" },
-  { value: "Conditional Accept", label: "Conditional Accept — Accept subject to specific terms" },
-  { value: "Request Information", label: "Request Information — Contact client for missing documents" },
-  { value: "Enhanced Monitoring", label: "Enhanced Monitoring — Ongoing compliance monitoring" },
-  { value: "Escalate", label: "Escalate — Escalate case to Compliance Officer" },
-  { value: "Decline", label: "Decline — Decline engagement" },
+  { value: "Accept", label: "Accept - Generate Engagement Acceptance Notice" },
+  {
+    value: "Conditional Accept",
+    label: "Conditional Accept - Accept subject to specific terms",
+  },
+  {
+    value: "Request Information",
+    label: "Request Information - Contact client for missing documents",
+  },
+  {
+    value: "Enhanced Monitoring",
+    label: "Enhanced Monitoring - Ongoing compliance monitoring",
+  },
+  {
+    value: "Escalate",
+    label: "Escalate - Escalate case to Compliance Officer",
+  },
+  { value: "Decline", label: "Decline - Decline engagement" },
 ];
 
 export default function Section7DecisionSignature() {
@@ -22,13 +34,18 @@ export default function Section7DecisionSignature() {
   return (
     <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
       <h4 className="text-sm font-extrabold text-slate-900 dark:text-zinc-100 flex items-center gap-2 text-brand-primary dark:text-emerald-400">
-        <CheckCircleOutlined className="text-brand-primary" /> Section 7: Available Staff Engagement Decision
+        <CheckCircleOutlined className="text-brand-primary" /> Section 7:
+        Available Staff Engagement Decision
       </h4>
 
       <AntInput
         type="radio"
         name="decision"
-        label={<span className="font-bold text-slate-800 dark:text-zinc-200">Final Engagement Decision</span>}
+        label={
+          <span className="font-bold text-slate-800 dark:text-zinc-200">
+            Final Engagement Decision
+          </span>
+        }
         radioOptions={DECISION_OPTIONS}
         vertical={true}
         reqMsg="Please select an engagement decision."
@@ -36,7 +53,11 @@ export default function Section7DecisionSignature() {
 
       <AntInput
         name="staffMemberName"
-        label={<span className="font-bold text-slate-800 dark:text-zinc-200">Staff Member Full Legal Name</span>}
+        label={
+          <span className="font-bold text-slate-800 dark:text-zinc-200">
+            Staff Member Full Legal Name
+          </span>
+        }
         placeholder="Enter staff member full name"
         size="large"
         className="rounded-xl font-semibold"
@@ -48,7 +69,11 @@ export default function Section7DecisionSignature() {
         type="radio"
         name="staffSignatureType"
         value="draw"
-        label={<span className="font-bold text-slate-800 dark:text-zinc-200">Staff Signature Method</span>}
+        label={
+          <span className="font-bold text-slate-800 dark:text-zinc-200">
+            Staff Signature Method
+          </span>
+        }
         radioOptions={[
           { value: "draw", label: "Draw Signature (Canvas)" },
           { value: "type", label: "Type Digital Signature" },
@@ -66,7 +91,14 @@ export default function Section7DecisionSignature() {
           </label>
           <Form.Item
             name="staffDrawnSignature"
-            rules={[{ validator: (_, v) => (v ? Promise.resolve() : Promise.reject(new Error("Please draw staff signature."))) }]}
+            rules={[
+              {
+                validator: (_, v) =>
+                  v
+                    ? Promise.resolve()
+                    : Promise.reject(new Error("Please draw staff signature.")),
+              },
+            ]}
             className="mb-0"
           >
             <AdminSignatureCanvas />
@@ -79,7 +111,11 @@ export default function Section7DecisionSignature() {
         <div className="space-y-2">
           <AntInput
             name="staffTypedSignature"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Type Staff Signature Name</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Type Staff Signature Name
+              </span>
+            }
             placeholder="Type staff signature name"
             size="large"
             className="rounded-xl"
@@ -104,7 +140,11 @@ export default function Section7DecisionSignature() {
       {sigMode === "upload" && (
         <AntFileUpload
           name="staffUploadedSignature"
-          label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Staff Signature Stamp</span>}
+          label={
+            <span className="font-bold text-slate-800 dark:text-zinc-200">
+              Upload Staff Signature Stamp
+            </span>
+          }
           heading="Upload Staff Signature File"
           para="Supports PNG, JPG, JPEG"
           reqMsg="Upload signature file."
@@ -116,7 +156,11 @@ export default function Section7DecisionSignature() {
       <AntInput
         type="textarea"
         name="reviewNotes"
-        label={<span className="font-bold text-slate-800 dark:text-zinc-200">Section 8: Internal Review Notes & Audit Log Details</span>}
+        label={
+          <span className="font-bold text-slate-800 dark:text-zinc-200">
+            Section 8: Internal Review Notes & Audit Log Details
+          </span>
+        }
         placeholder="Record staff member notes, review findings, or specific instructions..."
         rows={3}
         className="rounded-xl"

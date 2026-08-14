@@ -42,6 +42,7 @@ import {
 } from "@ant-design/icons";
 import {
   getNewIndividualEngagements,
+  getNewIndividualEngagementById,
   submitNewIndividualAdminDecision,
 } from "@/services/newIndividualEngagement.service";
 import ExportButtons from "@/components/admin/ExportButtons";
@@ -77,6 +78,18 @@ const STATUS_LIST = [
     label: "Request Info",
     color: "purple",
     icon: <PauseCircleOutlined />,
+  },
+  {
+    key: "Enhanced Monitoring",
+    label: "Enhanced Monitoring",
+    color: "cyan",
+    icon: <EyeOutlined />,
+  },
+  {
+    key: "Escalate",
+    label: "Escalated",
+    color: "volcano",
+    icon: <ExclamationCircleOutlined />,
   },
   {
     key: "Declined",
@@ -184,8 +197,19 @@ export default function NewIndividualEngagementAdminPage() {
     fetchData();
   }, [fetchData]);
 
-  const showReviewModal = (record) => {
-    setCurrentRecord(record);
+  const showReviewModal = async (record) => {
+    try {
+      // Fetch fresh record from DB including latest adminReview
+      const res = await getNewIndividualEngagementById(record.id);
+      if (res && res.data) {
+        setCurrentRecord(res.data);
+      } else {
+        setCurrentRecord(record);
+      }
+    } catch (err) {
+      console.warn("Failed to fetch fresh record, using row data:", err);
+      setCurrentRecord(record);
+    }
     setIsModalOpen(true);
   };
 

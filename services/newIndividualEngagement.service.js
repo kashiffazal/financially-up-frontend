@@ -123,14 +123,22 @@ export const submitNewIndividualAdminDecision = async (id, decisionData) => {
     }
   });
 
-  const response = await fetch(`${API_BASE_URL}${ENDPOINT}/${id}/decision`, {
-    method: "PUT",
-    body: formData,
-  });
+  try {
+    const response = await fetch(`${API_BASE_URL}${ENDPOINT}/${id}/decision`, {
+      method: "PUT",
+      body: formData,
+    });
 
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.message || "Decision submission failed");
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || "Decision submission failed");
+    }
+    return data;
+  } catch (error) {
+    console.error(`API Error [PUT /decision]:`, error);
+    if (error.message === "Failed to fetch") {
+      throw new Error("Cannot connect to backend server at " + API_BASE_URL + ". Please verify backend is running on port 5000.");
+    }
+    throw error;
   }
-  return data;
 };

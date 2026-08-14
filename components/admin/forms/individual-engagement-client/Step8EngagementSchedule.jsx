@@ -133,7 +133,7 @@ export const getScheduleItemsForServices = (services = []) => {
       urgentWorkLimit:
         "Urgent requests (< 5 business days) incur a 30% rush surcharge",
       specialConditions,
-      responsibleAccountant: "Financially Up — Registered Tax Agent Team",
+      responsibleAccountant: "Financially Up - Registered Tax Agent Team",
       engagementTerm: "Ongoing until terminated in writing with 14 days notice",
       acceptanceDate: new Date().toLocaleDateString("en-AU", {
         day: "2-digit",
@@ -389,7 +389,7 @@ export default function Step8EngagementSchedule({
               RESPONSIBLE ACCOUNTANT
             </span>
             <span className="font-bold text-slate-800 dark:text-zinc-200">
-              Financially Up — Registered Tax Agent Team
+              Financially Up - Registered Tax Agent Team
             </span>
           </div>
           <div>
@@ -491,7 +491,7 @@ export default function Step8EngagementSchedule({
             </p>
           </div>
 
-          {/* Service Details Breakdown — 15 Fields Table */}
+          {/* Service Details Breakdown - 15 Fields Table */}
           <div className="space-y-6">
             {scheduleData.map((item, idx) => (
               <div
@@ -613,7 +613,7 @@ export default function Step8EngagementSchedule({
                 <strong className="text-slate-500 block text-[10px]">
                   13. RESPONSIBLE ACCOUNTANT
                 </strong>
-                <span>Financially Up — Registered Tax Agent Team</span>
+                <span>Financially Up - Registered Tax Agent Team</span>
               </div>
               <div>
                 <strong className="text-slate-500 block text-[10px]">

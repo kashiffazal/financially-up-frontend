@@ -1,4 +1,4 @@
-# 📂 Financially Up — Client Documentation & Form Specifications
+# 📂 Financially Up - Client Documentation & Form Specifications
 
 Welcome to the official documentation directory for **Financially Up**. This folder contains complete specification maps, field directories, conditional business logic rules, and client-facing summaries for all onboarding forms across the platform.
 

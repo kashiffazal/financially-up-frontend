@@ -19,21 +19,69 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
 
   useEffect(() => {
     if (record) {
-      form.setFieldsValue({
-        userRole: "Accountant",
-        admChecklist: ["ADM-001", "ADM-002", "ADM-004", "ADM-007", "ADM-008"],
-        riskLevel: record?.riskLevel || "Low",
-        amlDesignatedServiceInvolved: "No",
-        amlBeneficialOwnershipVerified: "Yes",
-        amlSourceOfFundsRecorded: "N/A",
-        amlEscalationRequired: "No",
-        sanctionsOverseasActivityCheck: "Pass",
-        sanctionsHighRiskJurisdictionCheck: "Pass",
-        sanctionsNameMatchCheck: "Clear - No Match",
-        decision: record?.status === "Approved" || record?.status === "Accepted" ? "Accept" : "Accept",
-        staffMemberName: "Financially Up Tax Agent",
-        reviewNotes: record?.approvalNotes || "",
-      });
+      const statusToDecision = {
+        "Accepted": "Accept",
+        "Conditional Accept": "Conditional Accept",
+        "Request Information": "Request Information",
+        "Enhanced Monitoring": "Enhanced Monitoring",
+        "Escalate": "Escalate",
+        "Declined": "Decline",
+      };
+
+      const adminReview = record.adminReview || null;
+      const taxAgentSig = Array.isArray(record?.signatures)
+        ? record?.signatures.find((s) => s.signerType === "TaxAgent")
+        : null;
+
+      if (adminReview) {
+        // Populate from saved DB admin review record
+        let checklist = adminReview.checklistItems;
+        if (typeof checklist === "string") {
+          try { checklist = JSON.parse(checklist); } catch (e) { checklist = []; }
+        }
+
+        form.setFieldsValue({
+          userRole: adminReview.userRole || undefined,
+          admChecklist: Array.isArray(checklist) ? checklist : [],
+          riskLevel: adminReview.riskLevel || undefined,
+          riskRationale: adminReview.riskRationale || "",
+          decision: adminReview.decision || undefined,
+          amlDesignatedServiceInvolved: adminReview.amlDesignatedServiceInvolved || undefined,
+          amlBeneficialOwnershipVerified: adminReview.amlBeneficialOwnershipVerified || undefined,
+          amlSourceOfFundsRecorded: adminReview.amlSourceOfFundsRecorded || undefined,
+          amlEscalationRequired: adminReview.amlEscalationRequired || undefined,
+          sanctionsOverseasActivityCheck: adminReview.sanctionsOverseasActivityCheck || undefined,
+          sanctionsHighRiskJurisdictionCheck: adminReview.sanctionsHighRiskJurisdictionCheck || undefined,
+          sanctionsNameMatchCheck: adminReview.sanctionsNameMatchCheck || undefined,
+          staffMemberName: adminReview.reviewerName || taxAgentSig?.signerFullName || "",
+          staffSignatureType: adminReview.signatureMethod || "draw",
+          staffDrawnSignature: adminReview.signatureDrawnData || null,
+          staffTypedSignature: adminReview.signatureTypedName || "",
+          reviewNotes: adminReview.reviewNotes || "",
+        });
+      } else {
+        // Brand-new unreviewed request: 100% clean initial state with no pre-selections
+        form.resetFields();
+        form.setFieldsValue({
+          userRole: undefined,
+          admChecklist: [],
+          riskLevel: undefined,
+          riskRationale: "",
+          decision: undefined,
+          amlDesignatedServiceInvolved: undefined,
+          amlBeneficialOwnershipVerified: undefined,
+          amlSourceOfFundsRecorded: undefined,
+          amlEscalationRequired: undefined,
+          sanctionsOverseasActivityCheck: undefined,
+          sanctionsHighRiskJurisdictionCheck: undefined,
+          sanctionsNameMatchCheck: undefined,
+          staffMemberName: "",
+          staffSignatureType: "draw",
+          staffDrawnSignature: null,
+          staffTypedSignature: "",
+          reviewNotes: "",
+        });
+      }
     }
   }, [record, form]);
 

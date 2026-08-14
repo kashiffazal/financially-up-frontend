@@ -190,7 +190,7 @@ const radioVerticalStyle = {
 const checkboxVerticalStyle = radioVerticalStyle;
 
 /**
- * AntInput — Universal Ant Design v6.5.0 Form Field Component
+ * AntInput - Universal Ant Design v6.5.0 Form Field Component
  */
 export const AntInput = ({
   // Essentials
@@ -900,7 +900,7 @@ export const AntInput = ({
 };
 
 /**
- * AntFileUpload — Universal Ant Design Upload Dragger Component
+ * AntFileUpload - Universal Ant Design Upload Dragger Component
  */
 export const AntFileUpload = ({
   label = false,

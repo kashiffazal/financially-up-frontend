@@ -1,4 +1,4 @@
-# 🛠️ `services/antdFields` — Ant Design v6.5.0 Form Field Helper Library
+# 🛠️ `services/antdFields` - Ant Design v6.5.0 Form Field Helper Library
 
 > **Updated Service Component**  
 > *Target:* Next.js 16 + React 19 + Ant Design v6.5.0  

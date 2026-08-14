@@ -1,10 +1,10 @@
-# 🛡️ Individual Client Engagement Form — Part 12 Admin Portal Specification & Field Map
+# 🛡️ Individual Client Engagement Form - Part 12 Admin Portal Specification & Field Map
 
 > **Official Internal Admin Specification (Extracted from `Part_12_Admin_Portal_Specification.docx`)**  
-> *Target:* Next.js 16 + React 19 + Ant Design v6.5.0  
-> *Component Path:* `components/admin/forms/individual-engagement-admin/index.jsx`  
-> *Admin Route:* `/admin/individual-engagement`  
-> *User Roles:* `Administrator`, `Accountant`, `Compliance Officer`  
+> _Target:_ Next.js 16 + React 19 + Ant Design v6.5.0  
+> _Component Path:_ `components/admin/forms/individual-engagement-admin/index.jsx`  
+> _Admin Route:_ `/admin/individual-engagement`  
+> _User Roles:_ `Administrator`, `Accountant`, `Compliance Officer`
 
 ---
 
@@ -12,10 +12,10 @@
 
 The Admin Portal is the internal administration component used by Financially Up staff after a client submits an engagement. These screens are strictly internal and must never be visible to client-facing users.
 
-| User Role | Primary Responsibilities |
-| :--- | :--- |
-| **Administrator** | Manage users, system configuration, document rules, fees, and global settings. |
-| **Accountant** | Review engagements, request additional information, accept or decline engagements. |
+| User Role              | Primary Responsibilities                                                              |
+| :--------------------- | :------------------------------------------------------------------------------------ |
+| **Administrator**      | Manage users, system configuration, document rules, fees, and global settings.        |
+| **Accountant**         | Review engagements, request additional information, accept or decline engagements.    |
 | **Compliance Officer** | Review AML/CTF, sanctions screening, beneficial ownership, and high-risk engagements. |
 
 ---
@@ -23,6 +23,7 @@ The Admin Portal is the internal administration component used by Financially Up
 ## 📋 Exact Section Breakdown (From Part 12 Specification)
 
 ### 1. User Role Selection
+
 - **Field Name:** `userRole`
 - **Control Type:** Select Dropdown
 - **Options:** `Accountant`, `Compliance Officer`, `Administrator`
@@ -30,6 +31,7 @@ The Admin Portal is the internal administration component used by Financially Up
 ---
 
 ### 2. Section 3: Internal Review Checklist (`ADM-001` to `ADM-010`)
+
 - **Field Name:** `admChecklist`
 - **Control Type:** Multi-Select Checkbox Group
 - **Items:**
@@ -47,42 +49,46 @@ The Admin Portal is the internal administration component used by Financially Up
 ---
 
 ### 3. Section 4: Risk Assessment
+
 - **Field Name:** `riskLevel`
 - **Control Type:** Radio Group
 - **Levels & Actions:**
-  - `Low` — Verified identity, standard tax return (Normal review)
-  - `Medium` — Foreign income, crypto, overdue lodgements (Senior review)
-  - `High` — Identity concerns, major inconsistencies (Enhanced review)
-  - `Unacceptable` — False identity, fraudulent documents (Decline engagement)
+  - `Low` - Verified identity, standard tax return (Normal review)
+  - `Medium` - Foreign income, crypto, overdue lodgements (Senior review)
+  - `High` - Identity concerns, major inconsistencies (Enhanced review)
+  - `Unacceptable` - False identity, fraudulent documents (Decline engagement)
 - **Field Name:** `riskNotes` (Textarea for evaluation rationale)
 
 ---
 
 ### 4. Section 5: Anti-Money Laundering (AML / CTF) Review
-- `amlDesignatedServiceInvolved` — Radio (`Yes`, `No`)
-- `amlBeneficialOwnershipVerified` — Radio (`Yes`, `No`, `N/A`)
-- `amlSourceOfFundsRecorded` — Radio (`Yes`, `No`, `N/A`)
-- `amlEscalationRequired` — Radio (`Yes`, `No`) — Escalates case to Compliance Officer
+
+- `amlDesignatedServiceInvolved` - Radio (`Yes`, `No`)
+- `amlBeneficialOwnershipVerified` - Radio (`Yes`, `No`, `N/A`)
+- `amlSourceOfFundsRecorded` - Radio (`Yes`, `No`, `N/A`)
+- `amlEscalationRequired` - Radio (`Yes`, `No`) - Escalates case to Compliance Officer
 
 ---
 
 ### 5. Section 6: Sanctions Screening Review
-- `sanctionsOverseasActivityCheck` — Radio (`Pass`, `Flagged`)
-- `sanctionsHighRiskJurisdictionCheck` — Radio (`Pass`, `Flagged`)
-- `sanctionsNameMatchCheck` — Radio (`Clear - No Match`, `Potential Match - Escalate`)
+
+- `sanctionsOverseasActivityCheck` - Radio (`Pass`, `Flagged`)
+- `sanctionsHighRiskJurisdictionCheck` - Radio (`Pass`, `Flagged`)
+- `sanctionsNameMatchCheck` - Radio (`Clear - No Match`, `Potential Match - Escalate`)
 
 ---
 
 ### 6. Section 7: Available Staff Decisions
+
 - **Field Name:** `decision`
 - **Control Type:** Radio Group
 - **Options:**
-  - `Accept` — Generates Engagement Acceptance Notice
-  - `Conditional Accept` — Accept subject to specific terms
-  - `Request Information` — Contact client for missing documents
-  - `Enhanced Monitoring` — Ongoing compliance monitoring
-  - `Escalate` — Escalate to Compliance Officer
-  - `Decline` — Decline engagement
+  - `Accept` - Generates Engagement Acceptance Notice
+  - `Conditional Accept` - Accept subject to specific terms
+  - `Request Information` - Contact client for missing documents
+  - `Enhanced Monitoring` - Ongoing compliance monitoring
+  - `Escalate` - Escalate to Compliance Officer
+  - `Decline` - Decline engagement
 - **Field Name:** `staffMemberName` (Text Input)
 - **Field Name:** `staffSignatureType` (`draw`, `type`, `upload`) with smooth `SignaturePad` canvas
 - **Field Name:** `reviewNotes` (Section 8: Internal Review Notes & Audit Log Details)
