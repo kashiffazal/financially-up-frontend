@@ -34,7 +34,7 @@ export default function WebsiteFooter() {
     { href: "/business-services/company-tax-return", label: "Business Tax" },
     { href: "/book-keeping", label: "Bookkeeping" },
     {
-      href: "/resources/registration-forms/company-registration",
+      href: "/resources/registration-forms",
       label: "Business Registration",
     },
     {
@@ -60,7 +60,7 @@ export default function WebsiteFooter() {
               <Link href="/" className="inline-block">
                 <Image
                   src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-                  alt="Financially Up – Accounting | Taxation | Advisory"
+                  alt="Financially Up - Accounting | Taxation | Advisory"
                   width={200}
                   height={50}
                   priority
@@ -203,7 +203,7 @@ export default function WebsiteFooter() {
                     Operating Hours
                   </div>
                   <div className="text-[12px] font-semibold text-slate-700 dark:text-slate-200">
-                    Mon – Fri: 9:00 AM – 6:00 PM AEST (100% Online)
+                    Mon - Fri: 9:00 AM - 6:00 PM AEST (100% Online)
                   </div>
                 </div>
               </div>

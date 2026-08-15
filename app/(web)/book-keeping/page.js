@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import BookkeepingOverview from './components/BookkeepingOverview';
-import WhyChooseBookkeeping from './components/WhyChooseBookkeeping';
-import BookkeepingPricing from './components/BookkeepingPricing';
-import FaqSection from '@/components/website/FaqSection';
-import CallToActionBanner from '../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import BookkeepingOverview from "./components/BookkeepingOverview";
+import WhyChooseBookkeeping from "./components/WhyChooseBookkeeping";
+import BookkeepingPricing from "./components/BookkeepingPricing";
+import FaqSection from "@/components/website/FaqSection";
+import CallToActionBanner from "../home-components/CallToActionBanner";
 
 export default function BookkeepingPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Business Services', href: '/business-services' },
-    { label: 'Bookkeeping' },
+    { label: "Home", href: "/" },
+    { label: "Business Services", href: "/business-services" },
+    { label: "Bookkeeping" },
   ];
 
   return (
@@ -21,7 +21,7 @@ export default function BookkeepingPage() {
       <PageHero
         breadcrumbs={breadcrumbs}
         badgeTag="Affordable Bookkeeping Australia"
-        title="Bookkeeping Services for Small Business Australia – Online & Affordable"
+        title="Bookkeeping Services for Small Business Australia - Online & Affordable"
         subtitle="Expertise that Transforms Your Business"
       />
 

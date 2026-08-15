@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import IndividualTaxReturnOverview from './components/IndividualTaxReturnHero';
-import WhyChooseIndividualTax from './components/WhyChooseIndividualTax';
-import FaqSection from '@/components/website/FaqSection';
-import CallToActionBanner from '../../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import IndividualTaxReturnOverview from "./components/IndividualTaxReturnHero";
+import WhyChooseIndividualTax from "./components/WhyChooseIndividualTax";
+import FaqSection from "@/components/website/FaqSection";
+import CallToActionBanner from "../../home-components/CallToActionBanner";
 
 export default function IndividualTaxReturnPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Individual Tax', href: '/individual-services' },
-    { label: 'Individual Tax Return' },
+    { label: "Home", href: "/" },
+    { label: "Individual Tax", href: "/individual-services" },
+    { label: "Individual Tax Return" },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function IndividualTaxReturnPage() {
       <PageHero
         breadcrumbs={breadcrumbs}
         badgeTag="ATO Registered Tax Agents"
-        title="Individual Tax Return Australia – Online, Fast & ATO Compliant"
+        title="Individual Tax Return Australia - Online, Fast & ATO Compliant"
         subtitle="Expert Assistance for ATO Compliance"
       />
 

@@ -235,10 +235,13 @@ export default function WebsiteHeader() {
     {
       key: "reg-forms-group",
       label: (
-        <span className="flex items-center gap-2 font-semibold text-slate-800 dark:text-zinc-200">
+        <Link
+          href="/resources/registration-forms"
+          className="flex items-center gap-2 font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary"
+        >
           <FileTextOutlined className="text-brand-primary dark:text-emerald-400" />
           <span>Registration Forms</span>
-        </span>
+        </Link>
       ),
       children: [
         {
@@ -330,10 +333,13 @@ export default function WebsiteHeader() {
     {
       key: "eng-forms-group",
       label: (
-        <span className="flex items-center gap-2 font-semibold text-slate-800 dark:text-zinc-200">
+        <Link
+          href="/resources/engagement-forms"
+          className="flex items-center gap-2 font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary"
+        >
           <FormOutlined className="text-brand-primary dark:text-emerald-400" />
           <span>Engagement Forms</span>
-        </span>
+        </Link>
       ),
       children: [
         {
@@ -365,10 +371,13 @@ export default function WebsiteHeader() {
     {
       key: "med-forms-group",
       label: (
-        <span className="flex items-center gap-2 font-semibold text-slate-800 dark:text-zinc-200">
+        <Link
+          href="/resources/medicare-forms"
+          className="flex items-center gap-2 font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary"
+        >
           <MedicineBoxOutlined className="text-brand-primary dark:text-emerald-400" />
           <span>Medicare Forms</span>
-        </span>
+        </Link>
       ),
       children: [
         {
@@ -491,9 +500,14 @@ export default function WebsiteHeader() {
               placement="bottomLeft"
               arrow
             >
-              <button className="flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer">
+              <Link
+                href="/resources/registration-forms"
+                className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
+                  pathname?.startsWith("/resources/registration-forms") ? "text-brand-primary" : ""
+                }`}
+              >
                 Business Registration <DownOutlined className="text-[10px]" />
-              </button>
+              </Link>
             </Dropdown>
 
             {/* Resources Sub-dropdown */}

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import BasGstOverview from './components/BasGstOverview';
-import WhyChooseBasGst from './components/WhyChooseBasGst';
-import FaqSection from '@/components/website/FaqSection';
-import CallToActionBanner from '../../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import BasGstOverview from "./components/BasGstOverview";
+import WhyChooseBasGst from "./components/WhyChooseBasGst";
+import FaqSection from "@/components/website/FaqSection";
+import CallToActionBanner from "../../home-components/CallToActionBanner";
 
 export default function BasGstLodgementPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Business Services', href: '/business-services' },
-    { label: 'BAS & GST Lodgement' },
+    { label: "Home", href: "/" },
+    { label: "Business Services", href: "/business-services" },
+    { label: "BAS & GST Lodgement" },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function BasGstLodgementPage() {
       <PageHero
         breadcrumbs={breadcrumbs}
         badgeTag="Registered BAS Agents Australia"
-        title="BAS Lodgement Service Australia – Registered BAS Agent Online"
+        title="BAS Lodgement Service Australia - Registered BAS Agent Online"
         subtitle="Streamlined Compliance for All Entity Types"
       />
 

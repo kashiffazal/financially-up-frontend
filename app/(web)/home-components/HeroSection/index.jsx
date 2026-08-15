@@ -82,7 +82,7 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
-              Tax Return Online Australia –{" "}
+              Tax Return Online Australia -{" "}
               <span className="text-brand-primary dark:text-emerald-400 font-extrabold">
                 Fast, ATO Compliant
               </span>{" "}
