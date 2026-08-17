@@ -1,41 +1,41 @@
 import React from "react";
-import FormPageHeader from "../../../../../components/website/FormPageHeader";
-import FormPreFooter from "../../../../../components/website/FormPreFooter";
+import { App } from "antd";
+import FormPageHeader from "@/components/website/FormPageHeader";
+import FormPreFooter from "@/components/website/FormPreFooter";
+import ApplyTfnAbnForm from "@/components/admin/forms/apply-tfn-abns";
 
 export const metadata = {
-  title: "Apply TFN & Sole Trader ABN - Financially Up",
+  title: "Apply TFN & ABN Registration - Financially Up",
   description:
-    "Apply for your Australian Tax File Number (TFN) and Sole Trader ABN online with registered tax agents.",
+    "Quick and compliant Tax File Number (TFN) and Australian Business Number (ABN) applications for individuals and businesses.",
 };
 
-export default function ApplyTfnAbnPage() {
+export default function ApplyTfnAbnsPage() {
   return (
     <div className="bg-slate-50 dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+      {/* Universal Reusable Form Page Hero Header */}
       <FormPageHeader
-        title="Apply TFN & Sole Trader ABN Registration"
-        subtitle="Apply for your Australian Tax File Number (TFN) and Sole Trader ABN online with registered tax agents."
-        badgeTag="ATO & ABR Authorized"
+        title="Apply TFN & ABN Registration"
+        subtitle="Quick and compliant online TFN & ABN applications for individuals, sole traders, companies, trusts, and partnerships."
+        badgeTag="ATO Registered Tax Agent"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources/registration-forms" },
           { label: "Registration Forms", href: "/resources/registration-forms" },
-          { label: "Apply TFN / ABNs" },
+          { label: "Apply TFN / ABN" },
         ]}
-        stepsCount={5}
+        stepsCount={4}
         estimatedTime="5-7 mins"
       />
 
-      <main className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-center text-slate-600 dark:text-zinc-400">
-        <div className="p-12 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-zinc-100 mb-2">
-            Apply TFN / ABNs Form
-          </h2>
-          <p className="text-sm">
-            Complete your application online with our registered ATO tax agents.
-          </p>
-        </div>
+      {/* Main Form Area Container (Max 1200px) */}
+      <main className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <App>
+          <ApplyTfnAbnForm />
+        </App>
       </main>
 
+      {/* Dedicated Form Pre-Footer Assistance & Guarantee Section */}
       <FormPreFooter />
     </div>
   );

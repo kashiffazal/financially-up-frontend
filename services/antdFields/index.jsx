@@ -192,6 +192,32 @@ const checkboxVerticalStyle = radioVerticalStyle;
 /**
  * AntInput - Universal Ant Design v6.5.0 Form Field Component
  */
+
+/**
+ * Extract plain string text from any label (string, number, or JSX element)
+ */
+function extractTextFromLabel(lbl) {
+  if (!lbl) return "";
+  if (typeof lbl === "string") return lbl.replace(/\s*\*$/, "").trim();
+  if (typeof lbl === "number") return String(lbl);
+  if (React.isValidElement(lbl)) {
+    if (typeof lbl.props?.children === "string") {
+      return lbl.props.children.replace(/\s*\*$/, "").trim();
+    }
+    if (Array.isArray(lbl.props?.children)) {
+      return lbl.props.children
+        .map(extractTextFromLabel)
+        .join("")
+        .replace(/\s*\*$/, "")
+        .trim();
+    }
+    if (React.isValidElement(lbl.props?.children)) {
+      return extractTextFromLabel(lbl.props.children);
+    }
+  }
+  return "";
+}
+
 export const AntInput = ({
   // Essentials
   type = "text",
@@ -243,7 +269,7 @@ export const AntInput = ({
   mode = false,
   emptyFirstVal = "-Select-",
   // Datepicker
-  format = "DD-MM-YYYY",
+  format = "DD/MM/YYYY",
   disabledPreviousDate = false,
   disabledNextDate = false,
   // Timepicker
@@ -305,9 +331,6 @@ export const AntInput = ({
   // Normalize options if custom setValueLabel mapping is provided
   const normalizedSelectOptions = React.useMemo(() => {
     let formatted = [];
-    if (!mode && emptyFirstVal !== false && emptyFirstVal !== null) {
-      formatted.push({ value: "", label: emptyFirstVal });
-    }
 
     if (Array.isArray(options) && options.length > 0) {
       options.forEach((item, i) => {
@@ -337,7 +360,7 @@ export const AntInput = ({
     }
 
     return formatted;
-  }, [options, setValueLabel, mode, emptyFirstVal]);
+  }, [options, setValueLabel, mode]);
 
   // 1. InputNumber / Currency
   if (type === "inputNumber") {
@@ -368,7 +391,7 @@ export const AntInput = ({
           min={min}
           max={max}
           step={step}
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
           disabled={loading || disabled}
         />
       </Form.Item>
@@ -409,7 +432,7 @@ export const AntInput = ({
           min={min}
           max={max}
           step={step}
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
           disabled={loading || disabled}
         />
       </Form.Item>
@@ -453,7 +476,7 @@ export const AntInput = ({
               sufIconAnt || ""
             )
           }
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
           onChange={(e) => {
             onChange && onChange(e.target.value);
           }}
@@ -469,16 +492,20 @@ export const AntInput = ({
 
   // 4. Select Dropdown
   if (type === "select") {
-    let initialSelectVal = value;
-    if (!initialSelectVal || initialSelectVal === "undefined") {
-      initialSelectVal = mode ? [] : "";
-    }
+    const labelText = extractTextFromLabel(label);
+    const selectPlaceholder =
+      placeholder ||
+      (typeof emptyFirstVal === "string" && emptyFirstVal !== "-Select-" && emptyFirstVal !== ""
+        ? emptyFirstVal
+        : labelText
+        ? `- Select ${labelText} -`
+        : "- Select -");
 
     return (
       <Form.Item
         label={label}
         name={name}
-        {...(initialSelectVal !== undefined && initialSelectVal !== "" ? { initialValue: initialSelectVal } : {})}
+        {...(value !== undefined && value !== "" ? { initialValue: value } : {})}
         rules={fieldRules}
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
@@ -490,6 +517,7 @@ export const AntInput = ({
           style={style}
           className={className}
           size={size}
+          allowClear={true}
           onChange={(e) => {
             onChange && onChange(e);
           }}
@@ -503,7 +531,7 @@ export const AntInput = ({
           mode={mode === "multiple-responsive" ? "multiple" : mode || undefined}
           maxTagCount={mode === "multiple-responsive" ? "responsive" : undefined}
           options={normalizedSelectOptions}
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={selectPlaceholder}
           filterOption={(input, option) =>
             (option?.label ?? "").toString().toLowerCase().includes(input.toLowerCase())
           }
@@ -515,6 +543,8 @@ export const AntInput = ({
 
   // 5. DatePicker (using DayJS)
   if (type === "datepicker") {
+    const datePlaceholder = placeholder || "DD/MM/YYYY";
+
     return (
       <Form.Item
         label={label}
@@ -548,7 +578,7 @@ export const AntInput = ({
             return false;
           }}
           disabled={loading || disabled}
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={datePlaceholder}
         />
       </Form.Item>
     );
@@ -580,7 +610,7 @@ export const AntInput = ({
           }}
           format={timeFormat || "HH:mm"}
           disabled={loading || disabled}
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
         />
       </Form.Item>
     );
@@ -759,7 +789,7 @@ export const AntInput = ({
           rows={rows || minRows}
           className={className}
           size={size}
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
           onChange={(e) => {
             onChange && onChange(e.target.value);
           }}
@@ -833,7 +863,7 @@ export const AntInput = ({
               sufIconAnt || ""
             )
           }
-          placeholder={placeholder || (typeof label === "string" ? label : "")}
+          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
           onChange={(e) => {
             onChange && onChange(e.target.value);
           }}
@@ -881,7 +911,7 @@ export const AntInput = ({
             sufIconAnt || ""
           )
         }
-        placeholder={placeholder || (typeof label === "string" ? label : "")}
+        placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
         onChange={(e) => {
           onChange && onChange(e.target.value);
         }}

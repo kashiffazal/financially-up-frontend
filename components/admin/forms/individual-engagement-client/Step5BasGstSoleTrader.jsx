@@ -38,7 +38,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
   // If none of these services selected in Step 1, show friendly skip message
   if (!isBasSelected && !isAbnSelected && !isGstSelected) {
     return (
-      <div className="space-y-6 animate-fadeIn">
+      <div className="space-y-3.5 animate-fadeIn">
         <div className="border-b border-slate-100 dark:border-zinc-800 pb-4">
           <div className="flex items-center gap-2 mb-1">
             <Tag
