@@ -25,7 +25,7 @@ export default function Step3AddressesService({ form }) {
     provideRegisteredAddress === "Yes" || providePrincipalAddress === "Yes";
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -53,11 +53,13 @@ export default function Step3AddressesService({ form }) {
 
       {/* Registered Office */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <EnvironmentOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Registered Office Address (Physical Street Address - No PO Box) *
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <EnvironmentOutlined className="text-brand-primary text-sm" /> Registered Office Address (Physical Street Address - No PO Box) *
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -123,7 +125,7 @@ export default function Step3AddressesService({ form }) {
           />
         </div>
 
-        <div className="pt-2 border-t border-slate-200/60 dark:border-zinc-800">
+        <div className="pt-3 border-t border-slate-200/60 dark:border-zinc-800">
           <AntInput
             type="radio"
             name="companyOccupiesRegisteredOffice"
@@ -138,7 +140,7 @@ export default function Step3AddressesService({ form }) {
         </div>
 
         {companyOccupies === "No" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/60 dark:border-zinc-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/60 dark:border-zinc-800">
             <AntInput
               type="text"
               name="occupierName"
@@ -165,9 +167,14 @@ export default function Step3AddressesService({ form }) {
 
       {/* Principal Place of Business */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
-          Principal Place of Business (PPOB)
-        </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              Principal Place of Business (PPOB)
+            </h3>
+          </div>
+        </div>
 
         <AntInput
           type="radio"
@@ -182,7 +189,7 @@ export default function Step3AddressesService({ form }) {
         />
 
         {samePrincipalAddress === "No" && (
-          <div className="pt-2 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+          <div className="pt-3 mt-2 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <AntInput
                 type="text"
@@ -251,11 +258,13 @@ export default function Step3AddressesService({ form }) {
 
       {/* Financially Up Address Service Questions (Schedule C) */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <SafetyCertificateOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Financially Up Address Facility Request (Schedule C)
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+             <SafetyCertificateOutlined className="text-brand-primary text-sm" /> Financially Up Address Facility Request (Schedule C)
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

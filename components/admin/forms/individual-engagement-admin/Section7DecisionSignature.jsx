@@ -83,26 +83,14 @@ export default function Section7DecisionSignature() {
         noRequired={true}
       />
 
-      {/* 1. Draw Signature */}
+      {/* 1. Draw Signature (Staff Signature Canvas) */}
       {sigMode === "draw" && (
         <div className="space-y-2">
-          <label className="font-bold text-slate-800 dark:text-zinc-200 text-sm block">
-            Staff Signature Canvas
-          </label>
-          <Form.Item
+          <AdminSignatureCanvas
             name="staffDrawnSignature"
-            rules={[
-              {
-                validator: (_, v) =>
-                  v
-                    ? Promise.resolve()
-                    : Promise.reject(new Error("Please draw staff signature.")),
-              },
-            ]}
-            className="mb-0"
-          >
-            <AdminSignatureCanvas />
-          </Form.Item>
+            label="Staff Signature Canvas"
+            reqMsg="Please draw staff signature."
+          />
         </div>
       )}
 

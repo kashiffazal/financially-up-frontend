@@ -21,9 +21,9 @@ export default function Step1EngagementService({ form }) {
   const previousRefusal = Form.useWatch("previousRefusal", form);
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
-      <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
+      <div className="dark:border-zinc-800">
         <div className="flex items-center gap-2 mb-1">
           <Tag
             color="green"
@@ -39,53 +39,52 @@ export default function Step1EngagementService({ form }) {
           Client Engagement & Designated Service
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Provide contact details for the person completing this registration and confirm requested corporate services.
+          Provide contact details for the person completing this registration
+          and confirm requested corporate services.
         </p>
 
         {/* Before Step 1 Legal Acknowledgements */}
-        <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 mt-4 space-y-4">
+        <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 mt-4 space-y-2">
           {/* Terms of Engagement */}
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-xs font-black uppercase tracking-wider text-emerald-950 dark:text-emerald-200">
-                Terms of Engagement
-              </span>
-              <TermsOfEngagementTrigger />
-            </div>
+          <div className="space-y-1.5">
+            <span className="text-xs font-black uppercase tracking-wider text-emerald-950 dark:text-emerald-200 block">
+              Terms of Engagement
+            </span>
             <AntInput
               type="checkbox"
               name="termsOfEngagementAccepted"
-              group={[
-                {
-                  value: "accepted",
-                  label: "I have read and agree to the Financially Up Company Registration Terms of Engagement. *",
-                },
-              ]}
+              text={
+                <span className="text-xs sm:text-[13px] text-slate-800 dark:text-zinc-200 leading-relaxed select-none">
+                  I have read and agree to the Financially Up Company
+                  Registration Terms of Engagement. (
+                  <TermsOfEngagementTrigger />)
+                  <span className="text-red-500 font-bold ml-0.5">*</span>
+                </span>
+              }
               reqMsg="You must agree to the Terms of Engagement"
               containerClassName="!mb-0"
             />
           </div>
 
-          <div className="border-t border-emerald-200/50 dark:border-emerald-900/50 pt-3 space-y-2">
+          <div className="border-t border-emerald-200/50 dark:border-emerald-900/50 pt-3.5 space-y-1.5">
             {/* Before you begin: Privacy Collection Notice */}
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-xs font-black uppercase tracking-wider text-emerald-950 dark:text-emerald-200">
-                Before you begin
-              </span>
-              <PrivacyCollectionNoticeTrigger />
-            </div>
+            <span className="text-xs font-black uppercase tracking-wider text-emerald-950 dark:text-emerald-200 block">
+              Before you begin
+            </span>
             <p className="text-xs text-slate-600 dark:text-zinc-400 leading-normal">
-              Financially Up collects and handles personal information for the purposes described in its Privacy Collection Notice.
+              Financially Up collects and handles personal information for the
+              purposes described in its Privacy Collection Notice.
             </p>
             <AntInput
               type="checkbox"
               name="privacyNoticeAccepted"
-              group={[
-                {
-                  value: "accepted",
-                  label: "I acknowledge that I have read the Privacy Collection Notice. *",
-                },
-              ]}
+              text={
+                <span className="text-xs sm:text-[13px] text-slate-800 dark:text-zinc-200 leading-relaxed select-none">
+                  I acknowledge that I have read the Privacy Collection Notice.{" "}
+                  (<PrivacyCollectionNoticeTrigger />)
+                  <span className="text-red-500 font-bold ml-0.5">*</span>
+                </span>
+              }
               reqMsg="You must acknowledge the Privacy Collection Notice"
               containerClassName="!mb-0"
             />
@@ -95,18 +94,23 @@ export default function Step1EngagementService({ form }) {
 
       {/* 1.1 Contact Person Completing This Form */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <UserOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            1.1 Contact Person Completing This Form
-          </span>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <UserOutlined className="text-brand-primary text-sm" /> 1.1 Contact Person Completing This Form
+            </h3>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
             type="text"
             name="contactName"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Full Legal Name *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Full Legal Name *
+              </span>
+            }
             placeholder="e.g. Jonathan Alexander Smith"
             reqMsg="Contact full legal name is required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
@@ -118,7 +122,11 @@ export default function Step1EngagementService({ form }) {
           <AntInput
             type="email"
             name="contactEmail"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Contact Email Address *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Contact Email Address *
+              </span>
+            }
             placeholder="e.g. j.smith@example.com.au"
             reqMsg="Valid email is required"
             preIconAnt={<MailOutlined className="text-slate-400" />}
@@ -130,7 +138,11 @@ export default function Step1EngagementService({ form }) {
           <AntInput
             type="text"
             name="contactMobile"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Mobile Phone *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Mobile Phone *
+              </span>
+            }
             placeholder="e.g. 0412 345 678"
             reqMsg="Mobile phone number is required"
             preIconAnt={<PhoneOutlined className="text-slate-400" />}
@@ -138,13 +150,15 @@ export default function Step1EngagementService({ form }) {
             className="rounded-xl"
             containerClassName="!mb-0"
           />
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
           <AntInput
             type="select"
             name="contactRelationship"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Relationship to Proposed Company *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Relationship to Proposed Company *
+              </span>
+            }
             options={[
               "Founder",
               "Proposed director",
@@ -159,43 +173,62 @@ export default function Step1EngagementService({ form }) {
             className="rounded-xl"
             containerClassName="!mb-0"
           />
+        </div>
+
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1"> */}
+
 
           {relationship === "Other" && (
             <AntInput
               type="text"
               name="otherRelationshipDetail"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Specify Other Relationship *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Specify Other Relationship *
+                </span>
+              }
               placeholder="e.g. Legal representative, Family member"
               reqMsg="Please specify relationship"
               size="large"
               className="rounded-xl"
-              containerClassName="!mb-0"
+              containerClassName="!mb-4"
             />
           )}
-        </div>
+        {/* </div> */}
 
         {/* Authority to instruct if acting for another */}
         {(relationship === "Adviser/agent" || relationship === "Other") && (
-          <div className="pt-3 border-t border-slate-200/60 dark:border-zinc-800 space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <AntInput
               type="textarea"
               name="authorityDescription"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Authority to Instruct Financially Up *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Authority to Instruct Financially Up *
+                </span>
+              }
               placeholder="Describe your legal capacity and authorisation from the company founders/directors to lodge this registration."
               reqMsg="Please describe your authority to instruct"
-              rows={2}
-              className="rounded-xl"
+              rows={5}
+              className="rounded-xl !h-32"
               containerClassName="!mb-0"
             />
 
             <AntFileUpload
               name="authorityEvidence"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Evidence of Authority (Letter of Authorisation / POA)</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Upload Evidence of Authority (Letter of Authorisation / POA)
+                </span>
+              }
               heading="Click or drag authority document"
               para="Signed Authorisation Letter or Power of Attorney (PDF, PNG, JPG)"
               maxCount={1}
               noRequired={true}
-              icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+              icon={
+                <UploadOutlined className="text-3xl text-brand-primary mb-2" />
+              }
+              containerClassName="!mb-0"
             />
           </div>
         )}
@@ -203,11 +236,13 @@ export default function Step1EngagementService({ form }) {
 
       {/* 1.2 Requested Service */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <FileProtectOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            1.2 Requested Service & Instructions
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <FileProtectOutlined className="text-brand-primary text-sm" /> 1.1 Contact Person Completing This Form
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -215,7 +250,11 @@ export default function Step1EngagementService({ form }) {
             type="text"
             name="primaryService"
             placeholder="Register a new Australian company (Form 201)"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Primary Requested Service</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Primary Requested Service
+              </span>
+            }
             readOnly={true}
             size="large"
             className="rounded-xl bg-slate-100 dark:bg-zinc-800 font-bold text-slate-800 dark:text-zinc-100"
@@ -225,7 +264,11 @@ export default function Step1EngagementService({ form }) {
           <AntInput
             type="datepicker"
             name="dateServiceRequested"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Date Service Requested *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Date Service Requested *
+              </span>
+            }
             format="DD/MM/YYYY"
             reqMsg="Date requested is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
@@ -238,22 +281,45 @@ export default function Step1EngagementService({ form }) {
         <AntInput
           type="checkbox"
           name="additionalServices"
-          label={<span className="font-bold text-slate-800 dark:text-zinc-200">Additional Requested Services</span>}
+          label={
+            <span className="font-bold text-slate-800 dark:text-zinc-200">
+              Additional Requested Services
+            </span>
+          }
           group={[
-            { value: "Financially Up registered office address", label: "Financially Up Registered Office Address Service" },
-            { value: "Financially Up principal place of business address", label: "Financially Up Principal Place of Business Address Service" },
-            { value: "Arrange director / secretary / trustee / nominee shareholder", label: "Arrange Director / Secretary / Trustee / Nominee Role-Holder" },
-            { value: "Other related service", label: "Other Corporate Secretarial Service" },
+            {
+              value: "Financially Up registered office address",
+              label: "Financially Up Registered Office Address Service",
+            },
+            {
+              value: "Financially Up principal place of business address",
+              label:
+                "Financially Up Principal Place of Business Address Service",
+            },
+            {
+              value:
+                "Arrange director / secretary / trustee / nominee shareholder",
+              label:
+                "Arrange Director / Secretary / Trustee / Nominee Role-Holder",
+            },
+            {
+              value: "Other related service",
+              label: "Other Corporate Secretarial Service",
+            },
           ]}
-          containerClassName="!mb-0"
+          containerClassName="!mb-4"
         />
 
         {/* Urgency */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
             type="radio"
             name="isUrgent"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Is this an urgent registration request?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Is this an urgent registration request?
+              </span>
+            }
             reqMsg="Please select urgency"
             radioOptions={[
               { value: "No", label: "No (Standard 1-2 business days)" },
@@ -266,7 +332,11 @@ export default function Step1EngagementService({ form }) {
             <AntInput
               type="text"
               name="urgencyExplanation"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Explain Reason for Urgency & Deadline *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Explain Reason for Urgency & Deadline *
+                </span>
+              }
               placeholder="e.g. Commercial contract execution deadline on Friday"
               reqMsg="Please explain urgency"
               size="large"
@@ -277,11 +347,16 @@ export default function Step1EngagementService({ form }) {
         </div>
 
         {/* Previous refusal */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
             type="radio"
             name="previousRefusal"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Has any other accountant/lawyer/agent refused or stopped this work?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Has any other accountant/lawyer/agent refused or stopped this
+                work?
+              </span>
+            }
             reqMsg="Please answer previous refusal question"
             radioOptions={[
               { value: "No", label: "No" },
@@ -294,7 +369,11 @@ export default function Step1EngagementService({ form }) {
             <AntInput
               type="text"
               name="previousRefusalDetails"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Details of Previous Refusal / Cessation *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Details of Previous Refusal / Cessation *
+                </span>
+              }
               placeholder="Provide context and reasons"
               reqMsg="Please provide details"
               size="large"

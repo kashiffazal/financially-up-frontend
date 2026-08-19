@@ -1,13 +1,15 @@
 "use client";
 
 import React from "react";
+import { App } from "antd";
 import FormPageHeader from "../../../../../components/website/FormPageHeader";
 import FormPreFooter from "../../../../../components/website/FormPreFooter";
 import CompanyRegistrationForm from "@/components/admin/forms/company-registration";
 
 export default function CompanyRegistrationPage() {
   return (
-    <div className="bg-slate-50 dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+    <App>
+      <div className="bg-slate-50 dark:bg-zinc-950 min-h-screen transition-colors duration-300">
       <FormPageHeader
         title="Australian Company Registration (Pty Ltd)"
         subtitle="Incorporate your Australian Proprietary Limited company with ASIC, complete with ACN, constitution, and certificate."
@@ -27,6 +29,7 @@ export default function CompanyRegistrationPage() {
       </main>
 
       <FormPreFooter />
-    </div>
+      </div>
+    </App>
   );
 }

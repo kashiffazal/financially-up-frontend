@@ -48,7 +48,7 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -205,9 +205,15 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
 
             {/* Per-Member / Shareholder Consent */}
             <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2">
-              <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block">
-                Member / Shareholder Subscription Consent
-              </span>
+
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+                    Member / Shareholder Subscription Consent
+                  </h3>
+                </div>
+              </div>
+
               <AntInput
                 type="checkbox"
                 name={`member_${idx}_consentAccepted`}
@@ -225,7 +231,7 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
             </div>
 
             {/* Beneficial Holding & Nominee Questions */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/60 dark:border-zinc-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/60 dark:border-zinc-800">
               <AntInput
                 type="radio"
                 name={`member_${idx}_isBeneficiallyHeld`}
@@ -257,19 +263,18 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
 
             {/* Corporate Shareholder Extra details */}
             {member.memberType === "Corporate Entity" && (
-              <div className="pt-2 border-t border-slate-200/60 dark:border-zinc-800 space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/60 dark:border-zinc-800">
                 <AntInput
                   type="textarea"
                   name={`member_${idx}_corporateOwnershipChain`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Corporate Shareholder Ownership Chain (ACN, Directors, Ultimate Owners)</span>}
+                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Corporate Shareholder Ownership Chain<span className="text-[11px] font-normal ml-1">(ACN, Directors, Ultimate Owners)</span></span>}
                   placeholder="Specify ACN, Directors, and Ultimate Natural Person Shareholders of this holding entity."
                   value={member.corporateOwnershipChain}
                   onChange={(e) => handleUpdateField(idx, "corporateOwnershipChain", e.target.value)}
-                  rows={2}
-                  className="rounded-xl"
+                  rows={4}
+                  className="rounded-xl !h-32"
                   containerClassName="!mb-0"
                 />
-
                 <AntFileUpload
                   name={`member_${idx}_corporateExtract`}
                   label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload ASIC Company Extract / Registry Certificate</span>}
@@ -278,6 +283,7 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
                   maxCount={1}
                   noRequired={true}
                   icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+                  containerClassName="!mb-0"
                 />
               </div>
             )}

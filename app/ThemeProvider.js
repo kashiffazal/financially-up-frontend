@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { ConfigProvider, theme } from "antd";
+import { ConfigProvider, theme, App } from "antd";
 
 /**
  * ============================================================================
@@ -132,7 +132,9 @@ export default function ThemeProvider({ children }) {
     <ThemeContext.Provider
       value={{ isDark, toggleTheme, palette: THEME_PALETTE }}
     >
-      <ConfigProvider theme={themeConfig}>{children}</ConfigProvider>
+      <ConfigProvider theme={themeConfig}>
+        <App className="min-h-full flex flex-col flex-1">{children}</App>
+      </ConfigProvider>
     </ThemeContext.Provider>
   );
 }

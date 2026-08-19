@@ -2,15 +2,22 @@
 
 import React from "react";
 import { Tag } from "antd";
-import { UserOutlined, CalendarOutlined, SwapOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  CalendarOutlined,
+  SwapOutlined,
+} from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 
 export default function StepShareTransfer({ stepNumber, totalSteps }) {
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-3.5 animate-fadeIn">
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
-          <Tag color="green" className="font-extrabold uppercase text-[10px] px-2.5 py-0.5 rounded-full border-none">
+          <Tag
+            color="green"
+            className="font-extrabold uppercase text-[10px] px-2.5 py-0.5 rounded-full border-none"
+          >
             Step {stepNumber} of {totalSteps}
           </Tag>
           <span className="text-xs font-semibold text-slate-400 dark:text-zinc-500">
@@ -21,7 +28,8 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
           Company Share Transfer & Allocation Details
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Specify transferor (seller), transferee (buyer), share class, number of shares, and consideration.
+          Specify transferor (seller), transferee (buyer), share class, number
+          of shares, and consideration.
         </p>
       </div>
 
@@ -30,7 +38,11 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
           <AntInput
             type="text"
             name="transferorName"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Transferor (Existing Shareholder) Full Name</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Transferor (Existing Shareholder) Full Name
+              </span>
+            }
             placeholder="e.g. John Alexander Smith"
             reqMsg="Transferor name is required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
@@ -42,7 +54,11 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
           <AntInput
             type="text"
             name="transfereeName"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Transferee (New Shareholder) Full Name</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Transferee (New Shareholder) Full Name
+              </span>
+            }
             placeholder="e.g. Mary Jane Watson"
             reqMsg="Transferee name is required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
@@ -56,8 +72,17 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
           <AntInput
             type="select"
             name="shareClass"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Share Class</span>}
-            options={["Ordinary (ORD)", "Class A", "Class B", "Preference Shares"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Share Class
+              </span>
+            }
+            options={[
+              "Ordinary (ORD)",
+              "Class A",
+              "Class B",
+              "Preference Shares",
+            ]}
             emptyFirstVal="- Select Class -"
             reqMsg="Share class is required"
             size="large"
@@ -68,7 +93,11 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
           <AntInput
             type="text"
             name="numberOfShares"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Number of Shares</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Number of Shares
+              </span>
+            }
             placeholder="e.g. 50"
             reqMsg="Number of shares is required"
             preIconAnt={<SwapOutlined className="text-slate-400" />}
@@ -80,8 +109,12 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
           <AntInput
             type="datepicker"
             name="dateOfTransfer"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Date of Share Transfer</span>}
-            format="DD/MM/YYYY"
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Date of Share Transfer
+              </span>
+            }
+            format="YYYY-MM-DD"
             reqMsg="Transfer date is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"

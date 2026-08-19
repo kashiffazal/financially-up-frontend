@@ -10,7 +10,7 @@ export default function Step10OptionalTaxServices({ form }) {
   const busNameRequired = Form.useWatch("businessNameRegistrationRequired", form);
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -34,11 +34,13 @@ export default function Step10OptionalTaxServices({ form }) {
 
       {/* Tax Registrations */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <DollarOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            ATO Tax Registrations
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <DollarOutlined className="text-brand-primary text-sm" /> ATO Tax Registrations
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -95,11 +97,13 @@ export default function Step10OptionalTaxServices({ form }) {
 
       {/* Post-Registration & Banking Services */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <BankOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Bank Account & Accounting Software Setup
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <BankOutlined className="text-brand-primary text-sm" /> Bank Account & Accounting Software Setup
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

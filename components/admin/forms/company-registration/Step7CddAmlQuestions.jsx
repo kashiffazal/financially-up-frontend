@@ -7,7 +7,7 @@ import { AntInput } from "@/services/antdFields";
 
 export default function Step7CddAmlQuestions() {
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -31,11 +31,13 @@ export default function Step7CddAmlQuestions() {
 
       {/* 10 CDD Questions */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <SafetyCertificateOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Mandatory Due Diligence Evaluation
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <SafetyCertificateOutlined className="text-brand-primary text-sm" /> Mandatory Due Diligence Evaluation
+            </h3>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -47,7 +49,7 @@ export default function Step7CddAmlQuestions() {
             reqMsg="Commercial reason is required"
             rows={2}
             className="rounded-xl"
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -58,7 +60,7 @@ export default function Step7CddAmlQuestions() {
             reqMsg="Counterparties description is required"
             rows={2}
             className="rounded-xl"
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -69,7 +71,7 @@ export default function Step7CddAmlQuestions() {
             reqMsg="Products/services description is required"
             rows={2}
             className="rounded-xl"
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -78,7 +80,7 @@ export default function Step7CddAmlQuestions() {
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">4. Will the company receive or send international cross-border payments?</span>}
             reqMsg="Please answer Question 4"
             radioOptions={[{ value: "No", label: "No (Domestic Australian transactions only)" }, { value: "Yes", label: "Yes (Cross-border foreign currency flows)" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -87,7 +89,7 @@ export default function Step7CddAmlQuestions() {
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">5. Will the company deal with cash, high-value goods, crypto/virtual assets, remittance, gambling, loans, or import/export?</span>}
             reqMsg="Please answer Question 5"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -96,7 +98,7 @@ export default function Step7CddAmlQuestions() {
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">6. Will any director, shareholder, or controller be a Politically Exposed Person (PEP) or close associate?</span>}
             reqMsg="Please answer Question 6"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -105,7 +107,7 @@ export default function Step7CddAmlQuestions() {
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">7. Is any director, shareholder, or controller subject to sanctions, adverse media, or bankruptcy restrictions?</span>}
             reqMsg="Please answer Question 7"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -114,7 +116,7 @@ export default function Step7CddAmlQuestions() {
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">8. Will the company use third-party funds, loans, gifts, or offshore funding?</span>}
             reqMsg="Please answer Question 8"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -123,7 +125,7 @@ export default function Step7CddAmlQuestions() {
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">9. Has the client been asked or instructed to create this company by another person?</span>}
             reqMsg="Please answer Question 9"
             radioOptions={[{ value: "No", label: "No (Acting on own initiative)" }, { value: "Yes", label: "Yes (Instructed by third party)" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput

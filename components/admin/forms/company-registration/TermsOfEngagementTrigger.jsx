@@ -5,18 +5,26 @@ import { Modal, Button } from "antd";
 import { FileProtectOutlined } from "@ant-design/icons";
 import { TERMS_OF_ENGAGEMENT_TEXT } from "./legalDocumentsText";
 
-export default function TermsOfEngagementTrigger() {
+export default function TermsOfEngagementTrigger({
+  label = "View Terms of Engagement",
+  showIcon = true,
+  className = "inline-flex items-center gap-1 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline cursor-pointer transition-colors px-1 align-baseline",
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline cursor-pointer transition-colors"
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          setIsOpen(true);
+        }}
+        className={className}
       >
-        <FileProtectOutlined />
-        <span>View Terms of Engagement</span>
+        {showIcon && <FileProtectOutlined className="-mr-2" />}
+        <span>{label}</span>
       </button>
 
       <Modal

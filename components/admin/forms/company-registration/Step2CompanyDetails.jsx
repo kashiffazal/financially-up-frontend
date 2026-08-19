@@ -21,7 +21,7 @@ export default function Step2CompanyDetails({ form }) {
   const isPartOfGroup = Form.useWatch("isPartOfGroup", form);
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -45,11 +45,13 @@ export default function Step2CompanyDetails({ form }) {
 
       {/* Name Preferences */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <ShopOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Proposed Company Name Preferences
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <ShopOutlined className="text-brand-primary text-sm" /> Proposed Company Name Preferences
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -115,7 +117,7 @@ export default function Step2CompanyDetails({ form }) {
         </div>
 
         {isNameReserved === "Yes" && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-200/60 dark:border-zinc-800">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200/60 dark:border-zinc-800">
             <AntInput
               type="text"
               name="reservationNumber"
@@ -154,9 +156,19 @@ export default function Step2CompanyDetails({ form }) {
 
       {/* Structure & Purpose */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
-          Corporate Structure & Business Classification
-        </span>
+
+
+
+
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              Corporate Structure & Business Classification
+            </h3>
+          </div>
+        </div>
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
@@ -296,9 +308,14 @@ export default function Step2CompanyDetails({ form }) {
 
       {/* Group Structure & Governance */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
-          Corporate Group & Governance Document
-        </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              Corporate Group & Governance Document
+            </h3>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
@@ -331,52 +348,55 @@ export default function Step2CompanyDetails({ form }) {
         </div>
 
         {isPartOfGroup === "Yes" && (
-          <div className="pt-3 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <AntInput
-                type="text"
-                name="ultimateHoldingName"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Ultimate Holding Company Name</span>}
-                placeholder="e.g. Apex Global Corp"
-                reqMsg="Ultimate holding company name is required"
-                size="large"
-                className="rounded-xl"
-                containerClassName="!mb-0"
-              />
+          <div className="pt-3 border-t border-slate-200/60 dark:border-zinc-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
 
-              <AntInput
-                type="text"
-                name="ultimateHoldingAcn"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">ACN / ARBN / Foreign Reg No</span>}
-                placeholder="e.g. 123456789"
-                reqMsg="Registration number is required"
-                size="large"
-                className="rounded-xl"
-                containerClassName="!mb-0"
-              />
+                <AntInput
+                  type="text"
+                  name="ultimateHoldingName"
+                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Ultimate Holding Company Name</span>}
+                  placeholder="e.g. Apex Global Corp"
+                  reqMsg="Ultimate holding company name is required"
+                  size="large"
+                  className="rounded-xl"
+                  containerClassName="!mb-4"
+                />
 
-              <AntInput
-                type="text"
-                name="ultimateHoldingCountry"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Country of Incorporation</span>}
-                placeholder="e.g. Australia, Singapore"
-                reqMsg="Country is required"
-                preIconAnt={<GlobalOutlined className="text-slate-400" />}
-                size="large"
-                className="rounded-xl"
-                containerClassName="!mb-0"
+                <AntInput
+                  type="text"
+                  name="ultimateHoldingAcn"
+                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">ACN / ARBN / Foreign Reg No</span>}
+                  placeholder="e.g. 123456789"
+                  reqMsg="Registration number is required"
+                  size="large"
+                  className="rounded-xl"
+                  containerClassName="!mb-4"
+                />
+
+                <AntInput
+                  type="text"
+                  name="ultimateHoldingCountry"
+                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Country of Incorporation</span>}
+                  placeholder="e.g. Australia, Singapore"
+                  reqMsg="Country is required"
+                  preIconAnt={<GlobalOutlined className="text-slate-400" />}
+                  size="large"
+                  className="rounded-xl"
+                  containerClassName="!mb-4"
+                />
+              </div>
+              <AntFileUpload
+                name="groupStructureChart"
+                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Group Ownership Structure Chart (PDF, PNG, JPG)</span>}
+                heading="Click or drag structure chart"
+                para="Ownership hierarchy diagram showing holding percentages"
+                maxCount={1}
+                noRequired={true}
+                icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
               />
             </div>
-
-            <AntFileUpload
-              name="groupStructureChart"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Group Ownership Structure Chart (PDF, PNG, JPG)</span>}
-              heading="Click or drag structure chart"
-              para="Ownership hierarchy diagram showing holding percentages"
-              maxCount={1}
-              noRequired={true}
-              icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
-            />
+           
           </div>
         )}
       </div>

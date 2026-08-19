@@ -2,21 +2,32 @@
 
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
-import { InfoCircleOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
+import {
+  InfoCircleOutlined,
+  SafetyCertificateOutlined,
+} from "@ant-design/icons";
 import { PRIVACY_NOTICE_TEXT } from "./legalDocumentsText";
 
-export default function PrivacyCollectionNoticeTrigger() {
+export default function PrivacyCollectionNoticeTrigger({
+  label = "View Privacy Collection Notice",
+  showIcon = true,
+  className = "inline-flex items-center gap-1 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline cursor-pointer transition-colors px-1 align-baseline",
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline cursor-pointer transition-colors"
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          setIsOpen(true);
+        }}
+        className={className}
       >
-        <InfoCircleOutlined />
-        <span>View Privacy Collection Notice</span>
+        {showIcon && <InfoCircleOutlined className="-mr-2" />}
+        <span>{label}</span>
       </button>
 
       <Modal

@@ -13,7 +13,7 @@ import { AntFileUpload, AntInput } from "@/services/antdFields";
 
 export default function Step11DocumentUploads() {
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">

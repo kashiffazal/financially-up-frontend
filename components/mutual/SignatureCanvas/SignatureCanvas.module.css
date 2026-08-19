@@ -1,0 +1,70 @@
+/* ============================================================
+   SignatureCanvas Module CSS
+   Custom styles for the signature drawing canvas component.
+   Handles pen cursor, full canvas dimension, and disabled state.
+   ============================================================ */
+
+/* Main container wrapper for the entire signature component */
+.signatureWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Canvas drawing area container with custom pen cursor */
+.canvasContainer {
+  cursor: url('/cursors/pen.cur'), url('/pen.cur'), crosshair;
+  touch-action: none;
+  -ms-touch-action: none;
+  position: relative;
+  width: 100%;
+}
+
+/*
+ * CRITICAL FIX: ReactSketchCanvas renders internal <div> wrappers
+ * with a hardcoded default height (~200px). Without this override,
+ * the parent container's height prop is ignored because the SVG's
+ * height:100% resolves to the library's internal div, not ours.
+ * Force ALL descendant divs, SVGs and canvases to stretch fully.
+ */
+.canvasContainer div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.canvasContainer canvas,
+.canvasContainer svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Pen cursor override for all interactive elements inside canvas */
+.canvasContainer,
+.canvasContainer div,
+.canvasContainer canvas,
+.canvasContainer svg,
+.canvasContainer path {
+  cursor: url('/cursors/pen.cur'), url('/pen.cur'), crosshair !important;
+}
+
+/* Disabled state — shows not-allowed cursor and reduces opacity */
+.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Existing signature image display container */
+.existingSignature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Existing signature image — scales to fit container */
+.existingSignature img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}

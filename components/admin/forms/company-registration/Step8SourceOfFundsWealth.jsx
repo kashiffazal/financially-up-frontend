@@ -14,7 +14,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
   const hasCashOver10k = Form.useWatch("hasCashOver10k", form);
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -38,9 +38,14 @@ export default function Step8SourceOfFundsWealth({ form }) {
 
       {/* Initial Capital Contribution */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
-          Initial Capital Contribution & Setup Funding
-        </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              Initial Capital Contribution & Setup Funding
+            </h3>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <AntInput
@@ -125,9 +130,14 @@ export default function Step8SourceOfFundsWealth({ form }) {
 
       {/* Offshore & Cash Declarations */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
-          Offshore Funding & Significant Cash Declarations
-        </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              Offshore Funding & Significant Cash Declarations
+            </h3>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
@@ -150,7 +160,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
         </div>
 
         {hasOffshore === "Yes" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/60 dark:border-zinc-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/60 dark:border-zinc-800">
             <AntInput
               type="text"
               name="offshoreCountries"
@@ -177,7 +187,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
         )}
 
         {hasCashOver10k === "Yes" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/60 dark:border-zinc-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/60 dark:border-zinc-800">
             <AntInput
               type="text"
               name="cashAmountAndPayer"

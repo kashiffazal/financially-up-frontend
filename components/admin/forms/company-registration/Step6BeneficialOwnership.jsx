@@ -39,7 +39,7 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
         <div className="flex items-center gap-2 mb-1">
@@ -190,11 +190,13 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
 
       {/* 6 Mandatory Control Questions */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-        <div className="flex items-center gap-2 mb-1">
-          <SafetyCertificateOutlined className="text-brand-primary text-sm" />
-          <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Control & Indirect Arrangement Questions
-          </span>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+              <SafetyCertificateOutlined className="text-brand-primary text-sm" /> Control & Indirect Arrangement Questions
+            </h3>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -204,7 +206,7 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">1. Is there any shareholder agreement, side agreement, loan agreement or informal arrangement that changes who controls the company?</span>}
             reqMsg="Please answer Question 1"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -213,7 +215,7 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">2. Can any person appoint/remove directors, veto decisions or control voting, even if they own less than 25%?</span>}
             reqMsg="Please answer Question 2"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -222,7 +224,7 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">3. Is any person funding the company but not listed as a shareholder or director?</span>}
             reqMsg="Please answer Question 3"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -231,7 +233,7 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">4. Is any person acting under instructions from another person?</span>}
             reqMsg="Please answer Question 4"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput
@@ -240,7 +242,7 @@ export default function Step6BeneficialOwnership({ beneficialOwners = [], setBen
             label={<span className="font-bold text-slate-800 dark:text-zinc-200">5. Is any ownership held through a trust, foreign company, family member, nominee or associate?</span>}
             reqMsg="Please answer Question 5"
             radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
-            containerClassName="!mb-0"
+            containerClassName="!mb-4"
           />
 
           <AntInput

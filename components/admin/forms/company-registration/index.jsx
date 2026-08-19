@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Form, Button, Card, App } from "antd";
+import { Form, Button, Card, App, message as staticMessage, notification as staticNotification, Modal as staticModal } from "antd";
 import {
   ArrowRightOutlined,
   SaveOutlined,
@@ -24,6 +24,7 @@ import Step9NomineeTrusteeArrangements from "./Step9NomineeTrusteeArrangements";
 import Step10OptionalTaxServices from "./Step10OptionalTaxServices";
 import Step11DocumentUploads from "./Step11DocumentUploads";
 import Step12DeclarationSignatures from "./Step12DeclarationSignatures";
+import { createNewCompanyRegistration } from "@/services/newCompanyRegistration.service";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_COMPANY_REGISTRATION_DRAFT";
 
@@ -43,7 +44,10 @@ const STEP_ITEMS = [
 ];
 
 export default function CompanyRegistrationForm() {
-  const { message, notification, modal } = App.useApp();
+  const app = App.useApp?.() || {};
+  const message = app.message || staticMessage;
+  const notification = app.notification || staticNotification;
+  const modal = app.modal || staticModal;
   const [form] = Form.useForm();
   const [currentStep, setCurrentStep] = useState(0);
   const [formKey, setFormKey] = useState(0);
@@ -179,7 +183,20 @@ export default function CompanyRegistrationForm() {
         // Final Submission
         setIsSubmitting(true);
         try {
-          console.log("Submitting Company Registration Payload:", updatedData);
+          const payload = {
+            ...updatedData,
+            officeholders,
+            shareholders,
+            beneficialOwners,
+            terms_version: "v1.0",
+            terms_accepted: true,
+            privacy_notice_version: "v1.0",
+            privacy_notice_acknowledged: true,
+          };
+          
+          const result = await createNewCompanyRegistration(payload);
+          const refNumber = result?.data?.referenceNumber || "CREG-" + Date.now();
+
           localStorage.removeItem(DRAFT_STORAGE_KEY);
           setFormData({});
           form.resetFields();
@@ -220,6 +237,14 @@ export default function CompanyRegistrationForm() {
                     </span>
                     <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">
                       {updatedData.companyType || "Proprietary company limited by shares"} ({updatedData.jurisdictionState || "NSW"})
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
+                      Reference Number
+                    </span>
+                    <span className="text-xs font-mono font-bold text-slate-800 dark:text-zinc-200">
+                      {refNumber}
                     </span>
                   </div>
                   <div className="flex items-center justify-between pt-0.5">
@@ -293,6 +318,7 @@ export default function CompanyRegistrationForm() {
       setFormData(mergedData);
 
       notification.success({
+        // message: "Draft Saved Successfully!",
         title: "Draft Saved Successfully!",
         description: `Your company registration progress (Step ${currentStep + 1}: ${STEP_ITEMS[currentStep].title}) has been saved to your device.`,
         icon: <SaveOutlined className="text-emerald-500" />,

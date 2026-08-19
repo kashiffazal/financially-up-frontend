@@ -123,9 +123,9 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
-      <div className="border-b border-slate-100 dark:border-zinc-800 pb-3">
+      <div className="border-b border-slate-100 dark:border-zinc-800 pb-2">
         <div className="flex items-center gap-2 mb-1">
           <Tag
             color="green"
@@ -152,7 +152,7 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
       </div>
 
       {/* Repeatable Officeholders List */}
-      <div className="space-y-5">
+      <div className="space-y-4">
         {officeholders.map((officer, idx) => (
           <div
             key={officer.id || idx}
@@ -358,7 +358,7 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
             </div>
 
             {/* Upload & PEP / Sanctions Declarations */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 mb-6">
               <AntFileUpload
                 name={`officer_${idx}_idAttachment`}
                 label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Photo ID Copy (Passport / Driver Licence) *</span>}
@@ -368,9 +368,10 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
                 noRequired={false}
                 reqMsg="Please upload ID document copy"
                 icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+                containerClassName="!mb-0"
               />
 
-              <div className="space-y-3">
+              <div>
                 <AntInput
                   type="select"
                   name={`officer_${idx}_pepStatus`}
@@ -382,7 +383,7 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
                   reqMsg="PEP status is required"
                   size="large"
                   className="rounded-xl"
-                  containerClassName="!mb-0"
+                  containerClassName="!mb-4"
                 />
 
                 <AntInput
@@ -403,38 +404,46 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
 
             {/* Per-Person Officeholder Statutory Consent & Execution */}
             <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-              <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block">
-                Officeholder Consent & Signature
-              </span>
 
-              <AntInput
-                type="checkbox"
-                name={`officer_${idx}_consentAccepted`}
-                group={[
-                  {
-                    value: "accepted",
-                    label: `I consent to act as ${officer.roles ? officer.roles.join(" / ") : "Director"} of the proposed company. *`,
-                  },
-                ]}
-                value={officer.officerConsentAccepted || ["accepted"]}
-                onChange={(val) => handleUpdateField(idx, "officerConsentAccepted", val)}
-                reqMsg="Officeholder must consent to act"
-                containerClassName="!mb-0"
-              />
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+                    Officeholder Consent & Signature
+                  </h3>
+                </div>
+              </div>
+
+
+
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <AntInput
-                  type="datepicker"
-                  name={`officer_${idx}_signatureDate`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Consent Date *</span>}
-                  format="DD/MM/YYYY"
-                  reqMsg="Consent date is required"
-                  preIconAnt={<CalendarOutlined className="text-slate-400" />}
-                  size="large"
-                  className="w-full rounded-xl"
-                  containerClassName="!mb-0"
-                />
-
+                <div>
+                  <AntInput
+                    type="checkbox"
+                    name={`officer_${idx}_consentAccepted`}
+                    group={[
+                      {
+                        value: "accepted",
+                        label: `I consent to act as ${officer.roles ? officer.roles.join(" / ") : "Director"} of the proposed company. *`,
+                      },
+                    ]}
+                    value={officer.officerConsentAccepted || ["accepted"]}
+                    onChange={(val) => handleUpdateField(idx, "officerConsentAccepted", val)}
+                    reqMsg="Officeholder must consent to act"
+                    containerClassName="!mb-4"
+                  />
+                  <AntInput
+                    type="datepicker"
+                    name={`officer_${idx}_signatureDate`}
+                    label={<span className="font-bold text-slate-800 dark:text-zinc-200">Consent Date *</span>}
+                    format="DD/MM/YYYY"
+                    reqMsg="Consent date is required"
+                    preIconAnt={<CalendarOutlined className="text-slate-400" />}
+                    size="large"
+                    className="w-full rounded-xl"
+                    containerClassName="!mb-0"
+                  />
+                </div>
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-slate-800 dark:text-zinc-200">
