@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { Alert, Tag, Form } from "antd";
-import { LockOutlined, UploadOutlined } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import React from "react";
+import { Alert, Tag } from "antd";
+import { LockOutlined } from "@ant-design/icons";
+import { AntInput } from "@/services/antdFields";
 import SignatureCanvas from "@/components/mutual/SignatureCanvas";
 
-export default function Step10ElectronicSignature({ form }) {
-  const [sigMode, setSigMode] = useState("draw");
-  const [typedSig, setTypedSig] = useState("");
-  const fullName = form.getFieldValue("fullName") || "";
-
+export default function Step10ElectronicSignature() {
   return (
     <div className="space-y-8 animate-fadeIn">
       {/* Header */}
@@ -35,13 +31,13 @@ export default function Step10ElectronicSignature({ form }) {
         </p>
       </div>
 
-      {/* Signer Legal Name Confirmation */}
+      {/* Signer Legal Name & Signature Canvas Section */}
       <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
         <AntInput
           name="signerFullName"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
-              Confirm Signer Full Legal Name
+              Confirm Signer Full Legal Name *
             </span>
           }
           placeholder="Signer full legal name"
@@ -51,91 +47,18 @@ export default function Step10ElectronicSignature({ form }) {
           containerClassName="!mb-6"
         />
 
-        {/* 3 Signature Options (Draw Signature First) */}
-        <AntInput
-          type="radio"
-          name="signatureType"
-          label={
-            <span className="font-bold text-slate-800 dark:text-zinc-200">
-              Electronic Signature Method
-            </span>
-          }
-          radioOptions={[
-            { value: "draw", label: "Draw Signature (Canvas to draw)" },
-            { value: "type", label: "Type Signature" },
-            { value: "upload", label: "Upload Signature" },
-          ]}
-          onChange={(val) => setSigMode(val)}
-          reqMsg="Please select a signature method."
-          containerClassName="!mb-4"
-        />
-
-        {/* 1. Draw Signature (Interactive High-DPI Smooth Canvas) */}
-        {sigMode === "draw" && (
-          <div className="space-y-3">
-            <SignatureCanvas
-              name="signatureDrawnData"
-              label="Draw Your Signature Below"
-              reqMsg="Please draw your signature."
-              height={186}
-              penColor="#059669"
-              placeholder="Draw your signature smoothly using finger, stylus, or mouse..."
-              storageKey="clientSignature"
-            />
-          </div>
-        )}
-
-        {/* 2. Type Signature */}
-        {sigMode === "type" && (
-          <div className="space-y-3">
-            <AntInput
-              name="signatureText"
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Type Your Full Name as Signature
-                </span>
-              }
-              placeholder="Type your name here"
-              size="large"
-              className="rounded-xl"
-              onChange={(val) => setTypedSig(val)}
-              reqMsg="Type your signature."
-            />
-
-            {typedSig && (
-              <div className="p-6 rounded-2xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-zinc-950 text-center shadow-inner">
-                <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">
-                  Electronic Signature Preview
-                </div>
-                <div className="text-3xl font-serif italic text-brand-primary dark:text-emerald-400 font-extrabold tracking-wide py-2">
-                  {typedSig}
-                </div>
-                <div className="text-[10px] text-slate-400 font-mono mt-1">
-                  Signed electronically via Financially Up Secure Portal | IP
-                  Logged
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* 3. Upload Signature */}
-        {sigMode === "upload" && (
-          <AntFileUpload
-            name="signatureUploadedFile"
-            label={
-              <span className="font-bold text-slate-800 dark:text-zinc-200">
-                Upload Signature Image
-              </span>
-            }
-            icon={<UploadOutlined className="text-brand-primary text-xl" />}
-            heading="Click or drag signature image to upload"
-            para="Supports PNG, JPG, JPEG (Max 1 file)"
-            reqMsg="Please upload your signature image."
-            maxCount={1}
-            containerClassName="mb-0"
+        {/* Digital Signature Canvas */}
+        <div className="space-y-2">
+          <SignatureCanvas
+            name="signatureDrawnData"
+            label="Draw Digital Signature *"
+            reqMsg="Please draw your digital signature."
+            height={186}
+            penColor="#059669"
+            placeholder="Draw your signature smoothly using finger, stylus, or mouse..."
+            storageKey="clientSignature"
           />
-        )}
+        </div>
 
         {/* Linked Document Versions Box */}
         <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">

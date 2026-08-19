@@ -89,6 +89,6 @@ The Admin Portal is the internal administration component used by Financially Up
   - `Enhanced Monitoring` - Ongoing compliance monitoring
   - `Escalate` - Escalate to Compliance Officer
   - `Decline` - Decline engagement
-- **Field Name:** `staffMemberName` (Text Input)
-- **Field Name:** `staffSignatureType` (`draw`, `type`, `upload`) with smooth `SignaturePad` canvas
+- **Field Name:** `staffMemberName` (Text Input - Full Legal Name)
+- **Field Name:** `staffDrawnSignature` (Interactive smooth digital `SignatureCanvas`)
 - **Field Name:** `reviewNotes` (Section 8: Internal Review Notes & Audit Log Details)

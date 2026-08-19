@@ -3,17 +3,18 @@
 import React from "react";
 import { Tag, Button } from "antd";
 import {
-  UserOutlined,
   PlusOutlined,
   DeleteOutlined,
   DollarOutlined,
-  BankOutlined,
-  UploadOutlined,
 } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import MemberConsentModalTrigger from "./MemberConsentModalTrigger";
 
-export default function Step5ShareStructure({ shareholders = [], setShareholders }) {
+export default function Step5ShareStructure({
+  shareholders = [],
+  setShareholders,
+}) {
   const handleAddShareholder = () => {
     const newMember = {
       id: Date.now(),
@@ -66,7 +67,8 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
           Share Capital Structure & Founding Members
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Specify share classes, issue quantities, paid/unpaid amounts, and shareholder legal ownership details.
+          Specify share classes, issue quantities, paid/unpaid amounts, and
+          shareholder legal ownership details.
         </p>
 
         <div className="mt-3 pt-2 border-t border-slate-100 dark:border-zinc-800/80">
@@ -87,7 +89,8 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
                   {idx + 1}
                 </div>
                 <span className="text-sm font-black text-slate-900 dark:text-zinc-100">
-                  Shareholder #{idx + 1}: {member.fullName || "New Shareholder"} ({member.numberOfShares || 0} Shares)
+                  Shareholder #{idx + 1}: {member.fullName || "New Shareholder"}{" "}
+                  ({member.numberOfShares || 0} Shares)
                 </span>
               </div>
 
@@ -109,10 +112,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="text"
                 name={`member_${idx}_fullName`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Shareholder Legal Name / Entity Name *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Shareholder Legal Name / Entity Name *
+                  </span>
+                }
                 placeholder="e.g. John Alexander Smith or Acme Holdings Pty Ltd"
                 value={member.fullName}
-                onChange={(e) => handleUpdateField(idx, "fullName", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "fullName", e.target.value)
+                }
                 reqMsg="Shareholder name is required"
                 size="large"
                 className="rounded-xl"
@@ -122,8 +131,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="select"
                 name={`member_${idx}_memberType`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Member Type *</span>}
-                options={["Individual", "Corporate Entity", "Trust / Super Fund"]}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Member Type *
+                  </span>
+                }
+                options={[
+                  "Individual",
+                  "Corporate Entity",
+                  "Trust / Super Fund",
+                ]}
                 emptyFirstVal="- Select Member Type -"
                 value={member.memberType}
                 onChange={(val) => handleUpdateField(idx, "memberType", val)}
@@ -136,10 +153,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="text"
                 name={`member_${idx}_address`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Residential / Registered Address *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Residential / Registered Address *
+                  </span>
+                }
                 placeholder="e.g. 100 Walker St, North Sydney NSW"
                 value={member.address}
-                onChange={(e) => handleUpdateField(idx, "address", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "address", e.target.value)
+                }
                 reqMsg="Address is required"
                 size="large"
                 className="rounded-xl"
@@ -152,8 +175,17 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="select"
                 name={`member_${idx}_shareClass`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Share Class *</span>}
-                options={["Ordinary (ORD)", "Class A", "Class B", "Preference Shares"]}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Share Class *
+                  </span>
+                }
+                options={[
+                  "Ordinary (ORD)",
+                  "Class A",
+                  "Class B",
+                  "Preference Shares",
+                ]}
                 emptyFirstVal="- Select Share Class -"
                 value={member.shareClass}
                 onChange={(val) => handleUpdateField(idx, "shareClass", val)}
@@ -166,10 +198,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="text"
                 name={`member_${idx}_numberOfShares`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Number of Shares *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Number of Shares *
+                  </span>
+                }
                 placeholder="e.g. 100"
                 value={member.numberOfShares}
-                onChange={(e) => handleUpdateField(idx, "numberOfShares", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "numberOfShares", e.target.value)
+                }
                 reqMsg="Number of shares is required"
                 size="large"
                 className="rounded-xl"
@@ -179,10 +217,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="text"
                 name={`member_${idx}_amountPaidPerShare`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Amount Paid per Share</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Amount Paid per Share
+                  </span>
+                }
                 placeholder="e.g. $1.00"
                 value={member.amountPaidPerShare}
-                onChange={(e) => handleUpdateField(idx, "amountPaidPerShare", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "amountPaidPerShare", e.target.value)
+                }
                 preIconAnt={<DollarOutlined className="text-slate-400" />}
                 size="large"
                 className="rounded-xl"
@@ -192,10 +236,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="text"
                 name={`member_${idx}_amountUnpaidPerShare`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Amount Unpaid per Share</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Amount Unpaid per Share
+                  </span>
+                }
                 placeholder="e.g. $0.00"
                 value={member.amountUnpaidPerShare}
-                onChange={(e) => handleUpdateField(idx, "amountUnpaidPerShare", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "amountUnpaidPerShare", e.target.value)
+                }
                 preIconAnt={<DollarOutlined className="text-slate-400" />}
                 size="large"
                 className="rounded-xl"
@@ -205,7 +255,6 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
 
             {/* Per-Member / Shareholder Consent */}
             <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2">
-
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
                 <div className="flex items-center gap-2">
                   <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -220,11 +269,14 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
                 group={[
                   {
                     value: "accepted",
-                    label: "I/we consent to become a member of the proposed company and agree to be bound by the terms of the Company Constitution and subscribe for the shares specified. *",
+                    label:
+                      "I/we consent to become a member of the proposed company and agree to be bound by the terms of the Company Constitution and subscribe for the shares specified. *",
                   },
                 ]}
                 value={member.memberConsentAccepted || ["accepted"]}
-                onChange={(val) => handleUpdateField(idx, "memberConsentAccepted", val)}
+                onChange={(val) =>
+                  handleUpdateField(idx, "memberConsentAccepted", val)
+                }
                 reqMsg="Member must consent to shareholding"
                 containerClassName="!mb-0"
               />
@@ -235,12 +287,24 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
               <AntInput
                 type="radio"
                 name={`member_${idx}_isBeneficiallyHeld`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Are these shares beneficially held by this shareholder?</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Are these shares beneficially held by this shareholder?
+                  </span>
+                }
                 value={member.isBeneficiallyHeld}
-                onChange={(val) => handleUpdateField(idx, "isBeneficiallyHeld", val)}
+                onChange={(val) =>
+                  handleUpdateField(idx, "isBeneficiallyHeld", val)
+                }
                 radioOptions={[
-                  { value: "Yes", label: "Yes (Beneficially held for themselves)" },
-                  { value: "No", label: "No (Held on trust / for another person)" },
+                  {
+                    value: "Yes",
+                    label: "Yes (Beneficially held for themselves)",
+                  },
+                  {
+                    value: "No",
+                    label: "No (Held on trust / for another person)",
+                  },
                 ]}
                 containerClassName="!mb-0"
               />
@@ -249,10 +313,16 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
                 <AntInput
                   type="text"
                   name={`member_${idx}_heldForWhom`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Held for Whom? (Beneficial Owner Name) *</span>}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Held for Whom? (Beneficial Owner Name) *
+                    </span>
+                  }
                   placeholder="e.g. The Smith Family Trust or David Smith"
                   value={member.heldForWhom}
-                  onChange={(e) => handleUpdateField(idx, "heldForWhom", e.target.value)}
+                  onChange={(e) =>
+                    handleUpdateField(idx, "heldForWhom", e.target.value)
+                  }
                   reqMsg="Beneficial owner name is required"
                   size="large"
                   className="rounded-xl"
@@ -267,22 +337,39 @@ export default function Step5ShareStructure({ shareholders = [], setShareholders
                 <AntInput
                   type="textarea"
                   name={`member_${idx}_corporateOwnershipChain`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Corporate Shareholder Ownership Chain<span className="text-[11px] font-normal ml-1">(ACN, Directors, Ultimate Owners)</span></span>}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Corporate Shareholder Ownership Chain
+                      <span className="text-[11px] font-normal ml-1">
+                        (ACN, Directors, Ultimate Owners)
+                      </span>
+                    </span>
+                  }
                   placeholder="Specify ACN, Directors, and Ultimate Natural Person Shareholders of this holding entity."
                   value={member.corporateOwnershipChain}
-                  onChange={(e) => handleUpdateField(idx, "corporateOwnershipChain", e.target.value)}
+                  onChange={(e) =>
+                    handleUpdateField(
+                      idx,
+                      "corporateOwnershipChain",
+                      e.target.value,
+                    )
+                  }
                   rows={4}
                   className="rounded-xl !h-32"
                   containerClassName="!mb-0"
                 />
-                <AntFileUpload
+                <UploadFile
                   name={`member_${idx}_corporateExtract`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload ASIC Company Extract / Registry Certificate</span>}
-                  heading="Click or drag ASIC extract"
-                  para="Current company search extract (PDF)"
-                  maxCount={1}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Upload ASIC Company Extract / Registry Certificate
+                    </span>
+                  }
+                  placeholder="Choose current ASIC extract (PDF)..."
                   noRequired={true}
-                  icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+                  type="4"
+                  height={128}
+                  className="rounded-xl"
                   containerClassName="!mb-0"
                 />
               </div>

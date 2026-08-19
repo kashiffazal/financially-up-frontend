@@ -1,8 +1,6 @@
 "use client";
 
-/*eslint-disable no-useless-escape*/
-/*eslint-disable no-unused-expressions*/
-/*eslint-disable array-callback-return*/
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import React from "react";
 import {
   Form,
@@ -295,40 +293,7 @@ export const AntInput = ({
   addonAfter = false,
   loading = false,
 }) => {
-  let validateKeyword = undefined;
-
-  if (!name) {
-    return <div style={nameErrorStyle}>Please provide name attribute</div>;
-  }
-
-  // Handle AntD feedback status
-  if (feedback && feedback !== true) {
-    if (
-      feedback !== "success" &&
-      feedback !== "warning" &&
-      feedback !== "error" &&
-      feedback !== "validating"
-    ) {
-      return (
-        <div style={nameErrorStyle}>
-          Feedback status must be 'success', 'warning', 'error', or 'validating'.
-        </div>
-      );
-    }
-    validateKeyword = feedback;
-    feedback = true;
-  } else {
-    feedback = feedback !== true ? undefined : feedback;
-  }
-
-  // Build field rules dynamically
-  const fieldRules = rules || [
-    validator
-      ? { validator }
-      : { required: !noRequired, message: reqMsg },
-  ];
-
-  // Normalize options if custom setValueLabel mapping is provided
+  // Normalize options if custom setValueLabel mapping is provided (Called unconditionally at top)
   const normalizedSelectOptions = React.useMemo(() => {
     let formatted = [];
 
@@ -360,7 +325,40 @@ export const AntInput = ({
     }
 
     return formatted;
-  }, [options, setValueLabel, mode]);
+  }, [options, setValueLabel]);
+
+  let validateKeyword = undefined;
+
+  if (!name) {
+    return <div style={nameErrorStyle}>Please provide name attribute</div>;
+  }
+
+  // Handle AntD feedback status
+  if (feedback && feedback !== true) {
+    if (
+      feedback !== "success" &&
+      feedback !== "warning" &&
+      feedback !== "error" &&
+      feedback !== "validating"
+    ) {
+      return (
+        <div style={nameErrorStyle}>
+          Feedback status must be &apos;success&apos;, &apos;warning&apos;, &apos;error&apos;, or &apos;validating&apos;.
+        </div>
+      );
+    }
+    validateKeyword = feedback;
+    feedback = true;
+  } else {
+    feedback = feedback !== true ? undefined : feedback;
+  }
+
+  // Build field rules dynamically
+  const fieldRules = rules || [
+    validator
+      ? { validator }
+      : { required: !noRequired, message: reqMsg },
+  ];
 
   // 1. InputNumber / Currency
   if (type === "inputNumber") {

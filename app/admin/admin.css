@@ -16,26 +16,30 @@
   }
 }
 
-.admin-animate-mesh-gradient {
+.admin-animate-mesh-gradient,
+.animate-mesh-gradient {
   background: linear-gradient(-45deg, #00331a, #008043, #059669, #022c22);
   background-size: 300% 300%;
   animation: admin-gradient-mesh 8s ease infinite;
 }
 
-.dark .admin-animate-mesh-gradient {
+.dark .admin-animate-mesh-gradient,
+.dark .animate-mesh-gradient {
   background: linear-gradient(-45deg, #022415, #004725, #0a1b13, #121214);
   background-size: 300% 300%;
 }
 
 /* Admin Glassmorphism Panel */
-.admin-glass-panel {
-  background: rgba(255, 255, 255, 0.08);
+.admin-glass-panel,
+.glass-panel {
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.dark .admin-glass-panel {
+.dark .admin-glass-panel,
+.dark .glass-panel {
   background: rgba(30, 30, 36, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

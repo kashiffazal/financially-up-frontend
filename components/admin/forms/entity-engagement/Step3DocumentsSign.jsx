@@ -7,7 +7,8 @@ import {
   SafetyCertificateOutlined,
   FilePdfOutlined,
 } from "@ant-design/icons";
-import { AntFileUpload, AntInput } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 
 export default function Step3DocumentsSign() {
   return (
@@ -35,35 +36,43 @@ export default function Step3DocumentsSign() {
 
       {/* Uploads Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <AntFileUpload
+        <UploadFile
           name="proofOfID"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Director / Signatory Primary Photo ID *
             </span>
           }
-          heading="Click or drag ID to upload"
-          para="Driver Licence or Passport (PDF, JPG, PNG)"
+          title="Click or drag ID to upload"
+          msg="Driver Licence or Passport (PDF, JPG, PNG)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          restrictExtension="pdf,jpg,jpeg,png"
+          fileSize={10}
           maxCount={1}
           noRequired={false}
           reqMsg="Please upload primary photo ID"
-          icon={<IdcardOutlined className="text-3xl text-brand-primary mb-2" />}
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
 
-        <AntFileUpload
+        <UploadFile
           name="TrustDeed"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Company Constitution or Trust Deed (If Applicable)
             </span>
           }
-          heading="Click or drag Deed to upload"
-          para="PDF Document (Max 10MB)"
+          title="Click or drag Deed to upload"
+          msg="PDF Document (Max 10MB)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          restrictExtension="pdf,jpg,jpeg,png"
+          fileSize={10}
           maxCount={1}
           noRequired={true}
-          icon={
-            <FilePdfOutlined className="text-3xl text-brand-primary mb-2" />
-          }
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
       </div>
 

@@ -40,41 +40,46 @@ const STEP_ITEMS = [
   { step: 10, title: "Signature", fullTitle: "E-Signature & Submit" },
 ];
 
+const getInitialSavedDraft = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    const savedDraftStr = localStorage.getItem(DRAFT_STORAGE_KEY);
+    if (savedDraftStr) {
+      const savedDraft = JSON.parse(savedDraftStr);
+      if (savedDraft && savedDraft.data) return savedDraft;
+    }
+  } catch (e) {
+    console.error("Error loading saved form draft:", e);
+  }
+  return null;
+};
+
 export default function IndividualEngagementClientForm() {
   const { message, notification, modal } = App.useApp();
   const [form] = Form.useForm();
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(() => {
+    const d = getInitialSavedDraft();
+    return typeof d?.step === "number" && d.step >= 0 && d.step <= 9 ? d.step : 0;
+  });
   const [formKey, setFormKey] = useState(0);
   const [hasViewedSchedule, setHasViewedSchedule] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    services: [],
-    entityService: null,
+  const [formData, setFormData] = useState(() => {
+    const d = getInitialSavedDraft();
+    return d?.data || {
+      services: [],
+      entityService: null,
+    };
   });
 
-  // Auto-restore saved draft from localStorage on mount
+  // Auto-restore form field values from draft on mount
   useEffect(() => {
-    try {
-      const savedDraftStr = localStorage.getItem(DRAFT_STORAGE_KEY);
-      if (savedDraftStr) {
-        const savedDraft = JSON.parse(savedDraftStr);
-        if (savedDraft && savedDraft.data) {
-          setFormData(savedDraft.data);
-          form.setFieldsValue(savedDraft.data);
-          if (
-            typeof savedDraft.step === "number" &&
-            savedDraft.step >= 0 &&
-            savedDraft.step <= 9
-          ) {
-            setCurrentStep(savedDraft.step);
-          }
-          message.info(
-            `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
-          );
-        }
-      }
-    } catch (e) {
-      console.error("Error loading saved form draft:", e);
+    const savedDraft = getInitialSavedDraft();
+    if (savedDraft && savedDraft.data) {
+      form.setFieldsValue(savedDraft.data);
+      message.info(
+        `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
+      );
     }
   }, [form, message]);
 

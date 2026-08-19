@@ -54,9 +54,7 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
           sanctionsHighRiskJurisdictionCheck: adminReview.sanctionsHighRiskJurisdictionCheck || undefined,
           sanctionsNameMatchCheck: adminReview.sanctionsNameMatchCheck || undefined,
           staffMemberName: adminReview.reviewerName || taxAgentSig?.signerFullName || "",
-          staffSignatureType: adminReview.signatureMethod || "draw",
           staffDrawnSignature: adminReview.signatureDrawnData || null,
-          staffTypedSignature: adminReview.signatureTypedName || "",
           reviewNotes: adminReview.reviewNotes || "",
         });
       } else {
@@ -76,9 +74,7 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
           sanctionsHighRiskJurisdictionCheck: undefined,
           sanctionsNameMatchCheck: undefined,
           staffMemberName: "",
-          staffSignatureType: "draw",
           staffDrawnSignature: null,
-          staffTypedSignature: "",
           reviewNotes: "",
         });
       }

@@ -2,12 +2,9 @@
 
 import React from "react";
 import { Form, Tag } from "antd";
-import {
-  IdcardOutlined,
-  UploadOutlined,
-  CameraOutlined,
-} from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { IdcardOutlined } from "@ant-design/icons";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const IDENTITY_METHOD_OPTIONS = [
@@ -98,56 +95,64 @@ export default function Step6DocumentVerification({ form }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Primary ID (ID-002) */}
-            <AntFileUpload
+            <UploadFile
               name="primaryId"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Primary Photo ID (Driver's License / Passport / Photo Card)
+                  Primary Photo ID (Driver&apos;s License / Passport / Photo Card) *
                 </span>
               }
-              icon={<UploadOutlined className="text-brand-primary text-xl" />}
-              heading="Upload Primary ID (PDF / JPG / PNG)"
+              title="Upload Primary ID"
+              msg="Driver licence or passport"
+              accept=".pdf,.jpg,.jpeg,.png"
               reqMsg="Please upload your primary photo ID."
-              maxCount={1}
+              height={170}
+              className="rounded-2xl"
               containerClassName="!mb-0"
             />
 
             {/* Supporting ID (ID-003) */}
-            <AntFileUpload
+            <UploadFile
               name="supportingId"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
                   Supporting ID (Medicare Card / Utility Bill / Bank Statement)
+                  *
                 </span>
               }
-              icon={<UploadOutlined className="text-brand-primary text-xl" />}
-              heading="Upload Supporting ID (PDF / JPG / PNG)"
+              title="Upload Supporting ID"
+              msg="Medicare card, utility bill or bank statement"
+              accept=".pdf,.jpg,.jpeg,.png"
               reqMsg="Please upload supporting ID."
-              maxCount={1}
+              height={170}
+              className="rounded-2xl"
               containerClassName="!mb-0"
             />
           </div>
 
           {/* Selfie Photo (ID-005 - Conditional for remote verification) */}
           {identityMethod === "Electronic Verification" && (
-            <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="pt-3 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-3">
                 <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">
                   Biometric Identity Verification Notice:
                 </span>
                 <PrivacyCollectionNoticeTrigger category="biometric" />
               </div>
-              <AntFileUpload
+              <UploadFile
                 name="selfie"
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
                     Selfie / Photo Identification (Holding ID)
                   </span>
                 }
-                icon={<CameraOutlined className="text-brand-primary text-xl" />}
-                heading="Upload Live Selfie Photo (JPG / PNG)"
+                title="Upload Live Selfie Photo"
+                msg="Selfie holding primary ID for automated verification"
+                accept=".jpg,.jpeg,.png"
                 reqMsg="Please upload selfie photo."
-                maxCount={1}
+                type="1"
+                height={170}
+                className="rounded-2xl"
               />
 
               <AntInput

@@ -2,12 +2,9 @@
 
 import React from "react";
 import { Tag, Form } from "antd";
-import {
-  DollarOutlined,
-  GlobalOutlined,
-  UploadOutlined,
-} from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { DollarOutlined, GlobalOutlined } from "@ant-design/icons";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 
 export default function Step8SourceOfFundsWealth({ form }) {
   const hasOffshore = Form.useWatch("hasOffshoreFunding", form);
@@ -32,13 +29,13 @@ export default function Step8SourceOfFundsWealth({ form }) {
           Source of Funds & Source of Wealth
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Verify the origin of initial capital contributions and ongoing funding under Australian AML/CTF rules.
+          Verify the origin of initial capital contributions and ongoing funding
+          under Australian AML/CTF rules.
         </p>
       </div>
 
       {/* Initial Capital Contribution */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -51,7 +48,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <AntInput
             type="text"
             name="initialCapitalAmount"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Initial Capital Amount (AUD) *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Initial Capital Amount (AUD) *
+              </span>
+            }
             placeholder="e.g. $100.00 or $10,000.00"
             reqMsg="Initial capital amount is required"
             preIconAnt={<DollarOutlined className="text-slate-400" />}
@@ -63,7 +64,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <AntInput
             type="text"
             name="initialCapitalPaidBy"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Paid By (Person / Entity Name) *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Paid By (Person / Entity Name) *
+              </span>
+            }
             placeholder="e.g. Founding Directors / Shareholders"
             reqMsg="Paid by name is required"
             size="large"
@@ -74,7 +79,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <AntInput
             type="select"
             name="initialCapitalSource"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Source of Initial Setup Funds</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Source of Initial Setup Funds
+              </span>
+            }
             options={[
               "Personal savings from employment",
               "Retained business earnings",
@@ -95,7 +104,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <AntInput
             type="text"
             name="expected12MonthFundingAmount"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Expected First 12 Months Funding (AUD)</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Expected First 12 Months Funding (AUD)
+              </span>
+            }
             placeholder="e.g. $50,000 - $200,000"
             reqMsg="Expected funding is required"
             preIconAnt={<DollarOutlined className="text-slate-400" />}
@@ -107,7 +120,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <AntInput
             type="text"
             name="expectedFundingFunder"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Primary Funder / Bank of Origin</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Primary Funder / Bank of Origin
+              </span>
+            }
             placeholder="e.g. Australian commercial trading revenue / Commonwealth Bank"
             reqMsg="Funder/bank details required"
             size="large"
@@ -119,7 +136,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
         <AntInput
           type="textarea"
           name="beneficialOwnerWealthSummary"
-          label={<span className="font-bold text-slate-800 dark:text-zinc-200">Beneficial Owner Source of Wealth Summary *</span>}
+          label={
+            <span className="font-bold text-slate-800 dark:text-zinc-200">
+              Beneficial Owner Source of Wealth Summary *
+            </span>
+          }
           placeholder="Summarize how the founders/owners generated their overall wealth (e.g. Accumulated earnings from 10+ years in executive software engineering)."
           reqMsg="Source of wealth summary is required"
           rows={2}
@@ -130,7 +151,6 @@ export default function Step8SourceOfFundsWealth({ form }) {
 
       {/* Offshore & Cash Declarations */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -143,18 +163,32 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <AntInput
             type="radio"
             name="hasOffshoreFunding"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Any offshore source of funds or wealth?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Any offshore source of funds or wealth?
+              </span>
+            }
             reqMsg="Please answer offshore funds question"
-            radioOptions={[{ value: "No", label: "No (100% Australian sourced)" }, { value: "Yes", label: "Yes (Foreign funds involved)" }]}
+            radioOptions={[
+              { value: "No", label: "No (100% Australian sourced)" },
+              { value: "Yes", label: "Yes (Foreign funds involved)" },
+            ]}
             containerClassName="!mb-0"
           />
 
           <AntInput
             type="radio"
             name="hasCashOver10k"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Any physical cash contribution of AUD $10,000 or more?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Any physical cash contribution of AUD $10,000 or more?
+              </span>
+            }
             reqMsg="Please answer cash threshold question"
-            radioOptions={[{ value: "No", label: "No (Bank transfer / EFT)" }, { value: "Yes", label: "Yes ($10k+ physical cash)" }]}
+            radioOptions={[
+              { value: "No", label: "No (Bank transfer / EFT)" },
+              { value: "Yes", label: "Yes ($10k+ physical cash)" },
+            ]}
             containerClassName="!mb-0"
           />
         </div>
@@ -164,7 +198,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
             <AntInput
               type="text"
               name="offshoreCountries"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Foreign Countries & Banks Involved</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Foreign Countries & Banks Involved
+                </span>
+              }
               placeholder="e.g. Singapore (DBS Bank), United Kingdom (HSBC)"
               reqMsg="Offshore countries and banks required"
               preIconAnt={<GlobalOutlined className="text-slate-400" />}
@@ -176,7 +214,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
             <AntInput
               type="text"
               name="offshoreExplanation"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Explanation of Offshore Transfer</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Explanation of Offshore Transfer
+                </span>
+              }
               placeholder="e.g. Personal capital repatriation"
               reqMsg="Explanation is required"
               size="large"
@@ -191,7 +233,11 @@ export default function Step8SourceOfFundsWealth({ form }) {
             <AntInput
               type="text"
               name="cashAmountAndPayer"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Cash Amount & Payer Details</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Cash Amount & Payer Details
+                </span>
+              }
               placeholder="e.g. $15,000 AUD deposited by J. Smith"
               reqMsg="Cash details required"
               size="large"
@@ -199,14 +245,19 @@ export default function Step8SourceOfFundsWealth({ form }) {
               containerClassName="!mb-0"
             />
 
-            <AntFileUpload
+            <UploadFile
               name="cashBankingEvidence"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Bank Deposit Evidence / Withdrawal Slip</span>}
-              heading="Click or drag deposit receipt"
-              para="Official bank receipt showing cash deposit"
-              maxCount={1}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Upload Bank Deposit Evidence / Withdrawal Slip
+                </span>
+              }
+              placeholder="Choose bank deposit receipt (PDF, JPG, PNG)..."
               noRequired={true}
-              icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+              type="3"
+              height={40}
+              className="rounded-xl"
+              containerClassName="!mb-0"
             />
           </div>
         )}

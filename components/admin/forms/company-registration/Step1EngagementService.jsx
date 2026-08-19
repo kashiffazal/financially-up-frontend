@@ -11,7 +11,8 @@ import {
   FileProtectOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 import TermsOfEngagementTrigger from "./TermsOfEngagementTrigger";
 
@@ -97,7 +98,8 @@ export default function Step1EngagementService({ form }) {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-              <UserOutlined className="text-brand-primary text-sm" /> 1.1 Contact Person Completing This Form
+              <UserOutlined className="text-brand-primary text-sm" /> 1.1
+              Contact Person Completing This Form
             </h3>
           </div>
         </div>
@@ -177,23 +179,22 @@ export default function Step1EngagementService({ form }) {
 
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1"> */}
 
-
-          {relationship === "Other" && (
-            <AntInput
-              type="text"
-              name="otherRelationshipDetail"
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Specify Other Relationship *
-                </span>
-              }
-              placeholder="e.g. Legal representative, Family member"
-              reqMsg="Please specify relationship"
-              size="large"
-              className="rounded-xl"
-              containerClassName="!mb-4"
-            />
-          )}
+        {relationship === "Other" && (
+          <AntInput
+            type="text"
+            name="otherRelationshipDetail"
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Specify Other Relationship *
+              </span>
+            }
+            placeholder="e.g. Legal representative, Family member"
+            reqMsg="Please specify relationship"
+            size="large"
+            className="rounded-xl"
+            containerClassName="!mb-4"
+          />
+        )}
         {/* </div> */}
 
         {/* Authority to instruct if acting for another */}
@@ -210,24 +211,22 @@ export default function Step1EngagementService({ form }) {
               placeholder="Describe your legal capacity and authorisation from the company founders/directors to lodge this registration."
               reqMsg="Please describe your authority to instruct"
               rows={5}
-              className="rounded-xl !h-32"
+              className="rounded-xl !h-[180px]"
               containerClassName="!mb-0"
             />
 
-            <AntFileUpload
+            <UploadFile
               name="authorityEvidence"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
                   Upload Evidence of Authority (Letter of Authorisation / POA)
                 </span>
               }
-              heading="Click or drag authority document"
-              para="Signed Authorisation Letter or Power of Attorney (PDF, PNG, JPG)"
-              maxCount={1}
+              title="Click or drag authority document"
+              msg="Signed Authorisation Letter or Power of Attorney"
               noRequired={true}
-              icon={
-                <UploadOutlined className="text-3xl text-brand-primary mb-2" />
-              }
+              height={180}
+              className="rounded-xl"
               containerClassName="!mb-0"
             />
           </div>
@@ -236,11 +235,11 @@ export default function Step1EngagementService({ form }) {
 
       {/* 1.2 Requested Service */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-              <FileProtectOutlined className="text-brand-primary text-sm" /> 1.1 Contact Person Completing This Form
+              <FileProtectOutlined className="text-brand-primary text-sm" /> 1.1
+              Contact Person Completing This Form
             </h3>
           </div>
         </div>

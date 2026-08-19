@@ -7,9 +7,9 @@ import {
   ShopOutlined,
   CalendarOutlined,
   GlobalOutlined,
-  UploadOutlined,
 } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 
 const AUSTRALIAN_STATES = ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"];
 
@@ -39,17 +39,18 @@ export default function Step2CompanyDetails({ form }) {
           Proposed Company Details for ASIC Registration
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Configure company name preferences, corporate type, jurisdiction state, and governance rules.
+          Configure company name preferences, corporate type, jurisdiction
+          state, and governance rules.
         </p>
       </div>
 
       {/* Name Preferences */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-              <ShopOutlined className="text-brand-primary text-sm" /> Proposed Company Name Preferences
+              <ShopOutlined className="text-brand-primary text-sm" /> Proposed
+              Company Name Preferences
             </h3>
           </div>
         </div>
@@ -58,7 +59,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="companyName1"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">First Preference (Primary Name) *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                First Preference (Primary Name) *
+              </span>
+            }
             placeholder="e.g. Apex Innovation Enterprises"
             reqMsg="First preference company name is required"
             preIconAnt={<BankOutlined className="text-slate-400" />}
@@ -70,7 +75,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="companyName2"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Second Preference</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Second Preference
+              </span>
+            }
             placeholder="e.g. Apex Global Solutions"
             noRequired={true}
             size="large"
@@ -81,7 +90,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="companyName3"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Third Preference</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Third Preference
+              </span>
+            }
             placeholder="e.g. Apex Digital Holdings"
             noRequired={true}
             size="large"
@@ -94,10 +107,17 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="radio"
             name="useAcnAsName"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Use ACN as company name if all names are unavailable?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Use ACN as company name if all names are unavailable?
+              </span>
+            }
             reqMsg="Please answer ACN fallback preference"
             radioOptions={[
-              { value: "Yes", label: "Yes, proceed with ACN (e.g. ACN 123 456 789 Pty Ltd)" },
+              {
+                value: "Yes",
+                label: "Yes, proceed with ACN (e.g. ACN 123 456 789 Pty Ltd)",
+              },
               { value: "No", label: "No, contact me for alternate names" },
             ]}
             containerClassName="!mb-0"
@@ -106,11 +126,21 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="radio"
             name="isNameReserved"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Has the proposed name been pre-reserved with ASIC?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Has the proposed name been pre-reserved with ASIC?
+              </span>
+            }
             reqMsg="Please select reservation status"
             radioOptions={[
-              { value: "No", label: "No (Standard name search & registration)" },
-              { value: "Yes", label: "Yes (Name already reserved on Form 410)" },
+              {
+                value: "No",
+                label: "No (Standard name search & registration)",
+              },
+              {
+                value: "Yes",
+                label: "Yes (Name already reserved on Form 410)",
+              },
             ]}
             containerClassName="!mb-0"
           />
@@ -121,7 +151,11 @@ export default function Step2CompanyDetails({ form }) {
             <AntInput
               type="text"
               name="reservationNumber"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">ASIC Reservation Number</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  ASIC Reservation Number
+                </span>
+              }
               placeholder="e.g. RES123456"
               reqMsg="Reservation number is required"
               size="large"
@@ -132,7 +166,11 @@ export default function Step2CompanyDetails({ form }) {
             <AntInput
               type="datepicker"
               name="reservationDate"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Reservation Date</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Reservation Date
+                </span>
+              }
               format="DD/MM/YYYY"
               reqMsg="Reservation date is required"
               size="large"
@@ -143,7 +181,11 @@ export default function Step2CompanyDetails({ form }) {
             <AntInput
               type="text"
               name="reservationApplicant"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Reservation Applicant Name</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Reservation Applicant Name
+                </span>
+              }
               placeholder="Applicant on Form 410"
               reqMsg="Applicant name is required"
               size="large"
@@ -156,11 +198,6 @@ export default function Step2CompanyDetails({ form }) {
 
       {/* Structure & Purpose */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
-
-
-
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -169,12 +206,15 @@ export default function Step2CompanyDetails({ form }) {
           </div>
         </div>
 
-
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
             type="select"
             name="companyType"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Company Type</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Company Type
+              </span>
+            }
             options={[
               "Proprietary company limited by shares (Pty Ltd)",
               "Public company limited by shares",
@@ -193,7 +233,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="select"
             name="jurisdictionState"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">State / Territory of Registration</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                State / Territory of Registration
+              </span>
+            }
             options={AUSTRALIAN_STATES}
             emptyFirstVal="- Select State -"
             reqMsg="Jurisdiction state is required"
@@ -207,7 +251,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="specialPurposeDetail"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Special Purpose Specification</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Special Purpose Specification
+              </span>
+            }
             placeholder="e.g. Sole purpose SMSF Trustee, Home unit company"
             reqMsg="Special purpose detail is required"
             size="large"
@@ -220,7 +268,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="select"
             name="companyPurpose"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Purpose of Company</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Purpose of Company
+              </span>
+            }
             options={[
               "Trading business",
               "Investment company",
@@ -241,7 +293,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="mainBusinessActivity"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Main Business Activity / Description</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Main Business Activity / Description
+              </span>
+            }
             placeholder="e.g. IT Software Consulting & Development"
             reqMsg="Main business activity is required"
             size="large"
@@ -254,7 +310,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="otherCompanyPurpose"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Specify Other Purpose</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Specify Other Purpose
+              </span>
+            }
             placeholder="Describe company purpose"
             reqMsg="Please specify purpose"
             size="large"
@@ -267,7 +327,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="select"
             name="tradingNameChoice"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Expected Trading / Business Name</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Expected Trading / Business Name
+              </span>
+            }
             options={[
               "Same as company name",
               "Different business name required",
@@ -282,7 +346,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="datepicker"
             name="commencementDate"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Expected Commencement Date</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Expected Commencement Date
+              </span>
+            }
             format="DD/MM/YYYY"
             reqMsg="Commencement date is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
@@ -296,7 +364,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="text"
             name="proposedBusinessName"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Proposed Trading Name to Register</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Proposed Trading Name to Register
+              </span>
+            }
             placeholder="e.g. Apex Digital Marketing"
             reqMsg="Proposed trading name is required"
             size="large"
@@ -308,7 +380,6 @@ export default function Step2CompanyDetails({ form }) {
 
       {/* Group Structure & Governance */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -321,11 +392,18 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="radio"
             name="isPartOfGroup"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Will the company be part of a corporate group?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Will the company be part of a corporate group?
+              </span>
+            }
             reqMsg="Please select group status"
             radioOptions={[
               { value: "No", label: "No (Standalone entity)" },
-              { value: "Yes", label: "Yes (Subsidiary / Holding company structure)" },
+              {
+                value: "Yes",
+                label: "Yes (Subsidiary / Holding company structure)",
+              },
             ]}
             containerClassName="!mb-0"
           />
@@ -333,7 +411,11 @@ export default function Step2CompanyDetails({ form }) {
           <AntInput
             type="select"
             name="governanceDocument"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Governance Document</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Governance Document
+              </span>
+            }
             options={[
               "Use replaceable rules where permitted",
               "Adopt company constitution (Recommended)",
@@ -351,11 +433,14 @@ export default function Step2CompanyDetails({ form }) {
           <div className="pt-3 border-t border-slate-200/60 dark:border-zinc-800">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-
                 <AntInput
                   type="text"
                   name="ultimateHoldingName"
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Ultimate Holding Company Name</span>}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Ultimate Holding Company Name
+                    </span>
+                  }
                   placeholder="e.g. Apex Global Corp"
                   reqMsg="Ultimate holding company name is required"
                   size="large"
@@ -366,7 +451,11 @@ export default function Step2CompanyDetails({ form }) {
                 <AntInput
                   type="text"
                   name="ultimateHoldingAcn"
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">ACN / ARBN / Foreign Reg No</span>}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      ACN / ARBN / Foreign Reg No
+                    </span>
+                  }
                   placeholder="e.g. 123456789"
                   reqMsg="Registration number is required"
                   size="large"
@@ -377,7 +466,11 @@ export default function Step2CompanyDetails({ form }) {
                 <AntInput
                   type="text"
                   name="ultimateHoldingCountry"
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Country of Incorporation</span>}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Country of Incorporation
+                    </span>
+                  }
                   placeholder="e.g. Australia, Singapore"
                   reqMsg="Country is required"
                   preIconAnt={<GlobalOutlined className="text-slate-400" />}
@@ -386,17 +479,20 @@ export default function Step2CompanyDetails({ form }) {
                   containerClassName="!mb-4"
                 />
               </div>
-              <AntFileUpload
+              <UploadFile
                 name="groupStructureChart"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Group Ownership Structure Chart (PDF, PNG, JPG)</span>}
-                heading="Click or drag structure chart"
-                para="Ownership hierarchy diagram showing holding percentages"
-                maxCount={1}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Upload Group Ownership Structure Chart
+                  </span>
+                }
+                placeholder="Choose ownership hierarchy chart (PDF, PNG, JPG)..."
                 noRequired={true}
-                icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+                height={212}
+                className="rounded-xl"
+                containerClassName="!mb-0"
               />
             </div>
-           
           </div>
         )}
       </div>

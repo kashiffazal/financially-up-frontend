@@ -3,7 +3,8 @@
 import React from "react";
 import { Form, Alert, Tag } from "antd";
 import { WarningOutlined, UploadOutlined } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 
 const INCOME_SOURCES = [
   { value: "Salary/Wages", label: "Salary / Wages (PAYG Income Statement)" },
@@ -43,7 +44,7 @@ export default function Step4IncomeProfile({ form }) {
   const atoIssues = Form.useWatch("atoIssues", form);
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-4 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-slate-100 dark:border-zinc-800 pb-4">
         <div className="flex items-center gap-2 mb-1">
@@ -211,52 +212,56 @@ export default function Step4IncomeProfile({ form }) {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <AntInput
-                type="datepicker"
-                name="noticeDate"
-                label={
-                  <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    ATO Notice Date
-                  </span>
-                }
-                placeholder="DD/MM/YYYY"
-                format="DD/MM/YYYY"
-                size="large"
-                className="w-full rounded-xl"
-                noRequired={true}
-                containerClassName="!mb-2"
-              />
+              <div>
+                <AntInput
+                  type="datepicker"
+                  name="noticeDate"
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      ATO Notice Date
+                    </span>
+                  }
+                  placeholder="DD/MM/YYYY"
+                  format="DD/MM/YYYY"
+                  size="large"
+                  className="w-full rounded-xl"
+                  noRequired={true}
+                  containerClassName="!mb-4"
+                />
 
-              <AntInput
-                type="datepicker"
-                name="dueDate"
+                <AntInput
+                  type="datepicker"
+                  name="dueDate"
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      ATO Due Date
+                    </span>
+                  }
+                  placeholder="DD/MM/YYYY"
+                  format="DD/MM/YYYY"
+                  size="large"
+                  className="w-full rounded-xl"
+                  noRequired={true}
+                  containerClassName="!mb-0"
+                />
+              </div>
+              <UploadFile
+                name="atoDocuments"
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    ATO Due Date
+                    Upload ATO Letters / Notices
                   </span>
                 }
-                placeholder="DD/MM/YYYY"
-                format="DD/MM/YYYY"
-                size="large"
-                className="w-full rounded-xl"
+                placeholder="Attach ATO notice"
+                maxCount={3}
+                multiple={true}
                 noRequired={true}
-                containerClassName="!mb-2"
+                type="4"
+                height={124}
+                className="rounded-xl"
+                containerClassName="!mb-0"
               />
             </div>
-
-            <AntFileUpload
-              name="atoDocuments"
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Upload ATO Letters / Notices
-                </span>
-              }
-              icon={<UploadOutlined className="text-brand-primary text-xl" />}
-              heading="Attach ATO Notice (PDF/JPG/PNG)"
-              maxCount={3}
-              noRequired={true}
-              containerClassName="!mb-0"
-            />
           </div>
         )}
       </div>

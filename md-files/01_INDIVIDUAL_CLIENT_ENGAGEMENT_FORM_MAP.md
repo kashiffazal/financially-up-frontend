@@ -181,8 +181,5 @@ The **Individual Client Engagement Form (Phase 1)** is a 10-step guided onboardi
 | Field Name                | Type          | Values / Options                                              | Validation                               |
 | :------------------------ | :------------ | :------------------------------------------------------------ | :--------------------------------------- |
 | `signerFullName`          | Text Input    | Signer Full Legal Name                                        | **Required**                             |
-| `signatureType`           | Radio Group   | `draw` (Canvas), `type` (Digital Font), `upload` (File Image) | Default: `draw`                          |
-| `signatureDrawnData`      | Smooth Canvas | Base64 PNG Stroke Data URL                                    | **Required if `signatureType = draw`**   |
-| `signatureText`           | Text Input    | Free Text (Cursive Preview)                                   | **Required if `signatureType = type`**   |
-| `signatureUploadedFile`   | File Upload   | PNG, JPG, JPEG                                                | **Required if `signatureType = upload`** |
+| `signatureDrawnData`      | Smooth Canvas | Base64 PNG Stroke Data URL (Interactive Smooth Signature Pad)  | **Required**                             |
 | `confirmSignatureBinding` | Checkbox      | Confirm ETA 1999 Binding Signature                            | **Mandatory**                            |

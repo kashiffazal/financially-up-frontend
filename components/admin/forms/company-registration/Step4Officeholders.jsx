@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { Tag, Button } from "antd";
 import {
   UserOutlined,
@@ -12,20 +12,31 @@ import {
   GlobalOutlined,
   IdcardOutlined,
   UploadOutlined,
-  ClearOutlined,
 } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
+import SignatureCanvas from "@/components/mutual/SignatureCanvas";
 import DirectorConsentModalTrigger from "./DirectorConsentModalTrigger";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const COUNTRIES = [
-  "Australia", "New Zealand", "United Kingdom", "United States",
-  "India", "China", "Singapore", "Hong Kong", "Canada", "Germany", "Other Country"
+  "Australia",
+  "New Zealand",
+  "United Kingdom",
+  "United States",
+  "India",
+  "China",
+  "Singapore",
+  "Hong Kong",
+  "Canada",
+  "Germany",
+  "Other Country",
 ];
 
-export default function Step4Officeholders({ officeholders = [], setOfficeholders }) {
-  const officerCanvasRefs = useRef({});
-
+export default function Step4Officeholders({
+  officeholders = [],
+  setOfficeholders,
+}) {
   const handleAddOfficeholder = () => {
     const newOfficer = {
       id: Date.now(),
@@ -69,59 +80,6 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
     setOfficeholders(updated);
   };
 
-  const clearOfficerCanvas = (idx) => {
-    const canvas = officerCanvasRefs.current[idx];
-    if (canvas) {
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      handleUpdateField(idx, "officerSignature", "");
-    }
-  };
-
-  const initOfficerDrawing = (canvas, idx) => {
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    ctx.lineWidth = 2.5;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "#0f172a";
-
-    let drawing = false;
-
-    const startDraw = (e) => {
-      drawing = true;
-      const rect = canvas.getBoundingClientRect();
-      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-      const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-      ctx.beginPath();
-      ctx.moveTo(clientX - rect.left, clientY - rect.top);
-    };
-
-    const draw = (e) => {
-      if (!drawing) return;
-      e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-      const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-      ctx.lineTo(clientX - rect.left, clientY - rect.top);
-      ctx.stroke();
-    };
-
-    const stopDraw = () => {
-      if (!drawing) return;
-      drawing = false;
-      ctx.closePath();
-      const dataUrl = canvas.toDataURL("image/png");
-      handleUpdateField(idx, "officerSignature", dataUrl);
-    };
-
-    canvas.onmousedown = startDraw;
-    canvas.onmousemove = draw;
-    canvas.onmouseup = stopDraw;
-    canvas.ontouchstart = startDraw;
-    canvas.ontouchmove = draw;
-    canvas.ontouchend = stopDraw;
-  };
-
   return (
     <div className="space-y-4 animate-fadeIn">
       {/* Header */}
@@ -141,7 +99,8 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
           Proposed Directors & Company Secretaries
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Add all proposed directors and secretaries. Australian proprietary companies must have at least one Australian resident director.
+          Add all proposed directors and secretaries. Australian proprietary
+          companies must have at least one Australian resident director.
         </p>
 
         <div className="flex flex-wrap items-center gap-4 mt-3 pt-2 border-t border-slate-100 dark:border-zinc-800/80">
@@ -187,10 +146,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_fullName`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Full Legal Name *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Full Legal Name *
+                  </span>
+                }
                 placeholder="First Middle Last"
                 value={officer.fullName}
-                onChange={(e) => handleUpdateField(idx, "fullName", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "fullName", e.target.value)
+                }
                 reqMsg="Full legal name is required"
                 preIconAnt={<UserOutlined className="text-slate-400" />}
                 size="large"
@@ -201,10 +166,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_formerNames`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Former Names / Maiden / Aliases</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Former Names / Maiden / Aliases
+                  </span>
+                }
                 placeholder="Leave blank if none"
                 value={officer.formerNames}
-                onChange={(e) => handleUpdateField(idx, "formerNames", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "formerNames", e.target.value)
+                }
                 noRequired={true}
                 size="large"
                 className="rounded-xl"
@@ -214,7 +185,11 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="datepicker"
                 name={`officer_${idx}_dob`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Date of Birth *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Date of Birth *
+                  </span>
+                }
                 format="DD/MM/YYYY"
                 disabledNextDate={true}
                 reqMsg="Date of birth is required"
@@ -230,10 +205,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_birthCity`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Birth City / Suburb *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Birth City / Suburb *
+                  </span>
+                }
                 placeholder="e.g. Sydney"
                 value={officer.birthCity}
-                onChange={(e) => handleUpdateField(idx, "birthCity", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "birthCity", e.target.value)
+                }
                 reqMsg="Birth city is required"
                 size="large"
                 className="rounded-xl"
@@ -243,10 +224,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_birthState`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Birth State / Province *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Birth State / Province *
+                  </span>
+                }
                 placeholder="e.g. NSW"
                 value={officer.birthState}
-                onChange={(e) => handleUpdateField(idx, "birthState", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "birthState", e.target.value)
+                }
                 reqMsg="Birth state is required"
                 size="large"
                 className="rounded-xl"
@@ -256,7 +243,11 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="select"
                 name={`officer_${idx}_birthCountry`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Birth Country *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Birth Country *
+                  </span>
+                }
                 options={COUNTRIES}
                 value={officer.birthCountry}
                 onChange={(val) => handleUpdateField(idx, "birthCountry", val)}
@@ -273,10 +264,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_residentialAddress`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Residential Address *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Residential Address *
+                  </span>
+                }
                 placeholder="e.g. 15 Ocean St, Manly NSW 2095"
                 value={officer.residentialAddress}
-                onChange={(e) => handleUpdateField(idx, "residentialAddress", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "residentialAddress", e.target.value)
+                }
                 reqMsg="Residential address is required"
                 size="large"
                 className="rounded-xl"
@@ -286,10 +283,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="email"
                 name={`officer_${idx}_email`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Direct Email *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Direct Email *
+                  </span>
+                }
                 placeholder="director@example.com"
                 value={officer.email}
-                onChange={(e) => handleUpdateField(idx, "email", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "email", e.target.value)
+                }
                 reqMsg="Email is required"
                 preIconAnt={<MailOutlined className="text-slate-400" />}
                 size="large"
@@ -300,10 +303,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_mobile`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Mobile Phone *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Mobile Phone *
+                  </span>
+                }
                 placeholder="e.g. 0412 345 678"
                 value={officer.mobile}
-                onChange={(e) => handleUpdateField(idx, "mobile", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "mobile", e.target.value)
+                }
                 reqMsg="Mobile is required"
                 preIconAnt={<PhoneOutlined className="text-slate-400" />}
                 size="large"
@@ -317,11 +326,22 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="select"
                 name={`officer_${idx}_directorIdStatus`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Director ID Status *</span>}
-                options={["Director ID held", "Applied", "Not yet applied", "N/A"]}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Director ID Status *
+                  </span>
+                }
+                options={[
+                  "Director ID held",
+                  "Applied",
+                  "Not yet applied",
+                  "N/A",
+                ]}
                 emptyFirstVal="- Select Director ID Status -"
                 value={officer.directorIdStatus}
-                onChange={(val) => handleUpdateField(idx, "directorIdStatus", val)}
+                onChange={(val) =>
+                  handleUpdateField(idx, "directorIdStatus", val)
+                }
                 reqMsg="Director ID status is required"
                 size="large"
                 className="rounded-xl"
@@ -331,8 +351,19 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="select"
                 name={`officer_${idx}_idDocType`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Primary ID Document *</span>}
-                options={["Passport", "Driver licence", "Medicare card", "Birth certificate", "Visa/ImmiCard", "Other"]}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Primary ID Document *
+                  </span>
+                }
+                options={[
+                  "Passport",
+                  "Driver licence",
+                  "Medicare card",
+                  "Birth certificate",
+                  "Visa/ImmiCard",
+                  "Other",
+                ]}
                 emptyFirstVal="- Select Primary ID Document -"
                 value={officer.idDocType}
                 onChange={(val) => handleUpdateField(idx, "idDocType", val)}
@@ -345,10 +376,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
               <AntInput
                 type="text"
                 name={`officer_${idx}_idDocNumber`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">ID Document Number *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    ID Document Number *
+                  </span>
+                }
                 placeholder="e.g. PA1234567"
                 value={officer.idDocNumber}
-                onChange={(e) => handleUpdateField(idx, "idDocNumber", e.target.value)}
+                onChange={(e) =>
+                  handleUpdateField(idx, "idDocNumber", e.target.value)
+                }
                 reqMsg="ID number is required"
                 preIconAnt={<IdcardOutlined className="text-slate-400" />}
                 size="large"
@@ -359,15 +396,19 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
 
             {/* Upload & PEP / Sanctions Declarations */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 mb-6">
-              <AntFileUpload
+              <UploadFile
                 name={`officer_${idx}_idAttachment`}
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Photo ID Copy (Passport / Driver Licence) *</span>}
-                heading="Click or drag ID file"
-                para="Certified copy (PDF, JPG, PNG)"
-                maxCount={1}
-                noRequired={false}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Upload Photo ID Copy (Passport / Driver Licence) *
+                  </span>
+                }
+                title="Click or drag photo ID copy"
+                msg="Passport or Australian Driver Licence"
                 reqMsg="Please upload ID document copy"
-                icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+                type="4"
+                height={126}
+                className="rounded-xl"
                 containerClassName="!mb-0"
               />
 
@@ -375,8 +416,18 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
                 <AntInput
                   type="select"
                   name={`officer_${idx}_pepStatus`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">PEP Status (Politically Exposed Person) *</span>}
-                  options={["Not a PEP", "Domestic PEP", "Foreign PEP", "International organisation PEP", "Unsure"]}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      PEP Status (Politically Exposed Person) *
+                    </span>
+                  }
+                  options={[
+                    "Not a PEP",
+                    "Domestic PEP",
+                    "Foreign PEP",
+                    "International organisation PEP",
+                    "Unsure",
+                  ]}
                   emptyFirstVal="- Select PEP Status -"
                   value={officer.pepStatus}
                   onChange={(val) => handleUpdateField(idx, "pepStatus", val)}
@@ -389,11 +440,20 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
                 <AntInput
                   type="select"
                   name={`officer_${idx}_sanctionsDeclaration`}
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Targeted Financial Sanctions Check *</span>}
-                  options={["I am not subject to targeted financial sanctions", "Unsure"]}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Targeted Financial Sanctions Check *
+                    </span>
+                  }
+                  options={[
+                    "I am not subject to targeted financial sanctions",
+                    "Unsure",
+                  ]}
                   emptyFirstVal="- Select Sanctions Declaration -"
                   value={officer.sanctionsDeclaration}
-                  onChange={(val) => handleUpdateField(idx, "sanctionsDeclaration", val)}
+                  onChange={(val) =>
+                    handleUpdateField(idx, "sanctionsDeclaration", val)
+                  }
                   reqMsg="Sanctions confirmation is required"
                   size="large"
                   className="rounded-xl"
@@ -404,20 +464,16 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
 
             {/* Per-Person Officeholder Statutory Consent & Execution */}
             <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-                    Officeholder Consent & Signature
-                  </h3>
-                </div>
-              </div>
-
-
-
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2 mb-6">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
+                        Officeholder Consent & Signature
+                      </h3>
+                    </div>
+                  </div>
+
                   <AntInput
                     type="checkbox"
                     name={`officer_${idx}_consentAccepted`}
@@ -428,14 +484,20 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
                       },
                     ]}
                     value={officer.officerConsentAccepted || ["accepted"]}
-                    onChange={(val) => handleUpdateField(idx, "officerConsentAccepted", val)}
+                    onChange={(val) =>
+                      handleUpdateField(idx, "officerConsentAccepted", val)
+                    }
                     reqMsg="Officeholder must consent to act"
                     containerClassName="!mb-4"
                   />
                   <AntInput
                     type="datepicker"
                     name={`officer_${idx}_signatureDate`}
-                    label={<span className="font-bold text-slate-800 dark:text-zinc-200">Consent Date *</span>}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Consent Date *
+                      </span>
+                    }
                     format="DD/MM/YYYY"
                     reqMsg="Consent date is required"
                     preIconAnt={<CalendarOutlined className="text-slate-400" />}
@@ -444,30 +506,20 @@ export default function Step4Officeholders({ officeholders = [], setOfficeholder
                     containerClassName="!mb-0"
                   />
                 </div>
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-800 dark:text-zinc-200">
-                      Digital Signature
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => clearOfficerCanvas(idx)}
-                      className="text-xs text-red-500 hover:underline inline-flex items-center gap-1 font-semibold"
-                    >
-                      <ClearOutlined /> Clear
-                    </button>
-                  </div>
-                  <div className="border border-slate-300 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-950 overflow-hidden shadow-inner touch-none">
-                    <canvas
-                      ref={(node) => {
-                        officerCanvasRefs.current[idx] = node;
-                        if (node) initOfficerDrawing(node, idx);
-                      }}
-                      width={400}
-                      height={90}
-                      className="w-full h-[90px] cursor-crosshair block"
-                    />
-                  </div>
+                <div className="flex flex-col justify-between h-full">
+                  <SignatureCanvas
+                    name={`officer_${idx}_signature`}
+                    label="Digital Signature *"
+                    reqMsg="Officeholder signature is required"
+                    value={officer.officerSignature}
+                    onChange={(dataUrl) =>
+                      handleUpdateField(idx, "officerSignature", dataUrl)
+                    }
+                    height={130}
+                    penColor="#0f172a"
+                    placeholder="Draw signature smoothly using mouse, stylus, or finger..."
+                    storageKey={`officer_${officer.id || idx}_signature`}
+                  />
                 </div>
               </div>
             </div>

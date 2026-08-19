@@ -3,7 +3,7 @@
 import React from "react";
 import { Tag } from "antd";
 import { IdcardOutlined, FilePdfOutlined } from "@ant-design/icons";
-import { AntFileUpload } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 
 export default function Step3EvidenceUploads() {
   return (
@@ -32,64 +32,84 @@ export default function Step3EvidenceUploads() {
 
       {/* Uploads Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <AntFileUpload
+        <UploadFile
           name="passportCopy"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Passport Photo Page (Bio Page) *
             </span>
           }
-          heading="Click or drag passport copy"
-          para="Certified copy of Foreign Passport Bio-data page (PDF, JPG, PNG)"
+          title="Click or drag passport copy"
+          msg="Certified copy of Foreign Passport Bio-data page (PDF, JPG, PNG)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          restrictExtension="pdf,jpg,jpeg,png"
+          fileSize={10}
           maxCount={1}
           noRequired={false}
           reqMsg="Please upload passport copy"
-          icon={<IdcardOutlined className="text-3xl text-brand-primary mb-2" />}
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
 
-        <AntFileUpload
+        <UploadFile
           name="evidenceoOfVisaEndorsed"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Visa Grant Notice / VEVO Entitlement *
             </span>
           }
-          heading="Click or drag Visa document"
-          para="Department of Home Affairs Visa Grant Notice (PDF or image)"
+          title="Click or drag Visa document"
+          msg="Department of Home Affairs Visa Grant Notice (PDF, PNG, JPG)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          restrictExtension="pdf,jpg,jpeg,png"
+          fileSize={10}
           maxCount={1}
           noRequired={false}
           reqMsg="Please upload visa grant document"
-          icon={
-            <FilePdfOutlined className="text-3xl text-brand-primary mb-2" />
-          }
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <AntFileUpload
+        <UploadFile
           name="medicalInsurance"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Health Cover Policy (OSHC / OVHC)
             </span>
           }
-          heading="Click or drag insurance certificate"
-          para="Optional health insurance policy certificate"
+          title="Click or drag insurance certificate"
+          msg="Optional health insurance policy certificate (PDF, PNG, JPG)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          restrictExtension="pdf,jpg,jpeg,png"
+          fileSize={10}
           maxCount={1}
           noRequired={true}
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
 
-        <AntFileUpload
+        <UploadFile
           name="otherDocuments"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Other Supporting Letters (If Any)
             </span>
           }
-          heading="Click or drag other attachments"
-          para="Home Affairs PR decision letter or acknowledgment (Optional)"
+          title="Click or drag other attachments"
+          msg="Home Affairs PR decision letter or acknowledgment (Optional)"
+          accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+          restrictExtension="pdf,jpg,jpeg,png,doc,docx"
+          fileSize={10}
           maxCount={1}
           noRequired={true}
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
       </div>
     </div>

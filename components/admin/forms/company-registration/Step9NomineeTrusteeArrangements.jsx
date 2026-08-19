@@ -2,16 +2,16 @@
 
 import React from "react";
 import { Tag, Form } from "antd";
-import {
-  SafetyCertificateOutlined,
-  UploadOutlined,
-  FilePdfOutlined,
-} from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { SafetyCertificateOutlined } from "@ant-design/icons";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import NomineeArrangementTermsTrigger from "./NomineeArrangementTermsTrigger";
 
 export default function Step9NomineeTrusteeArrangements({ form }) {
-  const isDirectorActingForOthers = Form.useWatch("isDirectorActingForOthers", form);
+  const isDirectorActingForOthers = Form.useWatch(
+    "isDirectorActingForOthers",
+    form,
+  );
   const isNomineeShareholder = Form.useWatch("isNomineeShareholder", form);
   const isTrusteeInvolved = Form.useWatch("isTrusteeInvolved", form);
   const hasLegalAdvice = Form.useWatch("hasLegalAdvice", form);
@@ -35,7 +35,8 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           Nominee, Arranged Role-Holder & Trustee Arrangements
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Disclose any nominee shareholders, arranged directors, bare trusts, or corporate trustee arrangements.
+          Disclose any nominee shareholders, arranged directors, bare trusts, or
+          corporate trustee arrangements.
         </p>
 
         <div className="mt-3 pt-2 border-t border-slate-100 dark:border-zinc-800/80">
@@ -45,11 +46,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
 
       {/* Nominee & Trustee Questions */}
       <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-              <SafetyCertificateOutlined className="text-brand-primary text-sm" /> Arranged Role-Holder & Trust Questions
+              <SafetyCertificateOutlined className="text-brand-primary text-sm" />{" "}
+              Arranged Role-Holder & Trust Questions
             </h3>
           </div>
         </div>
@@ -58,9 +59,20 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           <AntInput
             type="radio"
             name="isDirectorActingForOthers"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">1. Is any proposed director or secretary acting on behalf of or under instructions from someone else?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                1. Is any proposed director or secretary acting on behalf of or
+                under instructions from someone else?
+              </span>
+            }
             reqMsg="Please answer Question 1"
-            radioOptions={[{ value: "No", label: "No (Acting independently as genuine officer)" }, { value: "Yes", label: "Yes (Nominee / instructed director)" }]}
+            radioOptions={[
+              {
+                value: "No",
+                label: "No (Acting independently as genuine officer)",
+              },
+              { value: "Yes", label: "Yes (Nominee / instructed director)" },
+            ]}
             containerClassName="!mb-4"
           />
 
@@ -69,7 +81,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
               <AntInput
                 type="text"
                 name="directorNominatorName"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Nominator / Instructing Person Legal Name *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Nominator / Instructing Person Legal Name *
+                  </span>
+                }
                 placeholder="Full name of person directing officer"
                 reqMsg="Nominator name is required"
                 size="large"
@@ -82,9 +98,17 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           <AntInput
             type="radio"
             name="isNomineeShareholder"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">2. Is any proposed shareholder a nominee shareholder holding shares for another beneficial owner?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                2. Is any proposed shareholder a nominee shareholder holding
+                shares for another beneficial owner?
+              </span>
+            }
             reqMsg="Please answer Question 2"
-            radioOptions={[{ value: "No", label: "No (Direct beneficial owners)" }, { value: "Yes", label: "Yes (Nominee shareholder structure)" }]}
+            radioOptions={[
+              { value: "No", label: "No (Direct beneficial owners)" },
+              { value: "Yes", label: "Yes (Nominee shareholder structure)" },
+            ]}
             containerClassName="!mb-4"
           />
 
@@ -95,47 +119,65 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                   <AntInput
                     type="text"
                     name="nomineeNominator"
-                    label={<span className="font-bold text-slate-800 dark:text-zinc-200">Nominator Full Legal Name *</span>}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Nominator Full Legal Name *
+                      </span>
+                    }
                     placeholder="e.g. John Alexander Smith"
                     reqMsg="Nominator is required"
                     size="large"
                     className="rounded-xl"
-                    containerClassName="!mb-0"
+                    containerClassName="!mb-4"
                   />
 
                   <AntInput
                     type="text"
                     name="nomineeBeneficialOwner"
-                    label={<span className="font-bold text-slate-800 dark:text-zinc-200">Ultimate Beneficial Owner *</span>}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Ultimate Beneficial Owner *
+                      </span>
+                    }
                     placeholder="e.g. Smith Family Trust"
                     reqMsg="Beneficial owner is required"
                     size="large"
                     className="rounded-xl"
-                    containerClassName="!mb-4"
+                    containerClassName="!mb-0"
                   />
                 </div>
-                <AntFileUpload
+                <UploadFile
                   name="nomineeAgreementUpload"
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Nominee Agreement / Declaration of Trust (PDF)</span>}
-                  heading="Click or drag nominee agreement"
-                  para="Signed Declaration of Trust or Nominee Agreement"
-                  maxCount={1}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Upload Nominee Agreement / Declaration of Trust (PDF)
+                    </span>
+                  }
+                  placeholder="Choose signed Declaration of Trust or Nominee Agreement..."
                   noRequired={true}
-                  icon={<UploadOutlined className="text-3xl text-brand-primary mb-2" />}
+                  type="4"
+                  height={126}
+                  className="rounded-xl"
                   containerClassName="!mb-0"
                 />
               </div>
-
-
             </div>
           )}
 
           <AntInput
             type="radio"
             name="isTrusteeInvolved"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">3. Is a corporate trustee, bare trustee, SMSF trustee or other trust role involved?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                3. Is a corporate trustee, bare trustee, SMSF trustee or other
+                trust role involved?
+              </span>
+            }
             reqMsg="Please answer Question 3"
-            radioOptions={[{ value: "No", label: "No (Standard commercial company)" }, { value: "Yes", label: "Yes (Acting as corporate trustee)" }]}
+            radioOptions={[
+              { value: "No", label: "No (Standard commercial company)" },
+              { value: "Yes", label: "Yes (Acting as corporate trustee)" },
+            ]}
             containerClassName="!mb-4"
           />
 
@@ -146,7 +188,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                   <AntInput
                     type="text"
                     name="trustName"
-                    label={<span className="font-bold text-slate-800 dark:text-zinc-200">Trust / SMSF Legal Name *</span>}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Trust / SMSF Legal Name *
+                      </span>
+                    }
                     placeholder="e.g. The Harrison Family Trust"
                     reqMsg="Trust name is required"
                     size="large"
@@ -157,7 +203,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                   <AntInput
                     type="text"
                     name="trustSettlor"
-                    label={<span className="font-bold text-slate-800 dark:text-zinc-200">Trust Settlor / Founder *</span>}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Trust Settlor / Founder *
+                      </span>
+                    }
                     placeholder="e.g. Independent Accountant"
                     reqMsg="Settlor is required"
                     size="large"
@@ -165,14 +215,19 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                     containerClassName="!mb-0"
                   />
                 </div>
-                <AntFileUpload
+                <UploadFile
                   name="trustDeedUpload"
-                  label={<span className="font-bold text-slate-800 dark:text-zinc-200">Upload Trust Deed / SMSF Deed Extract (PDF)</span>}
-                  heading="Click or drag Trust Deed"
-                  para="Full Trust Deed or Schedule (Max 10MB)"
-                  maxCount={1}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Upload Trust Deed / SMSF Deed Extract (PDF)
+                    </span>
+                  }
+                  title="Click or drag Trust Deed extract"
+                  msg="Full Trust Deed or Schedule"
                   noRequired={true}
-                  icon={<FilePdfOutlined className="text-3xl text-brand-primary mb-2" />}
+                  type="4"
+                  height={126}
+                  className="rounded-xl"
                   containerClassName="!mb-0"
                 />
               </div>
@@ -182,9 +237,17 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           <AntInput
             type="radio"
             name="hasLegalAdvice"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">4. Has independent legal advice been obtained for this structure?</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                4. Has independent legal advice been obtained for this
+                structure?
+              </span>
+            }
             reqMsg="Please answer legal advice question"
-            radioOptions={[{ value: "No", label: "No" }, { value: "Yes", label: "Yes" }]}
+            radioOptions={[
+              { value: "No", label: "No" },
+              { value: "Yes", label: "Yes" },
+            ]}
             containerClassName="!mb-0"
           />
 
@@ -193,7 +256,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
               <AntInput
                 type="text"
                 name="legalAdviserName"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Adviser / Law Firm Name *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Adviser / Law Firm Name *
+                  </span>
+                }
                 placeholder="e.g. King & Wood Lawyers"
                 reqMsg="Adviser name is required"
                 size="large"
@@ -204,7 +271,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
               <AntInput
                 type="text"
                 name="legalAdviceSummary"
-                label={<span className="font-bold text-slate-800 dark:text-zinc-200">Summary of Advice *</span>}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Summary of Advice *
+                  </span>
+                }
                 placeholder="e.g. Structure reviewed and compliant with Corporations Act"
                 reqMsg="Advice summary is required"
                 size="large"

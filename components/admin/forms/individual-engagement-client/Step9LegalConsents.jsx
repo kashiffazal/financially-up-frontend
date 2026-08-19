@@ -255,7 +255,7 @@ export default function Step9LegalConsents({ form }) {
               icon={<InfoCircleOutlined />}
               title={
                 <span className="text-xs font-bold">
-                  Action Required: Please click 'Read Terms & Conditions' to
+                  Action Required: Please click &apos;Read Terms & Conditions&apos; to
                   inspect the document before consenting.
                 </span>
               }
@@ -508,7 +508,7 @@ export default function Step9LegalConsents({ form }) {
           </h4>
 
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed italic mb-2">
-            "{ATO_AUDIT_DECLARATION_INFO.fullText}"
+            &ldquo;{ATO_AUDIT_DECLARATION_INFO.fullText}&rdquo;
           </div>
 
           <AntInput
@@ -928,7 +928,7 @@ export default function Step9LegalConsents({ form }) {
               <span>TPB Client Information Statement</span>
             </h3>
             <p className="text-sm text-slate-800 dark:text-zinc-200 leading-relaxed m-0 font-serif italic">
-              "{TPB_STATEMENT_INFO.fullText}"
+              &ldquo;{TPB_STATEMENT_INFO.fullText}&rdquo;
             </p>
           </div>
 

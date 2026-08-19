@@ -11,7 +11,8 @@ import {
   PrinterOutlined,
   CheckCircleFilled,
 } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const RELATIONSHIP_OPTIONS = [
@@ -123,36 +124,38 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 reqMsg="Select relationship."
                 containerClassName="!mb-2"
               />
+
+              <UploadFile
+                name="authorityDoc"
+                label={
+                  <span className="text-[13px] font-bold text-slate-800 dark:text-zinc-200">
+                    Upload Legal Authority Document (Power of Attorney / Court
+                    Order)
+                  </span>
+                }
+                placeholder="Choose authority evidence"
+                maxCount={1}
+                noRequired={true}
+                type="4"
+                height={149}
+                className="rounded-xl"
+              />
+
+              <AntInput
+                type="textarea"
+                name="authorityDesc"
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Authority Notes / Capacity Scope
+                  </span>
+                }
+                placeholder="Provide brief details regarding your authority to act..."
+                rows={5}
+                className="rounded-xl !h-[150px]"
+                noRequired={true}
+                containerClassName="!mb-0"
+              />
             </div>
-
-            <AntFileUpload
-              name="authorityDoc"
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Upload Legal Authority Document (Power of Attorney / Court
-                  Order)
-                </span>
-              }
-              icon={<UploadOutlined className="text-brand-primary text-xl" />}
-              heading="Upload Authority Evidence (PDF / JPG / PNG)"
-              reqMsg="Upload authority document."
-              maxCount={1}
-            />
-
-            <AntInput
-              type="textarea"
-              name="authorityDesc"
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Authority Notes / Capacity Scope
-                </span>
-              }
-              placeholder="Provide brief details regarding your authority to act..."
-              rows={2}
-              className="rounded-xl"
-              noRequired={true}
-              containerClassName="!mb-0"
-            />
           </div>
         )}
       </div>

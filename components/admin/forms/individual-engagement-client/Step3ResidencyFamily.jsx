@@ -2,12 +2,9 @@
 
 import React from "react";
 import { Form, Alert, Tag } from "antd";
-import {
-  GlobalOutlined,
-  TeamOutlined,
-  UploadOutlined,
-} from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
+import { GlobalOutlined, TeamOutlined } from "@ant-design/icons";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 
 const VISA_STATUS_OPTIONS = [
@@ -189,17 +186,19 @@ export default function Step3ResidencyFamily({ form }) {
                 containerClassName="!mb-2"
               />
 
-              <AntFileUpload
+              <UploadFile
                 name="visaEvidence"
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
                     Upload Visa Grant Letter / Evidence
                   </span>
                 }
-                icon={<UploadOutlined className="text-brand-primary text-xl" />}
-                heading="Upload Visa Evidence (PDF/JPG/PNG)"
+                placeholder="Choose visa evidence"
                 reqMsg="Please upload visa evidence."
-                maxCount={1}
+                type="3"
+                height={40}
+                className="rounded-xl"
+                containerClassName="!mb-2"
               />
             </div>
           </div>
@@ -376,7 +375,7 @@ export default function Step3ResidencyFamily({ form }) {
               name="prepareSpouseReturn"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Would you like Financially Up to prepare your spouse's tax
+                  Would you like Financially Up to prepare your spouse&apos;s tax
                   return as well?
                 </span>
               }

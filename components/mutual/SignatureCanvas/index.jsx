@@ -59,9 +59,22 @@ const SignatureCanvasControl = ({
 }) => {
   const canvasRef = useRef(null);
 
-  const [hasDrawn, setHasDrawn] = useState(Boolean(value));
+  const [internalHasDrawn, setInternalHasDrawn] = useState(() => {
+    if (typeof window !== "undefined" && storageKey) {
+      const saved = localStorage.getItem(`sig_paths_${storageKey}`);
+      if (saved && saved !== "false") {
+        try {
+          const parsed = JSON.parse(saved);
+          return Array.isArray(parsed) && parsed.length > 0;
+        } catch {
+          return false;
+        }
+      }
+    }
+    return false;
+  });
   const [isInteracting, setIsInteracting] = useState(false);
-  const [showImage, setShowImage] = useState(false);
+  const [showImage, setShowImage] = useState(() => Boolean(initialImage));
 
   /* Read live validation status from Ant Design Form.Item context */
   const { status: formItemStatus, errors: formItemErrors = [] } = Form.Item.useStatus();
@@ -70,33 +83,16 @@ const SignatureCanvasControl = ({
   const numericHeight = typeof height === "number" ? height : parseInt(height, 10) || 210;
   const heightStyle = `${numericHeight}px`;
 
-  /* Sync hasDrawn with controlled value */
-  useEffect(() => {
-    if (value) {
-      setHasDrawn(true);
-    } else {
-      setHasDrawn(false);
-    }
-  }, [value]);
-
-  /* Initialize from existing image */
-  useEffect(() => {
-    if (initialImage) {
-      setShowImage(true);
-    }
-  }, [initialImage]);
-
-  /* Load saved paths from localStorage on mount */
+  /* Load saved paths from localStorage into canvas ref on mount */
   useEffect(() => {
     const key = storageKey;
-    if (key && canvasRef.current) {
+    if (key && canvasRef.current && typeof window !== "undefined") {
       const savedPaths = localStorage.getItem(`sig_paths_${key}`);
       if (savedPaths && savedPaths !== "false") {
         try {
           const paths = JSON.parse(savedPaths);
           if (paths && paths.length > 0) {
             canvasRef.current.loadPaths(paths);
-            setHasDrawn(true);
           }
         } catch (err) {
           console.error("SignatureCanvas: Failed to load saved paths:", err);
@@ -118,18 +114,18 @@ const SignatureCanvasControl = ({
       const paths = await canvasRef.current.exportPaths();
       if (paths && paths.length > 0) {
         const dataUrl = await canvasRef.current.exportImage("png");
-        setHasDrawn(true);
+        setInternalHasDrawn(true);
         setIsInteracting(true);
 
         if (onChange) {
           onChange(dataUrl);
         }
 
-        if (storageKey) {
+        if (storageKey && typeof window !== "undefined") {
           localStorage.setItem(`sig_paths_${storageKey}`, JSON.stringify(paths));
         }
       } else {
-        setHasDrawn(false);
+        setInternalHasDrawn(false);
         if (onChange) onChange(null);
       }
     } catch (err) {
@@ -147,14 +143,14 @@ const SignatureCanvasControl = ({
         const paths = await canvasRef.current.exportPaths();
         if (paths && paths.length > 0) {
           const dataUrl = await canvasRef.current.exportImage("png");
-          setHasDrawn(true);
+          setInternalHasDrawn(true);
           if (onChange) onChange(dataUrl);
-          if (storageKey) localStorage.setItem(`sig_paths_${storageKey}`, JSON.stringify(paths));
+          if (storageKey && typeof window !== "undefined") localStorage.setItem(`sig_paths_${storageKey}`, JSON.stringify(paths));
         } else {
-          setHasDrawn(false);
+          setInternalHasDrawn(false);
           setIsInteracting(false);
           if (onChange) onChange(null);
-          if (storageKey) localStorage.removeItem(`sig_paths_${storageKey}`);
+          if (storageKey && typeof window !== "undefined") localStorage.removeItem(`sig_paths_${storageKey}`);
         }
       } catch (err) {
         console.error("SignatureCanvas: Undo export failed:", err);
@@ -166,23 +162,23 @@ const SignatureCanvasControl = ({
   const handleClear = useCallback(() => {
     if (!canvasRef.current) return;
     canvasRef.current.resetCanvas();
-    setHasDrawn(false);
+    setInternalHasDrawn(false);
     setIsInteracting(false);
 
     if (onChange) onChange(null);
-    if (storageKey) localStorage.removeItem(`sig_paths_${storageKey}`);
+    if (storageKey && typeof window !== "undefined") localStorage.removeItem(`sig_paths_${storageKey}`);
   }, [onChange, storageKey]);
 
   /* Switch from image view to drawing mode */
   const handleEditSignature = useCallback(() => {
     setShowImage(false);
-    setHasDrawn(false);
+    setInternalHasDrawn(false);
     setIsInteracting(false);
     if (onChange) onChange(null);
   }, [onChange]);
 
   /* Signature presence check */
-  const hasSignature = Boolean(value) || hasDrawn;
+  const hasSignature = Boolean(value) || internalHasDrawn;
 
   /* Validation status evaluation */
   const activeStatus = formItemStatus || propStatus;

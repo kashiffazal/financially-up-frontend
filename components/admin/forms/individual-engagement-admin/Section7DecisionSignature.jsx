@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { Form } from "antd";
+import React from "react";
 import { CheckCircleOutlined } from "@ant-design/icons";
-import { AntInput, AntFileUpload } from "@/services/antdFields";
-import AdminSignatureCanvas from "./AdminSignatureCanvas";
+import { AntInput } from "@/services/antdFields";
+import SignatureCanvas from "@/components/mutual/SignatureCanvas";
 
 const DECISION_OPTIONS = [
   { value: "Accept", label: "Accept - Generate Engagement Acceptance Notice" },
@@ -28,9 +27,6 @@ const DECISION_OPTIONS = [
 ];
 
 export default function Section7DecisionSignature() {
-  const [sigMode, setSigMode] = useState("draw");
-  const [typedSig, setTypedSig] = useState("");
-
   return (
     <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
       <h4 className="text-sm font-extrabold text-slate-900 dark:text-zinc-100 flex items-center gap-2 text-brand-primary dark:text-emerald-400">
@@ -43,7 +39,7 @@ export default function Section7DecisionSignature() {
         name="decision"
         label={
           <span className="font-bold text-slate-800 dark:text-zinc-200">
-            Final Engagement Decision
+            Final Engagement Decision *
           </span>
         }
         radioOptions={DECISION_OPTIONS}
@@ -55,7 +51,7 @@ export default function Section7DecisionSignature() {
         name="staffMemberName"
         label={
           <span className="font-bold text-slate-800 dark:text-zinc-200">
-            Staff Member Full Legal Name
+            Staff Member Full Legal Name *
           </span>
         }
         placeholder="Enter staff member full name"
@@ -64,81 +60,18 @@ export default function Section7DecisionSignature() {
         reqMsg="Please enter staff member name."
       />
 
-      {/* Staff Signature Mode Choice */}
-      <AntInput
-        type="radio"
-        name="staffSignatureType"
-        value="draw"
-        label={
-          <span className="font-bold text-slate-800 dark:text-zinc-200">
-            Staff Signature Method
-          </span>
-        }
-        radioOptions={[
-          { value: "draw", label: "Draw Signature (Canvas)" },
-          { value: "type", label: "Type Digital Signature" },
-          { value: "upload", label: "Upload Stamp / Signature File" },
-        ]}
-        onChange={(val) => setSigMode(val)}
-        noRequired={true}
-      />
-
-      {/* 1. Draw Signature (Staff Signature Canvas) */}
-      {sigMode === "draw" && (
-        <div className="space-y-2">
-          <AdminSignatureCanvas
-            name="staffDrawnSignature"
-            label="Staff Signature Canvas"
-            reqMsg="Please draw staff signature."
-          />
-        </div>
-      )}
-
-      {/* 2. Type Signature */}
-      {sigMode === "type" && (
-        <div className="space-y-2">
-          <AntInput
-            name="staffTypedSignature"
-            label={
-              <span className="font-bold text-slate-800 dark:text-zinc-200">
-                Type Staff Signature Name
-              </span>
-            }
-            placeholder="Type staff signature name"
-            size="large"
-            className="rounded-xl"
-            onChange={(val) => setTypedSig(val)}
-            reqMsg="Type signature."
-          />
-
-          {typedSig && (
-            <div className="p-4 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-brand-primary-soft dark:bg-zinc-950 text-center">
-              <div className="text-2xl font-serif italic text-brand-primary dark:text-emerald-400 font-extrabold py-1">
-                {typedSig}
-              </div>
-              <div className="text-[10px] text-slate-500 font-mono">
-                Countersigned by Staff Member | IP & Audit Logged
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* 3. Upload Signature */}
-      {sigMode === "upload" && (
-        <AntFileUpload
-          name="staffUploadedSignature"
-          label={
-            <span className="font-bold text-slate-800 dark:text-zinc-200">
-              Upload Staff Signature Stamp
-            </span>
-          }
-          heading="Upload Staff Signature File"
-          para="Supports PNG, JPG, JPEG"
-          reqMsg="Upload signature file."
-          maxCount={1}
+      {/* Staff Signature Canvas */}
+      <div className="space-y-2">
+        <SignatureCanvas
+          name="staffDrawnSignature"
+          label="Staff Digital Signature *"
+          reqMsg="Please draw staff signature."
+          height={150}
+          penColor="#008043"
+          placeholder="Draw staff signature smoothly using mouse, stylus, or finger..."
+          storageKey="adminStaffSignature"
         />
-      )}
+      </div>
 
       {/* Section 8: Audit Trail Notes */}
       <AntInput

@@ -3,7 +3,8 @@
 import React from "react";
 import { Tag } from "antd";
 import { IdcardOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
-import { AntFileUpload, AntInput } from "@/services/antdFields";
+import { AntInput } from "@/services/antdFields";
+import UploadFile from "@/components/mutual/antd-upload-file-component";
 
 export default function Step4IdVerification() {
   return (
@@ -29,19 +30,24 @@ export default function Step4IdVerification() {
       </div>
 
       <div className="grid grid-cols-1 gap-4">
-        <AntFileUpload
+        <UploadFile
           name="proofOfID"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
               Upload Primary Photo ID Document *
             </span>
           }
-          heading="Click or drag ID document to upload"
-          para="Australian Driver Licence, Passport, or ImmiCard (JPG, PNG, or PDF, max 5MB)"
+          title="Click or drag ID document to upload"
+          msg="Australian Driver Licence, Passport, or ImmiCard (JPG, PNG, or PDF, max 10MB)"
+          accept=".pdf,.jpg,.jpeg,.png"
+          restrictExtension="pdf,jpg,jpeg,png"
+          fileSize={10}
           maxCount={1}
           noRequired={false}
           reqMsg="Please upload a valid identity verification document"
-          icon={<IdcardOutlined className="text-3xl text-brand-primary mb-2" />}
+          type="1"
+          height={140}
+          className="rounded-2xl"
         />
       </div>
 
