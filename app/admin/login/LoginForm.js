@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Button } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
-// import Link from "next/link";
+import { AntInput } from "@/services/antdFields";
 
 export default function LoginForm({
   onFinish,
@@ -18,7 +18,7 @@ export default function LoginForm({
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           Welcome back
         </h1>
-        <p className="text-slate-505 text-slate-500 dark:text-zinc-400 mt-2 text-sm">
+        <p className="text-slate-500 dark:text-zinc-400 mt-2 text-sm">
           Sign in to access your admin dashboard
         </p>
       </div>
@@ -30,53 +30,45 @@ export default function LoginForm({
         requiredMark={false}
         className="space-y-4 text-left"
       >
-        <Form.Item
+        <AntInput
+          type="email"
+          name="email"
           label={
             <span className="text-slate-650 dark:text-zinc-300 font-semibold text-xs uppercase tracking-wider">
               Email Address
             </span>
           }
-          name="email"
-          rules={[
-            { required: true, message: "Please enter your email address" },
-            { type: "email", message: "Please enter a valid email address" },
-          ]}
-          className="mb-4"
-        >
-          <Input
-            prefix={<MailOutlined className="text-slate-400 mr-2" />}
-            placeholder="you@financiallyup.com"
-            size="large"
-            className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg focus:border-[#008043]"
-            defaultValue="admin@financiallyup.com.au"
-          />
-        </Form.Item>
+          placeholder="you@financiallyup.com.au"
+          preIconAnt={<MailOutlined className="text-slate-400 mr-2" />}
+          size="large"
+          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg focus:border-[#008043]"
+          reqMsg="Please enter your email address"
+          emailErrorMsg="Please enter a valid email address"
+        />
 
-        <Form.Item
+        <AntInput
+          type="password"
+          name="password"
           label={
             <span className="text-slate-650 dark:text-zinc-300 font-semibold text-xs uppercase tracking-wider">
               Password
             </span>
           }
-          name="password"
-          initialValue="123456"
-          rules={[{ required: true, message: "Please enter your password" }]}
-          className="mb-4"
-        >
-          <Input.Password
-            prefix={<LockOutlined className="text-slate-400 mr-2" />}
-            placeholder="Enter your password"
-            size="large"
-            className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg"
-          />
-        </Form.Item>
+          placeholder="Enter your password"
+          preIconAnt={<LockOutlined className="text-slate-400 mr-2" />}
+          size="large"
+          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg"
+          reqMsg="Please enter your password"
+        />
 
         <div className="flex items-center justify-between pt-1">
-          <Form.Item name="remember" valuePropName="checked" className="mb-0">
-            <Checkbox className="text-slate-600 dark:text-zinc-300 text-sm font-medium">
-              Remember me
-            </Checkbox>
-          </Form.Item>
+          <AntInput
+            type="checkbox"
+            name="remember"
+            text={<span className="text-slate-600 dark:text-zinc-300 text-sm font-medium">Remember me</span>}
+            containerClassName="!mb-0"
+            noRequired
+          />
           <button
             type="button"
             onClick={onForgotPasswordClick}
@@ -87,18 +79,16 @@ export default function LoginForm({
         </div>
 
         <Form.Item className="pt-2">
-          {/* <Link href="/admin/dashboard"> */}
           <Button
             type="primary"
             htmlType="submit"
             loading={loading}
             block
             size="large"
-            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all duration-200 shadow-sm"
+            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all duration-200 shadow-sm cursor-pointer"
           >
             Sign In
           </Button>
-          {/* </Link> */}
         </Form.Item>
       </Form>
     </div>

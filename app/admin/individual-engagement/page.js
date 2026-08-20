@@ -14,7 +14,6 @@ import {
   Select,
   Breadcrumb,
   Dropdown,
-  message,
   Spin,
   Tooltip,
 } from "antd";
@@ -39,11 +38,7 @@ import {
   LinkOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import {
-  getEngagements,
-  updateEngagement,
-  deleteEngagement,
-} from "@/services/individualEngagement.service";
+import { HTTP } from "@/services";
 import ExportButtons from "@/components/admin/ExportButtons";
 import IndividualEngagementAdminForm from "@/components/admin/forms/individual-engagement-admin";
 
@@ -155,15 +150,18 @@ export default function IndividualEngagement() {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await getEngagements({
+      const res = await HTTP("GET", "/individual-engagement", {
         page: pagination.current,
         limit: pagination.pageSize,
         status: activeTab,
         search: searchText || undefined,
       });
 
+      const recordsData = res?.data?.records || res?.records || [];
+      const totalCount = res?.data?.pagination?.total || res?.pagination?.total || 0;
+
       // Map API records to include a 'key' prop for Ant Design Table
-      const records = result.records.map((record) => ({
+      const records = recordsData.map((record) => ({
         ...record,
         key: record.id,
       }));
@@ -171,7 +169,7 @@ export default function IndividualEngagement() {
       setData(records);
       setPagination((prev) => ({
         ...prev,
-        total: result.pagination.total,
+        total: totalCount,
       }));
     } catch (error) {
       message.error("Failed to fetch engagements. Is the backend running?");
@@ -222,7 +220,7 @@ export default function IndividualEngagement() {
    */
   const handleApproveSubmit = async (values) => {
     try {
-      await updateEngagement(currentRecord.id, {
+      await HTTP("PUT", `/individual-engagement/${currentRecord.id}`, {
         status: "Approved",
         approvalNotes: values.notes || null,
       });
@@ -285,7 +283,7 @@ export default function IndividualEngagement() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await updateEngagement(record.id, { status: newStatus });
+          await HTTP("PUT", `/individual-engagement/${record.id}`, { status: newStatus });
           message.success(`Status changed to "${newStatus}" successfully`);
           fetchData(); // Refresh table data
         } catch (error) {
@@ -307,7 +305,7 @@ export default function IndividualEngagement() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await deleteEngagement(record.id);
+          await HTTP("DELETE", `/individual-engagement/${record.id}`);
           message.success("Engagement deleted successfully");
           fetchData(); // Refresh table data
         } catch (error) {
@@ -322,13 +320,13 @@ export default function IndividualEngagement() {
    * Passed to ExportButtons component as a data provider.
    */
   const fetchExportData = async () => {
-    const result = await getEngagements({
+    const res = await HTTP("GET", "/individual-engagement", {
       page: 1,
       limit: 10000, // Fetch all records for export
       status: activeTab,
       search: searchText || undefined,
     });
-    return result.records;
+    return res?.data?.records || res?.records || [];
   };
 
   // ============================

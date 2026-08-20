@@ -1,8 +1,8 @@
 /*eslint-disable array-callback-return*/
 import React, { Component } from 'react';
-import { Form, Select, Input, Row, Col, Button, Table, message, Popconfirm } from 'antd';
+import { Form, Select, Input, Row, Col, Button, Table, Popconfirm } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import axios from 'axios';
+import { HTTP } from '@/services';
 import './styles.css';
 
 const FormItem = Form.Item;
@@ -397,13 +397,12 @@ class DataTable extends Component {
   componentDidMount() {
     this.getTableData = (api) => {
       this.setState({ dataLoader: true });
-      axios.get(api).then(res => {
-        //console.log(res.data);
-        this.setState({ dataLoader: false, apiData: res.data.data.active });
+      HTTP("GET", api).then(res => {
+        const records = res?.data?.active || res?.data?.records || res?.data || [];
+        this.setState({ dataLoader: false, apiData: records });
       }).catch(error => {
-        // console.log(error);
         this.setState({ dataLoader: false });
-        message.error('Interval server error, ' + error);
+        message.error('Internal server error, ' + error);
       });
     }//End function
     if (this.props.dataAPI) {

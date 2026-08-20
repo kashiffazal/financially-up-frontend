@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button, message } from "antd";
+import { Button } from "antd";
+import { antdMsg } from "@/services";
 import {
   ArrowRightOutlined,
   CalendarOutlined,
@@ -55,7 +56,7 @@ export default function BlogHubPage() {
     e.preventDefault();
     if (emailInput) {
       setSubscribed(true);
-      message.success("Thank you for subscribing to our Weekly Dispatch!");
+      antdMsg.success("Thank you for subscribing to our Weekly Dispatch!");
       setEmailInput("");
     }
   };

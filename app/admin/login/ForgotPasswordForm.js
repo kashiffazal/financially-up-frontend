@@ -1,8 +1,9 @@
-// "use client";
+"use client";
 
 import React from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Button } from "antd";
 import { MailOutlined, ArrowLeftOutlined } from "@ant-design/icons";
+import { AntInput } from "@/services/antdFields";
 
 export default function ForgotPasswordForm({
   onFinish,
@@ -18,7 +19,7 @@ export default function ForgotPasswordForm({
           Forgot password?
         </h1>
         <p className="text-slate-500 dark:text-zinc-400 mt-2 text-sm">
-          Enter your email address and we&apos; ll send you a link to reset your
+          Enter your email address and we&apos;ll send you a link to reset your
           password.
         </p>
       </div>
@@ -30,26 +31,21 @@ export default function ForgotPasswordForm({
         requiredMark={false}
         className="space-y-4 text-left"
       >
-        <Form.Item
+        <AntInput
+          type="email"
+          name="email"
           label={
             <span className="text-slate-650 dark:text-zinc-300 font-semibold text-xs uppercase tracking-wider">
               Email Address
             </span>
           }
-          name="email"
-          rules={[
-            { required: true, message: "Please enter your email address" },
-            { type: "email", message: "Please enter a valid email address" },
-          ]}
-          className="mb-4"
-        >
-          <Input
-            prefix={<MailOutlined className="text-slate-400 mr-2" />}
-            placeholder="you@financiallyup.com"
-            size="large"
-            className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg focus:border-[#008043]"
-          />
-        </Form.Item>
+          placeholder="you@financiallyup.com.au"
+          preIconAnt={<MailOutlined className="text-slate-400 mr-2" />}
+          size="large"
+          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg focus:border-[#008043]"
+          reqMsg="Please enter your email address"
+          emailErrorMsg="Please enter a valid email address"
+        />
 
         <Form.Item className="pt-2">
           <Button
@@ -58,7 +54,7 @@ export default function ForgotPasswordForm({
             loading={loading}
             block
             size="large"
-            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all"
+            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all cursor-pointer"
           >
             Send Reset Link
           </Button>

@@ -22,7 +22,7 @@ import Step7AuthoritiesBank from "./Step7AuthoritiesBank";
 import Step8EngagementSchedule from "./Step8EngagementSchedule";
 import Step9LegalConsents from "./Step9LegalConsents";
 import Step10ElectronicSignature from "./Step10ElectronicSignature";
-import { createNewIndividualEngagement } from "@/services/newIndividualEngagement.service";
+import { HTTP } from "@/services";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_INDIVIDUAL_ENGAGEMENT_DRAFT";
 
@@ -106,7 +106,7 @@ export default function IndividualEngagementClientForm() {
         const mergedPayload = { ...formData, ...values };
         setIsSubmitting(true);
         try {
-          const res = await createNewIndividualEngagement(mergedPayload);
+          const res = await HTTP("POST", "/new-individual-engagements", mergedPayload);
 
           // Immediately wipe local storage draft & reset form state
           localStorage.removeItem(DRAFT_STORAGE_KEY);

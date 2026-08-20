@@ -14,7 +14,6 @@ import {
   Select,
   Breadcrumb,
   Dropdown,
-  message,
   Spin,
   Tooltip,
 } from "antd";
@@ -40,14 +39,9 @@ import {
   LinkOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import {
-  getNewIndividualEngagements,
-  getNewIndividualEngagementById,
-  submitNewIndividualAdminDecision,
-} from "@/services/newIndividualEngagement.service";
+import { HTTP, API_BASE_URL } from "@/services";
 import ExportButtons from "@/components/admin/ExportButtons";
 import IndividualEngagementAdminForm from "@/components/admin/forms/individual-engagement-admin";
-import { API_BASE_URL } from "@/services/apiConfig";
 
 const { Title, Text } = Typography;
 
@@ -146,8 +140,8 @@ export default function NewIndividualEngagementAdminPage() {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await getNewIndividualEngagements();
-      let records = res.data || [];
+      const res = await HTTP("GET", "/new-individual-engagements");
+      let records = res?.data || res?.records || [];
 
       if (activeTab !== "All") {
         records = records.filter((r) => r.status === activeTab);
@@ -200,11 +194,11 @@ export default function NewIndividualEngagementAdminPage() {
   const showReviewModal = async (record) => {
     try {
       // Fetch fresh record from DB including latest adminReview
-      const res = await getNewIndividualEngagementById(record.id);
+      const res = await HTTP("GET", `/new-individual-engagements/${record.id}`);
       if (res && res.data) {
         setCurrentRecord(res.data);
       } else {
-        setCurrentRecord(record);
+        setCurrentRecord(res || record);
       }
     } catch (err) {
       console.warn("Failed to fetch fresh record, using row data:", err);
@@ -216,7 +210,7 @@ export default function NewIndividualEngagementAdminPage() {
   const handleAdminDecision = async (values) => {
     setIsSubmitting(true);
     try {
-      await submitNewIndividualAdminDecision(currentRecord.id, values);
+      await HTTP("POST", `/new-individual-engagements/${currentRecord.id}/admin-decision`, values);
       message.success("Tax Agent decision submitted successfully.");
       setIsModalOpen(false);
       form.resetFields();
@@ -231,8 +225,8 @@ export default function NewIndividualEngagementAdminPage() {
   };
 
   const fetchExportData = async () => {
-    const res = await getNewIndividualEngagements();
-    let records = res.data || [];
+    const res = await HTTP("GET", "/new-individual-engagements");
+    let records = res?.data || res?.records || [];
 
     if (activeTab !== "All") {
       records = records.filter((r) => r.status === activeTab);

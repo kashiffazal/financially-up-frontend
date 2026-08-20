@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Modal, Form, Input, Select, Button, message } from "antd";
+import { Modal, Form, Input, Select, Button } from "antd";
+import { antdMsg } from "@/services";
 import {
   SendOutlined,
   MailOutlined,
@@ -19,7 +20,7 @@ export default function ContactUsModal({ open, onClose }) {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-      message.success(
+      antdMsg.success(
         "Thank you! Your enquiry has been submitted. Our team will contact you shortly.",
       );
       form.resetFields();

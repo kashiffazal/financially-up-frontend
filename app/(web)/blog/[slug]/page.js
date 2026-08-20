@@ -3,7 +3,8 @@
 import React, { use, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button, message } from "antd";
+import { Button } from "antd";
+import { antdMsg } from "@/services";
 import {
   ArrowLeftOutlined,
   CalendarOutlined,
@@ -41,7 +42,7 @@ export default function SingleBlogPostPage({ params }) {
     if (typeof window !== "undefined") {
       navigator.clipboard.writeText(window.location.href);
       setCopied(true);
-      message.success("Article link copied to clipboard!");
+      antdMsg.success("Article link copied to clipboard!");
       setTimeout(() => setCopied(false), 3000);
     }
   };
@@ -50,7 +51,7 @@ export default function SingleBlogPostPage({ params }) {
     e.preventDefault();
     if (emailInput) {
       setSubscribed(true);
-      message.success("Thank you for subscribing to our Weekly Dispatch!");
+      antdMsg.success("Thank you for subscribing to our Weekly Dispatch!");
       setEmailInput("");
     }
   };

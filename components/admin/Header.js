@@ -1,8 +1,15 @@
-// "use client";
+"use client";
 
-import React, { useEffect } from "react";
+/**
+ * Admin Top Navigation Header
+ * ===========================
+ * Header toolbar containing sidebar toggle, global search, theme switcher,
+ * notifications badge, and authenticated user dropdown menu.
+ */
+
+import React from "react";
 import { useRouter } from "next/navigation";
-import { Dropdown, message, Input, Badge } from "antd";
+import { Dropdown, Input, Badge, Avatar } from "antd";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -15,34 +22,42 @@ import {
   UserOutlined,
   SettingOutlined,
   LogoutOutlined,
+  SafetyCertificateOutlined,
 } from "@ant-design/icons";
 import { useTheme } from "../../app/ThemeProvider";
+import { useAuth } from "../../context/AuthContext";
+import { antdMsg } from "@/services";
 
 export default function Header({ collapsed, setCollapsed }) {
   const { isDark, toggleTheme } = useTheme();
+  const { user, logout } = useAuth();
   const router = useRouter();
 
-  // Handle logout
-  const handleLogout = () => {
-    message.loading("Logging out...", 0.8);
-    localStorage.setItem("login", "false");
-    // setTimeout(() => {
-    // message.success("Logged out successfully.");
-    router.push("/admin/login");
-    // }, 800);
-  };
+  // Compute initials
+  const initials = user
+    ? `${user.firstName?.charAt(0) || ""}${user.lastName?.charAt(0) || ""}`.toUpperCase() || "U"
+    : "U";
+
+  // Primary role name
+  const primaryRole = user?.roles?.[0]?.name || "Staff Member";
 
   // User dropdown menu items
   const userMenuItems = [
     {
-      key: "profile",
-      label: "My Profile",
-      icon: <UserOutlined />,
+      key: "user-info",
+      label: (
+        <div className="py-1 px-1 border-b border-slate-100 dark:border-zinc-800">
+          <p className="text-xs font-semibold text-slate-800 dark:text-zinc-100">{user?.fullName || "User"}</p>
+          <p className="text-[11px] text-slate-500 dark:text-zinc-400 truncate">{user?.email}</p>
+        </div>
+      ),
+      disabled: true,
     },
     {
-      key: "settings",
-      label: "Account Settings",
-      icon: <SettingOutlined />,
+      key: "profile",
+      label: "My Profile & Security",
+      icon: <UserOutlined />,
+      onClick: () => router.push("/admin/profile"),
     },
     {
       type: "divider",
@@ -52,16 +67,9 @@ export default function Header({ collapsed, setCollapsed }) {
       label: "Sign Out",
       icon: <LogoutOutlined className="text-red-500" />,
       danger: true,
-      onClick: handleLogout,
+      onClick: logout,
     },
   ];
-
-  useEffect(() => {
-    let login = localStorage.getItem("login");
-    if (login !== "true") {
-      router.push("/admin/login");
-    }
-  }, []);
 
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-6 bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800 transition-colors duration-300">
@@ -111,7 +119,7 @@ export default function Header({ collapsed, setCollapsed }) {
 
         {/* Help Button */}
         <button
-          onClick={() => message.info("Documentation support coming soon")}
+          onClick={() => message.info("Financially Up Documentation & Knowledge Base")}
           className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
           aria-label="Help & Documentation"
         >
@@ -120,11 +128,11 @@ export default function Header({ collapsed, setCollapsed }) {
 
         {/* Notification Bell with Badge */}
         <button
-          onClick={() => message.info("You have 4 new notifications")}
+          onClick={() => antdMsg.info("You have 4 new notifications")}
           className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 relative transition-all cursor-pointer"
           aria-label="Notifications"
         >
-          <Badge count={4} size="small" color="#ef4444" offset={[-2, 2]}>
+          <Badge count={4} size="small" color="#008043" offset={[-2, 2]}>
             <BellOutlined className="text-base text-slate-600 dark:text-zinc-400" />
           </Badge>
         </button>
@@ -136,15 +144,19 @@ export default function Header({ collapsed, setCollapsed }) {
           trigger={["click"]}
         >
           <div className="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-zinc-800 cursor-pointer group">
-            <div className="w-8 h-8 rounded-full bg-[#008043] text-white flex items-center justify-center font-bold text-sm shadow-sm">
-              KA
-            </div>
+            {user?.avatar ? (
+              <Avatar src={user.avatar} size={32} className="shadow-sm" />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-[#008043] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                {initials}
+              </div>
+            )}
             <div className="hidden md:flex flex-col text-left">
               <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200 leading-none group-hover:text-[#008043] dark:group-hover:text-emerald-400 transition-colors">
-                Kashif Fazal
+                {user?.fullName || "User Account"}
               </span>
               <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium mt-0.5">
-                Administrator
+                {primaryRole}
               </span>
             </div>
             <DownOutlined className="text-[10px] text-slate-400 dark:text-zinc-500" />

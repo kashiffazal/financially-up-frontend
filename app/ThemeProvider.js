@@ -40,6 +40,37 @@ const ThemeContext = createContext({
 
 export const useTheme = () => useContext(ThemeContext);
 
+let globalMessage = null;
+let globalNotification = null;
+
+/**
+ * Helper component rendered inside Ant Design <App> context.
+ * Captures dynamic theme-aware message and notification instances.
+ */
+function AntdGlobalHelper() {
+  const app = App.useApp();
+  globalMessage = app.message;
+  globalNotification = app.notification;
+  return null;
+}
+
+export const getAntdMessage = () => globalMessage;
+export const getAntdNotification = () => globalNotification;
+
+export const antdMsg = {
+  success: (msg, dur) => (globalMessage ? globalMessage.success(msg, dur) : undefined),
+  error: (msg, dur) => (globalMessage ? globalMessage.error(msg, dur) : undefined),
+  warning: (msg, dur) => (globalMessage ? globalMessage.warning(msg, dur) : undefined),
+  info: (msg, dur) => (globalMessage ? globalMessage.info(msg, dur) : undefined),
+};
+
+export const antdNotify = {
+  success: (args) => (globalNotification ? globalNotification.success(args) : undefined),
+  error: (args) => (globalNotification ? globalNotification.error(args) : undefined),
+  warning: (args) => (globalNotification ? globalNotification.warning(args) : undefined),
+  info: (args) => (globalNotification ? globalNotification.info(args) : undefined),
+};
+
 export default function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -133,7 +164,10 @@ export default function ThemeProvider({ children }) {
       value={{ isDark, toggleTheme, palette: THEME_PALETTE }}
     >
       <ConfigProvider theme={themeConfig}>
-        <App className="min-h-full flex flex-col flex-1">{children}</App>
+        <App className="min-h-full flex flex-col flex-1">
+          <AntdGlobalHelper />
+          {children}
+        </App>
       </ConfigProvider>
     </ThemeContext.Provider>
   );

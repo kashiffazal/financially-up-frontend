@@ -14,7 +14,6 @@ import {
   Select,
   Breadcrumb,
   Dropdown,
-  message,
   Spin,
   Tooltip,
 } from "antd";
@@ -39,11 +38,7 @@ import {
   LinkOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import {
-  getRecords,
-  updateRecord,
-  deleteRecord,
-} from "@/services/applyTfnAbns.service";
+import { HTTP } from "@/services";
 import ExportButtons from "@/components/admin/ExportButtons";
 
 const { Title, Text } = Typography;
@@ -186,15 +181,18 @@ export default function ApplyTfnAbnsPage() {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await getRecords({
+      const res = await HTTP("GET", "/apply-tfn-abns", {
         page: pagination.current,
         limit: pagination.pageSize,
         status: activeTab,
         search: searchText || undefined,
       });
 
+      const recordsData = res?.data?.records || res?.records || [];
+      const totalCount = res?.data?.pagination?.total || res?.pagination?.total || 0;
+
       // Map API records to include a 'key' prop for Ant Design Table
-      const records = result.records.map((record) => ({
+      const records = recordsData.map((record) => ({
         ...record,
         key: record.id,
       }));
@@ -202,7 +200,7 @@ export default function ApplyTfnAbnsPage() {
       setData(records);
       setPagination((prev) => ({
         ...prev,
-        total: result.pagination.total,
+        total: totalCount,
       }));
     } catch (error) {
       message.error("Failed to fetch engagements. Is the backend running?");
@@ -253,12 +251,12 @@ export default function ApplyTfnAbnsPage() {
    */
   const handleApproveSubmit = async (values) => {
     try {
-      await updateRecord(currentRecord.id, {
+      await HTTP("PUT", `/apply-tfn-abns/${currentRecord.id}`, {
         status: "Approved",
         approvalNotes: values.notes || null,
       });
       message.success(
-        `${currentRecord.FirstName} ${currentRecord.LastName} approved successfully`,
+        `${currentRecord.FirstName || currentRecord.firstName || "Application"} approved successfully`,
       );
       setIsModalOpen(false);
       form.resetFields();
@@ -319,7 +317,7 @@ export default function ApplyTfnAbnsPage() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await updateRecord(record.id, { status: newStatus });
+          await HTTP("PUT", `/apply-tfn-abns/${record.id}`, { status: newStatus });
           message.success(`Status changed to "${newStatus}" successfully`);
           fetchData(); // Refresh table data
         } catch (error) {
@@ -342,7 +340,7 @@ export default function ApplyTfnAbnsPage() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await deleteRecord(record.id);
+          await HTTP("DELETE", `/apply-tfn-abns/${record.id}`);
           message.success("Engagement deleted successfully");
           fetchData(); // Refresh table data
         } catch (error) {
@@ -357,14 +355,15 @@ export default function ApplyTfnAbnsPage() {
    * Resolves dynamic fields so export has clean "Full Name", "Phone", "Email" columns.
    */
   const fetchExportData = async () => {
-    const result = await getRecords({
+    const res = await HTTP("GET", "/apply-tfn-abns", {
       page: 1,
       limit: 10000, // Fetch all records for export
       status: activeTab,
       search: searchText || undefined,
     });
+    const records = res?.data?.records || res?.records || [];
     // Map each record to include resolved fields for export
-    return result.records.map((record) => {
+    return records.map((record) => {
       const resolved = resolveFormVariant(record);
       return {
         ...record,

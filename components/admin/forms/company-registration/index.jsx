@@ -24,7 +24,7 @@ import Step9NomineeTrusteeArrangements from "./Step9NomineeTrusteeArrangements";
 import Step10OptionalTaxServices from "./Step10OptionalTaxServices";
 import Step11DocumentUploads from "./Step11DocumentUploads";
 import Step12DeclarationSignatures from "./Step12DeclarationSignatures";
-import { createNewCompanyRegistration } from "@/services/newCompanyRegistration.service";
+import { HTTP } from "@/services";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_COMPANY_REGISTRATION_DRAFT";
 
@@ -210,7 +210,7 @@ export default function CompanyRegistrationForm() {
             privacy_notice_acknowledged: true,
           };
           
-          const result = await createNewCompanyRegistration(payload);
+          const result = await HTTP("POST", "/new-company-registrations", payload);
           const refNumber = result?.data?.referenceNumber || "CREG-" + Date.now();
 
           localStorage.removeItem(DRAFT_STORAGE_KEY);

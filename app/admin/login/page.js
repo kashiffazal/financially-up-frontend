@@ -1,36 +1,53 @@
 "use client";
 
+/**
+ * Admin Login & Authentication Screen
+ * ====================================
+ * Secure login portal with password validation, dynamic dark/light theme switching,
+ * responsive glassmorphism presentation layer, and interactive password recovery.
+ */
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { message } from "antd";
+import { antdMsg } from "@/services";
 import { SunOutlined, MoonOutlined } from "@ant-design/icons";
 import { useTheme } from "../../ThemeProvider";
+import { useAuth } from "../../../context/AuthContext";
 import LoginForm from "./LoginForm";
 import ForgotPasswordForm from "./ForgotPasswordForm";
 
 export default function Login() {
   const { isDark, toggleTheme } = useTheme();
+  const { login } = useAuth();
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  // Handle Login submission
-  const handleLogin = (values) => {
+  /**
+   * Handle Login Submission:
+   * 1. Calls login() from AuthContext (which communicates with backend via services/index.js).
+   * 2. AuthContext stores the token, updates the live React user state, and notifies Header/Sidebar.
+   * 3. On success, seamlessly redirects to /admin/dashboard.
+   */
+  const handleLogin = async (values) => {
     setLoading(true);
-    console.log(values);
+    try {
+      const result = await login({
+        email: values.email,
+        password: values.password,
+        deviceName: navigator.userAgent.includes("Windows")
+          ? "Windows Desktop"
+          : "Web Client",
+      });
 
-    setLoading(false);
-    if (
-      values.email === "admin@financiallyup.com.au" &&
-      values.password === "123456"
-    ) {
-      message.success("Welcome back, Kashif!");
-      localStorage.setItem("login", "true");
-      router.push("/admin/dashboard");
-    } else {
-      message.error("Invalid email or password");
-      localStorage.setItem("login", "false");
+      if (result.success) {
+        router.push("/admin/dashboard");
+      }
+    } catch (error) {
+      console.error("Login submission error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,9 +56,9 @@ export default function Login() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      message.success("Password reset link sent to " + values.email);
+      antdMsg.success("Password reset instructions sent to " + values.email);
       setIsForgotPassword(false);
-    }, 1500);
+    }, 1200);
   };
 
   return (
@@ -95,17 +112,17 @@ export default function Login() {
                 <div className="w-full border-t border-slate-200 dark:border-zinc-800"></div>
               </div>
               <span className="relative bg-white dark:bg-zinc-900 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
-                Secure ERP Access
+                Secure Practice Portal
               </span>
             </div>
 
             <p className="text-center text-sm text-slate-500 dark:text-zinc-400">
-              Need an account?{" "}
+              Need access or lost permissions?{" "}
               <a
-                href="mailto:admin@financiallyup.com"
+                href="mailto:admin@financiallyup.com.au"
                 className="font-semibold text-[#008043] hover:text-[#006635] transition-colors"
               >
-                Contact your administrator
+                Contact your practice administrator
               </a>
             </p>
           </div>
@@ -134,7 +151,7 @@ export default function Login() {
 
       {/* RIGHT SECTION: DYNAMIC MESH GRADIENT AND OVERLAYING FLOATING GLOWING BLOBS */}
       <div className="relative flex flex-col justify-center w-full lg:w-[55%] xl:w-[60%] p-8 md:p-16 lg:p-24 overflow-hidden animate-mesh-gradient">
-        {/* Super premium floating glowing blob layer */}
+        {/* Floating glowing blob layer */}
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-[#008043]/30 blur-[90px] animate-blob-1 pointer-events-none"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-emerald-400/20 blur-[90px] animate-blob-2 pointer-events-none"></div>
         <div className="absolute top-[30%] right-[10%] w-[50%] h-[50%] rounded-full bg-teal-500/20 blur-[80px] animate-blob-3 pointer-events-none"></div>
@@ -146,18 +163,18 @@ export default function Login() {
         {/* Branding text content */}
         <div className="relative z-10 w-full max-w-2xl text-white">
           <span className="glass-panel px-3.5 py-1.5 text-xs font-bold rounded-full text-white tracking-widest uppercase inline-block shadow-sm">
-            Enterprise ERP
+            Enterprise Practice Platform
           </span>
 
           <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight mt-6 mb-4 drop-shadow-sm">
             Run your practice with
             <br />
-            clarity and control.
+            clarity, security and control.
           </h2>
 
           <p className="text-white/80 text-base md:text-lg leading-relaxed mb-12 drop-shadow-sm">
-            Manage registrations, engagements, and compliance workflows across
-            Medicare, GST, Trusts, SMSF and more - all in one place.
+            Manage registrations, engagements, roles, and compliance workflows across
+            Medicare, GST, Trusts, SMSF and company operations with full immutable audit tracking.
           </p>
 
           {/* 3 Glassmorphism Statistics Cards */}
@@ -167,25 +184,25 @@ export default function Login() {
                 24+
               </span>
               <span className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-2 block">
-                Workflow types
+                Workflow modules
               </span>
             </div>
 
             <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
-                99.9%
+                RBAC
               </span>
               <span className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-2 block">
-                Uptime SLA
+                Granular Permissions
               </span>
             </div>
 
             <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
-                SOC 2
+                100%
               </span>
               <span className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-2 block">
-                Compliant
+                Audit Trail Tracked
               </span>
             </div>
           </div>
