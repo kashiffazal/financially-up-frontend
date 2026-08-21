@@ -756,10 +756,10 @@ export const AntInput = ({
           indeterminate={indeterminate}
           disabled={loading || disabled}
           onChange={(e) => {
-            onChange && onChange(e.target.checked);
+            onChange && onChange(e);
           }}
           onBlur={(e) => {
-            onBlur && onBlur(e.target.checked);
+            onBlur && onBlur(e);
           }}
         >
           {text || label}

@@ -39,7 +39,7 @@ import {
   LinkOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import { HTTP } from "@/services";
+import { HTTP, antdMsg } from "@/services";
 import ExportButtons from "@/components/admin/ExportButtons";
 
 const { Title, Text } = Typography;
@@ -159,7 +159,7 @@ export default function GstRegistrationsPage() {
         total: totalCount,
       }));
     } catch (error) {
-      message.error("Failed to fetch engagements. Is the backend running?");
+      antdMsg.error("Failed to fetch engagements. Is the backend running?");
     } finally {
       setLoading(false);
     }
@@ -211,14 +211,14 @@ export default function GstRegistrationsPage() {
         status: "Approved",
         approvalNotes: values.notes || null,
       });
-      message.success(
+      antdMsg.success(
         `${currentRecord.FirstName || currentRecord.firstName || "Record"} approved successfully`,
       );
       setIsModalOpen(false);
       form.resetFields();
       fetchData(); // Refresh table data
     } catch (error) {
-      message.error("Failed to approve engagement");
+      antdMsg.error("Failed to approve engagement");
     }
   };
 
@@ -271,10 +271,10 @@ export default function GstRegistrationsPage() {
       onOk: async () => {
         try {
           await HTTP("PUT", `/gst-registrations/${record.id}`, { status: newStatus });
-          message.success(`Status changed to "${newStatus}" successfully`);
+          antdMsg.success(`Status changed to "${newStatus}" successfully`);
           fetchData(); // Refresh table data
         } catch (error) {
-          message.error("Failed to change status");
+          antdMsg.error("Failed to change status");
         }
       },
     });
@@ -292,11 +292,11 @@ export default function GstRegistrationsPage() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await deleteRecord(record.id);
-          message.success("Record deleted successfully");
+          await HTTP("DELETE", `/gst-registrations/${record.id}`);
+          antdMsg.success("Record deleted successfully");
           fetchData(); // Refresh table data
         } catch (error) {
-          message.error("Failed to delete record");
+          antdMsg.error("Failed to delete record");
         }
       },
     });

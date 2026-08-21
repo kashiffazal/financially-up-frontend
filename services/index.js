@@ -17,21 +17,36 @@
 
 import axios from "axios";
 import { message as staticMessage, notification as staticNotification } from "antd";
-import { getAntdMessage, getAntdNotification } from "@/app/ThemeProvider";
+import { getAntdMessage, getAntdNotification } from "../app/ThemeProvider";
 
-// Context-safe notification and message dispatchers
+// Context-safe message dispatcher
 export const antdMsg = {
   success: (msg, dur) => (getAntdMessage() || staticMessage).success(msg, dur),
   error: (msg, dur) => (getAntdMessage() || staticMessage).error(msg, dur),
   warning: (msg, dur) => (getAntdMessage() || staticMessage).warning(msg, dur),
   info: (msg, dur) => (getAntdMessage() || staticMessage).info(msg, dur),
+  loading: (msg, dur) => (getAntdMessage() || staticMessage).loading(msg, dur),
+};
+
+// Helper to normalize notification arguments so both title and legacy message work seamlessly without deprecation warnings
+const normalizeNotificationArgs = (args) => {
+  if (!args) return {};
+  if (typeof args === "string") {
+    return { title: args };
+  }
+  const { message: legacyMsg, title, ...rest } = args;
+  return {
+    title: title || legacyMsg || "Notification",
+    ...rest,
+  };
 };
 
 export const antdNotify = {
-  success: (args) => (getAntdNotification() || staticNotification).success(args),
-  error: (args) => (getAntdNotification() || staticNotification).error(args),
-  warning: (args) => (getAntdNotification() || staticNotification).warning(args),
-  info: (args) => (getAntdNotification() || staticNotification).info(args),
+  success: (args) => (getAntdNotification() || staticNotification).success(normalizeNotificationArgs(args)),
+  error: (args) => (getAntdNotification() || staticNotification).error(normalizeNotificationArgs(args)),
+  warning: (args) => (getAntdNotification() || staticNotification).warning(normalizeNotificationArgs(args)),
+  info: (args) => (getAntdNotification() || staticNotification).info(normalizeNotificationArgs(args)),
+  open: (args) => (getAntdNotification() || staticNotification).open(normalizeNotificationArgs(args)),
 };
 
 /**
@@ -377,7 +392,7 @@ export const HandelRequest = (res = {}, statusCode = 200, url = "") => {
       antdMsg.error(errorMsg, res.errorDuration || 6);
     } else {
       antdNotify.error({
-        message: res.errorTitle || "Validation Error",
+        title: res.errorTitle || "Validation Error",
         description: errorMsg,
         duration: res.errorDuration || 8,
       });
@@ -418,7 +433,7 @@ export const HandelRequest = (res = {}, statusCode = 200, url = "") => {
   // --- 403 FORBIDDEN / PERMISSION DENIED ---
   if (statusCode === 403) {
     antdNotify.error({
-      message: "Access Denied",
+      title: "Access Denied",
       description: res?.message || "You do not have permission to perform this action.",
       duration: 8,
     });
@@ -428,7 +443,7 @@ export const HandelRequest = (res = {}, statusCode = 200, url = "") => {
   // --- 404 NOT FOUND ---
   if (statusCode === 404) {
     antdNotify.error({
-      message: "Resource Not Found",
+      title: "Resource Not Found",
       description: res?.message || "Requested endpoint or record was not found.",
       duration: 6,
     });
@@ -438,7 +453,7 @@ export const HandelRequest = (res = {}, statusCode = 200, url = "") => {
   // --- 429 TOO MANY REQUESTS / RATE LIMITED ---
   if (statusCode === 429) {
     antdNotify.warning({
-      message: "Too Many Attempts",
+      title: "Too Many Attempts",
       description:
         res?.message ||
         "Too many requests from this IP. Please wait a while before trying again.",
@@ -452,7 +467,7 @@ export const HandelRequest = (res = {}, statusCode = 200, url = "") => {
     res?.message || "Could not connect to the backend server. Please verify the service is running.";
 
   antdNotify.error({
-    message: "Server Connection Error",
+    title: "Server Connection Error",
     description: serverMsg,
     duration: 8,
   });

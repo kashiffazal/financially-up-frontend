@@ -66,6 +66,13 @@ export default function Sidebar({ collapsed }) {
       permission: "company.registration.view",
     },
     {
+      key: "company-new",
+      label: "Company Registration (New)",
+      icon: <BankOutlined />,
+      href: "/admin/company-registration-new",
+      permission: "company.registration.view",
+    },
+    {
       key: "changes",
       label: "Changes To Company Details",
       icon: <FormOutlined />,

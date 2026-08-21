@@ -39,7 +39,7 @@ import {
   LinkOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import { HTTP, API_BASE_URL } from "@/services";
+import { HTTP, API_BASE_URL, antdMsg } from "@/services";
 import ExportButtons from "@/components/admin/ExportButtons";
 import IndividualEngagementAdminForm from "@/components/admin/forms/individual-engagement-admin";
 
@@ -181,7 +181,7 @@ export default function NewIndividualEngagementAdminPage() {
 
       setData(records.map((r) => ({ ...r, key: r.id })));
     } catch (err) {
-      message.error("Failed to load new engagement records.");
+      antdMsg.error("Failed to load new engagement records.");
     } finally {
       setLoading(false);
     }
@@ -210,13 +210,13 @@ export default function NewIndividualEngagementAdminPage() {
   const handleAdminDecision = async (values) => {
     setIsSubmitting(true);
     try {
-      await HTTP("POST", `/new-individual-engagements/${currentRecord.id}/admin-decision`, values);
-      message.success("Tax Agent decision submitted successfully.");
+      await HTTP("PUT", `/new-individual-engagements/${currentRecord.id}/decision`, values);
+      antdMsg.success("Tax Agent decision submitted successfully.");
       setIsModalOpen(false);
       form.resetFields();
       fetchData();
     } catch (err) {
-      message.error(
+      antdMsg.error(
         `Failed to submit Tax Agent decision: ${err.message || "Error"}`,
       );
     } finally {

@@ -119,7 +119,7 @@ export default function Header({ collapsed, setCollapsed }) {
 
         {/* Help Button */}
         <button
-          onClick={() => message.info("Financially Up Documentation & Knowledge Base")}
+          onClick={() => antdMsg.info("Financially Up Documentation & Knowledge Base")}
           className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
           aria-label="Help & Documentation"
         >

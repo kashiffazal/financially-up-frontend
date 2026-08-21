@@ -127,16 +127,10 @@ export default function CompanyRegistrationForm() {
   const modal = app.modal || staticModal;
   const [form] = Form.useForm();
 
-  const [currentStep, setCurrentStep] = useState(() => {
-    const d = getInitialSavedDraft();
-    return typeof d?.step === "number" && d.step >= 0 && d.step <= 11 ? d.step : 0;
-  });
+  const [currentStep, setCurrentStep] = useState(0);
   const [formKey, setFormKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState(() => {
-    const d = getInitialSavedDraft();
-    return d?.data || {};
-  });
+  const [formData, setFormData] = useState({});
   const stepRefs = useRef([]);
 
   // Auto-scroll stepper into view when step changes
@@ -150,32 +144,34 @@ export default function CompanyRegistrationForm() {
     }
   }, [currentStep]);
 
-  // Repeatable subform state with draft restoration
-  const [officeholders, setOfficeholders] = useState(() => {
-    const d = getInitialSavedDraft();
-    return Array.isArray(d?.data?._officeholders) ? d.data._officeholders : DEFAULT_OFFICERS;
-  });
+  // Repeatable subform state with default values
+  const [officeholders, setOfficeholders] = useState(DEFAULT_OFFICERS);
+  const [shareholders, setShareholders] = useState(DEFAULT_SHAREHOLDERS);
+  const [beneficialOwners, setBeneficialOwners] = useState(DEFAULT_BENEFICIAL_OWNERS);
 
-  const [shareholders, setShareholders] = useState(() => {
-    const d = getInitialSavedDraft();
-    return Array.isArray(d?.data?._shareholders) ? d.data._shareholders : DEFAULT_SHAREHOLDERS;
-  });
-
-  const [beneficialOwners, setBeneficialOwners] = useState(() => {
-    const d = getInitialSavedDraft();
-    return Array.isArray(d?.data?._beneficialOwners)
-      ? d.data._beneficialOwners
-      : DEFAULT_BENEFICIAL_OWNERS;
-  });
-
-  // Restore Ant Design form fields from draft on mount
+  // Restore Ant Design form fields and subform states from draft cleanly on client mount
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
-    if (savedDraft && savedDraft.data) {
-      form.setFieldsValue(savedDraft.data);
-      message.info(
-        `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`
-      );
+    if (savedDraft) {
+      if (typeof savedDraft.step === "number" && savedDraft.step >= 0 && savedDraft.step <= 11) {
+        setCurrentStep(savedDraft.step);
+      }
+      if (savedDraft.data) {
+        setFormData(savedDraft.data);
+        form.setFieldsValue(savedDraft.data);
+        if (Array.isArray(savedDraft.data._officeholders)) {
+          setOfficeholders(savedDraft.data._officeholders);
+        }
+        if (Array.isArray(savedDraft.data._shareholders)) {
+          setShareholders(savedDraft.data._shareholders);
+        }
+        if (Array.isArray(savedDraft.data._beneficialOwners)) {
+          setBeneficialOwners(savedDraft.data._beneficialOwners);
+        }
+        message.info(
+          `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`
+        );
+      }
     }
   }, [form, message]);
 

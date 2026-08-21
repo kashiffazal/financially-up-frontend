@@ -14,6 +14,7 @@ import {
   RequestsOverTimeChart,
   RequestsByModuleChart,
 } from "./DashboardCharts";
+import { antdMsg } from "@/services";
 
 export default function Dashboard() {
   const [activeRange, setActiveRange] = useState("7D");
@@ -135,7 +136,7 @@ export default function Dashboard() {
 
           {/* New Request CTA */}
           <button
-            onClick={() => message.info("Create new request flow initiated")}
+            onClick={() => antdMsg.info("Create new request flow initiated")}
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#008043] hover:bg-[#006635] text-white text-xs font-bold rounded-xl shadow-sm shadow-[#008043]/20 transition-all cursor-pointer h-9"
           >
             <PlusOutlined className="text-xs" /> New Request
@@ -322,7 +323,7 @@ export default function Dashboard() {
               Recent requests
             </h3>
             <button
-              onClick={() => message.info("View all requests triggered")}
+              onClick={() => antdMsg.info("View all requests triggered")}
               className="text-xs font-bold text-[#008043] hover:text-[#006635] transition-colors cursor-pointer"
             >
               View all

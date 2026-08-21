@@ -1,6 +1,5 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import ThemeProvider from "./ThemeProvider";
 import "./globals.css";
 
@@ -27,9 +26,8 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <Script
+        <script
           id="theme-initializer"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {

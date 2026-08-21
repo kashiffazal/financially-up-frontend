@@ -100,19 +100,22 @@ export default function Step9LegalConsents({ form }) {
   };
 
   const handleTermsCheckboxChange = (e) => {
-    if (e.target.checked) {
+    const isChecked = typeof e === "boolean" ? e : Boolean(e?.target?.checked);
+    if (isChecked) {
       form.setFieldsValue({ termsAcceptedAt: new Date().toISOString() });
     }
   };
 
   const handlePrivacyCheckboxChange = (e) => {
-    if (e.target.checked) {
+    const isChecked = typeof e === "boolean" ? e : Boolean(e?.target?.checked);
+    if (isChecked) {
       form.setFieldsValue({ privacyAcceptedAt: new Date().toISOString() });
     }
   };
 
   const handleAuditCheckboxChange = (e) => {
-    if (e.target.checked) {
+    const isChecked = typeof e === "boolean" ? e : Boolean(e?.target?.checked);
+    if (isChecked) {
       form.setFieldsValue({ auditAcceptedAt: new Date().toISOString() });
     }
   };
@@ -453,7 +456,7 @@ export default function Step9LegalConsents({ form }) {
               type="info"
               showIcon
               icon={<InfoCircleOutlined />}
-              message={
+              title={
                 <span className="text-xs font-bold">
                   Action Required: Click to open and inspect the Privacy
                   Collection Notice, Privacy Policy, or TPB Statement before

@@ -57,29 +57,29 @@ const getInitialSavedDraft = () => {
 export default function IndividualEngagementClientForm() {
   const { message, notification, modal } = App.useApp();
   const [form] = Form.useForm();
-  const [currentStep, setCurrentStep] = useState(() => {
-    const d = getInitialSavedDraft();
-    return typeof d?.step === "number" && d.step >= 0 && d.step <= 9 ? d.step : 0;
-  });
+  const [currentStep, setCurrentStep] = useState(0);
   const [formKey, setFormKey] = useState(0);
   const [hasViewedSchedule, setHasViewedSchedule] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState(() => {
-    const d = getInitialSavedDraft();
-    return d?.data || {
-      services: [],
-      entityService: null,
-    };
+  const [formData, setFormData] = useState({
+    services: [],
+    entityService: null,
   });
 
-  // Auto-restore form field values from draft on mount
+  // Auto-restore form draft and step progress cleanly after client mount (avoids SSR hydration mismatch)
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
-    if (savedDraft && savedDraft.data) {
-      form.setFieldsValue(savedDraft.data);
-      message.info(
-        `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
-      );
+    if (savedDraft) {
+      if (typeof savedDraft.step === "number" && savedDraft.step >= 0 && savedDraft.step <= 9) {
+        setCurrentStep(savedDraft.step);
+      }
+      if (savedDraft.data) {
+        setFormData(savedDraft.data);
+        form.setFieldsValue(savedDraft.data);
+        message.info(
+          `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
+        );
+      }
     }
   }, [form, message]);
 
