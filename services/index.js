@@ -258,9 +258,8 @@ export const HTTP = (
   const fullUrl = ResolveApiUrl(targetUrl);
   const token = GetToken();
 
-  // Base headers
+  // Base headers - clean standard headers without legacy XMLHttpRequest marker
   const headers = {
-    "X-Requested-With": "XMLHttpRequest",
     ...(customConfig.headers || {}),
   };
 
