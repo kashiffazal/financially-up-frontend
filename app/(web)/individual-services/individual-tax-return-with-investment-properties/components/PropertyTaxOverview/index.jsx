@@ -20,15 +20,15 @@ export default function PropertyTaxOverview() {
   ];
 
   return (
-    <section className="bg-white dark:bg-zinc-950 py-16 sm:py-24 transition-colors duration-300">
+    <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Content Column */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-primary-soft dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <Tag color="green" className="brand-section-tag">
               <HomeOutlined className="text-sm" />
               <span>Investment Property Specialists</span>
-            </div>
+            </Tag>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
               Expert Assistance for Individual Tax Returns with Investment

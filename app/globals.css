@@ -61,6 +61,33 @@
   --color-brand-bg-lighter-m3: var(--brand-bg-lighter-m3);
 }
 
+/* ==========================================================================
+   Universal Section Header Pill Tag (.brand-section-tag)
+   ========================================================================== */
+
+/* shadow-sm */
+.brand-section-tag {
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.25rem 0.875rem !important; /* py-1 px-3.5 */
+  border-radius: 6px !important;
+  border: none !important;
+  /* color: var(--brand-primary) !important; */
+  box-shadow: 0 1px 2px #0000002e !important;
+  margin-bottom: 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.375rem !important;
+  line-height: 1rem !important;
+}
+
+.dark .brand-section-tag {
+  background-color: #064e3b !important; /* dark:bg-emerald-950 */
+  color: #34d399 !important; /* dark:text-emerald-400 */
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);

@@ -66,7 +66,7 @@ export default function IndividualServicesList() {
 
   return (
     <section
-      className={`bg-gradient-to-b from-white via-brand-bg-lighter/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.sectionWrapper}`}
+      className={`bg-gradient-to-b from-white via-brand-bg-lighter/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300 ${styles.sectionWrapper}`}
     >
       {/* Background Ambient Orbs */}
       <div className={styles.glowOrb1} />
@@ -75,10 +75,7 @@ export default function IndividualServicesList() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16 lg:space-y-20">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <Tag
-            color="green"
-            className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-          >
+          <Tag color="green" className="brand-section-tag">
             Explore Our Services
           </Tag>
 
@@ -114,7 +111,7 @@ export default function IndividualServicesList() {
                     alt={service.imageAlt}
                     width={580}
                     height={440}
-                    className="w-full h-[480px] object-cover rounded-2xl"
+                    className="w-full h-[280px] lg:h-[480px] object-cover rounded-2xl"
                   />
 
                   {/* Number Badge Top-Left */}
@@ -140,10 +137,7 @@ export default function IndividualServicesList() {
                   <div className="w-10 h-10 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center shrink-0">
                     {service.icon}
                   </div>
-                  <Tag
-                    color="green"
-                    className="font-bold text-[11px] uppercase px-3 py-0.5 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 tracking-wider"
-                  >
+                  <Tag color="green" className="brand-section-tag !mb-0">
                     {service.tag}
                   </Tag>
                 </div>

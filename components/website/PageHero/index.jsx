@@ -12,7 +12,7 @@ export default function PageHero({
   subtitle = 'Expert Assistance for ATO Compliance',
 }) {
   return (
-    <section className={`${styles.heroBanner} text-white py-14 sm:py-18 shadow-md`}>
+    <section className={`${styles.heroBanner} text-white pt-12 pb-12 md:pt-20 md:pb-20 shadow-md`}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
         {/* Dynamic Breadcrumbs Navigation */}
         {breadcrumbs.length > 0 && (

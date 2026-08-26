@@ -53,14 +53,11 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="bg-brand-bg-lighter dark:bg-zinc-950/60 py-16 sm:py-24 transition-colors duration-300">
+    <section className="bg-gradient-to-b from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3">
-            <Tag
-              color="green"
-              className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400"
-            >
+            <Tag color="green" className="brand-section-tag">
               Testimonials
             </Tag>
 
@@ -130,10 +127,10 @@ export default function TestimonialsSection() {
               },
             },
           ]}
-          className={`${styles.equalHeightCarousel} pb-6`}
+          className={`${styles.equalHeightCarousel} -mx-2`}
         >
           {testimonials.map((item, idx) => (
-            <div key={idx} className="px-2 sm:px-3 py-2 h-full">
+            <div key={idx} className="h-full mx-2">
               <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full h-full min-h-[260px] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">

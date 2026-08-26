@@ -11,7 +11,7 @@ import {
 
 export default function BookAppointmentPage() {
   return (
-    <div className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 min-h-[70vh] transition-colors duration-300">
+    <div className="pt-12 pb-12 md:pt-20 md:pb-20 bg-slate-50 dark:bg-zinc-950 min-h-[70vh] transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center space-y-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
           <SafetyCertificateOutlined className="text-sm" />

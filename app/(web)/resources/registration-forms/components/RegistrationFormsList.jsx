@@ -454,7 +454,7 @@ function FeaturedAdvisoryCard() {
  */
 export default function RegistrationFormsList() {
   return (
-    <section className="py-16 sm:py-20 bg-slate-50/60 dark:bg-zinc-950 transition-colors duration-300">
+    <section className="pt-12 pb-12 md:pt-20 md:pb-20 bg-slate-50/60 dark:bg-zinc-950 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Unified 3-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

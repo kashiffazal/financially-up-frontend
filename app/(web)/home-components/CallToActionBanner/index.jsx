@@ -11,7 +11,7 @@ export default function CallToActionBanner() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="bg-white dark:bg-zinc-950 py-16 transition-colors duration-300">
+    <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`${styles.ctaGradientAnimated} rounded-3xl p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden`}

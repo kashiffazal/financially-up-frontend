@@ -19,15 +19,12 @@ export default function TrustOverview() {
   ];
 
   return (
-    <section className="bg-white dark:bg-zinc-950 py-16 sm:py-24 transition-colors duration-300">
+    <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="lg:col-span-6 space-y-6">
-            <Tag
-              color="green"
-              className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400"
-            >
+            <Tag color="green" className="brand-section-tag">
               Trust Tax Specialists
             </Tag>
 

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   FileProtectOutlined,
@@ -11,62 +11,71 @@ import {
   ExclamationCircleOutlined,
   UsergroupAddOutlined,
   SafetyCertificateOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChooseBasGst() {
   const whyChoosePoints = [
     {
-      step: '01',
-      tag: 'BAS Expertise',
-      title: 'Comprehensive Knowledge of BAS & GST',
-      desc: 'With years of experience assisting clients with BAS and GST compliance, we stay updated with the latest ATO requirements to guarantee accurate quarterly activity statement lodgement.',
-      icon: <FileProtectOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "01",
+      tag: "BAS Expertise",
+      title: "Comprehensive Knowledge of BAS & GST",
+      desc: "With years of experience assisting clients with BAS and GST compliance, we stay updated with the latest ATO requirements to guarantee accurate quarterly activity statement lodgement.",
+      icon: (
+        <FileProtectOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '02',
-      tag: 'Entity Specific',
-      title: 'Tailored Entity-Specific Reporting',
-      desc: 'Different business structures have unique GST reporting obligations. We tailor BAS and GST lodgements specifically for sole traders, partnerships, trusts, and PTY LTD companies.',
-      icon: <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "02",
+      tag: "Entity Specific",
+      title: "Tailored Entity-Specific Reporting",
+      desc: "Different business structures have unique GST reporting obligations. We tailor BAS and GST lodgements specifically for sole traders, partnerships, trusts, and PTY LTD companies.",
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '03',
-      tag: 'Audit Defense',
-      title: 'Minimizing Errors & ATO Audit Risks',
-      desc: 'Mistakes in GST calculations cause severe penalties. Our meticulous reconciliation of Xero/MYOB/QuickBooks bank feeds eliminates errors before submission to the ATO portal.',
-      icon: <AuditOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "03",
+      tag: "Audit Defense",
+      title: "Minimizing Errors & ATO Audit Risks",
+      desc: "Mistakes in GST calculations cause severe penalties. Our meticulous reconciliation of Xero/MYOB/QuickBooks bank feeds eliminates errors before submission to the ATO portal.",
+      icon: (
+        <AuditOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '04',
-      tag: 'Payroll & PAYGW',
-      title: 'Reporting Employee Salaries & PAYGW',
-      desc: 'We handle gross wages (W1) and tax withheld (W2) reporting aligned with Single Touch Payroll (STP Phase 2) so your employee payroll compliance is always 100% accurate.',
-      icon: <UsergroupAddOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "04",
+      tag: "Payroll & PAYGW",
+      title: "Reporting Employee Salaries & PAYGW",
+      desc: "We handle gross wages (W1) and tax withheld (W2) reporting aligned with Single Touch Payroll (STP Phase 2) so your employee payroll compliance is always 100% accurate.",
+      icon: (
+        <UsergroupAddOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '05',
-      tag: 'PAYG Instalments',
-      title: 'Income Tax Instalments (IAS) Management',
-      desc: 'We calculate monthly or quarterly PAYG Income Tax Instalments to prevent surprise year-end income tax bills and keep cash flow predictable.',
-      icon: <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "05",
+      tag: "PAYG Instalments",
+      title: "Income Tax Instalments (IAS) Management",
+      desc: "We calculate monthly or quarterly PAYG Income Tax Instalments to prevent surprise year-end income tax bills and keep cash flow predictable.",
+      icon: (
+        <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '06',
-      tag: 'Deadline Extension',
-      title: 'Avoiding ATO Late Lodgement Penalties',
-      desc: 'Lodging your activity statement through our registered BAS agent portal automatically grants you an extra 4-week ATO lodgement & payment deadline extension!',
-      icon: <ExclamationCircleOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "06",
+      tag: "Deadline Extension",
+      title: "Avoiding ATO Late Lodgement Penalties",
+      desc: "Lodging your activity statement through our registered BAS agent portal automatically grants you an extra 4-week ATO lodgement & payment deadline extension!",
+      icon: (
+        <ExclamationCircleOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-brand-bg-lighter/60 via-slate-50/50 to-white dark:from-zinc-900/50 dark:via-zinc-900/20 dark:to-zinc-950 py-16 sm:py-24 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
+    <section className="bg-brand-primary-soft/30 dark:bg-zinc-900/30 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-b border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <Tag
-            color="green"
-            className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-          >
+          <Tag color="green" className="brand-section-tag">
             Why Choose Us
           </Tag>
 
@@ -75,7 +84,8 @@ export default function WhyChooseBasGst() {
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Registered BAS agents providing penalty avoidance, extra 4-week ATO lodgement extensions, and error-free GST activity statements.
+            Registered BAS agents providing penalty avoidance, extra 4-week ATO
+            lodgement extensions, and error-free GST activity statements.
           </p>
         </div>
 

@@ -1,57 +1,61 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   BankOutlined,
   DollarOutlined,
   LineChartOutlined,
   SolutionOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChooseCompany() {
   const whyChoosePoints = [
     {
-      step: '01',
-      title: 'Company-Specific Knowledge',
-      desc: 'With years of experience in serving PTY LTD companies, we have developed company-specific tax knowledge. We stay up to date with the latest ATO regulations and guidelines to address the unique needs of your business structure.',
-      icon: <BankOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
-      badge: 'Expert Knowledge',
+      step: "01",
+      title: "Company-Specific Knowledge",
+      desc: "With years of experience in serving PTY LTD companies, we have developed company-specific tax knowledge. We stay up to date with the latest ATO regulations and guidelines to address the unique needs of your business structure.",
+      icon: (
+        <BankOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
+      badge: "Expert Knowledge",
     },
     {
-      step: '02',
-      title: 'Optimizing Tax Efficiency',
-      desc: 'Maximizing tax efficiency is crucial for companies to minimize tax liabilities and maximize profitability. Our CPA team specializes in identifying strategies, deductions, and credits to ensure your company operates tax-efficiently.',
-      icon: <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
-      badge: 'Tax Savings',
+      step: "02",
+      title: "Optimizing Tax Efficiency",
+      desc: "Maximizing tax efficiency is crucial for companies to minimize tax liabilities and maximize profitability. Our CPA team specializes in identifying strategies, deductions, and credits to ensure your company operates tax-efficiently.",
+      icon: (
+        <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
+      badge: "Tax Savings",
     },
     {
-      step: '03',
-      title: 'Comprehensive Tax Planning',
-      desc: 'We go beyond simply lodging your return. We offer year-round strategic corporate tax planning to help you make informed decisions that benefit your company bottom line while proactively minimizing tax risk.',
-      icon: <LineChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
-      badge: 'Strategic Advice',
+      step: "03",
+      title: "Comprehensive Tax Planning",
+      desc: "We go beyond simply lodging your return. We offer year-round strategic corporate tax planning to help you make informed decisions that benefit your company bottom line while proactively minimizing tax risk.",
+      icon: (
+        <LineChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
+      badge: "Strategic Advice",
     },
     {
-      step: '04',
-      title: 'Streamlined Compliance',
-      desc: 'Maintaining accurate financial statements and fulfilling ASIC & ATO reporting obligations is vital. We prepare compliant statutory accounts, general ledgers, and company returns to eliminate audit risk.',
-      icon: <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
-      badge: 'Audit Protection',
+      step: "04",
+      title: "Streamlined Compliance",
+      desc: "Maintaining accurate financial statements and fulfilling ASIC & ATO reporting obligations is vital. We prepare compliant statutory accounts, general ledgers, and company returns to eliminate audit risk.",
+      icon: (
+        <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
+      badge: "Audit Protection",
     },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-brand-bg-lighter/60 via-slate-50/50 to-white dark:from-zinc-900/50 dark:via-zinc-900/20 dark:to-zinc-950 py-16 sm:py-24 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
+    <section className="bg-brand-primary-soft/30 dark:bg-zinc-900/30 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-b border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <Tag
-            color="green"
-            className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-          >
+          <Tag color="green" className="brand-section-tag">
             The Financially Up Advantage
           </Tag>
 
@@ -60,7 +64,8 @@ export default function WhyChooseCompany() {
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Proactive corporate taxation solutions built specifically for small to medium PTY LTD companies in Australia.
+            Proactive corporate taxation solutions built specifically for small
+            to medium PTY LTD companies in Australia.
           </p>
         </div>
 
@@ -114,7 +119,6 @@ export default function WhyChooseCompany() {
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

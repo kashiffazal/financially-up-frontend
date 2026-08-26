@@ -1,58 +1,62 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Tag, Button } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Tag, Button } from "antd";
 import {
   BookOutlined,
   UserOutlined,
   RiseOutlined,
   SafetyOutlined,
   ArrowRightOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChooseIndividualTax() {
   const points = [
     {
-      step: '01',
-      tag: 'ATO Knowledge',
-      title: 'Extensive Knowledge & ATO Compliance',
+      step: "01",
+      tag: "ATO Knowledge",
+      title: "Extensive Knowledge & ATO Compliance",
       desc: "Our team possesses extensive knowledge of ATO tax regulations and stays updated with the latest changes. We provide accurate and up-to-date advice to maximize your tax benefits and minimize errors or audits.",
-      icon: <BookOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <BookOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '02',
-      tag: 'Personalized Strategy',
-      title: 'Personalized Approach for Your Financial Situation',
+      step: "02",
+      tag: "Personalized Strategy",
+      title: "Personalized Approach for Your Financial Situation",
       desc: "We take the time to thoroughly assess your circumstances, ensuring that your individual tax return is tailored to your specific needs. We analyze all income sources and deductions for optimal results.",
-      icon: <UserOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <UserOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '03',
-      tag: 'Maximum Refund',
-      title: 'Maximizing Deductions for Optimal Results',
-      desc: 'We specialize in identifying work-related expenses, vehicle costs, self-education, home office running expenses, and charitable donations to ensure you receive your maximum legally entitled refund.',
-      icon: <RiseOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "03",
+      tag: "Maximum Refund",
+      title: "Maximizing Deductions for Optimal Results",
+      desc: "We specialize in identifying work-related expenses, vehicle costs, self-education, home office running expenses, and charitable donations to ensure you receive your maximum legally entitled refund.",
+      icon: (
+        <RiseOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '04',
-      tag: 'Complex Lodgements',
-      title: 'Handling Complexities with Ease',
-      desc: 'Whether dealing with capital gains, foreign income, shares, or multiple income streams, our registered CPA tax agents navigate complex tax schedules smoothly while safeguarding ATO compliance.',
-      icon: <SafetyOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "04",
+      tag: "Complex Lodgements",
+      title: "Handling Complexities with Ease",
+      desc: "Whether dealing with capital gains, foreign income, shares, or multiple income streams, our registered CPA tax agents navigate complex tax schedules smoothly while safeguarding ATO compliance.",
+      icon: (
+        <SafetyOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-brand-bg-lighter/60 via-slate-50/50 to-white dark:from-zinc-900/50 dark:via-zinc-900/20 dark:to-zinc-950 py-16 sm:py-24 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
+    <section className="bg-brand-primary-soft/30 dark:bg-zinc-900/30 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-b border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <Tag
-            color="green"
-            className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-          >
+          <Tag color="green" className="brand-section-tag">
             Why Choose Financially Up
           </Tag>
 
@@ -61,7 +65,8 @@ export default function WhyChooseIndividualTax() {
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Dedicated CPA tax professionals committed to getting you the highest refund with total peace of mind.
+            Dedicated CPA tax professionals committed to getting you the highest
+            refund with total peace of mind.
           </p>
         </div>
 
@@ -116,7 +121,6 @@ export default function WhyChooseIndividualTax() {
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

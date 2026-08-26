@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Button, Tag } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Button, Tag } from "antd";
 import {
   ArrowRightOutlined,
   SafetyCertificateOutlined,
@@ -10,55 +10,62 @@ import {
   LineChartOutlined,
   RocketOutlined,
   SmileOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChooseBookkeeping() {
   const whyChoosePoints = [
     {
-      step: '01',
-      tag: '100% Compliant',
-      title: 'Accuracy & ATO Compliance',
-      desc: 'Expert bookkeepers are well-versed in Australian financial regulations and accounting standards. Entrusting your bookkeeping to an expert eliminates costly calculation errors and penalty risks.',
-      icon: <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "01",
+      tag: "100% Compliant",
+      title: "Accuracy & ATO Compliance",
+      desc: "Expert bookkeepers are well-versed in Australian financial regulations and accounting standards. Entrusting your bookkeeping to an expert eliminates costly calculation errors and penalty risks.",
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '02',
-      tag: 'Time Saving',
-      title: 'Save Time & Gain Efficiency',
-      desc: 'Managing your own books consumes valuable hours that are better spent on core business operations. Professional bookkeeping frees up your schedule to focus on growing your company.',
-      icon: <ClockCircleOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "02",
+      tag: "Time Saving",
+      title: "Save Time & Gain Efficiency",
+      desc: "Managing your own books consumes valuable hours that are better spent on core business operations. Professional bookkeeping frees up your schedule to focus on growing your company.",
+      icon: (
+        <ClockCircleOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '03',
-      tag: 'Data Insights',
-      title: 'Insightful Financial Reports',
-      desc: 'Accurate profit & loss, balance sheet, and cash flow reports give you crystal-clear insights into business health, empowering smart, data-driven decisions.',
-      icon: <LineChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "03",
+      tag: "Data Insights",
+      title: "Insightful Financial Reports",
+      desc: "Accurate profit & loss, balance sheet, and cash flow reports give you crystal-clear insights into business health, empowering smart, data-driven decisions.",
+      icon: (
+        <LineChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '04',
-      tag: 'Scalable System',
-      title: 'Scalable Growth Support',
-      desc: 'As your business scales, your bookkeeping needs evolve. Our flexible team seamlessly adapts to handle expanding payroll, multi-currency feeds, and inventory tracking.',
-      icon: <RocketOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "04",
+      tag: "Scalable System",
+      title: "Scalable Growth Support",
+      desc: "As your business scales, your bookkeeping needs evolve. Our flexible team seamlessly adapts to handle expanding payroll, multi-currency feeds, and inventory tracking.",
+      icon: (
+        <RocketOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '05',
-      tag: 'Zero Hassle',
-      title: 'Reclaim Your Peace of Mind',
-      desc: 'Leave receipts, invoices, and bank feeds to us! We meticulously handle all financial documentation so you can enjoy your life with total peace of mind.',
-      icon: <SmileOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "05",
+      tag: "Zero Hassle",
+      title: "Reclaim Your Peace of Mind",
+      desc: "Leave receipts, invoices, and bank feeds to us! We meticulously handle all financial documentation so you can enjoy your life with total peace of mind.",
+      icon: (
+        <SmileOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-brand-bg-lighter/60 via-slate-50/50 to-white dark:from-zinc-900/50 dark:via-zinc-900/20 dark:to-zinc-950 py-16 sm:py-24 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
+    <section className="bg-brand-primary-soft/30 dark:bg-zinc-900/30 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-b border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <Tag
-            color="green"
-            className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-          >
+          <Tag color="green" className="brand-section-tag">
             Benefits of Expert Bookkeeping
           </Tag>
 
@@ -67,7 +74,8 @@ export default function WhyChooseBookkeeping() {
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Transform your financial workflow with expert Australian bookkeepers who take care of numbers so you can scale your business.
+            Transform your financial workflow with expert Australian bookkeepers
+            who take care of numbers so you can scale your business.
           </p>
         </div>
 

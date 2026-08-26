@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import React from 'react';
-import HeroSection from './home-components/HeroSection';
-import QuickServicesSection from './home-components/QuickServicesSection';
-import TrustedNationwideSection from './home-components/TrustedNationwideSection';
-import HowItWorksSection from './home-components/HowItWorksSection';
-import WhyChooseUsSection from './home-components/WhyChooseUsSection';
-import FeatureHighlightsSection from './home-components/FeatureHighlightsSection';
-import SeamlessTaxExperienceSection from './home-components/SeamlessTaxExperienceSection';
-import TestimonialsSection from './home-components/TestimonialsSection';
-import GoogleReviewsSection from './home-components/GoogleReviewsSection';
-import CallToActionBanner from './home-components/CallToActionBanner';
+import React from "react";
+import HeroSection from "./home-components/HeroSection";
+import QuickServicesSection from "./home-components/QuickServicesSection";
+import TrustedNationwideSection from "./home-components/TrustedNationwideSection";
+import HowItWorksSection from "./home-components/HowItWorksSection";
+import WhyChooseUsSection from "./home-components/WhyChooseUsSection";
+import FeatureHighlightsSection from "./home-components/FeatureHighlightsSection";
+import SeamlessTaxExperienceSection from "./home-components/SeamlessTaxExperienceSection";
+import TestimonialsSection from "./home-components/TestimonialsSection";
+import GoogleReviewsSection from "./home-components/GoogleReviewsSection";
+import CallToActionBanner from "./home-components/CallToActionBanner";
 
 export default function Home() {
   return (

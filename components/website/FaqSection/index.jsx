@@ -117,7 +117,7 @@ export default function FaqSection({
 
   return (
     <section
-      className={`bg-gradient-to-b from-white via-brand-bg-lighter/50 to-white dark:from-zinc-950 dark:via-zinc-900/40 dark:to-zinc-950 py-16 sm:py-24 transition-colors duration-300 ${styles.faqSectionWrapper}`}
+      className={`bg-gradient-to-t from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300 ${styles.faqSectionWrapper}`}
     >
       {/* Background Ambient Glow Orbs */}
       <div className={styles.glowOrb1} />
@@ -127,10 +127,7 @@ export default function FaqSection({
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           {badgeTag && (
-            <Tag
-              color="green"
-              className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-            >
+            <Tag color="green" className="brand-section-tag">
               {badgeTag}
             </Tag>
           )}

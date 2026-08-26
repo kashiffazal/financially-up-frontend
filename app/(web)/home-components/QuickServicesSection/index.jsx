@@ -1,50 +1,46 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 import {
   CalculatorOutlined,
   BankOutlined,
   FileProtectOutlined,
   BookOutlined,
   ArrowRightOutlined,
-} from '@ant-design/icons';
-import styles from './QuickServicesSection.module.css';
+} from "@ant-design/icons";
+import styles from "./QuickServicesSection.module.css";
 
 export default function QuickServicesSection() {
   const services = [
     {
-      title: 'Individual Tax',
-      description: 'Fast individual returns & investment property.',
-      href: '/individual-services/individual-tax-return',
-      icon: (
-        <CalculatorOutlined className="text-brand-primary text-lg" />
-      ),
+      title: "Individual Tax",
+      description: "Fast individual returns & investment property.",
+      href: "/individual-services/individual-tax-return",
+      icon: <CalculatorOutlined className="text-brand-primary text-lg" />,
     },
     {
-      title: 'Business Tax',
-      description: 'Sole trader, partnership, trust & company.',
-      href: '/business-services/company-tax-return',
+      title: "Business Tax",
+      description: "Sole trader, partnership, trust & company.",
+      href: "/business-services/company-tax-return",
       icon: <BankOutlined className="text-brand-primary text-lg" />,
     },
     {
-      title: 'Business Registration',
-      description: 'GST, ABN, company & trust setup.',
-      href: '/resources/registration-forms/company-registration',
-      icon: (
-        <FileProtectOutlined className="text-brand-primary text-lg" />
-      ),
+      title: "Business Registration",
+      description: "GST, ABN, company & trust setup.",
+      href: "/resources/registration-forms/company-registration",
+      icon: <FileProtectOutlined className="text-brand-primary text-lg" />,
     },
     {
-      title: 'Bookkeeping',
-      description: 'Accurate books, payroll & reporting.',
-      href: '/book-keeping',
+      title: "Bookkeeping",
+      description: "Accurate books, payroll & reporting.",
+      href: "/book-keeping",
       icon: <BookOutlined className="text-brand-primary text-lg" />,
     },
   ];
 
   return (
-    <section className="bg-white dark:bg-zinc-950 py-4 transition-colors duration-300">
+    <section className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((item, index) => (

@@ -23,7 +23,7 @@ export default function TrustedNationwideSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-brand-bg-lighter dark:from-zinc-950 dark:to-zinc-900 pt-16 sm:pt-24 transition-colors duration-300">
+    <section className="bg-gradient-to-b from-white to-brand-bg-lighter dark:from-zinc-950 dark:to-zinc-900 pt-12 md:pt-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-5 relative flex justify-center">
@@ -49,11 +49,8 @@ export default function TrustedNationwideSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-6 pb-16">
-            <Tag
-              color="green"
-              className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400"
-            >
+          <div className="lg:col-span-7 space-y-6 pb-12 md:pb-20">
+            <Tag color="green" className="brand-section-tag">
               Trusted Nationwide
             </Tag>
 

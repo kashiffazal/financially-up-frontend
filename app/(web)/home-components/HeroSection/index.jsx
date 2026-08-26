@@ -69,7 +69,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-10 pb-14 md:pt-14 md:pb-20 transition-colors duration-300">
+    <section className="relative overflow-hidden bg-gradient-to-b from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-200/50 dark:bg-emerald-950/30 blur-3xl rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
@@ -124,7 +124,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="lg:col-span-5 relative flex justify-center items-center py-4">
+          <div className="lg:col-span-5 relative flex justify-center items-center">
             <div className="relative w-full max-w-[460px] flex justify-center">
               <div className="absolute inset-2 rounded-full bg-emerald-200/60 dark:bg-emerald-950/70 blur-md scale-105 -z-10" />
 

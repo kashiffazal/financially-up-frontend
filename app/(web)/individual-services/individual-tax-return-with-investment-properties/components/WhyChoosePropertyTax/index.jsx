@@ -1,59 +1,63 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Tag, Button } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Tag, Button } from "antd";
 import {
   HomeOutlined,
   DollarOutlined,
   SolutionOutlined,
   ArrowRightOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 export default function WhyChoosePropertyTax() {
   const points = [
     {
-      step: '01',
-      tag: 'Property Tax Expertise',
-      title: 'Investment Property Tax Knowledge',
-      desc: 'Our team possesses extensive knowledge in investment property taxation. We stay updated with the latest ATO guidelines and tax regulations specific to rental income to ensure full compliance.',
-      icon: <HomeOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "01",
+      tag: "Property Tax Expertise",
+      title: "Investment Property Tax Knowledge",
+      desc: "Our team possesses extensive knowledge in investment property taxation. We stay updated with the latest ATO guidelines and tax regulations specific to rental income to ensure full compliance.",
+      icon: (
+        <HomeOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '02',
-      tag: 'Deduction Optimization',
-      title: 'Maximizing Rental Tax Deductions',
-      desc: 'We specialize in identifying and maximizing rental property deductions including mortgage interest, repairs, maintenance, body corporate fees, land tax, and quantity surveyor depreciation schedules.',
-      icon: <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "02",
+      tag: "Deduction Optimization",
+      title: "Maximizing Rental Tax Deductions",
+      desc: "We specialize in identifying and maximizing rental property deductions including mortgage interest, repairs, maintenance, body corporate fees, land tax, and quantity surveyor depreciation schedules.",
+      icon: (
+        <DollarOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
     {
-      step: '03',
-      tag: 'Complex Schedules',
-      title: 'Handling Complex Rental Income',
-      desc: 'We easily navigate multiple investment properties, joint ownership split schedules, holiday rental rules, and Capital Gains Tax (CGT) calculations upon property disposal.',
-      icon: <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      step: "03",
+      tag: "Complex Schedules",
+      title: "Handling Complex Rental Income",
+      desc: "We easily navigate multiple investment properties, joint ownership split schedules, holiday rental rules, and Capital Gains Tax (CGT) calculations upon property disposal.",
+      icon: (
+        <SolutionOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
     },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-brand-bg-lighter/60 via-slate-50/50 to-white dark:from-zinc-900/50 dark:via-zinc-900/20 dark:to-zinc-950 py-16 sm:py-24 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
+    <section className="bg-brand-primary-soft/30 dark:bg-zinc-900/30 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-b border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <Tag
-            color="green"
-            className="font-bold text-xs uppercase px-3.5 py-1 rounded-full border-none bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 shadow-sm"
-          >
+          <Tag color="green" className="brand-section-tag">
             Why Choose Financially Up
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
-            Why Choose Financially Up for Your Individual Tax Returns with Investment Properties?
+            Why Choose Financially Up for Your Individual Tax Returns with
+            Investment Properties?
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">
-            Expert property tax accountants helping rental property owners optimize negative gearing and claim every eligible deduction.
+            Expert property tax accountants helping rental property owners
+            optimize negative gearing and claim every eligible deduction.
           </p>
         </div>
 
@@ -108,7 +112,6 @@ export default function WhyChoosePropertyTax() {
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

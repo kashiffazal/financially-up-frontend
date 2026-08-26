@@ -1,33 +1,35 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Button } from 'antd';
-import styles from './HowItWorksSection.module.css';
+import React from "react";
+import Link from "next/link";
+import { Button } from "antd";
+import styles from "./HowItWorksSection.module.css";
 
 export default function HowItWorksSection() {
   const steps = [
     {
-      number: 'STEP 01',
-      title: 'Book a Consultation',
-      description: 'Schedule a complimentary consultation with a Financially Up tax expert.',
+      number: "STEP 01",
+      title: "Book a Consultation",
+      description:
+        "Schedule a complimentary consultation with a Financially Up tax expert.",
     },
     {
-      number: 'STEP 02',
-      title: 'Meet Us Online',
-      description: 'Attend a scheduled Zoom meeting with your consultant from the comfort of your space.',
+      number: "STEP 02",
+      title: "Meet Us Online",
+      description:
+        "Attend a scheduled Zoom meeting with your consultant from the comfort of your space.",
     },
     {
-      number: 'STEP 03',
-      title: 'Lodge & Save',
-      description: 'We prepare, review and lodge - you enjoy accuracy, savings and peace of mind.',
+      number: "STEP 03",
+      title: "Lodge & Save",
+      description:
+        "We prepare, review and lodge - you enjoy accuracy, savings and peace of mind.",
     },
   ];
 
   return (
-    <section className="bg-white dark:bg-zinc-950 py-16 sm:py-24 transition-colors duration-300">
+    <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
-        
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight mb-2">
@@ -74,7 +76,6 @@ export default function HowItWorksSection() {
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );
