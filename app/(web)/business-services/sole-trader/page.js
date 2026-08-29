@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import SoleTraderOverview from './components/SoleTraderOverview';
-import WhyChooseSoleTrader from './components/WhyChooseSoleTrader';
-import FaqSection from '@/components/website/FaqSection';
-import CallToActionBanner from '../../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import SoleTraderOverview from "./components/SoleTraderOverview";
+import WhyChooseSoleTrader from "./components/WhyChooseSoleTrader";
+import FaqSection from "@/components/website/FaqSection";
+import CallToActionBanner from "../../home-components/CallToActionBanner";
 
 export default function SoleTraderTaxReturnPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Business Services', href: '/business-services' },
-    { label: 'Sole Trader' },
+    { label: "Home", href: "/" },
+    { label: "Business Services", href: "/business-services" },
+    { label: "Sole Trader" },
   ];
 
   return (

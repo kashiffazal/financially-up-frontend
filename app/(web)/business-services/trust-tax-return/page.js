@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import TrustOverview from './components/TrustOverview';
-import WhyChooseTrust from './components/WhyChooseTrust';
-import FaqSection from '@/components/website/FaqSection';
-import CallToActionBanner from '../../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import TrustOverview from "./components/TrustOverview";
+import WhyChooseTrust from "./components/WhyChooseTrust";
+import FaqSection from "@/components/website/FaqSection";
+import CallToActionBanner from "../../home-components/CallToActionBanner";
 
 export default function TrustTaxReturnPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Business Services', href: '/business-services' },
-    { label: 'Trust Tax Returns' },
+    { label: "Home", href: "/" },
+    { label: "Business Services", href: "/business-services" },
+    { label: "Trust Tax Returns" },
   ];
 
   return (

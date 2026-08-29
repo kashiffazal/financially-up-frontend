@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import IndividualServicesList from './components/IndividualServicesList';
-import IndividualServicesWhyUs from './components/IndividualServicesWhyUs';
-import CallToActionBanner from '../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import IndividualServicesList from "./components/IndividualServicesList";
+import IndividualServicesWhyUs from "./components/IndividualServicesWhyUs";
+import CallToActionBanner from "../home-components/CallToActionBanner";
 
 export default function IndividualServicesPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Individual Services' },
+    { label: "Home", href: "/" },
+    { label: "Individual Services" },
   ];
 
   return (

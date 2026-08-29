@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PageHero from '@/components/website/PageHero';
-import PartnershipOverview from './components/PartnershipOverview';
-import WhyChoosePartnership from './components/WhyChoosePartnership';
-import FaqSection from '@/components/website/FaqSection';
-import CallToActionBanner from '../../home-components/CallToActionBanner';
+import React from "react";
+import PageHero from "@/components/website/PageHero";
+import PartnershipOverview from "./components/PartnershipOverview";
+import WhyChoosePartnership from "./components/WhyChoosePartnership";
+import FaqSection from "@/components/website/FaqSection";
+import CallToActionBanner from "../../home-components/CallToActionBanner";
 
 export default function PartnershipTaxReturnPage() {
   const breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'Business Services', href: '/business-services' },
-    { label: 'Partnership Tax Returns' },
+    { label: "Home", href: "/" },
+    { label: "Business Services", href: "/business-services" },
+    { label: "Partnership Tax Returns" },
   ];
 
   return (
