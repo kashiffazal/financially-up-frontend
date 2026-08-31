@@ -4,7 +4,7 @@ import React from "react";
 import { App } from "antd";
 import FormPageHeader from "../../../../../components/website/FormPageHeader";
 import FormPreFooter from "../../../../../components/website/FormPreFooter";
-import CompanyRegistrationForm from "@/components/admin/forms/company-registration";
+import CompanyRegistrationForm from "@/app/admin/company-registration-new/form/mainForm";
 
 export default function CompanyRegistrationPage() {
   return (

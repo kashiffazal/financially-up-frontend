@@ -493,6 +493,44 @@ export const patch = (url, data = {}, options = {}) =>
 export const del = (url, params = {}, options = {}) =>
   HTTP("DELETE", url, params, options.raffData, options.hideErrorMsg, options.uploadProgressFunction, options);
 
+// ==========================================
+// Log & Table Management Helpers
+// ==========================================
+
+export const LogDeleteRow = (row, list = []) => {
+  if (!Array.isArray(list)) return [];
+  const targetId = row.id || row._id || row.key;
+  return list.filter((item) => (item.id || item._id || item.key) !== targetId);
+};
+
+export const LogResetList = (row, list = []) => {
+  if (!Array.isArray(list)) return [row];
+  const targetId = row.id || row._id || row.key;
+  const filtered = list.filter((item) => (item.id || item._id || item.key) !== targetId);
+  return [row, ...filtered];
+};
+
+export const SortArrayById = (list = []) => {
+  if (!Array.isArray(list)) return [];
+  return [...list].sort((a, b) => {
+    const idA = Number(a.id) || 0;
+    const idB = Number(b.id) || 0;
+    return idA - idB;
+  });
+};
+
+export const TableColumnFilter = (colFilter, key, filterArr) => {
+  return {};
+};
+
+export const getFileUrl = (relPath) => {
+  if (!relPath) return "#";
+  if (relPath.startsWith("http://") || relPath.startsWith("https://")) return relPath;
+  const cleanPath = relPath.startsWith("/") ? relPath : `/${relPath}`;
+  const baseUrl = API_BASE_URL.replace(/\/api\/?$/, "");
+  return `${baseUrl}${cleanPath}`;
+};
+
 /**
  * Unified `api` client matching REST conventions.
  */
@@ -505,3 +543,4 @@ export const api = {
 };
 
 export default HTTP;
+

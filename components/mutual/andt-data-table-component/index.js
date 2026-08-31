@@ -1,431 +1,518 @@
-/*eslint-disable array-callback-return*/
-import React, { Component } from 'react';
-import { Form, Select, Input, Row, Col, Button, Table, Popconfirm } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
-import { HTTP } from '@/services';
-import './styles.css';
+"use client";
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import {
+  Form,
+  Select,
+  Input,
+  Button,
+  Table,
+  Popconfirm,
+  Spin,
+} from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+import "./styles.css";
 
-class DataTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataLoader: false,
-      apiData: [],
-      currentPaginationPage: null,
-      defaultPageSize: null,
-      defaultPageSizeOption: [10, 20, 30, 40, 50, 100],
-      tableData: this.props.dataSource,
-      filterData: this.props.dataSource,
-      tableDataHold: this.props.dataSource,
-      bulkActionValue: null,
-      bulkActionLabelToShowOnPopOver: null,
-      bulkActionMsg: '',
-      bulkActionBottomBtnLabel: '',
-      bulkActionValueError: null,
-      numberofSelectedRows: null,
-      bulkActionPopOverConfirmVisible: false,
-      selectedCustomFilterCol: null
-    }//End state
-  }//End constructor
+/**
+ * ============================================================================
+ * Ant Design v6.5.0 Compatible DataTable Component
+ * ============================================================================
+ * 
+ * Overview:
+ * This component is a reusable, feature-packed data table designed to handle:
+ * 1. Global text search across all columns or specific columns.
+ * 2. Column-specific dropdown filtering ("Filter By: Name / Email / Reference").
+ * 3. Dynamic page size changing (e.g. 10, 20, 50, 100 rows per page).
+ * 4. Row selection with bulk action dropdown and confirmation popup.
+ * 5. Expandable rows, custom headers, export buttons, and full dark/light theme support.
+ *
+ * @param {Array} columns - Ant Design column definitions (title, dataIndex, render, sorter, etc.)
+ * @param {Array} dataSource - Full list of data items to display and search within.
+ * @param {boolean} loading - Boolean flag to display loading spinner.
+ * @param {boolean} dataLoader - Alternative alias for loading.
+ * @param {string|ReactNode} label - Optional table title displayed at top left.
+ * @param {string|ReactNode} desc - Optional table subtitle/description.
+ * @param {boolean} filter - If true, enables the search input box (default: true).
+ * @param {string} filterLabel - Text label displayed above the search box (default: "Filter").
+ * @param {string} filterPlaceholder - Placeholder text inside search box (default: "Filter data...").
+ * @param {Array} filterCol - Optional array of column keys to search (defaults to all columns).
+ * @param {boolean} customFilter - If true, displays the "Filter By" column dropdown selector.
+ * @param {string} customFilterLabel - Label above the column selector (default: "Filter By").
+ * @param {Array} customFilterCol - Array of { label, value } for the column selector dropdown.
+ * @param {boolean|function} showSizeChanger - If true, enables the page size dropdown selector.
+ * @param {string} sizeChangeLabel - Label above the page size dropdown (default: "Records per page").
+ * @param {Array} sizeChangerOptions - Array of selectable page sizes (default: [10, 20, 30, 40, 50, 100]).
+ * @param {Array} bulkAction - Array of bulk action options { label, value, bulkActionMsg, bulkActionBottomBtnLabel }.
+ * @param {string} bulkActionLabel - Label for bulk action section (default: "Bulk Action").
+ * @param {function} bulkActionHandler - Callback executed on bulk action confirmation: (selectedInfo, actionValue) => void.
+ * @param {object|function} rowSelection - Custom row selection handler or configuration.
+ * @param {object|boolean} pagination - Ant Design pagination configuration or false to disable.
+ * @param {object} scroll - Table scroll configuration, e.g. { x: 1100 }.
+ * @param {function} expandedRowRender - Custom render function for expandable rows.
+ * @param {string} className - Additional CSS class applied to the table.
+ * @param {string} classNameContainer - Additional CSS class applied to the outer container.
+ * @param {boolean} smallTable - If true, renders the table in compact size.
+ * @param {ReactNode} extraHeader - Slot for extra header components (e.g. Export buttons).
+ * @param {function} onChange - Ant Design Table onChange handler (pagination, filters, sorter).
+ */
+export default function DataTable({
+  columns = [],
+  dataSource = [],
+  dataLoader = false,
+  loading = false,
+  label = null,
+  desc = null,
+  filter = true,
+  filterLabel = "Filter",
+  filterPlaceholder = "Filter data...",
+  filterCol = null,
+  customFilter = false,
+  customFilterLabel = "Filter By",
+  customFilterCol = [],
+  showSizeChanger = true,
+  sizeChangeLabel = "Records per page",
+  sizeChangerOptions = [10, 20, 30, 40, 50, 100],
+  bulkAction = [],
+  bulkActionLabel = "Bulk Action",
+  bulkActionMsg = "",
+  bulkActionBottomBtnLabel = "",
+  bulkActionHandler = null,
+  rowSelection: customRowSelection = null,
+  pagination = {},
+  scroll = { x: 1100 },
+  expandedRowRender = null,
+  className = "",
+  classNameContainer = "",
+  smallTable = false,
+  extraHeader = null,
+  onChange = null,
+}) {
+  // --------------------------------------------------------------------------
+  // 1. COMPONENT STATE & FORM INSTANCE
+  // --------------------------------------------------------------------------
+  const [form] = Form.useForm();
+  
+  // Search query text typed by user
+  const [searchText, setSearchText] = useState("");
+  
+  // Active column selected in the "Filter By" dropdown (null = search across all columns)
+  const [selectedCustomFilterCol, setSelectedCustomFilterCol] = useState(null);
+  
+  // Current active page size (number of rows displayed per page)
+  const [pageSize, setPageSize] = useState(
+    pagination?.defaultPageSize || sizeChangerOptions[0] || 10
+  );
+  
+  // Current pagination page index (1-indexed)
+  const [currentPage, setCurrentPage] = useState(pagination?.currentPage || 1);
+  
+  // Tracks selected rows for bulk actions (keys, database IDs, and row objects)
+  const [selectedRowData, setSelectedRowData] = useState({
+    selectedRowKeys: [],
+    selectedRowIds: [],
+    selectedRows: [],
+  });
+  
+  // Currently selected action in the bulk action dropdown
+  const [selectedBulkAction, setSelectedBulkAction] = useState("");
+  
+  // Validation error message for bulk actions
+  const [bulkActionError, setBulkActionError] = useState("");
+  
+  // Controls the Popconfirm popup visibility for bulk action confirmation
+  const [bulkConfirmOpen, setBulkConfirmOpen] = useState(false);
 
-  formRef = React.createRef();
-
-  filterDataArray = (text, dataArray, keys) => {
-    const newData = dataArray.filter(item => {
-      const textData = text.toUpperCase();
-      for (var i = 0; i < keys.length; i++) {
-        item[keys[i]] = item[keys[i]] ? item[keys[i]].toString() : '';
-        if (item[keys[i]].toUpperCase().indexOf(textData) > -1) {
-          return item[keys[i]].toUpperCase().indexOf(textData) > -1;
-        }//End if condition
-      }//End for loop
-    });
-    return newData;
-  }//End function
-
-  //Next and previous links
-  itemRender = (current, type, originalElement) => {
-    if (type === 'prev') { return <button type="button" className="btnToLink">Previous</button>; }
-    if (type === 'next') { return <button type="button" className="btnToLink">Next</button>; }
-    return originalElement;
-  }//End function
-
-  changeCurrentPage = (page) => { this.setState({ currentPaginationPage: page }); }//End function
-
-  showSizeChangerDropDown = () => {
-    // let { getFieldDecorator } = this.formRef.current;
-    const optionList = this.props.sizeChangerOptions || this.state.defaultPageSizeOption;
-    const pageOptionList = optionList.map((item, i) => { return (<Option key={i} value={item}>{item}</Option>) });
-    return (
-      <div className="pageSizeField">
-        <FormItem label={this.props.sizeChangeLabel || "Record per page"} name='pageSize' initialValue={(this.props.sizeChangerOptions ? this.props.sizeChangerOptions[0] : this.state.defaultPageSizeOption[0])} >
-          <Select className="pageSizeSelectBox" onChange={(value) => this.setState({ defaultPageSize: value })}>
-            {pageOptionList}
-          </Select>
-        </FormItem>
-      </div>
-    );
-  }//End function
-
-  showFilterField = () => {
-    // let { getFieldDecorator } = this.formRef.current;
-    let filterColData = [];
-
-    if (this.props.filterCol && this.props.filterCol.length >= 1) {
-      filterColData = this.props.filterCol;
-    } else {
-      for (var i = 0; i < this.props.columns.length; i++) {
-        filterColData.push(this.props.columns[i]['dataIndex']);
-      }//End for loop
-      //console.log(this.props.columns);
-      //console.log(filterColData);
-    }//End if condition
-    //Remove Empty values from array
-    filterColData.forEach((item, key) => { if (!item) { filterColData.splice(key, 1); } });
-    return (
-      <div>
-        <FormItem label={this.props.filterLabel || "Filter"} name='filter'>
-          <Input prefix={<SearchOutlined type="search" style={{ color: 'rgba(0,0,0,.25)' }} />} onChange={(value) => this.setState({ tableData: this.filterDataArray(value.target.value.trim(), this.state.filterData, filterColData) })} placeholder={this.props.filterPlaceholder || "Filter data"} />
-        </FormItem>
-      </div>
-    )
-  }//End function
-
-  showCustomFilterField = () => {
-    // let { getFieldDecorator } = this.formRef.current;
-    let selectedfilterCol = [];
-    let st = this.props.smallTable;
-    this.props.customFilterCol.forEach(item => { selectedfilterCol.push(item.value); })
-    return (
-      <React.Fragment>
-        <Col lg={st ? 6 : 4} md={6} sm={24} xs={24}>
-          <FormItem label={this.props.customFilterLabel || "Filter By"} name='filterBy' initialValue=''>
-            <Select
-              style={{ width: '100%' }}
-              filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-              onChange={(value) => {
-                (this.props.dataSource && this.props.dataSource.length > 1) &&
-                  this.setState({
-                    selectedCustomFilterCol: value ? [value] : null,
-                    tableData: this.filterDataArray('', this.state.filterData, selectedfilterCol)
-                  });
-                // this.formRef.current.setFieldsValue({ filter: '' })
-                this.formRef.current.setFieldsValue({ filter: '' });
-              }}>
-              <Option value={''}>-Select-</Option>
-              {this.props.customFilterCol.map(item => {
-                return (<Option key={item.value} value={item.value}>{item.label}</Option>)
-              })}
-            </Select>
-          </FormItem>
-        </Col>
-        <Col lg={st ? 6 : 4} md={6} sm={24} xs={24}>
-          <FormItem label={this.props.filterLabel || "Filter"} name='filter'>
-            <Input prefix={<SearchOutlined type="search" style={{ color: 'rgba(0,0,0,.25)' }} />} onChange={
-              (value) => {
-                (this.props.dataSource && this.props.dataSource.length > 1) &&
-                  this.setState({
-                    tableData: this.filterDataArray(
-                      value.target.value.trim(),
-                      this.state.filterData,
-                      (this.state.selectedCustomFilterCol ? this.state.selectedCustomFilterCol : selectedfilterCol))
-                  })
-              }} placeholder={this.props.filterPlaceholder || "Filter data"} />
-          </FormItem>
-        </Col>
-      </React.Fragment>
-    )
-  }//End function
-
-  bulkAction = (position) => {
-    // let { getFieldDecorator } = this.formRef.current;
-    const bulkOptionList = this.props.bulkAction.map((item, i) => { return (<Option key={i + 1} value={item.value + "=>" + item.label + "=>" + (item.bulkActionMsg ? item.bulkActionMsg : '') + "=>" + (item.bulkActionBottomBtnLabel ? item.bulkActionBottomBtnLabel : '')}>{item.label}</Option>) });
-    return (
-      <span className={(position === 'top' ? "bulkGroup" : "bulkGroup bulkGroupBottom")}>
-        {/* Show field when at least one row is selected */}
-        {this.state.numberofSelectedRows && this.state.numberofSelectedRows.selectedRowKeys.length > 0 ?
-          <React.Fragment>
-            <p className="bulkActionLabel">
-              <span className="bulkGroupBottomLabel">{this.props.bulkActionLabel ? this.props.bulkActionLabel + " : " : "Bulk Action : "}</span>
-              <span className="bulkActionError">{this.state.bulkActionValueError}</span>
-              <span className="selectedRowsCount">{this.state.bulkActionValue && this.state.numberofSelectedRows && this.state.numberofSelectedRows.selectedRowKeys.length + ' rows is selected'}</span>
-            </p>
-            <FormItem name='bulkAction' initialValue=''>
-              <Select onChange={(data) => {
-                this.setState({
-                  'bulkActionValue': data.split('=>')[0],
-                  'bulkActionLabelToShowOnPopOver': data.split('=>')[1],
-                  'bulkActionMsg': data.split('=>')[2],
-                  'bulkActionBottomBtnLabel': data.split('=>')[3]
-                }, () => { this.bulkActionHandler('skip') })
-              }}>
-                <Option key={0} value="">-Select-</Option>
-                {bulkOptionList}
-              </Select>
-            </FormItem>
-
-            <Popconfirm
-              title={this.props.bulkActionMsg ? this.props.bulkActionMsg : (this.state.bulkActionMsg ? this.state.bulkActionMsg : `Are you sure to change status as '${this.state.bulkActionLabelToShowOnPopOver}'?`)}
-              onConfirm={() => this.bulkActionHandler('run')}
-              onCancel={() => { this.setState({ bulkActionPopOverConfirmVisible: false }) }}
-              okText="Yes"
-              cancelText="No"
-              visible={this.state.bulkActionPopOverConfirmVisible}
-            >
-              <Button type="primary" onClick={() => this.bulkActionHandler('openPopOver')}>
-                {this.props.bulkActionBottomBtnLabel ? this.props.bulkActionBottomBtnLabel :
-                  (this.state.bulkActionBottomBtnLabel ? this.state.bulkActionBottomBtnLabel : <span><span className="bulkGroupBottomBtnText">Bulk&nbsp;</span>Action</span>)
-                }
-              </Button>
-            </Popconfirm>
-          </React.Fragment>
-          : <div style={{ height: "42px" }}></div>
-        }
-      </span>
-    )//End return
-  }//End function
-
-  bulkActionHandler = (statusKeyword) => {
-    if (!this.state.bulkActionValue) {
-      this.setState({ 'bulkActionValueError': 'Please select action' })
-      return false;
-    }//End if condition
-    if (!(this.state.numberofSelectedRows && this.state.numberofSelectedRows.selectedRowKeys.length > 0)) {
-      this.setState({ 'bulkActionValueError': 'At least one row must be selected' })
-      return false;
-    }//End if condition
-    if (statusKeyword === 'openPopOver') {
-      this.setState({ 'bulkActionPopOverConfirmVisible': true })
-    }//End if condition
-
-    this.setState({ 'bulkActionValueError': '' })
-    if (statusKeyword === 'run') {
-      //alert('asdf');
-      this.props.bulkActionHandler(this.state.numberofSelectedRows, this.state.bulkActionValue);
-      this.setState({ 'bulkActionPopOverConfirmVisible': false })
-    }//End if condition
-
-  }//End function
-
-  render() {
-    const tableClass = (this.props.className ? this.props.className + " dataTable" : 'dataTable');
-    //rowSelection object indicates the need for row selection
-    const rowSelection = {
-      onChange: (selectedRowKeys, selectedRows) => {
-
-        //Getting rows id
-        let selectedRowIds = [];
-        selectedRows.forEach(element => { selectedRowIds.push(element['id']); });
-        //End rows id
-
-        if (typeof this.props.rowSelection === 'function') {
-          this.props.rowSelection(selectedRowKeys, selectedRowIds, selectedRows);
-        }//End if condition
-
-        this.setState({
-          'numberofSelectedRows': {
-            'selectedRowKeys': selectedRowKeys,
-            'selectedRowIds': selectedRowIds,
-            'selectedRows': selectedRows,
-          }
-        })
-      }
+  // --------------------------------------------------------------------------
+  // 2. SEARCH & FILTER LOGIC
+  // --------------------------------------------------------------------------
+  
+  // Determine which column keys should be checked during search:
+  // - If user picked a specific column in "Filter By", search only that column.
+  // - If filterCol is passed as a prop, search those columns.
+  // - Otherwise, auto-detect all columns that have a string dataIndex.
+  const activeSearchCols = useMemo(() => {
+    if (selectedCustomFilterCol) {
+      return Array.isArray(selectedCustomFilterCol)
+        ? selectedCustomFilterCol
+        : [selectedCustomFilterCol];
     }
-    const paginationOptions = (attr) => {
-      let res = {};
-      if (attr.size) { res['size'] = attr.size; }
-      if (attr.nextPreviousBtn) { res['itemRender'] = this.itemRender; }
-      if (attr.itemDetails) { res['showTotal'] = (total, range) => `${range[0]}-${range[1]} of ${total} items`; }
-      if (attr.simple) { res['simple'] = true; }
-      if (attr.showQuickJumper) { res['showQuickJumper'] = true; }
-      if (attr.itemTotal) { res['showTotal'] = (total) => `Total ${total} items`; }
-      if (attr.showSizeChanger) {
-        res['showSizeChanger'] = true;
-        res['onShowSizeChange'] = (current, pageSize) => attr.showSizeChanger(current, pageSize);
-        if (attr.sizeChangerOptions) { res['pageSizeOptions'] = attr.sizeChangerOptions; }
-      }//End if condition
-      if (attr.currentPage) {
-        res['current'] = this.state.currentPaginationPage || attr.currentPage;
-        res['onChange'] = (page) => { this.changeCurrentPage(page) }
-      }//End if condition
-      if (attr.showOnSinglePage) {//Default is false
-        res['hideOnSinglePage'] = false;
-      } else {
-        res['hideOnSinglePage'] = true;
-      }//End if condition
-      if (this.props.showSizeChanger) {
-        res['defaultPageSize'] = this.state.defaultPageSize || this.state.defaultPageSizeOption[0];
-        res['pageSize'] = this.state.defaultPageSize || this.state.defaultPageSizeOption[0];
-        if (this.props.sizeChangerOptions) {
-          res['defaultPageSize'] = this.state.defaultPageSize || this.props.sizeChangerOptions[0];
-          res['pageSize'] = this.state.defaultPageSize || this.props.sizeChangerOptions[0];
+    if (filterCol && filterCol.length > 0) {
+      return filterCol;
+    }
+    return columns
+      .map((col) => col.dataIndex)
+      .filter((idx) => typeof idx === "string" && idx.trim().length > 0);
+  }, [selectedCustomFilterCol, filterCol, columns]);
+
+  // Compute the filtered dataset based on search text and active columns:
+  // Performs case-insensitive partial match across all active column fields.
+  const filteredData = useMemo(() => {
+    if (!dataSource || !Array.isArray(dataSource)) return [];
+    if (!searchText || searchText.trim() === "") return dataSource;
+
+    const query = searchText.trim().toLowerCase();
+    return dataSource.filter((item) => {
+      return activeSearchCols.some((colKey) => {
+        const val = item[colKey];
+        if (val === undefined || val === null) return false;
+        return String(val).toLowerCase().includes(query);
+      });
+    });
+  }, [dataSource, searchText, activeSearchCols]);
+
+  // Handler: User types into the search input box
+  const handleSearchChange = useCallback((e) => {
+    setSearchText(e.target.value);
+    setCurrentPage(1); // Reset to first page on new search
+  }, []);
+
+  // Handler: User changes the "Filter By" column dropdown
+  const handleCustomFilterColChange = useCallback(
+    (value) => {
+      setSelectedCustomFilterCol(value || null);
+      form.setFieldsValue({ filter: "" });
+      setSearchText("");
+      setCurrentPage(1);
+    },
+    [form]
+  );
+
+  // Handler: User changes the rows-per-page dropdown
+  const handlePageSizeChange = useCallback(
+    (value) => {
+      setPageSize(value);
+      setCurrentPage(1);
+      if (typeof showSizeChanger === "function") {
+        showSizeChanger(1, value);
+      }
+    },
+    [showSizeChanger]
+  );
+
+  // --------------------------------------------------------------------------
+  // 3. BULK ACTION HANDLERS
+  // --------------------------------------------------------------------------
+  
+  // Handler: Executes the chosen bulk action after user confirms the popup
+  const handleBulkSubmit = useCallback(() => {
+    if (!selectedBulkAction) {
+      setBulkActionError("Please select a bulk action.");
+      return;
+    }
+    if (selectedRowData.selectedRowKeys.length === 0) {
+      setBulkActionError("At least one record must be selected.");
+      return;
+    }
+
+    setBulkActionError("");
+    setBulkConfirmOpen(false);
+
+    // Call the parent component's bulkActionHandler callback
+    if (typeof bulkActionHandler === "function") {
+      bulkActionHandler(selectedRowData, selectedBulkAction);
+    }
+  }, [selectedBulkAction, selectedRowData, bulkActionHandler]);
+
+  // Find the metadata object for the currently selected bulk action
+  const activeBulkOption = useMemo(() => {
+    return bulkAction.find((item) => item.value === selectedBulkAction);
+  }, [bulkAction, selectedBulkAction]);
+
+  // --------------------------------------------------------------------------
+  // 4. TABLE ROW SELECTION & PAGINATION CONFIGURATION
+  // --------------------------------------------------------------------------
+  
+  // Configure Ant Design rowSelection for checkboxes
+  const tableRowSelection = useMemo(() => {
+    if (!bulkAction || bulkAction.length === 0) {
+      if (customRowSelection && typeof customRowSelection === "object") {
+        return customRowSelection;
+      }
+      return undefined;
+    }
+
+    return {
+      selectedRowKeys: selectedRowData.selectedRowKeys,
+      onChange: (selectedRowKeys, selectedRows) => {
+        const selectedRowIds = selectedRows.map((r) => r.id || r.key);
+        const data = {
+          selectedRowKeys,
+          selectedRowIds,
+          selectedRows,
+        };
+        setSelectedRowData(data);
+        if (typeof customRowSelection === "function") {
+          customRowSelection(selectedRowKeys, selectedRowIds, selectedRows);
         }
-      } else {
-        res['defaultPageSize'] = attr.defaultPageSize || 10;
-      }//End if condition
+      },
+    };
+  }, [bulkAction, selectedRowData, customRowSelection]);
 
-      return res;
-    }//End function
-    const classNameContainer = (this.props.classNameContainer ? this.props.classNameContainer + ' c_k_table_0' : 'c_k_table_0');
-    const st = this.props.smallTable;
-    return (
-      <div className={classNameContainer}>
-        <Form ref={this.formRef} layout="vertical">
-          {this.props.label
-            ?
-            (this.props.showSizeChanger ?
-              (this.props.customFilter ?
-                <Row gutter={window.rowGutterSmall} className="m-b-10 form-container headingAndFilter">
-                  <Col lg={12} md={24} sm={24} xs={24}>
-                    <div>
-                      <h1 className={this.props.desc ? 'tableLabel tableLabel2' : 'tableLabel'}>
-                        {this.props.label}
-                      </h1>
-                      {this.props.desc && <p style={{ 'margin': '0px' }}>{this.props.desc}</p>}
-                    </div>
-                  </Col>
-                  {this.showCustomFilterField()}
-                  <Col lg={4} md={6} sm={24} xs={24}>
-                    {this.props.showSizeChanger && this.showSizeChangerDropDown()}
-                  </Col>
-                </Row>
-                :
-                <Row gutter={window.rowGutterSmall} className="m-b-10 form-container headingAndFilter">
-                  <Col lg={16} md={12} sm={24} xs={24}>
-                    <h1 className={this.props.desc ? 'tableLabel tableLabel2' : 'tableLabel'}>
-                      {this.props.label}
-                    </h1>
-                    {this.props.desc && <p style={{ 'margin': '0px' }}>{this.props.desc}</p>}
-                  </Col>
-                  <Col lg={4} md={6} sm={24} xs={24}>
-                    {this.props.filter && this.showFilterField()}
-                  </Col>
-                  <Col lg={4} md={6} sm={24} xs={24}>
-                    {this.props.showSizeChanger && this.showSizeChangerDropDown()}
-                  </Col>
-                </Row>
-              )
-              :
-              <Row gutter={window.rowGutterSmall} className="m-b-10 form-container">
-                <Col lg={16} md={12} sm={24} xs={24}>
-                  <h1 className={this.props.desc ? 'tableLabel tableLabel2' : 'tableLabel'}>
-                    {this.props.label}
-                  </h1>
-                  {this.props.desc && <p style={{ 'margin': '0px' }}>{this.props.desc}</p>}
-                </Col>
-                <Col lg={4} md={6} sm={24} xs={24}></Col>
-                <Col lg={4} md={6} sm={24} xs={24}>
-                  {this.props.filter && this.showFilterField()}
-                </Col>
-              </Row>
-            )
+  // Configure Ant Design Table pagination
+  const tablePagination = useMemo(() => {
+    if (pagination === false) return false;
 
+    return {
+      current: currentPage,
+      pageSize: pageSize,
+      total: filteredData.length,
+      showTotal: (total, range) =>
+        `${range[0]}-${range[1]} of ${total} items`,
+      showSizeChanger: false, // Managed via custom top toolbar dropdown
+      pageSizeOptions: sizeChangerOptions.map(String),
+      onChange: (page, pSize) => {
+        setCurrentPage(page);
+        if (pSize !== pageSize) {
+          setPageSize(pSize);
+        }
+      },
+      ...pagination,
+    };
+  }, [pagination, currentPage, pageSize, filteredData.length, sizeChangerOptions]);
 
-            :
-            this.props.customFilter ?
-              <Row gutter={window.rowGutterSmall} className="m-b-10 form-container">
-                {this.showCustomFilterField()}
-                {!st &&
-                  <Col lg={6} md={0} sm={24} xs={24}>
-                  </Col>
-                }
-                <Col lg={6} md={6} sm={24} xs={24}>
-                  {this.props.bulkAction && this.bulkAction("top")}
-                </Col>
-                <Col lg={st ? 6 : 4} md={6} sm={24} xs={24}>
-                  {this.props.showSizeChanger ? this.showSizeChangerDropDown() : ''}
-                </Col>
-              </Row>
-              :
-              <Row gutter={window.rowGutterSmall} className="m-b-10 form-container">
-                <Col lg={st ? 8 : 4} md={st ? 8 : 7} sm={24} xs={24}>
-                  {this.props.filter && this.showFilterField()}
-                </Col>
-                <Col lg={st ? 0 : 6} md={st ? 0 : 10} sm={24} xs={24}>
-                  {this.props.bulkAction && this.bulkAction("top")}
-                </Col>
-                <Col lg={st ? 8 : 10} md={st ? 8 : 0} sm={24} xs={24}>
-                </Col>
-                <Col lg={st ? 8 : 4} md={st ? 8 : 7} sm={24} xs={24}>
-                  {this.props.showSizeChanger ? this.showSizeChangerDropDown() : ''}
-                </Col>
-              </Row>
-          }
+  // Custom filter dropdown options with "- All Fields -" as the reset option
+  const customFilterOptions = useMemo(() => {
+    return [
+      { label: "- All Fields -", value: "" },
+      ...customFilterCol.map((item) => ({
+        label: item.label,
+        value: item.value,
+      })),
+    ];
+  }, [customFilterCol]);
 
-          <div className="tableContainer">
-            <div className={(this.props.overFlow ? "overFlowTable" : "")}>
-              {!this.state.tableData && this.state.dataLoader ? <div className="table_loader_1"></div> :
-                <Table
-                  className={
-                    tableClass + " tableStyles-1"
-                    //  +
-                    // (this.props.styleType === 1 && 'tableStyles-1')
-                  }//End className
-                  //{...this.props.rowSelection ? rowSelection={rowSelection} : ''}
-                  ////rowSelection={{}}
-                  rowSelection={(this.props.rowSelection ? rowSelection : undefined)}
-                  columns={this.props.columns}
-                  dataSource={this.state.tableData || this.state.apiData}
-                  total={this.state.tableData ? this.state.tableData.length : this.state.apiData.length}
-                  pagination={this.props.pagination && paginationOptions(this.props.pagination)}
-                  expandedRowRender={this.props.expandedRowRender ? this.props.expandedRowRender : undefined}
-                  rowExpandable={this.props.rowExpandable ? this.props.rowExpandable : undefined}
-                  onChange={this.props.onChange}
-                  scroll={this.props.scroll ? this.props.scroll : undefined}
-                />
-              }
-              {this.props.label &&
-                <Row gutter={window.rowGutterSmall}>
-                  <Col lg={14} md={24} sm={24} xs={24}>
-                    {this.props.bulkAction && this.bulkAction("bottom")}
-                  </Col>
-                  <Col lg={10} md={24} sm={24} xs={24}></Col>
-                </Row>
-              }
-            </div>
+  // Bulk action options formatted for Ant Design Select
+  const bulkActionSelectOptions = useMemo(() => {
+    return [
+      { label: "- Select Action -", value: "" },
+      ...bulkAction.map((item) => ({
+        label: item.label,
+        value: item.value,
+      })),
+    ];
+  }, [bulkAction]);
+
+  // Page size options formatted for Ant Design Select
+  const pageSizeSelectOptions = useMemo(() => {
+    return sizeChangerOptions.map((opt) => ({
+      label: `${opt} / page`,
+      value: opt,
+    }));
+  }, [sizeChangerOptions]);
+
+  const isLoading = loading || dataLoader;
+
+  // --------------------------------------------------------------------------
+  // 5. RENDER UI
+  // --------------------------------------------------------------------------
+  return (
+    <div
+      className={`c_k_table_0 ${classNameContainer} w-full space-y-4 text-slate-800 dark:text-zinc-200`}
+    >
+      <Form form={form} layout="vertical" component={false}>
+        {/* ================================================================= */}
+        {/* TOP CONTROLS & TOOLBAR                                            */}
+        {/* ================================================================= */}
+        <div className="flex flex-col gap-4 pb-2 border-b border-slate-100 dark:border-zinc-800">
+          
+          {/* Section A: Title, Subtitle & Extra Header Actions (Export buttons) */}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            {label && (
+              <div>
+                <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 m-0">
+                  {label}
+                </h2>
+                {desc && (
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 mt-0.5">
+                    {desc}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Extra Header slot (e.g. ExportButtons) */}
+            {extraHeader && (
+              <div className="flex items-center gap-2">{extraHeader}</div>
+            )}
           </div>
 
+          {/* Section B: Search Filter, Column Selector, Page Sizer & Bulk Actions Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 items-end">
+            
+            {/* 1. Custom Column Filter Dropdown */}
+            {customFilter && customFilterCol.length > 0 && (
+              <div className="md:col-span-3">
+                <Form.Item
+                  label={
+                    <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                      {customFilterLabel}
+                    </span>
+                  }
+                  name="filterBy"
+                  initialValue=""
+                  className="!mb-0"
+                >
+                  <Select
+                    options={customFilterOptions}
+                    onChange={handleCustomFilterColChange}
+                    className="w-full"
+                    placeholder="- All Fields -"
+                  />
+                </Form.Item>
+              </div>
+            )}
 
-        </Form>
-      </div>
-    );//End return
-  }//End render
+            {/* 2. Global / Column Search Input */}
+            {filter && (
+              <div
+                className={
+                  customFilter && customFilterCol.length > 0
+                    ? "md:col-span-4"
+                    : "md:col-span-5"
+                }
+              >
+                <Form.Item
+                  label={
+                    <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                      {filterLabel}
+                    </span>
+                  }
+                  name="filter"
+                  className="!mb-0"
+                >
+                  <Input
+                    prefix={<SearchOutlined className="text-slate-400" />}
+                    placeholder={filterPlaceholder}
+                    value={searchText}
+                    onChange={handleSearchChange}
+                    allowClear
+                  />
+                </Form.Item>
+              </div>
+            )}
 
-  componentDidMount() {
-    this.getTableData = (api) => {
-      this.setState({ dataLoader: true });
-      HTTP("GET", api).then(res => {
-        const records = res?.data?.active || res?.data?.records || res?.data || [];
-        this.setState({ dataLoader: false, apiData: records });
-      }).catch(error => {
-        this.setState({ dataLoader: false });
-        message.error('Internal server error, ' + error);
-      });
-    }//End function
-    if (this.props.dataAPI) {
-      this.getTableData(this.props.dataAPI);
-    }//End if condition
+            {/* 3. Page Size Selector Dropdown */}
+            {showSizeChanger && (
+              <div className="md:col-span-2">
+                <Form.Item
+                  label={
+                    <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                      {sizeChangeLabel}
+                    </span>
+                  }
+                  name="pageSize"
+                  initialValue={pageSize}
+                  className="!mb-0"
+                >
+                  <Select
+                    options={pageSizeSelectOptions}
+                    value={pageSize}
+                    onChange={handlePageSizeChange}
+                    className="w-full"
+                  />
+                </Form.Item>
+              </div>
+            )}
 
-  }//End componentDidMount
+            {/* 4. Bulk Action Bar (Active when 1 or more rows selected) */}
+            {bulkAction && bulkAction.length > 0 && (
+              <div className="md:col-span-3 flex items-end gap-2">
+                {selectedRowData.selectedRowKeys.length > 0 ? (
+                  <div className="flex flex-col w-full gap-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-brand-primary dark:text-emerald-400">
+                        {selectedRowData.selectedRowKeys.length} selected
+                      </span>
+                      {bulkActionError && (
+                        <span className="text-red-500 font-medium text-[11px]">
+                          {bulkActionError}
+                        </span>
+                      )}
+                    </div>
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    //Update state after dataSource of table (update table after add and delete record)
-    if (this.state.tableDataHold !== nextProps.dataSource) {
-      this.setState({
-        tableData: nextProps.dataSource,
-        tableDataHold: nextProps.dataSource,
-        filterData: nextProps.dataSource,
-      });
-    }//End if condition
-  }//End componentWillReceiveProps
+                    <div className="flex items-center gap-2">
+                      <Select
+                        options={bulkActionSelectOptions}
+                        value={selectedBulkAction}
+                        onChange={(val) => {
+                          setSelectedBulkAction(val);
+                          setBulkActionError("");
+                        }}
+                        className="flex-1"
+                        placeholder="Choose Action"
+                      />
 
-}//End class
+                      {/* Popconfirm for safety before running bulk actions */}
+                      <Popconfirm
+                        title={
+                          bulkActionMsg ||
+                          activeBulkOption?.bulkActionMsg ||
+                          `Apply '${activeBulkOption?.label || selectedBulkAction}' to ${
+                            selectedRowData.selectedRowKeys.length
+                          } records?`
+                        }
+                        open={bulkConfirmOpen}
+                        onConfirm={handleBulkSubmit}
+                        onCancel={() => setBulkConfirmOpen(false)}
+                        okText="Yes, Apply"
+                        cancelText="Cancel"
+                        okButtonProps={{
+                          className:
+                            "!bg-brand-primary hover:!bg-brand-primary/90",
+                        }}
+                      >
+                        <Button
+                          type="primary"
+                          className="!bg-brand-primary hover:!bg-brand-primary/90 font-medium"
+                          onClick={() => {
+                            if (!selectedBulkAction) {
+                              setBulkActionError("Please select action");
+                              return;
+                            }
+                            setBulkConfirmOpen(true);
+                          }}
+                        >
+                          {bulkActionBottomBtnLabel ||
+                            activeBulkOption?.bulkActionBottomBtnLabel ||
+                            "Apply"}
+                        </Button>
+                      </Popconfirm>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-xs text-slate-400 dark:text-zinc-500 pb-2">
+                    Select rows to enable bulk actions
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </Form>
 
-
-
-
-
-export default DataTable;
+      {/* ================================================================= */}
+      {/* MAIN ANT DESIGN TABLE                                             */}
+      {/* ================================================================= */}
+      <Spin spinning={isLoading} description="Loading records...">
+        <Table
+          columns={columns}
+          dataSource={filteredData}
+          rowSelection={tableRowSelection}
+          pagination={tablePagination}
+          scroll={scroll}
+          expandable={
+            expandedRowRender
+              ? {
+                  expandedRowRender,
+                }
+              : undefined
+          }
+          className={`${className} dataTable rounded-xl overflow-hidden`}
+          onChange={onChange}
+          size={smallTable ? "small" : "middle"}
+          rowKey={(record) => record.id || record._id || record.key}
+        />
+      </Spin>
+    </div>
+  );
+}
