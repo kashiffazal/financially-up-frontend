@@ -9,6 +9,7 @@ import {
   Table,
   Popconfirm,
   Spin,
+  Pagination,
 } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import "./styles.css";
@@ -23,8 +24,9 @@ import "./styles.css";
  * 1. Global text search across all columns or specific columns.
  * 2. Column-specific dropdown filtering ("Filter By: Name / Email / Reference").
  * 3. Dynamic page size changing (e.g. 10, 20, 50, 100 rows per page).
- * 4. Row selection with bulk action dropdown and confirmation popup.
- * 5. Expandable rows, custom headers, export buttons, and full dark/light theme support.
+ * 4. Bottom-Left Row Selection & Bulk Actions with Popconfirm confirmation.
+ * 5. Bottom-Right Pagination aligned horizontally on the same row.
+ * 6. Expandable rows, custom headers, export buttons, and full dark/light theme support.
  *
  * @param {Array} columns - Ant Design column definitions (title, dataIndex, render, sorter, etc.)
  * @param {Array} dataSource - Full list of data items to display and search within.
@@ -219,7 +221,7 @@ export default function DataTable({
   }, [bulkAction, selectedBulkAction]);
 
   // --------------------------------------------------------------------------
-  // 4. TABLE ROW SELECTION & PAGINATION CONFIGURATION
+  // 4. TABLE ROW SELECTION CONFIGURATION
   // --------------------------------------------------------------------------
   
   // Configure Ant Design rowSelection for checkboxes
@@ -247,28 +249,6 @@ export default function DataTable({
       },
     };
   }, [bulkAction, selectedRowData, customRowSelection]);
-
-  // Configure Ant Design Table pagination
-  const tablePagination = useMemo(() => {
-    if (pagination === false) return false;
-
-    return {
-      current: currentPage,
-      pageSize: pageSize,
-      total: filteredData.length,
-      showTotal: (total, range) =>
-        `${range[0]}-${range[1]} of ${total} items`,
-      showSizeChanger: false, // Managed via custom top toolbar dropdown
-      pageSizeOptions: sizeChangerOptions.map(String),
-      onChange: (page, pSize) => {
-        setCurrentPage(page);
-        if (pSize !== pageSize) {
-          setPageSize(pSize);
-        }
-      },
-      ...pagination,
-    };
-  }, [pagination, currentPage, pageSize, filteredData.length, sizeChangerOptions]);
 
   // Custom filter dropdown options with "- All Fields -" as the reset option
   const customFilterOptions = useMemo(() => {
@@ -336,12 +316,12 @@ export default function DataTable({
             )}
           </div>
 
-          {/* Section B: Search Filter, Column Selector, Page Sizer & Bulk Actions Bar */}
+          {/* Section B: Search Filter, Column Selector & Page Sizer */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 items-end">
             
             {/* 1. Custom Column Filter Dropdown */}
             {customFilter && customFilterCol.length > 0 && (
-              <div className="md:col-span-3">
+              <div className="md:col-span-4">
                 <Form.Item
                   label={
                     <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
@@ -367,8 +347,8 @@ export default function DataTable({
               <div
                 className={
                   customFilter && customFilterCol.length > 0
-                    ? "md:col-span-4"
-                    : "md:col-span-5"
+                    ? "md:col-span-5"
+                    : "md:col-span-8"
                 }
               >
                 <Form.Item
@@ -393,7 +373,13 @@ export default function DataTable({
 
             {/* 3. Page Size Selector Dropdown */}
             {showSizeChanger && (
-              <div className="md:col-span-2">
+              <div
+                className={
+                  customFilter && customFilterCol.length > 0
+                    ? "md:col-span-3"
+                    : "md:col-span-4"
+                }
+              >
                 <Form.Item
                   label={
                     <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
@@ -413,92 +399,19 @@ export default function DataTable({
                 </Form.Item>
               </div>
             )}
-
-            {/* 4. Bulk Action Bar (Active when 1 or more rows selected) */}
-            {bulkAction && bulkAction.length > 0 && (
-              <div className="md:col-span-3 flex items-end gap-2">
-                {selectedRowData.selectedRowKeys.length > 0 ? (
-                  <div className="flex flex-col w-full gap-1">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-semibold text-brand-primary dark:text-emerald-400">
-                        {selectedRowData.selectedRowKeys.length} selected
-                      </span>
-                      {bulkActionError && (
-                        <span className="text-red-500 font-medium text-[11px]">
-                          {bulkActionError}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <Select
-                        options={bulkActionSelectOptions}
-                        value={selectedBulkAction}
-                        onChange={(val) => {
-                          setSelectedBulkAction(val);
-                          setBulkActionError("");
-                        }}
-                        className="flex-1"
-                        placeholder="Choose Action"
-                      />
-
-                      {/* Popconfirm for safety before running bulk actions */}
-                      <Popconfirm
-                        title={
-                          bulkActionMsg ||
-                          activeBulkOption?.bulkActionMsg ||
-                          `Apply '${activeBulkOption?.label || selectedBulkAction}' to ${
-                            selectedRowData.selectedRowKeys.length
-                          } records?`
-                        }
-                        open={bulkConfirmOpen}
-                        onConfirm={handleBulkSubmit}
-                        onCancel={() => setBulkConfirmOpen(false)}
-                        okText="Yes, Apply"
-                        cancelText="Cancel"
-                        okButtonProps={{
-                          className:
-                            "!bg-brand-primary hover:!bg-brand-primary/90",
-                        }}
-                      >
-                        <Button
-                          type="primary"
-                          className="!bg-brand-primary hover:!bg-brand-primary/90 font-medium"
-                          onClick={() => {
-                            if (!selectedBulkAction) {
-                              setBulkActionError("Please select action");
-                              return;
-                            }
-                            setBulkConfirmOpen(true);
-                          }}
-                        >
-                          {bulkActionBottomBtnLabel ||
-                            activeBulkOption?.bulkActionBottomBtnLabel ||
-                            "Apply"}
-                        </Button>
-                      </Popconfirm>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-xs text-slate-400 dark:text-zinc-500 pb-2">
-                    Select rows to enable bulk actions
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </Form>
 
       {/* ================================================================= */}
-      {/* MAIN ANT DESIGN TABLE                                             */}
+      {/* MAIN ANT DESIGN TABLE (PAGINATION MANAGED BELOW)                  */}
       {/* ================================================================= */}
       <Spin spinning={isLoading} description="Loading records...">
         <Table
           columns={columns}
           dataSource={filteredData}
           rowSelection={tableRowSelection}
-          pagination={tablePagination}
+          pagination={false}
           scroll={scroll}
           expandable={
             expandedRowRender
@@ -513,6 +426,108 @@ export default function DataTable({
           rowKey={(record) => record.id || record._id || record.key}
         />
       </Spin>
+
+      {/* ================================================================= */}
+      {/* BOTTOM BAR: BULK ACTIONS (LEFT) & PAGINATION (RIGHT)              */}
+      {/* ================================================================= */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3">
+        
+        {/* BOTTOM LEFT: BULK ACTIONS CONTROLS */}
+        <div className="flex items-center gap-2.5 w-full sm:w-auto justify-start min-h-[36px]">
+          {bulkAction && bulkAction.length > 0 && (
+            selectedRowData.selectedRowKeys.length > 0 ? (
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Selected Row Count Badge */}
+                <span className="text-xs font-semibold text-brand-primary dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 px-2.5 py-1 rounded-lg">
+                  {selectedRowData.selectedRowKeys.length} selected
+                </span>
+
+                {/* Action Selector */}
+                <Select
+                  options={bulkActionSelectOptions}
+                  value={selectedBulkAction}
+                  onChange={(val) => {
+                    setSelectedBulkAction(val);
+                    setBulkActionError("");
+                  }}
+                  className="min-w-[160px] sm:min-w-[190px]"
+                  placeholder="- Select Action -"
+                />
+
+                {/* Popconfirm Confirm / Apply Button */}
+                <Popconfirm
+                  title={
+                    bulkActionMsg ||
+                    activeBulkOption?.bulkActionMsg ||
+                    `Apply '${activeBulkOption?.label || selectedBulkAction}' to ${
+                      selectedRowData.selectedRowKeys.length
+                    } records?`
+                  }
+                  open={bulkConfirmOpen}
+                  onConfirm={handleBulkSubmit}
+                  onCancel={() => setBulkConfirmOpen(false)}
+                  okText="Yes, Apply"
+                  cancelText="Cancel"
+                  okButtonProps={{
+                    className:
+                      "!bg-brand-primary hover:!bg-brand-primary/90",
+                  }}
+                >
+                  <Button
+                    type="primary"
+                    className="!bg-brand-primary hover:!bg-brand-primary/90 font-medium"
+                    onClick={() => {
+                      if (!selectedBulkAction) {
+                        setBulkActionError("Please select action");
+                        return;
+                      }
+                      setBulkConfirmOpen(true);
+                    }}
+                  >
+                    {bulkActionBottomBtnLabel ||
+                      activeBulkOption?.bulkActionBottomBtnLabel ||
+                      "Apply"}
+                  </Button>
+                </Popconfirm>
+
+                {/* Inline Error Message */}
+                {bulkActionError && (
+                  <span className="text-red-500 font-medium text-xs">
+                    {bulkActionError}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <span className="text-xs text-slate-400 dark:text-zinc-500">
+                Select rows to enable bulk actions
+              </span>
+            )
+          )}
+        </div>
+
+        {/* BOTTOM RIGHT: PAGINATION */}
+        {pagination !== false && (
+          <div className="flex justify-end w-full sm:w-auto">
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={filteredData.length}
+              showTotal={(total, range) =>
+                `${range[0]}-${range[1]} of ${total} items`
+              }
+              showSizeChanger={false}
+              pageSizeOptions={sizeChangerOptions.map(String)}
+              onChange={(page, pSize) => {
+                setCurrentPage(page);
+                if (pSize !== pageSize) {
+                  setPageSize(pSize);
+                }
+              }}
+              {...(typeof pagination === "object" ? pagination : {})}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
