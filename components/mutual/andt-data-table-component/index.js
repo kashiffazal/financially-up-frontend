@@ -18,12 +18,12 @@ import "./styles.css";
  * ============================================================================
  * Ant Design v6.5.0 Compatible DataTable Component
  * ============================================================================
- * 
+ *
  * Overview:
  * This component is a reusable, feature-packed data table designed to handle:
  * 1. Global text search across all columns or specific columns.
- * 2. Column-specific dropdown filtering ("Filter By: Name / Email / Reference").
- * 3. Dynamic page size changing (e.g. 10, 20, 50, 100 rows per page).
+ * 2. Column-specific dropdown filtering ("Filter by: Name / Email / Reference").
+ * 3. Dynamic page size changing (e.g. 10, 20, 30, 40, 50, 100 records per page).
  * 4. Bottom-Left Row Selection & Bulk Actions with Popconfirm confirmation.
  * 5. Bottom-Right Pagination aligned horizontally on the same row.
  * 6. Expandable rows, custom headers, export buttons, and full dark/light theme support.
@@ -38,11 +38,11 @@ import "./styles.css";
  * @param {string} filterLabel - Text label displayed above the search box (default: "Filter").
  * @param {string} filterPlaceholder - Placeholder text inside search box (default: "Filter data...").
  * @param {Array} filterCol - Optional array of column keys to search (defaults to all columns).
- * @param {boolean} customFilter - If true, displays the "Filter By" column dropdown selector.
- * @param {string} customFilterLabel - Label above the column selector (default: "Filter By").
+ * @param {boolean} customFilter - If true, displays the "Filter by" column dropdown selector.
+ * @param {string} customFilterLabel - Label above the column selector (default: "Filter by").
  * @param {Array} customFilterCol - Array of { label, value } for the column selector dropdown.
  * @param {boolean|function} showSizeChanger - If true, enables the page size dropdown selector.
- * @param {string} sizeChangeLabel - Label above the page size dropdown (default: "Records per page").
+ * @param {string} sizeChangeLabel - Label above the page size dropdown (default: "Record per page").
  * @param {Array} sizeChangerOptions - Array of selectable page sizes (default: [10, 20, 30, 40, 50, 100]).
  * @param {Array} bulkAction - Array of bulk action options { label, value, bulkActionMsg, bulkActionBottomBtnLabel }.
  * @param {string} bulkActionLabel - Label for bulk action section (default: "Bulk Action").
@@ -69,10 +69,10 @@ export default function DataTable({
   filterPlaceholder = "Filter data...",
   filterCol = null,
   customFilter = false,
-  customFilterLabel = "Filter By",
+  customFilterLabel = "Filter by",
   customFilterCol = [],
   showSizeChanger = true,
-  sizeChangeLabel = "Records per page",
+  sizeChangeLabel = "Record per page",
   sizeChangerOptions = [10, 20, 30, 40, 50, 100],
   bulkAction = [],
   bulkActionLabel = "Bulk Action",
@@ -93,43 +93,43 @@ export default function DataTable({
   // 1. COMPONENT STATE & FORM INSTANCE
   // --------------------------------------------------------------------------
   const [form] = Form.useForm();
-  
+
   // Search query text typed by user
   const [searchText, setSearchText] = useState("");
-  
-  // Active column selected in the "Filter By" dropdown (null = search across all columns)
+
+  // Active column selected in the "Filter by" dropdown (null = search across all columns)
   const [selectedCustomFilterCol, setSelectedCustomFilterCol] = useState(null);
-  
+
   // Current active page size (number of rows displayed per page)
   const [pageSize, setPageSize] = useState(
-    pagination?.defaultPageSize || sizeChangerOptions[0] || 10
+    pagination?.defaultPageSize || sizeChangerOptions[0] || 10,
   );
-  
+
   // Current pagination page index (1-indexed)
   const [currentPage, setCurrentPage] = useState(pagination?.currentPage || 1);
-  
+
   // Tracks selected rows for bulk actions (keys, database IDs, and row objects)
   const [selectedRowData, setSelectedRowData] = useState({
     selectedRowKeys: [],
     selectedRowIds: [],
     selectedRows: [],
   });
-  
+
   // Currently selected action in the bulk action dropdown
   const [selectedBulkAction, setSelectedBulkAction] = useState("");
-  
+
   // Validation error message for bulk actions
   const [bulkActionError, setBulkActionError] = useState("");
-  
+
   // Controls the Popconfirm popup visibility for bulk action confirmation
   const [bulkConfirmOpen, setBulkConfirmOpen] = useState(false);
 
   // --------------------------------------------------------------------------
   // 2. SEARCH & FILTER LOGIC
   // --------------------------------------------------------------------------
-  
+
   // Determine which column keys should be checked during search:
-  // - If user picked a specific column in "Filter By", search only that column.
+  // - If user picked a specific column in "Filter by", search only that column.
   // - If filterCol is passed as a prop, search those columns.
   // - Otherwise, auto-detect all columns that have a string dataIndex.
   const activeSearchCols = useMemo(() => {
@@ -168,7 +168,7 @@ export default function DataTable({
     setCurrentPage(1); // Reset to first page on new search
   }, []);
 
-  // Handler: User changes the "Filter By" column dropdown
+  // Handler: User changes the "Filter by" column dropdown
   const handleCustomFilterColChange = useCallback(
     (value) => {
       setSelectedCustomFilterCol(value || null);
@@ -176,7 +176,7 @@ export default function DataTable({
       setSearchText("");
       setCurrentPage(1);
     },
-    [form]
+    [form],
   );
 
   // Handler: User changes the rows-per-page dropdown
@@ -188,13 +188,13 @@ export default function DataTable({
         showSizeChanger(1, value);
       }
     },
-    [showSizeChanger]
+    [showSizeChanger],
   );
 
   // --------------------------------------------------------------------------
   // 3. BULK ACTION HANDLERS
   // --------------------------------------------------------------------------
-  
+
   // Handler: Executes the chosen bulk action after user confirms the popup
   const handleBulkSubmit = useCallback(() => {
     if (!selectedBulkAction) {
@@ -223,7 +223,7 @@ export default function DataTable({
   // --------------------------------------------------------------------------
   // 4. TABLE ROW SELECTION CONFIGURATION
   // --------------------------------------------------------------------------
-  
+
   // Configure Ant Design rowSelection for checkboxes
   const tableRowSelection = useMemo(() => {
     if (!bulkAction || bulkAction.length === 0) {
@@ -250,10 +250,10 @@ export default function DataTable({
     };
   }, [bulkAction, selectedRowData, customRowSelection]);
 
-  // Custom filter dropdown options with "- All Fields -" as the reset option
+  // Custom filter dropdown options with "-Select-" as the reset option
   const customFilterOptions = useMemo(() => {
     return [
-      { label: "- All Fields -", value: "" },
+      { label: "-Select-", value: "" },
       ...customFilterCol.map((item) => ({
         label: item.label,
         value: item.value,
@@ -272,10 +272,10 @@ export default function DataTable({
     ];
   }, [bulkAction]);
 
-  // Page size options formatted for Ant Design Select
+  // Page size options formatted for Ant Design Select (numbers only like screenshot)
   const pageSizeSelectOptions = useMemo(() => {
     return sizeChangerOptions.map((opt) => ({
-      label: `${opt} / page`,
+      label: `${opt}`,
       value: opt,
     }));
   }, [sizeChangerOptions]);
@@ -294,111 +294,101 @@ export default function DataTable({
         {/* TOP CONTROLS & TOOLBAR                                            */}
         {/* ================================================================= */}
         <div className="flex flex-col gap-4 pb-2 border-b border-slate-100 dark:border-zinc-800">
-          
-          {/* Section A: Title, Subtitle & Extra Header Actions (Export buttons) */}
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            {label && (
-              <div>
-                <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 m-0">
-                  {label}
-                </h2>
-                {desc && (
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 mt-0.5">
-                    {desc}
-                  </p>
-                )}
-              </div>
-            )}
+          {/* Section A: Title & Subtitle (Optional) */}
+          {label && (
+            <div>
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 m-0">
+                {label}
+              </h2>
+              {desc && (
+                <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 mt-0.5">
+                  {desc}
+                </p>
+              )}
+            </div>
+          )}
 
-            {/* Extra Header slot (e.g. ExportButtons) */}
-            {extraHeader && (
-              <div className="flex items-center gap-2">{extraHeader}</div>
-            )}
-          </div>
+          {/* Section B: Filter By, Filter, Export Buttons & Record per page Placement */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            {/* Left Cluster: Filter by & Filter search input */}
+            <div className="flex flex-wrap items-end gap-3 flex-1">
+              {/* 1. Custom Column Filter Dropdown */}
+              {customFilter && customFilterCol.length > 0 && (
+                <div className="w-full sm:w-[170px]">
+                  <Form.Item
+                    label={
+                      <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                        {customFilterLabel}
+                      </span>
+                    }
+                    name="filterBy"
+                    initialValue=""
+                    className="!mb-0"
+                  >
+                    <Select
+                      options={customFilterOptions}
+                      onChange={handleCustomFilterColChange}
+                      className="w-full"
+                      placeholder="-Select-"
+                    />
+                  </Form.Item>
+                </div>
+              )}
 
-          {/* Section B: Search Filter, Column Selector & Page Sizer */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 items-end">
-            
-            {/* 1. Custom Column Filter Dropdown */}
-            {customFilter && customFilterCol.length > 0 && (
-              <div className="md:col-span-4">
-                <Form.Item
-                  label={
-                    <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
-                      {customFilterLabel}
-                    </span>
-                  }
-                  name="filterBy"
-                  initialValue=""
-                  className="!mb-0"
-                >
-                  <Select
-                    options={customFilterOptions}
-                    onChange={handleCustomFilterColChange}
-                    className="w-full"
-                    placeholder="- All Fields -"
-                  />
-                </Form.Item>
-              </div>
-            )}
+              {/* 2. Global / Column Search Input */}
+              {filter && (
+                <div className="w-full sm:w-[240px]">
+                  <Form.Item
+                    label={
+                      <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                        {filterLabel}
+                      </span>
+                    }
+                    name="filter"
+                    className="!mb-0"
+                  >
+                    <Input
+                      prefix={<SearchOutlined className="text-slate-400" />}
+                      placeholder={filterPlaceholder}
+                      value={searchText}
+                      onChange={handleSearchChange}
+                      allowClear
+                    />
+                  </Form.Item>
+                </div>
+              )}
+            </div>
 
-            {/* 2. Global / Column Search Input */}
-            {filter && (
-              <div
-                className={
-                  customFilter && customFilterCol.length > 0
-                    ? "md:col-span-5"
-                    : "md:col-span-8"
-                }
-              >
-                <Form.Item
-                  label={
-                    <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
-                      {filterLabel}
-                    </span>
-                  }
-                  name="filter"
-                  className="!mb-0"
-                >
-                  <Input
-                    prefix={<SearchOutlined className="text-slate-400" />}
-                    placeholder={filterPlaceholder}
-                    value={searchText}
-                    onChange={handleSearchChange}
-                    allowClear
-                  />
-                </Form.Item>
-              </div>
-            )}
+            {/* Right Cluster: Export Buttons (CSV / Excel) & Record per page Dropdown */}
+            <div className="flex flex-wrap items-end gap-3 justify-start sm:justify-end">
+              {/* Extra Header slot (e.g. ExportButtons) */}
+              {extraHeader && (
+                <div className="flex items-center gap-2 pb-0.5">{extraHeader}</div>
+              )}
 
-            {/* 3. Page Size Selector Dropdown */}
-            {showSizeChanger && (
-              <div
-                className={
-                  customFilter && customFilterCol.length > 0
-                    ? "md:col-span-3"
-                    : "md:col-span-4"
-                }
-              >
-                <Form.Item
-                  label={
-                    <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
-                      {sizeChangeLabel}
-                    </span>
-                  }
-                  name="pageSize"
-                  initialValue={pageSize}
-                  className="!mb-0"
-                >
-                  <Select
-                    options={pageSizeSelectOptions}
-                    value={pageSize}
-                    onChange={handlePageSizeChange}
-                    className="w-full"
-                  />
-                </Form.Item>
-              </div>
-            )}
+              {/* Record per page Dropdown */}
+              {showSizeChanger && (
+                <div className="w-full sm:w-[130px]">
+                  <Form.Item
+                    label={
+                      <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400 whitespace-nowrap">
+                        {sizeChangeLabel}
+                      </span>
+                    }
+                    name="pageSize"
+                    initialValue={pageSize}
+                    className="!mb-0 w-full"
+                  >
+                    <Select
+                      options={pageSizeSelectOptions}
+                      value={pageSize}
+                      onChange={handlePageSizeChange}
+                      className="w-full"
+                    />
+                  </Form.Item>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </Form>
@@ -431,11 +421,11 @@ export default function DataTable({
       {/* BOTTOM BAR: BULK ACTIONS (LEFT) & PAGINATION (RIGHT)              */}
       {/* ================================================================= */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3">
-        
         {/* BOTTOM LEFT: BULK ACTIONS CONTROLS */}
         <div className="flex items-center gap-2.5 w-full sm:w-auto justify-start min-h-[36px]">
-          {bulkAction && bulkAction.length > 0 && (
-            selectedRowData.selectedRowKeys.length > 0 ? (
+          {bulkAction &&
+            bulkAction.length > 0 &&
+            (selectedRowData.selectedRowKeys.length > 0 ? (
               <div className="flex flex-wrap items-center gap-2">
                 {/* Selected Row Count Badge */}
                 <span className="text-xs font-semibold text-brand-primary dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 px-2.5 py-1 rounded-lg">
@@ -469,8 +459,7 @@ export default function DataTable({
                   okText="Yes, Apply"
                   cancelText="Cancel"
                   okButtonProps={{
-                    className:
-                      "!bg-brand-primary hover:!bg-brand-primary/90",
+                    className: "!bg-brand-primary hover:!bg-brand-primary/90",
                   }}
                 >
                   <Button
@@ -501,8 +490,7 @@ export default function DataTable({
               <span className="text-xs text-slate-400 dark:text-zinc-500">
                 Select rows to enable bulk actions
               </span>
-            )
-          )}
+            ))}
         </div>
 
         {/* BOTTOM RIGHT: PAGINATION */}

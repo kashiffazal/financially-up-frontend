@@ -4,12 +4,13 @@
  * Admin Root Layout
  * =================
  * Provides global authentication context, responsive sidebar collapsible state,
- * route protection, and dynamic theme switching.
+ * route protection, dynamic theme switching, and scoped Admin Ant Design tokens.
  */
 
 import React, { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Spin } from 'antd';
+import { Spin, ConfigProvider } from 'antd';
+import { useTheme } from '../ThemeProvider';
 import { AuthProvider, useAuth } from '../../context/AuthContext';
 import Sidebar from '../../components/admin/Sidebar';
 import Header from '../../components/admin/Header';
@@ -21,8 +22,10 @@ function AdminLayoutContent({ children }) {
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
   const { user, loading } = useAuth();
+  const { isDark, getAdminThemeConfig } = useTheme();
 
   const isLoginPage = pathname === '/admin/login';
+  const adminTheme = getAdminThemeConfig ? getAdminThemeConfig(isDark) : undefined;
 
   useEffect(() => {
     if (!loading && !user && !isLoginPage) {
@@ -31,19 +34,25 @@ function AdminLayoutContent({ children }) {
   }, [user, loading, isLoginPage, router]);
 
   if (isLoginPage) {
-    return <>{children}</>;
+    return (
+      <ConfigProvider theme={adminTheme}>
+        <div className="admin-portal-root">{children}</div>
+      </ConfigProvider>
+    );
   }
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-zinc-950">
-        <div className="flex flex-col items-center gap-4">
-          <Spin size="large" />
-          <p className="text-sm font-medium text-slate-500 dark:text-zinc-400">
-            Verifying secure session...
-          </p>
+      <ConfigProvider theme={adminTheme}>
+        <div className="admin-portal-root flex min-h-screen items-center justify-center bg-slate-50 dark:bg-zinc-950">
+          <div className="flex flex-col items-center gap-4">
+            <Spin size="large" />
+            <p className="text-sm font-medium text-slate-500 dark:text-zinc-400">
+              Verifying secure session...
+            </p>
+          </div>
         </div>
-      </div>
+      </ConfigProvider>
     );
   }
 
@@ -52,28 +61,30 @@ function AdminLayoutContent({ children }) {
   }
 
   return (
-    <div className="flex min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
-      {/* Sidebar navigation panel */}
-      <Sidebar collapsed={collapsed} />
+    <ConfigProvider theme={adminTheme}>
+      <div className="admin-portal-root flex min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
+        {/* Sidebar navigation panel */}
+        <Sidebar collapsed={collapsed} />
 
-      {/* Main content body wrapper */}
-      <div
-        className={`flex flex-col flex-1 min-w-0 min-h-screen transition-all duration-300 ${
-          collapsed ? 'pl-20' : 'pl-64'
-        }`}
-      >
-        {/* Top toolbar header */}
-        <Header collapsed={collapsed} setCollapsed={setCollapsed} />
+        {/* Main content body wrapper */}
+        <div
+          className={`flex flex-col flex-1 min-w-0 min-h-screen transition-all duration-300 ${
+            collapsed ? 'pl-20' : 'pl-64'
+          }`}
+        >
+          {/* Top toolbar header */}
+          <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
-        {/* Dynamic page content container */}
-        <main className="flex-grow p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
-          {children}
-        </main>
+          {/* Dynamic page content container */}
+          <main className="flex-grow p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
+            {children}
+          </main>
 
-        {/* Standard copyright and credits footer */}
-        <Footer />
+          {/* Standard copyright and credits footer */}
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ConfigProvider>
   );
 }
 
