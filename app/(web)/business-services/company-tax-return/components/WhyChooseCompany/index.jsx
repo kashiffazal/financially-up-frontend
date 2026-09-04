@@ -74,14 +74,14 @@ export default function WhyChooseCompany() {
           {whyChoosePoints.map((item, idx) => (
             <div
               key={idx}
-              className="group relative bg-white dark:bg-zinc-900 p-7 rounded-3xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:border-brand-primary hover:shadow-xl hover:shadow-emerald-600/10 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
+              className="group relative bg-white dark:bg-zinc-900 p-7 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:border-brand-primary hover:shadow-xl hover:shadow-emerald-600/10 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
             >
               {/* Top Soft Color Accent Bar */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-primary via-emerald-400 to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/80 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <span className="text-2xl font-black text-slate-200 dark:text-zinc-800 group-hover:text-brand-primary/30 transition-colors">

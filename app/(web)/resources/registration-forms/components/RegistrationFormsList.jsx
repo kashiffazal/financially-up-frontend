@@ -332,11 +332,11 @@ function RegistrationCard({ form }) {
   return (
     <Link
       href={form.href}
-      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
+      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
     >
       {/* Top Header Row: Icon Container on Left + Number Index on Right */}
       <div className="flex items-center justify-between gap-4 mb-6">
-        <div className="w-12 h-12 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/70 border border-emerald-200/60 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-primary/10 transition-all duration-300 shadow-xs">
+        <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 border border-emerald-200/60 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-primary/10 transition-all duration-300 shadow-xs">
           {form.icon}
         </div>
         <span className="text-2xl sm:text-3xl font-black text-slate-200 dark:text-zinc-700 font-mono tracking-tight select-none">
@@ -378,7 +378,7 @@ function RegistrationCard({ form }) {
  */
 function FeaturedAdvisoryCard() {
   return (
-    <div className="md:col-span-2 lg:col-span-2 relative flex flex-col justify-between p-8 sm:p-9 rounded-3xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+    <div className="md:col-span-2 lg:col-span-2 relative flex flex-col justify-between p-8 sm:p-9 rounded-xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
       {/* Subtle Background Glow Circles */}
       <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
@@ -386,7 +386,7 @@ function FeaturedAdvisoryCard() {
       {/* Top Header Row */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-white text-xl">
+          <div className="w-12 h-12 rounded-lg bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-white text-xl">
             <CustomerServiceOutlined />
           </div>
           <div>
@@ -403,7 +403,10 @@ function FeaturedAdvisoryCard() {
       {/* Middle Description & Key Benefits */}
       <div className="relative z-10 space-y-4 my-2">
         <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
-          Choosing between a Sole Trader, Pty Ltd Company, Trust, or SMSF impacts your tax rates, personal liability, and ongoing ATO obligations. Speak with our registered tax agents for tailored structuring guidance before you register.
+          Choosing between a Sole Trader, Pty Ltd Company, Trust, or SMSF
+          impacts your tax rates, personal liability, and ongoing ATO
+          obligations. Speak with our registered tax agents for tailored
+          structuring guidance before you register.
         </p>
 
         {/* Value Checklist Row */}
@@ -430,7 +433,8 @@ function FeaturedAdvisoryCard() {
             size="large"
             className="h-11 px-6 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md hover:scale-105 transition-all duration-200"
           >
-            Book Structuring Consultation <ArrowRightOutlined className="text-xs" />
+            Book Structuring Consultation{" "}
+            <ArrowRightOutlined className="text-xs" />
           </Button>
         </Link>
 

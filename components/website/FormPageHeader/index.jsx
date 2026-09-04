@@ -39,11 +39,16 @@ export default function FormPageHeader({
   cardSubtitle = "ATO Registered Tax Agent Portal",
 }) {
   return (
-    <header className={`${styles.headerBanner} text-white py-7 sm:py-9 shadow-md border-b border-emerald-800/40`}>
+    <header
+      className={`${styles.headerBanner} text-white py-7 sm:py-9 shadow-md border-b border-emerald-800/40`}
+    >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
         {/* Dynamic Breadcrumbs Navigation */}
         {breadcrumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-2 text-xs font-medium text-emerald-200/90">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center flex-wrap gap-2 text-xs font-medium text-emerald-200/90"
+          >
             {breadcrumbs.map((crumb, idx) => {
               const isLast = idx === breadcrumbs.length - 1;
               return (
@@ -93,7 +98,7 @@ export default function FormPageHeader({
 
           {/* Right Side Glassmorphism Security & Live Status Card */}
           <div className="shrink-0 pt-2 md:pt-0">
-            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl flex items-center gap-3.5 text-white hover:bg-white/15 transition-all">
+            <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl flex items-center gap-3.5 text-white hover:bg-white/15 transition-all">
               <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-xl text-emerald-200 shrink-0 shadow-inner">
                 <LockOutlined />
               </div>

@@ -113,7 +113,7 @@ export default function ShareFormModal({
     <Modal
       title={
         <div className="flex items-center gap-2.5 pb-1">
-          <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 flex items-center justify-center text-brand-primary dark:text-emerald-400">
+          <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 flex items-center justify-center text-brand-primary dark:text-emerald-400">
             <ShareAltOutlined />
           </div>
           <div>
@@ -188,7 +188,7 @@ export default function ShareFormModal({
               <CopyOutlined /> {copied ? "Copied" : "Copy Link"}
             </button>
           </div>
-          <div className="text-xs font-mono text-slate-700 dark:text-zinc-300 break-all bg-white dark:bg-zinc-900 p-2 rounded-lg border border-slate-200/80 dark:border-zinc-800">
+          <div className="text-xs font-mono text-slate-700 dark:text-zinc-300 break-all bg-white dark:bg-zinc-900 p-2 rounded-xl border border-slate-200/80 dark:border-zinc-800">
             {fullFormUrl}
           </div>
         </div>

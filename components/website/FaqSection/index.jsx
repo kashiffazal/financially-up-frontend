@@ -148,33 +148,33 @@ export default function FaqSection({
           {/* ── Left Column: Rich Interactive Feature Card (Col 5) ── */}
           <div className="lg:col-span-5 space-y-6">
             <div
-              className={`relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 ${styles.imageCardFrame}`}
+              className={`relative rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 ${styles.imageCardFrame}`}
             >
               <Image
                 src={image}
                 alt={imageAlt}
                 width={500}
                 height={485}
-                className="w-full h-[485px] object-cover rounded-2xl"
+                className="w-full h-[485px] object-cover rounded-xl"
               />
 
               {/* Floating Top Rating Badge */}
-              <div className="absolute top-6 left-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-200/80 dark:border-zinc-800 flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-50 z-10">
+              <div className="absolute top-6 left-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-lg shadow-lg border border-slate-200/80 dark:border-zinc-800 flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-50 z-10">
                 <StarFilled className="text-amber-400 text-sm" />
                 <span>4.9 / 5.0 Rating</span>
               </div>
 
               {/* Floating Bottom ATO Compliance Badge */}
-              <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-emerald-200 dark:border-emerald-800 flex items-center gap-2 text-xs font-bold text-brand-primary dark:text-emerald-400 z-10">
+              <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-lg shadow-lg border border-emerald-200 dark:border-emerald-800 flex items-center gap-2 text-xs font-bold text-brand-primary dark:text-emerald-400 z-10">
                 <SafetyCertificateOutlined className="text-sm" />
                 <span>100% ATO Compliant</span>
               </div>
             </div>
 
             {/* Bottom Teaser Contact Card */}
-            <div className="p-6 rounded-2xl bg-gradient-to-r from-brand-primary-soft to-emerald-50 dark:from-emerald-950/70 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-900/60 shadow-sm flex items-center justify-between gap-4">
+            <div className="p-6 rounded-xl bg-gradient-to-r from-brand-primary-soft to-emerald-50 dark:from-emerald-950/70 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-900/60 shadow-sm flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-10 h-10 rounded-lg bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-md">
                   <CustomerServiceOutlined className="text-lg" />
                 </div>
                 <div>

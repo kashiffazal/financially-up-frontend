@@ -32,7 +32,7 @@ export default function Step10ElectronicSignature() {
       </div>
 
       {/* Signer Legal Name & Signature Canvas Section */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
         <AntInput
           name="signerFullName"
           label={
@@ -99,7 +99,7 @@ export default function Step10ElectronicSignature() {
         icon={<LockOutlined />}
         title="Engagement Status After Submission: Pending Review"
         description="Upon clicking 'Submit Engagement Application', your application will be securely sent to Financially Up. Your engagement remains in 'Pending Review' status until reviewed and formally accepted by our accounting staff."
-        className="rounded-2xl p-4 border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200"
+        className="rounded-xl p-4 border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200"
       />
     </div>
   );

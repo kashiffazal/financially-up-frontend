@@ -49,7 +49,7 @@ export default function Step3EvidenceUploads() {
           reqMsg="Please upload passport copy"
           type="1"
           height={140}
-          className="rounded-2xl"
+          className="rounded-xl"
         />
 
         <UploadFile
@@ -69,7 +69,7 @@ export default function Step3EvidenceUploads() {
           reqMsg="Please upload visa grant document"
           type="1"
           height={140}
-          className="rounded-2xl"
+          className="rounded-xl"
         />
       </div>
 
@@ -90,7 +90,7 @@ export default function Step3EvidenceUploads() {
           noRequired={true}
           type="1"
           height={140}
-          className="rounded-2xl"
+          className="rounded-xl"
         />
 
         <UploadFile
@@ -109,7 +109,7 @@ export default function Step3EvidenceUploads() {
           noRequired={true}
           type="1"
           height={140}
-          className="rounded-2xl"
+          className="rounded-xl"
         />
       </div>
     </div>

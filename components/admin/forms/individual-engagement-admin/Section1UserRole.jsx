@@ -17,7 +17,7 @@ export default function Section1UserRole() {
     currentUser?.roles?.[0]?.name || currentUser?.role || "Administrator";
 
   return (
-    <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-5 sm:p-6 space-y-3 hover:border-brand-primary/40 transition-all">
+    <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-5 sm:p-6 space-y-3 hover:border-brand-primary/40 transition-all">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400 flex items-center justify-center text-lg font-bold">

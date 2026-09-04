@@ -81,7 +81,7 @@ export default function Step3ResidencyFamily({ form }) {
       </div>
 
       {/* Citizenship & Residency Section */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
         {/* RES-001: Australian Citizen */}
         <AntInput
           type="radio"
@@ -298,7 +298,7 @@ export default function Step3ResidencyFamily({ form }) {
       </div>
 
       {/* Spouse Information (FAM-001 to FAM-005) */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="hasSpouse"
@@ -375,8 +375,8 @@ export default function Step3ResidencyFamily({ form }) {
               name="prepareSpouseReturn"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Would you like Financially Up to prepare your spouse&apos;s tax
-                  return as well?
+                  Would you like Financially Up to prepare your spouse&apos;s
+                  tax return as well?
                 </span>
               }
               radioOptions={[
@@ -391,7 +391,7 @@ export default function Step3ResidencyFamily({ form }) {
       </div>
 
       {/* Dependant Children (FAM-006 & FAM-007) */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="hasDependants"

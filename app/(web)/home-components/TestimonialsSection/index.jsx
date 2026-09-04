@@ -65,14 +65,14 @@ export default function TestimonialsSection() {
               What Our Clients Say
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 font-normal max-w-xl">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 font-normal">
               Real feedback from Australian individuals and business owners
               trusting Financially Up.
             </p>
           </div>
 
           <div className="flex items-center gap-6 shrink-0">
-            <div className="hidden sm:flex items-center gap-2 bg-white dark:bg-zinc-900 px-4 py-2 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm text-xs font-bold text-slate-700 dark:text-zinc-200">
+            <div className="hidden sm:flex items-center gap-2 bg-white dark:bg-zinc-900 px-4 py-2 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm text-xs font-bold text-slate-700 dark:text-zinc-200">
               <StarFilled className="text-amber-400 text-sm" />
               <span>4.9 / 5.0 Rating</span>
               <span className="text-slate-400 dark:text-zinc-500 font-normal">
@@ -131,7 +131,7 @@ export default function TestimonialsSection() {
         >
           {testimonials.map((item, idx) => (
             <div key={idx} className="h-full mx-2">
-              <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full h-full min-h-[260px] flex flex-col justify-between space-y-6">
+              <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full h-full min-h-[260px] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <Rate

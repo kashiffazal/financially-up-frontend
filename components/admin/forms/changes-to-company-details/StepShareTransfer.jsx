@@ -33,7 +33,7 @@ export default function StepShareTransfer({ stepNumber, totalSteps }) {
         </p>
       </div>
 
-      <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
             type="text"

@@ -27,8 +27,8 @@ export default function BookAppointmentPage() {
           to get expert guidance tailored to your individual or business needs.
         </p>
 
-        <div className="bg-white dark:bg-zinc-900 p-8 sm:p-12 rounded-3xl border border-slate-200/80 dark:border-zinc-800 shadow-xl space-y-6 max-w-2xl mx-auto">
-          <div className="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-zinc-800 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-3xl mx-auto">
+        <div className="bg-white dark:bg-zinc-900 p-8 sm:p-12 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-xl space-y-6 max-w-2xl mx-auto">
+          <div className="w-16 h-16 rounded-xl bg-emerald-100 dark:bg-zinc-800 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-3xl mx-auto">
             <CalendarOutlined />
           </div>
 

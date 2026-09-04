@@ -95,7 +95,7 @@ export default function Step1Selection({
             <div
               key={cat.key}
               onClick={() => handleToggleCategory(cat.key)}
-              className={`group relative p-5 rounded-2xl border-2 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3 ${
+              className={`group relative p-5 rounded-xl border-2 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3 ${
                 isChecked
                   ? "bg-brand-primary-soft/40 dark:bg-emerald-950/40 border-brand-primary shadow-sm scale-[1.01]"
                   : "bg-slate-50/60 dark:bg-zinc-800/50 border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-primary/50"

@@ -9,7 +9,8 @@ export default function NotFound() {
         <h2 className="mt-4 text-3xl font-semibold">Page Not Found</h2>
 
         <p className="mt-4 text-slate-600 dark:text-zinc-400">
-          Sorry, the page you are looking for doesn&#39;t exist or may have been moved.
+          Sorry, the page you are looking for doesn&#39;t exist or may have been
+          moved.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">

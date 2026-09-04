@@ -19,15 +19,20 @@ const ADM_CHECKLIST_ITEMS = [
 
 export default function Section3InternalChecklist() {
   return (
-    <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
+    <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
       <h4 className="text-sm font-extrabold text-slate-900 dark:text-zinc-100 flex items-center gap-2 text-brand-primary dark:text-emerald-400">
-        <FileProtectOutlined className="text-brand-primary" /> Section 3: Internal Review Checklist (ADM-001 to ADM-010)
+        <FileProtectOutlined className="text-brand-primary" /> Section 3:
+        Internal Review Checklist (ADM-001 to ADM-010)
       </h4>
 
       <AntInput
         type="checkbox"
         name="admChecklist"
-        label={<span className="font-bold text-slate-800 dark:text-zinc-200">Confirm Mandatory Compliance & Operational Verification Checks</span>}
+        label={
+          <span className="font-bold text-slate-800 dark:text-zinc-200">
+            Confirm Mandatory Compliance & Operational Verification Checks
+          </span>
+        }
         group={ADM_CHECKLIST_ITEMS}
         gridClassName="grid grid-flow-row sm:grid-flow-col sm:grid-rows-5 gap-x-6 gap-y-2.5 w-full"
         noRequired={true}

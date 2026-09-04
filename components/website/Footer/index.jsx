@@ -112,7 +112,7 @@ export default function WebsiteFooter() {
             </h4>
 
             {/* Arrow Bulleted Links List */}
-            <ul className="space-y-2.5 flex-1">
+            <ul className="space-y-[11px] flex-1">
               {quickLinks.map((link) => (
                 <li key={link.href + link.label}>
                   <Link
@@ -141,10 +141,10 @@ export default function WebsiteFooter() {
             </h4>
 
             {/* Contact Items Stack with Brand Styling */}
-            <div className="space-y-4 flex-1">
+            <div className="space-y-[25px] flex-1">
               {/* Phone */}
               <div className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
                   <PhoneOutlined className="text-sm" />
                 </div>
                 <div>
@@ -162,7 +162,7 @@ export default function WebsiteFooter() {
 
               {/* Email */}
               <div className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
                   <MailOutlined className="text-sm" />
                 </div>
                 <div>
@@ -180,7 +180,7 @@ export default function WebsiteFooter() {
 
               {/* Office / Service Scope */}
               <div className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
                   <EnvironmentOutlined className="text-sm" />
                 </div>
                 <div>
@@ -195,7 +195,7 @@ export default function WebsiteFooter() {
 
               {/* Hours / Online Service */}
               <div className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-white/90 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 shadow-sm group-hover:scale-105 group-hover:border-brand-primary transition-all duration-200 shrink-0">
                   <ClockCircleOutlined className="text-sm" />
                 </div>
                 <div>

@@ -43,7 +43,7 @@ export default function DirectorConsentModalTrigger() {
         className="dark:bg-zinc-900"
       >
         <div className="py-3 space-y-4 max-h-[65vh] overflow-y-auto pr-2 text-slate-700 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed">
-          <p className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/60 text-xs text-emerald-950 dark:text-emerald-200 font-medium">
+          <p className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/60 text-xs text-emerald-950 dark:text-emerald-200 font-medium">
             {DIRECTOR_CONSENT_TEXT.overview}
           </p>
 
@@ -51,7 +51,7 @@ export default function DirectorConsentModalTrigger() {
             {DIRECTOR_CONSENT_TEXT.clauses.map((clause, idx) => (
               <div
                 key={idx}
-                className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300"
+                className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300"
               >
                 {clause}
               </div>

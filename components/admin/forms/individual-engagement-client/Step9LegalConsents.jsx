@@ -160,13 +160,13 @@ export default function Step9LegalConsents({ form }) {
       </div>
 
       {/* Main Top Action Bar: Legal Documents List */}
-      <div className="p-6 rounded-2xl bg-slate-50/90 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
+      <div className="p-6 rounded-xl bg-slate-50/90 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
         <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
           <h3 className="text-sm font-extrabold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
             <FileProtectOutlined className="text-brand-primary text-base" />
             <span>Legal Documents Repository (Open & Read Each Document)</span>
           </h3>
-          <Tag color="blue" className="font-semibold text-xs rounded-md">
+          <Tag color="blue" className="font-semibold text-xs rounded-xl">
             Statutory Documents
           </Tag>
         </div>
@@ -220,11 +220,11 @@ export default function Step9LegalConsents({ form }) {
       </div>
 
       {/* Statutory Declarations Box */}
-      <div className="p-6 rounded-2xl bg-brand-primary-soft/30 dark:bg-emerald-950/30 border border-brand-primary/20 dark:border-emerald-900/50 space-y-4">
+      <div className="p-6 rounded-xl bg-brand-primary-soft/30 dark:bg-emerald-950/30 border border-brand-primary/20 dark:border-emerald-900/50 space-y-4">
         {/* ======================================================== */}
         {/* DOCUMENT CARD 1: TERMS & CONDITIONS */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
+        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-zinc-800 pb-3">
             <div className="space-y-0.5">
               <div className="flex items-center gap-2">
@@ -258,8 +258,8 @@ export default function Step9LegalConsents({ form }) {
               icon={<InfoCircleOutlined />}
               title={
                 <span className="text-xs font-bold">
-                  Action Required: Please click &apos;Read Terms & Conditions&apos; to
-                  inspect the document before consenting.
+                  Action Required: Please click &apos;Read Terms &
+                  Conditions&apos; to inspect the document before consenting.
                 </span>
               }
               className="rounded-xl py-2 px-3 !mb-4"
@@ -297,7 +297,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* TECHNOLOGY & BLENDED TEAM CONTROL (YES / NO CONTROL) */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
+        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-zinc-800 pb-3">
             <div>
               <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 text-sm m-0 flex items-center gap-2">
@@ -375,7 +375,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* PRIVACY & TPB DOCUMENTS CARDS BLOCK */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-5">
+        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-5">
           <h4 className="text-xs font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wider mb-4">
             Privacy & TPB Statutory Documents
           </h4>
@@ -504,7 +504,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* ATO AUDIT & SUBSTANTIATION DECLARATION */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-3">
+        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-3">
           <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 text-sm m-0 flex items-center gap-2 mb-4">
             <SafetyCertificateOutlined className="text-brand-primary" />
             <span>ATO Audit & Substantiation Declaration</span>
@@ -536,7 +536,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* STATUTORY CLIENT DECLARATIONS */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
+        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
           <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 text-sm m-0 flex items-center gap-2 mb-4">
             <FileProtectOutlined className="text-brand-primary" />
             <span>Client Statutory Declarations</span>
@@ -598,7 +598,7 @@ export default function Step9LegalConsents({ form }) {
         {/* CONDITIONAL BIOMETRIC CONSENT */}
         {/* ======================================================== */}
         {identityMethod === "Biometric Verification" && (
-          <div className="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80 shadow-xs space-y-2">
             <h4 className="font-bold text-emerald-900 dark:text-emerald-200 text-xs m-0 uppercase tracking-wider mt-4">
               Conditional Biometric Verification Consent
             </h4>
@@ -624,7 +624,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* OPTIONAL AUDIO / VIDEO RECORDING CONSENT */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs">
+        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs">
           <AntInput
             type="checkbox"
             name="consentRecording"
@@ -683,7 +683,7 @@ export default function Step9LegalConsents({ form }) {
             <div className="text-right">
               <Tag
                 color="green"
-                className="font-extrabold text-xs px-3 py-1 rounded-md"
+                className="font-extrabold text-xs px-3 py-1 rounded-xl"
               >
                 VERSION {TERMS_AND_CONDITIONS_INFO.version}
               </Tag>
@@ -767,7 +767,7 @@ export default function Step9LegalConsents({ form }) {
             </div>
             <Tag
               color="blue"
-              className="font-extrabold text-xs px-3 py-1 rounded-md"
+              className="font-extrabold text-xs px-3 py-1 rounded-xl"
             >
               VERSION {EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.version}
             </Tag>
@@ -782,7 +782,7 @@ export default function Step9LegalConsents({ form }) {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
+          <div className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
             {EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.fullText}
           </div>
         </div>
@@ -835,7 +835,7 @@ export default function Step9LegalConsents({ form }) {
             <div className="text-right">
               <Tag
                 color="blue"
-                className="font-extrabold text-xs px-3 py-1 rounded-md"
+                className="font-extrabold text-xs px-3 py-1 rounded-xl"
               >
                 VERSION {PRIVACY_POLICY_INFO.version}
               </Tag>
@@ -919,13 +919,13 @@ export default function Step9LegalConsents({ form }) {
             </div>
             <Tag
               color="amber"
-              className="font-extrabold text-xs px-3 py-1 rounded-md"
+              className="font-extrabold text-xs px-3 py-1 rounded-xl"
             >
               TASA 2009
             </Tag>
           </div>
 
-          <div className="bg-amber-50/80 dark:bg-amber-950/40 p-5 rounded-2xl border border-amber-200 dark:border-amber-900 space-y-3">
+          <div className="bg-amber-50/80 dark:bg-amber-950/40 p-5 rounded-xl border border-amber-200 dark:border-amber-900 space-y-3">
             <h3 className="text-base font-extrabold text-amber-900 dark:text-amber-200 m-0 flex items-center gap-2">
               <SafetyCertificateOutlined className="text-amber-600" />
               <span>TPB Client Information Statement</span>
@@ -1003,7 +1003,7 @@ export default function Step9LegalConsents({ form }) {
             </div>
             <Tag
               color="teal"
-              className="font-extrabold text-xs px-3 py-1 rounded-md"
+              className="font-extrabold text-xs px-3 py-1 rounded-xl"
             >
               VERSION {TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO.version}
             </Tag>
@@ -1019,7 +1019,7 @@ export default function Step9LegalConsents({ form }) {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
+          <div className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
             {TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO.fullText}
           </div>
         </div>

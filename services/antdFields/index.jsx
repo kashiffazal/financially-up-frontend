@@ -37,18 +37,34 @@ const { TextArea } = Input;
 /**
  * Custom Checkbox Card Group Component for designVariant="card"
  */
-function CheckboxCardGroup({ value = [], onChange, options = [], gridClassName, cardClassName, cardStyle }) {
+function CheckboxCardGroup({
+  value = [],
+  onChange,
+  options = [],
+  gridClassName,
+  cardClassName,
+  cardStyle,
+}) {
   const selectedValues = Array.isArray(value) ? value : [];
   return (
-    <Checkbox.Group value={selectedValues} onChange={onChange} className="w-full">
-      <div className={gridClassName || "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full"}>
+    <Checkbox.Group
+      value={selectedValues}
+      onChange={onChange}
+      className="w-full"
+    >
+      <div
+        className={
+          gridClassName ||
+          "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full"
+        }
+      >
         {options.map((item) => {
           const val = item.value !== undefined ? item.value : item.label;
           const isChecked = selectedValues.includes(val);
           return (
             <label
               key={val}
-              className={`relative p-4 rounded-2xl cursor-pointer block select-none border transition-all duration-200 ${
+              className={`relative p-4 rounded-xl cursor-pointer block select-none border transition-all duration-200 ${
                 cardClassName || ""
               } ${
                 isChecked
@@ -61,7 +77,9 @@ function CheckboxCardGroup({ value = [], onChange, options = [], gridClassName, 
                 <Checkbox value={val} className="mt-1" />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    {item.icon && <span className="text-base shrink-0">{item.icon}</span>}
+                    {item.icon && (
+                      <span className="text-base shrink-0">{item.icon}</span>
+                    )}
                     <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 leading-snug truncate">
                       {item.label}
                     </h4>
@@ -87,7 +105,17 @@ function CheckboxCardGroup({ value = [], onChange, options = [], gridClassName, 
 /**
  * Custom Radio Card Group Component for designVariant="card"
  */
-function RadioCardGroup({ value, onChange, options = [], gridClassName, cardClassName, cardStyle, onBlur, disabled, size }) {
+function RadioCardGroup({
+  value,
+  onChange,
+  options = [],
+  gridClassName,
+  cardClassName,
+  cardStyle,
+  onBlur,
+  disabled,
+  size,
+}) {
   return (
     <Radio.Group
       value={value}
@@ -97,7 +125,11 @@ function RadioCardGroup({ value, onChange, options = [], gridClassName, cardClas
       size={size}
       className="w-full"
     >
-      <div className={gridClassName || "grid grid-cols-1 sm:grid-cols-3 gap-3 w-full"}>
+      <div
+        className={
+          gridClassName || "grid grid-cols-1 sm:grid-cols-3 gap-3 w-full"
+        }
+      >
         {options.map((opt) => {
           const val = opt.value !== undefined ? opt.value : opt.label;
           const isSelected = value === val;
@@ -147,7 +179,7 @@ const numberPrefixPostfix = (prefix, postfix, value) => {
     return {
       formatter: `${prefix} ${strVal}${postfix}`.replace(
         /\B(?=(\d{3})+(?!\d))/g,
-        ","
+        ",",
       ),
       parser: strVal.replace(regex, "").trim(),
     };
@@ -303,7 +335,11 @@ export const AntInput = ({
           let val = item.value;
           let lbl = item.label;
 
-          if (setValueLabel && Array.isArray(setValueLabel) && setValueLabel.length >= 2) {
+          if (
+            setValueLabel &&
+            Array.isArray(setValueLabel) &&
+            setValueLabel.length >= 2
+          ) {
             val = item[setValueLabel[0]];
             lbl = item[setValueLabel[1]];
           }
@@ -343,7 +379,8 @@ export const AntInput = ({
     ) {
       return (
         <div style={nameErrorStyle}>
-          Feedback status must be &apos;success&apos;, &apos;warning&apos;, &apos;error&apos;, or &apos;validating&apos;.
+          Feedback status must be &apos;success&apos;, &apos;warning&apos;,
+          &apos;error&apos;, or &apos;validating&apos;.
         </div>
       );
     }
@@ -355,9 +392,7 @@ export const AntInput = ({
 
   // Build field rules dynamically
   const fieldRules = rules || [
-    validator
-      ? { validator }
-      : { required: !noRequired, message: reqMsg },
+    validator ? { validator } : { required: !noRequired, message: reqMsg },
   ];
 
   // 1. InputNumber / Currency
@@ -378,8 +413,12 @@ export const AntInput = ({
           style={{ width: "100%", ...style }}
           className={className}
           size={size}
-          formatter={(val) => numberPrefixPostfix(numPreFix, numPostFix, val).formatter}
-          parser={(val) => numberPrefixPostfix(numPreFix, numPostFix, val).parser}
+          formatter={(val) =>
+            numberPrefixPostfix(numPreFix, numPostFix, val).formatter
+          }
+          parser={(val) =>
+            numberPrefixPostfix(numPreFix, numPostFix, val).parser
+          }
           onChange={(e) => {
             onChange && onChange(e);
           }}
@@ -389,7 +428,12 @@ export const AntInput = ({
           min={min}
           max={max}
           step={step}
-          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+          placeholder={
+            placeholder ||
+            (extractTextFromLabel(label)
+              ? `Enter ${extractTextFromLabel(label)}`
+              : "")
+          }
           disabled={loading || disabled}
         />
       </Form.Item>
@@ -430,7 +474,12 @@ export const AntInput = ({
           min={min}
           max={max}
           step={step}
-          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+          placeholder={
+            placeholder ||
+            (extractTextFromLabel(label)
+              ? `Enter ${extractTextFromLabel(label)}`
+              : "")
+          }
           disabled={loading || disabled}
         />
       </Form.Item>
@@ -444,12 +493,14 @@ export const AntInput = ({
         label={label}
         name={name}
         {...(value !== undefined ? { initialValue: value } : {})}
-        rules={rules || [
-          { type: "email", message: emailErrorMsg },
-          validator
-            ? { validator }
-            : { required: !noRequired, message: reqMsg },
-        ]}
+        rules={
+          rules || [
+            { type: "email", message: emailErrorMsg },
+            validator
+              ? { validator }
+              : { required: !noRequired, message: reqMsg },
+          ]
+        }
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
@@ -474,7 +525,12 @@ export const AntInput = ({
               sufIconAnt || ""
             )
           }
-          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+          placeholder={
+            placeholder ||
+            (extractTextFromLabel(label)
+              ? `Enter ${extractTextFromLabel(label)}`
+              : "")
+          }
           onChange={(e) => {
             onChange && onChange(e.target.value);
           }}
@@ -493,17 +549,21 @@ export const AntInput = ({
     const labelText = extractTextFromLabel(label);
     const selectPlaceholder =
       placeholder ||
-      (typeof emptyFirstVal === "string" && emptyFirstVal !== "-Select-" && emptyFirstVal !== ""
+      (typeof emptyFirstVal === "string" &&
+      emptyFirstVal !== "-Select-" &&
+      emptyFirstVal !== ""
         ? emptyFirstVal
         : labelText
-        ? `- Select ${labelText} -`
-        : "- Select -");
+          ? `- Select ${labelText} -`
+          : "- Select -");
 
     return (
       <Form.Item
         label={label}
         name={name}
-        {...(value !== undefined && value !== "" ? { initialValue: value } : {})}
+        {...(value !== undefined && value !== ""
+          ? { initialValue: value }
+          : {})}
         rules={fieldRules}
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
@@ -527,11 +587,16 @@ export const AntInput = ({
           }}
           showSearch={filter}
           mode={mode === "multiple-responsive" ? "multiple" : mode || undefined}
-          maxTagCount={mode === "multiple-responsive" ? "responsive" : undefined}
+          maxTagCount={
+            mode === "multiple-responsive" ? "responsive" : undefined
+          }
           options={normalizedSelectOptions}
           placeholder={selectPlaceholder}
           filterOption={(input, option) =>
-            (option?.label ?? "").toString().toLowerCase().includes(input.toLowerCase())
+            (option?.label ?? "")
+              .toString()
+              .toLowerCase()
+              .includes(input.toLowerCase())
           }
           disabled={loading || disabled}
         />
@@ -567,7 +632,10 @@ export const AntInput = ({
           format={format || "DD/MM/YYYY"}
           disabledDate={(current) => {
             if (!current) return false;
-            if (disabledPreviousDate && current.isBefore(dayjs().startOf("day"))) {
+            if (
+              disabledPreviousDate &&
+              current.isBefore(dayjs().startOf("day"))
+            ) {
               return true;
             }
             if (disabledNextDate && current.isAfter(dayjs().endOf("day"))) {
@@ -608,7 +676,12 @@ export const AntInput = ({
           }}
           format={timeFormat || "HH:mm"}
           disabled={loading || disabled}
-          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+          placeholder={
+            placeholder ||
+            (extractTextFromLabel(label)
+              ? `Enter ${extractTextFromLabel(label)}`
+              : "")
+          }
         />
       </Form.Item>
     );
@@ -704,7 +777,9 @@ export const AntInput = ({
             />
           ) : (
             <Checkbox.Group
-              className={gridClassName || (vertical ? "flex flex-col gap-2" : "w-full")}
+              className={
+                gridClassName || (vertical ? "flex flex-col gap-2" : "w-full")
+              }
               onChange={(val) => {
                 onChange && onChange(val);
               }}
@@ -713,8 +788,16 @@ export const AntInput = ({
                 group.map((item, i) => (
                   <Checkbox
                     key={item.key || item.value || i}
-                    style={vertical ? { ...checkboxVerticalStyle, ...style, ...item.style } : { ...style, ...item.style }}
-                    className={className ? `${className} ${item.className || ""}` : item.className}
+                    style={
+                      vertical
+                        ? { ...checkboxVerticalStyle, ...style, ...item.style }
+                        : { ...style, ...item.style }
+                    }
+                    className={
+                      className
+                        ? `${className} ${item.className || ""}`
+                        : item.className
+                    }
                     disabled={item.disabled || false}
                     onChange={(e) => {
                       item.onChange && item.onChange(e.target.checked);
@@ -787,7 +870,12 @@ export const AntInput = ({
           rows={rows || minRows}
           className={className}
           size={size}
-          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+          placeholder={
+            placeholder ||
+            (extractTextFromLabel(label)
+              ? `Enter ${extractTextFromLabel(label)}`
+              : "")
+          }
           onChange={(e) => {
             onChange && onChange(e.target.value);
           }}
@@ -798,7 +886,9 @@ export const AntInput = ({
           autoComplete={autoComplete}
           maxLength={maxLength}
           showCount={showCount}
-          autoSize={maxRows ? { minRows: rows || minRows, maxRows: maxRows } : undefined}
+          autoSize={
+            maxRows ? { minRows: rows || minRows, maxRows: maxRows } : undefined
+          }
         />
       </Form.Item>
     );
@@ -861,7 +951,12 @@ export const AntInput = ({
               sufIconAnt || ""
             )
           }
-          placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+          placeholder={
+            placeholder ||
+            (extractTextFromLabel(label)
+              ? `Enter ${extractTextFromLabel(label)}`
+              : "")
+          }
           onChange={(e) => {
             onChange && onChange(e.target.value);
           }}
@@ -909,7 +1004,12 @@ export const AntInput = ({
             sufIconAnt || ""
           )
         }
-        placeholder={placeholder || (extractTextFromLabel(label) ? `Enter ${extractTextFromLabel(label)}` : "")}
+        placeholder={
+          placeholder ||
+          (extractTextFromLabel(label)
+            ? `Enter ${extractTextFromLabel(label)}`
+            : "")
+        }
         onChange={(e) => {
           onChange && onChange(e.target.value);
         }}
@@ -980,8 +1080,14 @@ export const AntFileUpload = ({
       className={containerClassName}
     >
       <Dragger {...uploadProps}>
-        {icon && <p className="ant-upload-drag-icon" style={{ margin: 0 }}>{icon}</p>}
-        {heading && <p style={{ fontSize: "16px", fontWeight: "bold" }}>{heading}</p>}
+        {icon && (
+          <p className="ant-upload-drag-icon" style={{ margin: 0 }}>
+            {icon}
+          </p>
+        )}
+        {heading && (
+          <p style={{ fontSize: "16px", fontWeight: "bold" }}>{heading}</p>
+        )}
         {para && <p className="text-xs text-slate-500">{para}</p>}
       </Dragger>
     </Form.Item>

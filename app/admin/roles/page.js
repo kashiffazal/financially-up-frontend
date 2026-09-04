@@ -172,8 +172,12 @@ export default function RolesPage() {
         <div className="flex items-center gap-2">
           <KeyOutlined className="text-[#008043]" />
           <div>
-            <span className="font-semibold text-slate-800 dark:text-zinc-100">{val}</span>
-            <div className="text-xs text-slate-400 font-mono">{record.slug}</div>
+            <span className="font-semibold text-slate-800 dark:text-zinc-100">
+              {val}
+            </span>
+            <div className="text-xs text-slate-400 font-mono">
+              {record.slug}
+            </div>
           </div>
         </div>
       ),
@@ -184,7 +188,11 @@ export default function RolesPage() {
       key: "isSystem",
       render: (isSystem) =>
         isSystem ? (
-          <Tag color="geekblue" icon={<LockOutlined />} className="text-xs font-semibold">
+          <Tag
+            color="geekblue"
+            icon={<LockOutlined />}
+            className="text-xs font-semibold"
+          >
             System Protected
           </Tag>
         ) : (
@@ -209,12 +217,7 @@ export default function RolesPage() {
       key: "userCount",
       align: "center",
       render: (val) => (
-        <Badge
-          count={val}
-          showZero
-          color="#008043"
-          className="font-semibold"
-        />
+        <Badge count={val} showZero color="#008043" className="font-semibold" />
       ),
     },
     {
@@ -283,7 +286,8 @@ export default function RolesPage() {
             Roles & Permission Matrix
           </h1>
           <p className="text-sm text-slate-500 dark:text-zinc-400 mt-1">
-            Define dynamic roles and fine-tune operational access permissions across all practice modules.
+            Define dynamic roles and fine-tune operational access permissions
+            across all practice modules.
           </p>
         </div>
 
@@ -304,7 +308,7 @@ export default function RolesPage() {
       </div>
 
       {/* Roles Table */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-4 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-4 shadow-xs">
         <Table
           columns={columns}
           dataSource={roles}
@@ -321,7 +325,12 @@ export default function RolesPage() {
         onCancel={() => setIsAddRoleModalOpen(false)}
         footer={null}
       >
-        <Form form={addForm} layout="vertical" onFinish={handleCreateRole} className="pt-3">
+        <Form
+          form={addForm}
+          layout="vertical"
+          onFinish={handleCreateRole}
+          className="pt-3"
+        >
           <AntInput
             name="name"
             label="Role Name"
@@ -358,8 +367,17 @@ export default function RolesPage() {
         onCancel={() => setIsEditRoleModalOpen(false)}
         footer={null}
       >
-        <Form form={editForm} layout="vertical" onFinish={handleEditRole} className="pt-3">
-          <AntInput name="name" label="Role Name" reqMsg="Role name is required" />
+        <Form
+          form={editForm}
+          layout="vertical"
+          onFinish={handleEditRole}
+          className="pt-3"
+        >
+          <AntInput
+            name="name"
+            label="Role Name"
+            reqMsg="Role name is required"
+          />
 
           <AntInput
             type="textarea"
@@ -370,7 +388,9 @@ export default function RolesPage() {
           />
 
           <div className="flex justify-end gap-2 pt-3 border-t">
-            <Button onClick={() => setIsEditRoleModalOpen(false)}>Cancel</Button>
+            <Button onClick={() => setIsEditRoleModalOpen(false)}>
+              Cancel
+            </Button>
             <Button
               type="primary"
               htmlType="submit"
@@ -401,23 +421,30 @@ export default function RolesPage() {
       >
         <div className="py-2 space-y-4 max-h-[60vh] overflow-y-auto pr-2">
           <p className="text-xs text-slate-500 dark:text-zinc-400">
-            Check the operational actions this role is authorized to perform across each module.
+            Check the operational actions this role is authorized to perform
+            across each module.
           </p>
 
           <div className="space-y-4">
             {Object.entries(permissionsGrouped).map(([moduleName, perms]) => {
               const modulePermIds = perms.map((p) => p.id);
-              const allChecked = modulePermIds.every((id) => selectedPermissionIds.includes(id));
+              const allChecked = modulePermIds.every((id) =>
+                selectedPermissionIds.includes(id),
+              );
               const someChecked =
-                modulePermIds.some((id) => selectedPermissionIds.includes(id)) && !allChecked;
+                modulePermIds.some((id) =>
+                  selectedPermissionIds.includes(id),
+                ) && !allChecked;
 
               const toggleModule = (checked) => {
                 if (checked) {
-                  const toAdd = modulePermIds.filter((id) => !selectedPermissionIds.includes(id));
+                  const toAdd = modulePermIds.filter(
+                    (id) => !selectedPermissionIds.includes(id),
+                  );
                   setSelectedPermissionIds((prev) => [...prev, ...toAdd]);
                 } else {
                   setSelectedPermissionIds((prev) =>
-                    prev.filter((id) => !modulePermIds.includes(id))
+                    prev.filter((id) => !modulePermIds.includes(id)),
                   );
                 }
               };
@@ -450,10 +477,13 @@ export default function RolesPage() {
                           checked={isChecked}
                           onChange={(e) => {
                             if (e.target.checked) {
-                              setSelectedPermissionIds((prev) => [...prev, p.id]);
+                              setSelectedPermissionIds((prev) => [
+                                ...prev,
+                                p.id,
+                              ]);
                             } else {
                               setSelectedPermissionIds((prev) =>
-                                prev.filter((id) => id !== p.id)
+                                prev.filter((id) => id !== p.id),
                               );
                             }
                           }}

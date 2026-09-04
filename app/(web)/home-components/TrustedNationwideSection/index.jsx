@@ -34,10 +34,10 @@ export default function TrustedNationwideSection() {
                 width={500}
                 height={600}
                 // quality={100}
-                className="w-full h-auto object-contain rounded-2xl drop-shadow-lg"
+                className="w-full h-auto object-contain rounded-xl drop-shadow-lg"
               />
 
-              <div className="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold">
+              <div className="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-4 py-2.5 rounded-lg shadow-xl border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
                 <span className="text-slate-800 dark:text-zinc-200">
                   File Received
@@ -65,12 +65,12 @@ export default function TrustedNationwideSection() {
             </p>
 
             <div className={`${styles.magicBorderContainer} rounded-[24px]`}>
-              <div className="relative z-10 bg-white dark:bg-zinc-900 rounded-[22px] p-6 sm:p-8">
+              <div className="relative z-10 bg-white dark:bg-zinc-900 rounded-xl p-6 sm:p-8">
                 <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-4 sm:gap-6">
                   {partnerLogos.map((logo, idx) => (
                     <div
                       key={idx}
-                      className="h-16 sm:h-20 flex items-center justify-center p-3 rounded-2xl bg-emerald-50/40 dark:bg-zinc-800/40 border border-emerald-100/50 dark:border-zinc-700/50 hover:bg-white dark:hover:bg-zinc-800 hover:border-emerald-300 dark:hover:border-emerald-600 hover:shadow-md hover:scale-[1.04] transition-all duration-200 cursor-pointer"
+                      className="h-16 sm:h-20 flex items-center justify-center p-3 rounded-lg bg-emerald-50/40 dark:bg-zinc-800/40 border border-emerald-100/50 dark:border-zinc-700/50 hover:bg-white dark:hover:bg-zinc-800 hover:border-emerald-300 dark:hover:border-emerald-600 hover:shadow-md hover:scale-[1.04] transition-all duration-200 cursor-pointer"
                     >
                       <Image
                         src={logo.src}

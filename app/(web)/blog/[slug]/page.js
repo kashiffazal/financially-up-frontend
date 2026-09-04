@@ -32,8 +32,7 @@ export default function SingleBlogPostPage({ params }) {
   const [subscribed, setSubscribed] = useState(false);
 
   // Find post by slug or default to first post
-  const post =
-    BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
+  const post = BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
 
   // Recent articles (excluding current post)
   const recentPosts = BLOG_POSTS.filter((p) => p.id !== post.id).slice(0, 3);
@@ -58,7 +57,6 @@ export default function SingleBlogPostPage({ params }) {
 
   return (
     <div className="w-full bg-slate-50/60 dark:bg-zinc-950 transition-colors duration-300 min-h-screen">
-      
       {/* ── 1. RICH COLORED HERO SECTION (Deep Brand Emerald Gradient) ── */}
       <section className="relative pt-16 sm:pt-20 pb-28 sm:pb-36 bg-gradient-to-br from-[#00381e] via-[#005a30] to-[#008043] dark:from-[#002413] dark:via-[#003b20] dark:to-[#00170c] text-white overflow-hidden shadow-lg">
         {/* Ambient Glowing Lighting Orbs */}
@@ -66,20 +64,20 @@ export default function SingleBlogPostPage({ params }) {
         <div className="absolute top-1/2 -left-32 w-80 h-80 rounded-full bg-[#ccff00]/10 blur-3xl pointer-events-none" />
 
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-          
           {/* Frosted Glass Pill Breadcrumbs */}
           <nav className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-semibold text-white/90 shadow-sm">
             <Link href="/" className="hover:text-emerald-200 transition-colors">
               Home
             </Link>
             <RightOutlined className="text-[9px] text-emerald-200" />
-            <Link href="/blog" className="hover:text-emerald-200 transition-colors">
+            <Link
+              href="/blog"
+              className="hover:text-emerald-200 transition-colors"
+            >
               Blog
             </Link>
             <RightOutlined className="text-[9px] text-emerald-200" />
-            <span className="text-emerald-300 font-black">
-              {post.category}
-            </span>
+            <span className="text-emerald-300 font-black">{post.category}</span>
           </nav>
 
           {/* Big Bold Headline in Pure White */}
@@ -100,7 +98,8 @@ export default function SingleBlogPostPage({ params }) {
             <span className="hidden sm:inline text-emerald-300/60">•</span>
 
             <span className="flex items-center gap-1.5">
-              <ClockCircleOutlined className="text-emerald-300" /> {post.readTime}
+              <ClockCircleOutlined className="text-emerald-300" />{" "}
+              {post.readTime}
             </span>
 
             <span className="hidden sm:inline text-emerald-300/60">|</span>
@@ -113,13 +112,12 @@ export default function SingleBlogPostPage({ params }) {
               <span className="font-bold">{post.author.name}</span>
             </div>
           </div>
-
         </div>
       </section>
 
       {/* ── 2. FLOATING 16:9 FEATURED IMAGE (Max-Width 1200px with Negative Margin Overlap) ── */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 -mt-20 sm:-mt-28 relative z-20">
-        <div className="relative w-full h-64 sm:h-80 md:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 bg-zinc-900">
+        <div className="relative w-full h-64 sm:h-80 md:h-[460px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 bg-zinc-900">
           <Image
             src={post.image}
             alt={post.title}
@@ -138,12 +136,10 @@ export default function SingleBlogPostPage({ params }) {
       {/* ── 3. MAIN READING AREA (Max-Width 1200px: 8 Cols Content + 4 Cols Sidebar) ── */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-          
           {/* ── LEFT ARTICLE CONTENT (8 Columns) ── */}
           <main className="lg:col-span-8 space-y-8">
-            
             {/* Key Article Summary Callout Box */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-brand-primary-soft/40 dark:bg-emerald-950/30 border-l-4 border-brand-primary border border-emerald-200/50 dark:border-emerald-800/40 space-y-2 shadow-xs">
+            <div className="p-6 sm:p-7 rounded-xl bg-brand-primary-soft/40 dark:bg-emerald-950/30 border-l-4 border-brand-primary border border-emerald-200/50 dark:border-emerald-800/40 space-y-2 shadow-xs">
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-brand-primary dark:text-emerald-400 block">
                 KEY ARTICLE SUMMARY
               </span>
@@ -176,7 +172,7 @@ export default function SingleBlogPostPage({ params }) {
 
             {/* Key Takeaways Checklist Box */}
             {post.content.keyTakeaways && (
-              <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
+              <div className="p-6 sm:p-8 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
                 <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-zinc-50 flex items-center gap-2">
                   <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400" />
                   Key Takeaways for Taxpayers
@@ -210,8 +206,8 @@ export default function SingleBlogPostPage({ params }) {
             )}
 
             {/* Author Bio Footer Box */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-brand-primary-soft/50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-xs">
-              <div className="w-14 h-14 rounded-2xl bg-brand-primary text-white flex items-center justify-center font-black text-base shrink-0 shadow-md">
+            <div className="p-6 sm:p-7 rounded-xl bg-brand-primary-soft/50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-xs">
+              <div className="w-14 h-14 rounded-xl bg-brand-primary text-white flex items-center justify-center font-black text-base shrink-0 shadow-md">
                 {post.author.avatar}
               </div>
               <div className="space-y-1 text-center sm:text-left min-w-0">
@@ -225,7 +221,9 @@ export default function SingleBlogPostPage({ params }) {
                   {post.author.role} • {post.author.qualifications}
                 </p>
                 <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed pt-1">
-                  Registered Australian tax agent and advisor helping individuals, sole traders, and companies navigate ATO compliance, deductions optimization, and wealth structuring.
+                  Registered Australian tax agent and advisor helping
+                  individuals, sole traders, and companies navigate ATO
+                  compliance, deductions optimization, and wealth structuring.
                 </p>
               </div>
             </div>
@@ -239,14 +237,12 @@ export default function SingleBlogPostPage({ params }) {
                 <ArrowLeftOutlined className="text-xs" /> Back to Blog Listing
               </Link>
             </div>
-
           </main>
 
           {/* ── RIGHT SIDEBAR (4 Columns) ── */}
           <aside className="lg:col-span-4 space-y-6 relative">
-            
             {/* Widget 1: Need Advice CTA (Scrolls Normally at Top) */}
-            <div className="p-7 rounded-3xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] text-white shadow-xl space-y-4">
+            <div className="p-7 rounded-xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] text-white shadow-xl space-y-4">
               <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white text-lg">
                 <SafetyCertificateOutlined />
               </div>
@@ -254,14 +250,17 @@ export default function SingleBlogPostPage({ params }) {
                 Need Tax Advice on This Topic?
               </h3>
               <p className="text-xs text-emerald-100 leading-relaxed">
-                Connect with our registered tax agents for tailored tax planning, ATO lodgements, and business structuring consultations.
+                Connect with our registered tax agents for tailored tax
+                planning, ATO lodgements, and business structuring
+                consultations.
               </p>
               <Link href="/book-an-appointment" className="block !no-underline">
                 <Button
                   size="large"
                   className="w-full h-11 rounded-xl font-extrabold text-xs bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md"
                 >
-                  Book 1-on-1 Consultation <ArrowRightOutlined className="text-xs" />
+                  Book 1-on-1 Consultation{" "}
+                  <ArrowRightOutlined className="text-xs" />
                 </Button>
               </Link>
               <a
@@ -274,9 +273,8 @@ export default function SingleBlogPostPage({ params }) {
 
             {/* ── STICKY SIDEBAR CONTAINER (Starting from RECENT ARTICLES, Desktop Only) ── */}
             <div className="lg:sticky lg:top-[140px] space-y-6">
-              
               {/* Widget 2: RECENT ARTICLES */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
+              <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
                 <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50 flex items-center gap-2">
                   <BookOutlined className="text-brand-primary dark:text-emerald-400" />
                   RECENT ARTICLES
@@ -289,7 +287,7 @@ export default function SingleBlogPostPage({ params }) {
                       className="flex items-center gap-3 pt-3.5 first:pt-0 group !no-underline"
                     >
                       {/* Thumbnail */}
-                      <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 dark:bg-zinc-800 shrink-0 border border-slate-200/60 dark:border-zinc-700">
+                      <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-zinc-800 shrink-0 border border-slate-200/60 dark:border-zinc-700">
                         <Image
                           src={rPost.image}
                           alt={rPost.title}
@@ -315,7 +313,7 @@ export default function SingleBlogPostPage({ params }) {
               </div>
 
               {/* Widget 3: SHARE THIS ARTICLE */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
+              <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
                 <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50 flex items-center gap-2">
                   <ShareAltOutlined className="text-brand-primary dark:text-emerald-400" />
                   SHARE THIS ARTICLE
@@ -359,7 +357,7 @@ export default function SingleBlogPostPage({ params }) {
               </div>
 
               {/* Widget 4: WEEKLY DISPATCH / ENJOYED THIS READ? */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
+              <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
                 <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary dark:text-emerald-400 block">
                   WEEKLY DISPATCH
                 </span>
@@ -367,11 +365,12 @@ export default function SingleBlogPostPage({ params }) {
                   ENJOYED THIS READ?
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
-                  Subscribe to get the latest tax strategies, ATO updates, and compliance guides delivered weekly.
+                  Subscribe to get the latest tax strategies, ATO updates, and
+                  compliance guides delivered weekly.
                 </p>
 
                 {subscribed ? (
-                  <div className="p-3.5 rounded-2xl bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
+                  <div className="p-3.5 rounded-xl bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
                     <CheckCircleFilled className="text-sm" />
                     <span>Subscribed! Check your inbox soon.</span>
                   </div>
@@ -395,11 +394,8 @@ export default function SingleBlogPostPage({ params }) {
                   </form>
                 )}
               </div>
-
             </div>
-
           </aside>
-
         </div>
       </div>
     </div>

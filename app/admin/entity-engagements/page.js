@@ -145,7 +145,8 @@ export default function EntityEngagementsPage() {
       });
 
       const recordsData = res?.data?.records || res?.records || [];
-      const totalCount = res?.data?.pagination?.total || res?.pagination?.total || 0;
+      const totalCount =
+        res?.data?.pagination?.total || res?.pagination?.total || 0;
 
       // Map API records to include a 'key' prop for Ant Design Table
       const records = recordsData.map((record) => ({
@@ -267,7 +268,9 @@ export default function EntityEngagementsPage() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await HTTP("PUT", `/entity-engagements/${record.id}`, { status: newStatus });
+          await HTTP("PUT", `/entity-engagements/${record.id}`, {
+            status: newStatus,
+          });
           antdMsg.success(`Status changed to "${newStatus}" successfully`);
           fetchData(); // Refresh table data
         } catch (error) {

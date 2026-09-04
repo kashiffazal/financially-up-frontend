@@ -173,13 +173,14 @@ export default function Login() {
           </h2>
 
           <p className="text-white/80 text-base md:text-lg leading-relaxed mb-12 drop-shadow-sm">
-            Manage registrations, engagements, roles, and compliance workflows across
-            Medicare, GST, Trusts, SMSF and company operations with full immutable audit tracking.
+            Manage registrations, engagements, roles, and compliance workflows
+            across Medicare, GST, Trusts, SMSF and company operations with full
+            immutable audit tracking.
           </p>
 
           {/* 3 Glassmorphism Statistics Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+            <div className="glass-panel p-5 rounded-xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
                 24+
               </span>
@@ -188,7 +189,7 @@ export default function Login() {
               </span>
             </div>
 
-            <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+            <div className="glass-panel p-5 rounded-xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
                 RBAC
               </span>
@@ -197,7 +198,7 @@ export default function Login() {
               </span>
             </div>
 
-            <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+            <div className="glass-panel p-5 rounded-xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
                 100%
               </span>

@@ -32,7 +32,8 @@ export default function FormPreFooter() {
                 Need Help Completing Your Form?
               </h3>
               <p className="text-xs text-slate-500 dark:text-zinc-400">
-                Our Australian Registered Tax Agents are available to assist you.
+                Our Australian Registered Tax Agents are available to assist
+                you.
               </p>
             </div>
           </div>
@@ -43,7 +44,9 @@ export default function FormPreFooter() {
             className="inline-flex items-center gap-2 font-extrabold text-xs sm:text-sm text-brand-primary hover:text-brand-primary-hover dark:text-emerald-400 dark:hover:text-emerald-300 transition-all shrink-0 group !no-underline"
           >
             <CalendarOutlined className="text-brand-primary dark:text-emerald-400 text-sm group-hover:scale-110 transition-transform" />
-            <span className="group-hover:underline">Book 1-on-1 Consultation</span>
+            <span className="group-hover:underline">
+              Book 1-on-1 Consultation
+            </span>
             <ArrowRightOutlined className="text-xs transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
@@ -51,7 +54,7 @@ export default function FormPreFooter() {
         {/* Compact 3-Column Support Bar */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* ITEM 1: Direct Support Phone & Email */}
-          <div className="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
+          <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
             <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <PhoneOutlined />
             </div>
@@ -77,7 +80,7 @@ export default function FormPreFooter() {
           </div>
 
           {/* ITEM 2: ATO Compliance & Privacy Protection */}
-          <div className="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
+          <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
             <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <LockOutlined />
             </div>
@@ -99,7 +102,7 @@ export default function FormPreFooter() {
           </div>
 
           {/* ITEM 3: Head Office */}
-          <div className="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
+          <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
             <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <SafetyCertificateOutlined />
             </div>

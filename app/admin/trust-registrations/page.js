@@ -144,7 +144,8 @@ export default function TrustRegistrationsPage() {
       });
 
       const recordsData = res?.data?.records || res?.records || [];
-      const totalCount = res?.data?.pagination?.total || res?.pagination?.total || 0;
+      const totalCount =
+        res?.data?.pagination?.total || res?.pagination?.total || 0;
 
       // Map API records to include a 'key' prop for Ant Design Table
       const records = recordsData.map((record) => ({
@@ -269,7 +270,9 @@ export default function TrustRegistrationsPage() {
       cancelButtonProps: { style: { borderRadius: 8 } },
       onOk: async () => {
         try {
-          await HTTP("PUT", `/trust-registrations/${record.id}`, { status: newStatus });
+          await HTTP("PUT", `/trust-registrations/${record.id}`, {
+            status: newStatus,
+          });
           antdMsg.success(`Status changed to "${newStatus}" successfully`);
           fetchData(); // Refresh table data
         } catch (error) {

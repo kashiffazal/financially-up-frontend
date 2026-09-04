@@ -8,7 +8,7 @@
 }
 
 .c_k_table_0 .dataTable .ant-table {
-  border-radius: 0.75rem;
+  border-radius: var(--radius-table, var(--radius-admin-table));
 }
 
 .c_k_table_0 .dataTable .ant-table-thead > tr > th {

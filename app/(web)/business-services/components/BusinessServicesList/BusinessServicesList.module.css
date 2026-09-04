@@ -45,7 +45,7 @@
 .serviceImageWrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: var(--radius-card);
 }
 
 .serviceImageWrapper img {

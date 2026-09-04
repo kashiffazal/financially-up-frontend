@@ -84,7 +84,7 @@ export const COMPANY_REG_STATUS_LIST = [
  * ============================================================================
  * Company Registration Status Logs Container (`log/index.js`)
  * ============================================================================
- * 
+ *
  * Architecture Role:
  * 1. Fetches all company registration records from the backend API.
  * 2. Groups records into separate arrays by their `status` (e.g. statusMap['Submitted'], statusMap['Approved']).
@@ -96,13 +96,13 @@ export default function CompanyRegistrationLogModule() {
   // --------------------------------------------------------------------------
   // 1. STATE DEFINITIONS
   // --------------------------------------------------------------------------
-  
+
   // Loading spinner state during initial API fetch
   const [loading, setLoading] = useState(false);
-  
+
   // Currently active status tab key (default: "All")
   const [activeStatusKey, setActiveStatusKey] = useState("All");
-  
+
   // Dictionary object storing arrays of records keyed by status name
   // e.g. { All: [...], Submitted: [...], "Under Review": [...], Approved: [...] }
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
@@ -110,7 +110,7 @@ export default function CompanyRegistrationLogModule() {
   // --------------------------------------------------------------------------
   // 2. DATA FETCHING & GROUPING LOGIC
   // --------------------------------------------------------------------------
-  
+
   /**
    * fetchRecords()
    * Loads all company registration applications from the REST API
@@ -164,7 +164,7 @@ export default function CompanyRegistrationLogModule() {
   // --------------------------------------------------------------------------
   // 3. REAL-TIME STATUS UPDATE HANDLER (NO FULL PAGE RELOAD)
   // --------------------------------------------------------------------------
-  
+
   /**
    * handleUpdateListOnChangeStatus()
    * When an admin changes the status of a record:
@@ -186,7 +186,7 @@ export default function CompanyRegistrationLogModule() {
         if (oldStatus && updatedMap[oldStatus]) {
           updatedMap[oldStatus] = LogDeleteRow(
             updatedRow,
-            updatedMap[oldStatus]
+            updatedMap[oldStatus],
           );
         }
 
@@ -194,7 +194,7 @@ export default function CompanyRegistrationLogModule() {
         if (updatedMap[targetStatusKey]) {
           updatedMap[targetStatusKey] = LogResetList(
             updatedRow,
-            updatedMap[targetStatusKey]
+            updatedMap[targetStatusKey],
           );
         } else {
           updatedMap[targetStatusKey] = [updatedRow];
@@ -208,7 +208,7 @@ export default function CompanyRegistrationLogModule() {
         return updatedMap;
       });
     },
-    []
+    [],
   );
 
   // --------------------------------------------------------------------------
@@ -274,18 +274,13 @@ export default function CompanyRegistrationLogModule() {
     });
 
     return [allTab, ...statusTabs];
-  }, [
-    listDataByStatus,
-    handleUpdateListOnChangeStatus,
-    fetchRecords,
-    loading,
-  ]);
+  }, [listDataByStatus, handleUpdateListOnChangeStatus, fetchRecords, loading]);
 
   // --------------------------------------------------------------------------
   // 5. RENDER TABS
   // --------------------------------------------------------------------------
   return (
-    <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+    <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm">
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

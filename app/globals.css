@@ -44,44 +44,54 @@
      ======================================================================== */
 
   /* --- PUBLIC WEBSITE RADIUS TOKENS --- */
-  --radius-web-base: 12px;
-  --radius-web-xs: 4px;
-  --radius-web-sm: 8px;
-  --radius-web-md: 12px;
-  --radius-web-lg: 16px;
-  --radius-web-xl: 20px;
-  --radius-web-2xl: 24px;
-  --radius-web-3xl: 32px;
-  --radius-web-btn: 12px;
-  --radius-web-input: 10px;
-  --radius-web-card: 20px;
-  --radius-web-modal: 24px;
-  --radius-web-tag: 8px;
-  --radius-web-table: 12px;
+  --radius-web-base: 50px;
+  /* --radius-web-xs: 50px;
+  --radius-web-sm: 50px;
+  --radius-web-md: 50px;
+  --radius-web-lg: 50px;
+  --radius-web-xl: 12px;
+  --radius-web-2xl: 7px;
+  --radius-web-3xl: 50px; */
+  --radius-web-btn: 6px;
+  --radius-web-input: 6px;
+  --radius-web-card: 12px;
+  --radius-web-modal: 20px;
+  --radius-web-tag: 6px;
+  --radius-web-table: 100px;
+  --radius-web-pill: 100px;
 
   /* --- ADMIN PORTAL RADIUS TOKENS --- */
-  --radius-admin-base: 8px;
-  --radius-admin-xs: 3px;
-  --radius-admin-sm: 6px;
-  --radius-admin-md: 8px;
-  --radius-admin-lg: 12px;
-  --radius-admin-xl: 16px;
-  --radius-admin-2xl: 20px;
-  --radius-admin-3xl: 24px;
-  --radius-admin-btn: 8px;
-  --radius-admin-input: 8px;
-  --radius-admin-card: 16px;
-  --radius-admin-modal: 16px;
+  --radius-admin-base: 0px;
+  /* --radius-admin-xs: 0px;
+  --radius-admin-sm: 0px;
+  --radius-admin-md: 0px;
+  --radius-admin-lg: 0px;
+  --radius-admin-xl: 0px;
+  --radius-admin-2xl: 0px;
+  --radius-admin-3xl: 0px; */
+  --radius-admin-btn: 6px;
+  --radius-admin-input: 6px;
+  --radius-admin-card: 12px;
+  --radius-admin-modal: 20px;
   --radius-admin-tag: 6px;
-  --radius-admin-table: 10px;
+  --radius-admin-table: 0px;
+  --radius-admin-pill: 0px;
 
   /* --- CONTEXTUAL DEFAULT RADIUS (Resolves to Web by default) --- */
+  /* --radius-xs: var(--radius-web-xs);
+  --radius-sm: var(--radius-web-sm);
+  --radius-md: var(--radius-web-md);
+  --radius-lg: var(--radius-web-lg);
+  --radius-xl: var(--radius-web-xl);
+  --radius-2xl: var(--radius-web-2xl);
+  --radius-3xl: var(--radius-web-3xl); */
   --radius-btn: var(--radius-web-btn);
   --radius-input: var(--radius-web-input);
   --radius-card: var(--radius-web-card);
   --radius-modal: var(--radius-web-modal);
   --radius-tag: var(--radius-web-tag);
   --radius-table: var(--radius-web-table);
+  --radius-pill: var(--radius-web-pill);
 }
 
 .dark {
@@ -97,22 +107,38 @@
 
 /* Scoped Radius Context for Admin Portal */
 .admin-portal-root {
+  /* --radius-xs: var(--radius-admin-xs);
+  --radius-sm: var(--radius-admin-sm);
+  --radius-md: var(--radius-admin-md);
+  --radius-lg: var(--radius-admin-lg);
+  --radius-xl: var(--radius-admin-xl);
+  --radius-2xl: var(--radius-admin-2xl);
+  --radius-3xl: var(--radius-admin-3xl); */
   --radius-btn: var(--radius-admin-btn);
   --radius-input: var(--radius-admin-input);
   --radius-card: var(--radius-admin-card);
   --radius-modal: var(--radius-admin-modal);
   --radius-tag: var(--radius-admin-tag);
   --radius-table: var(--radius-admin-table);
+  --radius-pill: var(--radius-admin-pill);
 }
 
 /* Scoped Radius Context for Public Web */
 .web-portal-root {
+  /* --radius-xs: var(--radius-web-xs);
+  --radius-sm: var(--radius-web-sm);
+  --radius-md: var(--radius-web-md);
+  --radius-lg: var(--radius-web-lg);
+  --radius-xl: var(--radius-web-xl);
+  --radius-2xl: var(--radius-web-2xl);
+  --radius-3xl: var(--radius-web-3xl); */
   --radius-btn: var(--radius-web-btn);
   --radius-input: var(--radius-web-input);
   --radius-card: var(--radius-web-card);
   --radius-modal: var(--radius-web-modal);
   --radius-tag: var(--radius-web-tag);
   --radius-table: var(--radius-web-table);
+  --radius-pill: var(--radius-web-pill);
 }
 
 @theme {
@@ -128,7 +154,18 @@
   --color-brand-bg-lighter-m2: var(--brand-bg-lighter-m2);
   --color-brand-bg-lighter-m3: var(--brand-bg-lighter-m3);
 
-  /* Contextual Dynamic Radius Tokens */
+  /* Standard Tailwind Radius Tokens mapped to dynamic variables */
+  /* --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl); */
+  --radius: var(--radius-md);
+  --radius-full: var(--radius-pill);
+
+  /* Contextual Dynamic Semantic Radius Tokens */
   --radius-btn: var(--radius-btn);
   --radius-input: var(--radius-input);
   --radius-card: var(--radius-card);
@@ -138,35 +175,93 @@
 
   /* Web-Specific Radius Tokens */
   --radius-web-base: var(--radius-web-base);
-  --radius-web-xs: var(--radius-web-xs);
+  /* --radius-web-xs: var(--radius-web-xs);
   --radius-web-sm: var(--radius-web-sm);
   --radius-web-md: var(--radius-web-md);
   --radius-web-lg: var(--radius-web-lg);
   --radius-web-xl: var(--radius-web-xl);
   --radius-web-2xl: var(--radius-web-2xl);
-  --radius-web-3xl: var(--radius-web-3xl);
+  --radius-web-3xl: var(--radius-web-3xl); */
   --radius-web-btn: var(--radius-web-btn);
   --radius-web-input: var(--radius-web-input);
   --radius-web-card: var(--radius-web-card);
   --radius-web-modal: var(--radius-web-modal);
   --radius-web-tag: var(--radius-web-tag);
   --radius-web-table: var(--radius-web-table);
+  --radius-web-pill: var(--radius-web-pill);
 
   /* Admin-Specific Radius Tokens */
   --radius-admin-base: var(--radius-admin-base);
-  --radius-admin-xs: var(--radius-admin-xs);
+  /* --radius-admin-xs: var(--radius-admin-xs);
   --radius-admin-sm: var(--radius-admin-sm);
   --radius-admin-md: var(--radius-admin-md);
   --radius-admin-lg: var(--radius-admin-lg);
   --radius-admin-xl: var(--radius-admin-xl);
   --radius-admin-2xl: var(--radius-admin-2xl);
-  --radius-admin-3xl: var(--radius-admin-3xl);
+  --radius-admin-3xl: var(--radius-admin-3xl); */
   --radius-admin-btn: var(--radius-admin-btn);
   --radius-admin-input: var(--radius-admin-input);
   --radius-admin-card: var(--radius-admin-card);
   --radius-admin-modal: var(--radius-admin-modal);
   --radius-admin-tag: var(--radius-admin-tag);
   --radius-admin-table: var(--radius-admin-table);
+  --radius-admin-pill: var(--radius-admin-pill);
+}
+
+/* ==========================================================================
+   Universal Ant Design & UI Component Radius Bindings
+   ========================================================================== */
+.ant-btn,
+.ant-btn-default,
+.ant-btn-primary,
+.ant-btn-dashed {
+  border-radius: var(--radius-btn) !important;
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-picker,
+.ant-input-number,
+.ant-input-password {
+  border-radius: var(--radius-input) !important;
+}
+
+.ant-modal-content,
+.ant-modal-header {
+  border-radius: var(--radius-modal) !important;
+}
+
+.ant-card {
+  border-radius: var(--radius-card) !important;
+}
+
+.ant-tag {
+  border-radius: var(--radius-tag) !important;
+}
+
+.ant-table,
+.ant-table-container,
+.ant-table-wrapper {
+  border-radius: var(--radius-table) !important;
+}
+
+.ant-popover-inner,
+.ant-popconfirm {
+  border-radius: var(--radius-modal) !important;
+}
+
+/* .ant-tabs-nav,
+.ant-tabs-tab {
+  border-radius: var(--radius-sm) !important;
+}
+
+.ant-dropdown-menu {
+  border-radius: var(--radius-sm) !important;
+} */
+
+.ant-segmented {
+  border-radius: var(--radius-input) !important;
 }
 
 /* ==========================================================================
@@ -180,7 +275,7 @@
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
   padding: 0.25rem 0.875rem !important; /* py-1 px-3.5 */
-  border-radius: 6px !important;
+  border-radius: var(--radius-tag) !important;
   border: none !important;
   /* color: var(--brand-primary) !important; */
   box-shadow: 0 1px 2px #0000002e !important;
@@ -276,7 +371,8 @@ body {
 }
 
 @keyframes breath-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 10px 30px -5px rgba(0, 128, 67, 0.15);
   }
@@ -287,7 +383,8 @@ body {
 }
 
 @keyframes pillar-wave {
-  0%, 100% {
+  0%,
+  100% {
     height: 12px;
     opacity: 0.35;
   }
@@ -299,7 +396,8 @@ body {
 }
 
 @keyframes float-y {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {

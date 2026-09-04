@@ -47,7 +47,7 @@ export default function PartnershipOverview() {
               {highlights.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 hover:bg-brand-primary-soft transition-all"
+                  className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 hover:bg-brand-primary-soft transition-all"
                 >
                   <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-sm shrink-0" />
                   <span className="leading-snug">{item}</span>
@@ -72,17 +72,17 @@ export default function PartnershipOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
                 src="/images/services/Partnership.webp"
                 alt="Expert Assistance for Partnership Tax Returns"
                 width={550}
                 height={550}
-                className="w-full h-[550px] object-cover rounded-2xl"
+                className="w-full h-[550px] object-cover rounded-xl"
               />
 
               {/* Floating Trust Badge */}
-              <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-200/80 dark:border-zinc-800 flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-50 z-10">
+              <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-lg shadow-lg border border-slate-200/80 dark:border-zinc-800 flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-50 z-10">
                 <TeamOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
                 <span>Partner Profit Splits</span>
               </div>

@@ -2,12 +2,19 @@
 
 import React from "react";
 import { Tag, Form } from "antd";
-import { DollarOutlined, BankOutlined, FileTextOutlined } from "@ant-design/icons";
+import {
+  DollarOutlined,
+  BankOutlined,
+  FileTextOutlined,
+} from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 
 export default function Step10OptionalTaxServices({ form }) {
   const gstRequired = Form.useWatch("gstRegistrationRequired", form);
-  const busNameRequired = Form.useWatch("businessNameRegistrationRequired", form);
+  const busNameRequired = Form.useWatch(
+    "businessNameRegistrationRequired",
+    form,
+  );
 
   return (
     <div className="space-y-4 animate-fadeIn">
@@ -28,17 +35,18 @@ export default function Step10OptionalTaxServices({ form }) {
           Optional ATO Tax Registrations & Corporate Services
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Select optional ABN, TFN, GST, PAYG Withholding, business bank accounts, and Xero/MYOB accounting software setup.
+          Select optional ABN, TFN, GST, PAYG Withholding, business bank
+          accounts, and Xero/MYOB accounting software setup.
         </p>
       </div>
 
       {/* Tax Registrations */}
-      <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
+      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-              <DollarOutlined className="text-brand-primary text-sm" /> ATO Tax Registrations
+              <DollarOutlined className="text-brand-primary text-sm" /> ATO Tax
+              Registrations
             </h3>
           </div>
         </div>
@@ -47,8 +55,16 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="select"
             name="abnTfnRequired"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Company ABN / TFN Application</span>}
-            options={["Yes, apply for Company ABN and TFN (Recommended)", "No, will arrange separately", "Unsure - advice required"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Company ABN / TFN Application
+              </span>
+            }
+            options={[
+              "Yes, apply for Company ABN and TFN (Recommended)",
+              "No, will arrange separately",
+              "Unsure - advice required",
+            ]}
             emptyFirstVal="- Select Option -"
             reqMsg="ABN/TFN selection is required"
             size="large"
@@ -59,8 +75,16 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="select"
             name="gstRegistrationRequired"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">GST Registration (BAS)</span>}
-            options={["Yes, register for GST", "No GST registration at this stage", "Unsure - advice required"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                GST Registration (BAS)
+              </span>
+            }
+            options={[
+              "Yes, register for GST",
+              "No GST registration at this stage",
+              "Unsure - advice required",
+            ]}
             emptyFirstVal="- Select GST -"
             reqMsg="GST selection is required"
             size="large"
@@ -71,8 +95,16 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="select"
             name="paygWithholdingRequired"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">PAYG Withholding (Employees)</span>}
-            options={["Yes, register for PAYGW for staff/directors", "No employees at this stage", "Unsure"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                PAYG Withholding (Employees)
+              </span>
+            }
+            options={[
+              "Yes, register for PAYGW for staff/directors",
+              "No employees at this stage",
+              "Unsure",
+            ]}
             emptyFirstVal="- Select PAYGW -"
             reqMsg="PAYGW selection is required"
             size="large"
@@ -81,12 +113,23 @@ export default function Step10OptionalTaxServices({ form }) {
           />
         </div>
 
-        {(gstRequired === "Yes, register for GST" || gstRequired === "Unsure - advice required") && (
+        {(gstRequired === "Yes, register for GST" ||
+          gstRequired === "Unsure - advice required") && (
           <AntInput
             type="select"
             name="expectedTurnover"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Expected Annual Turnover</span>}
-            options={["Under $75,000 (Voluntary)", "$75,000 - $149,999", "$150,000 - $499,999", "$500,000 - $1,999,999", "$2,000,000+"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Expected Annual Turnover
+              </span>
+            }
+            options={[
+              "Under $75,000 (Voluntary)",
+              "$75,000 - $149,999",
+              "$150,000 - $499,999",
+              "$500,000 - $1,999,999",
+              "$2,000,000+",
+            ]}
             emptyFirstVal="- Select Projected Turnover -"
             size="large"
             className="rounded-xl"
@@ -96,12 +139,12 @@ export default function Step10OptionalTaxServices({ form }) {
       </div>
 
       {/* Post-Registration & Banking Services */}
-      <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
-
+      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
-              <BankOutlined className="text-brand-primary text-sm" /> Bank Account & Accounting Software Setup
+              <BankOutlined className="text-brand-primary text-sm" /> Bank
+              Account & Accounting Software Setup
             </h3>
           </div>
         </div>
@@ -110,8 +153,16 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="select"
             name="businessNameRegistrationRequired"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">ASIC Business Name Registration</span>}
-            options={["Yes, register separate business trading name", "No (Trading as company name)", "Unsure"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                ASIC Business Name Registration
+              </span>
+            }
+            options={[
+              "Yes, register separate business trading name",
+              "No (Trading as company name)",
+              "Unsure",
+            ]}
             emptyFirstVal="- Select Option -"
             reqMsg="Business name preference is required"
             size="large"
@@ -122,8 +173,15 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="select"
             name="bankAccountAssistance"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Business Bank Account Assistance</span>}
-            options={["Yes, assist with Macquarie / CBA / NAB business account", "No, will arrange directly"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Business Bank Account Assistance
+              </span>
+            }
+            options={[
+              "Yes, assist with Macquarie / CBA / NAB business account",
+              "No, will arrange directly",
+            ]}
             emptyFirstVal="- Select Bank Assistance -"
             reqMsg="Bank assistance preference is required"
             size="large"
@@ -134,8 +192,17 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="select"
             name="accountingSoftware"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Accounting Software Setup</span>}
-            options={["Xero (Recommended)", "MYOB Business", "QuickBooks Online", "Not required"]}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Accounting Software Setup
+              </span>
+            }
+            options={[
+              "Xero (Recommended)",
+              "MYOB Business",
+              "QuickBooks Online",
+              "Not required",
+            ]}
             emptyFirstVal="- Select Software -"
             reqMsg="Software preference is required"
             size="large"
@@ -148,7 +215,11 @@ export default function Step10OptionalTaxServices({ form }) {
           <AntInput
             type="text"
             name="postRegBusinessName"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Desired Trading Name to Register</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Desired Trading Name to Register
+              </span>
+            }
             placeholder="e.g. Apex Digital Consulting"
             reqMsg="Desired trading name is required"
             size="large"

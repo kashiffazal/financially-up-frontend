@@ -14,14 +14,14 @@ export default function GoogleReviewsSection() {
     <section className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
         <div
-          className={`bg-gradient-to-r from-emerald-50/60 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-900/60 rounded-3xl border border-emerald-100 dark:border-zinc-800 p-8 sm:p-10 shadow-sm ${styles.reviewsContainer}`}
+          className={`bg-gradient-to-r from-emerald-50/60 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-900/60 rounded-xl border border-emerald-100 dark:border-zinc-800 p-8 sm:p-9 shadow-sm ${styles.reviewsContainer}`}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-white dark:bg-zinc-950 shadow-md border border-slate-100 dark:border-zinc-800 flex items-center justify-center shrink-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-0 items-center">
+            <div className="lg:col-span-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="w-21 h-21 rounded-lg bg-white dark:bg-zinc-950 shadow-md border border-slate-100 dark:border-zinc-800 flex items-center justify-center shrink-0">
                 <svg
-                  width="32"
-                  height="32"
+                  width="50"
+                  height="50"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ export default function GoogleReviewsSection() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-4">
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-4">
               <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-slate-700 dark:text-zinc-300">
                 <div className="flex items-center gap-1.5 bg-white dark:bg-zinc-950 px-3.5 py-1.5 rounded-full border border-slate-200/80 dark:border-zinc-800 shadow-sm">
                   <CheckCircleFilled className="text-brand-primary dark:text-emerald-400" />

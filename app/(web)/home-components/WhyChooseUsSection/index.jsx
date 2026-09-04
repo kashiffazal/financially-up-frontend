@@ -58,22 +58,22 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[460px]">
               {/* Soft Ambient Blur */}
-              <div className="absolute inset-4 rounded-3xl bg-emerald-200/50 dark:bg-emerald-950/40 blur-2xl -z-10" />
+              <div className="absolute inset-4 rounded-xl bg-emerald-200/50 dark:bg-emerald-950/40 blur-2xl -z-10" />
 
               {/* Main Image Frame */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-emerald-950/10 border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-emerald-950/10 border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
                 <Image
                   src="/images/services/home-Why-Choose-Us.webp"
                   alt="Financially Up Professional Team Meeting"
                   width={550}
                   height={450}
-                  className="w-full h-auto object-cover rounded-2xl"
+                  className="w-full h-auto object-cover rounded-xl"
                 />
               </div>
 
               {/* Floating Certified Badge */}
-              <div className="absolute -bottom-5 -right-2 sm:right-2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-emerald-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-bold text-slate-800 dark:text-zinc-100 z-10">
-                <span className="w-8 h-8 rounded-xl bg-brand-primary-soft dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+              <div className="absolute -bottom-5 -right-2 sm:right-2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-4 py-2.5 rounded-lg shadow-xl border border-emerald-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-bold text-slate-800 dark:text-zinc-100 z-10">
+                <span className="w-8 h-8 rounded-lg bg-brand-primary-soft dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
                   <SafetyOutlined />
                 </span>
                 <div>
@@ -111,7 +111,7 @@ export default function WhyChooseUsSection() {
                   className="flex items-start gap-4 pb-5 border-b border-slate-100 dark:border-zinc-800/80 last:border-none last:pb-0 group"
                 >
                   {/* Soft Green Primary Icon Circle */}
-                  <div className="w-11 h-11 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-brand-primary transition-all duration-300">
+                  <div className="w-11 h-11 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-brand-primary transition-all duration-300">
                     <span className="group-hover:text-white transition-colors duration-300">
                       {point.icon}
                     </span>

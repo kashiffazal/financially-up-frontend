@@ -38,7 +38,7 @@ export default function IndividualTaxReturnOverview() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 hover:bg-brand-primary-soft transition-all"
+                  className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 hover:bg-brand-primary-soft transition-all"
                 >
                   <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-sm shrink-0" />
                   <span className="leading-snug">{item}</span>
@@ -63,13 +63,13 @@ export default function IndividualTaxReturnOverview() {
 
           {/* Right Graphic */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full max-w-[500px] rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
                 src="/images/services/individual-tax-return.webp"
                 alt="Expert Assistance for Individual Tax Returns"
                 width={550}
                 height={420}
-                className="w-full h-[500px] object-cover rounded-2xl"
+                className="w-full h-[500px] object-cover rounded-xl"
               />
             </div>
           </div>

@@ -30,11 +30,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { Button, Tooltip, Form } from "antd";
-import {
-  UndoOutlined,
-  ClearOutlined,
-  EditOutlined,
-} from "@ant-design/icons";
+import { UndoOutlined, ClearOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "./SignatureCanvas.module.css";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -77,10 +73,12 @@ const SignatureCanvasControl = ({
   const [showImage, setShowImage] = useState(() => Boolean(initialImage));
 
   /* Read live validation status from Ant Design Form.Item context */
-  const { status: formItemStatus, errors: formItemErrors = [] } = Form.Item.useStatus();
+  const { status: formItemStatus, errors: formItemErrors = [] } =
+    Form.Item.useStatus();
 
   /* Height normalization */
-  const numericHeight = typeof height === "number" ? height : parseInt(height, 10) || 210;
+  const numericHeight =
+    typeof height === "number" ? height : parseInt(height, 10) || 210;
   const heightStyle = `${numericHeight}px`;
 
   /* Load saved paths from localStorage into canvas ref on mount */
@@ -122,7 +120,10 @@ const SignatureCanvasControl = ({
         }
 
         if (storageKey && typeof window !== "undefined") {
-          localStorage.setItem(`sig_paths_${storageKey}`, JSON.stringify(paths));
+          localStorage.setItem(
+            `sig_paths_${storageKey}`,
+            JSON.stringify(paths),
+          );
         }
       } else {
         setInternalHasDrawn(false);
@@ -145,12 +146,17 @@ const SignatureCanvasControl = ({
           const dataUrl = await canvasRef.current.exportImage("png");
           setInternalHasDrawn(true);
           if (onChange) onChange(dataUrl);
-          if (storageKey && typeof window !== "undefined") localStorage.setItem(`sig_paths_${storageKey}`, JSON.stringify(paths));
+          if (storageKey && typeof window !== "undefined")
+            localStorage.setItem(
+              `sig_paths_${storageKey}`,
+              JSON.stringify(paths),
+            );
         } else {
           setInternalHasDrawn(false);
           setIsInteracting(false);
           if (onChange) onChange(null);
-          if (storageKey && typeof window !== "undefined") localStorage.removeItem(`sig_paths_${storageKey}`);
+          if (storageKey && typeof window !== "undefined")
+            localStorage.removeItem(`sig_paths_${storageKey}`);
         }
       } catch (err) {
         console.error("SignatureCanvas: Undo export failed:", err);
@@ -166,7 +172,8 @@ const SignatureCanvasControl = ({
     setIsInteracting(false);
 
     if (onChange) onChange(null);
-    if (storageKey && typeof window !== "undefined") localStorage.removeItem(`sig_paths_${storageKey}`);
+    if (storageKey && typeof window !== "undefined")
+      localStorage.removeItem(`sig_paths_${storageKey}`);
   }, [onChange, storageKey]);
 
   /* Switch from image view to drawing mode */
@@ -182,13 +189,21 @@ const SignatureCanvasControl = ({
 
   /* Validation status evaluation */
   const activeStatus = formItemStatus || propStatus;
-  const isError = !hasSignature && (activeStatus === "error" || Boolean(propErrorMsg));
-  const activeErrorText = formItemErrors[0] || propErrorMsg || reqMsg || requiredMsg || "Signature is required.";
+  const isError =
+    !hasSignature && (activeStatus === "error" || Boolean(propErrorMsg));
+  const activeErrorText =
+    formItemErrors[0] ||
+    propErrorMsg ||
+    reqMsg ||
+    requiredMsg ||
+    "Signature is required.";
 
   /* ── RENDER: Saved Image View ── */
   if (showImage && initialImage) {
     return (
-      <div className={`${styles.signatureWrapper} flex flex-col justify-between h-full ${className}`}>
+      <div
+        className={`${styles.signatureWrapper} flex flex-col justify-between h-full ${className}`}
+      >
         {label && (
           <label className="block text-xs font-bold text-slate-800 dark:text-zinc-200 mb-1">
             {label}
@@ -213,7 +228,7 @@ const SignatureCanvasControl = ({
         </div>
 
         <div
-          className={`${styles.existingSignature} relative rounded-2xl border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-950 overflow-hidden shadow-inner flex items-center justify-center`}
+          className={`${styles.existingSignature} relative rounded-xl border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-950 overflow-hidden shadow-inner flex items-center justify-center`}
           style={{ height: heightStyle }}
         >
           {/* Next.js Image component with unoptimized prop to handle dynamic Base64 data URLs & remote signatures */}
@@ -234,7 +249,9 @@ const SignatureCanvasControl = ({
 
   /* ── RENDER: Drawing Canvas View ── */
   return (
-    <div className={`${styles.signatureWrapper} flex flex-col justify-between h-full ${className}`}>
+    <div
+      className={`${styles.signatureWrapper} flex flex-col justify-between h-full ${className}`}
+    >
       {label && (
         <label className="block text-xs font-bold text-slate-800 dark:text-zinc-200 mb-1">
           {label}
@@ -247,15 +264,16 @@ const SignatureCanvasControl = ({
         onMouseDownCapture={handleInteractionStart}
         onTouchStartCapture={handleInteractionStart}
         className={`
-          relative rounded-2xl border-2 border-dashed overflow-hidden shadow-inner
+          relative rounded-xl border-2 border-dashed overflow-hidden shadow-inner
           transition-all duration-200
-          ${disabled
-            ? "border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900"
-            : isError
-            ? "border-red-400 dark:border-red-500 bg-red-50/20 dark:bg-red-950/10 hover:border-red-500"
-            : hasSignature
-            ? "border-emerald-400/80 dark:border-emerald-600/80 bg-white dark:bg-zinc-950"
-            : "border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 hover:border-blue-400 dark:hover:border-blue-600"
+          ${
+            disabled
+              ? "border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900"
+              : isError
+                ? "border-red-400 dark:border-red-500 bg-red-50/20 dark:bg-red-950/10 hover:border-red-500"
+                : hasSignature
+                  ? "border-emerald-400/80 dark:border-emerald-600/80 bg-white dark:bg-zinc-950"
+                  : "border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 hover:border-blue-400 dark:hover:border-blue-600"
           }
           ${styles.canvasContainer}
           ${disabled ? styles.disabled : ""}
@@ -296,15 +314,15 @@ const SignatureCanvasControl = ({
             isError
               ? "text-red-500 dark:text-red-400 font-semibold"
               : hasSignature
-              ? "text-emerald-600 dark:text-emerald-400 font-semibold"
-              : "text-slate-500 dark:text-zinc-400"
+                ? "text-emerald-600 dark:text-emerald-400 font-semibold"
+                : "text-slate-500 dark:text-zinc-400"
           }`}
         >
           {isError
             ? activeErrorText
             : hasSignature
-            ? "✓ Signature captured"
-            : "Draw inside box above"}
+              ? "✓ Signature captured"
+              : "Draw inside box above"}
         </span>
 
         {hasSignature && !disabled && (
@@ -366,20 +384,23 @@ const SignatureCanvas = ({
   ...restProps
 }) => {
   const effectiveReqMsg = reqMsg || requiredMsg || "Signature is required.";
-  const effectiveStorageKey = storageKey || (typeof name === "string" ? name : undefined);
+  const effectiveStorageKey =
+    storageKey || (typeof name === "string" ? name : undefined);
 
   /* If 'name' is provided, encapsulate Ant Design Form.Item */
   if (name) {
-    const validationRules = rules || (noRequired
-      ? []
-      : [
-          {
-            validator: (_, v) =>
-              v
-                ? Promise.resolve()
-                : Promise.reject(new Error(effectiveReqMsg)),
-          },
-        ]);
+    const validationRules =
+      rules ||
+      (noRequired
+        ? []
+        : [
+            {
+              validator: (_, v) =>
+                v
+                  ? Promise.resolve()
+                  : Promise.reject(new Error(effectiveReqMsg)),
+            },
+          ]);
 
     return (
       <Form.Item

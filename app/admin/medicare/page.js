@@ -144,7 +144,8 @@ export default function MedicarePage() {
       });
 
       const recordsData = res?.data?.records || res?.records || [];
-      const totalCount = res?.data?.pagination?.total || res?.pagination?.total || 0;
+      const totalCount =
+        res?.data?.pagination?.total || res?.pagination?.total || 0;
 
       // Map API records to include a 'key' prop for Ant Design Table
       const records = recordsData.map((record) => ({

@@ -350,7 +350,7 @@ const UploadFileControl = ({
               className="w-full p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-between gap-3 shadow-sm animate-fadeIn"
             >
               <div className="flex items-center gap-3 min-w-0 flex-1">
-                <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shrink-0">
                   {getFileIcon(file.name)}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -376,7 +376,7 @@ const UploadFileControl = ({
                     size="small"
                     icon={<DeleteOutlined />}
                     onClick={() => handleRemoveFile(idx)}
-                    className="text-slate-400 hover:text-red-500 h-8 w-8 rounded-lg shrink-0"
+                    className="text-slate-400 hover:text-red-500 h-8 w-8 rounded-xl shrink-0"
                   />
                 </Tooltip>
               )}
@@ -426,7 +426,7 @@ const UploadFileControl = ({
             height: normalizedHeight,
             minHeight: normalizedHeight || "140px",
           }}
-          className={`w-full rounded-2xl border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
+          className={`w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
         >
           <Dragger
             {...uploadProps}
@@ -442,7 +442,7 @@ const UploadFileControl = ({
             }}
           >
             <div className="flex flex-col items-center justify-center text-center space-y-2 select-none w-full">
-              <div className="w-12 h-12 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
+              <div className="w-12 h-12 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
                 <InboxOutlined className="text-2xl" />
               </div>
 
@@ -457,14 +457,14 @@ const UploadFileControl = ({
 
               {/* Badges for allowed formats & max size */}
               <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-xl bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
                   {displayExtensionsBadge}
                 </span>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-xl bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
                   Max {fileSize || DEFAULT_MAX_FILE_SIZE_MB}MB
                 </span>
                 {maxCount && (multiple || maxCount > 1) && (
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800">
                     Max {maxCount} Files
                   </span>
                 )}
@@ -492,7 +492,7 @@ const UploadFileControl = ({
             height: normalizedHeight,
             minHeight: normalizedHeight || "120px",
           }}
-          className={`w-full rounded-2xl border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
+          className={`w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
         >
           <Dragger
             {...uploadProps}
@@ -509,7 +509,7 @@ const UploadFileControl = ({
           >
             <div className="flex flex-row items-center gap-3.5 select-none w-full text-left">
               {/* Left Icon */}
-              <div className="w-12 h-12 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200">
+              <div className="w-12 h-12 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200">
                 <InboxOutlined className="text-2xl" />
               </div>
 
@@ -695,13 +695,13 @@ const UploadFileControl = ({
                     e.stopPropagation();
                     handleRemoveFile(fileList.length - 1);
                   }}
-                  className="w-6 h-6 rounded-md text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/50 flex items-center justify-center transition-colors"
+                  className="w-6 h-6 rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/50 flex items-center justify-center transition-colors"
                 >
                   <CloseOutlined className="text-xs" />
                 </button>
               )
             ) : (
-              <span className="text-[11px] font-bold text-brand-primary dark:text-emerald-400 px-2 py-0.5 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 border border-brand-primary/20 dark:border-emerald-800">
+              <span className="text-[11px] font-bold text-brand-primary dark:text-emerald-400 px-2 py-0.5 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 border border-brand-primary/20 dark:border-emerald-800">
                 Browse
               </span>
             )}

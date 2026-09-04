@@ -89,7 +89,7 @@ export default function Step4IncomeProfile({ form }) {
       />
 
       {/* Previous Accountant (INC-002 to INC-005) */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="hadPreviousAccountant"
@@ -166,7 +166,7 @@ export default function Step4IncomeProfile({ form }) {
       </div>
 
       {/* ATO Debt & Audit Matters (INC-006 to INC-010) */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="atoIssues"

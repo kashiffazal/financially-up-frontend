@@ -34,7 +34,8 @@ export default function BlogHubPage() {
       activeCategory === "ALL" || post.category === activeCategory;
     const matchesTag =
       !selectedTag ||
-      (post.tags && post.tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase()));
+      (post.tags &&
+        post.tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase()));
     const matchesSearch =
       !searchQuery ||
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -43,8 +44,7 @@ export default function BlogHubPage() {
     return matchesCat && matchesTag && matchesSearch;
   });
 
-  const featuredPost =
-    BLOG_POSTS.find((p) => p.featured) || BLOG_POSTS[0];
+  const featuredPost = BLOG_POSTS.find((p) => p.featured) || BLOG_POSTS[0];
 
   // Grid posts: 6 articles when on default view (excluding featured)
   const gridPosts =
@@ -78,9 +78,8 @@ export default function BlogHubPage() {
 
       {/* Main Content Area */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 md:pt-20 md:pb-20 space-y-8">
-        
         {/* 2. Refined Executive Segmented Filter Bar with Counter */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-2 sm:p-2.5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-2 sm:p-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
           {/* Segmented Category Buttons */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto scrollbar-none">
             {BLOG_CATEGORIES.map((cat) => {
@@ -113,78 +112,79 @@ export default function BlogHubPage() {
 
         {/* 3. Main 2-Column Architecture (8 Cols Left + 4 Cols Right Sidebar) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-          
           {/* ── LEFT AREA (8 Columns) ── */}
           <div className="lg:col-span-8 space-y-8">
-            
             {/* Featured Blog Spotlight Card (100% Clickable Box) */}
-            {activeCategory === "ALL" && !selectedTag && !searchQuery && featuredPost && (
-              <Link
-                href={`/blog/${featuredPost.slug}`}
-                className="group relative block rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-md hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
-                  
-                  {/* Left 16:9 Image */}
-                  <div className="md:col-span-6 relative min-h-[260px] sm:min-h-[320px] bg-slate-100 dark:bg-zinc-800 overflow-hidden">
-                    <Image
-                      src={featuredPost.image}
-                      alt={featuredPost.title}
-                      fill
-                      priority
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-between p-6">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary text-white text-[10px] font-black uppercase tracking-wider self-start shadow-md">
-                        <FireOutlined className="text-amber-300" />
-                        <span>FEATURED SPOTLIGHT</span>
-                      </div>
-                      <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-300">
-                        {featuredPost.badge || "TOP TAX GUIDE"}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Right Content */}
-                  <div className="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2.5">
-                      <div className="flex items-center gap-2.5 text-[11px] font-bold text-slate-400 dark:text-zinc-500">
-                        <span className="px-2.5 py-0.5 rounded-full bg-brand-primary-soft text-brand-primary dark:bg-emerald-950/80 dark:text-emerald-400 font-extrabold uppercase text-[10px]">
-                          {featuredPost.category}
-                        </span>
-                        <span>•</span>
-                        <span className="flex items-center gap-1">
-                          <ClockCircleOutlined /> {featuredPost.readTime}
-                        </span>
-                      </div>
-
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-zinc-50 group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition-colors leading-snug">
-                        {featuredPost.title}
-                      </h3>
-
-                      <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
-                        {featuredPost.excerpt}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-zinc-300">
-                        <div className="w-6 h-6 rounded-full bg-brand-primary-soft text-brand-primary flex items-center justify-center text-[10px] font-black">
-                          {featuredPost.author.avatar}
+            {activeCategory === "ALL" &&
+              !selectedTag &&
+              !searchQuery &&
+              featuredPost && (
+                <Link
+                  href={`/blog/${featuredPost.slug}`}
+                  className="group relative block rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-md hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
+                    {/* Left 16:9 Image */}
+                    <div className="md:col-span-6 relative min-h-[260px] sm:min-h-[320px] bg-slate-100 dark:bg-zinc-800 overflow-hidden">
+                      <Image
+                        src={featuredPost.image}
+                        alt={featuredPost.title}
+                        fill
+                        priority
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-between p-6">
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary text-white text-[10px] font-black uppercase tracking-wider self-start shadow-md">
+                          <FireOutlined className="text-amber-300" />
+                          <span>FEATURED SPOTLIGHT</span>
                         </div>
-                        <span className="text-[11px] truncate max-w-[110px]">{featuredPost.author.name}</span>
+                        <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-300">
+                          {featuredPost.badge || "TOP TAX GUIDE"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Right Content */}
+                    <div className="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-4">
+                      <div className="space-y-2.5">
+                        <div className="flex items-center gap-2.5 text-[11px] font-bold text-slate-400 dark:text-zinc-500">
+                          <span className="px-2.5 py-0.5 rounded-full bg-brand-primary-soft text-brand-primary dark:bg-emerald-950/80 dark:text-emerald-400 font-extrabold uppercase text-[10px]">
+                            {featuredPost.category}
+                          </span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1">
+                            <ClockCircleOutlined /> {featuredPost.readTime}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-zinc-50 group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                          {featuredPost.title}
+                        </h3>
+
+                        <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
+                          {featuredPost.excerpt}
+                        </p>
                       </div>
 
-                      <span className="text-brand-primary dark:text-emerald-400 font-black text-xs flex items-center gap-1 group-hover:underline uppercase tracking-wider">
-                        <span>READ MORE</span>
-                        <ArrowRightOutlined className="text-[10px] group-hover:translate-x-1 transition-transform" />
-                      </span>
+                      <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-zinc-300">
+                          <div className="w-6 h-6 rounded-full bg-brand-primary-soft text-brand-primary flex items-center justify-center text-[10px] font-black">
+                            {featuredPost.author.avatar}
+                          </div>
+                          <span className="text-[11px] truncate max-w-[110px]">
+                            {featuredPost.author.name}
+                          </span>
+                        </div>
+
+                        <span className="text-brand-primary dark:text-emerald-400 font-black text-xs flex items-center gap-1 group-hover:underline uppercase tracking-wider">
+                          <span>READ MORE</span>
+                          <ArrowRightOutlined className="text-[10px] group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </div>
                     </div>
                   </div>
-
-                </div>
-              </Link>
-            )}
+                </Link>
+              )}
 
             {/* 2-Column Grid of 6 Article Cards (100% Clickable Boxes) */}
             {gridPosts.length > 0 ? (
@@ -193,7 +193,7 @@ export default function BlogHubPage() {
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="group relative flex flex-col justify-between rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
+                    className="group relative flex flex-col justify-between rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
                   >
                     {/* Top 16:9 Featured Image with Floating Category Badge */}
                     <div className="relative w-full h-48 sm:h-52 bg-slate-100 dark:bg-zinc-800 overflow-hidden">
@@ -257,7 +257,7 @@ export default function BlogHubPage() {
                 ))}
               </div>
             ) : (
-              <div className="p-12 text-center rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+              <div className="p-12 text-center rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
                 <p className="text-sm font-bold text-slate-700 dark:text-zinc-300">
                   No articles found matching your filters.
                 </p>
@@ -318,9 +318,8 @@ export default function BlogHubPage() {
 
           {/* ── RIGHT SIDEBAR (4 Columns, Sticky on Desktop Only) ── */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-[140px] self-start">
-            
             {/* Widget 1: SEARCH ARTICLES */}
-            <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
+            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
               <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">
                 SEARCH ARTICLES
               </h4>
@@ -330,14 +329,14 @@ export default function BlogHubPage() {
                   placeholder="Search keywords..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full h-11 pl-10 pr-4 rounded-2xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                  className="w-full h-11 pl-10 pr-4 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                 />
                 <SearchOutlined className="absolute left-3.5 top-3.5 text-slate-400 text-sm" />
               </div>
             </div>
 
             {/* Widget 2: POPULAR TAGS */}
-            <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
+            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
               <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">
                 POPULAR TAGS
               </h4>
@@ -348,9 +347,7 @@ export default function BlogHubPage() {
                   return (
                     <button
                       key={tag}
-                      onClick={() =>
-                        setSelectedTag(isSelected ? "" : tagId)
-                      }
+                      onClick={() => setSelectedTag(isSelected ? "" : tagId)}
                       className={`px-3 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                         isSelected
                           ? "bg-brand-primary text-white shadow-md shadow-emerald-700/20"
@@ -366,7 +363,7 @@ export default function BlogHubPage() {
             </div>
 
             {/* Widget 3: WEEKLY DISPATCH / NEWSLETTER */}
-            <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3.5 shadow-sm">
+            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3.5 shadow-sm">
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary dark:text-emerald-400 block">
                 WEEKLY DISPATCH
               </span>
@@ -374,11 +371,12 @@ export default function BlogHubPage() {
                 JOIN THE FINANCIALLY UP NEWSLETTER
               </h4>
               <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
-                Get tax tips, ATO compliance reminders, and structuring guides delivered straight to your inbox once a week.
+                Get tax tips, ATO compliance reminders, and structuring guides
+                delivered straight to your inbox once a week.
               </p>
 
               {subscribed ? (
-                <div className="p-3.5 rounded-2xl bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
+                <div className="p-3.5 rounded-xl bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
                   <CheckCircleFilled className="text-sm" />
                   <span>Subscribed! Check your inbox soon.</span>
                 </div>
@@ -390,7 +388,7 @@ export default function BlogHubPage() {
                     placeholder="Enter your email address"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className="w-full h-11 px-4 rounded-2xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                    className="w-full h-11 px-4 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                   />
                   <Button
                     htmlType="submit"
@@ -402,11 +400,8 @@ export default function BlogHubPage() {
                 </form>
               )}
             </div>
-
           </aside>
-
         </div>
-
       </div>
     </div>
   );

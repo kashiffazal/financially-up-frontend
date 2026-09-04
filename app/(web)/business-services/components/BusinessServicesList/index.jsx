@@ -165,7 +165,7 @@ export default function BusinessServicesList() {
         {services.map((service, idx) => (
           <div
             key={service.id}
-            className={`group bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-12 border border-slate-200/80 dark:border-zinc-800 shadow-sm ${styles.serviceCard}`}
+            className={`group bg-white dark:bg-zinc-900 rounded-xl p-8 sm:p-12 border border-slate-200/80 dark:border-zinc-800 shadow-sm ${styles.serviceCard}`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               {/* Image Column */}
@@ -182,7 +182,7 @@ export default function BusinessServicesList() {
                     alt={service.imageAlt}
                     width={580}
                     height={550}
-                    className="w-full h-[350px] lg:h-[550px] object-cover rounded-2xl"
+                    className="w-full h-[350px] lg:h-[550px] object-cover rounded-xl"
                   />
 
                   {/* Number Badge Top-Left */}
@@ -191,7 +191,7 @@ export default function BusinessServicesList() {
                   </div>
 
                   {/* Floating Trust Badge Bottom-Right */}
-                  <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-slate-200/80 dark:border-zinc-800 flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-50 z-10">
+                  <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 py-2 rounded-lg shadow-lg border border-slate-200/80 dark:border-zinc-800 flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-50 z-10">
                     {service.badgeIcon}
                     <span>{service.badgeText}</span>
                   </div>
@@ -205,7 +205,7 @@ export default function BusinessServicesList() {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center shrink-0">
                     {service.icon}
                   </div>
                   <Tag color="green" className="brand-section-tag !mb-0">
@@ -226,7 +226,7 @@ export default function BusinessServicesList() {
                   {service.highlights.map((item, hIdx) => (
                     <div
                       key={hIdx}
-                      className={`p-3 rounded-2xl bg-slate-50 dark:bg-zinc-950/60 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 ${styles.bulletChip}`}
+                      className={`p-3 rounded-lg bg-slate-50 dark:bg-zinc-950/60 border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-zinc-200 ${styles.bulletChip}`}
                     >
                       <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-sm shrink-0" />
                       <span className="leading-snug">{item}</span>

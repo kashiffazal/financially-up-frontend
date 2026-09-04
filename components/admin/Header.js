@@ -35,7 +35,8 @@ export default function Header({ collapsed, setCollapsed }) {
 
   // Compute initials
   const initials = user
-    ? `${user.firstName?.charAt(0) || ""}${user.lastName?.charAt(0) || ""}`.toUpperCase() || "U"
+    ? `${user.firstName?.charAt(0) || ""}${user.lastName?.charAt(0) || ""}`.toUpperCase() ||
+      "U"
     : "U";
 
   // Primary role name
@@ -47,8 +48,12 @@ export default function Header({ collapsed, setCollapsed }) {
       key: "user-info",
       label: (
         <div className="py-1 px-1 border-b border-slate-100 dark:border-zinc-800">
-          <p className="text-xs font-semibold text-slate-800 dark:text-zinc-100">{user?.fullName || "User"}</p>
-          <p className="text-[11px] text-slate-500 dark:text-zinc-400 truncate">{user?.email}</p>
+          <p className="text-xs font-semibold text-slate-800 dark:text-zinc-100">
+            {user?.fullName || "User"}
+          </p>
+          <p className="text-[11px] text-slate-500 dark:text-zinc-400 truncate">
+            {user?.email}
+          </p>
         </div>
       ),
       disabled: true,
@@ -77,7 +82,7 @@ export default function Header({ collapsed, setCollapsed }) {
       <div className="flex items-center gap-4 flex-1 max-w-xl">
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="p-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
+          className="p-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
           aria-label="Toggle Sidebar"
         >
           {collapsed ? (
@@ -119,7 +124,9 @@ export default function Header({ collapsed, setCollapsed }) {
 
         {/* Help Button */}
         <button
-          onClick={() => antdMsg.info("Financially Up Documentation & Knowledge Base")}
+          onClick={() =>
+            antdMsg.info("Financially Up Documentation & Knowledge Base")
+          }
           className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
           aria-label="Help & Documentation"
         >

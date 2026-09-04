@@ -212,11 +212,11 @@ export default function Step8EngagementSchedule({
             ? "Thank you for reviewing your custom Engagement Schedule. You may now proceed to Step 9."
             : "Under Tax Agent Professional Conduct Rules (TASA 2009), you must click 'View Engagement Schedule' to inspect all 15 schedule parameters before signing."
         }
-        className="rounded-2xl p-4 !mb-4 shadow-sm"
+        className="rounded-xl p-4 !mb-4 shadow-sm"
       />
 
       {/* Main View Engagement Schedule Action Card */}
-      <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-slate-50 to-emerald-50/40 dark:from-emerald-950/40 dark:via-zinc-900 dark:to-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm">
+      <div className="p-6 rounded-xl bg-gradient-to-r from-emerald-50/80 via-slate-50 to-emerald-50/40 dark:from-emerald-950/40 dark:via-zinc-900 dark:to-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-1.5 max-w-xl">
             <div className="text-lg font-extrabold text-slate-900 dark:text-zinc-50 flex items-center gap-2.5">
@@ -264,7 +264,7 @@ export default function Step8EngagementSchedule({
             <LockOutlined className="text-brand-primary" /> Engagement Summary
             Overview
           </h3>
-          <Tag color="blue" className="font-semibold text-xs rounded-md">
+          <Tag color="blue" className="font-semibold text-xs rounded-xl">
             15 Parameters Validated
           </Tag>
         </div>
@@ -272,7 +272,7 @@ export default function Step8EngagementSchedule({
         {scheduleData.map((item, index) => (
           <Card
             key={item.key}
-            className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all overflow-hidden dark:bg-zinc-950 !mb-4"
+            className="rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all overflow-hidden dark:bg-zinc-950 !mb-4"
             title={
               <div className="flex flex-wrap items-center justify-between gap-2 py-1">
                 <div className="flex items-center gap-2">
@@ -379,7 +379,7 @@ export default function Step8EngagementSchedule({
       </div>
 
       {/* Global General Conditions Box */}
-      <div className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 text-xs">
+      <div className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 text-xs">
         <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wider text-xs">
           General Terms & Responsible Tax Agent Details
         </h4>
@@ -467,7 +467,7 @@ export default function Step8EngagementSchedule({
             <div className="text-right">
               <Tag
                 color="green"
-                className="font-extrabold text-xs px-3 py-1 rounded-md"
+                className="font-extrabold text-xs px-3 py-1 rounded-xl"
               >
                 ENGAGEMENT SCHEDULE v2.5
               </Tag>
@@ -496,7 +496,7 @@ export default function Step8EngagementSchedule({
             {scheduleData.map((item, idx) => (
               <div
                 key={item.key}
-                className="border border-slate-200 dark:border-zinc-800 rounded-2xl overflow-hidden"
+                className="border border-slate-200 dark:border-zinc-800 rounded-xl overflow-hidden"
               >
                 <div className="bg-emerald-50 dark:bg-emerald-950/60 p-3 border-b border-slate-200 dark:border-zinc-800 flex items-center justify-between">
                   <span className="font-extrabold text-sm text-brand-primary dark:text-emerald-400">

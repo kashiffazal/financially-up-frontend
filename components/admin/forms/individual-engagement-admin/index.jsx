@@ -12,11 +12,21 @@ import Section5AmlReview from "./Section5AmlReview";
 import Section6SanctionsReview from "./Section6SanctionsReview";
 import Section7DecisionSignature from "./Section7DecisionSignature";
 
-export default function IndividualEngagementAdminForm({ record, onFinish, onCancel, form: externalForm, isSubmitting }) {
+export default function IndividualEngagementAdminForm({
+  record,
+  onFinish,
+  onCancel,
+  form: externalForm,
+  isSubmitting,
+}) {
   const [internalForm] = Form.useForm();
   const form = externalForm || internalForm;
 
-  const clientName = `${record?.FirstName || ""} ${record?.LastName || ""}`.trim() || record?.fullName || record?.client?.fullName || "Individual Client";
+  const clientName =
+    `${record?.FirstName || ""} ${record?.LastName || ""}`.trim() ||
+    record?.fullName ||
+    record?.client?.fullName ||
+    "Individual Client";
 
   useEffect(() => {
     if (record) {
@@ -29,7 +39,11 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
         // Populate from saved DB admin review record
         let checklist = adminReview.checklistItems;
         if (typeof checklist === "string") {
-          try { checklist = JSON.parse(checklist); } catch (e) { checklist = []; }
+          try {
+            checklist = JSON.parse(checklist);
+          } catch (e) {
+            checklist = [];
+          }
         }
 
         form.setFieldsValue({
@@ -38,14 +52,21 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
           riskLevel: adminReview.riskLevel || undefined,
           riskRationale: adminReview.riskRationale || "",
           decision: adminReview.decision || undefined,
-          amlDesignatedServiceInvolved: adminReview.amlDesignatedServiceInvolved || undefined,
-          amlBeneficialOwnershipVerified: adminReview.amlBeneficialOwnershipVerified || undefined,
-          amlSourceOfFundsRecorded: adminReview.amlSourceOfFundsRecorded || undefined,
+          amlDesignatedServiceInvolved:
+            adminReview.amlDesignatedServiceInvolved || undefined,
+          amlBeneficialOwnershipVerified:
+            adminReview.amlBeneficialOwnershipVerified || undefined,
+          amlSourceOfFundsRecorded:
+            adminReview.amlSourceOfFundsRecorded || undefined,
           amlEscalationRequired: adminReview.amlEscalationRequired || undefined,
-          sanctionsOverseasActivityCheck: adminReview.sanctionsOverseasActivityCheck || undefined,
-          sanctionsHighRiskJurisdictionCheck: adminReview.sanctionsHighRiskJurisdictionCheck || undefined,
-          sanctionsNameMatchCheck: adminReview.sanctionsNameMatchCheck || undefined,
-          staffMemberName: adminReview.reviewerName || taxAgentSig?.signerFullName || "",
+          sanctionsOverseasActivityCheck:
+            adminReview.sanctionsOverseasActivityCheck || undefined,
+          sanctionsHighRiskJurisdictionCheck:
+            adminReview.sanctionsHighRiskJurisdictionCheck || undefined,
+          sanctionsNameMatchCheck:
+            adminReview.sanctionsNameMatchCheck || undefined,
+          staffMemberName:
+            adminReview.reviewerName || taxAgentSig?.signerFullName || "",
           staffDrawnSignature: adminReview.signatureDrawnData || null,
           reviewNotes: adminReview.reviewNotes || "",
         });
@@ -75,7 +96,8 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
 
   const handleSubmit = (values) => {
     const currentUser = GetUserData();
-    const roleName = currentUser?.roles?.[0]?.name || currentUser?.role || "Administrator";
+    const roleName =
+      currentUser?.roles?.[0]?.name || currentUser?.role || "Administrator";
     const payload = {
       ...values,
       userRole: values.userRole || record?.adminReview?.userRole || roleName,
@@ -89,19 +111,23 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
     const firstError = errorInfo?.errorFields?.[0]?.errors?.[0];
     const totalErrors = errorInfo?.errorFields?.length || 0;
     if (firstError) {
-      antdMsg.error(`Please complete required field: ${firstError} (${totalErrors} field${totalErrors > 1 ? "s" : ""} remaining)`);
+      antdMsg.error(
+        `Please complete required field: ${firstError} (${totalErrors} field${totalErrors > 1 ? "s" : ""} remaining)`,
+      );
     } else {
-      antdMsg.error("Please complete all required review fields before saving decision.");
+      antdMsg.error(
+        "Please complete all required review fields before saving decision.",
+      );
     }
   };
 
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-3xl overflow-hidden dark:bg-zinc-950 p-2 sm:p-4">
+    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950 p-2 sm:p-4">
       {/* 10-Step Matching Header Progress Box */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
+      <div className="p-5 sm:p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
               <AuditOutlined />
             </div>
             <div>
@@ -211,7 +237,7 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
             <Button
               onClick={onCancel}
               disabled={isSubmitting}
-              className="h-11 px-6 rounded-2xl font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
+              className="h-11 px-6 rounded-xl font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
             >
               Cancel
             </Button>
@@ -221,9 +247,11 @@ export default function IndividualEngagementAdminForm({ record, onFinish, onCanc
               loading={isSubmitting}
               disabled={isSubmitting}
               icon={<CheckCircleOutlined />}
-              className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-2xl shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
+              className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-xl shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
             >
-              {isSubmitting ? "Executing Decision..." : "Save & Execute Decision"}
+              {isSubmitting
+                ? "Executing Decision..."
+                : "Save & Execute Decision"}
             </Button>
           </div>
         </div>

@@ -67,7 +67,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
       </div>
 
       {/* Representative Section (REP-001 to REP-005) */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="isSelf"
@@ -161,7 +161,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
       </div>
 
       {/* Bank Account Section (BANK-001 to BANK-005) */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="needBank"
@@ -262,7 +262,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
       </div>
 
       {/* Statutory Authorities Section */}
-      <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
           <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
             <SafetyCertificateOutlined className="text-brand-primary" />{" "}

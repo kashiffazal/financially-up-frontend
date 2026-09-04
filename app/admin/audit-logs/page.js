@@ -38,7 +38,11 @@ const { RangePicker } = DatePicker;
 export default function AuditLogsPage() {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [pagination, setPagination] = useState({ page: 1, limit: 20, total: 0 });
+  const [pagination, setPagination] = useState({
+    page: 1,
+    limit: 20,
+    total: 0,
+  });
   const [filters, setFilters] = useState({
     search: "",
     module: "",
@@ -106,7 +110,11 @@ export default function AuditLogsPage() {
     if (!action) return "default";
     if (action.includes("CREATE")) return "green";
     if (action.includes("UPDATE") || action.includes("EDIT")) return "gold";
-    if (action.includes("DELETE") || action.includes("REVOKE") || action.includes("SUSPEND"))
+    if (
+      action.includes("DELETE") ||
+      action.includes("REVOKE") ||
+      action.includes("SUSPEND")
+    )
       return "red";
     if (action.includes("LOGIN") || action.includes("AUTH")) return "blue";
     return "purple";
@@ -134,7 +142,11 @@ export default function AuditLogsPage() {
             {actor.avatar ? (
               <Avatar src={actor.avatar} size={24} />
             ) : (
-              <Avatar size={24} icon={<UserOutlined />} className="bg-[#008043]" />
+              <Avatar
+                size={24}
+                icon={<UserOutlined />}
+                className="bg-[#008043]"
+              />
             )}
             <div>
               <div className="font-semibold text-xs text-slate-800 dark:text-zinc-200">
@@ -144,7 +156,9 @@ export default function AuditLogsPage() {
             </div>
           </div>
         ) : (
-          <span className="text-xs text-slate-400 italic">System / Anonymous</span>
+          <span className="text-xs text-slate-400 italic">
+            System / Anonymous
+          </span>
         ),
     },
     {
@@ -152,7 +166,10 @@ export default function AuditLogsPage() {
       dataIndex: "action",
       key: "action",
       render: (action) => (
-        <Tag color={getActionColor(action)} className="text-xs font-mono font-semibold">
+        <Tag
+          color={getActionColor(action)}
+          className="text-xs font-mono font-semibold"
+        >
           {action}
         </Tag>
       ),
@@ -182,9 +199,7 @@ export default function AuditLogsPage() {
       dataIndex: "ipAddress",
       key: "ipAddress",
       render: (ip) => (
-        <span className="text-xs text-slate-400 font-mono">
-          {ip || "—"}
-        </span>
+        <span className="text-xs text-slate-400 font-mono">{ip || "—"}</span>
       ),
     },
     {
@@ -194,11 +209,19 @@ export default function AuditLogsPage() {
       align: "center",
       render: (status) =>
         status === "SUCCESS" ? (
-          <Tag color="success" icon={<CheckCircleOutlined />} className="text-[11px]">
+          <Tag
+            color="success"
+            icon={<CheckCircleOutlined />}
+            className="text-[11px]"
+          >
             SUCCESS
           </Tag>
         ) : (
-          <Tag color="error" icon={<CloseCircleOutlined />} className="text-[11px]">
+          <Tag
+            color="error"
+            icon={<CloseCircleOutlined />}
+            className="text-[11px]"
+          >
             FAILURE
           </Tag>
         ),
@@ -228,28 +251,33 @@ export default function AuditLogsPage() {
           Security & Audit Logs
         </h1>
         <p className="text-sm text-slate-500 dark:text-zinc-400 mt-1">
-          Immutable practice event trail tracking all authentication, administrative actions, and data mutations.
+          Immutable practice event trail tracking all authentication,
+          administrative actions, and data mutations.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-4 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-4 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
           <Input
             prefix={<SearchOutlined className="text-slate-400 mr-1" />}
             placeholder="Search action, description, IP..."
             value={filters.search}
-            onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
+            onChange={(e) =>
+              setFilters((prev) => ({ ...prev, search: e.target.value }))
+            }
             allowClear
-            className="rounded-lg"
+            className="rounded-xl"
           />
 
           <Select
             placeholder="Filter by Module"
             value={filters.module || undefined}
-            onChange={(val) => setFilters((prev) => ({ ...prev, module: val || "" }))}
+            onChange={(val) =>
+              setFilters((prev) => ({ ...prev, module: val || "" }))
+            }
             allowClear
-            className="rounded-lg"
+            className="rounded-xl"
           >
             <Option value="auth">Auth & Sessions</Option>
             <Option value="users">User Management</Option>
@@ -265,16 +293,18 @@ export default function AuditLogsPage() {
           <Select
             placeholder="Filter by Status"
             value={filters.status || undefined}
-            onChange={(val) => setFilters((prev) => ({ ...prev, status: val || "" }))}
+            onChange={(val) =>
+              setFilters((prev) => ({ ...prev, status: val || "" }))
+            }
             allowClear
-            className="rounded-lg"
+            className="rounded-xl"
           >
             <Option value="SUCCESS">Success Only</Option>
             <Option value="FAILURE">Failures Only</Option>
           </Select>
 
           <RangePicker
-            className="rounded-lg"
+            className="rounded-xl"
             onChange={(dates, dateStrings) => {
               setFilters((prev) => ({
                 ...prev,
@@ -287,7 +317,7 @@ export default function AuditLogsPage() {
       </div>
 
       {/* Logs Table */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-4 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-4 shadow-xs">
         <Table
           columns={columns}
           dataSource={logs}
@@ -298,7 +328,8 @@ export default function AuditLogsPage() {
             pageSize: pagination.limit,
             total: pagination.total,
             showSizeChanger: true,
-            onChange: (p, l) => setPagination({ page: p, limit: l, total: pagination.total }),
+            onChange: (p, l) =>
+              setPagination({ page: p, limit: l, total: pagination.total }),
           }}
           className="overflow-x-auto"
         />
@@ -322,17 +353,24 @@ export default function AuditLogsPage() {
         width={700}
       >
         {loadingDetail || !selectedLog ? (
-          <div className="py-8 text-center text-slate-400">Loading audit log details...</div>
+          <div className="py-8 text-center text-slate-400">
+            Loading audit log details...
+          </div>
         ) : (
           <div className="space-y-4 pt-3 text-xs">
             <Descriptions bordered size="small" column={2}>
               <Descriptions.Item label="Action">
-                <Tag color={getActionColor(selectedLog.action)} className="font-mono">
+                <Tag
+                  color={getActionColor(selectedLog.action)}
+                  className="font-mono"
+                >
                   {selectedLog.action}
                 </Tag>
               </Descriptions.Item>
               <Descriptions.Item label="Module">
-                <span className="font-semibold uppercase">{selectedLog.module}</span>
+                <span className="font-semibold uppercase">
+                  {selectedLog.module}
+                </span>
               </Descriptions.Item>
               <Descriptions.Item label="Status">
                 {selectedLog.status === "SUCCESS" ? (
@@ -350,10 +388,13 @@ export default function AuditLogsPage() {
                   : "System / Anonymous"}
               </Descriptions.Item>
               <Descriptions.Item label="IP Address">
-                <span className="font-mono">{selectedLog.ipAddress || "—"}</span>
+                <span className="font-mono">
+                  {selectedLog.ipAddress || "—"}
+                </span>
               </Descriptions.Item>
               <Descriptions.Item label="Resource Target">
-                {selectedLog.resourceType} (ID: {selectedLog.resourceId || "N/A"})
+                {selectedLog.resourceType} (ID:{" "}
+                {selectedLog.resourceId || "N/A"})
               </Descriptions.Item>
               <Descriptions.Item label="User Agent" span={2}>
                 <span className="text-[11px] text-slate-500 font-mono break-all">

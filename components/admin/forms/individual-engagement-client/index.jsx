@@ -70,7 +70,11 @@ export default function IndividualEngagementClientForm() {
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
     if (savedDraft) {
-      if (typeof savedDraft.step === "number" && savedDraft.step >= 0 && savedDraft.step <= 9) {
+      if (
+        typeof savedDraft.step === "number" &&
+        savedDraft.step >= 0 &&
+        savedDraft.step <= 9
+      ) {
         setCurrentStep(savedDraft.step);
       }
       if (savedDraft.data) {
@@ -106,7 +110,11 @@ export default function IndividualEngagementClientForm() {
         const mergedPayload = { ...formData, ...values };
         setIsSubmitting(true);
         try {
-          const res = await HTTP("POST", "/new-individual-engagements", mergedPayload);
+          const res = await HTTP(
+            "POST",
+            "/new-individual-engagements",
+            mergedPayload,
+          );
 
           // Immediately wipe local storage draft & reset form state
           localStorage.removeItem(DRAFT_STORAGE_KEY);
@@ -140,12 +148,12 @@ export default function IndividualEngagementClientForm() {
                 </div>
 
                 {/* Reference Details Box */}
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Reference Number
                     </span>
-                    <span className="text-sm font-mono font-extrabold text-brand-primary dark:text-emerald-400 px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-900">
+                    <span className="text-sm font-mono font-extrabold text-brand-primary dark:text-emerald-400 px-2.5 py-0.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-900">
                       {res.referenceNumber || "NENG-2026-0001"}
                     </span>
                   </div>
@@ -288,13 +296,13 @@ export default function IndividualEngagementClientForm() {
   return (
     <>
       {/* Wizard Card Container */}
-      <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-3xl overflow-hidden dark:bg-zinc-950">
+      <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950">
         {/* Executive 10-Step Progress Header */}
         <div className="p-5 sm:p-6 bg-slate-50/80 dark:bg-zinc-900/60 border mb-5 border-slate-200/80 dark:border-zinc-800 space-y-4">
           {/* Top Progress Row */}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-2xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
+              <div className="w-9 h-9 rounded-xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
                 {currentStep + 1}
               </div>
               <div>
@@ -332,7 +340,7 @@ export default function IndividualEngagementClientForm() {
                   onClick={() => {
                     if (idx <= currentStep) setCurrentStep(idx);
                   }}
-                  className={`w-full py-2 px-1.5 rounded-2xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
+                  className={`w-full py-2 px-1.5 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
                     isCurrent
                       ? "bg-brand-primary text-white font-extrabold shadow-md shadow-emerald-600/20 scale-[1.02]"
                       : isCompleted
@@ -402,7 +410,7 @@ export default function IndividualEngagementClientForm() {
         </Form>
 
         {/* Footer Actions Bar */}
-        <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-2xl">
+        <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-xl">
           <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
             {currentStep > 0 && (
               <Button

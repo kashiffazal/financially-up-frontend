@@ -210,7 +210,11 @@ export default function NewIndividualEngagementAdminPage() {
   const handleAdminDecision = async (values) => {
     setIsSubmitting(true);
     try {
-      await HTTP("PUT", `/new-individual-engagements/${currentRecord.id}/decision`, values);
+      await HTTP(
+        "PUT",
+        `/new-individual-engagements/${currentRecord.id}/decision`,
+        values,
+      );
       antdMsg.success("Tax Agent decision submitted successfully.");
       setIsModalOpen(false);
       form.resetFields();

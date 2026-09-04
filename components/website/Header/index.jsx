@@ -263,8 +263,8 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/company-registration"
               className="flex items-center gap-2"
             >
-              <SolutionOutlined className="text-xs text-brand-primary" /> Company
-              Registration
+              <SolutionOutlined className="text-xs text-brand-primary" />{" "}
+              Company Registration
             </Link>
           ),
         },
@@ -323,8 +323,8 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/apply-tfn-abns"
               className="flex items-center gap-2"
             >
-              <FormOutlined className="text-xs text-brand-primary" /> Apply TFN /
-              ABNs
+              <FormOutlined className="text-xs text-brand-primary" /> Apply TFN
+              / ABNs
             </Link>
           ),
         },
@@ -399,7 +399,9 @@ export default function WebsiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full transition-colors duration-300">
       {/* Top Bar with Primary Animated Gradient (Hidden on Mobile) */}
-      <div className={`hidden sm:block ${styles.topbarGradientAnimated} text-white py-2.5 px-4 sm:px-8 text-xs font-medium border-b border-emerald-800/40 shadow-sm`}>
+      <div
+        className={`hidden sm:block ${styles.topbarGradientAnimated} text-white py-2.5 px-4 sm:px-8 text-xs font-medium border-b border-emerald-800/40 shadow-sm`}
+      >
         <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping inline-block" />
@@ -461,7 +463,9 @@ export default function WebsiteHeader() {
               <Link
                 href="/individual-services"
                 className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
-                  pathname?.startsWith('/individual-services') ? 'text-brand-primary' : ''
+                  pathname?.startsWith("/individual-services")
+                    ? "text-brand-primary"
+                    : ""
                 }`}
               >
                 Individual Tax <DownOutlined className="text-[10px]" />
@@ -477,7 +481,9 @@ export default function WebsiteHeader() {
               <Link
                 href="/business-services"
                 className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
-                  pathname?.startsWith('/business-services') ? 'text-brand-primary' : ''
+                  pathname?.startsWith("/business-services")
+                    ? "text-brand-primary"
+                    : ""
                 }`}
               >
                 Business Tax <DownOutlined className="text-[10px]" />
@@ -503,7 +509,9 @@ export default function WebsiteHeader() {
               <Link
                 href="/resources/registration-forms"
                 className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
-                  pathname?.startsWith("/resources/registration-forms") ? "text-brand-primary" : ""
+                  pathname?.startsWith("/resources/registration-forms")
+                    ? "text-brand-primary"
+                    : ""
                 }`}
               >
                 Business Registration <DownOutlined className="text-[10px]" />
@@ -537,7 +545,7 @@ export default function WebsiteHeader() {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-900 text-slate-600 dark:text-zinc-300 transition-all cursor-pointer"
+              className="p-2 rounded-md border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-900 text-slate-600 dark:text-zinc-300 transition-all cursor-pointer"
               aria-label="Toggle Dark Mode"
               title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
@@ -590,7 +598,11 @@ export default function WebsiteHeader() {
         <div className="flex flex-col h-full bg-slate-50/50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-50 font-sans">
           {/* Top Bar: Logo on left, Theme switch & Close button on right */}
           <div className="p-4 border-b border-slate-200/80 dark:border-zinc-800 flex items-center justify-between bg-white dark:bg-zinc-900 shrink-0">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center"
+            >
               <Image
                 src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
                 alt="Financially Up Logo"
@@ -629,7 +641,7 @@ export default function WebsiteHeader() {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between ${
+              className={`p-3.5 rounded-xl border transition-all flex items-center justify-between ${
                 pathname === "/"
                   ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
                   : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
@@ -645,18 +657,21 @@ export default function WebsiteHeader() {
                 >
                   <HomeOutlined />
                 </div>
-                <span className={`text-sm font-semibold ${pathname === "/" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}>
+                <span
+                  className={`text-sm font-semibold ${pathname === "/" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}
+                >
                   Home
                 </span>
               </div>
             </Link>
 
             {/* 2. Individual Tax Category */}
-            <div className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
+            <div className="rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
               <button
                 onClick={() => toggleSection("individual")}
                 className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
-                  expandedSections.individual || pathname?.startsWith("/individual-services")
+                  expandedSections.individual ||
+                  pathname?.startsWith("/individual-services")
                     ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
                     : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
                 }`}
@@ -665,11 +680,15 @@ export default function WebsiteHeader() {
                   <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
                     <UserOutlined />
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">Individual Tax</span>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">
+                    Individual Tax
+                  </span>
                 </div>
                 <DownOutlined
                   className={`text-xs transition-transform duration-300 ${
-                    expandedSections.individual ? "rotate-180 text-brand-primary" : "text-slate-400"
+                    expandedSections.individual
+                      ? "rotate-180 text-brand-primary"
+                      : "text-slate-400"
                   }`}
                 />
               </button>
@@ -682,7 +701,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <UserOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Individual Tax Return</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Individual Tax Return
+                    </span>
                   </Link>
                   <Link
                     href="/individual-services/individual-tax-return-with-investment-properties"
@@ -690,18 +711,21 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <HomeOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Tax Return with Investment Properties</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Tax Return with Investment Properties
+                    </span>
                   </Link>
                 </div>
               )}
             </div>
 
             {/* 3. Business Tax Category */}
-            <div className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
+            <div className="rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
               <button
                 onClick={() => toggleSection("business")}
                 className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
-                  expandedSections.business || pathname?.startsWith("/business-services")
+                  expandedSections.business ||
+                  pathname?.startsWith("/business-services")
                     ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
                     : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
                 }`}
@@ -710,11 +734,15 @@ export default function WebsiteHeader() {
                   <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
                     <BankOutlined />
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">Business Tax</span>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">
+                    Business Tax
+                  </span>
                 </div>
                 <DownOutlined
                   className={`text-xs transition-transform duration-300 ${
-                    expandedSections.business ? "rotate-180 text-brand-primary" : "text-slate-400"
+                    expandedSections.business
+                      ? "rotate-180 text-brand-primary"
+                      : "text-slate-400"
                   }`}
                 />
               </button>
@@ -727,7 +755,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <UserOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Sole Trader Tax Return</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Sole Trader Tax Return
+                    </span>
                   </Link>
                   <Link
                     href="/business-services/partnership-tax-return"
@@ -735,7 +765,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <TeamOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Partnership Tax Return</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Partnership Tax Return
+                    </span>
                   </Link>
                   <Link
                     href="/business-services/company-tax-return"
@@ -743,7 +775,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <BankOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Company Tax Return</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Company Tax Return
+                    </span>
                   </Link>
                   <Link
                     href="/business-services/trust-tax-return"
@@ -751,7 +785,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <SafetyCertificateOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Trust Tax Return</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Trust Tax Return
+                    </span>
                   </Link>
                   <Link
                     href="/business-services/bas-gst-lodgement"
@@ -759,7 +795,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <AuditOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">BAS / GST Lodgement</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      BAS / GST Lodgement
+                    </span>
                   </Link>
                 </div>
               )}
@@ -769,7 +807,7 @@ export default function WebsiteHeader() {
             <Link
               href="/book-keeping"
               onClick={() => setMobileMenuOpen(false)}
-              className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between ${
+              className={`p-3.5 rounded-xl border transition-all flex items-center justify-between ${
                 pathname === "/book-keeping"
                   ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
                   : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
@@ -785,18 +823,21 @@ export default function WebsiteHeader() {
                 >
                   <BookOutlined />
                 </div>
-                <span className={`text-sm font-semibold ${pathname === "/book-keeping" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}>
+                <span
+                  className={`text-sm font-semibold ${pathname === "/book-keeping" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}
+                >
                   Bookkeeping
                 </span>
               </div>
             </Link>
 
             {/* 5. Business Registration Category */}
-            <div className="rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
+            <div className="rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
               <button
                 onClick={() => toggleSection("registration")}
                 className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
-                  expandedSections.registration || pathname?.includes("/registration-forms")
+                  expandedSections.registration ||
+                  pathname?.includes("/registration-forms")
                     ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
                     : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
                 }`}
@@ -805,11 +846,15 @@ export default function WebsiteHeader() {
                   <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
                     <FileProtectOutlined />
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">Business Registration</span>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">
+                    Business Registration
+                  </span>
                 </div>
                 <DownOutlined
                   className={`text-xs transition-transform duration-300 ${
-                    expandedSections.registration ? "rotate-180 text-brand-primary" : "text-slate-400"
+                    expandedSections.registration
+                      ? "rotate-180 text-brand-primary"
+                      : "text-slate-400"
                   }`}
                 />
               </button>
@@ -822,7 +867,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <FileProtectOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">GST Registrations</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      GST Registrations
+                    </span>
                   </Link>
                   <Link
                     href="/resources/registration-forms/company-registration"
@@ -830,7 +877,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <SolutionOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Company Registration</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Company Registration
+                    </span>
                   </Link>
                   <Link
                     href="/resources/registration-forms/changes-to-company-details"
@@ -838,7 +887,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <SwapOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Changes to Company Details</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Changes to Company Details
+                    </span>
                   </Link>
                   <Link
                     href="/resources/registration-forms/trust-registrations"
@@ -846,7 +897,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <SafetyOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Trust Registrations</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Trust Registrations
+                    </span>
                   </Link>
                   <Link
                     href="/resources/registration-forms/smsf-registrations"
@@ -854,7 +907,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <BookOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">SMSF Registrations</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      SMSF Registrations
+                    </span>
                   </Link>
                   <Link
                     href="/resources/registration-forms/business-name-registrations"
@@ -862,7 +917,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <IdcardOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Business Name Registrations</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Business Name Registrations
+                    </span>
                   </Link>
                   <Link
                     href="/resources/registration-forms/apply-tfn-abns"
@@ -870,7 +927,9 @@ export default function WebsiteHeader() {
                     className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
                   >
                     <FormOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">Apply TFN / ABNs</span>
+                    <span className="text-slate-800 dark:text-zinc-200">
+                      Apply TFN / ABNs
+                    </span>
                   </Link>
                 </div>
               )}
@@ -880,7 +939,7 @@ export default function WebsiteHeader() {
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between ${
+              className={`p-3.5 rounded-xl border transition-all flex items-center justify-between ${
                 pathname === "/blog"
                   ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
                   : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
@@ -896,7 +955,9 @@ export default function WebsiteHeader() {
                 >
                   <FileTextOutlined />
                 </div>
-                <span className={`text-sm font-semibold ${pathname === "/blog" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}>
+                <span
+                  className={`text-sm font-semibold ${pathname === "/blog" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}
+                >
                   Blog
                 </span>
               </div>
@@ -907,9 +968,11 @@ export default function WebsiteHeader() {
               <Link
                 href="/book-an-appointment"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2.5 w-full bg-brand-primary hover:bg-brand-primary-hover text-white py-3.5 px-4 rounded-2xl font-extrabold text-sm shadow-md shadow-emerald-600/20 active:scale-98 transition-all"
+                className="flex items-center justify-center gap-2.5 w-full bg-brand-primary hover:bg-brand-primary-hover text-white py-3.5 px-4 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20 active:scale-98 transition-all"
               >
-                <span className="text-white font-extrabold">Book an Appointment</span>
+                <span className="text-white font-extrabold">
+                  Book an Appointment
+                </span>
                 <ArrowRightOutlined className="text-white text-xs" />
               </Link>
             </div>

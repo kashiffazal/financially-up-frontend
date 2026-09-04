@@ -47,10 +47,10 @@ export default function QuickServicesSection() {
             <Link
               key={index}
               href={item.href}
-              className={`group bg-white dark:bg-zinc-900 rounded-[20px] p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 transition-all duration-300 ease-out flex flex-col justify-between ${styles.quickServicesCard}`}
+              className={`group bg-white dark:bg-zinc-900 rounded-xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 transition-all duration-300 ease-out flex flex-col justify-between ${styles.quickServicesCard}`}
             >
               <div>
-                <div className="w-11 h-11 rounded-[14px] bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-200">
+                <div className="w-11 h-11 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-200">
                   {item.icon}
                 </div>
 

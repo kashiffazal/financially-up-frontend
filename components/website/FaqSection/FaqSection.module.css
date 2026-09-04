@@ -36,7 +36,7 @@
 }
 
 .servicesAccordion :global(.ant-collapse-item) {
-  border-radius: 20px !important;
+  border-radius: var(--radius-card) !important;
   margin-bottom: 14px;
   background-color: #ffffff;
   border: 1.5px solid rgba(226, 232, 240, 0.9) !important;

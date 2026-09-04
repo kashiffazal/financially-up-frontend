@@ -204,7 +204,8 @@ export default function Sidebar({ collapsed }) {
             );
           }
 
-          const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+          const isActive =
+            pathname === item.href || pathname?.startsWith(`${item.href}/`);
 
           const itemClass = isActive
             ? "bg-emerald-50 text-[#008043] dark:bg-emerald-950/30 dark:text-emerald-400 font-semibold shadow-xs"
@@ -219,7 +220,7 @@ export default function Sidebar({ collapsed }) {
             >
               <Link
                 href={item.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-200 cursor-pointer ${itemClass}`}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 cursor-pointer ${itemClass}`}
               >
                 <span
                   className={`text-lg flex-shrink-0 ${

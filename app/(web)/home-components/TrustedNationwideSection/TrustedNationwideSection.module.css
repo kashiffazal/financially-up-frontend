@@ -10,7 +10,7 @@
 
 .magicBorderContainer {
   position: relative;
-  border-radius: 24px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   padding: 2px;
   background: rgba(226, 232, 240, 0.7);

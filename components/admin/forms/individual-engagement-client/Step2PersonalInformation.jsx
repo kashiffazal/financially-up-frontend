@@ -115,7 +115,7 @@ export default function Step2PersonalInformation({ form }) {
       </div>
 
       {/* PI-002 & PI-003: Previous Name Question */}
-      <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <AntInput
           type="radio"
           name="hasPreviousName"
@@ -150,7 +150,7 @@ export default function Step2PersonalInformation({ form }) {
       </div>
 
       {/* TFN Section (PI-005, PI-006, PI-007) */}
-      <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">

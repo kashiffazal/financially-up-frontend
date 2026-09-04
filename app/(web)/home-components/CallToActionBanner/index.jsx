@@ -14,7 +14,7 @@ export default function CallToActionBanner() {
     <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`${styles.ctaGradientAnimated} rounded-3xl p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden`}
+          className={`${styles.ctaGradientAnimated} rounded-xl p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden`}
         >
           <div
             className={`${styles.animateCtaCircle1} absolute -top-28 -left-28 w-80 h-80 rounded-full bg-brand-primary-hover/70 dark:bg-emerald-500/50 blur-2xl pointer-events-none`}

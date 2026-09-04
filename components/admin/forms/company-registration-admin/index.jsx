@@ -32,24 +32,56 @@ import { antdMsg, GetUserData, API_BASE_URL } from "@/services";
 import SignatureCanvas from "@/components/mutual/SignatureCanvas";
 
 const RISK_RATING_OPTIONS = [
-  { value: "Low", label: "Low Risk — Standard domestic company, verified Australian directors" },
-  { value: "Medium", label: "Medium Risk — Complex shareholding, trust shareholders, or foreign income" },
-  { value: "High", label: "High Risk — Non-resident officeholders, nominee structures, or high-risk sectors" },
-  { value: "Prohibited", label: "Prohibited — Sanctioned entity, fraudulent identity, or illegal activity" },
+  {
+    value: "Low",
+    label:
+      "Low Risk — Standard domestic company, verified Australian directors",
+  },
+  {
+    value: "Medium",
+    label:
+      "Medium Risk — Complex shareholding, trust shareholders, or foreign income",
+  },
+  {
+    value: "High",
+    label:
+      "High Risk — Non-resident officeholders, nominee structures, or high-risk sectors",
+  },
+  {
+    value: "Prohibited",
+    label:
+      "Prohibited — Sanctioned entity, fraudulent identity, or illegal activity",
+  },
 ];
 
 const DECISION_OPTIONS = [
-  { value: "Approved", label: "Approved — Approve application & generate legal pack" },
-  { value: "Approved With Conditions", label: "Approved With Conditions — Approve subject to document provision" },
-  { value: "Under Review", label: "Under Review — Senior compliance officer assessment in progress" },
-  { value: "Pending Documents", label: "Pending Documents — Request missing identity or structure evidence" },
+  {
+    value: "Approved",
+    label: "Approved — Approve application & generate legal pack",
+  },
+  {
+    value: "Approved With Conditions",
+    label: "Approved With Conditions — Approve subject to document provision",
+  },
+  {
+    value: "Under Review",
+    label: "Under Review — Senior compliance officer assessment in progress",
+  },
+  {
+    value: "Pending Documents",
+    label: "Pending Documents — Request missing identity or structure evidence",
+  },
   { value: "On Hold", label: "On Hold — Administrative hold" },
-  { value: "Declined", label: "Declined — Decline company registration application" },
+  {
+    value: "Declined",
+    label: "Declined — Decline company registration application",
+  },
 ];
 
 function getFileUrl(relPath) {
   if (!relPath) return "#";
-  if (relPath.startsWith("http://") || relPath.startsWith("https://")) return relPath;
+  if (relPath.startsWith("http://") || relPath.startsWith("https://"))
+    return relPath;
   const cleanPath = relPath.startsWith("/") ? relPath : `/${relPath}`;
   const baseUrl = API_BASE_URL.replace(/\/api\/?$/, "");
   return `${baseUrl}${cleanPath}`;
@@ -89,7 +121,8 @@ export default function CompanyRegistrationAdminForm({
           reviewerName: adminReview.reviewerName || reviewerName,
           overallRiskRating: adminReview.overallRiskRating || undefined,
           riskRationale: adminReview.riskRationale || "",
-          pepSanctionsScreeningResult: adminReview.pepSanctionsScreeningResult || undefined,
+          pepSanctionsScreeningResult:
+            adminReview.pepSanctionsScreeningResult || undefined,
           adverseMediaResult: adminReview.adverseMediaResult || undefined,
           cddVerificationNotes: adminReview.cddVerificationNotes || "",
           sourceOfFundsNotes: adminReview.sourceOfFundsNotes || "",
@@ -135,22 +168,56 @@ export default function CompanyRegistrationAdminForm({
     const totalErrors = errorInfo?.errorFields?.length || 0;
     if (firstError) {
       antdMsg.error(
-        `Please complete required field: ${firstError} (${totalErrors} field${totalErrors > 1 ? "s" : ""} remaining)`
+        `Please complete required field: ${firstError} (${totalErrors} field${totalErrors > 1 ? "s" : ""} remaining)`,
       );
     } else {
-      antdMsg.error("Please complete all required review fields before saving decision.");
+      antdMsg.error(
+        "Please complete all required review fields before saving decision.",
+      );
     }
   };
 
   const statusBadgeMap = {
-    Approved: { status: "success", text: "APPROVED", className: "text-emerald-600 dark:text-emerald-400" },
-    "Approved With Conditions": { status: "warning", text: "APPROVED W/ CONDITIONS", className: "text-amber-600 dark:text-amber-400" },
-    "Under Review": { status: "processing", text: "UNDER REVIEW", className: "text-blue-600 dark:text-blue-400" },
-    "Pending Documents": { status: "default", text: "PENDING DOCS", className: "text-purple-600 dark:text-purple-400" },
-    "On Hold": { status: "warning", text: "ON HOLD", className: "text-amber-700 dark:text-amber-500" },
-    Declined: { status: "error", text: "DECLINED", className: "text-rose-600 dark:text-rose-400" },
-    "Lodged with ASIC": { status: "success", text: "LODGED W/ ASIC", className: "text-emerald-700 dark:text-emerald-300" },
-    Submitted: { status: "processing", text: "SUBMITTED", className: "text-amber-600 dark:text-amber-400" },
+    Approved: {
+      status: "success",
+      text: "APPROVED",
+      className: "text-emerald-600 dark:text-emerald-400",
+    },
+    "Approved With Conditions": {
+      status: "warning",
+      text: "APPROVED W/ CONDITIONS",
+      className: "text-amber-600 dark:text-amber-400",
+    },
+    "Under Review": {
+      status: "processing",
+      text: "UNDER REVIEW",
+      className: "text-blue-600 dark:text-blue-400",
+    },
+    "Pending Documents": {
+      status: "default",
+      text: "PENDING DOCS",
+      className: "text-purple-600 dark:text-purple-400",
+    },
+    "On Hold": {
+      status: "warning",
+      text: "ON HOLD",
+      className: "text-amber-700 dark:text-amber-500",
+    },
+    Declined: {
+      status: "error",
+      text: "DECLINED",
+      className: "text-rose-600 dark:text-rose-400",
+    },
+    "Lodged with ASIC": {
+      status: "success",
+      text: "LODGED W/ ASIC",
+      className: "text-emerald-700 dark:text-emerald-300",
+    },
+    Submitted: {
+      status: "processing",
+      text: "SUBMITTED",
+      className: "text-amber-600 dark:text-amber-400",
+    },
     Draft: { status: "default", text: "DRAFT", className: "text-slate-500" },
   };
 
@@ -161,17 +228,21 @@ export default function CompanyRegistrationAdminForm({
     className: "text-slate-600 dark:text-slate-400",
   };
 
-  const officeholders = Array.isArray(record?.officeholders) ? record.officeholders : [];
-  const shareholders = Array.isArray(record?.shareholders) ? record.shareholders : [];
+  const officeholders = Array.isArray(record?.officeholders)
+    ? record.officeholders
+    : [];
+  const shareholders = Array.isArray(record?.shareholders)
+    ? record.shareholders
+    : [];
   const documents = Array.isArray(record?.documents) ? record.documents : [];
 
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-3xl overflow-hidden dark:bg-zinc-950 p-2 sm:p-4">
+    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950 p-2 sm:p-4">
       {/* Header Summary Banner */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
+      <div className="p-5 sm:p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
               <BankOutlined />
             </div>
             <div>
@@ -191,7 +262,9 @@ export default function CompanyRegistrationAdminForm({
             <Badge
               status={badgeConfig.status}
               text={
-                <span className={`${badgeConfig.className} text-xs font-extrabold font-mono`}>
+                <span
+                  className={`${badgeConfig.className} text-xs font-extrabold font-mono`}
+                >
                   {badgeConfig.text}
                 </span>
               }
@@ -201,7 +274,7 @@ export default function CompanyRegistrationAdminForm({
       </div>
 
       {/* Reviewer Session Identity Banner */}
-      <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-4 sm:p-5 mb-6">
+      <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-4 sm:p-5 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-brand-primary/10 text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400 flex items-center justify-center text-base font-bold">
@@ -214,7 +287,9 @@ export default function CompanyRegistrationAdminForm({
               <div className="text-sm font-extrabold text-slate-900 dark:text-zinc-100">
                 {reviewerName}{" "}
                 {reviewerEmail && (
-                  <span className="text-xs text-slate-400 font-normal">({reviewerEmail})</span>
+                  <span className="text-xs text-slate-400 font-normal">
+                    ({reviewerEmail})
+                  </span>
                 )}
               </div>
             </div>
@@ -231,19 +306,26 @@ export default function CompanyRegistrationAdminForm({
       {/* Company Application Overview Accordion */}
       <Collapse
         defaultActiveKey={["1", "2"]}
-        className="mb-6 rounded-2xl overflow-hidden border border-slate-200/80 dark:border-zinc-800 bg-transparent"
+        className="mb-6 rounded-xl overflow-hidden border border-slate-200/80 dark:border-zinc-800 bg-transparent"
         items={[
           {
             key: "1",
             label: (
               <span className="font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
-                <BankOutlined className="text-brand-primary" /> Step 1–3: Proposed Company & Address Details
+                <BankOutlined className="text-brand-primary" /> Step 1–3:
+                Proposed Company & Address Details
               </span>
             ),
             children: (
-              <Descriptions size="small" bordered column={{ xxl: 3, xl: 3, lg: 2, md: 2, sm: 1, xs: 1 }}>
+              <Descriptions
+                size="small"
+                bordered
+                column={{ xxl: 3, xl: 3, lg: 2, md: 2, sm: 1, xs: 1 }}
+              >
                 <Descriptions.Item label="Primary Name Preference">
-                  <span className="font-bold">{record?.companyName1 || "ACN Used as Name"}</span>
+                  <span className="font-bold">
+                    {record?.companyName1 || "ACN Used as Name"}
+                  </span>
                 </Descriptions.Item>
                 <Descriptions.Item label="Secondary Name (Alt)">
                   {record?.companyName2 || "-"}
@@ -267,7 +349,8 @@ export default function CompanyRegistrationAdminForm({
                   {record?.principalBusinessAddress || "-"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Contact Person">
-                  {record?.contactName} ({record?.contactRelationship || "Applicant"})
+                  {record?.contactName} (
+                  {record?.contactRelationship || "Applicant"})
                 </Descriptions.Item>
                 <Descriptions.Item label="Contact Email">
                   {record?.contactEmail || "-"}
@@ -282,7 +365,8 @@ export default function CompanyRegistrationAdminForm({
             key: "2",
             label: (
               <span className="font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
-                <TeamOutlined className="text-brand-primary" /> Step 4–6: Officeholders, Shareholders & Capital Structure
+                <TeamOutlined className="text-brand-primary" /> Step 4–6:
+                Officeholders, Shareholders & Capital Structure
               </span>
             ),
             children: (
@@ -301,7 +385,9 @@ export default function CompanyRegistrationAdminForm({
                           {off.givenNames} {off.familyName}
                         </div>
                         <div className="text-slate-500">
-                          Role: <span className="font-semibold">{off.role}</span> | DOB: {off.dateOfBirth || "-"}
+                          Role:{" "}
+                          <span className="font-semibold">{off.role}</span> |
+                          DOB: {off.dateOfBirth || "-"}
                         </div>
                         <div className="text-slate-500">
                           Address: {off.residentialAddress || "-"}
@@ -325,13 +411,19 @@ export default function CompanyRegistrationAdminForm({
                           {sh.fullName} ({sh.memberType || "Individual"})
                         </div>
                         <div className="text-slate-500">
-                          Shares: <span className="font-semibold">{sh.numberOfShares} {sh.shareClass || "ORD"}</span> ($
+                          Shares:{" "}
+                          <span className="font-semibold">
+                            {sh.numberOfShares} {sh.shareClass || "ORD"}
+                          </span>{" "}
+                          ($
                           {sh.amountPaidPerShare} paid)
                         </div>
                         <div className="text-slate-500">
                           Beneficially Held:{" "}
                           <span className="font-semibold">
-                            {sh.isBeneficiallyHeld ? "Yes" : `No (For: ${sh.heldForWhom || "Trust/Nominee"})`}
+                            {sh.isBeneficiallyHeld
+                              ? "Yes"
+                              : `No (For: ${sh.heldForWhom || "Trust/Nominee"})`}
                           </span>
                         </div>
                       </div>
@@ -345,23 +437,30 @@ export default function CompanyRegistrationAdminForm({
             key: "3",
             label: (
               <span className="font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
-                <FileTextOutlined className="text-brand-primary" /> Step 11: Document Uploads & Supporting Files ({documents.length})
+                <FileTextOutlined className="text-brand-primary" /> Step 11:
+                Document Uploads & Supporting Files ({documents.length})
               </span>
             ),
             children: (
               <div className="flex flex-wrap gap-2">
                 {documents.length === 0 ? (
-                  <span className="text-xs text-slate-400">No documents uploaded.</span>
+                  <span className="text-xs text-slate-400">
+                    No documents uploaded.
+                  </span>
                 ) : (
                   documents.map((doc, idx) => (
                     <Button
                       key={idx}
                       size="small"
                       icon={<LinkOutlined />}
-                      onClick={() => window.open(getFileUrl(doc.filePath), "_blank")}
-                      className="text-xs font-medium rounded-lg"
+                      onClick={() =>
+                        window.open(getFileUrl(doc.filePath), "_blank")
+                      }
+                      className="text-xs font-medium rounded-xl"
                     >
-                      {doc.documentType || doc.fileName || `Document ${idx + 1}`}
+                      {doc.documentType ||
+                        doc.fileName ||
+                        `Document ${idx + 1}`}
                     </Button>
                   ))
                 )}
@@ -380,7 +479,7 @@ export default function CompanyRegistrationAdminForm({
         scrollToFirstError={{ behavior: "smooth", block: "center" }}
         className="space-y-6"
       >
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-5 sm:p-6 space-y-5">
+        <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-5 sm:p-6 space-y-5">
           <h4 className="text-sm font-extrabold text-amber-600 dark:text-amber-400 flex items-center gap-2">
             <WarningOutlined /> Overall Compliance & Risk Evaluation
           </h4>
@@ -388,7 +487,11 @@ export default function CompanyRegistrationAdminForm({
           <AntInput
             type="radio"
             name="overallRiskRating"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Overall Risk Rating *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Overall Risk Rating *
+              </span>
+            }
             radioOptions={RISK_RATING_OPTIONS}
             vertical={true}
             reqMsg="Please select overall risk rating."
@@ -398,11 +501,21 @@ export default function CompanyRegistrationAdminForm({
             <AntInput
               type="radio"
               name="pepSanctionsScreeningResult"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">PEP & Sanctions Screening Result *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  PEP & Sanctions Screening Result *
+                </span>
+              }
               radioOptions={[
                 { value: "Clear", label: "Clear — No Match" },
-                { value: "Flagged", label: "Flagged — Potential PEP/Sanctions" },
-                { value: "False Positive", label: "False Positive — Identity Cleared" },
+                {
+                  value: "Flagged",
+                  label: "Flagged — Potential PEP/Sanctions",
+                },
+                {
+                  value: "False Positive",
+                  label: "False Positive — Identity Cleared",
+                },
               ]}
               reqMsg="Please select screening result."
             />
@@ -410,7 +523,11 @@ export default function CompanyRegistrationAdminForm({
             <AntInput
               type="radio"
               name="adverseMediaResult"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200">Adverse Media Screening *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Adverse Media Screening *
+                </span>
+              }
               radioOptions={[
                 { value: "Clear", label: "Clear — No Adverse News" },
                 { value: "Flagged", label: "Flagged — Adverse Media Found" },
@@ -422,7 +539,11 @@ export default function CompanyRegistrationAdminForm({
           <AntInput
             type="textarea"
             name="riskRationale"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Risk Assessment Rationale & Observations</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Risk Assessment Rationale & Observations
+              </span>
+            }
             placeholder="Record notes on source of funds, complex ownership, foreign directors, or identity verification..."
             rows={2}
             className="rounded-xl"
@@ -438,7 +559,11 @@ export default function CompanyRegistrationAdminForm({
           <AntInput
             type="radio"
             name="reviewStatus"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Review Decision Status *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Review Decision Status *
+              </span>
+            }
             radioOptions={DECISION_OPTIONS}
             vertical={true}
             reqMsg="Please select a review decision."
@@ -447,7 +572,11 @@ export default function CompanyRegistrationAdminForm({
           <AntInput
             type="textarea"
             name="decisionNotes"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Decision Notes & Internal Audit Log</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Decision Notes & Internal Audit Log
+              </span>
+            }
             placeholder="Record review notes, decision rationale, or specific instructions for ASIC lodgement..."
             rows={3}
             className="rounded-xl"
@@ -457,7 +586,11 @@ export default function CompanyRegistrationAdminForm({
           <AntInput
             type="textarea"
             name="approvalConditions"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200">Approval Conditions (if applicable)</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200">
+                Approval Conditions (if applicable)
+              </span>
+            }
             placeholder="Specify any conditions for approval (e.g. proof of residential address required before ASIC certificate dispatch)..."
             rows={2}
             className="rounded-xl"
@@ -483,7 +616,7 @@ export default function CompanyRegistrationAdminForm({
           <Button
             onClick={onCancel}
             disabled={isSubmitting}
-            className="h-11 px-6 rounded-2xl font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
+            className="h-11 px-6 rounded-xl font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
           >
             Cancel
           </Button>
@@ -493,7 +626,7 @@ export default function CompanyRegistrationAdminForm({
             loading={isSubmitting}
             disabled={isSubmitting}
             icon={<CheckCircleOutlined />}
-            className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-2xl shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
+            className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-xl shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
           >
             {isSubmitting ? "Saving Decision..." : "Save & Execute Decision"}
           </Button>

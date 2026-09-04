@@ -205,13 +205,17 @@ export default function ProfilePage() {
   return (
     <div className="space-y-6 animate-fade-in max-w-6xl mx-auto">
       {/* Profile Overview Header Card */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-6 md:p-8 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-6 md:p-8 shadow-xs">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
             {user?.avatar ? (
-              <Avatar src={user.avatar} size={72} className="border-2 border-emerald-500 shadow-md" />
+              <Avatar
+                src={user.avatar}
+                size={72}
+                className="border-2 border-emerald-500 shadow-md"
+              />
             ) : (
-              <div className="w-18 h-18 rounded-2xl bg-gradient-to-tr from-[#008043] to-emerald-400 text-white flex items-center justify-center font-bold text-2xl shadow-md">
+              <div className="w-18 h-18 rounded-xl bg-gradient-to-tr from-[#008043] to-emerald-400 text-white flex items-center justify-center font-bold text-2xl shadow-md">
                 {user?.firstName?.charAt(0)}
                 {user?.lastName?.charAt(0)}
               </div>
@@ -253,7 +257,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Tabs Layout */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-6 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-6 shadow-xs">
         <Tabs
           defaultActiveKey="profile"
           items={[
@@ -278,7 +282,7 @@ export default function ProfilePage() {
                       label="First Name"
                       placeholder="First Name"
                       size="large"
-                      className="rounded-lg"
+                      className="rounded-xl"
                       reqMsg="First name is required"
                     />
                     <AntInput
@@ -286,7 +290,7 @@ export default function ProfilePage() {
                       label="Last Name"
                       placeholder="Last Name"
                       size="large"
-                      className="rounded-lg"
+                      className="rounded-xl"
                       reqMsg="Last name is required"
                     />
                   </div>
@@ -297,8 +301,10 @@ export default function ProfilePage() {
                     label="Email Address"
                     size="large"
                     disabled
-                    preIconAnt={<MailOutlined className="text-slate-400 mr-1" />}
-                    className="rounded-lg bg-slate-50 dark:bg-zinc-800 text-slate-500"
+                    preIconAnt={
+                      <MailOutlined className="text-slate-400 mr-1" />
+                    }
+                    className="rounded-xl bg-slate-50 dark:bg-zinc-800 text-slate-500"
                     noRequired
                   />
 
@@ -307,8 +313,10 @@ export default function ProfilePage() {
                       name="phone"
                       label="Phone Number"
                       size="large"
-                      preIconAnt={<PhoneOutlined className="text-slate-400 mr-1" />}
-                      className="rounded-lg"
+                      preIconAnt={
+                        <PhoneOutlined className="text-slate-400 mr-1" />
+                      }
+                      className="rounded-xl"
                       placeholder="+61 400 000 000"
                       noRequired
                     />
@@ -316,8 +324,10 @@ export default function ProfilePage() {
                       name="department"
                       label="Department"
                       size="large"
-                      preIconAnt={<BankOutlined className="text-slate-400 mr-1" />}
-                      className="rounded-lg"
+                      preIconAnt={
+                        <BankOutlined className="text-slate-400 mr-1" />
+                      }
+                      className="rounded-xl"
                       placeholder="Accounting / Tax / Audit"
                       noRequired
                     />
@@ -327,8 +337,10 @@ export default function ProfilePage() {
                     name="jobTitle"
                     label="Job Title"
                     size="large"
-                    preIconAnt={<IdcardOutlined className="text-slate-400 mr-1" />}
-                    className="rounded-lg"
+                    preIconAnt={
+                      <IdcardOutlined className="text-slate-400 mr-1" />
+                    }
+                    className="rounded-xl"
                     placeholder="Senior Accountant / Practice Manager"
                     noRequired
                   />
@@ -338,7 +350,7 @@ export default function ProfilePage() {
                     name="bio"
                     label="Bio / Notes"
                     rows={3}
-                    className="rounded-lg"
+                    className="rounded-xl"
                     placeholder="Brief notes about your role and responsibilities..."
                     noRequired
                   />
@@ -347,7 +359,7 @@ export default function ProfilePage() {
                     name="avatar"
                     label="Avatar Image URL"
                     size="large"
-                    className="rounded-lg"
+                    className="rounded-xl"
                     placeholder="https://example.com/avatar.jpg"
                     noRequired
                   />
@@ -358,7 +370,7 @@ export default function ProfilePage() {
                       htmlType="submit"
                       loading={loadingProfile}
                       size="large"
-                      className="bg-[#008043] hover:bg-[#006635] text-white font-semibold rounded-lg px-8 border-none cursor-pointer"
+                      className="bg-[#008043] hover:bg-[#006635] text-white font-semibold rounded-xl px-8 border-none cursor-pointer"
                     >
                       Save Profile Changes
                     </Button>
@@ -386,8 +398,10 @@ export default function ProfilePage() {
                     name="currentPassword"
                     label="Current Password"
                     size="large"
-                    preIconAnt={<LockOutlined className="text-slate-400 mr-1" />}
-                    className="rounded-lg"
+                    preIconAnt={
+                      <LockOutlined className="text-slate-400 mr-1" />
+                    }
+                    className="rounded-xl"
                     placeholder="Current password"
                     reqMsg="Please enter your current password"
                   />
@@ -398,12 +412,18 @@ export default function ProfilePage() {
                     label="New Password"
                     size="large"
                     preIconAnt={<KeyOutlined className="text-slate-400 mr-1" />}
-                    className="rounded-lg"
+                    className="rounded-xl"
                     placeholder="New password (min 6 characters)"
                     reqMsg="Please enter your new password"
                     rules={[
-                      { required: true, message: "Please enter your new password" },
-                      { min: 6, message: "Password must be at least 6 characters" },
+                      {
+                        required: true,
+                        message: "Please enter your new password",
+                      },
+                      {
+                        min: 6,
+                        message: "Password must be at least 6 characters",
+                      },
                     ]}
                   />
 
@@ -413,7 +433,7 @@ export default function ProfilePage() {
                     label="Confirm New Password"
                     size="large"
                     preIconAnt={<KeyOutlined className="text-slate-400 mr-1" />}
-                    className="rounded-lg"
+                    className="rounded-xl"
                     placeholder="Re-enter new password"
                     reqMsg="Please confirm your new password"
                   />
@@ -424,7 +444,7 @@ export default function ProfilePage() {
                       htmlType="submit"
                       loading={loadingPassword}
                       size="large"
-                      className="bg-[#008043] hover:bg-[#006635] text-white font-semibold rounded-lg px-8 border-none cursor-pointer"
+                      className="bg-[#008043] hover:bg-[#006635] text-white font-semibold rounded-xl px-8 border-none cursor-pointer"
                     >
                       Update Password
                     </Button>
@@ -442,8 +462,9 @@ export default function ProfilePage() {
               children: (
                 <div className="space-y-4 pt-2">
                   <p className="text-xs text-slate-500 dark:text-zinc-400">
-                    These devices and browsers currently have active session tokens for your
-                    account. Revoking a session will immediately log out that device.
+                    These devices and browsers currently have active session
+                    tokens for your account. Revoking a session will immediately
+                    log out that device.
                   </p>
                   <Table
                     columns={sessionColumns}
@@ -466,14 +487,15 @@ export default function ProfilePage() {
               children: (
                 <div className="space-y-4 pt-2">
                   <p className="text-xs text-slate-500 dark:text-zinc-400">
-                    Your account possesses the following granular access permissions, resolved dynamically from your active roles:
+                    Your account possesses the following granular access
+                    permissions, resolved dynamically from your active roles:
                   </p>
                   <div className="flex flex-wrap gap-2 pt-2">
                     {(user?.permissions || []).map((perm) => (
                       <Tag
                         key={perm}
                         color="blue"
-                        className="font-mono text-xs px-2.5 py-1 rounded-md"
+                        className="font-mono text-xs px-2.5 py-1 rounded-xl"
                       >
                         {perm}
                       </Tag>

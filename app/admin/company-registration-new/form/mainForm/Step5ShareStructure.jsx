@@ -81,7 +81,7 @@ export default function Step5ShareStructure({
         {shareholders.map((member, idx) => (
           <div
             key={member.id || idx}
-            className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4"
+            className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4"
           >
             <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
               <div className="flex items-center gap-2">
@@ -381,7 +381,7 @@ export default function Step5ShareStructure({
           type="dashed"
           onClick={handleAddShareholder}
           icon={<PlusOutlined />}
-          className="w-full h-12 rounded-2xl font-bold border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary"
+          className="w-full h-12 rounded-xl font-bold border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary"
         >
           Add Another Shareholder / Member
         </Button>

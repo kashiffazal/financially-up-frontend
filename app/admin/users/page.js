@@ -52,14 +52,23 @@ export default function UsersPage() {
   const [users, setUsers] = useState([]);
   const [roles, setRoles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [pagination, setPagination] = useState({ page: 1, limit: 10, total: 0 });
-  const [filters, setFilters] = useState({ search: "", status: "", roleId: "" });
+  const [pagination, setPagination] = useState({
+    page: 1,
+    limit: 10,
+    total: 0,
+  });
+  const [filters, setFilters] = useState({
+    search: "",
+    status: "",
+    roleId: "",
+  });
 
   // Modals state
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(false);
-  const [isResetPasswordModalOpen, setIsResetPasswordModalOpen] = useState(false);
+  const [isResetPasswordModalOpen, setIsResetPasswordModalOpen] =
+    useState(false);
   const [isActivityDrawerOpen, setIsActivityDrawerOpen] = useState(false);
 
   const [selectedUser, setSelectedUser] = useState(null);
@@ -168,7 +177,11 @@ export default function UsersPage() {
   const handleResetPassword = async (values) => {
     if (!selectedUser) return;
     try {
-      const res = await HTTP("POST", `/users/${selectedUser.id}/reset-password`, values);
+      const res = await HTTP(
+        "POST",
+        `/users/${selectedUser.id}/reset-password`,
+        values,
+      );
       if (res && res.success) {
         antdMsg.success("Password reset successfully.");
         setIsResetPasswordModalOpen(false);
@@ -182,7 +195,9 @@ export default function UsersPage() {
   // Handle Status Toggle
   const handleStatusChange = async (targetUser, newStatus) => {
     try {
-      const res = await HTTP("PATCH", `/users/${targetUser.id}/status`, { status: newStatus });
+      const res = await HTTP("PATCH", `/users/${targetUser.id}/status`, {
+        status: newStatus,
+      });
       if (res && res.success) {
         antdMsg.success(`User marked as ${newStatus}`);
         fetchUsers();
@@ -198,7 +213,10 @@ export default function UsersPage() {
     setIsActivityDrawerOpen(true);
     setLoadingActivity(true);
     try {
-      const res = await HTTP("GET", `/users/${targetUser.id}/activity?limit=30`);
+      const res = await HTTP(
+        "GET",
+        `/users/${targetUser.id}/activity?limit=30`,
+      );
       if (res && res.success) {
         setUserActivity(res.logs || []);
       }
@@ -277,7 +295,10 @@ export default function UsersPage() {
         if (status === "Inactive") color = "default";
         if (status === "Suspended") color = "error";
         return (
-          <Tag color={color} className="text-xs font-semibold uppercase tracking-wider">
+          <Tag
+            color={color}
+            className="text-xs font-semibold uppercase tracking-wider"
+          >
             {status}
           </Tag>
         );
@@ -350,16 +371,29 @@ export default function UsersPage() {
           },
           {
             key: "toggle-status",
-            label: record.status === "Active" ? "Deactivate User" : "Activate User",
-            icon: record.status === "Active" ? <StopOutlined /> : <CheckCircleOutlined />,
+            label:
+              record.status === "Active" ? "Deactivate User" : "Activate User",
+            icon:
+              record.status === "Active" ? (
+                <StopOutlined />
+              ) : (
+                <CheckCircleOutlined />
+              ),
             danger: record.status === "Active",
             onClick: () =>
-              handleStatusChange(record, record.status === "Active" ? "Inactive" : "Active"),
+              handleStatusChange(
+                record,
+                record.status === "Active" ? "Inactive" : "Active",
+              ),
           },
         ];
 
         return (
-          <Dropdown menu={{ items: menuItems }} trigger={["click"]} placement="bottomRight">
+          <Dropdown
+            menu={{ items: menuItems }}
+            trigger={["click"]}
+            placement="bottomRight"
+          >
             <Button type="text" shape="circle" icon={<MoreOutlined />} />
           </Dropdown>
         );
@@ -376,7 +410,8 @@ export default function UsersPage() {
             User Management
           </h1>
           <p className="text-sm text-slate-500 dark:text-zinc-400 mt-1">
-            Manage practice staff, assign roles, configure permissions, and monitor activity.
+            Manage practice staff, assign roles, configure permissions, and
+            monitor activity.
           </p>
         </div>
 
@@ -397,23 +432,27 @@ export default function UsersPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-4 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-4 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Input
             prefix={<SearchOutlined className="text-slate-400 mr-1" />}
             placeholder="Search by name, email, department..."
             value={filters.search}
-            onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
+            onChange={(e) =>
+              setFilters((prev) => ({ ...prev, search: e.target.value }))
+            }
             allowClear
-            className="rounded-lg"
+            className="rounded-xl"
           />
 
           <Select
             placeholder="Filter by Status"
             value={filters.status || undefined}
-            onChange={(val) => setFilters((prev) => ({ ...prev, status: val || "" }))}
+            onChange={(val) =>
+              setFilters((prev) => ({ ...prev, status: val || "" }))
+            }
             allowClear
-            className="rounded-lg"
+            className="rounded-xl"
           >
             <Option value="Active">Active Accounts</Option>
             <Option value="Inactive">Inactive Accounts</Option>
@@ -423,9 +462,11 @@ export default function UsersPage() {
           <Select
             placeholder="Filter by Role"
             value={filters.roleId || undefined}
-            onChange={(val) => setFilters((prev) => ({ ...prev, roleId: val || "" }))}
+            onChange={(val) =>
+              setFilters((prev) => ({ ...prev, roleId: val || "" }))
+            }
             allowClear
-            className="rounded-lg"
+            className="rounded-xl"
           >
             {roles.map((r) => (
               <Option key={r.id} value={r.id}>
@@ -437,7 +478,7 @@ export default function UsersPage() {
       </div>
 
       {/* Users Data Table */}
-      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-4 shadow-xs">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-xl p-4 shadow-xs">
         <Table
           columns={columns}
           dataSource={users}
@@ -448,7 +489,8 @@ export default function UsersPage() {
             pageSize: pagination.limit,
             total: pagination.total,
             showSizeChanger: true,
-            onChange: (p, l) => setPagination({ page: p, limit: l, total: pagination.total }),
+            onChange: (p, l) =>
+              setPagination({ page: p, limit: l, total: pagination.total }),
           }}
           className="overflow-x-auto"
         />
@@ -466,7 +508,12 @@ export default function UsersPage() {
         footer={null}
         width={600}
       >
-        <Form form={addForm} layout="vertical" onFinish={handleAddUser} className="pt-3">
+        <Form
+          form={addForm}
+          layout="vertical"
+          onFinish={handleAddUser}
+          className="pt-3"
+        >
           <div className="grid grid-cols-2 gap-3">
             <AntInput
               name="firstName"
@@ -550,10 +597,23 @@ export default function UsersPage() {
         footer={null}
         width={560}
       >
-        <Form form={editForm} layout="vertical" onFinish={handleEditUser} className="pt-3">
+        <Form
+          form={editForm}
+          layout="vertical"
+          onFinish={handleEditUser}
+          className="pt-3"
+        >
           <div className="grid grid-cols-2 gap-3">
-            <AntInput name="firstName" label="First Name" reqMsg="First name is required" />
-            <AntInput name="lastName" label="Last Name" reqMsg="Last name is required" />
+            <AntInput
+              name="firstName"
+              label="First Name"
+              reqMsg="First name is required"
+            />
+            <AntInput
+              name="lastName"
+              label="Last Name"
+              reqMsg="Last name is required"
+            />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <AntInput name="phone" label="Phone" noRequired />
@@ -590,7 +650,12 @@ export default function UsersPage() {
         onCancel={() => setIsRoleModalOpen(false)}
         footer={null}
       >
-        <Form form={roleForm} layout="vertical" onFinish={handleUpdateRoles} className="pt-3">
+        <Form
+          form={roleForm}
+          layout="vertical"
+          onFinish={handleUpdateRoles}
+          className="pt-3"
+        >
           <AntInput
             type="select"
             name="roleIds"
@@ -641,7 +706,9 @@ export default function UsersPage() {
             ]}
           />
           <div className="flex justify-end gap-2 pt-3 border-t">
-            <Button onClick={() => setIsResetPasswordModalOpen(false)}>Cancel</Button>
+            <Button onClick={() => setIsResetPasswordModalOpen(false)}>
+              Cancel
+            </Button>
             <Button
               type="primary"
               htmlType="submit"
@@ -662,7 +729,9 @@ export default function UsersPage() {
         size={500}
       >
         {loadingActivity ? (
-          <div className="text-center py-8 text-slate-400">Loading audit history...</div>
+          <div className="text-center py-8 text-slate-400">
+            Loading audit history...
+          </div>
         ) : (
           <Timeline
             className="pt-3"
@@ -677,7 +746,8 @@ export default function UsersPage() {
                     {log.description}
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 font-mono">
-                    {new Date(log.createdAt).toLocaleString()} • IP: {log.ipAddress || "—"}
+                    {new Date(log.createdAt).toLocaleString()} • IP:{" "}
+                    {log.ipAddress || "—"}
                   </div>
                 </div>
               ),

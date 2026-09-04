@@ -23,7 +23,9 @@ const ENGAGEMENT_FORMS = [
     title: "Individual Client Engagement Form",
     desc: "Complete your 10-step online engagement onboarding for individual tax returns, investment property deductions, and ATO representation.",
     href: "/resources/engagement-forms/individual-engagement-form",
-    icon: <UserOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+    icon: (
+      <UserOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+    ),
   },
   {
     num: "02",
@@ -31,7 +33,9 @@ const ENGAGEMENT_FORMS = [
     title: "Entity Client Engagement Form",
     desc: "Onboard your Company, Trust, Partnership, or SMSF for annual financial statements, tax return lodgements, and BAS compliance.",
     href: "/resources/engagement-forms/entity-engagements-form",
-    icon: <BankOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+    icon: (
+      <BankOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+    ),
   },
 ];
 
@@ -42,11 +46,11 @@ function EngagementCard({ form }) {
   return (
     <Link
       href={form.href}
-      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
+      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
     >
       {/* Top Header Row */}
       <div className="flex items-center justify-between gap-4 mb-6">
-        <div className="w-12 h-12 rounded-2xl bg-brand-primary-soft dark:bg-emerald-950/70 border border-emerald-200/60 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-primary/10 transition-all duration-300 shadow-xs">
+        <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 border border-emerald-200/60 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 group-hover:bg-brand-primary/10 transition-all duration-300 shadow-xs">
           {form.icon}
         </div>
         <span className="text-2xl sm:text-3xl font-black text-slate-200 dark:text-zinc-700 font-mono tracking-tight select-none">
@@ -83,13 +87,13 @@ function EngagementCard({ form }) {
  */
 function FeaturedOnboardingCard() {
   return (
-    <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+    <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
       {/* Subtle Glow Circle */}
       <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-emerald-400/20 blur-2xl pointer-events-none" />
 
       {/* Top Header */}
       <div className="relative z-10 flex items-center justify-between gap-4 mb-4">
-        <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-white text-xl">
+        <div className="w-12 h-12 rounded-lg bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-white text-xl">
           <CustomerServiceOutlined />
         </div>
         <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-200">
@@ -106,7 +110,8 @@ function FeaturedOnboardingCard() {
           Need Help Choosing the Right Engagement?
         </h3>
         <p className="text-xs text-emerald-100/90 leading-relaxed pt-1">
-          Speak with our registered tax agents to determine whether you need an individual or entity engagement structure.
+          Speak with our registered tax agents to determine whether you need an
+          individual or entity engagement structure.
         </p>
 
         <div className="space-y-1.5 pt-2 text-xs font-semibold text-emerald-100">

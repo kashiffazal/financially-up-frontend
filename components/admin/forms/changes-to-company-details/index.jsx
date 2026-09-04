@@ -29,15 +29,31 @@ export default function ChangesToCompanyDetailsForm() {
 
   // Dynamic step array based on selection
   const activeSteps = [
-    { key: "company", title: "Company", fullTitle: "Company Details & Change Selection" },
+    {
+      key: "company",
+      title: "Company",
+      fullTitle: "Company Details & Change Selection",
+    },
     ...(selectedChanges.includes("Change of Address")
       ? [{ key: "address", title: "Address", fullTitle: "Change of Address" }]
       : []),
     ...(selectedChanges.includes("Appoint / Remove Officeholder")
-      ? [{ key: "officeholder", title: "Officeholder", fullTitle: "Appoint / Remove Officeholder" }]
+      ? [
+          {
+            key: "officeholder",
+            title: "Officeholder",
+            fullTitle: "Appoint / Remove Officeholder",
+          },
+        ]
       : []),
     ...(selectedChanges.includes("Share Transfer")
-      ? [{ key: "shares", title: "Shares", fullTitle: "Share Transfer & Allocation" }]
+      ? [
+          {
+            key: "shares",
+            title: "Shares",
+            fullTitle: "Share Transfer & Allocation",
+          },
+        ]
       : []),
   ];
 
@@ -79,7 +95,11 @@ export default function ChangesToCompanyDetailsForm() {
         setCurrentStep((prev) => prev + 1);
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        const mergedPayload = { ...formData, ...values, changeType: selectedChanges };
+        const mergedPayload = {
+          ...formData,
+          ...values,
+          changeType: selectedChanges,
+        };
         setIsSubmitting(true);
         try {
           console.log("Submitting Company Changes Payload:", mergedPayload);
@@ -105,11 +125,15 @@ export default function ChangesToCompanyDetailsForm() {
                     ASIC Form 484 Notification Submitted
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
-                    Your company details change request for <strong className="text-brand-primary">{mergedPayload.CompanyName}</strong> has been logged.
+                    Your company details change request for{" "}
+                    <strong className="text-brand-primary">
+                      {mergedPayload.CompanyName}
+                    </strong>{" "}
+                    has been logged.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Company Name
@@ -142,15 +166,22 @@ export default function ChangesToCompanyDetailsForm() {
                     <span>Next Steps</span>
                   </div>
                   <ul className="space-y-1.5 text-slate-600 dark:text-zinc-300 leading-normal pl-5 list-disc">
-                    <li>Our ASIC registered corporate agents will lodge Form 484 with ASIC.</li>
-                    <li>Updated company extract and ASIC certificate will be provided.</li>
+                    <li>
+                      Our ASIC registered corporate agents will lodge Form 484
+                      with ASIC.
+                    </li>
+                    <li>
+                      Updated company extract and ASIC certificate will be
+                      provided.
+                    </li>
                   </ul>
                 </div>
               </div>
             ),
             okText: "Return to Form Home",
             okButtonProps: {
-              className: "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+              className:
+                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
             },
             onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
           });
@@ -161,7 +192,9 @@ export default function ChangesToCompanyDetailsForm() {
         }
       }
     } catch (err) {
-      message.error("Please complete all required fields on this step before proceeding.");
+      message.error(
+        "Please complete all required fields on this step before proceeding.",
+      );
     }
   };
 
@@ -177,10 +210,20 @@ export default function ChangesToCompanyDetailsForm() {
   const handleSaveDraft = () => {
     try {
       const currentFields = form.getFieldsValue();
-      const mergedData = { ...formData, ...currentFields, changeType: selectedChanges };
-      const savedAt = new Date().toLocaleString("en-AU", { dateStyle: "medium", timeStyle: "short" });
+      const mergedData = {
+        ...formData,
+        ...currentFields,
+        changeType: selectedChanges,
+      };
+      const savedAt = new Date().toLocaleString("en-AU", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      });
 
-      localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify({ step: currentStep, data: mergedData, savedAt }));
+      localStorage.setItem(
+        DRAFT_STORAGE_KEY,
+        JSON.stringify({ step: currentStep, data: mergedData, savedAt }),
+      );
       setFormData(mergedData);
 
       notification.success({
@@ -200,7 +243,8 @@ export default function ChangesToCompanyDetailsForm() {
     modal.confirm({
       title: "Reset Form & Clear Saved Draft?",
       icon: <DeleteOutlined className="text-red-500" />,
-      content: "Are you sure you want to clear your saved draft and start over? All entered information will be permanently deleted.",
+      content:
+        "Are you sure you want to clear your saved draft and start over? All entered information will be permanently deleted.",
       okText: "Yes, Reset Form",
       okType: "danger",
       cancelText: "Cancel",
@@ -217,22 +261,25 @@ export default function ChangesToCompanyDetailsForm() {
     });
   };
 
-  const progressPercent = Math.round(((currentStep + 1) / activeSteps.length) * 100);
+  const progressPercent = Math.round(
+    ((currentStep + 1) / activeSteps.length) * 100,
+  );
   const currentStepKey = activeSteps[currentStep]?.key;
 
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-3xl overflow-hidden dark:bg-zinc-950">
+    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950">
       {/* Executive Dynamic Stepper Progress Header */}
       {activeSteps.length > 1 && (
         <div className="p-5 sm:p-6 bg-slate-50/80 dark:bg-zinc-900/60 border mb-5 border-slate-200/80 dark:border-zinc-800 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-2xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
+              <div className="w-9 h-9 rounded-xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
                 {currentStep + 1}
               </div>
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400">
-                  Step {currentStep + 1} of {activeSteps.length} - {activeSteps[currentStep]?.fullTitle}
+                  Step {currentStep + 1} of {activeSteps.length} -{" "}
+                  {activeSteps[currentStep]?.fullTitle}
                 </div>
               </div>
             </div>
@@ -251,7 +298,9 @@ export default function ChangesToCompanyDetailsForm() {
           </div>
 
           {/* Dynamic Equal-Width Step Cards */}
-          <div className={`grid grid-cols-${activeSteps.length} gap-2 w-full pt-1`}>
+          <div
+            className={`grid grid-cols-${activeSteps.length} gap-2 w-full pt-1`}
+          >
             {activeSteps.map((item, idx) => {
               const isCurrent = idx === currentStep;
               const isCompleted = idx < currentStep;
@@ -263,12 +312,12 @@ export default function ChangesToCompanyDetailsForm() {
                   onClick={() => {
                     if (idx <= currentStep) setCurrentStep(idx);
                   }}
-                  className={`w-full py-2.5 px-2 rounded-2xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
+                  className={`w-full py-2.5 px-2 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
                     isCurrent
                       ? "bg-brand-primary text-white font-extrabold shadow-md shadow-emerald-600/20 scale-[1.01]"
                       : isCompleted
-                      ? "bg-brand-primary-soft/90 text-brand-primary font-bold dark:bg-emerald-950/80 dark:text-emerald-400 border border-brand-primary/20"
-                      : "bg-slate-50 dark:bg-zinc-900/80 text-slate-500 dark:text-zinc-400 border border-slate-200/60 opacity-60 hover:opacity-100"
+                        ? "bg-brand-primary-soft/90 text-brand-primary font-bold dark:bg-emerald-950/80 dark:text-emerald-400 border border-brand-primary/20"
+                        : "bg-slate-50 dark:bg-zinc-900/80 text-slate-500 dark:text-zinc-400 border border-slate-200/60 opacity-60 hover:opacity-100"
                   }`}
                 >
                   <div
@@ -276,11 +325,15 @@ export default function ChangesToCompanyDetailsForm() {
                       isCurrent
                         ? "bg-white text-brand-primary shadow-sm"
                         : isCompleted
-                        ? "bg-brand-primary text-white"
-                        : "border border-slate-300 dark:border-zinc-700 text-slate-500"
+                          ? "bg-brand-primary text-white"
+                          : "border border-slate-300 dark:border-zinc-700 text-slate-500"
                     }`}
                   >
-                    {isCompleted ? <CheckOutlined className="text-[10px] text-white" /> : idx + 1}
+                    {isCompleted ? (
+                      <CheckOutlined className="text-[10px] text-white" />
+                    ) : (
+                      idx + 1
+                    )}
                   </div>
                   <span className="text-[11px] leading-tight font-extrabold tracking-tight truncate w-full text-center mt-1">
                     {item.title}
@@ -310,18 +363,27 @@ export default function ChangesToCompanyDetailsForm() {
           />
         )}
         {currentStepKey === "address" && (
-          <StepAddressChange stepNumber={currentStep + 1} totalSteps={activeSteps.length} />
+          <StepAddressChange
+            stepNumber={currentStep + 1}
+            totalSteps={activeSteps.length}
+          />
         )}
         {currentStepKey === "officeholder" && (
-          <StepOfficeholder stepNumber={currentStep + 1} totalSteps={activeSteps.length} />
+          <StepOfficeholder
+            stepNumber={currentStep + 1}
+            totalSteps={activeSteps.length}
+          />
         )}
         {currentStepKey === "shares" && (
-          <StepShareTransfer stepNumber={currentStep + 1} totalSteps={activeSteps.length} />
+          <StepShareTransfer
+            stepNumber={currentStep + 1}
+            totalSteps={activeSteps.length}
+          />
         )}
       </Form>
 
       {/* Footer Actions Bar */}
-      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-2xl">
+      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-xl">
         <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
           {currentStep > 0 && (
             <Button
@@ -355,11 +417,19 @@ export default function ChangesToCompanyDetailsForm() {
             type="primary"
             size="large"
             loading={isSubmitting}
-            icon={currentStep === activeSteps.length - 1 ? <CheckOutlined /> : <ArrowRightOutlined />}
+            icon={
+              currentStep === activeSteps.length - 1 ? (
+                <CheckOutlined />
+              ) : (
+                <ArrowRightOutlined />
+              )
+            }
             onClick={handleNext}
             className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20"
           >
-            {currentStep === activeSteps.length - 1 ? "Submit Company Changes" : `Next: Step ${currentStep + 2}`}
+            {currentStep === activeSteps.length - 1
+              ? "Submit Company Changes"
+              : `Next: Step ${currentStep + 2}`}
           </Button>
         </div>
       </div>

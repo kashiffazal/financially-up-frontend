@@ -1,31 +1,33 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Tag, Button } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Tag, Button } from "antd";
 import {
   AuditOutlined,
   ThunderboltOutlined,
   SafetyCertificateOutlined,
   ArrowRightOutlined,
-} from '@ant-design/icons';
-import styles from './IndividualServicesWhyUs.module.css';
+} from "@ant-design/icons";
+import styles from "./IndividualServicesWhyUs.module.css";
 
 export default function IndividualServicesWhyUs() {
   const benefits = [
     {
-      title: 'Registered ATO Tax Agents',
-      desc: 'All returns are handled by registered tax agents with deep knowledge of Australian tax law and ATO compliance guidelines.',
-      icon: <SafetyCertificateOutlined className="text-brand-primary text-xl" />,
+      title: "Registered ATO Tax Agents",
+      desc: "All returns are handled by registered tax agents with deep knowledge of Australian tax law and ATO compliance guidelines.",
+      icon: (
+        <SafetyCertificateOutlined className="text-brand-primary text-xl" />
+      ),
     },
     {
-      title: 'Maximum Refund Guarantee',
-      desc: 'Our accountants rigorously analyze every work expense, property cost, and deduction opportunity to maximize your tax refund.',
+      title: "Maximum Refund Guarantee",
+      desc: "Our accountants rigorously analyze every work expense, property cost, and deduction opportunity to maximize your tax refund.",
       icon: <AuditOutlined className="text-brand-primary text-xl" />,
     },
     {
-      title: 'Fast 48-Hour Processing',
-      desc: 'Enjoy rapid 48-hour turnarounds from initial form submission to final ATO electronic lodgement.',
+      title: "Fast 48-Hour Processing",
+      desc: "Enjoy rapid 48-hour turnarounds from initial form submission to final ATO electronic lodgement.",
       icon: <ThunderboltOutlined className="text-brand-primary text-xl" />,
     },
   ];
@@ -33,7 +35,6 @@ export default function IndividualServicesWhyUs() {
   return (
     <section className="bg-brand-bg-lighter dark:bg-zinc-900/40 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           <Tag color="green" className="brand-section-tag">
@@ -45,7 +46,8 @@ export default function IndividualServicesWhyUs() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-500 dark:text-zinc-400 font-normal">
-            Whether you earn salary &amp; wages or manage rental properties, we simplify your ATO compliance.
+            Whether you earn salary &amp; wages or manage rental properties, we
+            simplify your ATO compliance.
           </p>
         </div>
 
@@ -54,7 +56,7 @@ export default function IndividualServicesWhyUs() {
           {benefits.map((item, idx) => (
             <div key={idx} className={styles.statRow}>
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center shrink-0">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-zinc-50">
@@ -82,7 +84,6 @@ export default function IndividualServicesWhyUs() {
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

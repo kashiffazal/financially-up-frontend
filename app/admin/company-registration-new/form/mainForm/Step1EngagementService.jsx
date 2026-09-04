@@ -45,7 +45,7 @@ export default function Step1EngagementService({ form }) {
         </p>
 
         {/* Before Step 1 Legal Acknowledgements */}
-        <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 mt-4 space-y-2">
+        <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 mt-4 space-y-2">
           {/* Terms of Engagement */}
           <div className="space-y-1.5">
             <span className="text-xs font-black uppercase tracking-wider text-emerald-950 dark:text-emerald-200 block">
@@ -94,7 +94,7 @@ export default function Step1EngagementService({ form }) {
       </div>
 
       {/* 1.1 Contact Person Completing This Form */}
-      <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -234,7 +234,7 @@ export default function Step1EngagementService({ form }) {
       </div>
 
       {/* 1.2 Requested Service */}
-      <div className="p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">

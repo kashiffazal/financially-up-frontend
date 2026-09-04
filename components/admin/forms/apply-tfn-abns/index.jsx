@@ -31,7 +31,9 @@ export default function ApplyTfnAbnForm() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formKey, setFormKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState(["Sole Trader ABN"]);
+  const [selectedCategories, setSelectedCategories] = useState([
+    "Sole Trader ABN",
+  ]);
   const [formData, setFormData] = useState({});
 
   // Restore draft
@@ -46,7 +48,11 @@ export default function ApplyTfnAbnForm() {
           if (Array.isArray(savedDraft.data.ApplyTFN_ABN)) {
             setSelectedCategories(savedDraft.data.ApplyTFN_ABN);
           }
-          if (typeof savedDraft.step === "number" && savedDraft.step >= 0 && savedDraft.step <= 3) {
+          if (
+            typeof savedDraft.step === "number" &&
+            savedDraft.step >= 0 &&
+            savedDraft.step <= 3
+          ) {
             setCurrentStep(savedDraft.step);
           }
           message.info(`Restored your saved TFN/ABN application progress.`);
@@ -61,7 +67,10 @@ export default function ApplyTfnAbnForm() {
   const handleNext = async () => {
     try {
       const values = await form.validateFields();
-      if (currentStep === 0 && (!selectedCategories || selectedCategories.length === 0)) {
+      if (
+        currentStep === 0 &&
+        (!selectedCategories || selectedCategories.length === 0)
+      ) {
         message.warning("Please select at least one application category.");
         return;
       }
@@ -72,7 +81,11 @@ export default function ApplyTfnAbnForm() {
         setCurrentStep((prev) => prev + 1);
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        const mergedPayload = { ...formData, ...values, ApplyTFN_ABN: selectedCategories };
+        const mergedPayload = {
+          ...formData,
+          ...values,
+          ApplyTFN_ABN: selectedCategories,
+        };
         setIsSubmitting(true);
         try {
           console.log("Submitting TFN/ABN Payload:", mergedPayload);
@@ -98,11 +111,15 @@ export default function ApplyTfnAbnForm() {
                     Application Lodged Successfully
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
-                    Your TFN/ABN application for <strong className="text-brand-primary">{mergedPayload.firstName} {mergedPayload.lastName}</strong> has been logged with our registered tax agent team.
+                    Your TFN/ABN application for{" "}
+                    <strong className="text-brand-primary">
+                      {mergedPayload.firstName} {mergedPayload.lastName}
+                    </strong>{" "}
+                    has been logged with our registered tax agent team.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Categories
@@ -135,15 +152,22 @@ export default function ApplyTfnAbnForm() {
                     <span>Next Steps</span>
                   </div>
                   <ul className="space-y-1.5 text-slate-600 dark:text-zinc-300 leading-normal pl-5 list-disc">
-                    <li>Our agents will review ID documents and submit to the Australian Business Register.</li>
-                    <li>Your ABN / TFN notice will be emailed directly once issued by the ATO.</li>
+                    <li>
+                      Our agents will review ID documents and submit to the
+                      Australian Business Register.
+                    </li>
+                    <li>
+                      Your ABN / TFN notice will be emailed directly once issued
+                      by the ATO.
+                    </li>
                   </ul>
                 </div>
               </div>
             ),
             okText: "Return to Form Home",
             okButtonProps: {
-              className: "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+              className:
+                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
             },
             onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
           });
@@ -154,7 +178,9 @@ export default function ApplyTfnAbnForm() {
         }
       }
     } catch (err) {
-      message.error("Please complete all required fields on this step before proceeding.");
+      message.error(
+        "Please complete all required fields on this step before proceeding.",
+      );
     }
   };
 
@@ -170,10 +196,20 @@ export default function ApplyTfnAbnForm() {
   const handleSaveDraft = () => {
     try {
       const currentFields = form.getFieldsValue();
-      const mergedData = { ...formData, ...currentFields, ApplyTFN_ABN: selectedCategories };
-      const savedAt = new Date().toLocaleString("en-AU", { dateStyle: "medium", timeStyle: "short" });
+      const mergedData = {
+        ...formData,
+        ...currentFields,
+        ApplyTFN_ABN: selectedCategories,
+      };
+      const savedAt = new Date().toLocaleString("en-AU", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      });
 
-      localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify({ step: currentStep, data: mergedData, savedAt }));
+      localStorage.setItem(
+        DRAFT_STORAGE_KEY,
+        JSON.stringify({ step: currentStep, data: mergedData, savedAt }),
+      );
       setFormData(mergedData);
 
       notification.success({
@@ -193,7 +229,8 @@ export default function ApplyTfnAbnForm() {
     modal.confirm({
       title: "Reset Form & Clear Saved Draft?",
       icon: <DeleteOutlined className="text-red-500" />,
-      content: "Are you sure you want to clear your saved draft and start over? All entered information will be permanently deleted.",
+      content:
+        "Are you sure you want to clear your saved draft and start over? All entered information will be permanently deleted.",
       okText: "Yes, Reset Form",
       okType: "danger",
       cancelText: "Cancel",
@@ -213,17 +250,18 @@ export default function ApplyTfnAbnForm() {
   const progressPercent = Math.round(((currentStep + 1) / 4) * 100);
 
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-3xl overflow-hidden dark:bg-zinc-950">
+    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950">
       {/* Executive Stepper Progress Header */}
       <div className="p-5 sm:p-6 bg-slate-50/80 dark:bg-zinc-900/60 border mb-5 border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-2xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
+            <div className="w-9 h-9 rounded-xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
               {currentStep + 1}
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400">
-                Step {currentStep + 1} of 4 - {STEP_ITEMS[currentStep].fullTitle}
+                Step {currentStep + 1} of 4 -{" "}
+                {STEP_ITEMS[currentStep].fullTitle}
               </div>
             </div>
           </div>
@@ -254,12 +292,12 @@ export default function ApplyTfnAbnForm() {
                 onClick={() => {
                   if (idx <= currentStep) setCurrentStep(idx);
                 }}
-                className={`w-full py-2.5 px-2 rounded-2xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
+                className={`w-full py-2.5 px-2 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
                   isCurrent
                     ? "bg-brand-primary text-white font-extrabold shadow-md shadow-emerald-600/20 scale-[1.01]"
                     : isCompleted
-                    ? "bg-brand-primary-soft/90 text-brand-primary font-bold dark:bg-emerald-950/80 dark:text-emerald-400 border border-brand-primary/20"
-                    : "bg-slate-50 dark:bg-zinc-900/80 text-slate-500 dark:text-zinc-400 border border-slate-200/60 opacity-60 hover:opacity-100"
+                      ? "bg-brand-primary-soft/90 text-brand-primary font-bold dark:bg-emerald-950/80 dark:text-emerald-400 border border-brand-primary/20"
+                      : "bg-slate-50 dark:bg-zinc-900/80 text-slate-500 dark:text-zinc-400 border border-slate-200/60 opacity-60 hover:opacity-100"
                 }`}
               >
                 <div
@@ -267,11 +305,15 @@ export default function ApplyTfnAbnForm() {
                     isCurrent
                       ? "bg-white text-brand-primary shadow-sm"
                       : isCompleted
-                      ? "bg-brand-primary text-white"
-                      : "border border-slate-300 dark:border-zinc-700 text-slate-500"
+                        ? "bg-brand-primary text-white"
+                        : "border border-slate-300 dark:border-zinc-700 text-slate-500"
                   }`}
                 >
-                  {isCompleted ? <CheckOutlined className="text-[10px] text-white" /> : item.step}
+                  {isCompleted ? (
+                    <CheckOutlined className="text-[10px] text-white" />
+                  ) : (
+                    item.step
+                  )}
                 </div>
                 <span className="text-[11px] leading-tight font-extrabold tracking-tight truncate w-full text-center mt-1">
                   {item.title}
@@ -300,12 +342,14 @@ export default function ApplyTfnAbnForm() {
           />
         )}
         {currentStep === 1 && <Step2ApplicantDetails />}
-        {currentStep === 2 && <Step3EntityDetails selectedCategories={selectedCategories} />}
+        {currentStep === 2 && (
+          <Step3EntityDetails selectedCategories={selectedCategories} />
+        )}
         {currentStep === 3 && <Step4IdVerification />}
       </Form>
 
       {/* Footer Actions Bar */}
-      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-2xl">
+      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-xl">
         <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
           {currentStep > 0 && (
             <Button
@@ -339,7 +383,9 @@ export default function ApplyTfnAbnForm() {
             type="primary"
             size="large"
             loading={isSubmitting}
-            icon={currentStep === 3 ? <CheckOutlined /> : <ArrowRightOutlined />}
+            icon={
+              currentStep === 3 ? <CheckOutlined /> : <ArrowRightOutlined />
+            }
             onClick={handleNext}
             className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20"
           >

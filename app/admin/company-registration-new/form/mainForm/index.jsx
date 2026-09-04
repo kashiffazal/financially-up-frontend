@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Form, Button, Card, App, message as staticMessage, notification as staticNotification, Modal as staticModal } from "antd";
+import {
+  Form,
+  Button,
+  Card,
+  App,
+  message as staticMessage,
+  notification as staticNotification,
+  Modal as staticModal,
+} from "antd";
 import {
   ArrowRightOutlined,
   SaveOutlined,
@@ -34,13 +42,21 @@ const STEP_ITEMS = [
   { step: 3, title: "Addresses", fullTitle: "Addresses & Office Facility" },
   { step: 4, title: "Officeholders", fullTitle: "Directors & Secretaries" },
   { step: 5, title: "Shares", fullTitle: "Share Structure & Members" },
-  { step: 6, title: "Beneficial Owners", fullTitle: "Beneficial Ownership & Control" },
+  {
+    step: 6,
+    title: "Beneficial Owners",
+    fullTitle: "Beneficial Ownership & Control",
+  },
   { step: 7, title: "CDD / AML", fullTitle: "Customer Due Diligence" },
   { step: 8, title: "Source of Funds", fullTitle: "Funds & Wealth Origin" },
   { step: 9, title: "Nominees", fullTitle: "Nominee & Trustee Roles" },
   { step: 10, title: "Tax & Bank", fullTitle: "Optional ATO & Bank Setup" },
   { step: 11, title: "Documents", fullTitle: "Supporting Attachments" },
-  { step: 12, title: "Declarations", fullTitle: "Statutory Declarations & Sign" },
+  {
+    step: 12,
+    title: "Declarations",
+    fullTitle: "Statutory Declarations & Sign",
+  },
 ];
 
 const getInitialSavedDraft = () => {
@@ -147,13 +163,19 @@ export default function CompanyRegistrationForm() {
   // Repeatable subform state with default values
   const [officeholders, setOfficeholders] = useState(DEFAULT_OFFICERS);
   const [shareholders, setShareholders] = useState(DEFAULT_SHAREHOLDERS);
-  const [beneficialOwners, setBeneficialOwners] = useState(DEFAULT_BENEFICIAL_OWNERS);
+  const [beneficialOwners, setBeneficialOwners] = useState(
+    DEFAULT_BENEFICIAL_OWNERS,
+  );
 
   // Restore Ant Design form fields and subform states from draft cleanly on client mount
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
     if (savedDraft) {
-      if (typeof savedDraft.step === "number" && savedDraft.step >= 0 && savedDraft.step <= 11) {
+      if (
+        typeof savedDraft.step === "number" &&
+        savedDraft.step >= 0 &&
+        savedDraft.step <= 11
+      ) {
         setCurrentStep(savedDraft.step);
       }
       if (savedDraft.data) {
@@ -169,7 +191,7 @@ export default function CompanyRegistrationForm() {
           setBeneficialOwners(savedDraft.data._beneficialOwners);
         }
         message.info(
-          `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`
+          `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`,
         );
       }
     }
@@ -205,9 +227,14 @@ export default function CompanyRegistrationForm() {
             privacy_notice_version: "v1.0",
             privacy_notice_acknowledged: true,
           };
-          
-          const result = await HTTP("POST", "/new-company-registrations", payload);
-          const refNumber = result?.data?.referenceNumber || "CREG-" + Date.now();
+
+          const result = await HTTP(
+            "POST",
+            "/new-company-registrations",
+            payload,
+          );
+          const refNumber =
+            result?.data?.referenceNumber || "CREG-" + Date.now();
 
           localStorage.removeItem(DRAFT_STORAGE_KEY);
           setFormData({});
@@ -230,11 +257,15 @@ export default function CompanyRegistrationForm() {
                     Company Registration Application Lodged
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
-                    Your incorporation application for <strong className="text-brand-primary dark:text-emerald-400">{updatedData.companyName1 || "Proposed Company"}</strong> has been received by our ASIC corporate agent team.
+                    Your incorporation application for{" "}
+                    <strong className="text-brand-primary dark:text-emerald-400">
+                      {updatedData.companyName1 || "Proposed Company"}
+                    </strong>{" "}
+                    has been received by our ASIC corporate agent team.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Proposed Name (1st Pref)
@@ -248,7 +279,9 @@ export default function CompanyRegistrationForm() {
                       Structure / State
                     </span>
                     <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">
-                      {updatedData.companyType || "Proprietary company limited by shares"} ({updatedData.jurisdictionState || "NSW"})
+                      {updatedData.companyType ||
+                        "Proprietary company limited by shares"}{" "}
+                      ({updatedData.jurisdictionState || "NSW"})
                     </span>
                   </div>
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
@@ -275,16 +308,26 @@ export default function CompanyRegistrationForm() {
                     <span>Next Steps</span>
                   </div>
                   <ul className="space-y-1.5 text-slate-600 dark:text-zinc-300 leading-normal pl-5 list-disc">
-                    <li>Our ASIC registered agents will review Director IDs and verify name availability.</li>
-                    <li>Form 201 will be submitted directly to the ASIC corporate register gateway.</li>
-                    <li>Your ASIC Certificate of Registration, ACN, and Company Constitution will be emailed upon issuance.</li>
+                    <li>
+                      Our ASIC registered agents will review Director IDs and
+                      verify name availability.
+                    </li>
+                    <li>
+                      Form 201 will be submitted directly to the ASIC corporate
+                      register gateway.
+                    </li>
+                    <li>
+                      Your ASIC Certificate of Registration, ACN, and Company
+                      Constitution will be emailed upon issuance.
+                    </li>
                   </ul>
                 </div>
               </div>
             ),
             okText: "Return to Form Home",
             okButtonProps: {
-              className: "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+              className:
+                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
             },
             onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
           });
@@ -295,7 +338,9 @@ export default function CompanyRegistrationForm() {
         }
       }
     } catch (err) {
-      message.error("Please complete all required fields on this step before proceeding.");
+      message.error(
+        "Please complete all required fields on this step before proceeding.",
+      );
     }
   };
 
@@ -325,7 +370,7 @@ export default function CompanyRegistrationForm() {
 
       localStorage.setItem(
         DRAFT_STORAGE_KEY,
-        JSON.stringify({ step: currentStep, data: mergedData, savedAt })
+        JSON.stringify({ step: currentStep, data: mergedData, savedAt }),
       );
       setFormData(mergedData);
 
@@ -347,7 +392,8 @@ export default function CompanyRegistrationForm() {
     modal.confirm({
       title: "Reset Form & Clear Saved Draft?",
       icon: <DeleteOutlined className="text-red-500" />,
-      content: "Are you sure you want to clear your saved draft and start over from scratch? All entered company and director information will be permanently deleted.",
+      content:
+        "Are you sure you want to clear your saved draft and start over from scratch? All entered company and director information will be permanently deleted.",
       okText: "Yes, Reset Form",
       okType: "danger",
       cancelText: "Cancel",
@@ -366,17 +412,18 @@ export default function CompanyRegistrationForm() {
   const progressPercent = Math.round(((currentStep + 1) / 12) * 100);
 
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-3xl overflow-hidden dark:bg-zinc-950">
+    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950">
       {/* Executive 12-Step Progress Header */}
       <div className="p-5 sm:p-6 bg-slate-50/80 dark:bg-zinc-900/60 border mb-5 border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-2xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
+            <div className="w-9 h-9 rounded-xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
               {currentStep + 1}
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400">
-                Step {currentStep + 1} of 12 — {STEP_ITEMS[currentStep].fullTitle}
+                Step {currentStep + 1} of 12 —{" "}
+                {STEP_ITEMS[currentStep].fullTitle}
               </div>
             </div>
           </div>
@@ -408,12 +455,12 @@ export default function CompanyRegistrationForm() {
                 onClick={() => {
                   if (idx <= currentStep) setCurrentStep(idx);
                 }}
-                className={`w-full lg:flex-1 lg:min-w-[110px] py-2 px-1.5 sm:px-2 rounded-2xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer shrink-0 ${
+                className={`w-full lg:flex-1 lg:min-w-[110px] py-2 px-1.5 sm:px-2 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer shrink-0 ${
                   isCurrent
                     ? "bg-brand-primary text-white font-extrabold shadow-md shadow-emerald-600/20 scale-[1.02]"
                     : isCompleted
-                    ? "bg-brand-primary-soft/90 text-brand-primary font-bold dark:bg-emerald-950/80 dark:text-emerald-400 border border-brand-primary/20"
-                    : "bg-slate-50 dark:bg-zinc-900/80 text-slate-500 dark:text-zinc-400 border border-slate-200/60 opacity-60 hover:opacity-100"
+                      ? "bg-brand-primary-soft/90 text-brand-primary font-bold dark:bg-emerald-950/80 dark:text-emerald-400 border border-brand-primary/20"
+                      : "bg-slate-50 dark:bg-zinc-900/80 text-slate-500 dark:text-zinc-400 border border-slate-200/60 opacity-60 hover:opacity-100"
                 }`}
               >
                 <div
@@ -421,11 +468,15 @@ export default function CompanyRegistrationForm() {
                     isCurrent
                       ? "bg-white text-brand-primary shadow-sm"
                       : isCompleted
-                      ? "bg-brand-primary text-white"
-                      : "border border-slate-300 dark:border-zinc-700 text-slate-500"
+                        ? "bg-brand-primary text-white"
+                        : "border border-slate-300 dark:border-zinc-700 text-slate-500"
                   }`}
                 >
-                  {isCompleted ? <CheckOutlined className="text-[10px] text-white" /> : item.step}
+                  {isCompleted ? (
+                    <CheckOutlined className="text-[10px] text-white" />
+                  ) : (
+                    item.step
+                  )}
                 </div>
                 <span className="text-[11px] leading-tight font-extrabold tracking-tight truncate w-full text-center mt-1">
                   {item.title}
@@ -478,7 +529,7 @@ export default function CompanyRegistrationForm() {
       </Form>
 
       {/* Footer Actions Bar */}
-      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-2xl">
+      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-xl">
         <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
           {currentStep > 0 && (
             <Button
@@ -512,11 +563,15 @@ export default function CompanyRegistrationForm() {
             type="primary"
             size="large"
             loading={isSubmitting}
-            icon={currentStep === 11 ? <CheckOutlined /> : <ArrowRightOutlined />}
+            icon={
+              currentStep === 11 ? <CheckOutlined /> : <ArrowRightOutlined />
+            }
             onClick={handleNext}
             className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20"
           >
-            {currentStep === 11 ? "Submit Company Registration" : `Next: Step ${currentStep + 2}`}
+            {currentStep === 11
+              ? "Submit Company Registration"
+              : `Next: Step ${currentStep + 2}`}
           </Button>
         </div>
       </div>

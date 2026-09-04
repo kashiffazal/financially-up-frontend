@@ -1,36 +1,36 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Tag } from 'antd';
+import React from "react";
+import { Tag } from "antd";
 import {
   EnvironmentOutlined,
   FileTextOutlined,
   SafetyOutlined,
   CheckCircleOutlined,
-} from '@ant-design/icons';
-import styles from './FeatureHighlightsSection.module.css';
+} from "@ant-design/icons";
+import styles from "./FeatureHighlightsSection.module.css";
 
 export default function FeatureHighlightsSection() {
   const highlights = [
     {
-      category: 'LOCAL SERVICE',
-      title: 'Australian Owned & Operated',
+      category: "LOCAL SERVICE",
+      title: "Australian Owned & Operated",
       description:
-        'Registered tax agents based in Australia, providing trusted expertise across all states.',
+        "Registered tax agents based in Australia, providing trusted expertise across all states.",
       icon: <EnvironmentOutlined />,
     },
     {
-      category: 'HASSLE-FREE',
-      title: '100% Online & No Paperwork',
+      category: "HASSLE-FREE",
+      title: "100% Online & No Paperwork",
       description:
-        'Submit documents securely from anywhere using your phone, tablet, or desktop.',
+        "Submit documents securely from anywhere using your phone, tablet, or desktop.",
       icon: <FileTextOutlined />,
     },
     {
-      category: 'REPUTABLE',
-      title: 'No Hidden Fees or Charges',
+      category: "REPUTABLE",
+      title: "No Hidden Fees or Charges",
       description:
-        'Fixed upfront pricing so you always know exactly what you pay before we start.',
+        "Fixed upfront pricing so you always know exactly what you pay before we start.",
       icon: <SafetyOutlined />,
     },
   ];
@@ -42,13 +42,14 @@ export default function FeatureHighlightsSection() {
           <Tag color="green" className="brand-section-tag">
             Why Financially Up
           </Tag>
-          
+
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
             Empower Your Finances with Precision
           </h2>
 
           <p className="text-sm sm:text-base text-slate-500 dark:text-zinc-400 font-normal">
-            Designed for busy Australians seeking fast, accurate, and completely transparent tax services.
+            Designed for busy Australians seeking fast, accurate, and completely
+            transparent tax services.
           </p>
         </div>
 
@@ -56,11 +57,11 @@ export default function FeatureHighlightsSection() {
           {highlights.map((item, idx) => (
             <div
               key={idx}
-              className={`group relative bg-white dark:bg-zinc-900/90 rounded-[22px] p-7 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between ${styles.highlightCard}`}
+              className={`group relative bg-white dark:bg-zinc-900/90 rounded-xl p-7 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between ${styles.highlightCard}`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/80 text-xl text-brand-primary dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 text-xl text-brand-primary dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300 shadow-sm">
                     {item.icon}
                   </div>
 

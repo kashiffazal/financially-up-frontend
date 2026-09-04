@@ -63,7 +63,7 @@ export default function Step6DocumentVerification({ form }) {
       </div>
 
       {/* ID-001: Verification Method Selection */}
-      <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
+      <div className="p-6 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
         <AntInput
           type="radio"
           name="identityMethod"
@@ -84,7 +84,7 @@ export default function Step6DocumentVerification({ form }) {
       {(identityMethod === "Upload ID" ||
         identityMethod === "Electronic Verification" ||
         !identityMethod) && (
-        <div className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+        <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
             <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
               <IdcardOutlined className="text-brand-primary" /> Required Photo
@@ -99,7 +99,8 @@ export default function Step6DocumentVerification({ form }) {
               name="primaryId"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Primary Photo ID (Driver&apos;s License / Passport / Photo Card) *
+                  Primary Photo ID (Driver&apos;s License / Passport / Photo
+                  Card) *
                 </span>
               }
               title="Upload Primary ID"
@@ -107,7 +108,7 @@ export default function Step6DocumentVerification({ form }) {
               accept=".pdf,.jpg,.jpeg,.png"
               reqMsg="Please upload your primary photo ID."
               height={170}
-              className="rounded-2xl"
+              className="rounded-xl"
               containerClassName="!mb-0"
             />
 
@@ -125,7 +126,7 @@ export default function Step6DocumentVerification({ form }) {
               accept=".pdf,.jpg,.jpeg,.png"
               reqMsg="Please upload supporting ID."
               height={170}
-              className="rounded-2xl"
+              className="rounded-xl"
               containerClassName="!mb-0"
             />
           </div>
@@ -152,7 +153,7 @@ export default function Step6DocumentVerification({ form }) {
                 reqMsg="Please upload selfie photo."
                 type="1"
                 height={170}
-                className="rounded-2xl"
+                className="rounded-xl"
               />
 
               <AntInput
@@ -178,7 +179,7 @@ export default function Step6DocumentVerification({ form }) {
 
       {/* No Photo ID Path (ID-004) */}
       {identityMethod === "No Photo ID" && (
-        <div className="p-6 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 space-y-4">
+        <div className="p-6 rounded-xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 space-y-4">
           <AntInput
             type="textarea"
             name="noPhotoIdReason"

@@ -123,7 +123,7 @@ export default function Dashboard() {
               <button
                 key={range}
                 onClick={() => setActiveRange(range)}
-                className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all cursor-pointer ${
                   activeRange === range
                     ? "bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-white"
                     : "text-slate-400 hover:text-slate-650 dark:text-zinc-505 dark:text-zinc-500 dark:hover:text-zinc-300"
@@ -147,12 +147,12 @@ export default function Dashboard() {
       {/* STATS CARDS (5) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
         {/* Stat Card 1 */}
-        <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex justify-between items-start">
             <span className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
               Total Requests
             </span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-55 bg-emerald-50 dark:bg-emerald-950/40 text-[#008043] dark:text-emerald-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-emerald-55 bg-emerald-50 dark:bg-emerald-950/40 text-[#008043] dark:text-emerald-400 flex items-center justify-center">
               <FileTextOutlined className="text-base" />
             </div>
           </div>
@@ -170,12 +170,12 @@ export default function Dashboard() {
         </div>
 
         {/* Stat Card 2 */}
-        <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex justify-between items-start">
             <span className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
               Pending
             </span>
-            <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
               <ClockCircleOutlined className="text-base" />
             </div>
           </div>
@@ -193,12 +193,12 @@ export default function Dashboard() {
         </div>
 
         {/* Stat Card 3 */}
-        <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex justify-between items-start">
             <span className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
               Completed
             </span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/20 text-[#008043] dark:text-emerald-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 text-[#008043] dark:text-emerald-400 flex items-center justify-center">
               <CheckCircleOutlined className="text-base" />
             </div>
           </div>
@@ -216,12 +216,12 @@ export default function Dashboard() {
         </div>
 
         {/* Stat Card 4 */}
-        <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex justify-between items-start">
             <span className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
               Rejected
             </span>
-            <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center">
               <CloseCircleOutlined className="text-base" />
             </div>
           </div>
@@ -239,12 +239,12 @@ export default function Dashboard() {
         </div>
 
         {/* Stat Card 5 */}
-        <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex justify-between items-start">
             <span className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
               Drafts
             </span>
-            <div className="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
               <FolderOpenOutlined className="text-base" />
             </div>
           </div>
@@ -265,7 +265,7 @@ export default function Dashboard() {
       {/* CHARTS GRID ROW */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Line Chart */}
-        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm lg:col-span-2">
+        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm lg:col-span-2">
           <div className="mb-4">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Requests over time
@@ -275,7 +275,7 @@ export default function Dashboard() {
         </div>
 
         {/* Bar Chart */}
-        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm">
+        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm">
           <div className="mb-4">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Requests by module
@@ -288,7 +288,7 @@ export default function Dashboard() {
       {/* PERFORMANCE & LIST ROW */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Module Performance */}
-        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm lg:col-span-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm lg:col-span-5 flex flex-col justify-between">
           <div className="mb-5">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Module performance
@@ -317,7 +317,7 @@ export default function Dashboard() {
         </div>
 
         {/* Recent Requests */}
-        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm lg:col-span-7 flex flex-col justify-between">
+        <div className="bg-white dark:bg-zinc-900 p-5 md:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800/80 shadow-sm lg:col-span-7 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-5">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Recent requests
@@ -389,4 +389,3 @@ export default function Dashboard() {
     </div>
   );
 }
-

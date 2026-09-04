@@ -248,10 +248,10 @@ export function RequestsByModuleChart() {
               <span className="w-36 text-slate-500 dark:text-zinc-400 font-semibold truncate pr-2 text-left">
                 {item.name}
               </span>
-              <div className="flex-1 bg-slate-100 dark:bg-zinc-800 h-6 rounded-md overflow-hidden relative">
+              <div className="flex-1 bg-slate-100 dark:bg-zinc-800 h-6 rounded-xl overflow-hidden relative">
                 <div
                   style={{ width: `${widthPercentage}%` }}
-                  className={`h-full rounded-md ${item.color} opacity-90 transition-all duration-500 ease-out`}
+                  className={`h-full rounded-xl ${item.color} opacity-90 transition-all duration-500 ease-out`}
                 ></div>
                 <span className="absolute inset-y-0 right-2 flex items-center text-[10px] font-bold text-slate-600 dark:text-zinc-300">
                   {item.value}

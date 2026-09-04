@@ -28,7 +28,7 @@ const RISK_LEVEL_OPTIONS = [
 
 export default function Section4RiskAssessment() {
   return (
-    <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
+    <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
       <h4 className="text-sm font-extrabold text-amber-600 dark:text-amber-400 flex items-center gap-2">
         <WarningOutlined className="text-amber-500" /> Section 4: Engagement
         Risk Assessment Level
