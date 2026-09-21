@@ -79,20 +79,23 @@ export const useTheme = () => useContext(ThemeContext);
 
 let globalMessage = null;
 let globalNotification = null;
+let globalModal = null;
 
 /**
  * Helper component rendered inside Ant Design <App> context.
- * Captures dynamic theme-aware message and notification instances.
+ * Captures dynamic theme-aware message, notification, and modal instances.
  */
 function AntdGlobalHelper() {
   const app = App.useApp();
   globalMessage = app.message;
   globalNotification = app.notification;
+  globalModal = app.modal;
   return null;
 }
 
 export const getAntdMessage = () => globalMessage;
 export const getAntdNotification = () => globalNotification;
+export const getAntdModal = () => globalModal;
 
 export const antdMsg = {
   success: (msg, dur) => (globalMessage ? globalMessage.success(msg, dur) : undefined),
@@ -106,6 +109,14 @@ export const antdNotify = {
   error: (args) => (globalNotification ? globalNotification.error(args) : undefined),
   warning: (args) => (globalNotification ? globalNotification.warning(args) : undefined),
   info: (args) => (globalNotification ? globalNotification.info(args) : undefined),
+};
+
+export const antdModal = {
+  confirm: (props) => (globalModal ? globalModal.confirm(props) : undefined),
+  warning: (props) => (globalModal ? globalModal.warning(props) : undefined),
+  info: (props) => (globalModal ? globalModal.info(props) : undefined),
+  success: (props) => (globalModal ? globalModal.success(props) : undefined),
+  error: (props) => (globalModal ? globalModal.error(props) : undefined),
 };
 
 export default function ThemeProvider({ children }) {

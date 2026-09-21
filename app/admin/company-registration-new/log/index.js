@@ -222,7 +222,7 @@ export default function CompanyRegistrationLogModule() {
         <span className="flex items-center gap-1.5 font-medium">
           <AppstoreOutlined />
           <span>All</span>
-          <span className="text-xs px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
+          <span className="text-xs px-1.5 py-0.2 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
             {listDataByStatus.All?.length || 0}
           </span>
         </span>
@@ -250,7 +250,7 @@ export default function CompanyRegistrationLogModule() {
             <span>{st.label}</span>
             {/* Live Count Badge */}
             <span
-              className={`text-xs px-1.5 py-0.2 rounded-full font-mono ${
+              className={`text-xs px-1.5 py-0.2 rounded-pill font-mono ${
                 count > 0
                   ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 font-semibold"
                   : "bg-slate-100 dark:bg-zinc-800 text-slate-400"
@@ -280,7 +280,7 @@ export default function CompanyRegistrationLogModule() {
   // 5. RENDER TABS
   // --------------------------------------------------------------------------
   return (
-    <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+    <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-sm">
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

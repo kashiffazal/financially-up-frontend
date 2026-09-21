@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import { Tag, Button, Dropdown, Modal, Popconfirm } from "antd";
+import { Tag, Button, Dropdown, Modal, Popconfirm, App } from "antd";
 import {
   EyeOutlined,
   EditOutlined,
@@ -42,6 +42,9 @@ export default function CompanyRegistrationMainLog({
   fetchData,
   loading = false,
 }) {
+  // Context-aware Ant Design dynamic instances (Modal, Message, Notification)
+  const { modal } = App.useApp();
+
   // --------------------------------------------------------------------------
   // 1. LOCAL COMPONENT STATE (MODALS & LOADERS)
   // --------------------------------------------------------------------------
@@ -91,12 +94,13 @@ export default function CompanyRegistrationMainLog({
   /**
    * confirmStatusChange()
    * Opens an Ant Design confirmation modal before applying a status change.
+   * Uses context-aware `modal.confirm` from Ant Design's `<App>` provider.
    * On confirmation, performs PUT /new-company-registrations/:id/status
    * and invokes the parent's `changeStatus` callback for real-time synchronization.
    */
   const confirmStatusChange = useCallback(
     (record, targetStatus) => {
-      Modal.confirm({
+      modal.confirm({
         title: "Update Company Registration Status",
         icon: <ExclamationCircleOutlined className="text-brand-primary" />,
         content: (
@@ -153,7 +157,7 @@ export default function CompanyRegistrationMainLog({
         },
       });
     },
-    [changeStatus, fetchData, getStatusTagColor],
+    [changeStatus, fetchData, getStatusTagColor, modal],
   );
 
   // --------------------------------------------------------------------------

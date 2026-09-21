@@ -412,7 +412,7 @@ export default function DataTable({
                 }
               : undefined
           }
-          className={`${className} dataTable rounded-xl overflow-hidden`}
+          className={`${className} dataTable rounded-card overflow-hidden`}
           onChange={onChange}
           size={smallTable ? "small" : "middle"}
           rowKey={(record) => record.id || record._id || record.key}
@@ -430,7 +430,7 @@ export default function DataTable({
             (selectedRowData.selectedRowKeys.length > 0 ? (
               <div className="flex flex-wrap items-center gap-2">
                 {/* Selected Row Count Badge */}
-                <span className="text-xs font-semibold text-brand-primary dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 px-2.5 py-1 rounded-xl">
+                <span className="text-xs font-semibold text-brand-primary dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 px-2.5 py-1 rounded-pill">
                   {selectedRowData.selectedRowKeys.length} selected
                 </span>
 

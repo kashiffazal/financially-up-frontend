@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * Admin Root Layout
@@ -7,15 +7,15 @@
  * route protection, dynamic theme switching, and scoped Admin Ant Design tokens.
  */
 
-import React, { useState, useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-import { Spin, ConfigProvider } from 'antd';
-import { useTheme } from '../ThemeProvider';
-import { AuthProvider, useAuth } from '../../context/AuthContext';
-import Sidebar from '../../components/admin/Sidebar';
-import Header from '../../components/admin/Header';
-import Footer from '../../components/admin/Footer';
-import './admin.css';
+import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { Spin, ConfigProvider, App } from "antd";
+import { useTheme } from "../ThemeProvider";
+import { AuthProvider, useAuth } from "../../context/AuthContext";
+import Sidebar from "../../components/admin/Sidebar";
+import Header from "../../components/admin/Header";
+import Footer from "../../components/admin/Footer";
+import "./admin.css";
 
 function AdminLayoutContent({ children }) {
   const pathname = usePathname();
@@ -24,19 +24,33 @@ function AdminLayoutContent({ children }) {
   const { user, loading } = useAuth();
   const { isDark, getAdminThemeConfig } = useTheme();
 
-  const isLoginPage = pathname === '/admin/login';
-  const adminTheme = getAdminThemeConfig ? getAdminThemeConfig(isDark) : undefined;
+  const isLoginPage = pathname === "/admin/login";
+  const adminTheme = getAdminThemeConfig
+    ? getAdminThemeConfig(isDark)
+    : undefined;
+
+  // Ensure root HTML tag has admin-portal-scope so all Ant Design portals and modals inherit admin radius variables
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.add("admin-portal-scope");
+      return () => {
+        document.documentElement.classList.remove("admin-portal-scope");
+      };
+    }
+  }, []);
 
   useEffect(() => {
     if (!loading && !user && !isLoginPage) {
-      router.push('/admin/login');
+      router.push("/admin/login");
     }
   }, [user, loading, isLoginPage, router]);
 
   if (isLoginPage) {
     return (
       <ConfigProvider theme={adminTheme}>
-        <div className="admin-portal-root">{children}</div>
+        <App className="min-h-full flex flex-col flex-1">
+          <div className="admin-portal-root">{children}</div>
+        </App>
       </ConfigProvider>
     );
   }
@@ -44,14 +58,16 @@ function AdminLayoutContent({ children }) {
   if (loading) {
     return (
       <ConfigProvider theme={adminTheme}>
-        <div className="admin-portal-root flex min-h-screen items-center justify-center bg-slate-50 dark:bg-zinc-950">
-          <div className="flex flex-col items-center gap-4">
-            <Spin size="large" />
-            <p className="text-sm font-medium text-slate-500 dark:text-zinc-400">
-              Verifying secure session...
-            </p>
+        <App className="min-h-full flex flex-col flex-1">
+          <div className="admin-portal-root flex min-h-screen items-center justify-center bg-slate-50 dark:bg-zinc-950">
+            <div className="flex flex-col items-center gap-4">
+              <Spin size="large" />
+              <p className="text-sm font-medium text-slate-500 dark:text-zinc-400">
+                Verifying secure session...
+              </p>
+            </div>
           </div>
-        </div>
+        </App>
       </ConfigProvider>
     );
   }
@@ -62,28 +78,30 @@ function AdminLayoutContent({ children }) {
 
   return (
     <ConfigProvider theme={adminTheme}>
-      <div className="admin-portal-root flex min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
-        {/* Sidebar navigation panel */}
-        <Sidebar collapsed={collapsed} />
+      <App className="min-h-full flex flex-col flex-1">
+        <div className="admin-portal-root flex min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
+          {/* Sidebar navigation panel */}
+          <Sidebar collapsed={collapsed} />
 
-        {/* Main content body wrapper */}
-        <div
-          className={`flex flex-col flex-1 min-w-0 min-h-screen transition-all duration-300 ${
-            collapsed ? 'pl-20' : 'pl-64'
-          }`}
-        >
-          {/* Top toolbar header */}
-          <Header collapsed={collapsed} setCollapsed={setCollapsed} />
+          {/* Main content body wrapper */}
+          <div
+            className={`flex flex-col flex-1 min-w-0 min-h-screen transition-all duration-300 ${
+              collapsed ? "pl-20" : "pl-64"
+            }`}
+          >
+            {/* Top toolbar header */}
+            <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
-          {/* Dynamic page content container */}
-          <main className="flex-grow p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
-            {children}
-          </main>
+            {/* Dynamic page content container */}
+            <main className="flex-grow p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
+              {children}
+            </main>
 
-          {/* Standard copyright and credits footer */}
-          <Footer />
+            {/* Standard copyright and credits footer */}
+            <Footer />
+          </div>
         </div>
-      </div>
+      </App>
     </ConfigProvider>
   );
 }

@@ -61,7 +61,7 @@
   --radius-web-pill: 100px;
 
   /* --- ADMIN PORTAL RADIUS TOKENS --- */
-  --radius-admin-base: 0px;
+  --radius-admin-base: 50px;
   /* --radius-admin-xs: 0px;
   --radius-admin-sm: 0px;
   --radius-admin-md: 0px;
@@ -71,11 +71,11 @@
   --radius-admin-3xl: 0px; */
   --radius-admin-btn: 6px;
   --radius-admin-input: 6px;
-  --radius-admin-card: 12px;
-  --radius-admin-modal: 20px;
+  --radius-admin-card: 6px;
+  --radius-admin-modal: 6px;
   --radius-admin-tag: 6px;
-  --radius-admin-table: 0px;
-  --radius-admin-pill: 0px;
+  --radius-admin-table: 6px;
+  --radius-admin-pill: 6px;
 
   /* --- CONTEXTUAL DEFAULT RADIUS (Resolves to Web by default) --- */
   /* --radius-xs: var(--radius-web-xs);
@@ -106,7 +106,10 @@
 }
 
 /* Scoped Radius Context for Admin Portal */
-.admin-portal-root {
+.admin-portal-scope,
+.admin-portal-scope body,
+.admin-portal-root,
+body:has(.admin-portal-root) {
   /* --radius-xs: var(--radius-admin-xs);
   --radius-sm: var(--radius-admin-sm);
   --radius-md: var(--radius-admin-md);
@@ -124,7 +127,10 @@
 }
 
 /* Scoped Radius Context for Public Web */
-.web-portal-root {
+.web-portal-scope,
+.web-portal-scope body,
+.web-portal-root,
+body:has(.web-portal-root) {
   /* --radius-xs: var(--radius-web-xs);
   --radius-sm: var(--radius-web-sm);
   --radius-md: var(--radius-web-md);
@@ -211,56 +217,142 @@
 /* ==========================================================================
    Universal Ant Design & UI Component Radius Bindings
    ========================================================================== */
+
+/* 1. Buttons & Action Triggers */
 .ant-btn,
 .ant-btn-default,
 .ant-btn-primary,
-.ant-btn-dashed {
+.ant-btn-dashed,
+.ant-btn-round,
+.ant-popconfirm-buttons .ant-btn {
   border-radius: var(--radius-btn) !important;
 }
 
+/* 2. Inputs, Selects, DatePickers & Number Inputs */
+.ant-select,
+.ant-select *,
+.ant-select-selector,
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+.ant-select-multiple:not(.ant-select-customize-input) .ant-select-selector,
+.ant-select-outlined,
+.ant-select-outlined .ant-select-selector,
+.ant-select-dropdown,
 .ant-input,
 .ant-input-affix-wrapper,
-.ant-select-selector,
 .ant-picker,
 .ant-input-number,
-.ant-input-password {
+.ant-input-password,
+.ant-input-group > .ant-input,
+.ant-input-group-addon {
   border-radius: var(--radius-input) !important;
 }
 
+.ant-select {
+  --ant-select-border-radius: var(--radius-input) !important;
+}
+
+/* 3. Modals, Popovers, Popconfirms & Tooltips */
+.ant-modal,
+.ant-modal-wrap,
+.ant-modal-root {
+  --ant-border-radius-lg: var(--radius-modal) !important;
+  --ant-modal-border-radius: var(--radius-modal) !important;
+}
+
+.ant-modal-container,
 .ant-modal-content,
-.ant-modal-header {
+.ant-modal-header,
+.ant-popover .ant-popover-inner,
+.ant-popover .ant-popover-inner-content,
+.ant-popconfirm .ant-popover-inner,
+.ant-popconfirm-inner-content {
   border-radius: var(--radius-modal) !important;
 }
 
-.ant-card {
+/* 4. Dropdown Menus (User Profile, Table Actions, Context Menus) */
+.ant-dropdown,
+.ant-dropdown-menu,
+.ant-dropdown-menu-root,
+.ant-dropdown-menu-submenu-popup,
+.ant-dropdown-menu-submenu-popup .ant-dropdown-menu {
+  border-radius: var(--radius-modal, var(--radius-card)) !important;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  border-radius: var(--radius-input) !important;
+}
+
+/* 5. Tabs (Card Tabs & Standard Tabs) */
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+  border-radius: var(--radius-card) var(--radius-card) 0 0 !important;
+}
+
+.ant-tabs-tab {
   border-radius: var(--radius-card) !important;
 }
 
+.ant-tabs-ink-bar {
+  border-radius: var(--radius-pill) !important;
+}
+
+/* 6. Pagination Items & Navigation Links */
+.ant-pagination .ant-pagination-item,
+.ant-pagination .ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination .ant-pagination-next .ant-pagination-item-link,
+.ant-pagination-jump-prev,
+.ant-pagination-jump-next,
+.ant-pagination-options-quick-jumper input {
+  border-radius: var(--radius-btn, var(--radius-input)) !important;
+}
+
+/* 7. Cards & Containers */
+.ant-card,
+.ant-card-bordered {
+  border-radius: var(--radius-card) !important;
+}
+
+/* 8. Tags, Badges & Segmented */
 .ant-tag {
   border-radius: var(--radius-tag) !important;
 }
 
+.ant-badge-count,
+.ant-badge-dot {
+  border-radius: var(--radius-pill) !important;
+}
+
+.ant-segmented,
+.ant-segmented .ant-segmented-item-selected {
+  border-radius: var(--radius-input) !important;
+}
+
+/* 9. Tables */
 .ant-table,
 .ant-table-container,
-.ant-table-wrapper {
+.ant-table-wrapper,
+.ant-table-content {
   border-radius: var(--radius-table) !important;
 }
 
-.ant-popover-inner,
-.ant-popconfirm {
+/* 10. Semantic helper classes */
+.rounded-pill {
+  border-radius: var(--radius-pill) !important;
+}
+
+.rounded-card {
+  border-radius: var(--radius-card) !important;
+}
+
+.rounded-modal {
   border-radius: var(--radius-modal) !important;
 }
 
-/* .ant-tabs-nav,
-.ant-tabs-tab {
-  border-radius: var(--radius-sm) !important;
+.rounded-btn {
+  border-radius: var(--radius-btn) !important;
 }
 
-.ant-dropdown-menu {
-  border-radius: var(--radius-sm) !important;
-} */
-
-.ant-segmented {
+.rounded-input {
   border-radius: var(--radius-input) !important;
 }
 
@@ -549,14 +641,28 @@ body {
 }
 
 /* Global Zero-Padding & Radius Override for Ant Design Modals */
-.ant-modal-root .ant-modal-content {
+.ant-modal-root .ant-modal-container,
+.ant-modal-root .ant-modal-content,
+.ant-modal-confirm,
+.ant-modal-confirm .ant-modal-container,
+.ant-modal-confirm .ant-modal-content,
+.ant-modal-confirm-body-wrapper {
+  border-radius: var(--radius-modal) !important;
+}
+
+.ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-content,
+.ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-container {
   padding: 0 !important;
-  border-radius: 20px !important;
   overflow: hidden !important;
 }
 
-.ant-modal-root .ant-modal-body {
+.ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-body {
   padding: 0 !important;
+}
+
+.ant-modal-confirm .ant-modal-container,
+.ant-modal-confirm .ant-modal-content {
+  padding: 24px !important;
 }
 
 /* Ant Design Modal Close Button Fix (Prevent touching top border/overflow) */
@@ -565,7 +671,7 @@ body {
   right: 20px !important;
   color: #64748b !important;
   z-index: 50 !important;
-  border-radius: 9999px !important;
+  border-radius: var(--radius-pill) !important;
   padding: 4px !important;
   transition: all 0.2s ease !important;
 }

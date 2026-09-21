@@ -11,6 +11,15 @@
   border-radius: var(--radius-table, var(--radius-admin-table));
 }
 
+.c_k_table_0 .ant-select,
+.c_k_table_0 .ant-select *,
+.c_k_table_0 .ant-select-selector,
+.c_k_table_0 .ant-input,
+.c_k_table_0 .ant-input-affix-wrapper {
+  border-radius: var(--radius-input) !important;
+  --ant-select-border-radius: var(--radius-input) !important;
+}
+
 .c_k_table_0 .dataTable .ant-table-thead > tr > th {
   font-weight: 600;
   font-size: 0.8125rem;

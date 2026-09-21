@@ -16,8 +16,8 @@
  */
 
 import axios from "axios";
-import { message as staticMessage, notification as staticNotification } from "antd";
-import { getAntdMessage, getAntdNotification } from "../app/ThemeProvider";
+import { message as staticMessage, notification as staticNotification, Modal as staticModal } from "antd";
+import { getAntdMessage, getAntdNotification, getAntdModal } from "../app/ThemeProvider";
 
 // Context-safe message dispatcher
 export const antdMsg = {
@@ -47,6 +47,15 @@ export const antdNotify = {
   warning: (args) => (getAntdNotification() || staticNotification).warning(normalizeNotificationArgs(args)),
   info: (args) => (getAntdNotification() || staticNotification).info(normalizeNotificationArgs(args)),
   open: (args) => (getAntdNotification() || staticNotification).open(normalizeNotificationArgs(args)),
+};
+
+// Context-safe modal dispatcher
+export const antdModal = {
+  confirm: (props) => (getAntdModal() || staticModal).confirm(props),
+  warning: (props) => (getAntdModal() || staticModal).warning(props),
+  info: (props) => (getAntdModal() || staticModal).info(props),
+  success: (props) => (getAntdModal() || staticModal).success(props),
+  error: (props) => (getAntdModal() || staticModal).error(props),
 };
 
 /**

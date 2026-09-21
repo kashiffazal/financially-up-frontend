@@ -84,7 +84,7 @@ export default function PageTitle({
       {/* ===================================================================== */}
       <div className="flex items-center gap-4 pt-1">
         {icon && (
-          <div className="w-16 h-16 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 flex items-center justify-center text-brand-primary dark:text-emerald-400 text-[26px] shadow-sm flex-shrink-0">
+          <div className="w-16 h-16 rounded-card bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 flex items-center justify-center text-brand-primary dark:text-emerald-400 text-[26px] shadow-sm flex-shrink-0">
             {icon}
           </div>
         )}
@@ -107,7 +107,7 @@ export default function PageTitle({
         <div className="flex flex-wrap items-center gap-3">
           {/* 1. Dedicated Public Form Link Pill (when formPath is provided) */}
           {formPath && (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs shadow-sm">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-pill bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs shadow-sm">
               <LinkOutlined className="text-brand-primary dark:text-emerald-400" />
               <span className="text-slate-500 dark:text-zinc-400 font-medium hidden sm:inline">
                 Form Link:
