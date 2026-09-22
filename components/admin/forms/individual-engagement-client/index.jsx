@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Form, Button, Card, Steps, App } from "antd";
 import {
   ArrowRightOutlined,
@@ -23,6 +23,7 @@ import Step8EngagementSchedule from "./Step8EngagementSchedule";
 import Step9LegalConsents from "./Step9LegalConsents";
 import Step10ElectronicSignature from "./Step10ElectronicSignature";
 import { HTTP } from "@/services";
+import { clearAllSignatureStorage } from "@/components/mutual/SignatureCanvas";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_INDIVIDUAL_ENGAGEMENT_DRAFT";
 
@@ -57,41 +58,53 @@ const getInitialSavedDraft = () => {
 export default function IndividualEngagementClientForm() {
   const { message, notification, modal } = App.useApp();
   const [form] = Form.useForm();
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return typeof draft?.step === "number" && draft.step >= 0 && draft.step <= 9
+      ? draft.step
+      : 0;
+  });
   const [formKey, setFormKey] = useState(0);
   const [hasViewedSchedule, setHasViewedSchedule] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    services: [],
-    entityService: null,
+  const [formData, setFormData] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return draft?.data || { services: [], entityService: null };
   });
 
-  // Auto-restore form draft and step progress cleanly after client mount (avoids SSR hydration mismatch)
+  // Persistent in-memory store for raw uploadable File instances across step transitions
+  const filesMapRef = useRef({});
+
+  // Populate form fields from initial draft once mounted
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
-    if (savedDraft) {
-      if (
-        typeof savedDraft.step === "number" &&
-        savedDraft.step >= 0 &&
-        savedDraft.step <= 9
-      ) {
-        setCurrentStep(savedDraft.step);
-      }
-      if (savedDraft.data) {
-        setFormData(savedDraft.data);
-        form.setFieldsValue(savedDraft.data);
-        message.info(
-          `Restored your previously saved progress from ${savedDraft.savedAt || "a previous session"}.`,
-        );
-      }
+    if (savedDraft?.data) {
+      form.setFieldsValue(savedDraft.data);
     }
-  }, [form, message]);
+  }, [form]);
 
   // Handle Next Button Click across steps
   const handleNext = async () => {
     try {
       // Validate current step fields
       const values = await form.validateFields();
+      
+      // Preserve raw File objects so step unmounting or draft saving never loses them
+      const uploadFieldNames = [
+        "primaryId",
+        "supportingId",
+        "selfie",
+        "visaEvidence",
+        "atoDocuments",
+        "authorityDoc",
+        "signatureUploadedFile",
+      ];
+      uploadFieldNames.forEach((key) => {
+        if (values[key] !== undefined && values[key] !== null) {
+          filesMapRef.current[key] = values[key];
+        }
+      });
+
       setFormData((prev) => ({ ...prev, ...values }));
 
       // Special check for Step 8 (Engagement Schedule view requirement)
@@ -106,8 +119,15 @@ export default function IndividualEngagementClientForm() {
         setCurrentStep((prev) => prev + 1);
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        // Step 10 Submission Trigger
-        const mergedPayload = { ...formData, ...values };
+        // Step 10 Submission Trigger: Combine all preserved fields, state, and file binaries
+        const allFormFields = form.getFieldsValue(true) || {};
+        const mergedPayload = {
+          ...allFormFields,
+          ...formData,
+          ...values,
+          ...filesMapRef.current,
+        };
+
         setIsSubmitting(true);
         try {
           const res = await HTTP(
@@ -116,8 +136,10 @@ export default function IndividualEngagementClientForm() {
             mergedPayload,
           );
 
-          // Immediately wipe local storage draft & reset form state
+          // Immediately wipe local storage draft, clear all signature storage & reset form state
           localStorage.removeItem(DRAFT_STORAGE_KEY);
+          clearAllSignatureStorage();
+          filesMapRef.current = {};
           const emptyState = { services: [], entityService: null };
           setFormData(emptyState);
           form.resetFields();
@@ -237,9 +259,24 @@ export default function IndividualEngagementClientForm() {
         timeStyle: "short",
       });
 
+      // Clone merged data without raw File/Blob instances so JSON.stringify doesn't corrupt them to [{}]
+      const safeDataForStorage = { ...mergedData };
+      const uploadFieldNames = [
+        "primaryId",
+        "supportingId",
+        "selfie",
+        "visaEvidence",
+        "atoDocuments",
+        "authorityDoc",
+        "signatureUploadedFile",
+      ];
+      uploadFieldNames.forEach((k) => {
+        delete safeDataForStorage[k];
+      });
+
       const draftPayload = {
         step: currentStep,
-        data: mergedData,
+        data: safeDataForStorage,
         savedAt,
       };
 
@@ -272,6 +309,7 @@ export default function IndividualEngagementClientForm() {
       onOk: () => {
         try {
           localStorage.removeItem(DRAFT_STORAGE_KEY);
+          filesMapRef.current = {};
           const emptyState = {
             services: [],
             entityService: null,

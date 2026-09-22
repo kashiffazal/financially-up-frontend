@@ -247,13 +247,13 @@ export default function CompanyRegistrationMainLog({
           (a.companyName1 || "").localeCompare(b.companyName1 || ""),
         render: (name, row) => (
           <div>
-            <div className="font-semibold text-slate-900 dark:text-zinc-100">
+            <div className="font-semibold text-[13px] leading-snug text-slate-900 dark:text-zinc-100">
               {name || (
                 <span className="italic text-slate-400">Unnamed Company</span>
               )}
             </div>
             {row.companyName2 && (
-              <div className="text-[11px] text-slate-400">
+              <div className="text-[11px] text-slate-400 mt-0.5">
                 Alt: {row.companyName2}
               </div>
             )}
@@ -269,10 +269,10 @@ export default function CompanyRegistrationMainLog({
           (a.contactName || "").localeCompare(b.contactName || ""),
         render: (name, row) => (
           <div>
-            <div className="font-medium text-slate-800 dark:text-zinc-200">
+            <div className="font-medium text-[13px] leading-snug text-slate-800 dark:text-zinc-200">
               {name || "-"}
             </div>
-            <div className="text-[11px] text-slate-400">
+            <div className="text-[11px] text-slate-400 mt-0.5">
               {row.contactRelationship || "Director"}
             </div>
           </div>
@@ -284,7 +284,7 @@ export default function CompanyRegistrationMainLog({
         key: "contactEmail",
         width: 200,
         render: (email, row) => (
-          <div className="text-xs space-y-0.5">
+          <div className="text-[12px] space-y-0.5">
             <div>
               <a
                 href={`mailto:${email}`}
@@ -293,7 +293,7 @@ export default function CompanyRegistrationMainLog({
                 {email || "-"}
               </a>
             </div>
-            <div className="text-slate-400 font-mono">
+            <div className="text-slate-400 font-mono text-[11.5px]">
               {row.contactMobile || "-"}
             </div>
           </div>
@@ -305,7 +305,7 @@ export default function CompanyRegistrationMainLog({
         key: "stateOfRegistration",
         width: 90,
         render: (state) => (
-          <Tag color="blue" className="font-mono text-xs">
+          <Tag color="blue" className="font-mono text-[11.5px] px-2 py-0">
             {state || "NSW"}
           </Tag>
         ),
@@ -317,7 +317,7 @@ export default function CompanyRegistrationMainLog({
         width: 130,
         sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
         render: (date) => (
-          <span className="text-xs text-slate-500 dark:text-zinc-400">
+          <span className="text-[12px] text-slate-500 dark:text-zinc-400">
             {date ? new Date(date).toLocaleDateString("en-AU") : "-"}
           </span>
         ),
@@ -330,7 +330,7 @@ export default function CompanyRegistrationMainLog({
         render: (status) => (
           <Tag
             color={getStatusTagColor(status)}
-            className="font-semibold text-xs py-0.5 px-2.5 rounded-full"
+            className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill"
           >
             {status || "Submitted"}
           </Tag>

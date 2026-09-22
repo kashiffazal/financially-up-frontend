@@ -33,6 +33,7 @@ import Step10OptionalTaxServices from "./Step10OptionalTaxServices";
 import Step11DocumentUploads from "./Step11DocumentUploads";
 import Step12DeclarationSignatures from "./Step12DeclarationSignatures";
 import { HTTP } from "@/services";
+import { clearAllSignatureStorage } from "@/components/mutual/SignatureCanvas";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_COMPANY_REGISTRATION_DRAFT";
 
@@ -143,10 +144,18 @@ export default function CompanyRegistrationForm() {
   const modal = app.modal || staticModal;
   const [form] = Form.useForm();
 
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return typeof draft?.step === "number" && draft.step >= 0 && draft.step <= 11
+      ? draft.step
+      : 0;
+  });
   const [formKey, setFormKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return draft?.data || {};
+  });
   const stepRefs = useRef([]);
 
   // Auto-scroll stepper into view when step changes
@@ -160,40 +169,34 @@ export default function CompanyRegistrationForm() {
     }
   }, [currentStep]);
 
-  // Repeatable subform state with default values
-  const [officeholders, setOfficeholders] = useState(DEFAULT_OFFICERS);
-  const [shareholders, setShareholders] = useState(DEFAULT_SHAREHOLDERS);
-  const [beneficialOwners, setBeneficialOwners] = useState(
-    DEFAULT_BENEFICIAL_OWNERS,
-  );
+  // Repeatable subform state with default values initialized from draft if available
+  const [officeholders, setOfficeholders] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return Array.isArray(draft?.data?._officeholders)
+      ? draft.data._officeholders
+      : DEFAULT_OFFICERS;
+  });
+  const [shareholders, setShareholders] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return Array.isArray(draft?.data?._shareholders)
+      ? draft.data._shareholders
+      : DEFAULT_SHAREHOLDERS;
+  });
+  const [beneficialOwners, setBeneficialOwners] = useState(() => {
+    const draft = getInitialSavedDraft();
+    return Array.isArray(draft?.data?._beneficialOwners)
+      ? draft.data._beneficialOwners
+      : DEFAULT_BENEFICIAL_OWNERS;
+  });
 
-  // Restore Ant Design form fields and subform states from draft cleanly on client mount
+  // Restore Ant Design form fields cleanly on client mount
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
-    if (savedDraft) {
-      if (
-        typeof savedDraft.step === "number" &&
-        savedDraft.step >= 0 &&
-        savedDraft.step <= 11
-      ) {
-        setCurrentStep(savedDraft.step);
-      }
-      if (savedDraft.data) {
-        setFormData(savedDraft.data);
-        form.setFieldsValue(savedDraft.data);
-        if (Array.isArray(savedDraft.data._officeholders)) {
-          setOfficeholders(savedDraft.data._officeholders);
-        }
-        if (Array.isArray(savedDraft.data._shareholders)) {
-          setShareholders(savedDraft.data._shareholders);
-        }
-        if (Array.isArray(savedDraft.data._beneficialOwners)) {
-          setBeneficialOwners(savedDraft.data._beneficialOwners);
-        }
-        message.info(
-          `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`,
-        );
-      }
+    if (savedDraft?.data) {
+      form.setFieldsValue(savedDraft.data);
+      message.info(
+        `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`,
+      );
     }
   }, [form, message]);
 
@@ -237,6 +240,7 @@ export default function CompanyRegistrationForm() {
             result?.data?.referenceNumber || "CREG-" + Date.now();
 
           localStorage.removeItem(DRAFT_STORAGE_KEY);
+          clearAllSignatureStorage();
           setFormData({});
           form.resetFields();
           setCurrentStep(0);

@@ -127,16 +127,35 @@ export const ResolveApiUrl = (url = "") => {
 };
 
 /**
+ * Helper to determine if a value represents a browser uploadable File or Blob.
+ * Uses both instanceof checks and cross-realm duck-typing (e.g. name + slice or uid).
+ * @param {any} val
+ * @returns {boolean}
+ */
+export const isUploadableFile = (val) => {
+  if (!val || typeof val !== "object") return false;
+  if (typeof window !== "undefined") {
+    if (val instanceof File || val instanceof Blob) return true;
+    if (val.originFileObj instanceof File || val.originFileObj instanceof Blob) return true;
+  }
+  // Duck-typing for File / Blob
+  if (typeof val.name === "string" && typeof val.slice === "function") return true;
+  if (val.originFileObj && typeof val.originFileObj.name === "string" && typeof val.originFileObj.slice === "function") return true;
+  // Ant Design RcFile / upload wrapper
+  if (val.uid && typeof val.name === "string" && (val.size !== undefined || val.type !== undefined)) return true;
+  return false;
+};
+
+/**
  * Recursively inspects data to determine if it contains uploadable files
- * (File instances, Ant Design file upload wrappers with originFileObj or uid).
+ * (File instances, Blobs, Ant Design file upload wrappers with originFileObj or uid).
  * @param {any} data - Data to inspect
  * @returns {boolean} True if files exist in the payload
  */
 export const hasUploadableFiles = (data) => {
   if (!data || typeof data !== "object") return false;
   if (typeof window !== "undefined" && data instanceof FormData) return true;
-  if (typeof window !== "undefined" && data instanceof File) return true;
-  if (data.originFileObj instanceof File) return true;
+  if (isUploadableFile(data)) return true;
 
   if (Array.isArray(data)) {
     return data.some((item) => hasUploadableFiles(item));
@@ -144,9 +163,8 @@ export const hasUploadableFiles = (data) => {
 
   return Object.values(data).some((val) => {
     if (!val) return false;
-    if (typeof window !== "undefined" && val instanceof File) return true;
-    if (val.originFileObj instanceof File) return true;
-    if (val.fileList && Array.isArray(val.fileList)) return true;
+    if (isUploadableFile(val)) return true;
+    if (val.fileList && Array.isArray(val.fileList) && val.fileList.length > 0) return true;
     if (typeof val === "object") return hasUploadableFiles(val);
     return false;
   });
@@ -172,33 +190,30 @@ export const buildFormDataPayload = (data) => {
 
     // Handle Ant Design file upload array / object
     if (Array.isArray(val)) {
-      const isFileArray = val.some(
-        (item) =>
-          (typeof window !== "undefined" && item instanceof File) ||
-          (item && item.originFileObj instanceof File) ||
-          (item && item.uid)
-      );
+      const isFileArray = val.some((item) => isUploadableFile(item));
 
       if (isFileArray) {
         val.forEach((fileItem) => {
-          const rawFile = fileItem.originFileObj || fileItem;
-          if (typeof window !== "undefined" && rawFile instanceof File) {
-            formData.append(key, rawFile, rawFile.name);
+          const rawFile = fileItem?.originFileObj || fileItem;
+          if (isUploadableFile(rawFile)) {
+            const fileName = rawFile.name || fileItem?.name || `file_${Date.now()}`;
+            formData.append(key, rawFile, fileName);
           }
         });
       } else {
         // Regular array -> JSON stringify
         formData.append(key, JSON.stringify(val));
       }
-    } else if (typeof window !== "undefined" && val instanceof File) {
-      formData.append(key, val, val.name);
-    } else if (val && val.originFileObj instanceof File) {
-      formData.append(key, val.originFileObj, val.name || val.originFileObj.name);
+    } else if (isUploadableFile(val)) {
+      const rawFile = val.originFileObj || val;
+      const fileName = rawFile.name || val.name || `file_${Date.now()}`;
+      formData.append(key, rawFile, fileName);
     } else if (val && val.fileList && Array.isArray(val.fileList)) {
       val.fileList.forEach((fileItem) => {
-        const rawFile = fileItem.originFileObj || fileItem;
-        if (typeof window !== "undefined" && rawFile instanceof File) {
-          formData.append(key, rawFile, rawFile.name);
+        const rawFile = fileItem?.originFileObj || fileItem;
+        if (isUploadableFile(rawFile)) {
+          const fileName = rawFile.name || fileItem?.name || `file_${Date.now()}`;
+          formData.append(key, rawFile, fileName);
         }
       });
     } else if (typeof val === "object") {

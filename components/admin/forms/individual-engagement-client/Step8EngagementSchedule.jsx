@@ -423,20 +423,33 @@ export default function Step8EngagementSchedule({
       <Modal
         open={modalVisible}
         onCancel={() => setModalVisible(false)}
-        width={900}
+        width={920}
         centered={true}
         getContainer={() =>
           typeof document !== "undefined" ? document.body : null
         }
+        styles={{
+          content: { padding: 0, overflow: "hidden", borderRadius: "16px" },
+          body: {
+            maxHeight: "calc(85vh - 130px)",
+            overflowY: "auto",
+            padding: 0,
+          },
+          footer: {
+            margin: 0,
+            padding: 0,
+            border: "none",
+          },
+        }}
         footer={[
           <div
             key="footer-btns"
-            className="flex items-center justify-between w-full px-2"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 w-full px-6 sm:px-8 py-4 sm:py-5 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/80 dark:bg-zinc-900/80"
           >
             <Button
               icon={<PrinterOutlined />}
               onClick={handlePrintSchedule}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-xl font-bold border-slate-300 dark:border-zinc-700 h-10 px-5"
             >
               Print / Save as PDF
             </Button>
@@ -445,14 +458,14 @@ export default function Step8EngagementSchedule({
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setModalVisible(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-7 h-10 shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
             >
               I Have Reviewed the Engagement Schedule
             </Button>
           </div>,
         ]}
       >
-        <div className="p-4 sm:p-8 space-y-6 text-slate-900 dark:text-zinc-100 font-sans print:p-0">
+        <div className="p-6 sm:p-8 space-y-6 text-slate-900 dark:text-zinc-100 font-sans print:p-0">
           {/* Print specific header styles */}
           <div className="border-b-2 border-brand-primary pb-4 flex items-center justify-between">
             <div>

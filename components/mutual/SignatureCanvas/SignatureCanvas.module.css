@@ -47,6 +47,25 @@
   cursor: url('/cursors/pen.cur'), url('/pen.cur'), crosshair !important;
 }
 
+/*
+ * TRANSPARENT BACKGROUND FIX: react-sketch-canvas renders an internal
+ * SVG <rect> element for the canvas background. Even with canvasColor="transparent",
+ * some versions may export with a white fill. These rules force the internal
+ * SVG background rect and any wrapper divs to remain fully transparent.
+ */
+.canvasContainer svg > rect:first-child,
+.canvasContainer svg > rect[fill] {
+  fill: transparent !important;
+  opacity: 0 !important;
+}
+
+/* Prevent any intermediate div wrappers inside canvas from having a white background */
+.canvasContainer > div,
+.canvasContainer > div > div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
 /* Disabled state — shows not-allowed cursor and reduces opacity */
 .disabled {
   cursor: not-allowed !important;

@@ -22,15 +22,26 @@
 
 .c_k_table_0 .dataTable .ant-table-thead > tr > th {
   font-weight: 600;
-  font-size: 0.8125rem;
+  font-size: 0.75rem; /* 12px crisp uppercase header */
   text-transform: uppercase;
-  letter-spacing: 0.025em;
-  padding: 12px 14px;
+  letter-spacing: 0.035em;
+  padding: 10px 12px;
 }
 
 .c_k_table_0 .dataTable .ant-table-tbody > tr > td {
-  padding: 12px 14px;
-  font-size: 0.875rem;
+  padding: 10px 12px;
+  font-size: 0.8125rem; /* 13px clean, legible body text */
+  line-height: 1.45;
+}
+
+.c_k_table_0 .dataTable .ant-tag {
+  font-size: 0.75rem; /* 12px tags */
+  line-height: 1.4;
+}
+
+.c_k_table_0 .ant-pagination,
+.c_k_table_0 .ant-pagination-total-text {
+  font-size: 0.8125rem; /* 13px pagination */
 }
 
 /* Light Mode Defaults */

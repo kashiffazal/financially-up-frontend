@@ -33,6 +33,180 @@ import { Button, Tooltip, Form } from "antd";
 import { UndoOutlined, ClearOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "./SignatureCanvas.module.css";
 
+/**
+ * ============================================================
+ * Helper: cropSignatureDataUrl
+ * ============================================================
+ * Automatically crops extra whitespace and transparent areas surrounding
+ * a drawn signature. Computes the exact bounding box of drawn ink pixels
+ * and returns a tightly cropped, centered PNG data URL with clean padding.
+ *
+ * @param {string} dataUrl - Raw base64 PNG data URL from canvas
+ * @param {number} padding - Padding in pixels around bounding box (default: 10)
+ * @returns {Promise<string>} - Cropped signature data URL
+ */
+export function cropSignatureDataUrl(dataUrl, padding = 10) {
+  return new Promise((resolve) => {
+    if (!dataUrl || typeof window === "undefined" || typeof document === "undefined") {
+      return resolve(dataUrl);
+    }
+
+    const img = new window.Image();
+    img.crossOrigin = "anonymous";
+
+    img.onload = () => {
+      try {
+        const width = img.naturalWidth || img.width;
+        const height = img.naturalHeight || img.height;
+
+        if (!width || !height) {
+          return resolve(dataUrl);
+        }
+
+        // Create temporary canvas to inspect pixel data
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        if (!ctx) {
+          return resolve(dataUrl);
+        }
+
+        ctx.drawImage(img, 0, 0);
+        const imgData = ctx.getImageData(0, 0, width, height);
+        const pixels = imgData.data;
+
+        let minX = width;
+        let minY = height;
+        let maxX = -1;
+        let maxY = -1;
+
+        // Iterate through all pixels and find the bounding box of non-background ink
+        for (let y = 0; y < height; y++) {
+          for (let x = 0; x < width; x++) {
+            const index = (y * width + x) * 4;
+            const r = pixels[index];
+            const g = pixels[index + 1];
+            const b = pixels[index + 2];
+            const a = pixels[index + 3];
+
+            // Consider a pixel as ink if it is not transparent (alpha >= 30)
+            // and not almost pure white (ink strokes are colored or dark)
+            const isTransparent = a < 30;
+            const isWhite = r > 220 && g > 220 && b > 220;
+
+            if (!isTransparent && !isWhite) {
+              if (x < minX) minX = x;
+              if (x > maxX) maxX = x;
+              if (y < minY) minY = y;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+
+        // If no visible ink strokes were found, return the original data URL
+        if (maxX === -1 || maxY === -1) {
+          return resolve(dataUrl);
+        }
+
+        // Calculate bounded crop coordinates with padding
+        const cropX = Math.max(0, minX - padding);
+        const cropY = Math.max(0, minY - padding);
+        const cropW = Math.min(width - cropX, (maxX - minX + 1) + padding * 2);
+        const cropH = Math.min(height - cropY, (maxY - minY + 1) + padding * 2);
+
+        if (cropW <= 0 || cropH <= 0) {
+          return resolve(dataUrl);
+        }
+
+        // Create the tightly cropped canvas
+        const croppedCanvas = document.createElement("canvas");
+        croppedCanvas.width = cropW;
+        croppedCanvas.height = cropH;
+        const croppedCtx = croppedCanvas.getContext("2d");
+        if (!croppedCtx) {
+          return resolve(dataUrl);
+        }
+
+        croppedCtx.drawImage(
+          canvas,
+          cropX, cropY, cropW, cropH,
+          0, 0, cropW, cropH
+        );
+
+        // Enforce 100% transparent PNG background:
+        // Convert any white or near-white background pixels into fully transparent pixels
+        const croppedImgData = croppedCtx.getImageData(0, 0, cropW, cropH);
+        const cPixels = croppedImgData.data;
+        for (let i = 0; i < cPixels.length; i += 4) {
+          const r = cPixels[i];
+          const g = cPixels[i + 1];
+          const b = cPixels[i + 2];
+          const a = cPixels[i + 3];
+
+          // If pixel is near-white or low alpha, convert to 100% transparent
+          if (a < 30 || (r > 210 && g > 210 && b > 210)) {
+            cPixels[i + 3] = 0;
+          }
+        }
+        croppedCtx.putImageData(croppedImgData, 0, 0);
+
+        const croppedDataUrl = croppedCanvas.toDataURL("image/png");
+        resolve(croppedDataUrl);
+      } catch (err) {
+        console.warn("SignatureCanvas: Automatic cropping failed, falling back to original image:", err);
+        resolve(dataUrl);
+      }
+    };
+
+    img.onerror = () => {
+      resolve(dataUrl);
+    };
+
+    img.src = dataUrl;
+  });
+}
+
+/**
+ * ============================================================
+ * Helper: clearAllSignatureStorage / clearSignatureStorage
+ * ============================================================
+ * Wipes cached signature vector paths from localStorage and dispatches
+ * a global event to instantly reset any mounted SignatureCanvas components.
+ */
+export function clearAllSignatureStorage() {
+  if (typeof window === "undefined") return;
+  try {
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.startsWith("sig_paths_") || key.startsWith("signature_"))) {
+        keysToRemove.push(key);
+      }
+    }
+    keysToRemove.forEach((k) => localStorage.removeItem(k));
+    window.dispatchEvent(new CustomEvent("resetSignatureCanvases"));
+  } catch (err) {
+    console.error("SignatureCanvas: Failed to clear signature storage:", err);
+  }
+}
+
+export function clearSignatureStorage(storageKey) {
+  if (typeof window === "undefined" || !storageKey) return;
+  try {
+    localStorage.removeItem(`sig_paths_${storageKey}`);
+    window.dispatchEvent(
+      new CustomEvent("resetSignatureCanvases", { detail: { storageKey } })
+    );
+  } catch (err) {
+    console.error(
+      "SignatureCanvas: Failed to clear signature storage for key:",
+      storageKey,
+      err
+    );
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════
    INNER CONTROL: Drawing surface & bottom status/action toolbar
    ═══════════════════════════════════════════════════════════════ */
@@ -55,8 +229,9 @@ const SignatureCanvasControl = ({
 }) => {
   const canvasRef = useRef(null);
 
+  // Only initialize hasDrawn from localStorage if value or initialImage exists
   const [internalHasDrawn, setInternalHasDrawn] = useState(() => {
-    if (typeof window !== "undefined" && storageKey) {
+    if (typeof window !== "undefined" && storageKey && (value || initialImage)) {
       const saved = localStorage.getItem(`sig_paths_${storageKey}`);
       if (saved && saved !== "false") {
         try {
@@ -71,6 +246,32 @@ const SignatureCanvasControl = ({
   });
   const [isInteracting, setIsInteracting] = useState(false);
   const [showImage, setShowImage] = useState(() => Boolean(initialImage));
+  const [displayImage, setDisplayImage] = useState(initialImage);
+
+  /* Auto-crop saved initialImage if provided */
+  useEffect(() => {
+    let isMounted = true;
+    if (initialImage) {
+      cropSignatureDataUrl(initialImage).then((cropped) => {
+        if (isMounted && cropped) {
+          setDisplayImage(cropped);
+        }
+      });
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [initialImage]);
+
+  /* Adjust state when value changes */
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
+    if (!value) {
+      setInternalHasDrawn(false);
+      setIsInteracting(false);
+    }
+  }
 
   /* Read live validation status from Ant Design Form.Item context */
   const { status: formItemStatus, errors: formItemErrors = [] } =
@@ -81,42 +282,84 @@ const SignatureCanvasControl = ({
     typeof height === "number" ? height : parseInt(height, 10) || 210;
   const heightStyle = `${numericHeight}px`;
 
-  /* Load saved paths from localStorage into canvas ref on mount */
+  /* Synchronize canvas with value prop / localStorage */
   useEffect(() => {
     const key = storageKey;
-    if (key && canvasRef.current && typeof window !== "undefined") {
-      const savedPaths = localStorage.getItem(`sig_paths_${key}`);
-      if (savedPaths && savedPaths !== "false") {
-        try {
-          const paths = JSON.parse(savedPaths);
-          if (paths && paths.length > 0) {
-            canvasRef.current.loadPaths(paths);
+    if (!key || typeof window === "undefined") return;
+
+    if (value || initialImage) {
+      // If form has an active signature value/draft, restore vector paths
+      if (canvasRef.current) {
+        const savedPaths = localStorage.getItem(`sig_paths_${key}`);
+        if (savedPaths && savedPaths !== "false") {
+          try {
+            const paths = JSON.parse(savedPaths);
+            if (paths && paths.length > 0) {
+              canvasRef.current.loadPaths(paths);
+            }
+          } catch (err) {
+            console.error("SignatureCanvas: Failed to load saved paths:", err);
           }
-        } catch (err) {
-          console.error("SignatureCanvas: Failed to load saved paths:", err);
         }
       }
+    } else {
+      // Value is empty/null/undefined: this is a fresh form or reset form.
+      // Ensure canvas is completely blanked and purge any leftover cached paths.
+      if (canvasRef.current) {
+        canvasRef.current.resetCanvas();
+      }
+      localStorage.removeItem(`sig_paths_${key}`);
     }
-  }, [storageKey]);
+  }, [storageKey, value, initialImage]);
+
+  /* Listen for global reset event (e.g. form submission success) */
+  useEffect(() => {
+    const handleReset = (event) => {
+      const targetKey = event?.detail?.storageKey;
+      if (!targetKey || targetKey === storageKey) {
+        if (canvasRef.current) {
+          canvasRef.current.resetCanvas();
+        }
+        setInternalHasDrawn(false);
+        setIsInteracting(false);
+        setShowImage(false);
+        setDisplayImage(null);
+        if (storageKey && typeof window !== "undefined") {
+          localStorage.removeItem(`sig_paths_${storageKey}`);
+        }
+        if (onChange) {
+          onChange(null);
+        }
+      }
+    };
+
+    window.addEventListener("resetSignatureCanvases", handleReset);
+    return () => {
+      window.removeEventListener("resetSignatureCanvases", handleReset);
+    };
+  }, [storageKey, onChange]);
 
   /* Immediate interaction trigger */
   const handleInteractionStart = useCallback(() => {
     setIsInteracting(true);
   }, []);
 
-  /* Export signature as data URL after each stroke */
+  /* Export signature as cropped data URL after each stroke */
   const handleStrokeEnd = useCallback(async () => {
     if (!canvasRef.current) return;
 
     try {
       const paths = await canvasRef.current.exportPaths();
       if (paths && paths.length > 0) {
-        const dataUrl = await canvasRef.current.exportImage("png");
+        const rawDataUrl = await canvasRef.current.exportImage("png");
+        // Automatically crop empty whitespace around the signature
+        const croppedDataUrl = await cropSignatureDataUrl(rawDataUrl);
+
         setInternalHasDrawn(true);
         setIsInteracting(true);
 
         if (onChange) {
-          onChange(dataUrl);
+          onChange(croppedDataUrl);
         }
 
         if (storageKey && typeof window !== "undefined") {
@@ -134,7 +377,7 @@ const SignatureCanvasControl = ({
     }
   }, [onChange, storageKey]);
 
-  /* Undo last stroke */
+  /* Undo last stroke and export cropped image */
   const handleUndo = useCallback(async () => {
     if (!canvasRef.current) return;
     canvasRef.current.undo();
@@ -143,9 +386,12 @@ const SignatureCanvasControl = ({
       try {
         const paths = await canvasRef.current.exportPaths();
         if (paths && paths.length > 0) {
-          const dataUrl = await canvasRef.current.exportImage("png");
+          const rawDataUrl = await canvasRef.current.exportImage("png");
+          // Automatically crop empty whitespace around the signature
+          const croppedDataUrl = await cropSignatureDataUrl(rawDataUrl);
+
           setInternalHasDrawn(true);
-          if (onChange) onChange(dataUrl);
+          if (onChange) onChange(croppedDataUrl);
           if (storageKey && typeof window !== "undefined")
             localStorage.setItem(
               `sig_paths_${storageKey}`,
@@ -199,7 +445,8 @@ const SignatureCanvasControl = ({
     "Signature is required.";
 
   /* ── RENDER: Saved Image View ── */
-  if (showImage && initialImage) {
+  if (showImage && (displayImage || initialImage)) {
+    const activeImage = displayImage || initialImage;
     return (
       <div
         className={`${styles.signatureWrapper} flex flex-col justify-between h-full ${className}`}
@@ -228,13 +475,13 @@ const SignatureCanvasControl = ({
         </div>
 
         <div
-          className={`${styles.existingSignature} relative rounded-xl border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-950 overflow-hidden shadow-inner flex items-center justify-center`}
+          className={`${styles.existingSignature} relative rounded-xl border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-transparent overflow-hidden shadow-inner flex items-center justify-center`}
           style={{ height: heightStyle }}
         >
           {/* Next.js Image component with unoptimized prop to handle dynamic Base64 data URLs & remote signatures */}
           <div className="relative w-full h-full p-3 flex items-center justify-center">
             <Image
-              src={initialImage}
+              src={activeImage}
               alt="Saved signature"
               fill
               sizes="(max-width: 768px) 100vw, 500px"
@@ -268,12 +515,12 @@ const SignatureCanvasControl = ({
           transition-all duration-200
           ${
             disabled
-              ? "border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-900"
+              ? "border-slate-200 dark:border-zinc-800 bg-slate-100/50 dark:bg-zinc-900/50"
               : isError
                 ? "border-red-400 dark:border-red-500 bg-red-50/20 dark:bg-red-950/10 hover:border-red-500"
                 : hasSignature
-                  ? "border-emerald-400/80 dark:border-emerald-600/80 bg-white dark:bg-zinc-950"
-                  : "border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 hover:border-blue-400 dark:hover:border-blue-600"
+                  ? "border-emerald-400/80 dark:border-emerald-600/80 bg-transparent"
+                  : "border-slate-300 dark:border-zinc-700 bg-transparent hover:border-blue-400 dark:hover:border-blue-600"
           }
           ${styles.canvasContainer}
           ${disabled ? styles.disabled : ""}
