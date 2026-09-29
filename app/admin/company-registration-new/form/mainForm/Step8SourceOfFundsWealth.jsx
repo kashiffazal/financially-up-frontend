@@ -170,8 +170,8 @@ export default function Step8SourceOfFundsWealth({ form }) {
             }
             reqMsg="Please answer offshore funds question"
             radioOptions={[
-              { value: "No", label: "No (100% Australian sourced)" },
               { value: "Yes", label: "Yes (Foreign funds involved)" },
+              { value: "No", label: "No (100% Australian sourced)" },
             ]}
             containerClassName="!mb-0"
           />
@@ -186,8 +186,8 @@ export default function Step8SourceOfFundsWealth({ form }) {
             }
             reqMsg="Please answer cash threshold question"
             radioOptions={[
-              { value: "No", label: "No (Bank transfer / EFT)" },
               { value: "Yes", label: "Yes ($10k+ physical cash)" },
+              { value: "No", label: "No (Bank transfer / EFT)" },
             ]}
             containerClassName="!mb-0"
           />
@@ -232,17 +232,47 @@ export default function Step8SourceOfFundsWealth({ form }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/60 dark:border-zinc-800">
             <AntInput
               type="text"
-              name="cashAmountAndPayer"
+              name="cashAmount"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Cash Amount & Payer Details
+                  Cash Amount (AUD)
                 </span>
               }
-              placeholder="e.g. $15,000 AUD deposited by J. Smith"
-              reqMsg="Cash details required"
+              placeholder="e.g. 15000"
+              reqMsg="Cash amount is required"
               size="large"
               className="rounded-xl"
               containerClassName="!mb-0"
+            />
+
+            <AntInput
+              type="text"
+              name="cashPayer"
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Cash Paid / Deposited By
+                </span>
+              }
+              placeholder="e.g. John Smith"
+              reqMsg="Payer name is required"
+              size="large"
+              className="rounded-xl"
+              containerClassName="!mb-0"
+            />
+
+            <AntInput
+              type="textarea"
+              name="cashReason"
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Reason for Cash Transaction
+                </span>
+              }
+              placeholder="e.g. Proceeds from sale of personal vehicle"
+              reqMsg="Reason is required"
+              size="large"
+              className="rounded-xl"
+              containerClassName="!mb-0 sm:col-span-2"
             />
 
             <UploadFile

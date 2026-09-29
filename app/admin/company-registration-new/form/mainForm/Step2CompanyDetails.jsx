@@ -134,12 +134,12 @@ export default function Step2CompanyDetails({ form }) {
             reqMsg="Please select reservation status"
             radioOptions={[
               {
-                value: "No",
-                label: "No (Standard name search & registration)",
-              },
-              {
                 value: "Yes",
                 label: "Yes (Name already reserved on Form 410)",
+              },
+              {
+                value: "No",
+                label: "No (Standard name search & registration)",
               },
             ]}
             containerClassName="!mb-0"
@@ -399,11 +399,11 @@ export default function Step2CompanyDetails({ form }) {
             }
             reqMsg="Please select group status"
             radioOptions={[
-              { value: "No", label: "No (Standalone entity)" },
               {
                 value: "Yes",
                 label: "Yes (Subsidiary / Holding company structure)",
               },
+              { value: "No", label: "No (Standalone entity)" },
             ]}
             containerClassName="!mb-0"
           />

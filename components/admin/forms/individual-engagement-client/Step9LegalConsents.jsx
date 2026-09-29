@@ -16,15 +16,27 @@ import {
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import {
-  TERMS_AND_CONDITIONS_INFO,
-  PRIVACY_POLICY_INFO,
-  EXACT_PRIVACY_COLLECTION_NOTICE_TEXT,
-  TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO,
-  TPB_STATEMENT_INFO,
-  ATO_AUDIT_DECLARATION_INFO,
+  TERMS_AND_CONDITIONS_INFO as TERMS_AND_CONDITIONS_INFO_RAW,
+  PRIVACY_POLICY_INFO as PRIVACY_POLICY_INFO_RAW,
+  EXACT_PRIVACY_COLLECTION_NOTICE_TEXT as EXACT_PRIVACY_COLLECTION_NOTICE_TEXT_RAW,
+  TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO as TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO_RAW,
+  TPB_STATEMENT_INFO as TPB_STATEMENT_INFO_RAW,
+  ATO_AUDIT_DECLARATION_INFO as ATO_AUDIT_DECLARATION_INFO_RAW,
 } from "./legalDocumentsText";
+import { useCompany } from "@/context/SettingsContext";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function Step9LegalConsents({ form }) {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const TERMS_AND_CONDITIONS_INFO = applyCompanyVars(TERMS_AND_CONDITIONS_INFO_RAW, settings);
+  const PRIVACY_POLICY_INFO = applyCompanyVars(PRIVACY_POLICY_INFO_RAW, settings);
+  const EXACT_PRIVACY_COLLECTION_NOTICE_TEXT = applyCompanyVars(EXACT_PRIVACY_COLLECTION_NOTICE_TEXT_RAW, settings);
+  const TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO = applyCompanyVars(TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO_RAW, settings);
+  const TPB_STATEMENT_INFO = applyCompanyVars(TPB_STATEMENT_INFO_RAW, settings);
+  const ATO_AUDIT_DECLARATION_INFO = applyCompanyVars(ATO_AUDIT_DECLARATION_INFO_RAW, settings);
+  const company = useCompany();
   const identityMethod = Form.useWatch("identityMethod", form);
   const techBlendedTeam = Form.useWatch("techBlendedTeam", form);
 
@@ -231,9 +243,6 @@ export default function Step9LegalConsents({ form }) {
                 <span className="font-black text-slate-900 dark:text-zinc-100 text-sm">
                   {TERMS_AND_CONDITIONS_INFO.title}
                 </span>
-                <Tag color="green" className="font-extrabold text-[10px]">
-                  Version {TERMS_AND_CONDITIONS_INFO.version}
-                </Tag>
               </div>
               <p className="text-xs text-slate-500 dark:text-zinc-400 m-0">
                 Effective {TERMS_AND_CONDITIONS_INFO.effectiveDate} |
@@ -386,9 +395,6 @@ export default function Step9LegalConsents({ form }) {
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100 text-xs flex items-center justify-between">
                   <span>Privacy Collection Notice</span>
-                  <Tag color="blue" className="text-[10px] font-bold">
-                    v2.1
-                  </Tag>
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 mb-0">
                   APP 5 Collection Notice & Data Purposes
@@ -409,9 +415,6 @@ export default function Step9LegalConsents({ form }) {
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100 text-xs flex items-center justify-between">
                   <span>Privacy Policy</span>
-                  <Tag color="blue" className="text-[10px] font-bold">
-                    v2.1
-                  </Tag>
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 mb-0">
                   Effective 24 July 2026 | APP Compliance
@@ -677,7 +680,7 @@ export default function Step9LegalConsents({ form }) {
                 FINANCIALLY UP PTY LTD
               </h1>
               <p className="text-xs text-slate-500 m-0">
-                ABN 84 659 717 263 | Registered Tax Agent #25800000
+                ABN {company.abn} | Registered Tax Agent #{company.taxAgentNumber}
               </p>
             </div>
             <div className="text-right">
@@ -685,7 +688,6 @@ export default function Step9LegalConsents({ form }) {
                 color="green"
                 className="font-extrabold text-xs px-3 py-1 rounded-xl"
               >
-                VERSION {TERMS_AND_CONDITIONS_INFO.version}
               </Tag>
               <div className="text-[11px] font-mono text-slate-400 mt-1">
                 Effective: {TERMS_AND_CONDITIONS_INFO.effectiveDate}
@@ -769,7 +771,6 @@ export default function Step9LegalConsents({ form }) {
               color="blue"
               className="font-extrabold text-xs px-3 py-1 rounded-xl"
             >
-              VERSION {EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.version}
             </Tag>
           </div>
 
@@ -837,7 +838,6 @@ export default function Step9LegalConsents({ form }) {
                 color="blue"
                 className="font-extrabold text-xs px-3 py-1 rounded-xl"
               >
-                VERSION {PRIVACY_POLICY_INFO.version}
               </Tag>
               <div className="text-[11px] font-mono text-slate-400 mt-1">
                 Effective: {PRIVACY_POLICY_INFO.effectiveDate}
@@ -941,10 +941,10 @@ export default function Step9LegalConsents({ form }) {
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700 dark:text-zinc-300">
               <div>
-                <strong>Registered Entity:</strong> Financially Up Pty Ltd
+                <strong>Registered Entity:</strong> {company.legalName}
               </div>
               <div>
-                <strong>Tax Agent Number (TAN):</strong> #25800000
+                <strong>Tax Agent Number (TAN):</strong> #{company.taxAgentNumber}
               </div>
               <div>
                 <strong>Public Register:</strong> www.tpb.gov.au/public-register
@@ -1005,7 +1005,6 @@ export default function Step9LegalConsents({ form }) {
               color="teal"
               className="font-extrabold text-xs px-3 py-1 rounded-xl"
             >
-              VERSION {TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO.version}
             </Tag>
           </div>
 

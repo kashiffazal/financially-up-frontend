@@ -6,9 +6,14 @@ import {
   FileProtectOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
-import { NOMINEE_ARRANGEMENT_TERMS_TEXT } from "./legalDocumentsText";
+import { NOMINEE_ARRANGEMENT_TERMS_TEXT as NOMINEE_ARRANGEMENT_TERMS_TEXT_RAW } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function NomineeArrangementTermsTrigger() {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const NOMINEE_ARRANGEMENT_TERMS_TEXT = applyCompanyVars(NOMINEE_ARRANGEMENT_TERMS_TEXT_RAW, settings);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

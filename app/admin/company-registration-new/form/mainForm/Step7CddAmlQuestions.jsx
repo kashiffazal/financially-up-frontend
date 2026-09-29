@@ -102,12 +102,12 @@ export default function Step7CddAmlQuestions() {
             reqMsg="Please answer Question 4"
             radioOptions={[
               {
-                value: "No",
-                label: "No (Domestic Australian transactions only)",
-              },
-              {
                 value: "Yes",
                 label: "Yes (Cross-border foreign currency flows)",
+              },
+              {
+                value: "No",
+                label: "No (Domestic Australian transactions only)",
               },
             ]}
             containerClassName="!mb-4"
@@ -125,8 +125,8 @@ export default function Step7CddAmlQuestions() {
             }
             reqMsg="Please answer Question 5"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -142,8 +142,8 @@ export default function Step7CddAmlQuestions() {
             }
             reqMsg="Please answer Question 6"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -159,8 +159,8 @@ export default function Step7CddAmlQuestions() {
             }
             reqMsg="Please answer Question 7"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -176,8 +176,8 @@ export default function Step7CddAmlQuestions() {
             }
             reqMsg="Please answer Question 8"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -193,8 +193,8 @@ export default function Step7CddAmlQuestions() {
             }
             reqMsg="Please answer Question 9"
             radioOptions={[
-              { value: "No", label: "No (Acting on own initiative)" },
               { value: "Yes", label: "Yes (Instructed by third party)" },
+              { value: "No", label: "No (Acting on own initiative)" },
             ]}
             containerClassName="!mb-4"
           />
@@ -210,8 +210,8 @@ export default function Step7CddAmlQuestions() {
             }
             reqMsg="Please answer Question 10"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-0"
           />

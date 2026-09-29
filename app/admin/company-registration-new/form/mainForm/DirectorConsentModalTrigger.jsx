@@ -3,9 +3,14 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
 import { FileProtectOutlined, UserOutlined } from "@ant-design/icons";
-import { DIRECTOR_CONSENT_TEXT } from "./legalDocumentsText";
+import { DIRECTOR_CONSENT_TEXT as DIRECTOR_CONSENT_TEXT_RAW } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function DirectorConsentModalTrigger() {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const DIRECTOR_CONSENT_TEXT = applyCompanyVars(DIRECTOR_CONSENT_TEXT_RAW, settings);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

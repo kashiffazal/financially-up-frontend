@@ -3,9 +3,14 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
 import { FileProtectOutlined, UsergroupAddOutlined } from "@ant-design/icons";
-import { MEMBER_CONSENT_TEXT } from "./legalDocumentsText";
+import { MEMBER_CONSENT_TEXT as MEMBER_CONSENT_TEXT_RAW } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function MemberConsentModalTrigger() {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const MEMBER_CONSENT_TEXT = applyCompanyVars(MEMBER_CONSENT_TEXT_RAW, settings);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

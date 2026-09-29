@@ -1,3 +1,7 @@
+/**
+ * NOTE: Company details are written as {{company.*}} / {{email.*}} tokens and are
+ * replaced at render time from the global settings store (see lib/applyCompanyVars.js).
+ */
 "use client";
 
 /**
@@ -9,11 +13,11 @@ export const TERMS_OF_ENGAGEMENT_TEXT = {
   version: "1.0",
   effectiveDate: "28 June 2026",
   summary:
-    "These Terms of Engagement govern the corporate secretarial, ASIC company incorporation, tax registration, and AML/CTF verification services provided by Financially Up Pty Ltd to the Client.",
+    "These Terms of Engagement govern the corporate secretarial, ASIC company incorporation, tax registration, and AML/CTF verification services provided by {{company.legalName}} to the Client.",
   sections: [
     {
       title: "1. Parties, Background & Nature of Service",
-      text: "Financially Up Pty Ltd (ABN 84 659 717 263, Registered ASIC Corporate Agent #34892, Registered Tax Agent #25800000) acts as your registered corporate agent. We prepare and lodge Form 201 (Application for Registration as an Australian Company) with ASIC based entirely on information provided by the Client.",
+      text: "{{company.legalName}} (ABN {{company.abn}}, Registered ASIC Corporate Agent #34892, Registered Tax Agent #{{company.taxAgentNumber}}) acts as your registered corporate agent. We prepare and lodge Form 201 (Application for Registration as an Australian Company) with ASIC based entirely on information provided by the Client.",
     },
     {
       title: "2. Scope of Services & Company Incorporation Package",
@@ -59,11 +63,11 @@ export const PRIVACY_NOTICE_TEXT = {
   version: "1.0",
   effectiveDate: "28 June 2026",
   overview:
-    "This Privacy Collection Notice explains how Financially Up Pty Ltd collects, holds, uses, and discloses personal information when registering a new Australian company, in compliance with Australian Privacy Principle 5 (APP 5), the Privacy Act 1988 (Cth), the Privacy (Tax File Number) Rule 2015, and the Corporations Act 2001.",
+    "This Privacy Collection Notice explains how {{company.legalName}} collects, holds, uses, and discloses personal information when registering a new Australian company, in compliance with Australian Privacy Principle 5 (APP 5), the Privacy Act 1988 (Cth), the Privacy (Tax File Number) Rule 2015, and the Corporations Act 2001.",
   sections: [
     {
       title: "1. Who is collecting your personal information?",
-      text: "Financially Up Pty Ltd (ABN 84 659 717 263, Level 5, 100 Walker St, North Sydney NSW 2060. Contact: privacy@financiallyup.com.au | 1300 328 316).",
+      text: "{{company.legalName}} (ABN {{company.abn}}, {{company.address}}. Contact: {{email.privacy}} | {{company.phone}}).",
     },
     {
       title: "2. What information do we collect?",
@@ -87,7 +91,7 @@ export const PRIVACY_NOTICE_TEXT = {
     },
     {
       title: "7. Access, Correction & Complaints",
-      text: "Our Privacy Policy outlines how you can access and seek correction of your personal information, or lodge a privacy complaint. Contact privacy@financiallyup.com.au.",
+      text: "Our Privacy Policy outlines how you can access and seek correction of your personal information, or lodge a privacy complaint. Contact {{email.privacy}}.",
     },
   ],
 };
@@ -101,7 +105,7 @@ export const DIRECTOR_CONSENT_TEXT = {
     "I hereby consent to act as a Director / Secretary of the proposed company upon its incorporation.",
     "I confirm that I have attained the age of 18 years and am not disqualified from managing corporations under Part 2D.6 of the Corporations Act 2001.",
     "I confirm that I have applied for or currently hold an Australian Director Identification Number (Director ID) as required by the Treasury Laws Amendment (Registries Modernisation and Other Measures) Act 2020.",
-    "I authorize Financially Up Pty Ltd to lodge this consent with ASIC on Form 201.",
+    "I authorize {{company.legalName}} to lodge this consent with ASIC on Form 201.",
   ],
 };
 

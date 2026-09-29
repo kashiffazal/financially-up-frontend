@@ -195,8 +195,8 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
                 </span>
               }
               radioOptions={[
-                { value: "No", label: "No" },
                 { value: "Yes", label: "Yes" },
+                { value: "No", label: "No" },
               ]}
               reqMsg="Select option."
             />
@@ -225,8 +225,8 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
                 </span>
               }
               radioOptions={[
-                { value: "No", label: "No" },
                 { value: "Yes", label: "Yes" },
+                { value: "No", label: "No" },
               ]}
               reqMsg="Select option."
             />

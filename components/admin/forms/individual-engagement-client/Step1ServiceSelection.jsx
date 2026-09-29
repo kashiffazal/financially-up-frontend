@@ -114,14 +114,14 @@ const SERVICE_OPTIONS = [
 
 const ENTITY_OPTIONS = [
   {
-    value: "No",
-    title: "No, Individual Only",
-    desc: "This request is strictly for personal tax affairs",
-  },
-  {
     value: "Yes",
     title: "Yes, Relates to Entity",
     desc: "Company, Trust, Partnership or SMSF involved",
+  },
+  {
+    value: "No",
+    title: "No, Individual Only",
+    desc: "This request is strictly for personal tax affairs",
   },
   {
     value: "Unsure",

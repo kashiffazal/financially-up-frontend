@@ -66,12 +66,12 @@ export default function Step10ElectronicSignature() {
             Documents Linked to Electronic Execution:
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-slate-600 dark:text-zinc-400 font-mono text-[11px]">
-            <div>• Engagement Schedule (v2.5)</div>
-            <div>• Terms & Conditions (v2.1)</div>
-            <div>• Privacy Collection Notice (v2.1)</div>
-            <div>• Privacy Policy (v2.1)</div>
-            <div>• TPB Statement (v2.1)</div>
-            <div>• Technology Notice (v2.1)</div>
+            <div>• Engagement Schedule</div>
+            <div>• Terms & Conditions</div>
+            <div>• Privacy Collection Notice</div>
+            <div>• Privacy Policy</div>
+            <div>• TPB Statement</div>
+            <div>• Technology Notice</div>
           </div>
         </div>
 

@@ -14,6 +14,7 @@ import {
 import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
+import { useCompany } from "@/context/SettingsContext";
 
 const RELATIONSHIP_OPTIONS = [
   { value: "Parent / Guardian", label: "Parent / Legal Guardian" },
@@ -23,6 +24,7 @@ const RELATIONSHIP_OPTIONS = [
 ];
 
 export default function Step7AuthoritiesBank({ form, formData }) {
+  const company = useCompany();
   const isSelf = Form.useWatch("isSelf", form);
   const needBank = Form.useWatch("needBank", form);
   const hadPreviousAccountant = Form.useWatch("hadPreviousAccountant", form);
@@ -282,7 +284,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
         <AntInput
           type="checkbox"
           name="atoAuthority"
-          text="ATO Authority: I authorise Financially Up Pty Ltd (Registered Tax Agent #25800000) to act on my behalf with the ATO within the accepted scope of work."
+          text={`ATO Authority: I authorise ${company.legalName} (Registered Tax Agent #${company.taxAgentNumber}) to act on my behalf with the ATO within the accepted scope of work.`}
           className="text-sm font-bold text-slate-900 dark:text-zinc-100"
           validator={(_, v) =>
             v
@@ -297,7 +299,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
           <AntInput
             type="checkbox"
             name="abrAuthority"
-            text="ABR Authority: I authorise Financially Up Pty Ltd to access Australian Business Register (ABR) data and update ABN/GST records on my behalf."
+            text={`ABR Authority: I authorise ${company.legalName} to access Australian Business Register (ABR) data and update ABN/GST records on my behalf.`}
             className="text-sm font-bold text-slate-900 dark:text-zinc-100"
             validator={(_, v) =>
               v
@@ -374,7 +376,8 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 FINANCIALLY UP PTY LTD
               </h2>
               <p className="text-xs text-slate-500 m-0">
-                Registered Tax Agent #25800000 | Statutory Authority Framework
+                Registered Tax Agent #{company.taxAgentNumber} | Statutory Authority
+                Framework
               </p>
             </div>
             <Tag color="green" className="font-bold text-xs">

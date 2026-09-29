@@ -100,12 +100,12 @@ export default function Step4IncomeProfile({ form }) {
           }
           radioOptions={[
             {
-              value: "No",
-              label: "No, first time using an accountant or self-lodged",
-            },
-            {
               value: "Yes",
               label: "Yes, previously engaged a tax agent / accountant",
+            },
+            {
+              value: "No",
+              label: "No, first time using an accountant or self-lodged",
             },
           ]}
           vertical={true}
@@ -177,8 +177,8 @@ export default function Step4IncomeProfile({ form }) {
             </span>
           }
           radioOptions={[
-            { value: "No", label: "No ATO issues or debt" },
             { value: "Yes", label: "Yes, ATO debt / audit / review" },
+            { value: "No", label: "No ATO issues or debt" },
             { value: "Unsure", label: "Unsure / Need ATO status check" },
           ]}
           reqMsg="Please select an option."

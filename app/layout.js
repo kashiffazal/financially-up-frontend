@@ -1,6 +1,8 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Geist, Geist_Mono } from "next/font/google";
 import ThemeProvider from "./ThemeProvider";
+import { SettingsProvider } from "../context/SettingsContext";
+import { getSettings } from "../lib/getSettings";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +34,11 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // Global variables (company identity, contact emails, URLs) shared by the
+  // public website, the Admin Portal and every client-facing form.
+  const settings = await getSettings();
+
   return (
     <html
       lang="en"
@@ -41,7 +47,9 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
         <AntdRegistry>
-          <ThemeProvider>{children}</ThemeProvider>
+          <SettingsProvider initialSettings={settings}>
+            <ThemeProvider>{children}</ThemeProvider>
+          </SettingsProvider>
         </AntdRegistry>
       </body>
     </html>

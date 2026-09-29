@@ -1,0 +1,42 @@
+/* Address Autocomplete (OpenStreetMap / Nominatim) */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+
+.attribution {
+  font-size: 10px;
+  line-height: 1.3;
+  color: #94a3b8;
+}
+
+:global(.dark) .attribution {
+  color: #71717a;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 460px;
+  white-space: normal;
+}
+
+.optionIcon {
+  margin-top: 3px;
+  color: #008043;
+  flex-shrink: 0;
+}
+
+.optionText {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #334155;
+}
+
+:global(.dark) .optionText {
+  color: #d4d4d8;
+}

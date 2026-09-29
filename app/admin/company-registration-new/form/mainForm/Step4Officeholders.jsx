@@ -16,8 +16,14 @@ import {
 import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import SignatureCanvas from "@/components/mutual/SignatureCanvas";
+import AddressAutocomplete from "@/components/mutual/AddressAutocomplete";
 import DirectorConsentModalTrigger from "./DirectorConsentModalTrigger";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
+
+const ROLE_OPTIONS = [
+  { value: "Director", label: "Director" },
+  { value: "Secretary", label: "Company Secretary" },
+];
 
 const COUNTRIES = [
   "Australia",
@@ -40,7 +46,9 @@ export default function Step4Officeholders({
   const handleAddOfficeholder = () => {
     const newOfficer = {
       id: Date.now(),
-      roles: ["Proposed director"],
+      roles: ["Director"],
+      firstName: "",
+      lastName: "",
       fullName: "",
       formerNames: "",
       dob: null,
@@ -123,7 +131,12 @@ export default function Step4Officeholders({
                   {idx + 1}
                 </div>
                 <span className="text-sm font-black text-slate-900 dark:text-zinc-100">
-                  Officeholder #{idx + 1}: {officer.fullName || "New Officer"}
+                  Officeholder #{idx + 1}:{" "}
+                  {[officer.firstName, officer.lastName]
+                    .filter(Boolean)
+                    .join(" ") ||
+                    officer.fullName ||
+                    "New Officer"}
                 </span>
               </div>
 
@@ -141,22 +154,58 @@ export default function Step4Officeholders({
               )}
             </div>
 
+            {/* Officeholder Role(s) */}
+            <AntInput
+              type="checkbox"
+              name={`officer_${idx}_roles`}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Proposed Role(s) *
+                </span>
+              }
+              group={ROLE_OPTIONS}
+              value={officer.roles || ["Director"]}
+              onChange={(val) => handleUpdateField(idx, "roles", val)}
+              reqMsg="Select at least one role"
+              containerClassName="!mb-0"
+            />
+
             {/* Basic Identity */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <AntInput
                 type="text"
-                name={`officer_${idx}_fullName`}
+                name={`officer_${idx}_firstName`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    Full Legal Name *
+                    First Name *
                   </span>
                 }
-                placeholder="First Middle Last"
-                value={officer.fullName}
+                placeholder="e.g. Jane"
+                value={officer.firstName}
                 onChange={(e) =>
-                  handleUpdateField(idx, "fullName", e.target.value)
+                  handleUpdateField(idx, "firstName", e.target.value)
                 }
-                reqMsg="Full legal name is required"
+                reqMsg="First name is required"
+                preIconAnt={<UserOutlined className="text-slate-400" />}
+                size="large"
+                className="rounded-xl"
+                containerClassName="!mb-0"
+              />
+
+              <AntInput
+                type="text"
+                name={`officer_${idx}_lastName`}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Last Name *
+                  </span>
+                }
+                placeholder="e.g. Citizen"
+                value={officer.lastName}
+                onChange={(e) =>
+                  handleUpdateField(idx, "lastName", e.target.value)
+                }
+                reqMsg="Last name is required"
                 preIconAnt={<UserOutlined className="text-slate-400" />}
                 size="large"
                 className="rounded-xl"
@@ -261,18 +310,17 @@ export default function Step4Officeholders({
 
             {/* Address & Contact */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-              <AntInput
-                type="text"
+              <AddressAutocomplete
                 name={`officer_${idx}_residentialAddress`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
                     Residential Address *
                   </span>
                 }
-                placeholder="e.g. 15 Ocean St, Manly NSW 2095"
+                placeholder="Start typing an address, e.g. 15 Ocean St Manly"
                 value={officer.residentialAddress}
-                onChange={(e) =>
-                  handleUpdateField(idx, "residentialAddress", e.target.value)
+                onChange={(val) =>
+                  handleUpdateField(idx, "residentialAddress", val)
                 }
                 reqMsg="Residential address is required"
                 size="large"
@@ -400,12 +448,28 @@ export default function Step4Officeholders({
                 name={`officer_${idx}_idAttachment`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    Upload Photo ID Copy (Passport / Driver Licence) *
+                    Photo ID &mdash; Front / Photo Page *
                   </span>
                 }
-                title="Click or drag photo ID copy"
-                msg="Passport or Australian Driver Licence"
-                reqMsg="Please upload ID document copy"
+                title="Click or drag the front of the ID"
+                msg="Passport photo page or licence front"
+                reqMsg="Please upload the front of the ID document"
+                type="4"
+                height={126}
+                className="rounded-xl"
+                containerClassName="!mb-0"
+              />
+
+              <UploadFile
+                name={`officer_${idx}_idAttachmentBack`}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Photo ID &mdash; Back Side *
+                  </span>
+                }
+                title="Click or drag the back of the ID"
+                msg="Reverse of the licence, card or passport"
+                reqMsg="Please upload the back of the ID document"
                 type="4"
                 height={126}
                 className="rounded-xl"
@@ -480,7 +544,7 @@ export default function Step4Officeholders({
                     group={[
                       {
                         value: "accepted",
-                        label: `I consent to act as ${officer.roles ? officer.roles.join(" / ") : "Director"} of the proposed company. *`,
+                        label: `I consent to act as ${officer.roles?.length ? officer.roles.join(" / ") : "Director"} of the proposed company. *`,
                       },
                     ]}
                     value={officer.officerConsentAccepted || ["accepted"]}

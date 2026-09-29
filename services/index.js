@@ -138,11 +138,14 @@ export const isUploadableFile = (val) => {
     if (val instanceof File || val instanceof Blob) return true;
     if (val.originFileObj instanceof File || val.originFileObj instanceof Blob) return true;
   }
-  // Duck-typing for File / Blob
+  // Duck-typing for a cross-realm File / Blob: it must expose the Blob API,
+  // not merely look like a file descriptor.
   if (typeof val.name === "string" && typeof val.slice === "function") return true;
   if (val.originFileObj && typeof val.originFileObj.name === "string" && typeof val.originFileObj.slice === "function") return true;
-  // Ant Design RcFile / upload wrapper
-  if (val.uid && typeof val.name === "string" && (val.size !== undefined || val.type !== undefined)) return true;
+  // NOTE: a plain { uid, name, size } descriptor (e.g. a value that survived a
+  // JSON round-trip) is NOT uploadable. Treating it as a file made
+  // FormData.append() throw "parameter 2 is not of type Blob" and killed the
+  // whole submission, so it is deliberately rejected here.
   return false;
 };
 
@@ -176,6 +179,64 @@ export const hasUploadableFiles = (data) => {
  * @param {object} data - Raw request payload
  * @returns {FormData} Formatted FormData
  */
+/**
+ * Detects a Date or a Day.js instance.
+ */
+const isDateLike = (val) =>
+  val instanceof Date ||
+  (!!val && typeof val === "object" && typeof val.format === "function" && typeof val.toDate === "function");
+
+/**
+ * Formats a date value using LOCAL time.
+ *
+ * Day.js objects must never be handed to JSON.stringify: as multipart they
+ * become a quoted string (`"2026-09-22T..."`) which MySQL rejects and stores as
+ * 0000-00-00, and as JSON they become a UTC instant that can shift an Australian
+ * date back by one day.
+ */
+const formatDateValue = (val) => {
+  const d = val instanceof Date ? val : val.toDate();
+  const pad = (n) => String(n).padStart(2, "0");
+  const datePart = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const hasTime = d.getHours() || d.getMinutes() || d.getSeconds();
+  return hasTime
+    ? `${datePart} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`
+    : datePart;
+};
+
+/**
+ * Recursively replaces Date/Day.js values with local date strings, leaving
+ * files and every other value untouched.
+ */
+export const normalizeDateValues = (data) => {
+  if (isDateLike(data)) return formatDateValue(data);
+  if (!data || typeof data !== "object") return data;
+  if (isUploadableFile(data)) return data;
+  if (typeof FormData !== "undefined" && data instanceof FormData) return data;
+  if (Array.isArray(data)) return data.map((item) => normalizeDateValues(item));
+
+  return Object.keys(data).reduce((acc, key) => {
+    acc[key] = normalizeDateValues(data[key]);
+    return acc;
+  }, {});
+};
+
+/**
+ * Appends a file to FormData only when it really is a Blob/File.
+ * Anything else is skipped (and reported) instead of throwing.
+ */
+const appendFileSafely = (formData, key, rawFile, fileName) => {
+  const isBlobLike =
+    (typeof Blob !== "undefined" && rawFile instanceof Blob) ||
+    typeof rawFile?.slice === "function";
+  if (!isBlobLike) {
+    console.warn(`[HTTP] Skipped non-file value for \"${key}\" - the attachment was lost before submission.`);
+    return false;
+  }
+  formData.append(key, rawFile, fileName);
+  return true;
+};
+
 export const buildFormDataPayload = (data) => {
   if (typeof window !== "undefined" && data instanceof FormData) {
     return data;
@@ -197,7 +258,7 @@ export const buildFormDataPayload = (data) => {
           const rawFile = fileItem?.originFileObj || fileItem;
           if (isUploadableFile(rawFile)) {
             const fileName = rawFile.name || fileItem?.name || `file_${Date.now()}`;
-            formData.append(key, rawFile, fileName);
+            appendFileSafely(formData, key, rawFile, fileName);
           }
         });
       } else {
@@ -207,13 +268,13 @@ export const buildFormDataPayload = (data) => {
     } else if (isUploadableFile(val)) {
       const rawFile = val.originFileObj || val;
       const fileName = rawFile.name || val.name || `file_${Date.now()}`;
-      formData.append(key, rawFile, fileName);
+      appendFileSafely(formData, key, rawFile, fileName);
     } else if (val && val.fileList && Array.isArray(val.fileList)) {
       val.fileList.forEach((fileItem) => {
         const rawFile = fileItem?.originFileObj || fileItem;
         if (isUploadableFile(rawFile)) {
           const fileName = rawFile.name || fileItem?.name || `file_${Date.now()}`;
-          formData.append(key, rawFile, fileName);
+          appendFileSafely(formData, key, rawFile, fileName);
         }
       });
     } else if (typeof val === "object") {
@@ -298,6 +359,8 @@ export const HTTP = (
   if (isGetOrDelete) {
     requestParams = payload || customConfig.params;
   } else {
+    // Dates must be plain local strings in both the JSON and multipart paths
+    payload = normalizeDateValues(payload);
     if (hasUploadableFiles(payload)) {
       requestData = buildFormDataPayload(payload);
       // Let browser/axios set multipart boundary automatically

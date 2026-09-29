@@ -1,0 +1,40 @@
+/* Risk Level Explainer modal */
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+:global(.dark) .summary {
+  background: rgba(24, 24, 27, 0.7);
+  border-color: rgba(63, 63, 70, 0.8);
+}
+
+.band {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: #ffffff;
+}
+
+:global(.dark) .band {
+  background: rgba(24, 24, 27, 0.6);
+  border-color: rgba(63, 63, 70, 0.8);
+}
+
+.bandActive {
+  border-color: var(--brand-primary, #008043);
+  box-shadow: 0 0 0 1px var(--brand-primary, #008043) inset;
+}
+
+.table :global(.ant-table-thead > tr > th) {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}

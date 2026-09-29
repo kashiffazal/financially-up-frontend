@@ -66,8 +66,8 @@ export default function Step2VisaExemption() {
           }
           reqMsg="Please indicate if you applied for PR"
           radioOptions={[
-            { value: "No", label: "No, never applied for PR" },
             { value: "Yes", label: "Yes, currently lodged PR application" },
+            { value: "No", label: "No, never applied for PR" },
           ]}
           containerClassName="!mb-2"
         />

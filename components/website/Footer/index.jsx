@@ -15,9 +15,11 @@ import {
 } from "@ant-design/icons";
 import { useTheme } from "../../../app/ThemeProvider";
 import styles from "./Footer.module.css";
+import { useCompany } from "@/context/SettingsContext";
 
 export default function WebsiteFooter() {
   const { isDark } = useTheme();
+  const company = useCompany();
 
   /* Smooth scroll back to top of page */
   const scrollToTop = () => {
@@ -152,10 +154,10 @@ export default function WebsiteFooter() {
                     Phone &amp; Support
                   </div>
                   <a
-                    href="tel:1300328316"
+                    href={`tel:${company.phone.replace(/\s/g, "")}`}
                     className="text-[13px] font-bold text-slate-800 dark:text-white hover:text-brand-primary dark:hover:text-emerald-400 transition-colors"
                   >
-                    1300 328 316
+                    {company.phone}
                   </a>
                 </div>
               </div>
@@ -170,10 +172,10 @@ export default function WebsiteFooter() {
                     Email Address
                   </div>
                   <a
-                    href="mailto:info@financiallyup.com.au"
+                    href={`mailto:${company.email}`}
                     className="text-[13px] font-bold text-brand-primary dark:text-emerald-400 hover:underline transition-colors"
                   >
-                    info@financiallyup.com.au
+                    {company.email}
                   </a>
                 </div>
               </div>
@@ -188,7 +190,7 @@ export default function WebsiteFooter() {
                     Head Office
                   </div>
                   <div className="text-[12px] font-semibold text-slate-700 dark:text-slate-200 leading-snug">
-                    Level 5, 100 Walker St, North Sydney NSW 2060, Australia
+                    {company.address}
                   </div>
                 </div>
               </div>

@@ -309,8 +309,8 @@ export default function Step3ResidencyFamily({ form }) {
             </span>
           }
           radioOptions={[
-            { value: "No", label: "No" },
             { value: "Yes", label: "Yes" },
+            { value: "No", label: "No" },
           ]}
           reqMsg="Please select an option."
           containerClassName="!mb-0"
@@ -401,8 +401,8 @@ export default function Step3ResidencyFamily({ form }) {
             </span>
           }
           radioOptions={[
-            { value: "No", label: "No" },
             { value: "Yes", label: "Yes" },
+            { value: "No", label: "No" },
           ]}
           reqMsg="Please select an option."
           containerClassName="!mb-0"

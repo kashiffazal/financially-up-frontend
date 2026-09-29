@@ -8,6 +8,13 @@ import {
   DollarOutlined,
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import AddressAutocomplete from "@/components/mutual/AddressAutocomplete";
+
+/* Companies and trusts keep a single entity name; people give first + last */
+const isIndividualMember = (member) =>
+  !member?.memberType ||
+  member.memberType === "Individual" ||
+  member.memberType === "Other";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import MemberConsentModalTrigger from "./MemberConsentModalTrigger";
 
@@ -18,6 +25,8 @@ export default function Step5ShareStructure({
   const handleAddShareholder = () => {
     const newMember = {
       id: Date.now(),
+      firstName: "",
+      lastName: "",
       fullName: "",
       memberType: "Individual",
       address: "",
@@ -109,24 +118,66 @@ export default function Step5ShareStructure({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <AntInput
-                type="text"
-                name={`member_${idx}_fullName`}
-                label={
-                  <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    Shareholder Legal Name / Entity Name *
-                  </span>
-                }
-                placeholder="e.g. John Alexander Smith or Acme Holdings Pty Ltd"
-                value={member.fullName}
-                onChange={(e) =>
-                  handleUpdateField(idx, "fullName", e.target.value)
-                }
-                reqMsg="Shareholder name is required"
-                size="large"
-                className="rounded-xl"
-                containerClassName="!mb-0"
-              />
+              {isIndividualMember(member) ? (
+                <>
+                  <AntInput
+                    type="text"
+                    name={`member_${idx}_firstName`}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Member First Name *
+                      </span>
+                    }
+                    placeholder="e.g. John"
+                    value={member.firstName}
+                    onChange={(e) =>
+                      handleUpdateField(idx, "firstName", e.target.value)
+                    }
+                    reqMsg="First name is required"
+                    size="large"
+                    className="rounded-xl"
+                    containerClassName="!mb-0"
+                  />
+
+                  <AntInput
+                    type="text"
+                    name={`member_${idx}_lastName`}
+                    label={
+                      <span className="font-bold text-slate-800 dark:text-zinc-200">
+                        Member Last Name *
+                      </span>
+                    }
+                    placeholder="e.g. Smith"
+                    value={member.lastName}
+                    onChange={(e) =>
+                      handleUpdateField(idx, "lastName", e.target.value)
+                    }
+                    reqMsg="Last name is required"
+                    size="large"
+                    className="rounded-xl"
+                    containerClassName="!mb-0"
+                  />
+                </>
+              ) : (
+                <AntInput
+                  type="text"
+                  name={`member_${idx}_fullName`}
+                  label={
+                    <span className="font-bold text-slate-800 dark:text-zinc-200">
+                      Entity Name (Company / Trust) *
+                    </span>
+                  }
+                  placeholder="e.g. Acme Holdings Pty Ltd"
+                  value={member.fullName}
+                  onChange={(e) =>
+                    handleUpdateField(idx, "fullName", e.target.value)
+                  }
+                  reqMsg="Entity name is required"
+                  size="large"
+                  className="rounded-xl"
+                  containerClassName="!mb-0"
+                />
+              )}
 
               <AntInput
                 type="select"
@@ -150,19 +201,16 @@ export default function Step5ShareStructure({
                 containerClassName="!mb-0"
               />
 
-              <AntInput
-                type="text"
+              <AddressAutocomplete
                 name={`member_${idx}_address`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
                     Residential / Registered Address *
                   </span>
                 }
-                placeholder="e.g. 100 Walker St, North Sydney NSW"
+                placeholder="Start typing an address, e.g. 100 Walker St North Sydney"
                 value={member.address}
-                onChange={(e) =>
-                  handleUpdateField(idx, "address", e.target.value)
-                }
+                onChange={(val) => handleUpdateField(idx, "address", val)}
                 reqMsg="Address is required"
                 size="large"
                 className="rounded-xl"

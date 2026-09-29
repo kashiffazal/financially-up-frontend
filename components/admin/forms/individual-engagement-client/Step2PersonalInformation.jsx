@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
+import AddressAutocomplete from "@/components/mutual/AddressAutocomplete";
 
 // Countries list for Country of Birth
 const COUNTRIES = [
@@ -79,20 +80,36 @@ export default function Step2PersonalInformation({ form }) {
       </div>
 
       {/* Grid: Name & Basic Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* PI-001: Full Legal Name */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        {/* PI-001: First Name (25%) */}
         <AntInput
-          name="fullName"
+          name="firstName"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
-              Full Legal Name
+              First Name (Given Name)
             </span>
           }
-          placeholder="e.g. John Alexander Smith"
+          placeholder="e.g. John"
           preIconAnt={<UserOutlined className="text-slate-400" />}
           size="large"
           className="rounded-xl"
-          reqMsg="Please enter your full legal name."
+          reqMsg="Please enter your first name."
+          containerClassName="!mb-2"
+        />
+
+        {/* PI-001b: Last Name */}
+        <AntInput
+          name="lastName"
+          label={
+            <span className="font-bold text-slate-800 dark:text-zinc-200">
+              Last Name (Family Name)
+            </span>
+          }
+          placeholder="e.g. Smith"
+          preIconAnt={<UserOutlined className="text-slate-400" />}
+          size="large"
+          className="rounded-xl"
+          reqMsg="Please enter your last name."
           containerClassName="!mb-2"
         />
 
@@ -110,7 +127,7 @@ export default function Step2PersonalInformation({ form }) {
           size="large"
           className="w-full rounded-xl"
           reqMsg="Please select your date of birth."
-          containerClassName="!mb-2"
+          containerClassName="!mb-2 md:col-span-2"
         />
       </div>
 
@@ -125,8 +142,8 @@ export default function Step2PersonalInformation({ form }) {
             </span>
           }
           radioOptions={[
-            { value: "No", label: "No" },
             { value: "Yes", label: "Yes" },
+            { value: "No", label: "No" },
           ]}
           noRequired={true}
           containerClassName="!mb-0"
@@ -179,12 +196,14 @@ export default function Step2PersonalInformation({ form }) {
 
         {tfnStatus === "Provided" ? (
           <AntInput
+            type="password"
             name="tfn"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200">
                 9-Digit Tax File Number
               </span>
             }
+            help="Hidden while you type. Use the eye icon to check what you entered."
             placeholder="123 456 789"
             preIconAnt={<IdcardOutlined className="text-slate-400" />}
             size="large"
@@ -296,16 +315,15 @@ export default function Step2PersonalInformation({ form }) {
         />
       </div>
 
-      {/* PI-010: Residential Address */}
-      <AntInput
+      {/* PI-010: Residential Address (with address lookup) */}
+      <AddressAutocomplete
         name="address"
         label={
           <span className="font-bold text-slate-800 dark:text-zinc-200">
             Primary Australian Residential Address
           </span>
         }
-        placeholder="123 Street Name, Suburb, State Postcode"
-        preIconAnt={<HomeOutlined className="text-slate-400" />}
+        placeholder="Start typing your address, e.g. 12 Harbour St Sydney"
         size="large"
         className="rounded-xl"
         reqMsg="Please enter your residential address."

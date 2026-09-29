@@ -10,6 +10,7 @@ import {
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import AddressAutocomplete from "@/components/mutual/AddressAutocomplete";
 
 export default function Step6BeneficialOwnership({
   beneficialOwners = [],
@@ -18,6 +19,8 @@ export default function Step6BeneficialOwnership({
   const handleAddOwner = () => {
     const newOwner = {
       id: Date.now(),
+      firstName: "",
+      lastName: "",
       fullName: "",
       dob: null,
       address: "",
@@ -101,18 +104,38 @@ export default function Step6BeneficialOwnership({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <AntInput
                 type="text"
-                name={`owner_${idx}_fullName`}
+                name={`owner_${idx}_firstName`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    Full Legal Name *
+                    First Name *
                   </span>
                 }
-                placeholder="First Middle Last"
-                value={owner.fullName}
+                placeholder="e.g. Jane"
+                value={owner.firstName}
                 onChange={(e) =>
-                  handleUpdateField(idx, "fullName", e.target.value)
+                  handleUpdateField(idx, "firstName", e.target.value)
                 }
-                reqMsg="Full legal name is required"
+                reqMsg="First name is required"
+                preIconAnt={<UserOutlined className="text-slate-400" />}
+                size="large"
+                className="rounded-xl"
+                containerClassName="!mb-0"
+              />
+
+              <AntInput
+                type="text"
+                name={`owner_${idx}_lastName`}
+                label={
+                  <span className="font-bold text-slate-800 dark:text-zinc-200">
+                    Last Name *
+                  </span>
+                }
+                placeholder="e.g. Citizen"
+                value={owner.lastName}
+                onChange={(e) =>
+                  handleUpdateField(idx, "lastName", e.target.value)
+                }
+                reqMsg="Last name is required"
                 preIconAnt={<UserOutlined className="text-slate-400" />}
                 size="large"
                 className="rounded-xl"
@@ -157,19 +180,16 @@ export default function Step6BeneficialOwnership({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-              <AntInput
-                type="text"
+              <AddressAutocomplete
                 name={`owner_${idx}_address`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">
                     Residential Address
                   </span>
                 }
-                placeholder="e.g. 100 Miller St, Sydney NSW"
+                placeholder="Start typing an address, e.g. 100 Miller St Sydney"
                 value={owner.address}
-                onChange={(e) =>
-                  handleUpdateField(idx, "address", e.target.value)
-                }
+                onChange={(val) => handleUpdateField(idx, "address", val)}
                 reqMsg="Residential address is required"
                 size="large"
                 className="rounded-xl"
@@ -254,8 +274,8 @@ export default function Step6BeneficialOwnership({
             }
             reqMsg="Please answer Question 1"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -271,8 +291,8 @@ export default function Step6BeneficialOwnership({
             }
             reqMsg="Please answer Question 2"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -288,8 +308,8 @@ export default function Step6BeneficialOwnership({
             }
             reqMsg="Please answer Question 3"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -304,8 +324,8 @@ export default function Step6BeneficialOwnership({
             }
             reqMsg="Please answer Question 4"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -321,8 +341,8 @@ export default function Step6BeneficialOwnership({
             }
             reqMsg="Please answer Question 5"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-4"
           />
@@ -338,8 +358,8 @@ export default function Step6BeneficialOwnership({
             }
             reqMsg="Please answer Question 6"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-0"
           />

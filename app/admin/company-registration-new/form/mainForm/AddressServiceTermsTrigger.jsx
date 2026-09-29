@@ -6,9 +6,14 @@ import {
   EnvironmentOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
-import { ADDRESS_SERVICE_TERMS_TEXT } from "./legalDocumentsText";
+import { ADDRESS_SERVICE_TERMS_TEXT as ADDRESS_SERVICE_TERMS_TEXT_RAW } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function AddressServiceTermsTrigger() {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const ADDRESS_SERVICE_TERMS_TEXT = applyCompanyVars(ADDRESS_SERVICE_TERMS_TEXT_RAW, settings);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

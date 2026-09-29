@@ -32,9 +32,11 @@ import {
 } from "@ant-design/icons";
 import { useTheme } from "../../../app/ThemeProvider";
 import styles from "./Header.module.css";
+import { useCompany } from "@/context/SettingsContext";
 
 export default function WebsiteHeader() {
   const { isDark, toggleTheme } = useTheme();
+  const company = useCompany();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState({
@@ -411,18 +413,18 @@ export default function WebsiteHeader() {
           </div>
           <div className="flex items-center gap-6">
             <a
-              href="tel:1300328316"
+              href={`tel:${company.phone.replace(/\s/g, "")}`}
               className="flex items-center gap-1.5 hover:text-emerald-200 transition-colors"
             >
               <PhoneOutlined className="text-emerald-200" />
-              <span>1300 328 316</span>
+              <span>{company.phone}</span>
             </a>
             <a
-              href="mailto:info@financiallyup.com.au"
+              href={`mailto:${company.email}`}
               className="flex items-center gap-1.5 hover:text-emerald-200 transition-colors"
             >
               <MailOutlined className="text-emerald-200" />
-              <span>info@financiallyup.com.au</span>
+              <span>{company.email}</span>
             </a>
           </div>
         </div>
@@ -985,10 +987,10 @@ export default function WebsiteHeader() {
             </div>
 
             <a
-              href="tel:1300328316"
+              href={`tel:${company.phone.replace(/\s/g, "")}`}
               className="text-brand-primary dark:text-emerald-400 flex items-center gap-1.5 font-bold text-xs"
             >
-              <PhoneOutlined /> 1300 328 316
+              <PhoneOutlined /> {company.phone}
             </a>
           </div>
         </div>

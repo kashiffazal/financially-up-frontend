@@ -6,13 +6,18 @@ import {
   InfoCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
-import { PRIVACY_NOTICE_TEXT } from "./legalDocumentsText";
+import { PRIVACY_NOTICE_TEXT as PRIVACY_NOTICE_TEXT_RAW } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function PrivacyCollectionNoticeTrigger({
   label = "View Privacy Collection Notice",
   showIcon = true,
   className = "inline-flex items-center gap-1 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline cursor-pointer transition-colors px-1 align-baseline",
 }) {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const PRIVACY_NOTICE_TEXT = applyCompanyVars(PRIVACY_NOTICE_TEXT_RAW, settings);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

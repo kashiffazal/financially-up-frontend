@@ -32,8 +32,15 @@ import Step9NomineeTrusteeArrangements from "./Step9NomineeTrusteeArrangements";
 import Step10OptionalTaxServices from "./Step10OptionalTaxServices";
 import Step11DocumentUploads from "./Step11DocumentUploads";
 import Step12DeclarationSignatures from "./Step12DeclarationSignatures";
+import buildSubmissionPayload from "./buildSubmissionPayload";
 import { HTTP } from "@/services";
 import { clearAllSignatureStorage } from "@/components/mutual/SignatureCanvas";
+import {
+  saveDraftFiles,
+  loadDraftFiles,
+  clearDraftFiles,
+  collectFileFields,
+} from "@/lib/draftFileStore";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_COMPANY_REGISTRATION_DRAFT";
 
@@ -60,6 +67,17 @@ const STEP_ITEMS = [
   },
 ];
 
+/** "officer_0_idAttachment" -> "Officeholder 1 Id Attachment" */
+const describeUploadField = (fieldName) =>
+  fieldName
+    .replace(/^officer_(\d+)_/, (_, i) => `Officeholder ${Number(i) + 1} `)
+    .replace(/^member_(\d+)_/, (_, i) => `Member ${Number(i) + 1} `)
+    .replace(/([A-Z])/g, " $1")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^./, (c) => c.toUpperCase());
+
 const getInitialSavedDraft = () => {
   if (typeof window === "undefined") return null;
   try {
@@ -77,7 +95,9 @@ const getInitialSavedDraft = () => {
 const DEFAULT_OFFICERS = [
   {
     id: 1,
-    roles: [],
+    roles: ["Director"],
+    firstName: "",
+    lastName: "",
     fullName: "",
     formerNames: "",
     dob: null,
@@ -107,6 +127,8 @@ const DEFAULT_OFFICERS = [
 const DEFAULT_SHAREHOLDERS = [
   {
     id: 1,
+    firstName: "",
+    lastName: "",
     fullName: "",
     memberType: undefined,
     address: "",
@@ -127,6 +149,8 @@ const DEFAULT_SHAREHOLDERS = [
 const DEFAULT_BENEFICIAL_OWNERS = [
   {
     id: 1,
+    firstName: "",
+    lastName: "",
     fullName: "",
     dob: null,
     address: "",
@@ -189,16 +213,44 @@ export default function CompanyRegistrationForm() {
       : DEFAULT_BENEFICIAL_OWNERS;
   });
 
-  // Restore Ant Design form fields cleanly on client mount
+  // Restore Ant Design form fields cleanly on client mount, including the
+  // uploaded documents kept in IndexedDB (localStorage cannot hold files).
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
-    if (savedDraft?.data) {
-      form.setFieldsValue(savedDraft.data);
-      message.info(
-        `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`,
-      );
-    }
-  }, [form, message]);
+    if (!savedDraft?.data) return;
+
+    form.setFieldsValue(savedDraft.data);
+    message.info(
+      `Restored your saved Company Registration progress from ${savedDraft.savedAt || "a previous session"}.`,
+    );
+
+    let cancelled = false;
+    loadDraftFiles(DRAFT_STORAGE_KEY).then((storedFiles) => {
+      if (cancelled) return;
+
+      const restored = storedFiles || {};
+      if (Object.keys(restored).length > 0) {
+        form.setFieldsValue(restored);
+        setFormData((prev) => ({ ...prev, ...restored }));
+      }
+
+      const expected = savedDraft.attachedFileNames || {};
+      const lost = Object.keys(expected).filter((field) => !restored[field]);
+      if (lost.length > 0) {
+        notification.warning({
+          title: "Please re-attach your documents",
+          description: `Your saved draft included ${lost
+            .map(describeUploadField)
+            .join(", ")}, but your browser did not keep the file(s). Please upload them again before submitting.`,
+          duration: 10,
+        });
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [form, message, notification]);
 
   // Next step
   const handleNext = async () => {
@@ -221,10 +273,12 @@ export default function CompanyRegistrationForm() {
         setIsSubmitting(true);
         try {
           const payload = {
-            ...updatedData,
-            officeholders,
-            shareholders,
-            beneficialOwners,
+            ...buildSubmissionPayload({
+              values: updatedData,
+              officeholders,
+              shareholders,
+              beneficialOwners,
+            }),
             terms_version: "v1.0",
             terms_accepted: true,
             privacy_notice_version: "v1.0",
@@ -240,6 +294,7 @@ export default function CompanyRegistrationForm() {
             result?.data?.referenceNumber || "CREG-" + Date.now();
 
           localStorage.removeItem(DRAFT_STORAGE_KEY);
+          clearDraftFiles(DRAFT_STORAGE_KEY);
           clearAllSignatureStorage();
           setFormData({});
           form.resetFields();
@@ -357,9 +412,9 @@ export default function CompanyRegistrationForm() {
   };
 
   // Save Draft
-  const handleSaveDraft = () => {
+  const handleSaveDraft = async () => {
     try {
-      const currentFields = form.getFieldsValue();
+      const currentFields = form.getFieldsValue(true);
       const mergedData = {
         ...formData,
         ...currentFields,
@@ -372,16 +427,32 @@ export default function CompanyRegistrationForm() {
         timeStyle: "short",
       });
 
+      // Files cannot be JSON-serialised (they would become empty objects), so
+      // they are stored in IndexedDB and only their names go into the draft.
+      const { files: draftFiles, names: attachedFileNames } = collectFileFields(mergedData);
+      const safeDataForStorage = { ...mergedData };
+      Object.keys(draftFiles).forEach((key) => {
+        delete safeDataForStorage[key];
+      });
+
+      const filesStored = await saveDraftFiles(DRAFT_STORAGE_KEY, draftFiles);
+
       localStorage.setItem(
         DRAFT_STORAGE_KEY,
-        JSON.stringify({ step: currentStep, data: mergedData, savedAt }),
+        JSON.stringify({ step: currentStep, data: safeDataForStorage, attachedFileNames, savedAt }),
       );
       setFormData(mergedData);
 
       notification.success({
         // message: "Draft Saved Successfully!",
         title: "Draft Saved Successfully!",
-        description: `Your company registration progress (Step ${currentStep + 1}: ${STEP_ITEMS[currentStep].title}) has been saved to your device.`,
+        description: `Your company registration progress (Step ${currentStep + 1}: ${STEP_ITEMS[currentStep].title}) has been saved to your device.${
+          Object.keys(attachedFileNames).length === 0
+            ? ""
+            : filesStored
+              ? ` Your ${Object.keys(attachedFileNames).length} uploaded document(s) were saved with the draft.`
+              : " Note: your browser could not store the uploaded document(s), so please re-attach them when you return."
+        }`,
         icon: <SaveOutlined className="text-emerald-500" />,
         placement: "topRight",
         duration: 4,
@@ -403,6 +474,7 @@ export default function CompanyRegistrationForm() {
       cancelText: "Cancel",
       onOk: () => {
         localStorage.removeItem(DRAFT_STORAGE_KEY);
+        clearDraftFiles(DRAFT_STORAGE_KEY);
         setFormData({});
         form.resetFields();
         setCurrentStep(0);

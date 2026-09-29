@@ -50,7 +50,7 @@ export default function ContactUsModal({ open, onClose }) {
       destroyOnHidden
     >
       {/* Header Banner inside Modal */}
-      <div className={`${styles.modalHeader} p-6 sm:p-7 text-white`}>
+      <div className={`modal-flush ${styles.modalHeader} p-6 sm:p-7 text-white`}>
         <div className={styles.bgCircle1} />
         <div className={styles.bgCircle2} />
 

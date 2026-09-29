@@ -10,12 +10,24 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import AddressAutocomplete from "@/components/mutual/AddressAutocomplete";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import AddressServiceTermsTrigger from "./AddressServiceTermsTrigger";
 
 const AUSTRALIAN_STATES = ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"];
 
 export default function Step3AddressesService({ form }) {
+  /* Fills a group of address fields from a selected lookup result */
+  const applyAddressParts = (prefix) => (parts) => {
+    form.setFieldsValue({
+      [`${prefix}HouseNumber`]: parts.houseNumber || "",
+      [`${prefix}Street`]: parts.streetName || parts.street || "",
+      [`${prefix}Suburb`]: parts.suburb || "",
+      [`${prefix}State`]: parts.state || "",
+      [`${prefix}Postcode`]: parts.postcode || "",
+    });
+  };
+
   const companyOccupies = Form.useWatch(
     "companyOccupiesRegisteredOffice",
     form,
@@ -71,6 +83,21 @@ export default function Step3AddressesService({ form }) {
             </h3>
           </div>
         </div>
+
+        <AddressAutocomplete
+          name="regOfficeLookup"
+          label={
+            <span className="font-bold text-slate-800 dark:text-zinc-200">
+              Search for the address
+            </span>
+          }
+          placeholder="Start typing, e.g. 100 Walker St North Sydney"
+          onAddressSelect={applyAddressParts("regOffice")}
+          noRequired={true}
+          size="large"
+          className="rounded-xl"
+          containerClassName="!mb-4"
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
@@ -242,6 +269,21 @@ export default function Step3AddressesService({ form }) {
 
         {samePrincipalAddress === "No" && (
           <div className="pt-3 mt-2 border-t border-slate-200/60 dark:border-zinc-800 space-y-4">
+            <AddressAutocomplete
+              name="ppobLookup"
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Search for the address
+                </span>
+              }
+              placeholder="Start typing, e.g. 12 Harbour St Sydney"
+              onAddressSelect={applyAddressParts("ppob")}
+              noRequired={true}
+              size="large"
+              className="rounded-xl"
+              containerClassName="!mb-4"
+            />
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <AntInput
                 type="text"
@@ -350,11 +392,11 @@ export default function Step3AddressesService({ form }) {
             }
             reqMsg="Please select address service preference"
             radioOptions={[
-              { value: "No", label: "No (Using own address)" },
               {
                 value: "Yes",
                 label: "Yes (Use Financially Up Registered Office)",
               },
+              { value: "No", label: "No (Using own address)" },
             ]}
             containerClassName="!mb-0"
           />
@@ -369,8 +411,8 @@ export default function Step3AddressesService({ form }) {
             }
             reqMsg="Please select PPOB preference"
             radioOptions={[
-              { value: "No", label: "No (Own operating premises)" },
               { value: "Yes", label: "Yes (Use Financially Up PPOB)" },
+              { value: "No", label: "No (Own operating premises)" },
             ]}
             containerClassName="!mb-0"
           />

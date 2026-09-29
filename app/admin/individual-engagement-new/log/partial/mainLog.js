@@ -13,6 +13,7 @@ import {
 import DataTable from "@/components/mutual/andt-data-table-component";
 import ExportButtons from "@/components/admin/ExportButtons";
 import IndividualEngagementAdminForm from "@/components/admin/forms/individual-engagement-admin";
+import RiskLevelExplainer from "@/components/admin/RiskLevelExplainer";
 import { HTTP, antdMsg, getFileUrl } from "@/services";
 
 const EXPORT_COLUMNS = [
@@ -52,6 +53,8 @@ export default function IndividualEngagementMainLog({
   // 1. LOCAL COMPONENT STATE (MODALS & LOADERS)
   // --------------------------------------------------------------------------
   const [reviewRecord, setReviewRecord] = useState(null);
+  // Record whose risk-level explanation is open
+  const [riskRecord, setRiskRecord] = useState(null);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [isReviewSubmitting, setIsReviewSubmitting] = useState(false);
 
@@ -298,13 +301,16 @@ export default function IndividualEngagementMainLog({
         dataIndex: "riskLevel",
         key: "riskLevel",
         width: 110,
-        render: (risk) => (
-          <Tag
-            color={getRiskColor(risk)}
-            className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill"
-          >
-            {risk || "Low"}
-          </Tag>
+        render: (risk, record) => (
+          <Tooltip title="Click to see how this risk level was calculated">
+            <Tag
+              color={getRiskColor(risk)}
+              onClick={() => setRiskRecord(record)}
+              className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill cursor-pointer underline decoration-dotted underline-offset-2"
+            >
+              {risk || "Low"}
+            </Tag>
+          </Tooltip>
         ),
       },
       {
@@ -481,6 +487,13 @@ export default function IndividualEngagementMainLog({
           />
         }
         scroll={{ x: 1200 }}
+      />
+
+      {/* Risk Level Explanation */}
+      <RiskLevelExplainer
+        open={Boolean(riskRecord)}
+        record={riskRecord}
+        onClose={() => setRiskRecord(null)}
       />
 
       {/* Compliance Assessment & Review Modal */}

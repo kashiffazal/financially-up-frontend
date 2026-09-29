@@ -321,8 +321,8 @@ export default function Step1EngagementService({ form }) {
             }
             reqMsg="Please select urgency"
             radioOptions={[
-              { value: "No", label: "No (Standard 1-2 business days)" },
               { value: "Yes", label: "Yes (Urgent / Same-day priority)" },
+              { value: "No", label: "No (Standard 1-2 business days)" },
             ]}
             containerClassName="!mb-0"
           />
@@ -358,8 +358,8 @@ export default function Step1EngagementService({ form }) {
             }
             reqMsg="Please answer previous refusal question"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-0"
           />

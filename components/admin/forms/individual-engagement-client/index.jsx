@@ -24,8 +24,66 @@ import Step9LegalConsents from "./Step9LegalConsents";
 import Step10ElectronicSignature from "./Step10ElectronicSignature";
 import { HTTP } from "@/services";
 import { clearAllSignatureStorage } from "@/components/mutual/SignatureCanvas";
+import {
+  saveDraftFiles,
+  loadDraftFiles,
+  clearDraftFiles,
+  collectFileFields,
+  isRealFile,
+} from "@/lib/draftFileStore";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_INDIVIDUAL_ENGAGEMENT_DRAFT";
+
+/**
+ * Upload fields of this form, with the step they belong to and the condition
+ * that makes them mandatory. Mirrors the rules declared inside each step so a
+ * restored draft cannot bypass them.
+ */
+const UPLOAD_FIELDS = [
+  // Document scans belong to the "Upload ID" path only. Electronic (eID)
+  // verification is satisfied by the selfie and the DVS biometric consent.
+  {
+    name: "primaryIdFront",
+    label: "Primary Photo ID (front / photo page)",
+    step: 5,
+    isRequired: (v) => !v.identityMethod || v.identityMethod === "Upload ID",
+  },
+  {
+    name: "primaryIdBack",
+    label: "Primary Photo ID (back)",
+    step: 5,
+    isRequired: (v) => !v.identityMethod || v.identityMethod === "Upload ID",
+  },
+  {
+    name: "supportingIdFront",
+    label: "Supporting ID (front)",
+    step: 5,
+    isRequired: (v) => !v.identityMethod || v.identityMethod === "Upload ID",
+  },
+  {
+    name: "supportingIdBack",
+    label: "Supporting ID (back)",
+    step: 5,
+    isRequired: () => false,
+  },
+  {
+    name: "selfie",
+    label: "Selfie / Photo Identification",
+    step: 5,
+    isRequired: (v) => v.identityMethod === "Electronic Verification",
+  },
+  {
+    name: "visaEvidence",
+    label: "Visa Grant Evidence",
+    step: 2,
+    isRequired: (v) => v.isAustralianCitizen === "No",
+  },
+  { name: "atoDocuments", label: "ATO Notices / Letters", step: 3, isRequired: () => false },
+  { name: "authorityDoc", label: "Legal Authority Document", step: 6, isRequired: () => false },
+  { name: "signatureUploadedFile", label: "Uploaded Signature", step: 9, isRequired: () => false },
+];
+
+const UPLOAD_FIELD_NAMES = UPLOAD_FIELDS.map((f) => f.name);
 
 // 10 Steps Specifications & Short Titles
 const STEP_ITEMS = [
@@ -36,7 +94,7 @@ const STEP_ITEMS = [
   { step: 5, title: "BAS / GST", fullTitle: "Sole Trader BAS & GST" },
   { step: 6, title: "Identity", fullTitle: "ID Verification" },
   { step: 7, title: "Authorities", fullTitle: "ATO & Bank Authorities" },
-  { step: 8, title: "Schedule", fullTitle: "Fee Schedule" },
+  { step: 8, title: "Schedule", fullTitle: "Engagement Schedule" },
   { step: 9, title: "Consents", fullTitle: "Legal Agreements" },
   { step: 10, title: "Signature", fullTitle: "E-Signature & Submit" },
 ];
@@ -66,6 +124,9 @@ export default function IndividualEngagementClientForm() {
   });
   const [formKey, setFormKey] = useState(0);
   const [hasViewedSchedule, setHasViewedSchedule] = useState(false);
+  // Set when the client tries to continue before opening the schedule; the
+  // step scrolls to the button and animates it.
+  const [scheduleNeedsAttention, setScheduleNeedsAttention] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState(() => {
     const draft = getInitialSavedDraft();
@@ -75,13 +136,44 @@ export default function IndividualEngagementClientForm() {
   // Persistent in-memory store for raw uploadable File instances across step transitions
   const filesMapRef = useRef({});
 
-  // Populate form fields from initial draft once mounted
+  // Populate form fields from initial draft once mounted, including the
+  // uploaded documents kept in IndexedDB (localStorage cannot hold files).
   useEffect(() => {
     const savedDraft = getInitialSavedDraft();
-    if (savedDraft?.data) {
-      form.setFieldsValue(savedDraft.data);
-    }
-  }, [form]);
+    if (!savedDraft?.data) return;
+
+    form.setFieldsValue(savedDraft.data);
+
+    let cancelled = false;
+    loadDraftFiles(DRAFT_STORAGE_KEY).then((storedFiles) => {
+      if (cancelled) return;
+
+      const restored = storedFiles || {};
+      if (Object.keys(restored).length > 0) {
+        form.setFieldsValue(restored);
+        filesMapRef.current = { ...filesMapRef.current, ...restored };
+        setFormData((prev) => ({ ...prev, ...restored }));
+      }
+
+      // Documents the draft recorded but the browser could not give back
+      const expected = savedDraft.attachedFileNames || {};
+      const lost = Object.keys(expected).filter((field) => !restored[field]);
+      if (lost.length > 0) {
+        const labels = lost.map(
+          (field) => UPLOAD_FIELDS.find((f) => f.name === field)?.label || field,
+        );
+        notification.warning({
+          title: "Please re-attach your documents",
+          description: `Your saved draft included ${labels.join(", ")}, but your browser did not keep the file(s). Please upload them again before submitting.`,
+          duration: 10,
+        });
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [form, notification]);
 
   // Handle Next Button Click across steps
   const handleNext = async () => {
@@ -90,16 +182,7 @@ export default function IndividualEngagementClientForm() {
       const values = await form.validateFields();
       
       // Preserve raw File objects so step unmounting or draft saving never loses them
-      const uploadFieldNames = [
-        "primaryId",
-        "supportingId",
-        "selfie",
-        "visaEvidence",
-        "atoDocuments",
-        "authorityDoc",
-        "signatureUploadedFile",
-      ];
-      uploadFieldNames.forEach((key) => {
+      UPLOAD_FIELD_NAMES.forEach((key) => {
         if (values[key] !== undefined && values[key] !== null) {
           filesMapRef.current[key] = values[key];
         }
@@ -110,8 +193,11 @@ export default function IndividualEngagementClientForm() {
       // Special check for Step 8 (Engagement Schedule view requirement)
       if (currentStep === 7 && !hasViewedSchedule) {
         message.warning(
-          "Please click 'View Full Engagement Schedule' to review your scope of work before proceeding.",
+          "Please click 'View Engagement Schedule' to review your scope of work before proceeding.",
         );
+        // Re-trigger the highlight even if it is already set
+        setScheduleNeedsAttention(false);
+        setTimeout(() => setScheduleNeedsAttention(true), 50);
         return;
       }
 
@@ -128,6 +214,29 @@ export default function IndividualEngagementClientForm() {
           ...filesMapRef.current,
         };
 
+        // Guard: a restored draft (or a lost File reference) must never submit
+        // silently without its attachments.
+        const missingDocuments = UPLOAD_FIELDS.filter((field) => {
+          if (!field.isRequired(mergedPayload)) return false;
+          const value = mergedPayload[field.name];
+          const list = Array.isArray(value) ? value : [value];
+          return !list.some((item) => isRealFile(item));
+        });
+
+        if (missingDocuments.length > 0) {
+          const firstStep = Math.min(...missingDocuments.map((f) => f.step));
+          notification.warning({
+            title: "Please re-attach your documents",
+            description: `${missingDocuments
+              .map((f) => f.label)
+              .join(", ")} could not be found. Uploaded files are not kept when a draft is reopened in some browsers, so please attach them again before submitting.`,
+            duration: 10,
+          });
+          setCurrentStep(firstStep);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+
         setIsSubmitting(true);
         try {
           const res = await HTTP(
@@ -138,6 +247,7 @@ export default function IndividualEngagementClientForm() {
 
           // Immediately wipe local storage draft, clear all signature storage & reset form state
           localStorage.removeItem(DRAFT_STORAGE_KEY);
+          clearDraftFiles(DRAFT_STORAGE_KEY);
           clearAllSignatureStorage();
           filesMapRef.current = {};
           const emptyState = { services: [], entityService: null };
@@ -249,43 +359,51 @@ export default function IndividualEngagementClientForm() {
     }
   };
 
-  // Fully functional Save Draft handler storing data & step in localStorage
-  const handleSaveDraft = () => {
+  // Fully functional Save Draft handler storing data & step in localStorage,
+  // with the uploaded documents themselves kept in IndexedDB.
+  const handleSaveDraft = async () => {
     try {
-      const currentFields = form.getFieldsValue();
-      const mergedData = { ...formData, ...currentFields };
+      const currentFields = form.getFieldsValue(true);
+      const mergedData = { ...formData, ...currentFields, ...filesMapRef.current };
       const savedAt = new Date().toLocaleString("en-AU", {
         dateStyle: "medium",
         timeStyle: "short",
       });
 
-      // Clone merged data without raw File/Blob instances so JSON.stringify doesn't corrupt them to [{}]
+      // Files cannot be JSON-serialised: they are stored in IndexedDB instead,
+      // and only their names are recorded in the localStorage draft.
+      const { files: draftFiles, names: attachedFileNames } = collectFileFields(mergedData);
       const safeDataForStorage = { ...mergedData };
-      const uploadFieldNames = [
-        "primaryId",
-        "supportingId",
-        "selfie",
-        "visaEvidence",
-        "atoDocuments",
-        "authorityDoc",
-        "signatureUploadedFile",
-      ];
-      uploadFieldNames.forEach((k) => {
+      UPLOAD_FIELD_NAMES.forEach((k) => {
         delete safeDataForStorage[k];
       });
+      Object.keys(draftFiles).forEach((k) => {
+        delete safeDataForStorage[k];
+      });
+
+      const filesStored = await saveDraftFiles(DRAFT_STORAGE_KEY, draftFiles);
 
       const draftPayload = {
         step: currentStep,
         data: safeDataForStorage,
+        attachedFileNames,
         savedAt,
       };
 
       localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(draftPayload));
       setFormData(mergedData);
 
+      const attachedCount = Object.keys(attachedFileNames).length;
+      const attachmentNote =
+        attachedCount === 0
+          ? ""
+          : filesStored
+            ? ` Your ${attachedCount} uploaded document(s) were saved with the draft.`
+            : ` Note: your browser could not store the uploaded document(s), so please re-attach them when you return.`;
+
       notification.success({
         title: "Draft Saved Successfully!",
-        description: `Your form progress (Step ${currentStep + 1}: ${STEP_ITEMS[currentStep].title}) has been saved to your device. You can close this window and return anytime.`,
+        description: `Your form progress (Step ${currentStep + 1}: ${STEP_ITEMS[currentStep].title}) has been saved to your device. You can close this window and return anytime.${attachmentNote}`,
         icon: <SaveOutlined className="text-emerald-500" />,
         placement: "topRight",
         duration: 4,
@@ -309,6 +427,7 @@ export default function IndividualEngagementClientForm() {
       onOk: () => {
         try {
           localStorage.removeItem(DRAFT_STORAGE_KEY);
+          clearDraftFiles(DRAFT_STORAGE_KEY);
           filesMapRef.current = {};
           const emptyState = {
             services: [],
@@ -440,7 +559,11 @@ export default function IndividualEngagementClientForm() {
             <Step8EngagementSchedule
               form={form}
               formData={formData}
-              onScheduleViewed={() => setHasViewedSchedule(true)}
+              needsAttention={scheduleNeedsAttention}
+              onScheduleViewed={() => {
+                setHasViewedSchedule(true);
+                setScheduleNeedsAttention(false);
+              }}
             />
           )}
           {currentStep === 8 && <Step9LegalConsents form={form} />}

@@ -3,13 +3,18 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
 import { FileProtectOutlined } from "@ant-design/icons";
-import { TERMS_OF_ENGAGEMENT_TEXT } from "./legalDocumentsText";
+import { TERMS_OF_ENGAGEMENT_TEXT as TERMS_OF_ENGAGEMENT_TEXT_RAW } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 export default function TermsOfEngagementTrigger({
   label = "View Terms of Engagement",
   showIcon = true,
   className = "inline-flex items-center gap-1 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline cursor-pointer transition-colors px-1 align-baseline",
 }) {
+  // Company details inside the legal text come from the global settings store
+  const { settings } = useSettings();
+  const TERMS_OF_ENGAGEMENT_TEXT = applyCompanyVars(TERMS_OF_ENGAGEMENT_TEXT_RAW, settings);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

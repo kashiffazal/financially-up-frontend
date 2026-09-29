@@ -9,6 +9,8 @@ import {
   FileProtectOutlined,
 } from "@ant-design/icons";
 import { EXACT_PRIVACY_COLLECTION_NOTICE_TEXT } from "./legalDocumentsText";
+import { useSettings } from "@/context/SettingsContext";
+import { applyCompanyVars } from "@/lib/applyCompanyVars";
 
 /**
  * Privacy Collection Notice Content per Field Category
@@ -92,11 +94,11 @@ export const FULL_PRIVACY_COLLECTION_NOTICE_TEXT = {
   effectiveDate: "24 July 2026",
   documentType: "PRIVACY_COLLECTION_NOTICE",
   overview:
-    "This Privacy Collection Notice explains how Financially Up Pty Ltd (ABN 84 659 717 263, Registered Tax Agent #25800000) collects, holds, uses, and discloses your personal information at or before the time of collection in accordance with Australian Privacy Principle 5 (APP 5), the Privacy (Tax File Number) Rule 2015, the Tax Agent Services Act 2009 (TASA 2009), and Anti-Money Laundering laws.",
+    "This Privacy Collection Notice explains how {{company.legalName}} (ABN {{company.abn}}, Registered Tax Agent #{{company.taxAgentNumber}}) collects, holds, uses, and discloses your personal information at or before the time of collection in accordance with Australian Privacy Principle 5 (APP 5), the Privacy (Tax File Number) Rule 2015, the Tax Agent Services Act 2009 (TASA 2009), and Anti-Money Laundering laws.",
   sections: [
     {
       title: "1. Who is collecting your information?",
-      text: "Financially Up Pty Ltd ABN 84 659 717 263, Level 5, 100 Walker St, North Sydney NSW 2060. Contact: privacy@financiallyup.com.au | 1300 328 316.",
+      text: "{{company.legalName}} ABN {{company.abn}}, {{company.address}}. Contact: {{email.privacy}} | {{company.phone}}.",
     },
     {
       title: "2. Purposes of collection",
@@ -127,10 +129,17 @@ export default function PrivacyCollectionNoticeTrigger({
 }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [showFull, setShowFull] = useState(false);
+  const { settings, company } = useSettings();
 
-  const catData =
-    PRIVACY_COLLECTION_CATEGORIES[category] ||
-    PRIVACY_COLLECTION_CATEGORIES.tfn;
+  // Live company details are interpolated into the stored legal text
+  const catData = applyCompanyVars(
+    PRIVACY_COLLECTION_CATEGORIES[category] || PRIVACY_COLLECTION_CATEGORIES.tfn,
+    settings,
+  );
+  const fullNoticeText = applyCompanyVars(
+    EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.fullText,
+    settings,
+  );
 
   const handleOpen = () => {
     setModalVisible(true);
@@ -207,20 +216,14 @@ export default function PrivacyCollectionNoticeTrigger({
               <div>
                 <h2 className="text-base font-extrabold text-slate-900 dark:text-zinc-50 m-0">
                   {showFull
-                    ? FULL_PRIVACY_COLLECTION_NOTICE_TEXT.title
+                    ? applyCompanyVars(FULL_PRIVACY_COLLECTION_NOTICE_TEXT.title, settings)
                     : catData.title}
                 </h2>
                 <span className="text-xs text-slate-500">
-                  Financially Up Pty Ltd | APP 5 Collection Notice
+                  {company.legalName} | APP 5 Collection Notice
                 </span>
               </div>
             </div>
-            <Tag
-              color="green"
-              className="font-bold text-xs px-2.5 py-0.5 rounded-full border-none"
-            >
-              Version 2.1
-            </Tag>
           </div>
 
           {!showFull ? (
@@ -252,7 +255,7 @@ export default function PrivacyCollectionNoticeTrigger({
                   Full Statutory Privacy Collection Notice (APP 5)
                 </h4>
                 <p className="text-slate-700 dark:text-zinc-300 m-0 leading-relaxed font-sans">
-                  {EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.fullText}
+                  {fullNoticeText}
                 </p>
               </div>
             </div>

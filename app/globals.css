@@ -650,13 +650,45 @@ body {
   border-radius: var(--radius-modal) !important;
 }
 
+/*
+ * Modals keep comfortable inner spacing so titles and content never sit flush
+ * against the edges. Modals that need an edge-to-edge layout (a full-bleed
+ * header or sticky footer) opt out locally with styles={{ content: { padding: 0 } }},
+ * which wins over these defaults.
+ */
 .ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-content,
 .ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-container {
-  padding: 0 !important;
+  padding: 20px 24px 24px !important;
   overflow: hidden !important;
 }
 
 .ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-body {
+  padding: 0 !important;
+}
+
+/*
+ * Opt-out: a modal whose content includes an element with .modal-flush keeps a
+ * full-bleed layout (its own header image, sticky footer, etc.) and supplies
+ * its own inner spacing.
+ */
+.ant-modal-root .ant-modal-content:has(.modal-flush),
+.ant-modal-root .ant-modal-container:has(.modal-flush) {
+  padding: 0 !important;
+}
+
+.ant-modal-root .ant-modal-content:has(.modal-flush) .ant-modal-header,
+.ant-modal-root .ant-modal-content:has(.modal-flush) .ant-modal-footer {
+  margin: 0 !important;
+}
+
+/* Breathing room between the title, the body and the footer */
+.ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-header {
+  margin-bottom: 14px !important;
+  padding: 0 !important;
+}
+
+.ant-modal-root:not(:has(.ant-modal-confirm)) .ant-modal-footer {
+  margin-top: 18px !important;
   padding: 0 !important;
 }
 

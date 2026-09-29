@@ -11,6 +11,7 @@ import {
   CheckCircleFilled,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import { useCompany } from "@/context/SettingsContext";
 
 /**
  * FormPreFooter Component
@@ -18,6 +19,7 @@ import {
  * Displays assistance options, ATO privacy guarantees, and instant appointment text link.
  */
 export default function FormPreFooter() {
+  const company = useCompany();
   return (
     <section className="bg-slate-100/80 dark:bg-zinc-900/80 border-t border-slate-200/80 dark:border-zinc-800 py-6 sm:py-8 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
@@ -64,16 +66,16 @@ export default function FormPreFooter() {
               </h4>
               <div className="text-xs text-slate-600 dark:text-zinc-400 space-y-0.5">
                 <a
-                  href="tel:1300328316"
+                  href={`tel:${company.phone.replace(/\s/g, "")}`}
                   className="font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary transition-colors block"
                 >
-                  1300 328 316
+                  {company.phone}
                 </a>
                 <a
-                  href="mailto:info@financiallyup.com.au"
+                  href={`mailto:${company.email}`}
                   className="text-[11px] text-slate-500 hover:text-brand-primary transition-colors block truncate"
                 >
-                  info@financiallyup.com.au
+                  {company.email}
                 </a>
               </div>
             </div>
@@ -111,7 +113,7 @@ export default function FormPreFooter() {
                 Head Office
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-zinc-400 leading-tight">
-                Level 5, 100 Walker St, North Sydney NSW 2060, Australia
+                {company.address}
               </p>
             </div>
           </div>

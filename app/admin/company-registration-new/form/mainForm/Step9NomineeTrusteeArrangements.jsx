@@ -67,11 +67,11 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
             }
             reqMsg="Please answer Question 1"
             radioOptions={[
+              { value: "Yes", label: "Yes (Nominee / instructed director)" },
               {
                 value: "No",
                 label: "No (Acting independently as genuine officer)",
               },
-              { value: "Yes", label: "Yes (Nominee / instructed director)" },
             ]}
             containerClassName="!mb-4"
           />
@@ -106,8 +106,8 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
             }
             reqMsg="Please answer Question 2"
             radioOptions={[
-              { value: "No", label: "No (Direct beneficial owners)" },
               { value: "Yes", label: "Yes (Nominee shareholder structure)" },
+              { value: "No", label: "No (Direct beneficial owners)" },
             ]}
             containerClassName="!mb-4"
           />
@@ -175,8 +175,8 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
             }
             reqMsg="Please answer Question 3"
             radioOptions={[
-              { value: "No", label: "No (Standard commercial company)" },
               { value: "Yes", label: "Yes (Acting as corporate trustee)" },
+              { value: "No", label: "No (Standard commercial company)" },
             ]}
             containerClassName="!mb-4"
           />
@@ -245,8 +245,8 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
             }
             reqMsg="Please answer legal advice question"
             radioOptions={[
-              { value: "No", label: "No" },
               { value: "Yes", label: "Yes" },
+              { value: "No", label: "No" },
             ]}
             containerClassName="!mb-0"
           />
