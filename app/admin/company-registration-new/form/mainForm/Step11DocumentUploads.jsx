@@ -57,7 +57,7 @@ export default function Step11DocumentUploads() {
           reqMsg="Please upload primary photo IDs"
           type="4"
           height={100}
-          className="rounded-xl"
+          className="rounded-lg"
         />
 
         <UploadFile
@@ -74,7 +74,7 @@ export default function Step11DocumentUploads() {
           noRequired={true}
           type="4"
           height={100}
-          className="rounded-xl"
+          className="rounded-lg"
         />
       </div>
 
@@ -93,7 +93,7 @@ export default function Step11DocumentUploads() {
           noRequired={true}
           type="4"
           height={100}
-          className="rounded-xl"
+          className="rounded-lg"
         />
 
         <UploadFile
@@ -110,7 +110,7 @@ export default function Step11DocumentUploads() {
           noRequired={true}
           type="4"
           height={100}
-          className="rounded-xl"
+          className="rounded-lg"
         />
       </div>
 
@@ -129,7 +129,7 @@ export default function Step11DocumentUploads() {
           noRequired={true}
           type="4"
           height={100}
-          className="rounded-xl"
+          className="rounded-lg"
         />
 
         <UploadFile
@@ -146,7 +146,7 @@ export default function Step11DocumentUploads() {
           noRequired={true}
           type="4"
           height={100}
-          className="rounded-xl"
+          className="rounded-lg"
         />
       </div>
     </div>

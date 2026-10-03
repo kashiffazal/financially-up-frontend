@@ -13,7 +13,10 @@ import { applyCompanyVars } from "@/lib/applyCompanyVars";
 export default function AddressServiceTermsTrigger() {
   // Company details inside the legal text come from the global settings store
   const { settings } = useSettings();
-  const ADDRESS_SERVICE_TERMS_TEXT = applyCompanyVars(ADDRESS_SERVICE_TERMS_TEXT_RAW, settings);
+  const ADDRESS_SERVICE_TERMS_TEXT = applyCompanyVars(
+    ADDRESS_SERVICE_TERMS_TEXT_RAW,
+    settings,
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -41,7 +44,7 @@ export default function AddressServiceTermsTrigger() {
             key="close"
             type="primary"
             onClick={() => setIsOpen(false)}
-            className="bg-brand-primary hover:bg-brand-primary-hover font-bold rounded-xl h-10 px-6"
+            className="bg-brand-primary hover:bg-brand-primary-hover font-bold rounded-lg h-10 px-6"
           >
             I Understand
           </Button>,
@@ -51,7 +54,7 @@ export default function AddressServiceTermsTrigger() {
         className="dark:bg-zinc-900"
       >
         <div className="py-3 space-y-4 max-h-[65vh] overflow-y-auto pr-2 text-slate-700 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed">
-          <p className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/60 text-xs text-emerald-950 dark:text-emerald-200 font-medium">
+          <p className="p-3.5 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/60 text-xs text-emerald-950 dark:text-emerald-200 font-medium">
             {ADDRESS_SERVICE_TERMS_TEXT.overview}
           </p>
 
@@ -59,7 +62,7 @@ export default function AddressServiceTermsTrigger() {
             {ADDRESS_SERVICE_TERMS_TEXT.points.map((pt, idx) => (
               <div
                 key={idx}
-                className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300"
+                className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300"
               >
                 {pt}
               </div>

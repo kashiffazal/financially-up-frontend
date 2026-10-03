@@ -60,7 +60,7 @@ export default function BookkeepingOverview() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -70,13 +70,13 @@ export default function BookkeepingOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-lg overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
                 src="/images/services/book-keeping.webp"
                 alt="Why Hire an Expert Bookkeeper"
                 width={550}
                 height={500}
-                className="w-full h-[500px] object-cover rounded-xl"
+                className="w-full h-[500px] object-cover rounded-lg"
               />
 
               {/* Floating Trust Badge */}

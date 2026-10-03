@@ -40,7 +40,8 @@ const GROUPS = [
   {
     key: "email",
     title: "Contact Emails",
-    description: "Addresses published to clients and used in outgoing correspondence.",
+    description:
+      "Addresses published to clients and used in outgoing correspondence.",
     icon: <MailOutlined />,
   },
   {
@@ -140,7 +141,7 @@ export default function GlobalSettingsPage() {
             icon={<ReloadOutlined />}
             onClick={handleReload}
             disabled={loading || saving}
-            className="rounded-xl font-semibold"
+            className="rounded-lg font-semibold"
           >
             Reload
           </Button>
@@ -155,7 +156,7 @@ export default function GlobalSettingsPage() {
             showIcon
             title="Access Denied"
             description="You do not have permission to view global settings."
-            className="rounded-xl"
+            className="rounded-lg"
           />
         }
       >
@@ -173,7 +174,7 @@ export default function GlobalSettingsPage() {
                 return (
                   <Card
                     key={group.key}
-                    className="rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-xs dark:bg-zinc-950"
+                    className="rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-xs dark:bg-zinc-950"
                     title={
                       <div className="flex items-center gap-2 py-1">
                         <span className="text-brand-primary dark:text-emerald-400">
@@ -209,9 +210,11 @@ export default function GlobalSettingsPage() {
                           help={row.helpText || undefined}
                           reqMsg={`${row.label} is required`}
                           size="large"
-                          className="rounded-xl"
+                          className="rounded-lg"
                           containerClassName={
-                            row.inputType === "textarea" ? "!mb-0 md:col-span-2" : "!mb-0"
+                            row.inputType === "textarea"
+                              ? "!mb-0 md:col-span-2"
+                              : "!mb-0"
                           }
                         />
                       ))}
@@ -229,7 +232,7 @@ export default function GlobalSettingsPage() {
                   icon={<SaveOutlined />}
                   loading={saving}
                   onClick={handleSave}
-                  className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-extrabold px-8 h-12 shadow-lg shadow-emerald-600/25"
+                  className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-extrabold px-8 h-12 shadow-lg shadow-emerald-600/25"
                 >
                   Save Global Settings
                 </Button>

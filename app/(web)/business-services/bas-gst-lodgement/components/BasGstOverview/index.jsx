@@ -63,7 +63,7 @@ export default function BasGstOverview() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -73,13 +73,13 @@ export default function BasGstOverview() {
 
           {/* Right Graphic Frame with Floating Badge */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full rounded-lg overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
                 src="/images/services/gst.webp"
                 alt="Expert Assistance for BAS/GST Lodgement"
                 width={500}
                 height={600}
-                className="w-full h-[600px] object-cover rounded-xl"
+                className="w-full h-[600px] object-cover rounded-lg"
               />
 
               {/* Floating Trust Badge */}

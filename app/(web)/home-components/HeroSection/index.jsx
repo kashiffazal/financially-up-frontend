@@ -102,7 +102,7 @@ export default function HeroSection() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-11 px-7 rounded-xl font-bold text-sm sm:text-base bg-brand-primary hover:bg-brand-primary-hover shadow-lg shadow-emerald-600/20 hover:scale-[1.03] transition-all"
+                  className="h-11 px-7 rounded-lg font-bold text-sm sm:text-base bg-brand-primary hover:bg-brand-primary-hover shadow-lg shadow-emerald-600/20 hover:scale-[1.03] transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -111,7 +111,7 @@ export default function HeroSection() {
               <Link href="/resources/engagement-forms/individual-engagement-form">
                 <Button
                   size="large"
-                  className="h-11 px-7 rounded-xl font-bold text-sm sm:text-base border border-slate-300 dark:border-zinc-700 bg-white/80 dark:bg-zinc-900 text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:border-brand-primary"
+                  className="h-11 px-7 rounded-lg font-bold text-sm sm:text-base border border-slate-300 dark:border-zinc-700 bg-white/80 dark:bg-zinc-900 text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:border-brand-primary"
                 >
                   Start My Tax Return
                 </Button>

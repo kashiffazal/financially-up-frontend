@@ -66,6 +66,7 @@ export default function CompanyRegistrationViewDetails({
   // --------------------------------------------------------------------------
   return (
     <Modal
+      centered
       title={
         <div className="flex items-center justify-between pr-8">
           <div className="flex items-center gap-2.5">

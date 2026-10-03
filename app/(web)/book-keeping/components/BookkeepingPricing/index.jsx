@@ -114,7 +114,7 @@ export default function BookkeepingPricing() {
               options={["Monthly", "Annual"]}
               value={billingCycle}
               onChange={(val) => setBillingCycle(val)}
-              className="bg-slate-200/80 dark:bg-zinc-800 font-bold text-xs p-1.5 rounded-xl"
+              className="bg-slate-200/80 dark:bg-zinc-800 font-bold text-xs p-1.5 rounded-lg"
             />
             {billingCycle === "Annual" && (
               <span className="bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 text-xs font-bold uppercase px-3 py-1 rounded-full border border-emerald-300 dark:border-emerald-800 animate-pulse">
@@ -132,7 +132,7 @@ export default function BookkeepingPricing() {
             return (
               <div
                 key={idx}
-                className={`relative rounded-xl p-7 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative rounded-lg p-7 flex flex-col justify-between transition-all duration-300 ${
                   plan.popular
                     ? "bg-white dark:bg-zinc-900 border-2 border-brand-primary dark:border-emerald-400 shadow-2xl shadow-emerald-600/20 lg:-translate-y-3 z-10 pt-10"
                     : "bg-white dark:bg-zinc-900/90 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-brand-primary/50 hover:-translate-y-1"
@@ -200,7 +200,7 @@ export default function BookkeepingPricing() {
                     <Button
                       type={plan.popular ? "primary" : "default"}
                       block
-                      className={`h-12 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${
+                      className={`h-12 rounded-lg font-bold text-xs uppercase tracking-wider transition-all ${
                         plan.popular
                           ? "bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105"
                           : "border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:border-brand-primary hover:text-brand-primary"

@@ -74,7 +74,7 @@ export default function Step3AddressesService({ form }) {
       </div>
 
       {/* Registered Office */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -95,7 +95,7 @@ export default function Step3AddressesService({ form }) {
           onAddressSelect={applyAddressParts("regOffice")}
           noRequired={true}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-4"
         />
 
@@ -111,7 +111,7 @@ export default function Step3AddressesService({ form }) {
             placeholder="e.g. Level 4, Suite 10"
             reqMsg="House/unit number is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -126,7 +126,7 @@ export default function Step3AddressesService({ form }) {
             placeholder="e.g. 100 Walker Street"
             reqMsg="Street name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -143,7 +143,7 @@ export default function Step3AddressesService({ form }) {
             placeholder="e.g. North Sydney"
             reqMsg="Suburb is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -161,7 +161,7 @@ export default function Step3AddressesService({ form }) {
             patternMsg="Must be 4 numeric digits"
             reqMsg="Postcode is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -177,7 +177,7 @@ export default function Step3AddressesService({ form }) {
             emptyFirstVal="- Select State -"
             reqMsg="State is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -216,7 +216,7 @@ export default function Step3AddressesService({ form }) {
               placeholder="e.g. Financially Up Pty Ltd or Landlord Name"
               reqMsg="Occupier name is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -234,7 +234,7 @@ export default function Step3AddressesService({ form }) {
               noRequired={true}
               type="3"
               height={40}
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           </div>
@@ -242,7 +242,7 @@ export default function Step3AddressesService({ form }) {
       </div>
 
       {/* Principal Place of Business */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -280,7 +280,7 @@ export default function Step3AddressesService({ form }) {
               onAddressSelect={applyAddressParts("ppob")}
               noRequired={true}
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-4"
             />
 
@@ -296,7 +296,7 @@ export default function Step3AddressesService({ form }) {
                 placeholder="e.g. Unit 5"
                 reqMsg="House number is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -311,7 +311,7 @@ export default function Step3AddressesService({ form }) {
                 placeholder="e.g. 50 Miller Street"
                 reqMsg="Street name is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -328,7 +328,7 @@ export default function Step3AddressesService({ form }) {
                 placeholder="e.g. Sydney"
                 reqMsg="Suburb is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -346,7 +346,7 @@ export default function Step3AddressesService({ form }) {
                 patternMsg="Must be 4 digits"
                 reqMsg="Postcode is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -362,7 +362,7 @@ export default function Step3AddressesService({ form }) {
                 emptyFirstVal="- Select State -"
                 reqMsg="State is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -371,7 +371,7 @@ export default function Step3AddressesService({ form }) {
       </div>
 
       {/* Financially Up Address Service Questions (Schedule C) */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -431,12 +431,12 @@ export default function Step3AddressesService({ form }) {
               placeholder="Explain why the company is utilizing Financially Up address facilities rather than commercial physical lease."
               reqMsg="Commercial reason is required"
               rows={2}
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
             {/* Schedule C - 18.1 Authorised Recipients */}
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 space-y-3">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800 space-y-3">
               <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block">
                 Schedule C: Nominated Authorised Recipient for ASIC / ATO Mail
               </span>
@@ -454,7 +454,7 @@ export default function Step3AddressesService({ form }) {
                   reqMsg="Recipient name is required"
                   preIconAnt={<UserOutlined className="text-slate-400" />}
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
 
@@ -470,7 +470,7 @@ export default function Step3AddressesService({ form }) {
                   reqMsg="Recipient email is required"
                   preIconAnt={<MailOutlined className="text-slate-400" />}
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
 
@@ -486,7 +486,7 @@ export default function Step3AddressesService({ form }) {
                   reqMsg="Recipient phone is required"
                   preIconAnt={<PhoneOutlined className="text-slate-400" />}
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               </div>

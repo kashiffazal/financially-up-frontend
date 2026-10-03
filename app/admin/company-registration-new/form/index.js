@@ -19,7 +19,7 @@ import CompanyRegistrationForm from "./mainForm";
  */
 export default function CompanyRegistrationFormModule({ onSuccess }) {
   return (
-    <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+    <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm">
       {/* Interactive 12-Step Company Registration Form */}
       <CompanyRegistrationForm onSuccess={onSuccess} />
     </div>

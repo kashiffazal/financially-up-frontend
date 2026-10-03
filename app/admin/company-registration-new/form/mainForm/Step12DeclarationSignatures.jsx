@@ -32,7 +32,7 @@ export default function Step12DeclarationSignatures({ form }) {
       </div>
 
       {/* 6 Mandatory Statutory Declarations — Unified Emerald Box */}
-      <div className="p-4 sm:p-5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-4">
+      <div className="p-4 sm:p-5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-4">
         {/* Declaration 1: Accuracy of Information */}
         <div className="space-y-2">
           <div className="flex flex-wrap items-center justify-between gap-2">
@@ -162,16 +162,16 @@ export default function Step12DeclarationSignatures({ form }) {
       </div>
 
       {/* Authorised Signatories */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
         <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block">
           Authorised Client Execution Signatures
         </span>
 
         {/* ─── Signatory 1 (Col 1: Fields | Col 2: Signature Canvas | Col 3: Legal Notice) ─── */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-sm">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-zinc-800 pb-3 mb-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-6 h-6 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 font-extrabold text-xs flex items-center justify-center shadow-sm">
+              <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 font-extrabold text-xs flex items-center justify-center shadow-sm">
                 1
               </div>
               <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400">
@@ -180,7 +180,7 @@ export default function Step12DeclarationSignatures({ form }) {
             </div>
             <Tag
               color="green"
-              className="text-[10px] font-bold uppercase rounded-xl border-none px-2 py-0.5"
+              className="text-[10px] font-bold uppercase rounded-lg border-none px-2 py-0.5"
             >
               Mandatory
             </Tag>
@@ -200,7 +200,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 placeholder="e.g. Jonathan Alexander Smith"
                 reqMsg="Signatory 1 name is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -223,7 +223,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 emptyFirstVal="- Select Capacity -"
                 reqMsg="Signatory 1 capacity is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -239,7 +239,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 reqMsg="Signature date is required"
                 preIconAnt={<CalendarOutlined className="text-slate-400" />}
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -258,7 +258,7 @@ export default function Step12DeclarationSignatures({ form }) {
             </div>
 
             {/* Column 3: Legal Information Text */}
-            <div className="p-4 rounded-xl bg-slate-50/80 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800/80 flex flex-col justify-between h-full space-y-3">
+            <div className="p-4 rounded-lg bg-slate-50/80 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800/80 flex flex-col justify-between h-full space-y-3">
               <div className="space-y-2">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-zinc-100">
                   <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
@@ -285,10 +285,10 @@ export default function Step12DeclarationSignatures({ form }) {
         </div>
 
         {/* ─── Signatory 2 (Col 1: Fields | Col 2: Signature Canvas | Col 3: Legal Notice) ─── */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-sm">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-zinc-800 pb-3 mb-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-6 h-6 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 font-extrabold text-xs flex items-center justify-center shadow-sm">
+              <div className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 font-extrabold text-xs flex items-center justify-center shadow-sm">
                 2
               </div>
               <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-zinc-300">
@@ -298,7 +298,7 @@ export default function Step12DeclarationSignatures({ form }) {
             </div>
             <Tag
               color="default"
-              className="text-[10px] font-bold uppercase rounded-xl border-none px-2 py-0.5"
+              className="text-[10px] font-bold uppercase rounded-lg border-none px-2 py-0.5"
             >
               Optional
             </Tag>
@@ -318,7 +318,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 placeholder="e.g. Mary Jane Watson"
                 noRequired={true}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -341,7 +341,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 emptyFirstVal="- Select Capacity -"
                 noRequired={true}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -357,7 +357,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 noRequired={true}
                 preIconAnt={<CalendarOutlined className="text-slate-400" />}
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -376,7 +376,7 @@ export default function Step12DeclarationSignatures({ form }) {
             </div>
 
             {/* Column 3: Legal Information Text */}
-            <div className="p-4 rounded-xl bg-slate-50/80 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800/80 flex flex-col justify-between h-full space-y-3">
+            <div className="p-4 rounded-lg bg-slate-50/80 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800/80 flex flex-col justify-between h-full space-y-3">
               <div className="space-y-2">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-zinc-100">
                   <SafetyCertificateOutlined className="text-slate-500 dark:text-zinc-400 text-sm" />

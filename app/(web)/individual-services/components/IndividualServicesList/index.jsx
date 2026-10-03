@@ -94,7 +94,7 @@ export default function IndividualServicesList() {
         {services.map((service, idx) => (
           <div
             key={service.id}
-            className={`group bg-white dark:bg-zinc-900 rounded-xl p-8 sm:p-12 border border-slate-200/80 dark:border-zinc-800 shadow-sm ${styles.serviceCard}`}
+            className={`group bg-white dark:bg-zinc-900 rounded-lg p-8 sm:p-12 border border-slate-200/80 dark:border-zinc-800 shadow-sm ${styles.serviceCard}`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               {/* Image Column */}
@@ -111,11 +111,11 @@ export default function IndividualServicesList() {
                     alt={service.imageAlt}
                     width={580}
                     height={440}
-                    className="w-full h-[280px] lg:h-[480px] object-cover rounded-xl"
+                    className="w-full h-[280px] lg:h-[480px] object-cover rounded-lg"
                   />
 
                   {/* Number Badge Top-Left */}
-                  <div className="absolute top-6 left-6 bg-brand-primary text-white font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-md tracking-wider">
+                  <div className="absolute top-6 left-6 bg-brand-primary text-white font-extrabold text-xs px-3 py-1.5 rounded-lg shadow-md tracking-wider">
                     {service.number}
                   </div>
 
@@ -171,7 +171,7 @@ export default function IndividualServicesList() {
                       size="large"
                       icon={<ArrowRightOutlined />}
                       iconPlacement="end"
-                      className="h-12 px-8 rounded-xl font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                      className="h-12 px-8 rounded-lg font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                     >
                       {service.ctaText}
                     </Button>

@@ -78,7 +78,7 @@ export default function IndividualServicesWhyUs() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+              className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
             >
               Book an Appointment
             </Button>

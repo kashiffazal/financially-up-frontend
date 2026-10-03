@@ -75,7 +75,7 @@ export default function WhyChooseIndividualTax() {
           {points.map((item, idx) => (
             <div
               key={idx}
-              className="group relative bg-white dark:bg-zinc-900 p-7 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:border-brand-primary hover:shadow-xl hover:shadow-emerald-600/10 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
+              className="group relative bg-white dark:bg-zinc-900 p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:border-brand-primary hover:shadow-xl hover:shadow-emerald-600/10 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
             >
               {/* Top Accent Gradient Bar */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-primary via-emerald-400 to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -115,7 +115,7 @@ export default function WhyChooseIndividualTax() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+              className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
             >
               Book an Appointment
             </Button>

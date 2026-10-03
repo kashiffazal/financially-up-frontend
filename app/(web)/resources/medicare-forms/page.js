@@ -35,7 +35,7 @@ function MedicareCard({ form }) {
   return (
     <Link
       href={form.href}
-      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
+      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
     >
       {/* Top Header Row */}
       <div className="flex items-center justify-between gap-4 mb-6">
@@ -78,7 +78,7 @@ function MedicareCard({ form }) {
  */
 function FeaturedMedicareAdvisoryCard() {
   return (
-    <div className="md:col-span-2 lg:col-span-2 relative flex flex-col justify-between p-8 sm:p-9 rounded-xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+    <div className="md:col-span-2 lg:col-span-2 relative flex flex-col justify-between p-8 sm:p-9 rounded-lg bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
       {/* Glow Circles */}
       <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
@@ -131,7 +131,7 @@ function FeaturedMedicareAdvisoryCard() {
         <Link href="/book-an-appointment" className="!no-underline">
           <Button
             size="large"
-            className="h-11 px-6 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md hover:scale-105 transition-all duration-200"
+            className="h-11 px-6 rounded-lg font-extrabold text-xs sm:text-sm bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md hover:scale-105 transition-all duration-200"
           >
             Book Medicare Review <ArrowRightOutlined className="text-xs" />
           </Button>

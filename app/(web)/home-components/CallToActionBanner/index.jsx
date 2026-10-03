@@ -14,7 +14,7 @@ export default function CallToActionBanner() {
     <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`${styles.ctaGradientAnimated} rounded-xl p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden`}
+          className={`${styles.ctaGradientAnimated} rounded-lg p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden`}
         >
           <div
             className={`${styles.animateCtaCircle1} absolute -top-28 -left-28 w-80 h-80 rounded-full bg-brand-primary-hover/70 dark:bg-emerald-500/50 blur-2xl pointer-events-none`}
@@ -45,7 +45,7 @@ export default function CallToActionBanner() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="h-12 px-8 rounded-xl font-bold text-base bg-white text-brand-primary hover:bg-slate-50 border-none shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+                className="h-12 px-8 rounded-lg font-bold text-base bg-white text-brand-primary hover:bg-slate-50 border-none shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
               >
                 Book an Appointment
               </Button>
@@ -55,7 +55,7 @@ export default function CallToActionBanner() {
               size="large"
               icon={<MailOutlined />}
               onClick={() => setIsModalOpen(true)}
-              className="h-12 px-8 rounded-xl font-bold text-base bg-transparent text-white border-2 border-white/70 hover:bg-white/10 hover:border-white hover:scale-105 transition-all duration-200"
+              className="h-12 px-8 rounded-lg font-bold text-base bg-transparent text-white border-2 border-white/70 hover:bg-white/10 hover:border-white hover:scale-105 transition-all duration-200"
             >
               Contact Us
             </Button>

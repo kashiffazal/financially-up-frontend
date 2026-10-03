@@ -57,11 +57,11 @@ export default function FeatureHighlightsSection() {
           {highlights.map((item, idx) => (
             <div
               key={idx}
-              className={`group relative bg-white dark:bg-zinc-900/90 rounded-xl p-7 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between ${styles.highlightCard}`}
+              className={`group relative bg-white dark:bg-zinc-900/90 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between ${styles.highlightCard}`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 text-xl text-brand-primary dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 text-xl text-brand-primary dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300 shadow-sm">
                     {item.icon}
                   </div>
 

@@ -111,9 +111,10 @@ export default function ShareFormModal({
 
   return (
     <Modal
+      centered
       title={
         <div className="flex items-center gap-2.5 pb-1">
-          <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 flex items-center justify-center text-brand-primary dark:text-emerald-400">
+          <div className="w-8 h-8 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 flex items-center justify-center">
             <ShareAltOutlined />
           </div>
           <div>

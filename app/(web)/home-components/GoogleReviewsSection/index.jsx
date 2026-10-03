@@ -14,7 +14,7 @@ export default function GoogleReviewsSection() {
     <section className="bg-white dark:bg-zinc-950 transition-colors duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
         <div
-          className={`bg-gradient-to-r from-emerald-50/60 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-900/60 rounded-xl border border-emerald-100 dark:border-zinc-800 p-8 sm:p-9 shadow-sm ${styles.reviewsContainer}`}
+          className={`bg-gradient-to-r from-emerald-50/60 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-900/60 rounded-lg border border-emerald-100 dark:border-zinc-800 p-8 sm:p-9 shadow-sm ${styles.reviewsContainer}`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-0 items-center">
             <div className="lg:col-span-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
@@ -91,7 +91,7 @@ export default function GoogleReviewsSection() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-11 px-6 rounded-xl font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-11 px-6 rounded-lg font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   See All Reviews
                 </Button>

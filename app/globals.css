@@ -54,10 +54,10 @@
   --radius-web-3xl: 50px; */
   --radius-web-btn: 6px;
   --radius-web-input: 6px;
-  --radius-web-card: 12px;
-  --radius-web-modal: 20px;
+  --radius-web-card: 6px;
+  --radius-web-modal: 6px;
   --radius-web-tag: 6px;
-  --radius-web-table: 100px;
+  --radius-web-table: 6px;
   --radius-web-pill: 100px;
 
   /* --- ADMIN PORTAL RADIUS TOKENS --- */
@@ -717,6 +717,32 @@ body {
   position: absolute !important;
   font-size: 11px;
   right: 0px;
+}
+
+/* ==========================================================================
+   GLOBAL VERTICAL CENTERING: MODALS & MODULE DATA TABLES
+   ========================================================================== */
+
+/* Vertically center all Ant Design Modals across the entire application */
+.ant-modal-wrap:not(.ant-modal-wrap-top) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ant-modal-wrap:not(.ant-modal-wrap-top) .ant-modal {
+  top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: auto !important;
+}
+
+/* Ensure table cells in all modules align in the vertical middle */
+.ant-table-wrapper .ant-table-tbody > tr > td.ant-table-cell {
+  vertical-align: middle !important;
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th.ant-table-cell {
+  vertical-align: middle !important;
 }
 
 /* Multi-Page Printing Support for Modal Documents */

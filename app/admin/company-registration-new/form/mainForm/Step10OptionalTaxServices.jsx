@@ -41,7 +41,7 @@ export default function Step10OptionalTaxServices({ form }) {
       </div>
 
       {/* Tax Registrations */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -68,7 +68,7 @@ export default function Step10OptionalTaxServices({ form }) {
             emptyFirstVal="- Select Option -"
             reqMsg="ABN/TFN selection is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -88,7 +88,7 @@ export default function Step10OptionalTaxServices({ form }) {
             emptyFirstVal="- Select GST -"
             reqMsg="GST selection is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -108,7 +108,7 @@ export default function Step10OptionalTaxServices({ form }) {
             emptyFirstVal="- Select PAYGW -"
             reqMsg="PAYGW selection is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -132,14 +132,14 @@ export default function Step10OptionalTaxServices({ form }) {
             ]}
             emptyFirstVal="- Select Projected Turnover -"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         )}
       </div>
 
       {/* Post-Registration & Banking Services */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -166,7 +166,7 @@ export default function Step10OptionalTaxServices({ form }) {
             emptyFirstVal="- Select Option -"
             reqMsg="Business name preference is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -185,7 +185,7 @@ export default function Step10OptionalTaxServices({ form }) {
             emptyFirstVal="- Select Bank Assistance -"
             reqMsg="Bank assistance preference is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -206,7 +206,7 @@ export default function Step10OptionalTaxServices({ form }) {
             emptyFirstVal="- Select Software -"
             reqMsg="Software preference is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -223,7 +223,7 @@ export default function Step10OptionalTaxServices({ form }) {
             placeholder="e.g. Apex Digital Consulting"
             reqMsg="Desired trading name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         )}

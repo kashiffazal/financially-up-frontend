@@ -58,16 +58,16 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[460px]">
               {/* Soft Ambient Blur */}
-              <div className="absolute inset-4 rounded-xl bg-emerald-200/50 dark:bg-emerald-950/40 blur-2xl -z-10" />
+              <div className="absolute inset-4 rounded-lg bg-emerald-200/50 dark:bg-emerald-950/40 blur-2xl -z-10" />
 
               {/* Main Image Frame */}
-              <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-emerald-950/10 border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-emerald-950/10 border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
                 <Image
                   src="/images/services/home-Why-Choose-Us.webp"
                   alt="Financially Up Professional Team Meeting"
                   width={550}
                   height={450}
-                  className="w-full h-auto object-cover rounded-xl"
+                  className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
 
@@ -138,7 +138,7 @@ export default function WhyChooseUsSection() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   Learn More
                 </Button>

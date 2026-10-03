@@ -117,7 +117,7 @@ export default function SingleBlogPostPage({ params }) {
 
       {/* ── 2. FLOATING 16:9 FEATURED IMAGE (Max-Width 1200px with Negative Margin Overlap) ── */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 -mt-20 sm:-mt-28 relative z-20">
-        <div className="relative w-full h-64 sm:h-80 md:h-[460px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 bg-zinc-900">
+        <div className="relative w-full h-64 sm:h-80 md:h-[460px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 bg-zinc-900">
           <Image
             src={post.image}
             alt={post.title}
@@ -126,7 +126,7 @@ export default function SingleBlogPostPage({ params }) {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6 sm:p-8">
-            <span className="text-xs font-semibold text-white/95 backdrop-blur-md px-3.5 py-1 rounded-xl bg-black/40 border border-white/20 shadow-sm">
+            <span className="text-xs font-semibold text-white/95 backdrop-blur-md px-3.5 py-1 rounded-lg bg-black/40 border border-white/20 shadow-sm">
               {post.badge || "Official ATO Guidance"}
             </span>
           </div>
@@ -139,7 +139,7 @@ export default function SingleBlogPostPage({ params }) {
           {/* ── LEFT ARTICLE CONTENT (8 Columns) ── */}
           <main className="lg:col-span-8 space-y-8">
             {/* Key Article Summary Callout Box */}
-            <div className="p-6 sm:p-7 rounded-xl bg-brand-primary-soft/40 dark:bg-emerald-950/30 border-l-4 border-brand-primary border border-emerald-200/50 dark:border-emerald-800/40 space-y-2 shadow-xs">
+            <div className="p-6 sm:p-7 rounded-lg bg-brand-primary-soft/40 dark:bg-emerald-950/30 border-l-4 border-brand-primary border border-emerald-200/50 dark:border-emerald-800/40 space-y-2 shadow-xs">
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-brand-primary dark:text-emerald-400 block">
                 KEY ARTICLE SUMMARY
               </span>
@@ -172,7 +172,7 @@ export default function SingleBlogPostPage({ params }) {
 
             {/* Key Takeaways Checklist Box */}
             {post.content.keyTakeaways && (
-              <div className="p-6 sm:p-8 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
+              <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
                 <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-zinc-50 flex items-center gap-2">
                   <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400" />
                   Key Takeaways for Taxpayers
@@ -197,7 +197,7 @@ export default function SingleBlogPostPage({ params }) {
                 {post.tags.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-[11px] font-bold text-slate-700 dark:text-zinc-300 shadow-xs"
+                    className="px-3 py-1 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-[11px] font-bold text-slate-700 dark:text-zinc-300 shadow-xs"
                   >
                     {t}
                   </span>
@@ -206,8 +206,8 @@ export default function SingleBlogPostPage({ params }) {
             )}
 
             {/* Author Bio Footer Box */}
-            <div className="p-6 sm:p-7 rounded-xl bg-brand-primary-soft/50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-xs">
-              <div className="w-14 h-14 rounded-xl bg-brand-primary text-white flex items-center justify-center font-black text-base shrink-0 shadow-md">
+            <div className="p-6 sm:p-7 rounded-lg bg-brand-primary-soft/50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-xs">
+              <div className="w-14 h-14 rounded-lg bg-brand-primary text-white flex items-center justify-center font-black text-base shrink-0 shadow-md">
                 {post.author.avatar}
               </div>
               <div className="space-y-1 text-center sm:text-left min-w-0">
@@ -232,7 +232,7 @@ export default function SingleBlogPostPage({ params }) {
             <div className="pt-2">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-brand-primary dark:hover:border-emerald-400 text-xs font-extrabold uppercase tracking-wider text-slate-800 dark:text-zinc-200 transition-all !no-underline shadow-xs"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-brand-primary dark:hover:border-emerald-400 text-xs font-extrabold uppercase tracking-wider text-slate-800 dark:text-zinc-200 transition-all !no-underline shadow-xs"
               >
                 <ArrowLeftOutlined className="text-xs" /> Back to Blog Listing
               </Link>
@@ -242,8 +242,8 @@ export default function SingleBlogPostPage({ params }) {
           {/* ── RIGHT SIDEBAR (4 Columns) ── */}
           <aside className="lg:col-span-4 space-y-6 relative">
             {/* Widget 1: Need Advice CTA (Scrolls Normally at Top) */}
-            <div className="p-7 rounded-xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] text-white shadow-xl space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white text-lg">
+            <div className="p-7 rounded-lg bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] text-white shadow-xl space-y-4">
+              <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center text-white text-lg">
                 <SafetyCertificateOutlined />
               </div>
               <h3 className="text-lg font-black text-white leading-tight">
@@ -257,7 +257,7 @@ export default function SingleBlogPostPage({ params }) {
               <Link href="/book-an-appointment" className="block !no-underline">
                 <Button
                   size="large"
-                  className="w-full h-11 rounded-xl font-extrabold text-xs bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md"
+                  className="w-full h-11 rounded-lg font-extrabold text-xs bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md"
                 >
                   Book 1-on-1 Consultation{" "}
                   <ArrowRightOutlined className="text-xs" />
@@ -274,7 +274,7 @@ export default function SingleBlogPostPage({ params }) {
             {/* ── STICKY SIDEBAR CONTAINER (Starting from RECENT ARTICLES, Desktop Only) ── */}
             <div className="lg:sticky lg:top-[140px] space-y-6">
               {/* Widget 2: RECENT ARTICLES */}
-              <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
+              <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
                 <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50 flex items-center gap-2">
                   <BookOutlined className="text-brand-primary dark:text-emerald-400" />
                   RECENT ARTICLES
@@ -287,7 +287,7 @@ export default function SingleBlogPostPage({ params }) {
                       className="flex items-center gap-3 pt-3.5 first:pt-0 group !no-underline"
                     >
                       {/* Thumbnail */}
-                      <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-zinc-800 shrink-0 border border-slate-200/60 dark:border-zinc-700">
+                      <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-slate-100 dark:bg-zinc-800 shrink-0 border border-slate-200/60 dark:border-zinc-700">
                         <Image
                           src={rPost.image}
                           alt={rPost.title}
@@ -313,7 +313,7 @@ export default function SingleBlogPostPage({ params }) {
               </div>
 
               {/* Widget 3: SHARE THIS ARTICLE */}
-              <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
+              <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
                 <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50 flex items-center gap-2">
                   <ShareAltOutlined className="text-brand-primary dark:text-emerald-400" />
                   SHARE THIS ARTICLE
@@ -323,7 +323,7 @@ export default function SingleBlogPostPage({ params }) {
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://financiallyup.com.au/blog/" + post.slug)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-[#1877f2] flex items-center justify-center hover:scale-110 transition-transform shadow-xs cursor-pointer"
+                    className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-[#1877f2] flex items-center justify-center hover:scale-110 transition-transform shadow-xs cursor-pointer"
                     title="Share on Facebook"
                   >
                     <FacebookFilled className="text-base" />
@@ -332,7 +332,7 @@ export default function SingleBlogPostPage({ params }) {
                     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent("https://financiallyup.com.au/blog/" + post.slug)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 flex items-center justify-center hover:scale-110 transition-transform shadow-xs cursor-pointer"
+                    className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 flex items-center justify-center hover:scale-110 transition-transform shadow-xs cursor-pointer"
                     title="Share on X"
                   >
                     <TwitterOutlined className="text-base" />
@@ -341,14 +341,14 @@ export default function SingleBlogPostPage({ params }) {
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://financiallyup.com.au/blog/" + post.slug)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-[#0077b5] flex items-center justify-center hover:scale-110 transition-transform shadow-xs cursor-pointer"
+                    className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-[#0077b5] flex items-center justify-center hover:scale-110 transition-transform shadow-xs cursor-pointer"
                     title="Share on LinkedIn"
                   >
                     <LinkedinFilled className="text-base" />
                   </a>
                   <button
                     onClick={handleCopyLink}
-                    className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:border-brand-primary hover:text-brand-primary flex items-center justify-center transition-all shadow-xs cursor-pointer"
+                    className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:border-brand-primary hover:text-brand-primary flex items-center justify-center transition-all shadow-xs cursor-pointer"
                     title="Copy Link"
                   >
                     <LinkOutlined className="text-base" />
@@ -357,7 +357,7 @@ export default function SingleBlogPostPage({ params }) {
               </div>
 
               {/* Widget 4: WEEKLY DISPATCH / ENJOYED THIS READ? */}
-              <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
+              <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
                 <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary dark:text-emerald-400 block">
                   WEEKLY DISPATCH
                 </span>
@@ -370,7 +370,7 @@ export default function SingleBlogPostPage({ params }) {
                 </p>
 
                 {subscribed ? (
-                  <div className="p-3.5 rounded-xl bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
+                  <div className="p-3.5 rounded-lg bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
                     <CheckCircleFilled className="text-sm" />
                     <span>Subscribed! Check your inbox soon.</span>
                   </div>
@@ -382,12 +382,12 @@ export default function SingleBlogPostPage({ params }) {
                       placeholder="Your email address"
                       value={emailInput}
                       onChange={(e) => setEmailInput(e.target.value)}
-                      className="w-full h-11 px-4 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                      className="w-full h-11 px-4 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                     />
                     <Button
                       htmlType="submit"
                       size="large"
-                      className="w-full h-11 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-black uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-700/20 border-none"
+                      className="w-full h-11 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white font-black uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-700/20 border-none"
                     >
                       <SendOutlined className="text-xs" /> GET UPDATES
                     </Button>

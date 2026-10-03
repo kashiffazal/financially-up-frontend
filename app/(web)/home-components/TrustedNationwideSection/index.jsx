@@ -34,7 +34,7 @@ export default function TrustedNationwideSection() {
                 width={500}
                 height={600}
                 // quality={100}
-                className="w-full h-auto object-contain rounded-xl drop-shadow-lg"
+                className="w-full h-auto object-contain rounded-lg drop-shadow-lg"
               />
 
               <div className="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-4 py-2.5 rounded-lg shadow-xl border border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs font-semibold">
@@ -65,7 +65,7 @@ export default function TrustedNationwideSection() {
             </p>
 
             <div className={`${styles.magicBorderContainer} rounded-[24px]`}>
-              <div className="relative z-10 bg-white dark:bg-zinc-900 rounded-xl p-6 sm:p-8">
+              <div className="relative z-10 bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8">
                 <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-4 sm:gap-6">
                   {partnerLogos.map((logo, idx) => (
                     <div
@@ -92,7 +92,7 @@ export default function TrustedNationwideSection() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-7 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-12 px-7 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   Book an Appointment
                 </Button>

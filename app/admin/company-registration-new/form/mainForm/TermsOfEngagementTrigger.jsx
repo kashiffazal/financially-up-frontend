@@ -14,7 +14,10 @@ export default function TermsOfEngagementTrigger({
 }) {
   // Company details inside the legal text come from the global settings store
   const { settings } = useSettings();
-  const TERMS_OF_ENGAGEMENT_TEXT = applyCompanyVars(TERMS_OF_ENGAGEMENT_TEXT_RAW, settings);
+  const TERMS_OF_ENGAGEMENT_TEXT = applyCompanyVars(
+    TERMS_OF_ENGAGEMENT_TEXT_RAW,
+    settings,
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -46,7 +49,7 @@ export default function TermsOfEngagementTrigger({
             key="close"
             type="primary"
             onClick={() => setIsOpen(false)}
-            className="bg-brand-primary hover:bg-brand-primary-hover font-bold rounded-xl h-10 px-6"
+            className="bg-brand-primary hover:bg-brand-primary-hover font-bold rounded-lg h-10 px-6"
           >
             Close & Review
           </Button>,
@@ -56,7 +59,7 @@ export default function TermsOfEngagementTrigger({
         className="dark:bg-zinc-900"
       >
         <div className="py-3 space-y-4 max-h-[65vh] overflow-y-auto pr-2 text-slate-700 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed">
-          <p className="p-3.5 rounded-xl bg-slate-100 dark:bg-zinc-800/60 text-xs font-medium text-slate-700 dark:text-zinc-300">
+          <p className="p-3.5 rounded-lg bg-slate-100 dark:bg-zinc-800/60 text-xs font-medium text-slate-700 dark:text-zinc-300">
             {TERMS_OF_ENGAGEMENT_TEXT.summary}
           </p>
 
@@ -64,7 +67,7 @@ export default function TermsOfEngagementTrigger({
             {TERMS_OF_ENGAGEMENT_TEXT.sections.map((sec, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-1"
+                className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-1"
               >
                 <h4 className="text-xs font-black text-slate-900 dark:text-zinc-100">
                   {sec.title}

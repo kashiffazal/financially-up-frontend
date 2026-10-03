@@ -1,662 +1,363 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useMemo } from "react";
+import { Tag, Descriptions, Dropdown, Button, Tooltip } from "antd";
 import {
-  Tabs,
-  Table,
-  Tag,
-  Space,
-  Button,
-  Modal,
-  Form,
-  Input,
-  Typography,
-  Select,
-  Breadcrumb,
-  Dropdown,
-  Spin,
-  Tooltip,
-} from "antd";
-import {
-  EyeOutlined,
-  EditOutlined,
-  DeleteOutlined,
-  FilePdfOutlined,
-  IdcardOutlined,
-  CheckCircleOutlined,
-  UnorderedListOutlined,
-  QuestionCircleOutlined,
-  ClockCircleOutlined,
-  CloseCircleOutlined,
-  PauseCircleOutlined,
-  FormOutlined,
-  SearchOutlined,
-  HomeOutlined,
-  UserOutlined,
   TeamOutlined,
-  DownOutlined,
-  SwapOutlined,
+  HomeOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  IdcardOutlined,
   LinkOutlined,
-  ExclamationCircleOutlined,
+  FormOutlined,
 } from "@ant-design/icons";
-import { HTTP, antdMsg } from "@/services";
-import ExportButtons from "@/components/admin/ExportButtons";
-
-const { Title, Text } = Typography;
-
-// ============================
-// Constants - Status list used across tabs, dropdowns, and tags
-// ============================
-const STATUS_LIST = [
-  {
-    key: "New Query",
-    label: "New Query",
-    color: "processing",
-    icon: <QuestionCircleOutlined />,
-  },
-  {
-    key: "Pending",
-    label: "Pending",
-    color: "warning",
-    icon: <ClockCircleOutlined />,
-  },
-  {
-    key: "Approved",
-    label: "Approved",
-    color: "success",
-    icon: <CheckCircleOutlined />,
-  },
-  {
-    key: "Disapproved",
-    label: "Disapproved",
-    color: "error",
-    icon: <CloseCircleOutlined />,
-  },
-  {
-    key: "On Hold",
-    label: "On Hold",
-    color: "purple",
-    icon: <PauseCircleOutlined />,
-  },
-  { key: "Delete", label: "Delete", color: "error", icon: <DeleteOutlined /> },
-  { key: "Draft", label: "Draft", color: "default", icon: <FormOutlined /> },
-];
+import PageTitle from "@/components/admin/PageTitle";
+import FormLogModule from "@/components/admin/FormLogModule";
+import { getStatusColor, STANDARD_FORM_STATUS_LIST } from "@/components/admin/FormLogModule/constants";
 
 /**
- * Helper to get the Tag color for a given status string
- * @param {string} status - The status value
- * @returns {string} Ant Design Tag color
+ * ============================================================================
+ * Entity Engagements Admin Page (`app/admin/entity-engagements/page.js`)
+ * ============================================================================
+ * Standardized to match Company Registration (New) & Individual Engagement (New):
+ * 1. Standardized `<PageTitle />` with public form link, share modal, and breadcrumbs.
+ * 2. Card-style status tabs with live count badges (`<FormLogModule />`).
+ * 3. Modern `<DataTable />` integration with search, column filter, export, attachments dropdown, and bulk actions.
+ * 4. Dual-layout structured View Details modal.
  */
-const getStatusColor = (status) => {
-  const found = STATUS_LIST.find((s) => s.key === status);
-  return found ? found.color : "default";
-};
+export default function EntityEngagementsAdminPage() {
+  // --------------------------------------------------------------------------
+  // TABLE COLUMNS CONFIGURATION
+  // --------------------------------------------------------------------------
+  const columns = useMemo(() => {
+    return [
+      {
+        title: "Reference / ID",
+        key: "referenceNumber",
+        width: 140,
+        render: (_, record) => (
+          <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">
+            {record.referenceNumber || record.refNumber || `ENT-${record.id}`}
+          </span>
+        ),
+      },
+      {
+        title: "Legal Entity Name & Type",
+        key: "legalName",
+        sorter: (a, b) => (a.LegalName || a.legalName || "").localeCompare(b.LegalName || b.legalName || ""),
+        render: (_, record) => {
+          const name = record.LegalName || record.legalName || record.tradingName || "Unnamed Entity";
+          const type = record.TypeOfEntity || record.typeOfEntity || "Corporate / Trust Entity";
 
-// Export column definitions
-const EXPORT_COLUMNS = [
-  { header: "ID", key: "id" },
-  { header: "Entity Type", key: "TypeOfEntity" },
-  { header: "Legal Name", key: "LegalName" },
-  { header: "Phone", key: "PhoneNumber" },
-  { header: "Email", key: "email" },
-  { header: "ABN", key: "ABN" },
-  { header: "Status", key: "status" },
-  { header: "Created At", key: "createdAt" },
-];
-
-export default function EntityEngagementsPage() {
-  // ============================
-  // State Management
-  // ============================
-  const [data, setData] = useState([]); // Table data from API
-  const [loading, setLoading] = useState(false); // Loading spinner state
-  const [activeTab, setActiveTab] = useState("All"); // Active status tab
-  const [searchText, setSearchText] = useState(""); // Search input value
-  const [filterBy, setFilterBy] = useState("Entity Type"); // Selected filter column
-
-  // Pagination state (server-side pagination)
-  const [pagination, setPagination] = useState({
-    current: 1,
-    pageSize: 10,
-    total: 0,
-  });
-
-  // Modal states for the approval popup
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentRecord, setCurrentRecord] = useState(null);
-  const [form] = Form.useForm();
-
-  // ============================
-  // Data Fetching
-  // ============================
-
-  /**
-   * Fetch engagements from the API with current filters and pagination.
-   * Called on mount, tab change, pagination change, and after mutations.
-   */
-  const fetchData = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await HTTP("GET", "/entity-engagements", {
-        page: pagination.current,
-        limit: pagination.pageSize,
-        status: activeTab,
-        search: searchText || undefined,
-      });
-
-      const recordsData = res?.data?.records || res?.records || [];
-      const totalCount =
-        res?.data?.pagination?.total || res?.pagination?.total || 0;
-
-      // Map API records to include a 'key' prop for Ant Design Table
-      const records = recordsData.map((record) => ({
-        ...record,
-        key: record.id,
-      }));
-
-      setData(records);
-      setPagination((prev) => ({
-        ...prev,
-        total: totalCount,
-      }));
-    } catch (error) {
-      antdMsg.error("Failed to fetch engagements. Is the backend running?");
-    } finally {
-      setLoading(false);
-    }
-  }, [activeTab, pagination.current, pagination.pageSize, searchText]);
-
-  // Fetch data on mount and when dependencies change
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
-  // ============================
-  // Event Handlers
-  // ============================
-
-  /** Handle status tab change - reset to page 1 when switching tabs */
-  const handleTabChange = (key) => {
-    setActiveTab(key);
-    setPagination((prev) => ({ ...prev, current: 1 }));
-  };
-
-  /** Handle Ant Design Table pagination change */
-  const handleTableChange = (paginationConfig) => {
-    setPagination((prev) => ({
-      ...prev,
-      current: paginationConfig.current,
-      pageSize: paginationConfig.pageSize,
-    }));
-  };
-
-  /** Handle search - reset page to 1 when searching */
-  const handleSearch = (e) => {
-    setSearchText(e.target.value);
-    setPagination((prev) => ({ ...prev, current: 1 }));
-  };
-
-  /** Open the approval modal for a specific record */
-  const showApproveModal = (record) => {
-    setCurrentRecord(record);
-    setIsModalOpen(true);
-  };
-
-  /**
-   * Submit approval - update status to "Approved" and save approvalNotes via API.
-   * The notes are saved in the approvalNotes column in the DB.
-   */
-  const handleApproveSubmit = async (values) => {
-    try {
-      await HTTP("PUT", `/entity-engagements/${currentRecord.id}`, {
-        status: "Approved",
-        approvalNotes: values.notes || null,
-      });
-      antdMsg.success(
-        `${currentRecord.FirstName || currentRecord.LegalName || "Record"} approved successfully`,
-      );
-      setIsModalOpen(false);
-      form.resetFields();
-      fetchData(); // Refresh table data
-    } catch (error) {
-      antdMsg.error("Failed to approve engagement");
-    }
-  };
-
-  /** Cancel the approval modal */
-  const handleModalCancel = () => {
-    setIsModalOpen(false);
-    form.resetFields();
-  };
-
-  /**
-   * Handle status change - show confirmation modal before updating.
-   * For "Approved" status, redirect to the approval modal instead.
-   * @param {object} record - The engagement record
-   * @param {string} newStatus - The target status to change to
-   */
-  const handleStatusChange = (record, newStatus) => {
-    // If changing to "Approved", use the approval modal flow
-    if (newStatus === "Approved") {
-      showApproveModal(record);
-      return;
-    }
-
-    // For all other statuses, show a confirmation dialog
-    Modal.confirm({
-      title: "Change Status",
-      icon: <ExclamationCircleOutlined style={{ color: "#008043" }} />,
-      content: (
-        <div>
-          <p>
-            Are you sure you want to change the status of{" "}
-            <strong>{record.LegalName || record.TradingName}</strong> from{" "}
-            <Tag color={getStatusColor(record.status)}>{record.status}</Tag> to{" "}
-            <Tag color={getStatusColor(newStatus)}>{newStatus}</Tag>?
-          </p>
-        </div>
-      ),
-      okText: "Yes, Change Status",
-      cancelText: "Cancel",
-      okButtonProps: {
-        style: {
-          backgroundColor: "#008043",
-          borderColor: "#008043",
-          borderRadius: 8,
+          return (
+            <div>
+              <div className="font-semibold text-slate-900 dark:text-zinc-100">
+                {name}
+              </div>
+              <div className="text-xs text-brand-primary font-medium">
+                {type}
+              </div>
+            </div>
+          );
         },
       },
-      cancelButtonProps: { style: { borderRadius: 8 } },
-      onOk: async () => {
-        try {
-          await HTTP("PUT", `/entity-engagements/${record.id}`, {
-            status: newStatus,
-          });
-          antdMsg.success(`Status changed to "${newStatus}" successfully`);
-          fetchData(); // Refresh table data
-        } catch (error) {
-          antdMsg.error("Failed to change status");
-        }
+      {
+        title: "Contact Person",
+        key: "contactPerson",
+        sorter: (a, b) => (a.ContactPerson || "").localeCompare(b.ContactPerson || ""),
+        render: (_, record) => (
+          <div className="font-medium text-slate-800 dark:text-zinc-200 text-xs">
+            {record.ContactPerson || record.contactName || "-"}
+          </div>
+        ),
       },
-    });
-  };
+      {
+        title: "Contact Details",
+        key: "contact",
+        render: (_, record) => {
+          const email = record.EmailAddress || record.email;
+          const phone = record.PhoneNumber || record.phone || record.mobile;
 
-  /** Handle delete action - confirm and delete via API */
-  const handleDelete = async (record) => {
-    Modal.confirm({
-      title: `Delete ${record.LegalName || record.TradingName}?`,
-      icon: <ExclamationCircleOutlined style={{ color: "#ff4d4f" }} />,
-      content: "This action cannot be undone.",
-      okText: "Delete",
-      okType: "danger",
-      okButtonProps: { style: { borderRadius: 8 } },
-      cancelButtonProps: { style: { borderRadius: 8 } },
-      onOk: async () => {
-        try {
-          await HTTP("DELETE", `/entity-engagements/${record.id}`);
-          antdMsg.success("Record deleted successfully");
-          fetchData();
-        } catch (error) {
-          antdMsg.error("Failed to delete record");
-        }
+          return (
+            <div className="space-y-0.5 text-xs">
+              {email && (
+                <div className="flex items-center gap-1.5 text-slate-600 dark:text-zinc-300">
+                  <MailOutlined className="text-slate-400" />
+                  <a
+                    href={`mailto:${email}`}
+                    className="hover:underline text-slate-600 dark:text-zinc-300"
+                  >
+                    {email}
+                  </a>
+                </div>
+              )}
+              {phone && (
+                <div className="flex items-center gap-1.5 text-slate-500 dark:text-zinc-400">
+                  <PhoneOutlined className="text-slate-400" />
+                  <a
+                    href={`tel:${phone}`}
+                    className="hover:underline text-slate-500 dark:text-zinc-400"
+                  >
+                    {phone}
+                  </a>
+                </div>
+              )}
+            </div>
+          );
+        },
       },
-    });
-  };
-
-  const fetchExportData = async () => {
-    const res = await HTTP("GET", "/entity-engagements", {
-      page: 1,
-      limit: 10000,
-      status: activeTab,
-      search: searchText || undefined,
-    });
-    return res?.data?.records || res?.records || [];
-  };
-
-  // ============================
-  // Table Column Definitions
-  // ============================
-  const columns = [
-    {
-      title: "Entity Type",
-      dataIndex: "TypeOfEntity",
-      key: "TypeOfEntity",
-      fixed: "left",
-      width: 170,
-      render: (val) => val || "-",
-      sorter: (a, b) =>
-        (a.TypeOfEntity || "").localeCompare(b.TypeOfEntity || ""),
-    },
-    {
-      title: "Legal Name",
-      dataIndex: "LegalName",
-      key: "LegalName",
-      render: (val) => val || "-",
-      sorter: (a, b) => (a.LegalName || "").localeCompare(b.LegalName || ""),
-    },
-    {
-      title: "Phone",
-      dataIndex: "PhoneNumber",
-      key: "PhoneNumber",
-      render: (val) => val || "-",
-      sorter: (a, b) =>
-        (a.PhoneNumber || "").localeCompare(b.PhoneNumber || ""),
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-      render: (val) => val || "-",
-      sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
-    },
-    {
-      title: "Attachments",
-      key: "attachments",
-      width: 120,
-      render: (_, record) => {
-        // Parse proofOfID - handle JSON string, array, or single URL
-        let proofFiles = [];
-        if (Array.isArray(record.proofOfID)) {
-          proofFiles = record.proofOfID;
-        } else if (
-          typeof record.proofOfID === "string" &&
-          record.proofOfID.trim() !== ""
-        ) {
-          try {
-            const parsed = JSON.parse(record.proofOfID);
-            proofFiles = Array.isArray(parsed) ? parsed : [parsed];
-          } catch {
-            proofFiles = record.proofOfID
-              .split(",")
-              .map((u) => u.trim())
-              .filter(Boolean);
+      {
+        title: "Attachments",
+        key: "attachments",
+        width: 110,
+        align: "center",
+        render: (_, record) => {
+          let proofFiles = [];
+          if (Array.isArray(record.proofOfID)) {
+            proofFiles = record.proofOfID;
+          } else if (typeof record.proofOfID === "string" && record.proofOfID.trim() !== "") {
+            try {
+              const parsed = JSON.parse(record.proofOfID);
+              proofFiles = Array.isArray(parsed) ? parsed : [parsed];
+            } catch {
+              proofFiles = record.proofOfID.split(",").map((u) => u.trim()).filter(Boolean);
+            }
           }
-        }
 
-        // Check for TrustDeed attachment
-        const hasTrustDeed =
-          record.TrustDeed &&
-          typeof record.TrustDeed === "string" &&
-          record.TrustDeed.trim() !== "";
+          const hasTrustDeed = Boolean(record.TrustDeed && typeof record.TrustDeed === "string" && record.TrustDeed.trim() !== "");
+          const hasSignature = Boolean(record.signature && typeof record.signature === "string" && record.signature.trim() !== "");
 
-        // Check if signature URL exists
-        const hasSignature =
-          record.signature &&
-          typeof record.signature === "string" &&
-          record.signature.trim() !== "";
+          const totalAttachments = proofFiles.length + (hasTrustDeed ? 1 : 0) + (hasSignature ? 1 : 0);
+          if (totalAttachments === 0) {
+            return <span className="text-slate-400 text-xs">-</span>;
+          }
 
-        const totalAttachments =
-          proofFiles.length + (hasTrustDeed ? 1 : 0) + (hasSignature ? 1 : 0);
+          const menuItems = [
+            ...proofFiles.map((url, idx) => ({
+              key: `proof-${idx}`,
+              icon: <LinkOutlined className="text-brand-primary" />,
+              label: `ID Document ${idx + 1}`,
+              onClick: () => window.open(url, "_blank"),
+            })),
+            ...(hasTrustDeed
+              ? [
+                  {
+                    key: "trustDeed",
+                    icon: <FormOutlined className="text-purple-500" />,
+                    label: "Trust Deed",
+                    onClick: () => window.open(record.TrustDeed, "_blank"),
+                  },
+                ]
+              : []),
+            ...(hasSignature
+              ? [
+                  {
+                    key: "signature",
+                    icon: <FormOutlined className="text-emerald-500" />,
+                    label: "Signature",
+                    onClick: () => window.open(record.signature, "_blank"),
+                  },
+                ]
+              : []),
+          ];
 
-        if (totalAttachments === 0) {
-          return <Text type="secondary">-</Text>;
-        }
-
-        const menuItems = [
-          ...proofFiles.map((fileUrl, index) => ({
-            key: `proof-${index}`,
-            icon: <LinkOutlined />,
-            label: `ID Document ${index + 1}`,
-            onClick: () => window.open(fileUrl, "_blank"),
-          })),
-          ...(hasTrustDeed
-            ? [
-                {
-                  key: "trustDeed",
-                  icon: <FormOutlined />,
-                  label: "Trust Deed",
-                  onClick: () => window.open(record.TrustDeed, "_blank"),
-                },
-              ]
-            : []),
-          ...(hasSignature
-            ? [
-                {
-                  key: "signature",
-                  icon: <FormOutlined />,
-                  label: "Signature",
-                  onClick: () => window.open(record.signature, "_blank"),
-                },
-              ]
-            : []),
-        ];
-
-        return (
-          <Tooltip title={`${totalAttachments} Attachment(s)`}>
-            <Dropdown menu={{ items: menuItems }} trigger={["click"]}>
-              <Button
-                type="text"
-                size="small"
-                icon={
-                  <IdcardOutlined
-                    style={{ color: "#1677ff", fontSize: "16px" }}
-                  />
-                }
-              >
-                <span className="text-xs text-blue-500">
-                  {totalAttachments}
-                </span>
-              </Button>
-            </Dropdown>
-          </Tooltip>
-        );
+          return (
+            <Tooltip title={`${totalAttachments} Attachment(s) available`}>
+              <Dropdown menu={{ items: menuItems }} trigger={["click"]}>
+                <Button
+                  size="small"
+                  className="inline-flex items-center gap-1.5 px-2.5 rounded-pill border-emerald-200 dark:border-emerald-800 text-brand-primary hover:bg-emerald-50 text-xs"
+                >
+                  <IdcardOutlined />
+                  <span className="font-bold">{totalAttachments}</span>
+                </Button>
+              </Dropdown>
+            </Tooltip>
+          );
+        },
       },
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
-      render: (status) => <Tag color={getStatusColor(status)}>{status}</Tag>,
-    },
-    {
-      title: "Actions",
-      key: "actions",
-      fixed: "right",
-      width: 110,
-      render: (_, record) => {
-        const statusSubmenu = STATUS_LIST.filter(
-          (s) => s.key !== record.status,
-        ).map((s) => ({
-          key: `status-${s.key}`,
-          icon: s.icon,
-          label: s.label,
-          onClick: () => handleStatusChange(record, s.key),
-        }));
-
-        const items = [
-          ...(record.pdfUrl
-            ? [
-                {
-                  key: "viewPdf",
-                  icon: <FilePdfOutlined style={{ color: "#f5222d" }} />,
-                  label: "View PDF",
-                  onClick: () => window.open(record.pdfUrl, "_blank"),
-                },
-              ]
-            : []),
-          { key: "view", icon: <EyeOutlined />, label: "View" },
-          { key: "edit", icon: <EditOutlined />, label: "Edit" },
-          { type: "divider" },
-          {
-            key: "changeStatus",
-            icon: <SwapOutlined />,
-            label: "Change Status",
-            children: statusSubmenu,
-          },
-          { type: "divider" },
-          {
-            key: "delete",
-            icon: <DeleteOutlined />,
-            label: "Delete",
-            danger: true,
-            onClick: () => handleDelete(record),
-          },
-        ];
-
-        return (
-          <Dropdown
-            menu={{ items }}
-            trigger={["click"]}
-            placement="bottomRight"
+      {
+        title: "Submitted Date",
+        dataIndex: "createdAt",
+        key: "createdAt",
+        sorter: (a, b) => new Date(a.createdAt || 0) - new Date(b.createdAt || 0),
+        render: (val) => {
+          if (!val) return "-";
+          const dateObj = new Date(val);
+          return (
+            <div className="text-xs">
+              <div className="font-medium text-slate-700 dark:text-zinc-300">
+                {dateObj.toLocaleDateString("en-AU")}
+              </div>
+              <div className="text-[10px] text-slate-400">
+                {dateObj.toLocaleTimeString("en-AU", { hour: "2-digit", minute: "2-digit" })}
+              </div>
+            </div>
+          );
+        },
+      },
+      {
+        title: "Status",
+        dataIndex: "status",
+        key: "status",
+        align: "center",
+        render: (status) => (
+          <Tag
+            color={getStatusColor(status, STANDARD_FORM_STATUS_LIST)}
+            className="rounded-pill px-2.5 py-0.5 font-medium text-xs border-0"
           >
-            <Button size="small">
-              Actions <DownOutlined />
-            </Button>
-          </Dropdown>
-        );
+            {status || "New Query"}
+          </Tag>
+        ),
       },
-    },
-  ];
+    ];
+  }, []);
 
-  // ============================
-  // Tab Definitions
-  // ============================
-  const tabItems = [
-    { key: "All", label: "All", icon: <UnorderedListOutlined /> },
-    ...STATUS_LIST.map((s) => ({
-      key: s.key,
-      label: s.label,
-      icon: s.icon,
-    })),
-  ];
+  // --------------------------------------------------------------------------
+  // CUSTOM FILTERS & EXPORT COLUMNS
+  // --------------------------------------------------------------------------
+  const customFilterCols = useMemo(() => {
+    return [
+      { label: "Legal Name", value: "LegalName" },
+      { label: "Entity Type", value: "TypeOfEntity" },
+      { label: "Contact Person", value: "ContactPerson" },
+      { label: "Email Address", value: "EmailAddress" },
+      { label: "Phone Number", value: "PhoneNumber" },
+    ];
+  }, []);
 
-  // ============================
-  // Render
-  // ============================
+  const exportColumns = useMemo(() => {
+    return [
+      { header: "ID", key: "id" },
+      { header: "Legal Name", key: "LegalName" },
+      { header: "Entity Type", key: "TypeOfEntity" },
+      { header: "Contact Person", key: "ContactPerson" },
+      { header: "Email", key: "EmailAddress" },
+      { header: "Phone", key: "PhoneNumber" },
+      { header: "Status", key: "status" },
+      { header: "Submitted Date", key: "createdAt" },
+    ];
+  }, []);
+
+  // --------------------------------------------------------------------------
+  // STRUCTURED VIEW DETAILS MODAL CONTENT
+  // --------------------------------------------------------------------------
+  const renderViewDetails = (data, layout) => {
+    return (
+      <div className="space-y-4">
+        {/* Section 1: Overview */}
+        <Descriptions
+          bordered
+          size="small"
+          layout={layout}
+          title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Engagement Overview</span>}
+          column={{ xs: 1, sm: 2, md: 3 }}
+        >
+          <Descriptions.Item label="Application ID">{data.id || "N/A"}</Descriptions.Item>
+          <Descriptions.Item label="Reference Number">
+            <span className="font-mono">{data.referenceNumber || `ENT-${data.id}`}</span>
+          </Descriptions.Item>
+          <Descriptions.Item label="Status">
+            <Tag color={getStatusColor(data.status)} className="rounded-pill">
+              {data.status || "New Query"}
+            </Tag>
+          </Descriptions.Item>
+          <Descriptions.Item label="Submission Date">
+            {data.createdAt ? new Date(data.createdAt).toLocaleString("en-AU") : "N/A"}
+          </Descriptions.Item>
+        </Descriptions>
+
+        {/* Section 2: Entity Information */}
+        <Descriptions
+          bordered
+          size="small"
+          layout={layout}
+          title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Entity Details</span>}
+          column={{ xs: 1, sm: 2, md: 3 }}
+        >
+          <Descriptions.Item label="Legal Entity Name" span={2}>
+            <strong className="text-base text-brand-primary">{data.LegalName || data.legalName || "N/A"}</strong>
+          </Descriptions.Item>
+          <Descriptions.Item label="Entity Type">
+            {data.TypeOfEntity || data.typeOfEntity || "Corporate Entity"}
+          </Descriptions.Item>
+          <Descriptions.Item label="Trading Name">
+            {data.TradingName || data.tradingName || "-"}
+          </Descriptions.Item>
+          <Descriptions.Item label="ABN / ACN">
+            <span className="font-mono font-bold">{data.ABN || data.abn || data.ACN || "Not Registered"}</span>
+          </Descriptions.Item>
+        </Descriptions>
+
+        {/* Section 3: Authorised Contact */}
+        <Descriptions
+          bordered
+          size="small"
+          layout={layout}
+          title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Authorised Signatory / Contact</span>}
+          column={{ xs: 1, sm: 2, md: 3 }}
+        >
+          <Descriptions.Item label="Contact Person">{data.ContactPerson || data.contactName || "N/A"}</Descriptions.Item>
+          <Descriptions.Item label="Email Address">
+            <a href={`mailto:${data.EmailAddress || data.email}`} className="text-brand-primary underline">
+              {data.EmailAddress || data.email || "N/A"}
+            </a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Phone Number">{data.PhoneNumber || data.phone || "-"}</Descriptions.Item>
+        </Descriptions>
+      </div>
+    );
+  };
+
+  // --------------------------------------------------------------------------
+  // RENDER MAIN PAGE
+  // --------------------------------------------------------------------------
   return (
-    <div className="min-h-screen">
-      {/* bg-slate-50 dark:bg-zinc-900  */}
-      {/* Page Header: Title + Breadcrumbs */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4">
-        <div>
-          <Title
-            level={2}
-            className="!mb-1 !text-slate-800 dark:!text-slate-100 flex items-center gap-2"
-          >
-            <TeamOutlined className="text-slate-500" /> Entity Engagements
-          </Title>
-          <Text className="text-slate-500 dark:text-slate-400">
-            Manage entity engagement forms.
-          </Text>
-        </div>
-        <Breadcrumb
-          items={[
-            { href: "/admin/dashboard", title: <HomeOutlined /> },
-            { title: "Entity Engagements" },
-          ]}
-        />
-      </div>
+    <div className="w-full space-y-6 pb-12">
+      {/* 1. Standardized Admin Page Title & Share Header */}
+      <PageTitle
+        icon={<TeamOutlined />}
+        title="Entity Engagements"
+        description="Manage corporate and trust client engagement letters, statutory agreements, and fee terms."
+        formPath="/resources/engagement-forms/entity-engagements-form"
+        formTitle="Entity Engagement Form"
+        shareDefaultMessage="Dear client, please complete your Entity Client Engagement form using the secure link below."
+        breadcrumbs={[
+          {
+            title: (
+              <span className="flex items-center gap-1.5 text-slate-500">
+                <HomeOutlined className="!text-[12px]" /> Dashboard
+              </span>
+            ),
+            href: "/admin/dashboard",
+          },
+          {
+            title: <span className="text-slate-500">Engagements</span>,
+          },
+          {
+            title: (
+              <span className="font-semibold text-brand-primary dark:text-emerald-400">
+                Entity Engagements
+              </span>
+            ),
+          },
+        ]}
+      />
 
-      {/* Main Content Card */}
-      <div className="bg-white dark:bg-zinc-950 p-6 rounded-xl border border-slate-200 dark:border-zinc-800 shadow-sm overflow-hidden">
-        {/* Status Tabs */}
-        <Tabs
-          activeKey={activeTab}
-          items={tabItems}
-          onChange={handleTabChange}
-        />
-
-        {/* Sub-header: Tab title + Filters + Export */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mt-2 mb-4">
-          <div className="w-full md:w-1/3">
-            <Title
-              level={4}
-              className="!mb-1 !text-slate-800 dark:!text-slate-100"
-            >
-              {activeTab === "All" ? "Regular" : activeTab} Entity Engagements
-            </Title>
-            <Text className="text-slate-500 dark:text-slate-400 text-sm">
-              List of {activeTab === "All" ? "all" : activeTab.toLowerCase()}{" "}
-              entity engagements.
-            </Text>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-end gap-4 w-full md:w-2/3">
-            <div className="flex flex-col">
-              <Text className="text-xs text-slate-500 mb-1 font-medium">
-                Filter by
-              </Text>
-              <Select
-                value={filterBy}
-                onChange={setFilterBy}
-                style={{ width: 140 }}
-                options={[
-                  { value: "Entity Type", label: "Entity Type" },
-                  { value: "Legal Name", label: "Legal Name" },
-                  { value: "Phone", label: "Phone" },
-                  { value: "Email", label: "Email" },
-                ]}
-              />
-            </div>
-            <div className="flex flex-col">
-              <Text className="text-xs text-slate-500 mb-1 font-medium">
-                Filter
-              </Text>
-              <Input
-                placeholder="Filter data..."
-                prefix={<SearchOutlined className="text-slate-400" />}
-                value={searchText}
-                onChange={handleSearch}
-                style={{ width: 220 }}
-                allowClear
-              />
-            </div>
-            <div className="flex flex-col">
-              <Text className="text-xs text-transparent mb-1 font-medium select-none">
-                Export
-              </Text>
-              <ExportButtons
-                fetchData={fetchExportData}
-                columns={EXPORT_COLUMNS}
-                filenamePrefix={`entity-engagements-${activeTab === "All" ? "All" : activeTab.replace(/\s+/g, "-")}`}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Data Table with server-side pagination */}
-        <Spin spinning={loading}>
-          <Table
-            columns={columns}
-            dataSource={data}
-            pagination={{
-              current: pagination.current,
-              pageSize: pagination.pageSize,
-              total: pagination.total,
-              showSizeChanger: true,
-              showTotal: (total, range) =>
-                `${range[0]}-${range[1]} of ${total} items`,
-            }}
-            onChange={handleTableChange}
-            className="mt-4 [&_.ant-table]:text-[13px] [&_.ant-table-cell]:!py-2"
-            size="small"
-            bordered
-            scroll={{ x: 1000 }}
-          />
-        </Spin>
-      </div>
-
-      {/* Approval Modal Middleware - shown when approving a record */}
-      <Modal
-        title={`Approve Query: ${currentRecord?.FirstName} ${currentRecord?.LastName}`}
-        open={isModalOpen}
-        onCancel={handleModalCancel}
-        onOk={() => form.submit()}
-        okText="Approve"
-        cancelText="Cancel"
-      >
-        <div className="mb-4 text-slate-500">
-          This is a temporary middleware popup for approvals. A real form will
-          be placed here in the future.
-        </div>
-        <Form form={form} layout="vertical" onFinish={handleApproveSubmit}>
-          <Form.Item name="notes" label="Approval Notes (Optional)">
-            <Input.TextArea
-              rows={4}
-              placeholder="Enter any notes regarding this approval..."
-            />
-          </Form.Item>
-        </Form>
-      </Modal>
+      {/* 2. Entity Status Log Module */}
+      <FormLogModule
+        endpoint="/entity-engagements"
+        statusList={STANDARD_FORM_STATUS_LIST}
+        defaultStatus="New Query"
+        columns={columns}
+        customFilterCols={customFilterCols}
+        exportColumns={exportColumns}
+        filenamePrefix="Entity_Engagements"
+        filterPlaceholder="Search entity engagements..."
+        viewDetailsTitle={(d) => `${d.LegalName || "Entity"} - Engagement Details`}
+        viewDetailsIcon={<TeamOutlined />}
+        renderViewDetails={renderViewDetails}
+      />
     </div>
   );
 }

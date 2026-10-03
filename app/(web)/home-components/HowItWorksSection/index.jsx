@@ -45,7 +45,7 @@ export default function HowItWorksSection() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className={`relative bg-white dark:bg-zinc-900 rounded-xl p-7 sm:p-8 pt-9 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between ${styles.stepCard}`}
+              className={`relative bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 pt-9 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between ${styles.stepCard}`}
             >
               {/* Overlapping Floating Step Badge */}
               <div className="absolute -top-3.5 left-6 bg-brand-primary text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm z-10">
@@ -70,7 +70,7 @@ export default function HowItWorksSection() {
             <Button
               type="primary"
               size="large"
-              className="h-11 px-8 rounded-xl font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+              className="h-11 px-8 rounded-lg font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
             >
               Let's Get Started
             </Button>

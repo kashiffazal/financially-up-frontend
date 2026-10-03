@@ -35,7 +35,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
       </div>
 
       {/* Initial Capital Contribution */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -57,7 +57,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
             reqMsg="Initial capital amount is required"
             preIconAnt={<DollarOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -72,7 +72,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
             placeholder="e.g. Founding Directors / Shareholders"
             reqMsg="Paid by name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -95,7 +95,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
             emptyFirstVal="- Select Source -"
             reqMsg="Initial funding source is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -113,7 +113,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
             reqMsg="Expected funding is required"
             preIconAnt={<DollarOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -128,7 +128,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
             placeholder="e.g. Australian commercial trading revenue / Commonwealth Bank"
             reqMsg="Funder/bank details required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -144,13 +144,13 @@ export default function Step8SourceOfFundsWealth({ form }) {
           placeholder="Summarize how the founders/owners generated their overall wealth (e.g. Accumulated earnings from 10+ years in executive software engineering)."
           reqMsg="Source of wealth summary is required"
           rows={2}
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-0"
         />
       </div>
 
       {/* Offshore & Cash Declarations */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -207,7 +207,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
               reqMsg="Offshore countries and banks required"
               preIconAnt={<GlobalOutlined className="text-slate-400" />}
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -222,7 +222,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
               placeholder="e.g. Personal capital repatriation"
               reqMsg="Explanation is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           </div>
@@ -241,7 +241,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
               placeholder="e.g. 15000"
               reqMsg="Cash amount is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -256,7 +256,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
               placeholder="e.g. John Smith"
               reqMsg="Payer name is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -271,7 +271,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
               placeholder="e.g. Proceeds from sale of personal vehicle"
               reqMsg="Reason is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0 sm:col-span-2"
             />
 
@@ -286,7 +286,7 @@ export default function Step8SourceOfFundsWealth({ form }) {
               noRequired={true}
               type="3"
               height={40}
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           </div>

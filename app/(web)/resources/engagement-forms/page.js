@@ -46,7 +46,7 @@ function EngagementCard({ form }) {
   return (
     <Link
       href={form.href}
-      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
+      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300 !no-underline"
     >
       {/* Top Header Row */}
       <div className="flex items-center justify-between gap-4 mb-6">
@@ -87,7 +87,7 @@ function EngagementCard({ form }) {
  */
 function FeaturedOnboardingCard() {
   return (
-    <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-xl bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+    <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-lg bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
       {/* Subtle Glow Circle */}
       <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-emerald-400/20 blur-2xl pointer-events-none" />
 
@@ -131,7 +131,7 @@ function FeaturedOnboardingCard() {
         <Link href="/book-an-appointment" className="!no-underline">
           <Button
             size="middle"
-            className="h-9 px-4 rounded-xl font-extrabold text-xs bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md"
+            className="h-9 px-4 rounded-lg font-extrabold text-xs bg-white text-brand-primary hover:bg-slate-50 border-none shadow-md"
           >
             Book Consultation <ArrowRightOutlined className="text-[10px]" />
           </Button>

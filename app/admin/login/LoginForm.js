@@ -41,7 +41,7 @@ export default function LoginForm({
           placeholder="you@financiallyup.com.au"
           preIconAnt={<MailOutlined className="text-slate-400 mr-2" />}
           size="large"
-          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-xl focus:border-[#008043]"
+          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg focus:border-[#008043]"
           reqMsg="Please enter your email address"
           emailErrorMsg="Please enter a valid email address"
         />
@@ -57,7 +57,7 @@ export default function LoginForm({
           placeholder="Enter your password"
           preIconAnt={<LockOutlined className="text-slate-400 mr-2" />}
           size="large"
-          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-xl"
+          className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg"
           reqMsg="Please enter your password"
         />
 
@@ -89,7 +89,7 @@ export default function LoginForm({
             loading={loading}
             block
             size="large"
-            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-xl transition-all duration-200 shadow-sm cursor-pointer"
+            className="h-11 bg-[#008043] hover:bg-[#006635] active:bg-[#004d28] border-none font-semibold text-white rounded-lg transition-all duration-200 shadow-sm cursor-pointer"
           >
             Sign In
           </Button>

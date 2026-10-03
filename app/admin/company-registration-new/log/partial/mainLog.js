@@ -545,6 +545,7 @@ export default function CompanyRegistrationMainLog({
 
       {/* Admin Compliance Review & Decision Modal */}
       <Modal
+        centered
         title={
           <div className="flex items-center gap-2">
             <EditOutlined className="text-brand-primary" />

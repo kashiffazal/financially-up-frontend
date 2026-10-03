@@ -45,7 +45,7 @@ export default function Step1EngagementService({ form }) {
         </p>
 
         {/* Before Step 1 Legal Acknowledgements */}
-        <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 mt-4 space-y-2">
+        <div className="p-4 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 mt-4 space-y-2">
           {/* Terms of Engagement */}
           <div className="space-y-1.5">
             <span className="text-xs font-black uppercase tracking-wider text-emerald-950 dark:text-emerald-200 block">
@@ -94,7 +94,7 @@ export default function Step1EngagementService({ form }) {
       </div>
 
       {/* 1.1 Contact Person Completing This Form */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -117,7 +117,7 @@ export default function Step1EngagementService({ form }) {
             reqMsg="Contact full legal name is required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -133,7 +133,7 @@ export default function Step1EngagementService({ form }) {
             reqMsg="Valid email is required"
             preIconAnt={<MailOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -149,7 +149,7 @@ export default function Step1EngagementService({ form }) {
             reqMsg="Mobile phone number is required"
             preIconAnt={<PhoneOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -172,7 +172,7 @@ export default function Step1EngagementService({ form }) {
             emptyFirstVal="- Select Relationship -"
             reqMsg="Please select your relationship"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -191,7 +191,7 @@ export default function Step1EngagementService({ form }) {
             placeholder="e.g. Legal representative, Family member"
             reqMsg="Please specify relationship"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-4"
           />
         )}
@@ -211,7 +211,7 @@ export default function Step1EngagementService({ form }) {
               placeholder="Describe your legal capacity and authorisation from the company founders/directors to lodge this registration."
               reqMsg="Please describe your authority to instruct"
               rows={5}
-              className="rounded-xl !h-[180px]"
+              className="rounded-lg !h-[180px]"
               containerClassName="!mb-0"
             />
 
@@ -226,7 +226,7 @@ export default function Step1EngagementService({ form }) {
               msg="Signed Authorisation Letter or Power of Attorney"
               noRequired={true}
               height={180}
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           </div>
@@ -234,7 +234,7 @@ export default function Step1EngagementService({ form }) {
       </div>
 
       {/* 1.2 Requested Service */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -256,7 +256,7 @@ export default function Step1EngagementService({ form }) {
             }
             readOnly={true}
             size="large"
-            className="rounded-xl bg-slate-100 dark:bg-zinc-800 font-bold text-slate-800 dark:text-zinc-100"
+            className="rounded-lg bg-slate-100 dark:bg-zinc-800 font-bold text-slate-800 dark:text-zinc-100"
             containerClassName="!mb-0"
           />
 
@@ -272,7 +272,7 @@ export default function Step1EngagementService({ form }) {
             reqMsg="Date requested is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -339,7 +339,7 @@ export default function Step1EngagementService({ form }) {
               placeholder="e.g. Commercial contract execution deadline on Friday"
               reqMsg="Please explain urgency"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           )}
@@ -376,7 +376,7 @@ export default function Step1EngagementService({ form }) {
               placeholder="Provide context and reasons"
               reqMsg="Please provide details"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           )}

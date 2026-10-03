@@ -45,7 +45,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
       </div>
 
       {/* Nominee & Trustee Questions */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -77,7 +77,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           />
 
           {isDirectorActingForOthers === "Yes" && (
-            <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 space-y-3">
+            <div className="p-3.5 rounded-lg bg-slate-100/80 dark:bg-zinc-800/80 space-y-3">
               <AntInput
                 type="text"
                 name="directorNominatorName"
@@ -89,7 +89,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                 placeholder="Full name of person directing officer"
                 reqMsg="Nominator name is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -113,7 +113,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           />
 
           {isNomineeShareholder === "Yes" && (
-            <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 space-y-3">
+            <div className="p-3.5 rounded-lg bg-slate-100/80 dark:bg-zinc-800/80 space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <AntInput
@@ -127,7 +127,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                     placeholder="e.g. John Alexander Smith"
                     reqMsg="Nominator is required"
                     size="large"
-                    className="rounded-xl"
+                    className="rounded-lg"
                     containerClassName="!mb-4"
                   />
 
@@ -142,7 +142,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                     placeholder="e.g. Smith Family Trust"
                     reqMsg="Beneficial owner is required"
                     size="large"
-                    className="rounded-xl"
+                    className="rounded-lg"
                     containerClassName="!mb-0"
                   />
                 </div>
@@ -157,7 +157,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                   noRequired={true}
                   type="4"
                   height={126}
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               </div>
@@ -182,7 +182,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
           />
 
           {isTrusteeInvolved === "Yes" && (
-            <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 space-y-3">
+            <div className="p-3.5 rounded-lg bg-slate-100/80 dark:bg-zinc-800/80 space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <AntInput
@@ -196,7 +196,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                     placeholder="e.g. The Harrison Family Trust"
                     reqMsg="Trust name is required"
                     size="large"
-                    className="rounded-xl"
+                    className="rounded-lg"
                     containerClassName="!mb-4"
                   />
 
@@ -211,7 +211,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                     placeholder="e.g. Independent Accountant"
                     reqMsg="Settlor is required"
                     size="large"
-                    className="rounded-xl"
+                    className="rounded-lg"
                     containerClassName="!mb-0"
                   />
                 </div>
@@ -227,7 +227,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                   noRequired={true}
                   type="4"
                   height={126}
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               </div>
@@ -264,7 +264,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                 placeholder="e.g. King & Wood Lawyers"
                 reqMsg="Adviser name is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -279,7 +279,7 @@ export default function Step9NomineeTrusteeArrangements({ form }) {
                 placeholder="e.g. Structure reviewed and compliant with Corporations Act"
                 reqMsg="Advice summary is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>

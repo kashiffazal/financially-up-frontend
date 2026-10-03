@@ -170,7 +170,9 @@ export default function CompanyRegistrationForm() {
 
   const [currentStep, setCurrentStep] = useState(() => {
     const draft = getInitialSavedDraft();
-    return typeof draft?.step === "number" && draft.step >= 0 && draft.step <= 11
+    return typeof draft?.step === "number" &&
+      draft.step >= 0 &&
+      draft.step <= 11
       ? draft.step
       : 0;
   });
@@ -241,7 +243,9 @@ export default function CompanyRegistrationForm() {
           title: "Please re-attach your documents",
           description: `Your saved draft included ${lost
             .map(describeUploadField)
-            .join(", ")}, but your browser did not keep the file(s). Please upload them again before submitting.`,
+            .join(
+              ", ",
+            )}, but your browser did not keep the file(s). Please upload them again before submitting.`,
           duration: 10,
         });
       }
@@ -324,7 +328,7 @@ export default function CompanyRegistrationForm() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Proposed Name (1st Pref)
@@ -361,7 +365,7 @@ export default function CompanyRegistrationForm() {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
+                <div className="p-3.5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
                   <div className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
                     <MailOutlined className="text-emerald-600 dark:text-emerald-400" />
                     <span>Next Steps</span>
@@ -386,7 +390,7 @@ export default function CompanyRegistrationForm() {
             okText: "Return to Form Home",
             okButtonProps: {
               className:
-                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-lg border-none shadow-md shadow-emerald-600/20",
             },
             onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
           });
@@ -429,7 +433,8 @@ export default function CompanyRegistrationForm() {
 
       // Files cannot be JSON-serialised (they would become empty objects), so
       // they are stored in IndexedDB and only their names go into the draft.
-      const { files: draftFiles, names: attachedFileNames } = collectFileFields(mergedData);
+      const { files: draftFiles, names: attachedFileNames } =
+        collectFileFields(mergedData);
       const safeDataForStorage = { ...mergedData };
       Object.keys(draftFiles).forEach((key) => {
         delete safeDataForStorage[key];
@@ -439,7 +444,12 @@ export default function CompanyRegistrationForm() {
 
       localStorage.setItem(
         DRAFT_STORAGE_KEY,
-        JSON.stringify({ step: currentStep, data: safeDataForStorage, attachedFileNames, savedAt }),
+        JSON.stringify({
+          step: currentStep,
+          data: safeDataForStorage,
+          attachedFileNames,
+          savedAt,
+        }),
       );
       setFormData(mergedData);
 
@@ -488,12 +498,12 @@ export default function CompanyRegistrationForm() {
   const progressPercent = Math.round(((currentStep + 1) / 12) * 100);
 
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950">
+    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-lg overflow-hidden dark:bg-zinc-950">
       {/* Executive 12-Step Progress Header */}
       <div className="p-5 sm:p-6 bg-slate-50/80 dark:bg-zinc-900/60 border mb-5 border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
+            <div className="w-9 h-9 rounded-lg bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
               {currentStep + 1}
             </div>
             <div>
@@ -531,7 +541,7 @@ export default function CompanyRegistrationForm() {
                 onClick={() => {
                   if (idx <= currentStep) setCurrentStep(idx);
                 }}
-                className={`w-full lg:flex-1 lg:min-w-[110px] py-2 px-1.5 sm:px-2 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer shrink-0 ${
+                className={`w-full lg:flex-1 lg:min-w-[110px] py-2 px-1.5 sm:px-2 rounded-lg flex flex-col items-center justify-center transition-all duration-200 cursor-pointer shrink-0 ${
                   isCurrent
                     ? "bg-brand-primary text-white font-extrabold shadow-md shadow-emerald-600/20 scale-[1.02]"
                     : isCompleted
@@ -605,13 +615,13 @@ export default function CompanyRegistrationForm() {
       </Form>
 
       {/* Footer Actions Bar */}
-      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-xl">
+      <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-lg">
         <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
           {currentStep > 0 && (
             <Button
               icon={<ArrowLeftOutlined />}
               onClick={handlePrev}
-              className="rounded-xl h-11 font-semibold text-slate-700 dark:text-zinc-200"
+              className="rounded-lg h-11 font-semibold text-slate-700 dark:text-zinc-200"
             >
               Back
             </Button>
@@ -619,7 +629,7 @@ export default function CompanyRegistrationForm() {
           <Button
             icon={<SaveOutlined />}
             onClick={handleSaveDraft}
-            className="rounded-xl h-11 font-semibold text-slate-700 dark:text-zinc-200 hover:border-brand-primary"
+            className="rounded-lg h-11 font-semibold text-slate-700 dark:text-zinc-200 hover:border-brand-primary"
           >
             Save Draft
           </Button>
@@ -628,7 +638,7 @@ export default function CompanyRegistrationForm() {
             type="text"
             icon={<DeleteOutlined />}
             onClick={handleClearDraft}
-            className="rounded-xl h-11 font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+            className="rounded-lg h-11 font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
           >
             Reset Form
           </Button>
@@ -643,7 +653,7 @@ export default function CompanyRegistrationForm() {
               currentStep === 11 ? <CheckOutlined /> : <ArrowRightOutlined />
             }
             onClick={handleNext}
-            className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20"
+            className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-lg font-extrabold text-sm shadow-md shadow-emerald-600/20"
           >
             {currentStep === 11
               ? "Submit Company Registration"

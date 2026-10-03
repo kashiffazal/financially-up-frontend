@@ -123,11 +123,11 @@ export default function Step4Officeholders({
         {officeholders.map((officer, idx) => (
           <div
             key={officer.id || idx}
-            className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4"
+            className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4"
           >
             <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-xl bg-brand-primary text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                <div className="w-7 h-7 rounded-lg bg-brand-primary text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
                   {idx + 1}
                 </div>
                 <span className="text-sm font-black text-slate-900 dark:text-zinc-100">
@@ -188,7 +188,7 @@ export default function Step4Officeholders({
                 reqMsg="First name is required"
                 preIconAnt={<UserOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -208,7 +208,7 @@ export default function Step4Officeholders({
                 reqMsg="Last name is required"
                 preIconAnt={<UserOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -227,7 +227,7 @@ export default function Step4Officeholders({
                 }
                 noRequired={true}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -244,7 +244,7 @@ export default function Step4Officeholders({
                 reqMsg="Date of birth is required"
                 preIconAnt={<CalendarOutlined className="text-slate-400" />}
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -266,7 +266,7 @@ export default function Step4Officeholders({
                 }
                 reqMsg="Birth city is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -285,7 +285,7 @@ export default function Step4Officeholders({
                 }
                 reqMsg="Birth state is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -303,7 +303,7 @@ export default function Step4Officeholders({
                 emptyFirstVal="- Select Country -"
                 reqMsg="Birth country is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -324,7 +324,7 @@ export default function Step4Officeholders({
                 }
                 reqMsg="Residential address is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -344,7 +344,7 @@ export default function Step4Officeholders({
                 reqMsg="Email is required"
                 preIconAnt={<MailOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -364,7 +364,7 @@ export default function Step4Officeholders({
                 reqMsg="Mobile is required"
                 preIconAnt={<PhoneOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -392,7 +392,7 @@ export default function Step4Officeholders({
                 }
                 reqMsg="Director ID status is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -417,7 +417,7 @@ export default function Step4Officeholders({
                 onChange={(val) => handleUpdateField(idx, "idDocType", val)}
                 reqMsg="ID document type is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -437,7 +437,7 @@ export default function Step4Officeholders({
                 reqMsg="ID number is required"
                 preIconAnt={<IdcardOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -456,7 +456,7 @@ export default function Step4Officeholders({
                 reqMsg="Please upload the front of the ID document"
                 type="4"
                 height={126}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -472,7 +472,7 @@ export default function Step4Officeholders({
                 reqMsg="Please upload the back of the ID document"
                 type="4"
                 height={126}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -497,7 +497,7 @@ export default function Step4Officeholders({
                   onChange={(val) => handleUpdateField(idx, "pepStatus", val)}
                   reqMsg="PEP status is required"
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-4"
                 />
 
@@ -520,14 +520,14 @@ export default function Step4Officeholders({
                   }
                   reqMsg="Sanctions confirmation is required"
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               </div>
             </div>
 
             {/* Per-Person Officeholder Statutory Consent & Execution */}
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2 mb-6">
@@ -566,7 +566,7 @@ export default function Step4Officeholders({
                     reqMsg="Consent date is required"
                     preIconAnt={<CalendarOutlined className="text-slate-400" />}
                     size="large"
-                    className="w-full rounded-xl"
+                    className="w-full rounded-lg"
                     containerClassName="!mb-0"
                   />
                 </div>
@@ -594,7 +594,7 @@ export default function Step4Officeholders({
           type="dashed"
           onClick={handleAddOfficeholder}
           icon={<PlusOutlined />}
-          className="w-full h-12 rounded-xl font-bold border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary"
+          className="w-full h-12 rounded-lg font-bold border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary"
         >
           Add Another Director / Secretary
         </Button>

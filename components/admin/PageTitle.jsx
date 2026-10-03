@@ -49,6 +49,7 @@ export default function PageTitle({
   formTitle = "Registration Form",
   shareDefaultMessage = "",
   extraActions = null,
+  rightExtra = null,
 }) {
   // --------------------------------------------------------------------------
   // STATE: SHARE MODAL & COPY FEEDBACK
@@ -161,8 +162,8 @@ export default function PageTitle({
           )}
 
           {/* 3. Extra Actions Slot (Custom buttons) */}
-          {extraActions && (
-            <div className="flex items-center gap-2">{extraActions}</div>
+          {(extraActions || rightExtra) && (
+            <div className="flex items-center gap-2">{extraActions || rightExtra}</div>
           )}
         </div>
 

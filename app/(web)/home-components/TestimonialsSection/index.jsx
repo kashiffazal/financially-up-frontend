@@ -131,7 +131,7 @@ export default function TestimonialsSection() {
         >
           {testimonials.map((item, idx) => (
             <div key={idx} className="h-full mx-2">
-              <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full h-full min-h-[260px] flex flex-col justify-between space-y-6">
+              <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-brand-border-hover dark:hover:border-emerald-500 transition-all duration-300 w-full h-full min-h-[260px] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <Rate

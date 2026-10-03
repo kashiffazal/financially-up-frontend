@@ -80,7 +80,7 @@ export default function Login() {
 
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 transition-all duration-200 cursor-pointer"
+            className="p-2.5 rounded-lg border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 transition-all duration-200 cursor-pointer"
             aria-label="Toggle Theme"
           >
             {isDark ? (
@@ -180,7 +180,7 @@ export default function Login() {
 
           {/* 3 Glassmorphism Statistics Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <div className="glass-panel p-5 rounded-xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+            <div className="glass-panel p-5 rounded-lg flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
                 24+
               </span>
@@ -189,7 +189,7 @@ export default function Login() {
               </span>
             </div>
 
-            <div className="glass-panel p-5 rounded-xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+            <div className="glass-panel p-5 rounded-lg flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
                 RBAC
               </span>
@@ -198,7 +198,7 @@ export default function Login() {
               </span>
             </div>
 
-            <div className="glass-panel p-5 rounded-xl flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+            <div className="glass-panel p-5 rounded-lg flex flex-col justify-between shadow-lg transition-transform duration-300 hover:scale-[1.02]">
               <span className="text-3xl font-extrabold tracking-tight">
                 100%
               </span>

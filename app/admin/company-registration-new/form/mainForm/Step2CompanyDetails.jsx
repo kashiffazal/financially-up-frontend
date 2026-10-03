@@ -45,7 +45,7 @@ export default function Step2CompanyDetails({ form }) {
       </div>
 
       {/* Name Preferences */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -68,7 +68,7 @@ export default function Step2CompanyDetails({ form }) {
             reqMsg="First preference company name is required"
             preIconAnt={<BankOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -83,7 +83,7 @@ export default function Step2CompanyDetails({ form }) {
             placeholder="e.g. Apex Global Solutions"
             noRequired={true}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -98,7 +98,7 @@ export default function Step2CompanyDetails({ form }) {
             placeholder="e.g. Apex Digital Holdings"
             noRequired={true}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -159,7 +159,7 @@ export default function Step2CompanyDetails({ form }) {
               placeholder="e.g. RES123456"
               reqMsg="Reservation number is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -174,7 +174,7 @@ export default function Step2CompanyDetails({ form }) {
               format="DD/MM/YYYY"
               reqMsg="Reservation date is required"
               size="large"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -189,7 +189,7 @@ export default function Step2CompanyDetails({ form }) {
               placeholder="Applicant on Form 410"
               reqMsg="Applicant name is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           </div>
@@ -197,7 +197,7 @@ export default function Step2CompanyDetails({ form }) {
       </div>
 
       {/* Structure & Purpose */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -226,7 +226,7 @@ export default function Step2CompanyDetails({ form }) {
             emptyFirstVal="- Select Company Type -"
             reqMsg="Company type is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -242,7 +242,7 @@ export default function Step2CompanyDetails({ form }) {
             emptyFirstVal="- Select State -"
             reqMsg="Jurisdiction state is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -259,7 +259,7 @@ export default function Step2CompanyDetails({ form }) {
             placeholder="e.g. Sole purpose SMSF Trustee, Home unit company"
             reqMsg="Special purpose detail is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         )}
@@ -286,7 +286,7 @@ export default function Step2CompanyDetails({ form }) {
             emptyFirstVal="- Select Purpose -"
             reqMsg="Company purpose is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -301,7 +301,7 @@ export default function Step2CompanyDetails({ form }) {
             placeholder="e.g. IT Software Consulting & Development"
             reqMsg="Main business activity is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -318,7 +318,7 @@ export default function Step2CompanyDetails({ form }) {
             placeholder="Describe company purpose"
             reqMsg="Please specify purpose"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         )}
@@ -339,7 +339,7 @@ export default function Step2CompanyDetails({ form }) {
             emptyFirstVal="- Select Trading Name -"
             reqMsg="Please select trading name preference"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -355,7 +355,7 @@ export default function Step2CompanyDetails({ form }) {
             reqMsg="Commencement date is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -372,14 +372,14 @@ export default function Step2CompanyDetails({ form }) {
             placeholder="e.g. Apex Digital Marketing"
             reqMsg="Proposed trading name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         )}
       </div>
 
       {/* Group Structure & Governance */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -424,7 +424,7 @@ export default function Step2CompanyDetails({ form }) {
             emptyFirstVal="- Select Governance -"
             reqMsg="Governance choice is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -444,7 +444,7 @@ export default function Step2CompanyDetails({ form }) {
                   placeholder="e.g. Apex Global Corp"
                   reqMsg="Ultimate holding company name is required"
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-4"
                 />
 
@@ -459,7 +459,7 @@ export default function Step2CompanyDetails({ form }) {
                   placeholder="e.g. 123456789"
                   reqMsg="Registration number is required"
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-4"
                 />
 
@@ -475,7 +475,7 @@ export default function Step2CompanyDetails({ form }) {
                   reqMsg="Country is required"
                   preIconAnt={<GlobalOutlined className="text-slate-400" />}
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-4"
                 />
               </div>
@@ -489,7 +489,7 @@ export default function Step2CompanyDetails({ form }) {
                 placeholder="Choose ownership hierarchy chart (PDF, PNG, JPG)..."
                 noRequired={true}
                 height={212}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>

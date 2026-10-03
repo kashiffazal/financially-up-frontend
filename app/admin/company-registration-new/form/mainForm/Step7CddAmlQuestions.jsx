@@ -31,7 +31,7 @@ export default function Step7CddAmlQuestions() {
       </div>
 
       {/* 10 CDD Questions */}
-      <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -54,7 +54,7 @@ export default function Step7CddAmlQuestions() {
             placeholder="Describe the business model, commercial objectives, or transaction prompting registration."
             reqMsg="Commercial reason is required"
             rows={2}
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-4"
           />
 
@@ -70,7 +70,7 @@ export default function Step7CddAmlQuestions() {
             placeholder="e.g. Australian corporate clients, local suppliers, software intellectual property, cloud hosting in USA."
             reqMsg="Counterparties description is required"
             rows={2}
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-4"
           />
 
@@ -86,7 +86,7 @@ export default function Step7CddAmlQuestions() {
             placeholder="e.g. Digital consulting, software engineering, wholesale goods distribution."
             reqMsg="Products/services description is required"
             rows={2}
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-4"
           />
 

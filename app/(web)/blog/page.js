@@ -79,7 +79,7 @@ export default function BlogHubPage() {
       {/* Main Content Area */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 md:pt-20 md:pb-20 space-y-8">
         {/* 2. Refined Executive Segmented Filter Bar with Counter */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-2 sm:p-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-2 sm:p-2.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
           {/* Segmented Category Buttons */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto scrollbar-none">
             {BLOG_CATEGORIES.map((cat) => {
@@ -91,7 +91,7 @@ export default function BlogHubPage() {
                     setActiveCategory(cat);
                     setSelectedTag("");
                   }}
-                  className={`px-4 sm:px-5 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  className={`px-4 sm:px-5 py-2 rounded-lg text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "bg-brand-primary text-white shadow-md shadow-emerald-700/25 scale-102"
                       : "text-slate-600 dark:text-zinc-400 hover:text-brand-primary dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-zinc-800/80"
@@ -104,7 +104,7 @@ export default function BlogHubPage() {
           </div>
 
           {/* Right Status Badge */}
-          <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-zinc-800 text-[11px] font-bold text-slate-600 dark:text-zinc-300 shrink-0">
+          <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-100 dark:bg-zinc-800 text-[11px] font-bold text-slate-600 dark:text-zinc-300 shrink-0">
             <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
             <span>Showing {filteredPosts.length} Tax Articles</span>
           </div>
@@ -121,7 +121,7 @@ export default function BlogHubPage() {
               featuredPost && (
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="group relative block rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-md hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
+                  className="group relative block rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-md hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
                     {/* Left 16:9 Image */}
@@ -193,7 +193,7 @@ export default function BlogHubPage() {
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="group relative flex flex-col justify-between rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
+                    className="group relative flex flex-col justify-between rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-brand-primary/60 dark:hover:border-emerald-500/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer !no-underline"
                   >
                     {/* Top 16:9 Featured Image with Floating Category Badge */}
                     <div className="relative w-full h-48 sm:h-52 bg-slate-100 dark:bg-zinc-800 overflow-hidden">
@@ -257,7 +257,7 @@ export default function BlogHubPage() {
                 ))}
               </div>
             ) : (
-              <div className="p-12 text-center rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+              <div className="p-12 text-center rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
                 <p className="text-sm font-bold text-slate-700 dark:text-zinc-300">
                   No articles found matching your filters.
                 </p>
@@ -267,7 +267,7 @@ export default function BlogHubPage() {
                     setSelectedTag("");
                     setSearchQuery("");
                   }}
-                  className="mt-4 px-4 py-2 rounded-xl bg-brand-primary text-white font-bold text-xs shadow-md"
+                  className="mt-4 px-4 py-2 rounded-lg bg-brand-primary text-white font-bold text-xs shadow-md"
                 >
                   Reset Filters
                 </button>
@@ -278,7 +278,7 @@ export default function BlogHubPage() {
             <div className="flex items-center justify-center gap-2 pt-4">
               <button
                 onClick={() => setCurrentPage(1)}
-                className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-brand-primary flex items-center justify-center transition-colors cursor-pointer shadow-xs"
+                className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-brand-primary flex items-center justify-center transition-colors cursor-pointer shadow-xs"
                 aria-label="Previous Page"
               >
                 <LeftOutlined className="text-xs" />
@@ -286,7 +286,7 @@ export default function BlogHubPage() {
 
               <button
                 onClick={() => setCurrentPage(1)}
-                className={`w-10 h-10 rounded-xl font-black text-xs transition-all cursor-pointer ${
+                className={`w-10 h-10 rounded-lg font-black text-xs transition-all cursor-pointer ${
                   currentPage === 1
                     ? "bg-brand-primary text-white shadow-md shadow-emerald-700/20"
                     : "bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300"
@@ -297,7 +297,7 @@ export default function BlogHubPage() {
 
               <button
                 onClick={() => setCurrentPage(2)}
-                className={`w-10 h-10 rounded-xl font-black text-xs transition-all cursor-pointer ${
+                className={`w-10 h-10 rounded-lg font-black text-xs transition-all cursor-pointer ${
                   currentPage === 2
                     ? "bg-brand-primary text-white shadow-md shadow-emerald-700/20"
                     : "bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-brand-primary"
@@ -308,7 +308,7 @@ export default function BlogHubPage() {
 
               <button
                 onClick={() => setCurrentPage(2)}
-                className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-brand-primary flex items-center justify-center transition-colors cursor-pointer shadow-xs"
+                className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-400 hover:text-brand-primary flex items-center justify-center transition-colors cursor-pointer shadow-xs"
                 aria-label="Next Page"
               >
                 <RightOutlined className="text-xs" />
@@ -319,7 +319,7 @@ export default function BlogHubPage() {
           {/* ── RIGHT SIDEBAR (4 Columns, Sticky on Desktop Only) ── */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-[140px] self-start">
             {/* Widget 1: SEARCH ARTICLES */}
-            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
+            <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
               <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">
                 SEARCH ARTICLES
               </h4>
@@ -329,14 +329,14 @@ export default function BlogHubPage() {
                   placeholder="Search keywords..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full h-11 pl-10 pr-4 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                  className="w-full h-11 pl-10 pr-4 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                 />
                 <SearchOutlined className="absolute left-3.5 top-3.5 text-slate-400 text-sm" />
               </div>
             </div>
 
             {/* Widget 2: POPULAR TAGS */}
-            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
+            <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
               <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">
                 POPULAR TAGS
               </h4>
@@ -348,7 +348,7 @@ export default function BlogHubPage() {
                     <button
                       key={tag}
                       onClick={() => setSelectedTag(isSelected ? "" : tagId)}
-                      className={`px-3 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-lg text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                         isSelected
                           ? "bg-brand-primary text-white shadow-md shadow-emerald-700/20"
                           : "bg-slate-50 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-brand-primary hover:text-brand-primary border border-slate-200 dark:border-zinc-700"
@@ -363,7 +363,7 @@ export default function BlogHubPage() {
             </div>
 
             {/* Widget 3: WEEKLY DISPATCH / NEWSLETTER */}
-            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3.5 shadow-sm">
+            <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3.5 shadow-sm">
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary dark:text-emerald-400 block">
                 WEEKLY DISPATCH
               </span>
@@ -376,7 +376,7 @@ export default function BlogHubPage() {
               </p>
 
               {subscribed ? (
-                <div className="p-3.5 rounded-xl bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
+                <div className="p-3.5 rounded-lg bg-brand-primary-soft/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-brand-primary dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
                   <CheckCircleFilled className="text-sm" />
                   <span>Subscribed! Check your inbox soon.</span>
                 </div>
@@ -388,12 +388,12 @@ export default function BlogHubPage() {
                     placeholder="Enter your email address"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className="w-full h-11 px-4 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                    className="w-full h-11 px-4 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                   />
                   <Button
                     htmlType="submit"
                     size="large"
-                    className="w-full h-11 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-black uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-700/20 border-none"
+                    className="w-full h-11 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white font-black uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-700/20 border-none"
                   >
                     <SendOutlined className="text-xs" /> SUBSCRIBE NOW
                   </Button>

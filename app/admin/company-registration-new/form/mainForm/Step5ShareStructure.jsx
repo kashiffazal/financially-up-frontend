@@ -90,11 +90,11 @@ export default function Step5ShareStructure({
         {shareholders.map((member, idx) => (
           <div
             key={member.id || idx}
-            className="p-5 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4"
+            className="p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4"
           >
             <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-xl bg-brand-primary text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                <div className="w-7 h-7 rounded-lg bg-brand-primary text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
                   {idx + 1}
                 </div>
                 <span className="text-sm font-black text-slate-900 dark:text-zinc-100">
@@ -135,7 +135,7 @@ export default function Step5ShareStructure({
                     }
                     reqMsg="First name is required"
                     size="large"
-                    className="rounded-xl"
+                    className="rounded-lg"
                     containerClassName="!mb-0"
                   />
 
@@ -154,7 +154,7 @@ export default function Step5ShareStructure({
                     }
                     reqMsg="Last name is required"
                     size="large"
-                    className="rounded-xl"
+                    className="rounded-lg"
                     containerClassName="!mb-0"
                   />
                 </>
@@ -174,7 +174,7 @@ export default function Step5ShareStructure({
                   }
                   reqMsg="Entity name is required"
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               )}
@@ -197,7 +197,7 @@ export default function Step5ShareStructure({
                 onChange={(val) => handleUpdateField(idx, "memberType", val)}
                 reqMsg="Member type is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -213,7 +213,7 @@ export default function Step5ShareStructure({
                 onChange={(val) => handleUpdateField(idx, "address", val)}
                 reqMsg="Address is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -239,7 +239,7 @@ export default function Step5ShareStructure({
                 onChange={(val) => handleUpdateField(idx, "shareClass", val)}
                 reqMsg="Share class is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -258,7 +258,7 @@ export default function Step5ShareStructure({
                 }
                 reqMsg="Number of shares is required"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -277,7 +277,7 @@ export default function Step5ShareStructure({
                 }
                 preIconAnt={<DollarOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -296,13 +296,13 @@ export default function Step5ShareStructure({
                 }
                 preIconAnt={<DollarOutlined className="text-slate-400" />}
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
 
             {/* Per-Member / Shareholder Consent */}
-            <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2">
+            <div className="p-3.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
                 <div className="flex items-center gap-2">
                   <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -373,7 +373,7 @@ export default function Step5ShareStructure({
                   }
                   reqMsg="Beneficial owner name is required"
                   size="large"
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               )}
@@ -403,7 +403,7 @@ export default function Step5ShareStructure({
                     )
                   }
                   rows={4}
-                  className="rounded-xl !h-32"
+                  className="rounded-lg !h-32"
                   containerClassName="!mb-0"
                 />
                 <UploadFile
@@ -417,7 +417,7 @@ export default function Step5ShareStructure({
                   noRequired={true}
                   type="4"
                   height={128}
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               </div>
@@ -429,7 +429,7 @@ export default function Step5ShareStructure({
           type="dashed"
           onClick={handleAddShareholder}
           icon={<PlusOutlined />}
-          className="w-full h-12 rounded-xl font-bold border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary"
+          className="w-full h-12 rounded-lg font-bold border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary"
         >
           Add Another Shareholder / Member
         </Button>

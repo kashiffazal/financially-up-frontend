@@ -93,7 +93,7 @@ export default function SeamlessTaxExperienceSection() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   Get Started Online
                 </Button>
@@ -108,13 +108,13 @@ export default function SeamlessTaxExperienceSection() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-200/60 dark:bg-emerald-950/50 blur-3xl rounded-full pointer-events-none -z-10" />
 
               {/* Graphic Banner Frame */}
-              <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
                 <Image
                   src="/images/services/home-Complete-Peace-of-Mind.webp"
                   alt="Seamless Australian Online Tax Service"
                   width={500}
                   height={550}
-                  className="w-full h-auto object-cover rounded-xl"
+                  className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
 

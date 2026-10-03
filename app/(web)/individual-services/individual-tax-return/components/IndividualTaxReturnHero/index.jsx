@@ -53,7 +53,7 @@ export default function IndividualTaxReturnOverview() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-8 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
+                  className="h-12 px-8 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20 hover:scale-105 transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -63,13 +63,13 @@ export default function IndividualTaxReturnOverview() {
 
           {/* Right Graphic */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[500px] rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
+            <div className="relative w-full max-w-[500px] rounded-lg overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 p-3">
               <Image
                 src="/images/services/individual-tax-return.webp"
                 alt="Expert Assistance for Individual Tax Returns"
                 width={550}
                 height={420}
-                className="w-full h-[500px] object-cover rounded-xl"
+                className="w-full h-[500px] object-cover rounded-lg"
               />
             </div>
           </div>
