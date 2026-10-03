@@ -90,10 +90,8 @@ export default function DataTable({
   onChange = null,
 }) {
   // --------------------------------------------------------------------------
-  // 1. COMPONENT STATE & FORM INSTANCE
+  // 1. COMPONENT STATE
   // --------------------------------------------------------------------------
-  const [form] = Form.useForm();
-
   // Search query text typed by user
   const [searchText, setSearchText] = useState("");
 
@@ -161,6 +159,25 @@ export default function DataTable({
       });
     });
   }, [dataSource, searchText, activeSearchCols]);
+
+  // --------------------------------------------------------------------------
+  // 2b. PAGINATED DATA LOGIC
+  // --------------------------------------------------------------------------
+  // Auto-clamp currentPage if filteredData length changes and currentPage exceeds maxPage
+  useEffect(() => {
+    if (pagination === false) return;
+    const maxPage = Math.max(1, Math.ceil(filteredData.length / (pageSize || 10)));
+    if (currentPage > maxPage) {
+      setCurrentPage(maxPage);
+    }
+  }, [filteredData.length, pageSize, currentPage, pagination]);
+
+  // Slice the filtered dataset to only the active page's records when pagination is enabled
+  const paginatedData = useMemo(() => {
+    if (pagination === false) return filteredData;
+    const startIndex = (currentPage - 1) * pageSize;
+    return filteredData.slice(startIndex, startIndex + pageSize);
+  }, [filteredData, currentPage, pageSize, pagination]);
 
   // Handler: User types into the search input box
   const handleSearchChange = useCallback((e) => {
@@ -289,111 +306,86 @@ export default function DataTable({
     <div
       className={`c_k_table_0 ${classNameContainer} w-full space-y-4 text-slate-800 dark:text-zinc-200`}
     >
-      <Form form={form} layout="vertical" component={false}>
-        {/* ================================================================= */}
-        {/* TOP CONTROLS & TOOLBAR                                            */}
-        {/* ================================================================= */}
-        <div className="flex flex-col gap-4 pb-2 border-b border-slate-100 dark:border-zinc-800">
-          {/* Section A: Title & Subtitle (Optional) */}
-          {label && (
-            <div>
-              <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 m-0">
-                {label}
-              </h2>
-              {desc && (
-                <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 mt-0.5">
-                  {desc}
-                </p>
-              )}
-            </div>
-          )}
+      {/* ================================================================= */}
+      {/* TOP CONTROLS & TOOLBAR                                            */}
+      {/* ================================================================= */}
+      <div className="flex flex-col gap-4 pb-2 border-b border-slate-100 dark:border-zinc-800">
+        {/* Section A: Title & Subtitle (Optional) */}
+        {label && (
+          <div>
+            <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 m-0">
+              {label}
+            </h2>
+            {desc && (
+              <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 mt-0.5">
+                {desc}
+              </p>
+            )}
+          </div>
+        )}
 
-          {/* Section B: Filter By, Filter, Export Buttons & Record per page Placement */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            {/* Left Cluster: Filter by & Filter search input */}
-            <div className="flex flex-wrap items-end gap-3 flex-1">
-              {/* 1. Custom Column Filter Dropdown */}
-              {customFilter && customFilterCol.length > 0 && (
-                <div className="w-full sm:w-[170px]">
-                  <Form.Item
-                    label={
-                      <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
-                        {customFilterLabel}
-                      </span>
-                    }
-                    name="filterBy"
-                    initialValue=""
-                    className="!mb-0"
-                  >
-                    <Select
-                      options={customFilterOptions}
-                      onChange={handleCustomFilterColChange}
-                      className="w-full"
-                      placeholder="-Select-"
-                    />
-                  </Form.Item>
-                </div>
-              )}
+        {/* Section B: Filter By, Filter, Export Buttons & Record per page Placement */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          {/* Left Cluster: Filter by & Filter search input */}
+          <div className="flex flex-wrap items-end gap-3 flex-1">
+            {/* 1. Custom Column Filter Dropdown */}
+            {customFilter && customFilterCol.length > 0 && (
+              <div className="flex flex-col gap-1 w-full sm:w-[170px]">
+                <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                  {customFilterLabel}
+                </span>
+                <Select
+                  options={customFilterOptions}
+                  onChange={handleCustomFilterColChange}
+                  className="w-full"
+                  placeholder="-Select-"
+                />
+              </div>
+            )}
 
-              {/* 2. Global / Column Search Input */}
-              {filter && (
-                <div className="w-full sm:w-[240px]">
-                  <Form.Item
-                    label={
-                      <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
-                        {filterLabel}
-                      </span>
-                    }
-                    name="filter"
-                    className="!mb-0"
-                  >
-                    <Input
-                      prefix={<SearchOutlined className="text-slate-400" />}
-                      placeholder={filterPlaceholder}
-                      value={searchText}
-                      onChange={handleSearchChange}
-                      allowClear
-                    />
-                  </Form.Item>
-                </div>
-              )}
-            </div>
+            {/* 2. Global / Column Search Input */}
+            {filter && (
+              <div className="flex flex-col gap-1 w-full sm:w-[240px]">
+                <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400">
+                  {filterLabel}
+                </span>
+                <Input
+                  prefix={<SearchOutlined className="text-slate-400" />}
+                  placeholder={filterPlaceholder}
+                  value={searchText}
+                  onChange={handleSearchChange}
+                  allowClear
+                />
+              </div>
+            )}
+          </div>
 
-            {/* Right Cluster: Export Buttons (CSV / Excel) & Record per page Dropdown */}
-            <div className="flex flex-wrap items-end gap-3 justify-start sm:justify-end">
-              {/* Extra Header slot (e.g. ExportButtons) */}
-              {extraHeader && (
-                <div className="flex items-center gap-2 pb-0.5">
-                  {extraHeader}
-                </div>
-              )}
+          {/* Right Cluster: Export Buttons (CSV / Excel) & Record per page Dropdown */}
+          <div className="flex flex-wrap items-end gap-3 justify-start sm:justify-end">
+            {/* Extra Header slot (e.g. ExportButtons) */}
+            {extraHeader && (
+              <div className="flex items-center gap-2 pb-0.5">
+                {extraHeader}
+              </div>
+            )}
 
-              {/* Record per page Dropdown */}
-              {showSizeChanger && (
-                <div className="w-full sm:w-[130px]">
-                  <Form.Item
-                    label={
-                      <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400 whitespace-nowrap">
-                        {sizeChangeLabel}
-                      </span>
-                    }
-                    name="pageSize"
-                    initialValue={pageSize}
-                    className="!mb-0 w-full"
-                  >
-                    <Select
-                      options={pageSizeSelectOptions}
-                      value={pageSize}
-                      onChange={handlePageSizeChange}
-                      className="w-full"
-                    />
-                  </Form.Item>
-                </div>
-              )}
-            </div>
+            {/* Record per page Dropdown */}
+            {showSizeChanger && (
+              <div className="flex flex-col gap-1 w-full sm:w-[130px]">
+                <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400 whitespace-nowrap">
+                  {sizeChangeLabel}
+                </span>
+                <Select
+                  options={pageSizeSelectOptions}
+                  value={pageSize}
+                  onChange={handlePageSizeChange}
+                  className="w-full"
+                />
+              </div>
+            )}
           </div>
         </div>
-      </Form>
+      </div>
 
       {/* ================================================================= */}
       {/* MAIN ANT DESIGN TABLE (PAGINATION MANAGED BELOW)                  */}
@@ -401,7 +393,7 @@ export default function DataTable({
       <Spin spinning={isLoading} description="Loading records...">
         <Table
           columns={columns}
-          dataSource={filteredData}
+          dataSource={paginatedData}
           rowSelection={tableRowSelection}
           pagination={false}
           scroll={scroll}

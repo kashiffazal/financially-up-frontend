@@ -102,13 +102,24 @@ export default function PageTitle({
       </div>
 
       {/* ===================================================================== */}
-      {/* RIGHT: DEDICATED FORM LINK, SHARE BUTTON & BREADCRUMBS                */}
+      {/* RIGHT: BREADCRUMBS, DEDICATED FORM LINK, SHARE BUTTON & ACTIONS       */}
       {/* ===================================================================== */}
-      <div className="space-y-3 flex-shrink-0">
-        <div className="flex flex-wrap items-center gap-3">
-          {/* 1. Dedicated Public Form Link Pill (when formPath is provided) */}
+      <div className="flex flex-col sm:items-end justify-center gap-2 flex-shrink-0">
+        {/* 1. Right-Aligned Breadcrumb Navigation */}
+        {breadcrumbs && breadcrumbs.length > 0 && (
+          <div className="flex justify-start sm:justify-end w-full">
+            <Breadcrumb
+              classNames={{ root: "!text-[12px]" }}
+              items={breadcrumbs}
+            />
+          </div>
+        )}
+
+        {/* 2. Action Buttons, Form Link & Share Container (Aligned with Title) */}
+        <div className="flex flex-wrap items-center justify-start sm:justify-end gap-2.5">
+          {/* Dedicated Public Form Link Pill (when formPath is provided) */}
           {formPath && (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-pill bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs shadow-sm">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs shadow-xs">
               <LinkOutlined className="text-brand-primary dark:text-emerald-400" />
               <span className="text-slate-500 dark:text-zinc-400 font-medium hidden sm:inline">
                 Form Link:
@@ -149,33 +160,25 @@ export default function PageTitle({
             </div>
           )}
 
-          {/* 2. Share Form Primary Button (when formPath is provided) */}
+          {/* Share Form Primary Button (when formPath is provided) */}
           {formPath && (
             <Button
               type="primary"
               icon={<ShareAltOutlined />}
               onClick={() => setIsShareModalOpen(true)}
-              className="!bg-brand-primary hover:!bg-brand-primary/90 font-semibold shadow-sm"
+              className="!bg-brand-primary hover:!bg-brand-primary/90 font-semibold rounded-lg shadow-xs"
             >
               Share Form
             </Button>
           )}
 
-          {/* 3. Extra Actions Slot (Custom buttons) */}
+          {/* Extra Actions Slot (Custom buttons) */}
           {(extraActions || rightExtra) && (
-            <div className="flex items-center gap-2">{extraActions || rightExtra}</div>
+            <div className="flex items-center justify-start sm:justify-end gap-2">
+              {extraActions || rightExtra}
+            </div>
           )}
         </div>
-
-        {/* 4. Right-Aligned Breadcrumb Navigation */}
-        {breadcrumbs && breadcrumbs.length > 0 && (
-          <div className="flex justify-end">
-            <Breadcrumb
-              classNames={{ root: "!text-[12px]" }}
-              items={breadcrumbs}
-            />
-          </div>
-        )}
       </div>
 
       {/* ===================================================================== */}

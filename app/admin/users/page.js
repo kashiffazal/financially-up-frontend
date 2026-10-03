@@ -588,9 +588,8 @@ export default function UsersPage() {
           <Button
             type="primary"
             icon={<UserAddOutlined />}
-            size="large"
             onClick={() => setIsAddModalOpen(true)}
-            className="bg-[#008043] hover:bg-[#006635] text-white font-semibold rounded-pill border-none shadow-sm flex items-center gap-2"
+            className="h-9 px-4 py-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white text-xs font-semibold rounded-lg shadow-sm shadow-[var(--brand-primary)]/20 transition-all cursor-pointer flex items-center gap-1.5 active:scale-[0.98]"
           >
             Create New User
           </Button>
@@ -621,23 +620,7 @@ export default function UsersPage() {
           showSizeChanger={true}
           sizeChangerOptions={[10, 20, 50, 100]}
           scroll={{ x: 1100 }}
-          extraHeader={
-            <div className="flex items-center gap-2">
-              <Button
-                type="primary"
-                icon={<UserAddOutlined />}
-                onClick={() => setIsAddModalOpen(true)}
-                className="bg-[#008043] hover:bg-[#006635] text-white font-semibold rounded-lg border-none shadow-xs flex items-center gap-1.5"
-              >
-                Add User
-              </Button>
-              <ExportButtons
-                data={filteredUsers}
-                columns={exportColumns}
-                filename={`Users_${activeTabKey}`}
-              />
-            </div>
-          }
+          extraHeader={null}
         />
       </div>
 

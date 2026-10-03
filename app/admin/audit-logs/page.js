@@ -50,6 +50,13 @@ import {
   SwapOutlined,
   BarsOutlined,
   FileTextOutlined,
+  InfoCircleOutlined,
+  UserAddOutlined,
+  EditOutlined,
+  StopOutlined,
+  KeyOutlined,
+  SettingOutlined,
+  SafetyCertificateOutlined,
 } from "@ant-design/icons";
 import PageTitle from "@/components/admin/PageTitle";
 import DataTable from "@/components/mutual/andt-data-table-component";
@@ -58,6 +65,162 @@ import { HTTP, antdMsg } from "@/services";
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
+
+/**
+ * ============================================================================
+ * PLAIN-ENGLISH AUDIT LOG DICTIONARIES (FOR NON-TECHNICAL USERS)
+ * ============================================================================
+ * Translates raw database event codes into human-friendly explanations so
+ * practice managers, accountants, and non-technical staff understand what happened.
+ */
+const ACTION_EXPLANATIONS = {
+  LOGIN: {
+    label: "Staff Sign-In",
+    color: "blue",
+    icon: <LockOutlined />,
+    plainSummary: "A staff member entered their credentials and signed into the practice portal.",
+  },
+  LOGIN_SUCCESS: {
+    label: "Staff Sign-In",
+    color: "success",
+    icon: <CheckCircleOutlined />,
+    plainSummary: "A staff member entered valid credentials and successfully signed into the portal.",
+  },
+  LOGIN_FAILED: {
+    label: "Blocked Sign-In Attempt",
+    color: "error",
+    icon: <CloseCircleOutlined />,
+    plainSummary: "A sign-in attempt was rejected due to an incorrect password, inactive account, or unauthorized access.",
+  },
+  LOGOUT: {
+    label: "Staff Sign-Out",
+    color: "blue",
+    icon: <UserOutlined />,
+    plainSummary: "A staff member safely concluded their active work session and signed out.",
+  },
+  TOKEN_REFRESH: {
+    label: "Session Kept Active",
+    color: "default",
+    icon: <ReloadOutlined />,
+    plainSummary: "The active session was securely refreshed to maintain continuous access without logging out.",
+  },
+  UPDATE: {
+    label: "Practice Record Updated",
+    color: "gold",
+    icon: <EditOutlined />,
+    plainSummary: "An authorized user modified configuration settings, profile information, or record details.",
+  },
+  CREATE: {
+    label: "New Record Created",
+    color: "green",
+    icon: <UserAddOutlined />,
+    plainSummary: "A new record, user profile, or service entry was registered in the system.",
+  },
+  DELETE: {
+    label: "Record Removed",
+    color: "red",
+    icon: <StopOutlined />,
+    plainSummary: "An authorized user removed or archived a record.",
+  },
+  USER_CREATE: {
+    label: "Team Member Added",
+    color: "green",
+    icon: <UserAddOutlined />,
+    plainSummary: "A new practice staff member account was created by an administrator.",
+  },
+  USER_UPDATE: {
+    label: "Staff Details Updated",
+    color: "gold",
+    icon: <EditOutlined />,
+    plainSummary: "A staff member's profile information, department, or contact details were edited.",
+  },
+  USER_STATUS: {
+    label: "Account Status Changed",
+    color: "orange",
+    icon: <StopOutlined />,
+    plainSummary: "A staff account was activated, suspended, or deactivated.",
+  },
+  PASSWORD_RESET: {
+    label: "Password Reset",
+    color: "warning",
+    icon: <KeyOutlined />,
+    plainSummary: "An account password was updated or reset.",
+  },
+  ROLE_ASSIGN: {
+    label: "Permissions Assigned",
+    color: "purple",
+    icon: <SafetyCertificateOutlined />,
+    plainSummary: "Practice capabilities and access permissions were assigned to a team member.",
+  },
+  ROLE_CREATE: {
+    label: "New Staff Role Created",
+    color: "purple",
+    icon: <SafetyCertificateOutlined />,
+    plainSummary: "A new custom role profile was created in the practice permission matrix.",
+  },
+  ROLE_UPDATE: {
+    label: "Role Permissions Modified",
+    color: "gold",
+    icon: <SafetyCertificateOutlined />,
+    plainSummary: "Granular capabilities and service access levels for a role were modified.",
+  },
+  FORM_SUBMIT: {
+    label: "Client Application Submitted",
+    color: "cyan",
+    icon: <DatabaseOutlined />,
+    plainSummary: "A client registration or engagement form was officially submitted.",
+  },
+  FORM_UPDATE: {
+    label: "Form Record Updated",
+    color: "cyan",
+    icon: <EditOutlined />,
+    plainSummary: "Client registration details or lodgement data was modified.",
+  },
+  SETTINGS_UPDATE: {
+    label: "Practice Settings Changed",
+    color: "blue",
+    icon: <SettingOutlined />,
+    plainSummary: "Practice-wide details (e.g. Tax Agent Number, contact info, or branding) were updated.",
+  },
+};
+
+const TAB_EXPLANATIONS = {
+  All: {
+    title: "Master Practice Activity Feed",
+    subtitle: "A complete chronological timeline recording every action, staff sign-in, practice configuration update, and client form lodgement.",
+    badge: "Complete Activity History",
+    color: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300",
+    icon: <HistoryOutlined className="text-emerald-600 text-xl" />,
+  },
+  Auth: {
+    title: "Staff Logins & Sign-Ins",
+    subtitle: "Tracks when staff members sign in, end sessions, or stay active. Verifies who is logged into the practice portal and confirms access security.",
+    badge: "Staff Sign-Ins & Sessions",
+    color: "bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300",
+    icon: <LockOutlined className="text-blue-600 text-xl" />,
+  },
+  Users: {
+    title: "Team Accounts & Practice Settings",
+    subtitle: "Records administrative actions: creating team accounts, updating practice settings (like Tax Agent Number), assigning roles, and changing passwords.",
+    badge: "Team Accounts & Settings",
+    color: "bg-purple-50 dark:bg-purple-950/40 border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300",
+    icon: <UserOutlined className="text-purple-600 text-xl" />,
+  },
+  Forms: {
+    title: "Client Forms & Lodgements",
+    subtitle: "Monitors activity across all client tax and registration services (Company, GST, Trust, SMSF, Medicare). Shows when clients submit new forms or when staff edit lodgement details.",
+    badge: "Client Form Lodgements",
+    color: "bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300",
+    icon: <DatabaseOutlined className="text-amber-600 text-xl" />,
+  },
+  Failures: {
+    title: "Security Warnings & Blocked Logins",
+    subtitle: "Highlights rejected sign-in attempts, incorrect passwords, and security access warnings. Helps practice managers identify compromised passwords or assist locked-out staff.",
+    badge: "Security Alerts & Warnings",
+    color: "bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300",
+    icon: <SecurityScanOutlined className="text-rose-600 text-xl" />,
+  },
+};
 
 export default function AuditLogsPage() {
   // --------------------------------------------------------------------------
@@ -149,7 +312,9 @@ export default function AuditLogsPage() {
       case "Auth":
         return logs.filter((l) => l.module === "auth");
       case "Users":
-        return logs.filter((l) => ["users", "roles"].includes(l.module));
+        return logs.filter((l) =>
+          ["users", "roles", "settings", "system"].includes(l.module),
+        );
       case "Forms":
         return logs.filter((l) =>
           [
@@ -159,10 +324,15 @@ export default function AuditLogsPage() {
             "smsf",
             "individual",
             "medicare",
+            "forms",
+            "applications",
+            "lodgements",
           ].includes(l.module),
         );
       case "Failures":
-        return logs.filter((l) => l.status === "FAILURE");
+        return logs.filter(
+          (l) => l.status === "FAILURE" || l.status === "ERROR",
+        );
       case "All":
       default:
         return logs;
@@ -174,93 +344,96 @@ export default function AuditLogsPage() {
     return {
       All: logs.length,
       Auth: logs.filter((l) => l.module === "auth").length,
-      Users: logs.filter((l) => ["users", "roles"].includes(l.module)).length,
-      Forms: logs.filter((l) =>
-        ["company", "gst", "trust", "smsf", "individual", "medicare"].includes(
-          l.module,
-        ),
+      Users: logs.filter((l) =>
+        ["users", "roles", "settings", "system"].includes(l.module),
       ).length,
-      Failures: logs.filter((l) => l.status === "FAILURE").length,
+      Forms: logs.filter((l) =>
+        [
+          "company",
+          "gst",
+          "trust",
+          "smsf",
+          "individual",
+          "medicare",
+          "forms",
+          "applications",
+          "lodgements",
+        ].includes(l.module),
+      ).length,
+      Failures: logs.filter(
+        (l) => l.status === "FAILURE" || l.status === "ERROR",
+      ).length,
     };
   }, [logs]);
 
   // --------------------------------------------------------------------------
-  // ACTION COLORING HELPER
+  // ACTION COLORING & PLAIN-ENGLISH HELPER
   // --------------------------------------------------------------------------
   const getActionTag = (action) => {
-    if (!action) return <Tag>UNKNOWN</Tag>;
+    if (!action) return <Tag className="rounded-lg">UNKNOWN</Tag>;
 
-    const act = action.toUpperCase();
-    if (act.includes("CREATE") || act.includes("INSERT")) {
+    const actKey = action.toUpperCase();
+    const info = ACTION_EXPLANATIONS[actKey];
+
+    if (info) {
       return (
-        <Tag
-          color="green"
-          className="font-mono text-xs font-semibold px-2 py-0.5 rounded-pill"
+        <Tooltip
+          title={
+            <div className="space-y-1 py-0.5">
+              <div className="font-semibold text-xs flex items-center gap-1.5">
+                {info.icon}
+                <span>{info.label}</span>
+              </div>
+              <div className="text-[11px] text-slate-200">
+                {info.plainSummary}
+              </div>
+              <div className="text-[10px] text-slate-400 font-mono pt-0.5 border-t border-slate-700">
+                System Code: {action}
+              </div>
+            </div>
+          }
         >
-          {action}
-        </Tag>
+          <Tag
+            color={info.color}
+            icon={info.icon}
+            className="text-xs font-semibold px-2.5 py-0.5 rounded-lg inline-flex items-center gap-1 shadow-2xs cursor-help"
+          >
+            {info.label}
+          </Tag>
+        </Tooltip>
       );
     }
-    if (
-      act.includes("UPDATE") ||
-      act.includes("EDIT") ||
-      act.includes("MODIFY")
-    ) {
-      return (
-        <Tag
-          color="gold"
-          className="font-mono text-xs font-semibold px-2 py-0.5 rounded-pill"
-        >
-          {action}
-        </Tag>
-      );
-    }
-    if (
-      act.includes("DELETE") ||
-      act.includes("REVOKE") ||
-      act.includes("SUSPEND") ||
-      act.includes("FAIL")
-    ) {
-      return (
-        <Tag
-          color="red"
-          className="font-mono text-xs font-semibold px-2 py-0.5 rounded-pill"
-        >
-          {action}
-        </Tag>
-      );
-    }
-    if (
-      act.includes("LOGIN") ||
-      act.includes("AUTH") ||
-      act.includes("SESSION")
-    ) {
-      return (
-        <Tag
-          color="blue"
-          className="font-mono text-xs font-semibold px-2 py-0.5 rounded-pill"
-        >
-          {action}
-        </Tag>
-      );
-    }
+
+    // Dynamic heuristic fallback for unmapped actions
+    let color = "purple";
+    let friendlyLabel = action.replace(/_/g, " ");
+    if (actKey.includes("CREATE") || actKey.includes("INSERT")) color = "green";
+    else if (actKey.includes("UPDATE") || actKey.includes("EDIT")) color = "gold";
+    else if (actKey.includes("DELETE") || actKey.includes("FAIL")) color = "red";
+    else if (actKey.includes("LOGIN") || actKey.includes("AUTH")) color = "blue";
+
     return (
-      <Tag
-        color="purple"
-        className="font-mono text-xs font-semibold px-2 py-0.5 rounded-pill"
-      >
-        {action}
-      </Tag>
+      <Tooltip title={`System Event: ${action}`}>
+        <Tag
+          color={color}
+          className="text-xs font-semibold px-2 py-0.5 rounded-lg cursor-help capitalize"
+        >
+          {friendlyLabel}
+        </Tag>
+      </Tooltip>
     );
   };
 
   // --------------------------------------------------------------------------
   // TABLE COLUMNS CONFIGURATION
   // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
+  // TABLE COLUMNS CONFIGURATION (PLAIN-ENGLISH PRACTICE LABELS)
+  // --------------------------------------------------------------------------
   const columns = useMemo(() => {
     return [
       {
-        title: "Timestamp",
+        title: "Date & Time",
         dataIndex: "createdAt",
         key: "createdAt",
         width: 175,
@@ -287,7 +460,7 @@ export default function AuditLogsPage() {
         },
       },
       {
-        title: "Actor",
+        title: "Performed By (Staff)",
         dataIndex: "actor",
         key: "actor",
         width: 220,
@@ -324,19 +497,19 @@ export default function AuditLogsPage() {
               >
                 SYS
               </Avatar>
-              <span className="text-xs italic">System / Anonymous</span>
+              <span className="text-xs italic">System Automation</span>
             </div>
           ),
       },
       {
-        title: "Action Event",
+        title: "Activity Type",
         dataIndex: "action",
         key: "action",
-        width: 160,
+        width: 190,
         render: (action) => getActionTag(action),
       },
       {
-        title: "Module",
+        title: "Practice Area",
         dataIndex: "module",
         key: "module",
         width: 140,
@@ -347,28 +520,41 @@ export default function AuditLogsPage() {
         ),
       },
       {
-        title: "Description",
+        title: "Activity Summary & Meaning",
         dataIndex: "description",
         key: "description",
-        render: (desc, record) => (
-          <div className="min-w-0">
-            <span className="text-xs text-slate-700 dark:text-zinc-300 font-medium block">
-              {desc || "No description provided"}
-            </span>
-            {record.resourceType && (
-              <span className="text-[10px] text-slate-400 font-mono block mt-0.5">
-                Target: {record.resourceType}{" "}
-                {record.resourceId ? `(#${record.resourceId})` : ""}
+        render: (desc, record) => {
+          const info = ACTION_EXPLANATIONS[record.action?.toUpperCase()];
+          return (
+            <div className="min-w-0 space-y-1">
+              <span className="text-xs text-slate-800 dark:text-zinc-200 font-medium block">
+                {desc || "No description provided"}
               </span>
-            )}
-          </div>
-        ),
+              {/* Plain-English explanation for non-technical users */}
+              {info && (
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400 flex items-start gap-1.5 bg-slate-50 dark:bg-zinc-800/40 p-1.5 rounded-md border border-slate-200/50 dark:border-zinc-800">
+                  <InfoCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0 mt-0.5" />
+                  <span className="leading-tight">
+                    <strong className="text-slate-700 dark:text-zinc-300">Plain Meaning: </strong>
+                    {info.plainSummary}
+                  </span>
+                </div>
+              )}
+              {record.resourceType && (
+                <span className="text-[10px] text-slate-400 font-mono block">
+                  Affected Record: {record.resourceType}{" "}
+                  {record.resourceId ? `(#${record.resourceId})` : ""}
+                </span>
+              )}
+            </div>
+          );
+        },
       },
       {
-        title: "IP Address",
+        title: "Network Location (IP)",
         dataIndex: "ipAddress",
         key: "ipAddress",
-        width: 130,
+        width: 140,
         render: (ip) => (
           <span className="text-xs text-slate-500 dark:text-zinc-400 font-mono flex items-center gap-1.5">
             <GlobalOutlined className="text-slate-400 text-[11px]" />
@@ -377,43 +563,43 @@ export default function AuditLogsPage() {
         ),
       },
       {
-        title: "Status",
+        title: "Result",
         dataIndex: "status",
         key: "status",
-        width: 110,
+        width: 130,
         align: "center",
         render: (status) =>
           status === "SUCCESS" ? (
             <Tag
               color="success"
               icon={<CheckCircleOutlined />}
-              className="text-[11px] font-semibold px-2 py-0.5 rounded-pill"
+              className="text-[11px] font-semibold px-2 py-0.5 rounded-lg"
             >
-              SUCCESS
+              SUCCESSFUL
             </Tag>
           ) : (
             <Tag
               color="error"
               icon={<CloseCircleOutlined />}
-              className="text-[11px] font-semibold px-2 py-0.5 rounded-pill"
+              className="text-[11px] font-semibold px-2 py-0.5 rounded-lg"
             >
-              FAILURE
+              FAILED / WARNING
             </Tag>
           ),
       },
       {
-        title: "Inspect",
+        title: "View Details",
         key: "inspect",
-        width: 110,
+        width: 115,
         align: "right",
         render: (_, record) => (
           <Button
             size="small"
             icon={<EyeOutlined />}
             onClick={() => handleOpenDetail(record.id)}
-            className="text-xs rounded-lg hover:border-emerald-500 hover:text-emerald-600"
+            className="text-xs rounded-lg hover:border-emerald-500 hover:text-emerald-600 font-medium"
           >
-            Inspect
+            View Details
           </Button>
         ),
       },
@@ -425,29 +611,41 @@ export default function AuditLogsPage() {
   // --------------------------------------------------------------------------
   const customFilterCols = useMemo(() => {
     return [
-      { label: "Description", value: "description" },
-      { label: "Action", value: "action" },
-      { label: "Module", value: "module" },
-      { label: "IP Address", value: "ipAddress" },
+      { label: "Activity Summary", value: "description" },
+      { label: "Activity Type", value: "action" },
+      { label: "Practice Area", value: "module" },
+      { label: "Network Location (IP)", value: "ipAddress" },
     ];
   }, []);
 
   const exportColumns = useMemo(() => {
     return [
-      { header: "ID", key: "id" },
-      { header: "Timestamp", key: "createdAt" },
-      { header: "Action", key: "action" },
-      { header: "Module", key: "module" },
-      { header: "Status", key: "status" },
-      { header: "Description", key: "description" },
-      { header: "IP Address", key: "ipAddress" },
-      { header: "Resource Type", key: "resourceType" },
-      { header: "Resource ID", key: "resourceId" },
+      { header: "Log ID", key: "id" },
+      {
+        header: "Date & Time",
+        key: (r) => new Date(r.createdAt).toLocaleString("en-AU"),
+      },
+      {
+        header: "Performed By (Staff)",
+        key: (r) =>
+          r.actor
+            ? `${r.actor.firstName || ""} ${r.actor.lastName || ""} (${
+                r.actor.email || ""
+              })`.trim()
+            : "System Automation",
+      },
+      { header: "Activity Type", key: "action" },
+      { header: "Practice Area", key: "module" },
+      { header: "Result", key: "status" },
+      { header: "Activity Summary", key: "description" },
+      { header: "Network Location (IP)", key: "ipAddress" },
+      { header: "Affected Record Type", key: "resourceType" },
+      { header: "Affected Record ID", key: "resourceId" },
     ];
   }, []);
 
   // --------------------------------------------------------------------------
-  // TAB ITEMS CONFIGURATION
+  // TAB ITEMS CONFIGURATION (PLAIN-ENGLISH PRACTICE SECTIONS)
   // --------------------------------------------------------------------------
   const tabItems = [
     {
@@ -455,7 +653,7 @@ export default function AuditLogsPage() {
       label: (
         <span className="flex items-center gap-1.5 font-medium">
           <AppstoreOutlined />
-          <span>All Events</span>
+          <span>All Activity</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
             {tabCounts.All}
           </span>
@@ -467,7 +665,7 @@ export default function AuditLogsPage() {
       label: (
         <span className="flex items-center gap-1.5 font-medium">
           <LockOutlined className="text-blue-500" />
-          <span>Auth & Sessions</span>
+          <span>Staff Logins & Sign-Ins</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill font-mono bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400 font-semibold">
             {tabCounts.Auth}
           </span>
@@ -479,7 +677,7 @@ export default function AuditLogsPage() {
       label: (
         <span className="flex items-center gap-1.5 font-medium">
           <UserOutlined className="text-purple-500" />
-          <span>User Admin</span>
+          <span>Team Accounts & Settings</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill font-mono bg-purple-50 text-purple-700 dark:bg-purple-950/60 dark:text-purple-400 font-semibold">
             {tabCounts.Users}
           </span>
@@ -491,21 +689,9 @@ export default function AuditLogsPage() {
       label: (
         <span className="flex items-center gap-1.5 font-medium">
           <FileTextOutlined className="text-emerald-500" />
-          <span>Form Applications</span>
+          <span>Client Forms & Lodgements</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill font-mono bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 font-semibold">
             {tabCounts.Forms}
-          </span>
-        </span>
-      ),
-    },
-    {
-      key: "Failures",
-      label: (
-        <span className="flex items-center gap-1.5 font-medium">
-          <CloseCircleOutlined className="text-rose-500" />
-          <span>Security Failures</span>
-          <span className="text-xs px-1.5 py-0.2 rounded-pill font-mono bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400 font-semibold">
-            {tabCounts.Failures}
           </span>
         </span>
       ),
@@ -520,8 +706,8 @@ export default function AuditLogsPage() {
       {/* 1. Standardized Admin Page Title & Quick Actions */}
       <PageTitle
         icon={<HistoryOutlined />}
-        title="Security & Audit Logs"
-        description="Immutable compliance audit trail tracking all authentication events, administrative operations, and critical data state mutations."
+        title="Practice Activity & Audit Logs"
+        description="Clear, tamper-proof activity trail tracking staff sign-ins, practice configuration updates, and client form lodgements."
         breadcrumbs={[
           {
             title: (
@@ -547,10 +733,9 @@ export default function AuditLogsPage() {
         extraActions={
           <Button
             icon={<ReloadOutlined />}
-            size="large"
             onClick={fetchLogs}
             loading={loading}
-            className="rounded-pill font-semibold border-slate-200 dark:border-zinc-700 hover:border-emerald-500 flex items-center gap-2 shadow-xs"
+            className="h-9 px-4 py-2 border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 text-xs font-semibold rounded-lg hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] shadow-xs transition-all flex items-center gap-1.5 active:scale-[0.98]"
           >
             Refresh Log Feed
           </Button>
@@ -559,17 +744,17 @@ export default function AuditLogsPage() {
 
       {/* 2. Top 4-Card Statistics Metric Strip */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Card 1: Total Captured Logs */}
+        {/* Card 1: Total Activity Records */}
         <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-5 shadow-xs flex items-center justify-between">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
-              Captured Events
+              Total Activity Records
             </div>
             <div className="text-2xl font-bold text-slate-900 dark:text-zinc-100 mt-1">
               {logs.length}
             </div>
             <div className="text-[11px] text-slate-500 mt-0.5">
-              Audit log records on file
+              All logged practice events on file
             </div>
           </div>
           <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
@@ -577,17 +762,17 @@ export default function AuditLogsPage() {
           </div>
         </div>
 
-        {/* Card 2: Auth & Sessions */}
+        {/* Card 2: Staff Sign-Ins */}
         <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-5 shadow-xs flex items-center justify-between">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
-              Auth & Sessions
+              Staff Sign-Ins
             </div>
             <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-1">
               {tabCounts.Auth}
             </div>
             <div className="text-[11px] text-slate-500 mt-0.5">
-              Login, logout & token events
+              Login, logout & active sessions
             </div>
           </div>
           <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
@@ -595,17 +780,17 @@ export default function AuditLogsPage() {
           </div>
         </div>
 
-        {/* Card 3: Form Applications */}
+        {/* Card 3: Client Forms & Lodgements */}
         <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-5 shadow-xs flex items-center justify-between">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
-              Form Lodgements
+              Client Forms & Lodgements
             </div>
             <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mt-1">
               {tabCounts.Forms}
             </div>
             <div className="text-[11px] text-slate-500 mt-0.5">
-              Client submissions & updates
+              Client submissions & filings
             </div>
           </div>
           <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
@@ -613,17 +798,42 @@ export default function AuditLogsPage() {
           </div>
         </div>
 
-        {/* Card 4: Security Failures */}
-        <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-5 shadow-xs flex items-center justify-between">
+        {/* Card 4: Security Warnings (Clickable to Filter) */}
+        <div
+          onClick={() =>
+            setFilters((prev) => ({
+              ...prev,
+              status: prev.status === "FAILURE" ? "" : "FAILURE",
+            }))
+          }
+          className={`border rounded-card p-5 shadow-xs flex items-center justify-between cursor-pointer transition-all ${
+            filters.status === "FAILURE"
+              ? "bg-rose-50 dark:bg-rose-950/40 border-rose-500 ring-2 ring-rose-500/20 shadow-md"
+              : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 hover:border-rose-400"
+          }`}
+          title="Click to toggle filtering by Security Warnings"
+        >
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
-              Security Failures
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
+                Security Warnings
+              </span>
+              {filters.status === "FAILURE" && (
+                <Tag
+                  color="error"
+                  className="text-[10px] py-0 px-1.5 font-semibold rounded-md m-0"
+                >
+                  Active Filter
+                </Tag>
+              )}
             </div>
             <div className="text-2xl font-bold text-rose-600 dark:text-rose-400 mt-1">
               {tabCounts.Failures}
             </div>
             <div className="text-[11px] text-slate-500 mt-0.5">
-              Access denials & errors
+              {filters.status === "FAILURE"
+                ? "Click to view all records"
+                : "Click to filter blocked logins"}
             </div>
           </div>
           <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl shrink-0">
@@ -635,13 +845,13 @@ export default function AuditLogsPage() {
       {/* 3. Multi-Criteria Query Filter Strip */}
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-4 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {/* Module Filter */}
+          {/* Practice Area Filter */}
           <div>
             <label className="text-xs font-semibold text-slate-600 dark:text-zinc-400 mb-1.5 block">
-              Filter By Module
+              Filter By Practice Area
             </label>
             <Select
-              placeholder="All Modules"
+              placeholder="All Practice Areas"
               value={filters.module || undefined}
               onChange={(val) =>
                 setFilters((prev) => ({ ...prev, module: val || "" }))
@@ -649,25 +859,26 @@ export default function AuditLogsPage() {
               allowClear
               className="w-full rounded-lg"
             >
-              <Option value="auth">Auth & Sessions</Option>
-              <Option value="users">User Management</Option>
-              <Option value="roles">Roles & Matrix</Option>
+              <Option value="auth">Staff Logins & Sign-Ins</Option>
+              <Option value="users">Team Accounts</Option>
+              <Option value="roles">Staff Roles & Permissions</Option>
+              <Option value="settings">Practice Settings</Option>
               <Option value="company">Company Registrations</Option>
               <Option value="gst">GST Registrations</Option>
               <Option value="trust">Trust Registrations</Option>
               <Option value="smsf">SMSF Registrations</Option>
-              <Option value="individual">Individual Engagements</Option>
+              <Option value="individual">Individual Tax Engagements</Option>
               <Option value="medicare">Medicare Applications</Option>
             </Select>
           </div>
 
-          {/* Status Filter */}
+          {/* Activity Result Filter */}
           <div>
             <label className="text-xs font-semibold text-slate-600 dark:text-zinc-400 mb-1.5 block">
-              Execution Status
+              Activity Result
             </label>
             <Select
-              placeholder="All Statuses"
+              placeholder="All Results"
               value={filters.status || undefined}
               onChange={(val) =>
                 setFilters((prev) => ({ ...prev, status: val || "" }))
@@ -675,8 +886,8 @@ export default function AuditLogsPage() {
               allowClear
               className="w-full rounded-lg"
             >
-              <Option value="SUCCESS">Success Only</Option>
-              <Option value="FAILURE">Failures Only</Option>
+              <Option value="SUCCESS">Successful Only</Option>
+              <Option value="FAILURE">Warnings & Failures Only</Option>
             </Select>
           </div>
 
@@ -709,6 +920,34 @@ export default function AuditLogsPage() {
           type="card"
           className="user-status-tabs"
         />
+
+        {/* Dynamic Category Plain-English Explanation Banner (For Non-Technical Users) */}
+        {TAB_EXPLANATIONS[activeTabKey] && (
+          <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-zinc-800 bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+            <div className="flex items-start sm:items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+                {TAB_EXPLANATIONS[activeTabKey].icon}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h4 className="text-xs font-bold text-slate-800 dark:text-zinc-100 m-0">
+                    {TAB_EXPLANATIONS[activeTabKey].title}
+                  </h4>
+                  <Tag className="text-[10px] font-semibold border-none bg-emerald-100/70 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 rounded-md">
+                    {TAB_EXPLANATIONS[activeTabKey].badge}
+                  </Tag>
+                </div>
+                <p className="text-[12px] text-slate-500 dark:text-zinc-400 m-0 mt-0.5 leading-normal">
+                  <strong className="text-slate-700 dark:text-zinc-300 font-semibold">What is this? </strong>
+                  {TAB_EXPLANATIONS[activeTabKey].subtitle}
+                </p>
+              </div>
+            </div>
+            <div className="text-[11px] text-slate-400 font-medium whitespace-nowrap shrink-0 self-end sm:self-center bg-white dark:bg-zinc-800 px-2.5 py-1 rounded-md border border-slate-200/60 dark:border-zinc-700/60">
+              Showing {filteredLogs.length} events
+            </div>
+          </div>
+        )}
 
         {/* Data Table */}
         <DataTable
@@ -810,37 +1049,58 @@ export default function AuditLogsPage() {
           </div>
         ) : (
           <div className="space-y-5 pt-3 max-h-[66vh] overflow-y-auto pr-1">
-            {/* 1. Structured Event Descriptions */}
+            {/* Non-Technical Plain English Summary Card */}
+            <div className="bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-800/80 rounded-xl p-4 space-y-1.5 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                <InfoCircleOutlined className="text-emerald-600 text-sm" />
+                <span>Plain-English Event Explanation (For Non-Technical Staff)</span>
+              </div>
+              <p className="text-xs text-slate-700 dark:text-zinc-200 leading-relaxed m-0 font-normal">
+                {ACTION_EXPLANATIONS[selectedLog.action?.toUpperCase()]?.plainSummary || "A recorded practice activity took place in the portal."}
+                {" "}
+                {selectedLog.status === "SUCCESS"
+                  ? `The operation completed safely with full authorization.`
+                  : `Notice: This operation failed or was blocked by security policies.`}
+              </p>
+              {selectedLog.description && (
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400 pt-1.5 border-t border-emerald-200/50 dark:border-emerald-900/50 flex items-center gap-1.5">
+                  <span className="font-semibold text-slate-600 dark:text-zinc-300">Recorded Detail:</span>
+                  <span>{selectedLog.description}</span>
+                </div>
+              )}
+            </div>
+
+            {/* 1. Structured Event Descriptions (With Responsive Spans to Avoid AntD Warnings) */}
             <Descriptions bordered size="small" column={{ xs: 1, sm: 2 }}>
-              <Descriptions.Item label="Action Event">
+              <Descriptions.Item label="Activity Type">
                 {getActionTag(selectedLog.action)}
               </Descriptions.Item>
 
-              <Descriptions.Item label="Module">
+              <Descriptions.Item label="Practice Area">
                 <span className="font-semibold text-xs uppercase tracking-wider">
                   {selectedLog.module}
                 </span>
               </Descriptions.Item>
 
-              <Descriptions.Item label="Execution Status">
+              <Descriptions.Item label="Activity Result">
                 {selectedLog.status === "SUCCESS" ? (
                   <Tag color="success" icon={<CheckCircleOutlined />}>
-                    SUCCESS
+                    SUCCESSFUL
                   </Tag>
                 ) : (
                   <Tag color="error" icon={<CloseCircleOutlined />}>
-                    FAILURE
+                    FAILED / WARNING
                   </Tag>
                 )}
               </Descriptions.Item>
 
-              <Descriptions.Item label="Event Timestamp">
+              <Descriptions.Item label="Date & Time">
                 <span className="font-mono text-xs text-slate-700 dark:text-zinc-300">
                   {new Date(selectedLog.createdAt).toLocaleString("en-AU")}
                 </span>
               </Descriptions.Item>
 
-              <Descriptions.Item label="Actor User" span={2}>
+              <Descriptions.Item label="Performed By (Staff)" span={{ xs: 1, sm: 2 }}>
                 {selectedLog.actor ? (
                   <div className="flex items-center gap-2">
                     <Avatar
@@ -863,13 +1123,13 @@ export default function AuditLogsPage() {
                   </div>
                 ) : (
                   <span className="italic text-slate-400">
-                    System / Background Task
+                    System Automation / Background Task
                   </span>
                 )}
               </Descriptions.Item>
 
               {selectedLog.target && (
-                <Descriptions.Item label="Target User" span={2}>
+                <Descriptions.Item label="Affected Staff Member" span={{ xs: 1, sm: 2 }}>
                   <div className="flex items-center gap-2">
                     <Avatar
                       size={20}
@@ -888,7 +1148,7 @@ export default function AuditLogsPage() {
                 </Descriptions.Item>
               )}
 
-              <Descriptions.Item label="Target Resource">
+              <Descriptions.Item label="Affected Record">
                 <span className="font-medium text-slate-800 dark:text-zinc-200">
                   {selectedLog.resourceType || "N/A"}
                 </span>
@@ -899,27 +1159,27 @@ export default function AuditLogsPage() {
                 )}
               </Descriptions.Item>
 
-              <Descriptions.Item label="Client IP">
+              <Descriptions.Item label="Network Location (IP)">
                 <span className="font-mono text-xs text-slate-700 dark:text-zinc-300">
                   {selectedLog.ipAddress || "—"}
                 </span>
               </Descriptions.Item>
 
-              <Descriptions.Item label="Description" span={2}>
+              <Descriptions.Item label="Activity Description" span={{ xs: 1, sm: 2 }}>
                 <span className="text-slate-700 dark:text-zinc-300 font-medium">
                   {selectedLog.description}
                 </span>
               </Descriptions.Item>
 
               {selectedLog.errorMessage && (
-                <Descriptions.Item label="Error Message" span={2}>
+                <Descriptions.Item label="Warning / Error Note" span={{ xs: 1, sm: 2 }}>
                   <span className="text-rose-600 dark:text-rose-400 font-mono text-xs">
                     {selectedLog.errorMessage}
                   </span>
                 </Descriptions.Item>
               )}
 
-              <Descriptions.Item label="User Agent" span={2}>
+              <Descriptions.Item label="Browser & Device Info" span={{ xs: 1, sm: 2 }}>
                 <span className="text-[10px] text-slate-500 font-mono break-all leading-tight">
                   {selectedLog.userAgent || "—"}
                 </span>
@@ -932,7 +1192,7 @@ export default function AuditLogsPage() {
                 <div className="flex items-center gap-2">
                   <DatabaseOutlined className="text-emerald-600" />
                   <span className="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-                    State Mutation Snapshot
+                    Record Changes (Before & After)
                   </span>
                 </div>
                 {/* Mobile segmented toggle */}
@@ -964,10 +1224,10 @@ export default function AuditLogsPage() {
                     <div className="flex items-center justify-between pb-2 border-b border-rose-200/60 dark:border-rose-900/40 mb-2">
                       <span className="font-bold text-xs text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-                        State Prior to Mutation (Before)
+                        Original Values (Before Change)
                       </span>
                       {selectedLog.beforeData && (
-                        <Tooltip title="Copy Before JSON">
+                        <Tooltip title="Copy Original JSON">
                           <Button
                             size="small"
                             type="text"
@@ -975,7 +1235,7 @@ export default function AuditLogsPage() {
                             onClick={() =>
                               handleCopyPayload(
                                 selectedLog.beforeData,
-                                "Before State",
+                                "Original Values",
                               )
                             }
                             className="text-rose-600 hover:text-rose-700"
@@ -989,7 +1249,7 @@ export default function AuditLogsPage() {
                       </pre>
                     ) : (
                       <div className="text-center py-6 text-slate-400 text-xs italic">
-                        No previous state (New creation event)
+                        No previous values (New record created)
                       </div>
                     )}
                   </div>
@@ -999,10 +1259,10 @@ export default function AuditLogsPage() {
                     <div className="flex items-center justify-between pb-2 border-b border-emerald-200/60 dark:border-emerald-900/40 mb-2">
                       <span className="font-bold text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                        State After Mutation (After)
+                        Updated Values (After Change)
                       </span>
                       {selectedLog.afterData && (
-                        <Tooltip title="Copy After JSON">
+                        <Tooltip title="Copy Updated JSON">
                           <Button
                             size="small"
                             type="text"
@@ -1010,7 +1270,7 @@ export default function AuditLogsPage() {
                             onClick={() =>
                               handleCopyPayload(
                                 selectedLog.afterData,
-                                "After State",
+                                "Updated Values",
                               )
                             }
                             className="text-emerald-600 hover:text-emerald-700"
@@ -1024,15 +1284,14 @@ export default function AuditLogsPage() {
                       </pre>
                     ) : (
                       <div className="text-center py-6 text-slate-400 text-xs italic">
-                        No subsequent state (Permanent deletion event)
+                        No subsequent values (Record was removed)
                       </div>
                     )}
                   </div>
                 </div>
               ) : (
                 <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/40 border border-slate-200 dark:border-zinc-800 text-slate-400 dark:text-zinc-500 text-xs text-center">
-                  No state mutation diff was captured for this read/session
-                  event.
+                  No database record fields were altered during this sign-in or view event.
                 </div>
               )}
             </div>
