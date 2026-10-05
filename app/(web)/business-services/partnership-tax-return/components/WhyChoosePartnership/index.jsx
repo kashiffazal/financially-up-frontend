@@ -43,7 +43,7 @@ export default function WhyChoosePartnership() {
 
   return (
     <section className="bg-brand-primary-soft/30 dark:bg-zinc-900/30 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-b border-slate-100 dark:border-zinc-800 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
           <Tag color="green" className="brand-section-tag">
             Why Choose Us

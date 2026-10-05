@@ -34,7 +34,7 @@ export default function IndividualServicesWhyUs() {
 
   return (
     <section className="bg-brand-bg-lighter dark:bg-zinc-900/40 pt-12 pb-12 md:pt-20 md:pb-20 border-t border-slate-100 dark:border-zinc-800 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           <Tag color="green" className="brand-section-tag">

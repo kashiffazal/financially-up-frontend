@@ -8,8 +8,11 @@ import {
   MailOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import { useCompany } from "@/context/SettingsContext";
 
 export default function BookAppointmentPage() {
+  const company = useCompany();
+
   return (
     <div className="pt-12 pb-12 md:pt-20 md:pb-20 bg-slate-50 dark:bg-zinc-950 min-h-[70vh] transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center space-y-8">
@@ -43,21 +46,25 @@ export default function BookAppointmentPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <a
-              href="tel:1300328316"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-[#006635] text-white px-7 py-3.5 rounded-lg font-bold text-sm shadow-md transition-all"
-            >
-              <PhoneOutlined />
-              <span>Call 1300 328 316</span>
-            </a>
+            {company.phone && (
+              <a
+                href={`tel:${company.phone.replace(/\s/g, "")}`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-[#006635] text-white px-7 py-3.5 rounded-lg font-bold text-sm shadow-md transition-all"
+              >
+                <PhoneOutlined />
+                <span>Call {company.phone}</span>
+              </a>
+            )}
 
-            <a
-              href="mailto:info@financiallyup.com.au"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 text-slate-800 dark:text-zinc-200 px-7 py-3.5 rounded-lg font-bold text-sm transition-all"
-            >
-              <MailOutlined />
-              <span>Email Us Directly</span>
-            </a>
+            {company.email && (
+              <a
+                href={`mailto:${company.email}`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 text-slate-800 dark:text-zinc-200 px-7 py-3.5 rounded-lg font-bold text-sm transition-all"
+              >
+                <MailOutlined />
+                <span>Email Us Directly</span>
+              </a>
+            )}
           </div>
         </div>
 

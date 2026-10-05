@@ -173,7 +173,7 @@ export default function MedicareFormsHubPage() {
 
       {/* 2. Main 3-Column Grid */}
       <section className="py-16 sm:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Card 01: Medicare Exemption */}
             <MedicareCard form={MEDICARE_FORMS[0]} />

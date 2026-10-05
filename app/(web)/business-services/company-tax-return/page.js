@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import CompanyOverview from "./components/CompanyOverview";
 import WhyChooseCompany from "./components/WhyChooseCompany";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function CompanyTaxReturnPage() {
   const breadcrumbs = [

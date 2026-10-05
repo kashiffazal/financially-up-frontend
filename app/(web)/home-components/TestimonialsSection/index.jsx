@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="bg-gradient-to-b from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3">
             <Tag color="green" className="brand-section-tag">

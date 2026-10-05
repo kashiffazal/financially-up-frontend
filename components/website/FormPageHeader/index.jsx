@@ -42,7 +42,7 @@ export default function FormPageHeader({
     <header
       className={`${styles.headerBanner} text-white py-7 sm:py-9 shadow-md border-b border-emerald-800/40`}
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-3">
         {/* Dynamic Breadcrumbs Navigation */}
         {breadcrumbs.length > 0 && (
           <nav

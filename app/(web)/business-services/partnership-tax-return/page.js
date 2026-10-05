@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import PartnershipOverview from "./components/PartnershipOverview";
 import WhyChoosePartnership from "./components/WhyChoosePartnership";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function PartnershipTaxReturnPage() {
   const breadcrumbs = [

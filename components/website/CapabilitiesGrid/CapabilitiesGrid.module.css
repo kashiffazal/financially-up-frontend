@@ -1,0 +1,81 @@
+/* =========================================================================
+   Mutual CapabilitiesGrid Component Styles
+   Distinct Colorful Themed Boxes & Signature Smooth Hover Physics
+   ========================================================================= */
+
+.capabilityCard,
+.importantBanner {
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    background 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.capabilityCard:hover {
+  transform: translateY(-6px);
+}
+
+/* ── Themed Card Glow & Border Transitions ── */
+.themeEmerald:hover {
+  border-color: rgba(16, 185, 129, 0.7) !important;
+  box-shadow: 0 20px 35px -8px rgba(16, 185, 129, 0.22);
+}
+
+.themeTeal:hover {
+  border-color: rgba(20, 184, 166, 0.7) !important;
+  box-shadow: 0 20px 35px -8px rgba(20, 184, 166, 0.22);
+}
+
+.themeBlue:hover {
+  border-color: rgba(59, 130, 246, 0.7) !important;
+  box-shadow: 0 20px 35px -8px rgba(59, 130, 246, 0.22);
+}
+
+.themeAmber:hover {
+  border-color: rgba(245, 158, 11, 0.7) !important;
+  box-shadow: 0 20px 35px -8px rgba(245, 158, 11, 0.22);
+}
+
+.themePurple:hover {
+  border-color: rgba(139, 92, 246, 0.7) !important;
+  box-shadow: 0 20px 35px -8px rgba(139, 92, 246, 0.22);
+}
+
+/* ── Full-Width Important Banner Hover ── */
+.importantBanner:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-border-hover, #52c480);
+  box-shadow: 0 16px 32px -6px rgba(0, 128, 67, 0.18);
+}
+
+:global(.dark) .themeEmerald:hover {
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 20px 35px -8px rgba(16, 185, 129, 0.28);
+}
+
+:global(.dark) .themeTeal:hover {
+  border-color: rgba(20, 184, 166, 0.5) !important;
+  box-shadow: 0 20px 35px -8px rgba(20, 184, 166, 0.28);
+}
+
+:global(.dark) .themeBlue:hover {
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 20px 35px -8px rgba(59, 130, 246, 0.28);
+}
+
+:global(.dark) .themeAmber:hover {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 20px 35px -8px rgba(245, 158, 11, 0.28);
+}
+
+:global(.dark) .themePurple:hover {
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  box-shadow: 0 20px 35px -8px rgba(139, 92, 246, 0.28);
+}
+
+:global(.dark) .importantBanner:hover {
+  border-color: var(--brand-border-hover, #52c480);
+  box-shadow: 0 16px 32px -6px rgba(16, 185, 129, 0.20);
+}

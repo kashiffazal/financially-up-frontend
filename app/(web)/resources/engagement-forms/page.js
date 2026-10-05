@@ -12,6 +12,7 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import PageHero from "@/components/website/PageHero";
+import { useCompany } from "@/context/SettingsContext";
 
 /**
  * 2 Engagement Forms Data Definition
@@ -170,7 +171,7 @@ export default function EngagementFormsHubPage() {
 
       {/* 2. Main 3-Column Grid in Single Row */}
       <section className="py-16 sm:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Col 1: Card 01 Individual Engagement */}
             <EngagementCard form={ENGAGEMENT_FORMS[0]} />

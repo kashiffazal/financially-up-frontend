@@ -4,7 +4,7 @@ import React from "react";
 import PageHero from "@/components/website/PageHero";
 import IndividualServicesList from "./components/IndividualServicesList";
 import IndividualServicesWhyUs from "./components/IndividualServicesWhyUs";
-import CallToActionBanner from "../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function IndividualServicesPage() {
   const breadcrumbs = [

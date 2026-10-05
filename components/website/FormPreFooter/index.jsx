@@ -22,7 +22,7 @@ export default function FormPreFooter() {
   const company = useCompany();
   return (
     <section className="bg-slate-100/80 dark:bg-zinc-900/80 border-t border-slate-200/80 dark:border-zinc-800 py-6 sm:py-8 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
         {/* Top Header Row with Primary Color Text Link & Icon */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/60 dark:border-zinc-800/80 pb-4">
           <div className="flex items-center gap-3">

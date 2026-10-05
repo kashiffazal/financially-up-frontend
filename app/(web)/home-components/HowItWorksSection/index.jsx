@@ -29,7 +29,7 @@ export default function HowItWorksSection() {
 
   return (
     <section className="bg-white dark:bg-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight mb-2">

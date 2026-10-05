@@ -6,7 +6,7 @@ import BookkeepingOverview from "./components/BookkeepingOverview";
 import WhyChooseBookkeeping from "./components/WhyChooseBookkeeping";
 import BookkeepingPricing from "./components/BookkeepingPricing";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function BookkeepingPage() {
   const breadcrumbs = [

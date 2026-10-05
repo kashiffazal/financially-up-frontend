@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import BasGstOverview from "./components/BasGstOverview";
 import WhyChooseBasGst from "./components/WhyChooseBasGst";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function BasGstLodgementPage() {
   const breadcrumbs = [

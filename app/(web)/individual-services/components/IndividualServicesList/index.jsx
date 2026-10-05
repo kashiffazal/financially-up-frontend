@@ -72,7 +72,7 @@ export default function IndividualServicesList() {
       <div className={styles.glowOrb1} />
       <div className={styles.glowOrb2} />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16 lg:space-y-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16 lg:space-y-20">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <Tag color="green" className="brand-section-tag">

@@ -1,0 +1,24 @@
+/* =========================================================================
+   Mutual FeatureHighlightsSection Component Styles
+   Signature smooth hover physics, elevated shadow & border transitions
+   ========================================================================= */
+
+.highlightCard {
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    background 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.highlightCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--brand-border-hover, #008043);
+  box-shadow: 0 20px 35px -8px rgba(0, 128, 67, 0.22);
+}
+
+:global(.dark) .highlightCard:hover {
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 20px 35px -8px rgba(16, 185, 129, 0.22);
+}

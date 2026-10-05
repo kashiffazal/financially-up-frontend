@@ -72,7 +72,7 @@ export default function HeroSection() {
     <section className="relative overflow-hidden bg-gradient-to-b from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 transition-colors duration-300">
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-200/50 dark:bg-emerald-950/30 blur-3xl rounded-full pointer-events-none -z-10" />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/90 dark:bg-emerald-950/90 border border-emerald-200/80 dark:border-emerald-800/80 text-brand-primary dark:text-emerald-400 text-xs font-bold uppercase tracking-wider shadow-sm">

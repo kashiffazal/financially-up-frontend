@@ -12,7 +12,7 @@ import styles from "./GoogleReviewsSection.module.css";
 export default function GoogleReviewsSection() {
   return (
     <section className="bg-white dark:bg-zinc-950 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div
           className={`bg-gradient-to-r from-emerald-50/60 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-900/60 rounded-lg border border-emerald-100 dark:border-zinc-800 p-8 sm:p-9 shadow-sm ${styles.reviewsContainer}`}
         >

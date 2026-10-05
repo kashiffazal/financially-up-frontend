@@ -3,7 +3,7 @@
 import React from "react";
 import PageHero from "@/components/website/PageHero";
 import BusinessServicesList from "./components/BusinessServicesList";
-import CallToActionBanner from "../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function BusinessServicesIndexPage() {
   const breadcrumbs = [

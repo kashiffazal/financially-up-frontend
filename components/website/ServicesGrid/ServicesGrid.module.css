@@ -1,0 +1,40 @@
+/* =========================================================================
+   Mutual ServicesGrid Component Styles
+   Signature smooth hover physics, elevated shadow & border transitions
+   ========================================================================= */
+
+.servicesCard,
+.ctaCard {
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    background 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.servicesCard:hover,
+.ctaCard:hover {
+  transform: translateY(-8px);
+}
+
+.servicesCard:hover {
+  border-color: var(--brand-border-hover, #008043);
+  box-shadow: 0 20px 35px -8px rgba(0, 128, 67, 0.22);
+}
+
+.ctaCard:hover {
+  border-color: var(--brand-border-hover, #52c480);
+  box-shadow: 0 22px 38px -8px rgba(0, 128, 67, 0.35);
+}
+
+:global(.dark) .servicesCard:hover {
+  border-color: var(--brand-border-hover, #52c480);
+  box-shadow: 0 20px 35px -8px rgba(0, 128, 67, 0.25);
+}
+
+:global(.dark) .ctaCard:hover {
+  border-color: var(--brand-border-hover, #52c480);
+  box-shadow: 0 22px 38px -8px rgba(0, 128, 67, 0.35);
+}
+

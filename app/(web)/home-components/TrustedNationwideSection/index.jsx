@@ -24,7 +24,7 @@ export default function TrustedNationwideSection() {
 
   return (
     <section className="bg-gradient-to-b from-white to-brand-bg-lighter dark:from-zinc-950 dark:to-zinc-900 pt-12 md:pt-20 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[450px]">

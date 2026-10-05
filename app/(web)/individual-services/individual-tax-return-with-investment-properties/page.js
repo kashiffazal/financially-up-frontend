@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import PropertyTaxOverview from "./components/PropertyTaxOverview";
 import WhyChoosePropertyTax from "./components/WhyChoosePropertyTax";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function IndividualTaxReturnWithInvestmentPropertiesPage() {
   const breadcrumbs = [

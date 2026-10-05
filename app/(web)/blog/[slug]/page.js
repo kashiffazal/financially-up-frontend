@@ -63,7 +63,7 @@ export default function SingleBlogPostPage({ params }) {
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -left-32 w-80 h-80 rounded-full bg-[#ccff00]/10 blur-3xl pointer-events-none" />
 
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
           {/* Frosted Glass Pill Breadcrumbs */}
           <nav className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-semibold text-white/90 shadow-sm">
             <Link href="/" className="hover:text-emerald-200 transition-colors">
@@ -116,7 +116,7 @@ export default function SingleBlogPostPage({ params }) {
       </section>
 
       {/* ── 2. FLOATING 16:9 FEATURED IMAGE (Max-Width 1200px with Negative Margin Overlap) ── */}
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 -mt-20 sm:-mt-28 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 sm:-mt-28 relative z-20">
         <div className="relative w-full h-64 sm:h-80 md:h-[460px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 bg-zinc-900">
           <Image
             src={post.image}
@@ -134,7 +134,7 @@ export default function SingleBlogPostPage({ params }) {
       </div>
 
       {/* ── 3. MAIN READING AREA (Max-Width 1200px: 8 Cols Content + 4 Cols Sidebar) ── */}
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* ── LEFT ARTICLE CONTENT (8 Columns) ── */}
           <main className="lg:col-span-8 space-y-8">

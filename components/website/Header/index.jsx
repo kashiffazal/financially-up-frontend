@@ -404,7 +404,7 @@ export default function WebsiteHeader() {
       <div
         className={`hidden sm:block ${styles.topbarGradientAnimated} text-white py-2.5 px-4 sm:px-8 text-xs font-medium border-b border-emerald-800/40 shadow-sm`}
       >
-        <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping inline-block" />
             <span className="tracking-wide">
@@ -432,7 +432,7 @@ export default function WebsiteHeader() {
 
       {/* Main Navbar */}
       <div className="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-slate-100 dark:border-zinc-800 px-4 sm:px-8 py-3.5">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <Image

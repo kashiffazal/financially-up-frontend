@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import SoleTraderOverview from "./components/SoleTraderOverview";
 import WhyChooseSoleTrader from "./components/WhyChooseSoleTrader";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function SoleTraderTaxReturnPage() {
   const breadcrumbs = [

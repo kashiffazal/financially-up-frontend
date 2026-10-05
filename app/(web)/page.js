@@ -10,7 +10,7 @@ import FeatureHighlightsSection from "./home-components/FeatureHighlightsSection
 import SeamlessTaxExperienceSection from "./home-components/SeamlessTaxExperienceSection";
 import TestimonialsSection from "./home-components/TestimonialsSection";
 import GoogleReviewsSection from "./home-components/GoogleReviewsSection";
-import CallToActionBanner from "./home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function Home() {
   return (

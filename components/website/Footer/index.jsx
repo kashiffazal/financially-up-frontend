@@ -53,7 +53,7 @@ export default function WebsiteFooter() {
   return (
     <footer className="bg-gradient-to-b from-brand-bg-lighter-m2 via-brand-bg-lighter-m3 to-brand-bg-lighter-m dark:from-[#0a1a12] dark:via-[#07140e] dark:to-[#050d09] text-slate-700 dark:text-slate-300 border-t border-emerald-200/80 dark:border-emerald-900/40 transition-colors duration-300 pt-14 pb-6">
       {/* ========== Main 3-Column Footer Section ========== */}
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* ── COLUMN 1: Logo, Description & Certifications (Span 5) ── */}
           <div className="md:col-span-5 flex flex-col justify-between space-y-6">
@@ -216,7 +216,7 @@ export default function WebsiteFooter() {
 
       {/* ========== Bottom Bar Separator ========== */}
       <div className="border-t border-emerald-300/60 dark:border-emerald-900/50">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-slate-600 dark:text-slate-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-slate-600 dark:text-slate-400">
           {/* Left: Copyright */}
           <p>
             © {new Date().getFullYear()} Financially Up. All rights reserved.

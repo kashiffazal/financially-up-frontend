@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import IndividualTaxReturnOverview from "./components/IndividualTaxReturnHero";
 import WhyChooseIndividualTax from "./components/WhyChooseIndividualTax";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function IndividualTaxReturnPage() {
   const breadcrumbs = [

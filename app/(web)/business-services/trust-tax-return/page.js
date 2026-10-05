@@ -5,7 +5,7 @@ import PageHero from "@/components/website/PageHero";
 import TrustOverview from "./components/TrustOverview";
 import WhyChooseTrust from "./components/WhyChooseTrust";
 import FaqSection from "@/components/website/FaqSection";
-import CallToActionBanner from "../../home-components/CallToActionBanner";
+import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 export default function TrustTaxReturnPage() {
   const breadcrumbs = [

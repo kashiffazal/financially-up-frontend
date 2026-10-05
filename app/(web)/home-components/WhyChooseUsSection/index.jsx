@@ -52,7 +52,7 @@ export default function WhyChooseUsSection() {
 
   return (
     <section className="bg-gradient-to-b from-brand-bg-lighter to-white dark:from-zinc-900 dark:to-zinc-950 pt-12 pb-12 md:pt-20 md:pb-20 dark:border-zinc-800 transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Team Graphic with Certified Badge (Col 5) */}
           <div className="lg:col-span-5 relative flex justify-center">
