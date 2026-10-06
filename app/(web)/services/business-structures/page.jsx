@@ -247,7 +247,7 @@ export default function BusinessStructuresMainPage() {
           text: "ATO Registered Tax Agents • Australia-Wide",
         }}
         title="Business Structure Accountant"
-        titleHighlight="Australia-Wide Advisory"
+        titleHighlight="Australia"
         description={
           <p className="m-0">
             Choosing or setting up a business structure affects how your business is registered, how income is reported, who is responsible for obligations and what administration is required. Financially Up provides business structure services for owners who want practical accounting and tax support when starting a business, establishing an entity or coordinating the registrations that follow.
@@ -260,7 +260,7 @@ export default function BusinessStructuresMainPage() {
         }
         scopeNotice={
           <p className="m-0">
-            Need help deciding between a company, trust, partnership, or sole trader structure? Book an appointment to discuss your proposed operations, owners, registrations, and accounting scope.
+            Book an appointment to discuss what you are setting up, who will own and operate the business, the registrations you may need and the appropriate scope of accounting or tax support.
           </p>
         }
         primaryButton={{
@@ -321,11 +321,12 @@ export default function BusinessStructuresMainPage() {
       {/* 11. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
       <CallToActionBanner
         tag="Ready When You Are"
-        title="Get Practical Business Structure Support"
-        subtitle="Book an appointment to discuss what you are setting up, who will own and operate the business, the registrations you need, and the ongoing accounting or tax framework."
+        title="Book an Appointment"
+        subtitle="If you are starting a business, setting up a new entity or reviewing whether your current structure still fits your needs, book an appointment with Financially Up. We can discuss the structure, registrations and accounting or tax work that may be relevant before you proceed."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"
+        secondaryButtonHref="/contact"
       />
     </main>
   );

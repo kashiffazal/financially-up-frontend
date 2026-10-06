@@ -1,97 +1,74 @@
 "use client";
 
 import React from "react";
-import { Tag, Button } from "antd";
 import {
-  SolutionOutlined,
+  FileTextOutlined,
   CheckCircleOutlined,
   BookOutlined,
   BankOutlined,
-  HomeOutlined,
   DollarOutlined,
-  FileDoneOutlined,
+  HomeOutlined,
+  ScheduleOutlined,
+  FolderOpenOutlined,
   SyncOutlined,
-  ArrowRightOutlined,
+  InfoCircleOutlined,
 } from "@ant-design/icons";
-import Link from "next/link";
 
 /**
  * WhatInformationNeededTrusts Component
  * =====================================
- * Section 7: What Records Are Needed for Trust Accounting?
+ * Section 6: What records are needed for trust accounting?
  *
- * Detailed checklist of the 6 essential documentation categories required
- * to prepare compliant annual trust accounts and tax returns.
+ * Implements verbatim content from '8th Pillar Trust Services.docx' (Page 1: 1- Trust Services).
+ * Sets out the exact 8 essential document categories required to prepare compliant trust accounts,
+ * along with the vital legal note on trust deeds and legal adviser interpretation.
  *
  * Background: Lite Brand Gradient.
  */
 export default function WhatInformationNeededTrusts() {
-  const checklistCards = [
+  /**
+   * Exact 8 document items from client document
+   */
+  const documentChecklist = [
     {
-      icon: <BookOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Trust Deed & Deed Variations",
-      tag: "Constitutional Base",
-      items: [
-        "Complete stamped original trust deed with all schedules",
-        "All subsequent deed amendments, variations, and deeds of change of trustee",
-        "Schedule of primary, general, and default beneficiaries",
-        "Appointor, principal, and guardian provisions",
-      ],
+      title: "current trust deed and any amendments or variations",
+      icon: <BookOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      tag: "Deed Terms",
     },
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Bank & Investment Statements",
-      tag: "Reconciliation",
-      items: [
-        "12 months of bank statements for all trust accounts",
-        "Term deposit certificates and interest income notices",
-        "Investment portfolio and share brokerage trading accounts",
-        "Credit card and business transaction statements",
-      ],
+      title: "bank, credit-card and investment statements",
+      icon: <BankOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      tag: "Banking",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Property & Asset Documentation",
-      tag: "Capital Records",
-      items: [
-        "Property purchase settlement sheets and stamp duty receipts",
-        "Legal invoices and conveyancing documentation",
-        "Capital expenditure, renovations, and depreciation reports",
-        "Loan statements and mortgage interest summaries",
-      ],
+      title: "income records, invoices and expense documentation",
+      icon: <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      tag: "Income & Invoices",
     },
     {
-      icon: <DollarOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Dividend & Managed Fund Statements",
-      tag: "Investment Income",
-      items: [
-        "Annual managed fund tax summaries (AMMA statements)",
-        "Dividend payment advices detailing franked amounts and credits",
-        "Foreign investment income and foreign tax credit statements",
-        "Capital gains distribution statements from underlying trusts",
-      ],
+      title: "property purchase, sale and loan documents where relevant",
+      icon: <HomeOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      tag: "Property & CGT",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Trustee Distribution Resolutions",
-      tag: "Present Entitlement",
-      items: [
-        "Executed 30 June trustee distribution minutes",
-        "Specific capital gains or franked dividend streaming determinations",
-        "Beneficiary Tax File Numbers (TFNs) and bank details",
-        "Family Trust Election (FTE) and Interposed Entity Election (IEE) records",
-      ],
+      title: "dividend and managed-fund tax statements",
+      icon: <FileTextOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      tag: "Investments",
     },
     {
-      icon: <SyncOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Related Party & Division 7A Loans",
-      tag: "Inter-Entity Balances",
-      items: [
-        "Written Division 7A complying 7-year loan agreements",
-        "Annual principal and benchmark interest repayment receipts",
-        "Inter-company and beneficiary loan ledger reconciliations",
-        "Records of capital injections and partner drawings",
-      ],
+      title: "asset registers and prior-year financial statements",
+      icon: <FolderOpenOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      tag: "Prior Accounts",
+    },
+    {
+      title: "trustee distribution resolutions and beneficiary information",
+      icon: <ScheduleOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      tag: "Resolutions",
+    },
+    {
+      title: "records of loans, reimbursements or transactions involving related entities.",
+      icon: <SyncOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      tag: "Related Entities",
     },
   ];
 
@@ -101,75 +78,65 @@ export default function WhatInformationNeededTrusts() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60 mb-4">
-            <SolutionOutlined className="text-teal-600 dark:text-teal-400 text-xs sm:text-sm" />
+            <BookOutlined className="text-teal-600 dark:text-teal-400 text-xs sm:text-sm" />
             <span className="text-xs font-semibold text-teal-800 dark:text-teal-300 tracking-wide uppercase">
-              Preparation Checklist
+              Records & Preparation
             </span>
           </div>
+
+          {/* Exact H2 Heading from Document */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            What Records Are Needed for Trust Accounting?
+            What records are needed for trust accounting?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Organised records enable our accountants to verify trust deed powers, prepare accurate balance sheets, stream eligible credits, and lodge your trust tax return smoothly.
+
+          {/* Exact Verbatim Introductory Sentence from Document */}
+          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+            Good trust accounting starts with complete records. The documents needed depend on what
+            the trust does, but may include:
           </p>
         </div>
 
-        {/* 6 Checklist Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {checklistCards.map((card, idx) => (
+        {/* 8 Document Checklist Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-12">
+          {documentChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
-                    {card.icon}
+                <div className="flex items-center justify-between mb-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                    {item.icon}
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
-                    {card.tag}
+                  <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
+                    {item.tag}
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-4">
-                  {card.title}
-                </h3>
-                <ul className="space-y-2.5">
-                  {card.items.map((item, itemIdx) => (
-                    <li
-                      key={itemIdx}
-                      className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed"
-                    >
-                      <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0 text-xs" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug m-0 capitalize-first">
+                  {item.title}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA Helper */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
-          <div>
-            <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
-              Need help reviewing your trust deed or organising prior-year records?
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1">
-              Book an appointment with Financially Up. We&apos;ll examine your trust records and establish a clear plan for your compliance and distribution needs.
+        {/* Exact Verbatim Deed Note & Legal Disclaimer Box */}
+        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-amber-200/80 dark:border-amber-900/60 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+          <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+            <InfoCircleOutlined className="text-xl" />
+          </div>
+          <div className="space-y-1">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white m-0">
+              Why Deed Integrity Matters
+            </h3>
+            {/* Exact Verbatim Concluding Note from Document */}
+            <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
+              A complete copy of the deed is especially important because accounting and tax
+              treatment cannot be considered in isolation from the trustee&apos;s powers and the
+              beneficiaries identified by the deed. Legal interpretation or deed amendments may
+              require an appropriately qualified legal adviser.
             </p>
           </div>
-          <Link href="/book-an-appointment" className="shrink-0">
-            <Button
-              type="primary"
-              size="large"
-              icon={<ArrowRightOutlined />}
-              iconPosition="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
-            >
-              Book Trust Review
-            </Button>
-          </Link>
         </div>
       </div>
     </section>

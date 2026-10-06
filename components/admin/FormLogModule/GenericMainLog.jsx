@@ -48,6 +48,8 @@ export default function GenericMainLog({
   renderViewDetails,
   extraActions = [],
   extraModals,
+  autoOpenRecord = null,
+  onAutoOpenHandled,
 }) {
   const { modal } = App.useApp();
 
@@ -57,6 +59,15 @@ export default function GenericMainLog({
   const [viewDetailsRecord, setViewDetailsRecord] = useState(null);
   const [isViewDetailsOpen, setIsViewDetailsOpen] = useState(false);
   const [statusLoader, setStatusLoader] = useState({});
+
+  // Open the View Details modal for a record requested via `?open=<id>` (Global Search).
+  // Adjusted during render (not in an effect) so the modal opens in the same pass.
+  const [handledAutoOpen, setHandledAutoOpen] = useState(null);
+  if (autoOpenRecord && autoOpenRecord !== handledAutoOpen) {
+    setHandledAutoOpen(autoOpenRecord);
+    setViewDetailsRecord(autoOpenRecord);
+    setIsViewDetailsOpen(true);
+  }
 
   // --------------------------------------------------------------------------
   // ROW ACTIONS: STATUS CHANGE CONFIRMATION MODAL
@@ -392,6 +403,7 @@ export default function GenericMainLog({
         onClose={() => {
           setIsViewDetailsOpen(false);
           setViewDetailsRecord(null);
+          if (autoOpenRecord && typeof onAutoOpenHandled === "function") onAutoOpenHandled();
         }}
         title={viewDetailsTitle}
         icon={viewDetailsIcon}

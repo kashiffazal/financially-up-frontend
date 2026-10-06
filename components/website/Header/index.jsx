@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,225 +14,140 @@ import {
   SunOutlined,
   MoonOutlined,
   ArrowRightOutlined,
+  RightOutlined,
   UserOutlined,
   HomeOutlined,
-  TeamOutlined,
   BankOutlined,
-  SafetyCertificateOutlined,
   AuditOutlined,
-  FileProtectOutlined,
-  SolutionOutlined,
-  SwapOutlined,
-  SafetyOutlined,
   BookOutlined,
-  IdcardOutlined,
-  FormOutlined,
+  SolutionOutlined,
+  SafetyCertificateOutlined,
+  FileProtectOutlined,
+  SecurityScanOutlined,
+  DeploymentUnitOutlined,
+  SafetyOutlined,
+  RiseOutlined,
+  LineChartOutlined,
+  GlobalOutlined,
+  ExperimentOutlined,
   FileTextOutlined,
   MedicineBoxOutlined,
+  FormOutlined,
+  SwapOutlined,
+  IdcardOutlined,
+  CalendarOutlined,
 } from "@ant-design/icons";
 import { useTheme } from "../../../app/ThemeProvider";
 import styles from "./Header.module.css";
 import { useCompany } from "@/context/SettingsContext";
+import ServicesMegaMenu from "./ServicesMegaMenu";
+import {
+  MAIN_SERVICES_MEGA_MENU,
+  MEGA_MENU_CATEGORIES,
+} from "@/data/servicesMegaMenuData";
 
+/**
+ * Mobile Icon resolver mapping data iconKey to Ant Design icon components
+ */
+const MOBILE_ICON_MAP = {
+  UserOutlined: UserOutlined,
+  BankOutlined: BankOutlined,
+  SolutionOutlined: SolutionOutlined,
+  BookOutlined: BookOutlined,
+  AuditOutlined: AuditOutlined,
+  DeploymentUnitOutlined: DeploymentUnitOutlined,
+  FileProtectOutlined: FileProtectOutlined,
+  SafetyOutlined: SafetyOutlined,
+  SafetyCertificateOutlined: SafetyCertificateOutlined,
+  HomeOutlined: HomeOutlined,
+  SecurityScanOutlined: SecurityScanOutlined,
+  RiseOutlined: RiseOutlined,
+  LineChartOutlined: LineChartOutlined,
+  GlobalOutlined: GlobalOutlined,
+  ExperimentOutlined: ExperimentOutlined,
+};
+
+function renderMobilePillarIcon(iconKey) {
+  const IconComponent = MOBILE_ICON_MAP[iconKey] || SolutionOutlined;
+  return <IconComponent className="text-xs" />;
+}
+
+/**
+ * WebsiteHeader Component
+ * ======================
+ * Executive header featuring:
+ * 1. Animated Top Banner with dynamic phone & email via useCompany()
+ * 2. High-performance Desktop Navbar with full Services Mega Menu covering all 15 Main Services
+ * 3. Mobile Executive Drawer with multi-level accordion covering all 15 pillars & sub-services
+ * 4. Dark / Light mode toggle with persistent smooth transitions
+ */
 export default function WebsiteHeader() {
   const { isDark, toggleTheme } = useTheme();
   const company = useCompany();
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedSections, setExpandedSections] = useState({
-    individual: false,
-    business: false,
-    registration: false,
-  });
 
-  const toggleSection = (sectionKey) => {
-    setExpandedSections((prev) => ({
+  // Desktop Mega Menu open state with mouse-intent debounce
+  const [servicesMegaMenuOpen, setServicesMegaMenuOpen] = useState(false);
+  const closeTimeoutRef = useRef(null);
+
+  // Mobile menu states
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileCategory, setMobileCategory] = useState("all");
+  const [mobileExpandedSection, setMobileExpandedSection] = useState({
+    services: false,
+    resources: false,
+    regForms: false,
+    engForms: false,
+    medForms: false,
+  });
+  const [mobileActivePillarId, setMobileActivePillarId] = useState(null);
+
+  // Filtered pillars for mobile services explorer
+  const filteredMobilePillars = useMemo(() => {
+    if (mobileCategory === "all") return MAIN_SERVICES_MEGA_MENU;
+    return MAIN_SERVICES_MEGA_MENU.filter(
+      (p) => p.category === mobileCategory
+    );
+  }, [mobileCategory]);
+
+  // Adjust state during render on pathname change without ref or effect warnings
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    if (servicesMegaMenuOpen) setServicesMegaMenuOpen(false);
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+  }
+
+  // Desktop Mega Menu Mouse Enter handler
+  const handleServicesMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setServicesMegaMenuOpen(true);
+  };
+
+  // Desktop Mega Menu Mouse Leave handler (with 200ms grace period)
+  const handleServicesMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setServicesMegaMenuOpen(false);
+    }, 200);
+  };
+
+  // Mobile Section Toggle
+  const toggleMobileSection = (sectionKey) => {
+    setMobileExpandedSection((prev) => ({
       ...prev,
       [sectionKey]: !prev[sectionKey],
     }));
   };
 
-  // Individual Tax Dropdown Items with Icons
-  const individualTaxItems = [
-    {
-      key: "ind-tax-return",
-      label: (
-        <Link
-          href="/individual-services/individual-tax-return"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <UserOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Individual Tax Return</span>
-        </Link>
-      ),
-    },
-    {
-      key: "ind-tax-investment",
-      label: (
-        <Link
-          href="/individual-services/individual-tax-return-with-investment-properties"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <HomeOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Tax Return with Investment Properties</span>
-        </Link>
-      ),
-    },
-  ];
+  // Mobile Pillar Accordion Toggle
+  const toggleMobilePillar = (pillarId) => {
+    setMobileActivePillarId((prev) => (prev === pillarId ? null : pillarId));
+  };
 
-  // Business Tax Dropdown Items with Icons
-  const businessTaxItems = [
-    {
-      key: "sole-trader",
-      label: (
-        <Link
-          href="/business-services/sole-trader"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <UserOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Sole Trader Tax Return</span>
-        </Link>
-      ),
-    },
-    {
-      key: "partnership",
-      label: (
-        <Link
-          href="/business-services/partnership-tax-return"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <TeamOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Partnership Tax Return</span>
-        </Link>
-      ),
-    },
-    {
-      key: "company-tax",
-      label: (
-        <Link
-          href="/business-services/company-tax-return"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <BankOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Company Tax Return</span>
-        </Link>
-      ),
-    },
-    {
-      key: "trust-tax",
-      label: (
-        <Link
-          href="/business-services/trust-tax-return"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Trust Tax Return</span>
-        </Link>
-      ),
-    },
-    {
-      key: "bas-gst",
-      label: (
-        <Link
-          href="/business-services/bas-gst-lodgement"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <AuditOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>BAS / GST Lodgement</span>
-        </Link>
-      ),
-    },
-  ];
-
-  // Business Registration Dropdown Items with Icons
-  const businessRegistrationItems = [
-    {
-      key: "gst-reg",
-      label: (
-        <Link
-          href="/resources/registration-forms/gst-registrations"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <FileProtectOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>GST Registrations</span>
-        </Link>
-      ),
-    },
-    {
-      key: "company-reg",
-      label: (
-        <Link
-          href="/resources/registration-forms/company-registration"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <SolutionOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Company Registration</span>
-        </Link>
-      ),
-    },
-    {
-      key: "company-changes",
-      label: (
-        <Link
-          href="/resources/registration-forms/changes-to-company-details"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <SwapOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Changes To Company Details</span>
-        </Link>
-      ),
-    },
-    {
-      key: "trust-reg",
-      label: (
-        <Link
-          href="/resources/registration-forms/trust-registrations"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <SafetyOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Trust Registrations</span>
-        </Link>
-      ),
-    },
-    {
-      key: "smsf-reg",
-      label: (
-        <Link
-          href="/resources/registration-forms/smsf-registrations"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <BookOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>SMSF Registrations</span>
-        </Link>
-      ),
-    },
-    {
-      key: "biz-name-reg",
-      label: (
-        <Link
-          href="/resources/registration-forms/business-name-registrations"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <IdcardOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Business Name Registrations</span>
-        </Link>
-      ),
-    },
-    {
-      key: "tfn-abn",
-      label: (
-        <Link
-          href="/resources/registration-forms/apply-tfn-abns"
-          className="py-1.5 flex items-center gap-2.5 font-medium text-slate-700 dark:text-zinc-200 hover:text-brand-primary"
-        >
-          <FormOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
-          <span>Apply TFN / ABNs</span>
-        </Link>
-      ),
-    },
-  ];
-
-  // Resources Nested Dropdown Items with Icons
+  // Resources Nested Dropdown Items for Desktop Navbar
   const resourcesItems = [
     {
       key: "reg-forms-group",
@@ -253,8 +168,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/gst-registrations"
               className="flex items-center gap-2"
             >
-              <FileProtectOutlined className="text-xs text-brand-primary" /> GST
-              Registrations
+              <FileProtectOutlined className="text-xs text-brand-primary" /> GST Registrations
             </Link>
           ),
         },
@@ -265,8 +179,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/company-registration"
               className="flex items-center gap-2"
             >
-              <SolutionOutlined className="text-xs text-brand-primary" />{" "}
-              Company Registration
+              <SolutionOutlined className="text-xs text-brand-primary" /> Company Registration
             </Link>
           ),
         },
@@ -277,8 +190,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/changes-to-company-details"
               className="flex items-center gap-2"
             >
-              <SwapOutlined className="text-xs text-brand-primary" /> Changes to
-              Company Details
+              <SwapOutlined className="text-xs text-brand-primary" /> Changes to Company Details
             </Link>
           ),
         },
@@ -289,8 +201,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/trust-registrations"
               className="flex items-center gap-2"
             >
-              <SafetyOutlined className="text-xs text-brand-primary" /> Trust
-              Registrations
+              <SafetyOutlined className="text-xs text-brand-primary" /> Trust Registrations
             </Link>
           ),
         },
@@ -301,8 +212,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/smsf-registrations"
               className="flex items-center gap-2"
             >
-              <BookOutlined className="text-xs text-brand-primary" /> SMSF
-              Registrations
+              <BookOutlined className="text-xs text-brand-primary" /> SMSF Registrations
             </Link>
           ),
         },
@@ -313,8 +223,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/business-name-registrations"
               className="flex items-center gap-2"
             >
-              <IdcardOutlined className="text-xs text-brand-primary" /> Business
-              Name Registrations
+              <IdcardOutlined className="text-xs text-brand-primary" /> Business Name Registrations
             </Link>
           ),
         },
@@ -325,8 +234,7 @@ export default function WebsiteHeader() {
               href="/resources/registration-forms/apply-tfn-abns"
               className="flex items-center gap-2"
             >
-              <FormOutlined className="text-xs text-brand-primary" /> Apply TFN
-              / ABNs
+              <FormOutlined className="text-xs text-brand-primary" /> Apply TFN / ABNs
             </Link>
           ),
         },
@@ -351,8 +259,7 @@ export default function WebsiteHeader() {
               href="/resources/engagement-forms/individual-engagement-form"
               className="flex items-center gap-2"
             >
-              <UserOutlined className="text-xs text-brand-primary" /> Individual
-              Engagement Form
+              <UserOutlined className="text-xs text-brand-primary" /> Individual Engagement Form
             </Link>
           ),
         },
@@ -363,8 +270,7 @@ export default function WebsiteHeader() {
               href="/resources/engagement-forms/entity-engagements-form"
               className="flex items-center gap-2"
             >
-              <BankOutlined className="text-xs text-brand-primary" /> Entity
-              Engagement Form
+              <BankOutlined className="text-xs text-brand-primary" /> Entity Engagement Form
             </Link>
           ),
         },
@@ -389,8 +295,7 @@ export default function WebsiteHeader() {
               href="/resources/medicare-forms/medicare-exemption-form"
               className="flex items-center gap-2"
             >
-              <MedicineBoxOutlined className="text-xs text-brand-primary" />{" "}
-              Medicare Exemption Form
+              <MedicineBoxOutlined className="text-xs text-brand-primary" /> Medicare Exemption Form
             </Link>
           ),
         },
@@ -413,7 +318,7 @@ export default function WebsiteHeader() {
           </div>
           <div className="flex items-center gap-6">
             <a
-              href={`tel:${company.phone.replace(/\s/g, "")}`}
+              href={`tel:${company.phone?.replace(/\s/g, "")}`}
               className="flex items-center gap-1.5 hover:text-emerald-200 transition-colors"
             >
               <PhoneOutlined className="text-emerald-200" />
@@ -431,7 +336,7 @@ export default function WebsiteHeader() {
       </div>
 
       {/* Main Navbar */}
-      <div className="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-slate-100 dark:border-zinc-800 px-4 sm:px-8 py-3.5">
+      <div className="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-slate-100 dark:border-zinc-800 px-4 sm:px-8 py-3.5 relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2 group">
@@ -446,7 +351,8 @@ export default function WebsiteHeader() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700 dark:text-zinc-200">
+          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700 dark:text-zinc-200">
+            {/* 1. Home */}
             <Link
               href="/"
               className={`hover:text-brand-primary transition-colors ${
@@ -456,82 +362,50 @@ export default function WebsiteHeader() {
               Home
             </Link>
 
-            {/* Individual Tax Dropdown */}
-            <Dropdown
-              menu={{ items: individualTaxItems }}
-              placement="bottomLeft"
-              arrow
+            {/* 2. Services Dropdown as Mega Menu */}
+            <div
+              className="relative py-2"
+              onMouseEnter={handleServicesMouseEnter}
+              onMouseLeave={handleServicesMouseLeave}
             >
               <Link
-                href="/individual-services"
-                className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
-                  pathname?.startsWith("/individual-services")
-                    ? "text-brand-primary"
+                href="/services"
+                onClick={() => setServicesMegaMenuOpen(false)}
+                className={`inline-flex items-center gap-1.5 hover:text-brand-primary transition-colors cursor-pointer ${
+                  pathname === "/services" || pathname?.startsWith("/services/")
+                    ? "text-brand-primary font-bold"
                     : ""
                 }`}
               >
-                Individual Tax <DownOutlined className="text-[10px]" />
+                <span>Services</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-100 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 font-bold">
+                  15
+                </span>
+                <DownOutlined
+                  className={`text-[10px] transition-transform duration-200 ${
+                    servicesMegaMenuOpen ? "rotate-180 text-brand-primary" : "text-slate-400"
+                  }`}
+                />
               </Link>
-            </Dropdown>
+            </div>
 
-            {/* Business Tax Dropdown */}
-            <Dropdown
-              menu={{ items: businessTaxItems }}
-              placement="bottomLeft"
-              arrow
-            >
-              <Link
-                href="/business-services"
-                className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
-                  pathname?.startsWith("/business-services")
-                    ? "text-brand-primary"
-                    : ""
-                }`}
-              >
-                Business Tax <DownOutlined className="text-[10px]" />
-              </Link>
-            </Dropdown>
-
-            {/* Bookkeeping */}
-            <Link
-              href="/book-keeping"
-              className={`hover:text-brand-primary transition-colors ${
-                pathname === "/book-keeping" ? "text-brand-primary" : ""
-              }`}
-            >
-              Bookkeeping
-            </Link>
-
-            {/* Business Registration Dropdown */}
-            <Dropdown
-              menu={{ items: businessRegistrationItems }}
-              placement="bottomLeft"
-              arrow
-            >
-              <Link
-                href="/resources/registration-forms"
-                className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer ${
-                  pathname?.startsWith("/resources/registration-forms")
-                    ? "text-brand-primary"
-                    : ""
-                }`}
-              >
-                Business Registration <DownOutlined className="text-[10px]" />
-              </Link>
-            </Dropdown>
-
-            {/* Resources Sub-dropdown */}
+            {/* 3. Resources Sub-dropdown */}
             <Dropdown
               menu={{ items: resourcesItems }}
               placement="bottomLeft"
               arrow
             >
-              <button className="flex items-center gap-1 hover:text-brand-primary transition-colors py-1 cursor-pointer">
-                Resources <DownOutlined className="text-[10px]" />
+              <button
+                className={`flex items-center gap-1 hover:text-brand-primary transition-colors py-2 cursor-pointer ${
+                  pathname?.startsWith("/resources") ? "text-brand-primary font-bold" : ""
+                }`}
+              >
+                <span>Resources</span>
+                <DownOutlined className="text-[10px]" />
               </button>
             </Dropdown>
 
-            {/* Blog */}
+            {/* 4. Blog */}
             <Link
               href="/blog"
               className={`hover:text-brand-primary transition-colors ${
@@ -558,7 +432,7 @@ export default function WebsiteHeader() {
               )}
             </button>
 
-            {/* CTA Button */}
+            {/* Appointment CTA Button */}
             <Link
               href="/book-an-appointment"
               className="hidden sm:inline-block"
@@ -575,426 +449,608 @@ export default function WebsiteHeader() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-200"
+              className="lg:hidden p-2 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-200 cursor-pointer"
               aria-label="Open Mobile Menu"
             >
               <MenuOutlined className="text-lg" />
             </button>
           </div>
         </div>
+
+        {/* Desktop Services Mega Menu Component */}
+        <div
+          onMouseEnter={handleServicesMouseEnter}
+          onMouseLeave={handleServicesMouseLeave}
+        >
+          <ServicesMegaMenu
+            isOpen={servicesMegaMenuOpen}
+            onClose={() => setServicesMegaMenuOpen(false)}
+            activePath={pathname}
+          />
+        </div>
       </div>
 
-      {/* Executive Mobile Drawer Design */}
-      <Drawer
-        placement="right"
-        onClose={() => setMobileMenuOpen(false)}
-        open={mobileMenuOpen}
-        closeIcon={null}
-        size={340}
-        styles={{
-          body: { padding: 0 },
-          header: { display: "none" },
-        }}
-        className="dark:bg-zinc-950 dark:text-zinc-100"
-      >
-        <div className="flex flex-col h-full bg-slate-50/50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-50 font-sans">
-          {/* Top Bar: Logo on left, Theme switch & Close button on right */}
-          <div className="p-4 border-b border-slate-200/80 dark:border-zinc-800 flex items-center justify-between bg-white dark:bg-zinc-900 shrink-0">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center"
-            >
-              <Image
-                src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-                alt="Financially Up Logo"
-                width={130}
-                height={34}
-                className="h-7 w-auto object-contain"
-              />
-            </Link>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={toggleTheme}
-                className="w-9 h-9 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-slate-700 dark:text-zinc-200 flex items-center justify-center cursor-pointer"
-                aria-label="Toggle Theme"
-              >
-                {isDark ? (
-                  <SunOutlined className="text-amber-400 text-sm" />
-                ) : (
-                  <MoonOutlined className="text-slate-600 text-sm" />
-                )}
-              </button>
-
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-9 h-9 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:border-brand-primary hover:text-brand-primary bg-white dark:bg-zinc-900 flex items-center justify-center transition-all cursor-pointer"
-                aria-label="Close Menu"
-              >
-                <CloseOutlined className="text-sm font-bold" />
-              </button>
-            </div>
-          </div>
-
-          {/* Body Menu Items with Executive Rounded Cards */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            {/* 1. Home */}
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`p-3.5 rounded-xl border transition-all flex items-center justify-between ${
-                pathname === "/"
-                  ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
-                  : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm ${
-                    pathname === "/"
-                      ? "bg-white/20 text-white"
-                      : "bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
-                  }`}
+          {/* Executive Mobile Drawer Design */}
+          <Drawer
+            placement="right"
+            onClose={() => setMobileMenuOpen(false)}
+            open={mobileMenuOpen}
+            closeIcon={null}
+            size={360}
+            styles={{
+              body: { padding: 0 },
+              header: { display: "none" },
+            }}
+            className="dark:bg-zinc-950 dark:text-zinc-100"
+          >
+            <div className="flex flex-col h-full bg-slate-50/60 dark:bg-zinc-950 text-slate-900 dark:text-zinc-50 font-sans">
+              
+              {/* 1. Header: Logo on left, Theme switch & Close button on right */}
+              <div className="p-4 border-b border-slate-200/80 dark:border-zinc-800 flex items-center justify-between bg-white dark:bg-zinc-900 shrink-0">
+                <Link
+                  href="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center"
                 >
-                  <HomeOutlined />
+                  <Image
+                    src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
+                    alt="Financially Up Logo"
+                    width={130}
+                    height={34}
+                    className="h-7 w-auto object-contain"
+                  />
+                </Link>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={toggleTheme}
+                    className="w-9 h-9 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-slate-700 dark:text-zinc-200 flex items-center justify-center cursor-pointer hover:border-brand-primary transition-colors"
+                    aria-label="Toggle Theme"
+                  >
+                    {isDark ? (
+                      <SunOutlined className="text-amber-400 text-sm" />
+                    ) : (
+                      <MoonOutlined className="text-slate-600 text-sm" />
+                    )}
+                  </button>
+
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-9 h-9 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:border-brand-primary hover:text-brand-primary bg-white dark:bg-zinc-900 flex items-center justify-center transition-all cursor-pointer"
+                    aria-label="Close Menu"
+                  >
+                    <CloseOutlined className="text-sm font-bold" />
+                  </button>
                 </div>
-                <span
-                  className={`text-sm font-semibold ${pathname === "/" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}
-                >
-                  Home
-                </span>
               </div>
-            </Link>
 
-            {/* 2. Individual Tax Category */}
-            <div className="rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
-              <button
-                onClick={() => toggleSection("individual")}
-                className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
-                  expandedSections.individual ||
-                  pathname?.startsWith("/individual-services")
-                    ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
-                    : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
-                    <UserOutlined />
+              {/* 2. Scrollable Body: Modern Cohesive Navigation & Actions */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-3.5">
+                
+                {/* Unified Navigation Card Surface */}
+                <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200/80 dark:border-zinc-800 divide-y divide-slate-100 dark:divide-zinc-800/80 shadow-xs overflow-hidden">
+                  
+                  {/* Home Link */}
+                  <Link
+                    href="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-4 py-3.5 flex items-center justify-between transition-colors ${
+                      pathname === "/"
+                        ? "bg-brand-primary/10 text-brand-primary dark:text-emerald-400 font-bold"
+                        : "text-slate-800 dark:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-800/50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm transition-colors ${
+                          pathname === "/"
+                            ? "bg-brand-primary text-white"
+                            : "bg-emerald-50 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                        }`}
+                      >
+                        <HomeOutlined />
+                      </div>
+                      <span className="text-sm font-semibold">Home</span>
+                    </div>
+                    {pathname === "/" ? (
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0" />
+                    ) : (
+                      <RightOutlined className="text-xs text-slate-300 dark:text-zinc-600" />
+                    )}
+                  </Link>
+
+                  {/* Services Accordion (All 15 Pillars with Category Filter) */}
+                  <div>
+                    <button
+                      onClick={() => toggleMobileSection("services")}
+                      className={`w-full px-4 py-3.5 flex items-center justify-between transition-colors cursor-pointer text-left ${
+                        mobileExpandedSection.services || pathname?.startsWith("/services")
+                          ? "bg-emerald-50/50 dark:bg-emerald-950/30 text-brand-primary dark:text-emerald-400 font-bold"
+                          : "text-slate-800 dark:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-800/50"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-50 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+                          <SolutionOutlined />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-sm font-semibold block leading-tight">Services</span>
+                          <span className="text-[11px] text-slate-500 dark:text-zinc-400 font-normal truncate block">
+                            15 Accounting &amp; Advisory Pillars
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-primary text-white">
+                          15
+                        </span>
+                        <DownOutlined
+                          className={`text-xs transition-transform duration-300 ${
+                            mobileExpandedSection.services ? "rotate-180 text-brand-primary" : "text-slate-400"
+                          }`}
+                        />
+                      </div>
+                    </button>
+
+                    {mobileExpandedSection.services && (
+                      <div className="p-3 bg-slate-50/70 dark:bg-zinc-950/70 border-t border-slate-100 dark:border-zinc-800 space-y-2.5">
+                        {/* Master Directory Link */}
+                        <Link
+                          href="/services"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="px-3 py-2.5 rounded-xl flex items-center justify-between text-xs font-bold bg-brand-primary hover:bg-brand-primary-hover text-white shadow-sm transition-all"
+                        >
+                          <span>Explore All 15 Services Directory</span>
+                          <ArrowRightOutlined className="text-[10px]" />
+                        </Link>
+
+                        {/* Category Filter Pills for Mobile */}
+                        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                          {MEGA_MENU_CATEGORIES.map((cat) => {
+                            const isCatActive = mobileCategory === cat.id;
+                            return (
+                              <button
+                                key={cat.id}
+                                onClick={() => setMobileCategory(cat.id)}
+                                className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                                  isCatActive
+                                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs"
+                                    : "bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:text-brand-primary"
+                                }`}
+                              >
+                                {cat.label} ({cat.count})
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        {/* Filtered Pillars List */}
+                        <div className="space-y-1.5 pt-1">
+                          {filteredMobilePillars.map((pillar) => {
+                            const isPillarOpen = mobileActivePillarId === pillar.id;
+
+                            return (
+                              <div
+                                key={pillar.id}
+                                className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs"
+                              >
+                                <button
+                                  onClick={() => toggleMobilePillar(pillar.id)}
+                                  className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                                >
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <span className="w-5 h-5 rounded-md bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">
+                                      {pillar.number}
+                                    </span>
+                                    <div className="min-w-0">
+                                      <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                        {pillar.title}
+                                      </span>
+                                      <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                        {pillar.subServices.length} sub-services • {pillar.badge || "ATO Ready"}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <DownOutlined
+                                    className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                                      isPillarOpen ? "rotate-180 text-brand-primary" : "text-slate-400"
+                                    }`}
+                                  />
+                                </button>
+
+                                {isPillarOpen && (
+                                  <div className="p-2.5 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1.5">
+                                    {/* Direct Pillar Hub Link */}
+                                    <Link
+                                      href={pillar.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 transition-colors"
+                                    >
+                                      <span>View {pillar.shortTitle || pillar.title} Hub</span>
+                                      <ArrowRightOutlined className="text-[10px]" />
+                                    </Link>
+
+                                    {/* Sub-services list */}
+                                    <div className="grid grid-cols-1 gap-1">
+                                      {pillar.subServices.map((sub, sIdx) => (
+                                        <Link
+                                          key={sIdx}
+                                          href={sub.href}
+                                          onClick={() => setMobileMenuOpen(false)}
+                                          className="p-2 rounded-lg flex items-center justify-between text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                        >
+                                          <div className="flex items-center gap-2 truncate min-w-0">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                            <span className="truncate">{sub.title}</span>
+                                          </div>
+                                          {sub.badge && (
+                                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-zinc-800 dark:text-zinc-400 shrink-0 ml-1.5">
+                                              {sub.badge}
+                                            </span>
+                                          )}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">
-                    Individual Tax
-                  </span>
-                </div>
-                <DownOutlined
-                  className={`text-xs transition-transform duration-300 ${
-                    expandedSections.individual
-                      ? "rotate-180 text-brand-primary"
-                      : "text-slate-400"
-                  }`}
-                />
-              </button>
 
-              {expandedSections.individual && (
-                <div className="px-3 pb-3 pt-1 space-y-1 bg-slate-50/50 dark:bg-zinc-950/50 border-t border-slate-100 dark:border-zinc-800/80">
-                  <Link
-                    href="/individual-services/individual-tax-return"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <UserOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Individual Tax Return
-                    </span>
-                  </Link>
-                  <Link
-                    href="/individual-services/individual-tax-return-with-investment-properties"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <HomeOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Tax Return with Investment Properties
-                    </span>
-                  </Link>
-                </div>
-              )}
-            </div>
+                  {/* Resources & Forms Accordion */}
+                  <div>
+                    <button
+                      onClick={() => toggleMobileSection("resources")}
+                      className={`w-full px-4 py-3.5 flex items-center justify-between transition-colors cursor-pointer text-left ${
+                        mobileExpandedSection.resources || pathname?.startsWith("/resources")
+                          ? "bg-emerald-50/50 dark:bg-emerald-950/30 text-brand-primary dark:text-emerald-400 font-bold"
+                          : "text-slate-800 dark:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-800/50"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-50 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+                          <FileProtectOutlined />
+                        </div>
+                        <div>
+                          <span className="text-sm font-semibold block leading-tight">Resources &amp; Forms</span>
+                          <span className="text-[11px] text-slate-500 dark:text-zinc-400 font-normal">
+                            Registrations, Engagements &amp; Medicare
+                          </span>
+                        </div>
+                      </div>
+                      <DownOutlined
+                        className={`text-xs transition-transform duration-300 ${
+                          mobileExpandedSection.resources ? "rotate-180 text-brand-primary" : "text-slate-400"
+                        }`}
+                      />
+                    </button>
 
-            {/* 3. Business Tax Category */}
-            <div className="rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
-              <button
-                onClick={() => toggleSection("business")}
-                className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
-                  expandedSections.business ||
-                  pathname?.startsWith("/business-services")
-                    ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
-                    : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
-                    <BankOutlined />
+                    {mobileExpandedSection.resources && (
+                      <div className="p-2.5 bg-slate-50/70 dark:bg-zinc-950/70 border-t border-slate-100 dark:border-zinc-800 space-y-1.5">
+                        
+                        {/* Sub-Accordion 1: Registration Forms */}
+                        <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
+                          <button
+                            onClick={() => toggleMobileSection("regForms")}
+                            className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                                <FileProtectOutlined />
+                              </div>
+                              <div className="min-w-0">
+                                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                  Registration Forms
+                                </span>
+                                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                  7 registration portals
+                                </span>
+                              </div>
+                            </div>
+                            <DownOutlined
+                              className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                                mobileExpandedSection.regForms
+                                  ? "rotate-180 text-brand-primary"
+                                  : "text-slate-400"
+                              }`}
+                            />
+                          </button>
+
+                          {mobileExpandedSection.regForms && (
+                            <div className="p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1">
+                              <Link
+                                href="/resources/registration-forms"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
+                              >
+                                <span>View Registration Forms Hub</span>
+                                <ArrowRightOutlined className="text-[10px]" />
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/gst-registrations"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">GST Registrations</span>
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/company-registration"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Company Registration</span>
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/changes-to-company-details"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Changes to Company Details</span>
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/trust-registrations"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Trust Registrations</span>
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/smsf-registrations"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">SMSF Registrations</span>
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/business-name-registrations"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Business Name Registrations</span>
+                              </Link>
+                              <Link
+                                href="/resources/registration-forms/apply-tfn-abns"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Apply TFN / ABNs</span>
+                              </Link>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Sub-Accordion 2: Engagement Forms */}
+                        <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
+                          <button
+                            onClick={() => toggleMobileSection("engForms")}
+                            className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                                <FormOutlined />
+                              </div>
+                              <div className="min-w-0">
+                                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                  Engagement Forms
+                                </span>
+                                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                  2 client onboarding forms
+                                </span>
+                              </div>
+                            </div>
+                            <DownOutlined
+                              className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                                mobileExpandedSection.engForms
+                                  ? "rotate-180 text-brand-primary"
+                                  : "text-slate-400"
+                              }`}
+                            />
+                          </button>
+
+                          {mobileExpandedSection.engForms && (
+                            <div className="p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1">
+                              <Link
+                                href="/resources/engagement-forms"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
+                              >
+                                <span>View Engagement Forms Hub</span>
+                                <ArrowRightOutlined className="text-[10px]" />
+                              </Link>
+                              <Link
+                                href="/resources/engagement-forms/individual-engagement-form"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Individual Engagement Form</span>
+                              </Link>
+                              <Link
+                                href="/resources/engagement-forms/entity-engagements-form"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Entity Engagements Form</span>
+                              </Link>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Sub-Accordion 3: Medicare Forms */}
+                        <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
+                          <button
+                            onClick={() => toggleMobileSection("medForms")}
+                            className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                                <MedicineBoxOutlined />
+                              </div>
+                              <div className="min-w-0">
+                                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                  Medicare Forms
+                                </span>
+                                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                  Exemption certificate form
+                                </span>
+                              </div>
+                            </div>
+                            <DownOutlined
+                              className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                                mobileExpandedSection.medForms
+                                  ? "rotate-180 text-brand-primary"
+                                  : "text-slate-400"
+                              }`}
+                            />
+                          </button>
+
+                          {mobileExpandedSection.medForms && (
+                            <div className="p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1">
+                              <Link
+                                href="/resources/medicare-forms"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
+                              >
+                                <span>View Medicare Forms Hub</span>
+                                <ArrowRightOutlined className="text-[10px]" />
+                              </Link>
+                              <Link
+                                href="/resources/medicare-forms/medicare-exemption-form"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                <span className="truncate">Medicare Exemption Form</span>
+                              </Link>
+                            </div>
+                          )}
+                        </div>
+
+                      </div>
+                    )}
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">
-                    Business Tax
-                  </span>
-                </div>
-                <DownOutlined
-                  className={`text-xs transition-transform duration-300 ${
-                    expandedSections.business
-                      ? "rotate-180 text-brand-primary"
-                      : "text-slate-400"
-                  }`}
-                />
-              </button>
 
-              {expandedSections.business && (
-                <div className="px-3 pb-3 pt-1 space-y-1 bg-slate-50/50 dark:bg-zinc-950/50 border-t border-slate-100 dark:border-zinc-800/80">
+                  {/* Blog Link */}
                   <Link
-                    href="/business-services/sole-trader"
+                    href="/blog"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                    className={`px-4 py-3.5 flex items-center justify-between transition-colors ${
+                      pathname === "/blog"
+                        ? "bg-brand-primary/10 text-brand-primary dark:text-emerald-400 font-bold"
+                        : "text-slate-800 dark:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-800/50"
+                    }`}
                   >
-                    <UserOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Sole Trader Tax Return
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm transition-colors ${
+                          pathname === "/blog"
+                            ? "bg-brand-primary text-white"
+                            : "bg-emerald-50 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                        }`}
+                      >
+                        <FileTextOutlined />
+                      </div>
+                      <span className="text-sm font-semibold">Blog</span>
+                    </div>
+                    {pathname === "/blog" ? (
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0" />
+                    ) : (
+                      <RightOutlined className="text-xs text-slate-300 dark:text-zinc-600" />
+                    )}
                   </Link>
+
+                </div>
+
+                {/* Direct CTA & Quick Action Section */}
+                <div className="space-y-2.5 pt-1">
+                  {/* Primary High-Contrast Book Appointment CTA with Guaranteed Background */}
                   <Link
-                    href="/business-services/partnership-tax-return"
+                    href="/book-an-appointment"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+                    className="group flex items-center justify-between w-full p-3.5 rounded-2xl font-bold text-sm text-white shadow-lg shadow-emerald-700/20 active:scale-[0.98] transition-all cursor-pointer"
+                    style={{ backgroundColor: "#008043", color: "#ffffff" }}
                   >
-                    <TeamOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Partnership Tax Return
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white text-base shrink-0">
+                        <CalendarOutlined />
+                      </div>
+                      <div className="text-left">
+                        <span className="block text-white font-extrabold text-sm leading-tight">
+                          Book an Appointment
+                        </span>
+                        <span className="block text-[11px] text-emerald-100 font-normal">
+                          Complimentary 15-min discovery call
+                        </span>
+                      </div>
+                    </div>
+                    <ArrowRightOutlined className="text-white text-xs transition-transform group-hover:translate-x-1 shrink-0 ml-2" />
                   </Link>
-                  <Link
-                    href="/business-services/company-tax-return"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
+
+                  {/* Quick Direct Call Button */}
+                  <a
+                    href={`tel:${company.phone?.replace(/\s/g, "")}`}
+                    className="flex items-center justify-between w-full p-3 rounded-2xl border border-emerald-500/30 dark:border-emerald-500/25 bg-white dark:bg-zinc-900 text-slate-800 dark:text-zinc-100 hover:border-brand-primary shadow-2xs transition-all"
                   >
-                    <BankOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Company Tax Return
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+                        <PhoneOutlined />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] text-slate-400 dark:text-zinc-500 block font-medium leading-none">
+                          Speak Directly With a CPA
+                        </span>
+                        <span className="text-xs font-bold text-slate-900 dark:text-zinc-100 truncate block mt-0.5">
+                          {company.phone}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-bold text-brand-primary dark:text-emerald-400 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 shrink-0">
+                      Call Now
                     </span>
-                  </Link>
-                  <Link
-                    href="/business-services/trust-tax-return"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
+                  </a>
+                </div>
+
+              </div>
+
+              {/* 3. Drawer Footer: Dynamic Company Context & Trust Credentials */}
+              <div className="p-4 border-t border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2 shrink-0">
+                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-zinc-400">
+                  <div className="flex items-center gap-1.5 font-medium">
                     <SafetyCertificateOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Trust Tax Return
-                    </span>
-                  </Link>
-                  <Link
-                    href="/business-services/bas-gst-lodgement"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <AuditOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      BAS / GST Lodgement
-                    </span>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* 4. Bookkeeping */}
-            <Link
-              href="/book-keeping"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`p-3.5 rounded-xl border transition-all flex items-center justify-between ${
-                pathname === "/book-keeping"
-                  ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
-                  : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm ${
-                    pathname === "/book-keeping"
-                      ? "bg-white/20 text-white"
-                      : "bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
-                  }`}
-                >
-                  <BookOutlined />
-                </div>
-                <span
-                  className={`text-sm font-semibold ${pathname === "/book-keeping" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}
-                >
-                  Bookkeeping
-                </span>
-              </div>
-            </Link>
-
-            {/* 5. Business Registration Category */}
-            <div className="rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden transition-all">
-              <button
-                onClick={() => toggleSection("registration")}
-                className={`w-full p-3.5 flex items-center justify-between transition-all cursor-pointer ${
-                  expandedSections.registration ||
-                  pathname?.includes("/registration-forms")
-                    ? "bg-brand-primary-soft/60 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 font-extrabold"
-                    : "text-slate-900 dark:text-zinc-50 hover:text-brand-primary"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">
-                    <FileProtectOutlined />
+                    <span>Registered Tax Agent &amp; CPA Firm</span>
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 dark:text-zinc-50">
-                    Business Registration
+                  <span className="font-mono text-[10px]">ABN {company.abn}</span>
+                </div>
+
+                <div className="flex items-center justify-between pt-1 border-t border-slate-100 dark:border-zinc-800/80 text-xs">
+                  <a
+                    href={`mailto:${company.email}`}
+                    className="text-slate-600 dark:text-zinc-300 hover:text-brand-primary flex items-center gap-1.5 text-[11px] font-medium transition-colors truncate"
+                  >
+                    <MailOutlined className="text-brand-primary text-xs shrink-0" />
+                    <span className="truncate">{company.email}</span>
+                  </a>
+
+                  <span className="text-[10px] text-slate-400 dark:text-zinc-500 shrink-0 ml-2">
+                    Sydney, Australia
                   </span>
                 </div>
-                <DownOutlined
-                  className={`text-xs transition-transform duration-300 ${
-                    expandedSections.registration
-                      ? "rotate-180 text-brand-primary"
-                      : "text-slate-400"
-                  }`}
-                />
-              </button>
-
-              {expandedSections.registration && (
-                <div className="px-3 pb-3 pt-1 space-y-1 bg-slate-50/50 dark:bg-zinc-950/50 border-t border-slate-100 dark:border-zinc-800/80">
-                  <Link
-                    href="/resources/registration-forms/gst-registrations"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <FileProtectOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      GST Registrations
-                    </span>
-                  </Link>
-                  <Link
-                    href="/resources/registration-forms/company-registration"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <SolutionOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Company Registration
-                    </span>
-                  </Link>
-                  <Link
-                    href="/resources/registration-forms/changes-to-company-details"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <SwapOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Changes to Company Details
-                    </span>
-                  </Link>
-                  <Link
-                    href="/resources/registration-forms/trust-registrations"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <SafetyOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Trust Registrations
-                    </span>
-                  </Link>
-                  <Link
-                    href="/resources/registration-forms/smsf-registrations"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <BookOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      SMSF Registrations
-                    </span>
-                  </Link>
-                  <Link
-                    href="/resources/registration-forms/business-name-registrations"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <IdcardOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Business Name Registrations
-                    </span>
-                  </Link>
-                  <Link
-                    href="/resources/registration-forms/apply-tfn-abns"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2.5 rounded-xl flex items-center gap-3 text-xs font-semibold text-slate-800 dark:text-zinc-200 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <FormOutlined className="text-brand-primary text-xs" />
-                    <span className="text-slate-800 dark:text-zinc-200">
-                      Apply TFN / ABNs
-                    </span>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* 6. Blog */}
-            <Link
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`p-3.5 rounded-xl border transition-all flex items-center justify-between ${
-                pathname === "/blog"
-                  ? "bg-brand-primary text-white border-brand-primary font-extrabold shadow-md shadow-emerald-600/20"
-                  : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800 text-slate-900 dark:text-zinc-50 hover:border-brand-primary hover:text-brand-primary"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm ${
-                    pathname === "/blog"
-                      ? "bg-white/20 text-white"
-                      : "bg-brand-primary-soft text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
-                  }`}
-                >
-                  <FileTextOutlined />
-                </div>
-                <span
-                  className={`text-sm font-semibold ${pathname === "/blog" ? "text-white" : "text-slate-900 dark:text-zinc-50"}`}
-                >
-                  Blog
-                </span>
               </div>
-            </Link>
 
-            {/* 7. Prominent CTA Button after Navigation */}
-            <div className="pt-2">
-              <Link
-                href="/book-an-appointment"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2.5 w-full bg-brand-primary hover:bg-brand-primary-hover text-white py-3.5 px-4 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20 active:scale-98 transition-all"
-              >
-                <span className="text-white font-extrabold">
-                  Book an Appointment
-                </span>
-                <ArrowRightOutlined className="text-white text-xs" />
-              </Link>
             </div>
-          </div>
-
-          {/* Drawer Footer */}
-          <div className="p-4 border-t border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex items-center justify-between text-xs font-semibold shrink-0">
-            <div className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
-              Direct Contact:
-            </div>
-
-            <a
-              href={`tel:${company.phone.replace(/\s/g, "")}`}
-              className="text-brand-primary dark:text-emerald-400 flex items-center gap-1.5 font-bold text-xs"
-            >
-              <PhoneOutlined /> {company.phone}
-            </a>
-          </div>
-        </div>
-      </Drawer>
+          </Drawer>
     </header>
   );
 }

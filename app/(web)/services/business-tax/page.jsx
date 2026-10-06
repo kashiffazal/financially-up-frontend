@@ -330,11 +330,11 @@ export default function BusinessTaxMainPage() {
         showSideColumn={false}
       />
 
-      {/* 10. Pre-Footer Call to Action Banner */}
+      {/* 10. Pre-Footer Call to Action Banner (Exact title and subtitle from doc) */}
       <CallToActionBanner
         tag="Ready When You Are"
-        title="Discuss Your Business Accounting & Tax Needs"
-        subtitle="Book an appointment online, discuss your business structure, accounts, tax return, compliance obligations and any issues that need attention."
+        title="Book an Appointment"
+        subtitle="Discuss your business structure, accounts, tax return, compliance obligations and any issues that need attention."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

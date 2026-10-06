@@ -1202,7 +1202,7 @@ export default function Dashboard() {
               </div>
 
               {/* Key Details Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-850/60 border border-slate-200/70 dark:border-zinc-800 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-800 text-xs">
                 <div>
                   <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Contact Person</span>
                   <strong className="text-slate-800 dark:text-zinc-200 font-semibold">
@@ -1301,7 +1301,7 @@ export default function Dashboard() {
                     </span>
                   </a>
                 ) : (
-                  <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-850 rounded-lg">
+                  <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-800 rounded-lg">
                     No generated PDF available for this lodgement yet.
                   </div>
                 )}
@@ -1351,7 +1351,7 @@ export default function Dashboard() {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-850 rounded-lg">
+                  <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-800 rounded-lg">
                     No external client documents uploaded with this submission.
                   </div>
                 )}

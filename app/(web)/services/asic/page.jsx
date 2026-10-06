@@ -2,17 +2,18 @@ import React from "react";
 import ServiceHero from "@/components/website/ServiceHero";
 import WhatAsicComplianceCovers from "./components/WhatAsicComplianceCovers";
 import AsicServicesGrid from "./components/AsicServicesGrid";
-import WhoNeedsAsicSupport from "./components/WhoNeedsAsicSupport";
 import AnnualReviewAndSolvency from "./components/AnnualReviewAndSolvency";
+import AsicLodgementsAndChanges from "./components/AsicLodgementsAndChanges";
+import WhenToSeekAsicSupport from "./components/WhenToSeekAsicSupport";
 import AsicVsTaxCompliance from "./components/AsicVsTaxCompliance";
-import HowFinanciallyUpHelpsAsic from "./components/HowFinanciallyUpHelpsAsic";
 import WhatInformationNeededAsic from "./components/WhatInformationNeededAsic";
 import WhyChooseFinanciallyUpAsic from "./components/WhyChooseFinanciallyUpAsic";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 /**
- * Server Metadata for SEO (Exact values from client document: 7th Pillar ASIC.docx)
+ * Server Metadata for SEO
+ * Exact values from client document: '7th Pillar ASIC.docx' (Section 1)
  */
 export const metadata = {
   title: "ASIC Compliance Services Australia | Financially Up",
@@ -45,7 +46,7 @@ export const metadata = {
 };
 
 /**
- * Breadcrumbs configuration for ASIC Compliance
+ * Breadcrumbs configuration for ASIC Compliance Hub
  */
 const asicBreadcrumbs = [
   { label: "Home", href: "/" },
@@ -54,7 +55,7 @@ const asicBreadcrumbs = [
 ];
 
 /**
- * 5 Practice Scope Items for ASIC Compliance
+ * 5 Practice Scope Items for Hero sidebar
  */
 const asicScopeItems = [
   {
@@ -113,7 +114,7 @@ const asicVerificationBadges = [
 ];
 
 /**
- * 5 Exact Frequently Asked Questions from Client Document (Pillar 7)
+ * 5 Exact Frequently Asked Questions from Client Document (7th Pillar ASIC.docx, Section 1)
  */
 const asicFaqs = [
   {
@@ -121,10 +122,7 @@ const asicFaqs = [
     label: "What are ASIC compliance services?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        ASIC compliance services assist a company with keeping its registered information and
-        required corporate filings up to date. The exact scope depends on the company and may
-        include annual review administration, company-detail changes, common ASIC lodgements and
-        registered-agent support.
+        ASIC compliance services assist a company with keeping its registered information and required corporate filings up to date. The exact scope depends on the company and may include annual review administration, company-detail changes, common ASIC lodgements and registered-agent support.
       </p>
     ),
   },
@@ -133,9 +131,7 @@ const asicFaqs = [
     label: "Is ASIC compliance the same as company tax compliance?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. ASIC compliance relates to company registration information and corporate obligations,
-        while company tax compliance relates to tax returns, tax payments and other ATO
-        requirements. Some events affect both, so the records should be coordinated.
+        No. ASIC compliance relates to company registration information and corporate obligations, while company tax compliance relates to tax returns, tax payments and other ATO requirements. Some events affect both, so the records should be coordinated.
       </p>
     ),
   },
@@ -144,9 +140,7 @@ const asicFaqs = [
     label: "How quickly do company changes need to be reported to ASIC?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        ASIC requires many common company-detail changes to be notified within 28 days. Different
-        rules can apply to particular filings, so the relevant event and form should be checked
-        rather than assuming every change has the same deadline.
+        ASIC requires many common company-detail changes to be notified within 28 days. Different rules can apply to particular filings, so the relevant event and form should be checked rather than assuming every change has the same deadline.
       </p>
     ),
   },
@@ -155,9 +149,7 @@ const asicFaqs = [
     label: "Can an accountant lodge ASIC changes for my company?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A company can authorise appropriate representatives or appoint a registered agent to carry
-        out certain ASIC-related tasks. Directors still retain their own legal responsibilities and
-        must ensure the information provided for lodgement is accurate.
+        A company can authorise appropriate representatives or appoint a registered agent to carry out certain ASIC-related tasks. Directors still retain their own legal responsibilities and must ensure the information provided for lodgement is accurate.
       </p>
     ),
   },
@@ -166,9 +158,7 @@ const asicFaqs = [
     label: "Do ASIC services include legal advice?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Financially Up can assist with accounting, tax and corporate compliance administration
-        within scope. Legal advice or legal documentation may require an appropriately qualified
-        legal adviser.
+        No. Financially Up can assist with accounting, tax and corporate compliance administration within scope. Legal advice or legal documentation may require an appropriately qualified legal adviser.
       </p>
     ),
   },
@@ -225,10 +215,10 @@ const faqSchema = {
 /**
  * AsicMainPage
  * ============
- * Pillar 7: ASIC Compliance Services Australia Hub Page (/services/asic/).
+ * 7th Pillar: ASIC Compliance Services Australia Hub Page (/services/asic/).
  *
- * Implements the full client content from '7th Pillar ASIC.docx',
- * structured into 10 cohesive, responsive sections with strict alternating background palette.
+ * Implements 100% complete, verbatim content from '7th Pillar ASIC.docx' (Section 1),
+ * structured into cohesive, responsive sections with strict alternating background palette.
  */
 export default function AsicMainPage() {
   return (
@@ -246,8 +236,8 @@ export default function AsicMainPage() {
           icon: "safety",
           text: "ATO Registered Tax Agents • ASIC Registered Agent",
         }}
-        title="ASIC Compliance Services"
-        titleHighlight="Australia-Wide Support"
+        title="ASIC Compliance Services Australia"
+        titleHighlight="Corporate Records & Filings"
         description={
           <p className="m-0">
             Running a company involves ongoing ASIC obligations as well as tax and accounting responsibilities. ASIC compliance services help company directors keep corporate records current, respond to annual review requirements, lodge company changes and manage routine ASIC correspondence without treating company administration as an afterthought.
@@ -260,7 +250,7 @@ export default function AsicMainPage() {
         }
         scopeNotice={
           <p className="m-0">
-            Need help bringing ASIC records up to date or appointing a registered agent? Book an appointment to discuss your company records, outstanding items, and appropriate service scope.
+            If you need help bringing ASIC records up to date or managing ongoing company administration, an initial discussion can identify the outstanding items, relevant deadlines and the appropriate service scope. Book an Appointment
           </p>
         }
         primaryButton={{
@@ -285,32 +275,32 @@ export default function AsicMainPage() {
       {/* 2. What Do ASIC Compliance Services Cover? (Lite Brand Gradient) */}
       <WhatAsicComplianceCovers />
 
-      {/* 3. Our ASIC Compliance Services - 9 Card Navigation Grid (Clean White) */}
+      {/* 3. Our ASIC Compliance Services - Sub-service Navigation Grid (Clean White) */}
       <AsicServicesGrid />
 
-      {/* 4. Who Needs ASIC Compliance Support? (Lite Brand Gradient - ProfileCardsGrid) */}
-      <WhoNeedsAsicSupport />
-
-      {/* 5. Annual Company Reviews & The Solvency Resolution Rule (Clean White - AdvisoryReassuranceBanner) */}
+      {/* 4. Annual Company Reviews and Keeping ASIC Details Current (Lite Brand Gradient) */}
       <AnnualReviewAndSolvency />
 
-      {/* 6. ASIC Compliance vs Company Tax Compliance (Lite Brand Gradient) */}
+      {/* 5. ASIC Lodgements and Company Changes (Clean White) */}
+      <AsicLodgementsAndChanges />
+
+      {/* 6. When Should a Company Seek Help With ASIC Compliance? (Lite Brand Gradient) */}
+      <WhenToSeekAsicSupport />
+
+      {/* 7. ASIC Compliance, Tax and Accounting are Connected but Different (Clean White) */}
       <AsicVsTaxCompliance />
 
-      {/* 7. How Financially Up Helps With ASIC Compliance - 6 Steps (Clean White) */}
-      <HowFinanciallyUpHelpsAsic />
-
-      {/* 8. What Records Should You Have Ready? - 6-Item Checklist (Lite Brand Gradient) */}
+      {/* 8. Information We May Need (Lite Brand Gradient) */}
       <WhatInformationNeededAsic />
 
-      {/* 9. Why Choose Financially Up - Credentials & Contact Clarity (Clean White) */}
+      {/* 9. Why Choose Financially Up for ASIC Company Compliance Services? (Clean White) */}
       <WhyChooseFinanciallyUpAsic />
 
       {/* 10. Frequently Asked Questions (Lite Brand Gradient) */}
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently asked questions"
-        subtitle="Common questions about ASIC annual review fees, solvency resolutions, Form 484 deadlines, and registered agent representation."
+        subtitle="Common questions about ASIC compliance services, annual reviews, 28-day notification deadlines, and registered agent support."
         image="/images/services/faq.webp"
         imageAlt="ASIC Compliance Frequently Asked Questions"
         items={asicFaqs}
@@ -320,9 +310,9 @@ export default function AsicMainPage() {
 
       {/* 11. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
       <CallToActionBanner
-        tag="Ready When You Are"
-        title="Get Practical ASIC Compliance Support"
-        subtitle="Book an appointment with Financially Up to review your company records, resolve outstanding filings, or appoint us as your ongoing ASIC registered agent."
+        tag="Book an Appointment"
+        title="Book an Appointment"
+        subtitle="If you need ongoing ASIC compliance support or help resolving specific company filings, book an appointment with Financially Up to discuss the company, current records and the work required. Book an Appointment"
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

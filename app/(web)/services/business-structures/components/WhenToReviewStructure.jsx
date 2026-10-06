@@ -5,10 +5,10 @@ import { Tag, Button } from "antd";
 import {
   RiseOutlined,
   UsergroupAddOutlined,
-  SafetyCertificateOutlined,
-  ApartmentOutlined,
+  BankOutlined,
+  PropertySafetyOutlined,
+  RocketOutlined,
   BranchesOutlined,
-  SwapOutlined,
   WarningOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
@@ -17,80 +17,86 @@ import Link from "next/link";
 /**
  * WhenToReviewStructure Component
  * ===============================
- * Section 6: When Should You Review an Existing Structure?
+ * Section 6: When should you review an existing structure?
  *
- * Details the 6 primary business triggers that prompt a structure review,
- * and warns about tax, CGT, GST, and stamp duty implications of restructuring.
+ * Implements verbatim copy from Paragraphs 41 to 43 of '6th Pillar Business Structures.docx':
+ * - Verbatim Heading 2: "When should you review an existing structure?" (Para 41)
+ * - Verbatim Text: Paragraph 42 & Paragraph 43
  *
- * Background: Clean White.
+ * Background: Clean White with alternating palette.
  */
 export default function WhenToReviewStructure() {
-  const reviewTriggers = [
+  /**
+   * The 6 specific review situations listed in Paragraph 42:
+   * "when revenue or risk increases, a partner joins or leaves, a company is being considered,
+   * business assets are being acquired, or the owners are preparing for growth, succession or a sale."
+   */
+  const reviewCatalysts = [
     {
       icon: <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Revenue Growth & Higher Tax Brackets",
+      title: "Revenue or Risk Increases",
+      tag: "Commercial Exposure",
       description:
-        "As sole trader or partnership profits expand into top individual tax rates (up to 47%), moving to a company structure can allow retained profits at 25% corporate rates.",
-      tag: "Tax Optimization",
-    },
-    {
-      icon: <SafetyCertificateOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Increasing Commercial Liability",
-      description:
-        "Taking on significant supplier debt, entering commercial premises leases, or undertaking high-risk projects increases the urgency of limited liability company protection.",
-      tag: "Asset Protection",
+        "As trading revenue expands or commercial liabilities grow, existing personal or direct trading arrangements may carry unacceptable personal exposure.",
     },
     {
       icon: <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Admitting New Partners or Investors",
+      title: "A Partner Joins or Leaves",
+      tag: "Ownership Changes",
       description:
-        "Introducing co-founders, angel investors, or offering employee share options requires a formal share-based corporate entity rather than a personal arrangement.",
-      tag: "Equity & Ownership",
+        "Introducing a new co-owner, investor, or exiting an existing partner requires adjusting legal ownership, equity shares, and formal agreements.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Separating Operating Risk from Assets",
+      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      title: "A Company Is Being Considered",
+      tag: "Incorporation",
       description:
-        "When purchasing commercial property, heavy machinery, or valuable intellectual property, establishing an asset-holding trust separate from the trading entity protects core wealth.",
-      tag: "Holding Entities",
+        "Evaluating the transition from sole trader or partnership operations into a proprietary limited company to access limited liability and corporate structures.",
     },
     {
-      icon: <BranchesOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Succession, Sale, or Exit Planning",
+      icon: <PropertySafetyOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      title: "Business Assets Are Being Acquired",
+      tag: "Asset Protection",
       description:
-        "Preparing the enterprise for a trade sale or family handover. Structuring cleanly early helps maximize eligibility for CGT Small Business 15-year or 50% concessions.",
-      tag: "Exit Readiness",
+        "Acquiring significant plant, valuable intellectual property, machinery, or commercial real estate that should be isolated from trading liabilities.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Sole Trader to Company Roll-Over",
+      icon: <RocketOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      title: "Preparing for Growth",
+      tag: "Commercial Scaling",
       description:
-        "Transitioning an active sole trader business into an incorporated entity without triggering punitive tax, utilizing available statutory restructure roll-overs.",
-      tag: "Entity Roll-Over",
+        "Expanding operations into new states, taking on significant commercial contracts, or hiring staff that warrant a more formalised operating entity.",
+    },
+    {
+      icon: <BranchesOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      title: "Succession or a Sale",
+      tag: "Exit Planning",
+      description:
+        "Positioning the business for a family transition, management buyout, or external sale, ensuring clean records and eligibility for concessions.",
     },
   ];
 
   return (
     <section className="py-16 md:py-24 bg-white dark:bg-zinc-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header: Verbatim Heading 2 (Para 41) & Paragraph 42 */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
           <Tag color="green" className="brand-section-tag">
-            Lifecycle & Evolution
+            Lifecycle & Review
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            When Should You Review an Existing Structure?
+            When should you review an existing structure?
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            A structure that suited a new venture may become inefficient or risky as the business expands. Reviewing your setup ensures your entity continues to protect your personal assets and align with commercial goals.
+            A structure that suited a new business may become less practical as the business changes. A review may be useful when revenue or risk increases, a partner joins or leaves, a company is being considered, business assets are being acquired, or the owners are preparing for growth, succession or a sale.
           </p>
         </div>
 
-        {/* 6 Trigger Cards Grid */}
+        {/* 6 Review Catalysts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {reviewTriggers.map((item, idx) => (
+          {reviewCatalysts.map((item, idx) => (
             <div
               key={idx}
               className="p-6 sm:p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
@@ -115,19 +121,19 @@ export default function WhenToReviewStructure() {
           ))}
         </div>
 
-        {/* Restructure Warning & Statutory Concessions Banner */}
+        {/* Advisory Warning Banner: Verbatim Paragraph 43 */}
         <div className="rounded-2xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/50 p-6 sm:p-8">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0 mt-1">
                 <WarningOutlined className="text-amber-700 dark:text-amber-400 text-lg" />
               </div>
-              <div className="space-y-1 max-w-3xl">
+              <div className="space-y-1.5 max-w-3xl">
                 <h4 className="text-base font-bold text-amber-950 dark:text-amber-200 m-0">
-                  Review Tax & Legal Consequences Before Implementing Any Restructure
+                  Separate Review Needed Before Implementing Changes
                 </h4>
-                <p className="text-xs sm:text-sm text-amber-900/90 dark:text-amber-300/90 leading-relaxed m-0">
-                  Transferring business assets, customer goodwill, or intellectual property from one entity to another can trigger capital gains tax (CGT), GST liabilities, and state stamp duty. However, eligible businesses may access statutory relief such as the <strong>Small Business Restructure Roll-over (SBRR)</strong>. Always conduct a formal review prior to executing transfers.
+                <p className="text-xs sm:text-sm text-amber-900/90 dark:text-amber-300/90 leading-relaxed m-0 font-normal">
+                  Changing structure can have tax, legal, GST, CGT, asset-transfer and state tax consequences. That work is different from initial setup and usually needs a separate review before anything is transferred or implemented. Financially Up can help identify the accounting and tax issues and coordinate with legal advisers where legal documentation or legal advice is required.
                 </p>
               </div>
             </div>
@@ -138,10 +144,10 @@ export default function WhenToReviewStructure() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
                 >
-                  Book Restructure Review
+                  Book Structure Review
                 </Button>
               </Link>
               <Link href="/services/business-structures/business-restructure">

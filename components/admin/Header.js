@@ -3,17 +3,19 @@
 /**
  * Admin Top Navigation Header
  * ===========================
- * Header toolbar containing sidebar toggle, global search, theme switcher,
+ * Header toolbar containing sidebar toggle, brand logo, global search,
+ * "+ New application" form launcher, theme switcher,
  * notifications badge, and authenticated user dropdown menu.
  */
 
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Dropdown, Input, Badge, Avatar } from "antd";
+import { Dropdown, Badge, Avatar } from "antd";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  SearchOutlined,
   SunOutlined,
   MoonOutlined,
   QuestionCircleOutlined,
@@ -27,6 +29,8 @@ import {
 import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
 import { antdMsg } from "@/services";
+import GlobalSearch from "./GlobalSearch";
+import NewApplicationMenu from "./NewApplicationMenu";
 
 export default function Header({ onOpenMobile }) {
   const { isDark, toggleTheme } = useTheme();
@@ -78,8 +82,8 @@ export default function Header({ onOpenMobile }) {
 
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 md:px-6 bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800 transition-colors duration-300">
-      {/* Header Left: Menu toggle (mobile only) and Search */}
-      <div className="flex items-center gap-3 flex-1 max-w-xl">
+      {/* Header Left: Menu toggle (mobile only), Logo, Search and New Application */}
+      <div className="flex items-center gap-3 flex-1 min-w-0">
         <button
           onClick={() => {
             if (typeof onOpenMobile === "function") onOpenMobile();
@@ -90,19 +94,27 @@ export default function Header({ onOpenMobile }) {
           <MenuUnfoldOutlined className="text-base" />
         </button>
 
-        {/* Global Search Bar */}
-        <div className="relative w-full max-w-xs md:max-w-md hidden sm:block">
-          <Input
-            prefix={<SearchOutlined className="text-slate-400 mr-1.5" />}
-            placeholder="Search modules, requests, clients..."
-            className="h-9 border-slate-200 dark:border-zinc-800 dark:bg-zinc-800/40 rounded-full text-xs font-medium dark:text-zinc-200"
-            suffix={
-              <span className="hidden md:inline-block bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-sans">
-                ⌘K
-              </span>
-            }
+        {/* Brand Logo (desktop) */}
+        <Link
+          href="/admin/dashboard"
+          aria-label="Financially Up dashboard"
+          className="hidden lg:flex shrink-0 items-center pr-3 mr-1 border-r border-slate-200 dark:border-zinc-800"
+        >
+          <Image
+            src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
+            alt="Financially Up"
+            width={163}
+            height={30}
+            priority
+            className="h-[30px] w-auto object-contain"
           />
-        </div>
+        </Link>
+
+        {/* Global Application Search (Ctrl/⌘ + K) */}
+        <GlobalSearch />
+
+        {/* Start a new client application */}
+        <NewApplicationMenu />
       </div>
 
       {/* Header Right: Actions, Theme, and Profile */}

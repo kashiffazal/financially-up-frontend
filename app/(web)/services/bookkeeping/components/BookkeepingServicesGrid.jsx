@@ -11,6 +11,8 @@ import ServicesGrid from "@/components/website/ServicesGrid";
  * Consumes the mutual reusable `@/components/website/ServicesGrid` component,
  * presenting the 8 primary service offerings of Pillar 4 (Bookkeeping)
  * in an authoritative 3-column layout with Clean White background.
+ * Titles and descriptions are drawn directly from Pages 2–9 of the client document:
+ * '4th Pillar Bookkeeping.docx'.
  */
 export default function BookkeepingServicesGrid() {
   /**
@@ -25,7 +27,7 @@ export default function BookkeepingServicesGrid() {
       description:
         "Xero bookkeeping services for Australian businesses, including reconciliations, coding, clean-up and ongoing support for accurate cloud-based records.",
       href: "/services/bookkeeping/xero-bookkeeping",
-      actionText: "Xero bookkeeping",
+      actionText: "Xero Bookkeeping",
     },
     {
       id: "monthly-bookkeeping",
@@ -35,67 +37,67 @@ export default function BookkeepingServicesGrid() {
       description:
         "Monthly bookkeeping services for Australian businesses. Keep accounts reconciled, records organised and bookkeeping ready for ongoing reporting and compliance.",
       href: "/services/bookkeeping/monthly-bookkeeping",
-      actionText: "Monthly bookkeeping",
+      actionText: "Monthly Bookkeeping",
     },
     {
       id: "catch-up-bookkeeping",
       icon: "history",
       tag: "Pillar 4.3",
-      title: "Catch-Up Bookkeeping",
+      title: "Catch Up Bookkeeping Services",
       description:
-        "Catch-up bookkeeping services for businesses with overdue records, unallocated transactions and accounts that have fallen behind.",
+        "Behind on your books? Financially Up provides catch up bookkeeping to reconcile records, clear backlogs and restore reliable business accounts.",
       href: "/services/bookkeeping/catch-up-bookkeeping",
-      actionText: "Catch-up services",
+      actionText: "Catch Up Services",
     },
     {
       id: "bookkeeping-clean-up",
       icon: "safety",
       tag: "Pillar 4.4",
-      title: "Bookkeeping Clean-Up",
+      title: "Bookkeeping Cleanup Services",
       description:
-        "Bookkeeping clean-up services to review, correct and reconcile messy accounting files, clearing historical errors before BAS or tax preparation.",
+        "Clean up inaccurate or messy books with Financially Up. We review reconciliations, coding and historical records to improve bookkeeping reliability.",
       href: "/services/bookkeeping/bookkeeping-clean-up",
-      actionText: "Clean-up review",
+      actionText: "Bookkeeping Cleanup",
     },
     {
       id: "accounts-payable",
       icon: "wallet",
       tag: "Pillar 4.5",
-      title: "Accounts Payable (AP)",
+      title: "Accounts Payable Services",
       description:
-        "Accounts payable services for Australian businesses, managing supplier invoices, approval workflows, payment batch preparation and bill records.",
+        "Outsource accounts payable support with Financially Up. Improve bill processing, supplier records, reconciliations and payment-workflow visibility.",
       href: "/services/bookkeeping/accounts-payable",
-      actionText: "Accounts payable",
+      actionText: "Accounts Payable",
     },
     {
       id: "accounts-receivable",
       icon: "dollar",
       tag: "Pillar 4.6",
-      title: "Accounts Receivable (AR)",
+      title: "Accounts Receivable Services",
       description:
-        "Accounts receivable bookkeeping support, including customer invoicing, payment allocations, debtor tracking and cash-flow visibility.",
+        "Outsource accounts receivable with invoicing, debtor tracking and payment follow-up support for Australian businesses. Book an appointment.",
       href: "/services/bookkeeping/accounts-receivable",
-      actionText: "Accounts receivable",
+      actionText: "Accounts Receivable",
     },
     {
       id: "bank-reconciliation",
       icon: "calculator",
       tag: "Pillar 4.7",
-      title: "Bank & Feed Reconciliation",
+      title: "Bank Reconciliation Services",
       description:
-        "Bank and credit card reconciliation services, matching software transactions against actual bank statements to resolve discrepancies.",
+        "Keep business accounts accurate with bank reconciliation services that match bank activity to your bookkeeping records and identify discrepancies.",
       href: "/services/bookkeeping/bank-reconciliation",
-      actionText: "Reconciliation",
+      actionText: "Bank Reconciliation",
     },
     {
-      id: "bookkeeping-reporting",
+      id: "management-reporting",
       icon: "file-text",
       tag: "Pillar 4.8",
-      title: "Bookkeeping Reporting",
+      title: "Management Reporting Services",
       description:
-        "Bookkeeping reporting services delivering profit and loss summaries, balance sheet reviews and management data to guide day-to-day decisions.",
+        "Management reporting services that turn current bookkeeping data into practical profit, balance sheet and cash-flow information for business owners.",
       href: "/services/bookkeeping/reporting",
-      actionText: "Reporting",
+      actionText: "Management Reporting",
     },
   ];
 
@@ -104,7 +106,7 @@ export default function BookkeepingServicesGrid() {
       sectionId="bookkeeping-services-overview"
       tag="Commercial Bookkeeping Scope"
       title="Our Bookkeeping Services"
-      subtitle="From daily transaction processing and monthly reconciliations to file clean-ups and accounts payable management, explore our comprehensive bookkeeping solutions designed to keep your business records organised and compliance-ready."
+      subtitle="From day-to-day transaction recording and monthly reconciliations to accounts payable and catch-up clean-ups, explore our comprehensive bookkeeping services designed for Australian businesses."
       services={bookkeepingServices}
       columns={3}
       className="py-16 md:py-24 bg-white dark:bg-zinc-950 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors"

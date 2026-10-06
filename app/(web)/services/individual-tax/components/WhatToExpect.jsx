@@ -40,54 +40,54 @@ export default function WhatToExpect() {
   const commitments = [
     {
       step: "01",
-      badge: "Clarity & Advisory",
-      title: "Plain English Tax Advice",
-      desc: "Tax legislation can be dense and intimidating. We translate complex deduction rules, capital gains laws, and ATO determinations into straightforward, actionable guidance you can understand and trust.",
+      badge: "Clarity",
+      title: "Plain English Advice",
+      desc: "advice explained in plain English",
       icon: (
         <MessageOutlined className="text-2xl text-[var(--brand-primary)] dark:text-emerald-400" />
       ),
     },
     {
       step: "02",
-      badge: "Individual Review",
-      title: "Tailored Circumstance Review",
-      desc: "We never take a cookie-cutter approach. Our certified CPA accountants meticulously examine your individual records, employment conditions, investments, and work patterns to ensure all lawful deductions are optimized.",
+      badge: "Personalised",
+      title: "Circumstance-Based Review",
+      desc: "a review based on your circumstances and the records you provide",
       icon: (
         <ProfileOutlined className="text-2xl text-[var(--brand-primary)] dark:text-emerald-400" />
       ),
     },
     {
       step: "03",
-      badge: "Governance & Control",
-      title: "Client Lodgement Approval",
-      desc: "You retain full visibility and authority over your tax affairs. Before submitting anything to the ATO, we provide an itemized draft return with every calculation clearly explained for your review and written approval.",
+      badge: "Control",
+      title: "Review & Approval",
+      desc: "an opportunity to review and approve your return before lodgement",
       icon: (
         <CheckSquareOutlined className="text-2xl text-[var(--brand-primary)] dark:text-emerald-400" />
       ),
     },
     {
       step: "04",
-      badge: "Scope Transparency",
-      title: "Upfront Scope & Fee Certainty",
-      desc: "No surprises or hidden fees. If your circumstances involve separate schedules, cross-border issues, or require an advisory engagement, we clearly identify the scope and exact pricing before commencing.",
+      badge: "Transparency",
+      title: "Clear Scope Identification",
+      desc: "clear identification of matters that require additional information or a separate engagement",
       icon: (
         <FileSearchOutlined className="text-2xl text-[var(--brand-primary)] dark:text-emerald-400" />
       ),
     },
     {
       step: "05",
-      badge: "National Reach",
-      title: "Australia-Wide Online Service",
-      desc: "We assist individuals, professionals, and expats across every Australian state and territory through our secure digital portal, encrypted document sharing, and remote appointment infrastructure.",
+      badge: "National",
+      title: "Australia-Wide Service",
+      desc: "online service for clients across Australia",
       icon: (
         <GlobalOutlined className="text-2xl text-[var(--brand-primary)] dark:text-emerald-400" />
       ),
     },
     {
       step: "06",
-      badge: "Consultation Options",
-      title: "Flexible Appointment Formats",
-      desc: "Consult with your tax accountant in the way that suits your schedule. Choose from high-definition online video meetings, structured phone consultations, or in-person sessions at our North Sydney office.",
+      badge: "Accessibility",
+      title: "Flexible Appointment Options",
+      desc: "online appointments, phone-arranged appointments and in-person appointments",
       icon: (
         <ScheduleOutlined className="text-2xl text-[var(--brand-primary)] dark:text-emerald-400" />
       ),
@@ -105,7 +105,7 @@ export default function WhatToExpect() {
         <WhyChooseSection
           sectionId="what-to-expect"
           tag="Practice Commitments"
-          title="What You Can Expect"
+          title="What you can expect"
           subtitle="We operate with complete clarity, strict compliance with the Tax Agent Services Act 2009, and an unwavering commitment to accurate, defensible tax lodgements."
           items={commitments}
           columns={3}

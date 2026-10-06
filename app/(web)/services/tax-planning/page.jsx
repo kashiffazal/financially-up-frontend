@@ -12,7 +12,9 @@ import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 /**
- * Server Metadata for SEO (Exact values from client document: 3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx)
+ * Server Metadata for SEO
+ * Exact values from client document:
+ * '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx' (Page 1)
  */
 export const metadata = {
   title: "Tax Planning Services Australia | Financially Up",
@@ -46,7 +48,7 @@ export const metadata = {
 };
 
 /**
- * Breadcrumbs configuration for Tax Planning
+ * Breadcrumbs configuration for Tax Planning Hub
  */
 const taxPlanningBreadcrumbs = [
   { label: "Home", href: "/" },
@@ -55,7 +57,7 @@ const taxPlanningBreadcrumbs = [
 ];
 
 /**
- * 5 Practice Scope Items for Tax Planning
+ * 5 Practice Scope Items for Hero sidebar
  */
 const taxPlanningScopeItems = [
   {
@@ -96,7 +98,7 @@ const taxPlanningScopeItems = [
 ];
 
 /**
- * Trust & Credential Verification Badges
+ * Trust & Credential Verification Badges for Hero
  */
 const taxPlanningVerificationBadges = [
   {
@@ -114,7 +116,7 @@ const taxPlanningVerificationBadges = [
 ];
 
 /**
- * 5 Exact Frequently Asked Questions from Client Document (Pillar 3)
+ * 5 Exact Frequently Asked Questions from Client Document (Pillar 3, Page 1 - Verbatim)
  */
 const taxPlanningFaqs = [
   {
@@ -122,10 +124,10 @@ const taxPlanningFaqs = [
     label: "What is tax planning?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Tax planning is the process of considering the tax consequences of income,
-        transactions and decisions before they occur or before relevant timing points
-        pass. It should be based on current law, accurate records and the taxpayer&apos;s
-        actual circumstances.
+        Tax planning is the process of considering the tax consequences of
+        income, transactions and decisions before they occur or before relevant
+        timing points pass. It should be based on current law, accurate records
+        and the taxpayer&apos;s actual circumstances.
       </p>
     ),
   },
@@ -134,9 +136,9 @@ const taxPlanningFaqs = [
     label: "Is tax planning the same as preparing a tax return?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. A tax return mainly reports completed transactions for an income year.
-        Tax planning is forward-looking and considers the implications of decisions
-        before they are finalised where possible.
+        No. A tax return mainly reports completed transactions for an income
+        year. Tax planning is forward-looking and considers the implications of
+        decisions before they are finalised where possible.
       </p>
     ),
   },
@@ -145,10 +147,10 @@ const taxPlanningFaqs = [
     label: "When is the best time to use tax planning services?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Tax planning can be useful throughout the year, particularly before major
-        transactions or business changes. A pre-year-end review can also be helpful
-        because some decisions need to be made or documented within a particular
-        income year.
+        Tax planning can be useful throughout the year, particularly before
+        major transactions or business changes. A pre-year-end review can also
+        be helpful because some decisions need to be made or documented within
+        a particular income year.
       </p>
     ),
   },
@@ -158,8 +160,9 @@ const taxPlanningFaqs = [
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         No. Tax outcomes depend on income, deductions, transactions, structure,
-        timing and the rules that apply. The purpose of planning is to understand
-        the position and consider legitimate options, not to guarantee a particular result.
+        timing and the rules that apply. The purpose of planning is to
+        understand the position and consider legitimate options, not to
+        guarantee a particular result.
       </p>
     ),
   },
@@ -168,9 +171,10 @@ const taxPlanningFaqs = [
     label: "Do I need a tax planning accountant or a financial adviser?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It depends on the question. Financially Up can provide tax and accounting
-        support within scope. Investment product recommendations, personal financial
-        advice or legal advice may require a separately qualified professional.
+        It depends on the question. Financially Up can provide tax and
+        accounting support within scope. Investment product recommendations,
+        personal financial advice or legal advice may require a separately
+        qualified professional.
       </p>
     ),
   },
@@ -229,8 +233,11 @@ const faqSchema = {
  * ===================
  * Pillar 3: Tax Planning & Advisory Main Hub Page (/services/tax-planning/).
  *
- * Implements the full client content from '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx',
- * structured into 10 cohesive, responsive, and beautifully styled sections with mutual component reuse.
+ * Implements 100% VERBATIM content from Page 1 of:
+ * '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'.
+ *
+ * Structured into clean, responsive sections with modern Tailwind CSS aesthetics,
+ * Ant Design component integration, dark-mode support, and mutual component reuse.
  */
 export default function TaxPlanningMainPage() {
   return (
@@ -252,17 +259,28 @@ export default function TaxPlanningMainPage() {
         titleHighlight="for Individuals and Businesses"
         description={
           <p className="m-0">
-            Tax planning is about considering the tax consequences of decisions before they are locked in. Financially Up provides tax planning services for Australian individuals and businesses that want a clearer view of upcoming tax obligations, legitimate planning opportunities and the records needed to support their position.
+            Tax planning is about considering the tax consequences of decisions
+            before they are locked in. Financially Up provides tax planning
+            services for Australian individuals and businesses that want a
+            clearer view of upcoming tax obligations, legitimate planning
+            opportunities and the records needed to support their position.
           </p>
         }
         subDescription={
           <p className="m-0">
-            Unlike tax return preparation, which mainly reports what has already happened, tax planning looks forward. It may involve reviewing income, deductions, entity structure, investments, asset transactions, cash flow and timing before the end of the financial year or before a major transaction. The right approach depends on your circumstances and the tax rules that apply at the time.
+            Unlike tax return preparation, which mainly reports what has already
+            happened, tax planning looks forward. It may involve reviewing
+            income, deductions, entity structure, investments, asset
+            transactions, cash flow and timing before the end of the financial
+            year or before a major transaction. The right approach depends on
+            your circumstances and the tax rules that apply at the time.
           </p>
         }
         scopeNotice={
           <p className="m-0">
-            Talk with Financially Up about your current tax position, upcoming transactions, business or personal circumstances, available records and the areas that may need planning before year end.
+            Talk with Financially Up about your current tax position, upcoming
+            transactions, business or personal circumstances, available records
+            and the areas that may need planning before year end.
           </p>
         }
         primaryButton={{
@@ -284,31 +302,31 @@ export default function TaxPlanningMainPage() {
         backgroundAlt="Australian Tax Planning Services"
       />
 
-      {/* 2. What Do Tax Planning Services Involve? (Forward-Looking Strategy & Lawful Boundaries) */}
+      {/* 2. What Do Tax Planning Services Involve? (Section 1) */}
       <WhatTaxPlanningInvolves />
 
-      {/* 3. Our Tax Planning Services - 11 Card Navigation Grid */}
+      {/* 3. Our Tax Planning Services - 11 Sub-Services Hub Navigation */}
       <TaxPlanningServicesGrid />
 
-      {/* 4. Who May Benefit From Tax Planning? - 6 Target Profiles & Dedicated Entity Routing */}
+      {/* 4. Who May Benefit From Tax Planning? (Section 2) */}
       <WhoBenefitsTaxPlanning />
 
-      {/* 5. When Should You Speak With a Tax Planning Advisor? - Pre-Transaction Timing & Advisory Banner */}
+      {/* 5. When Should You Speak With a Tax Planning Advisor? (Section 3) */}
       <WhenToSeekAdvice />
 
-      {/* 6. Business and Personal Tax Planning - Corporate vs Personal Comparison & Routing */}
+      {/* 6. Business and Personal Tax Planning (Section 4) */}
       <BusinessVsPersonalPlanning />
 
-      {/* 7. Common Areas Reviewed & Year-End Planning Checkpoint - 30 June ATO Rules */}
+      {/* 7. Common Areas Reviewed & Year-End Tax Planning (Sections 5 & 6) */}
       <CommonAreasAndYearEnd />
 
-      {/* 8. What Information May Be Needed? - 7-Item Documentation Checklist */}
+      {/* 8. What Information May Be Needed? (Section 7) */}
       <WhatInformationNeeded />
 
-      {/* 9. Why Choose Financially Up - Credentials, Advisory Approach & Dynamic Company Hook */}
+      {/* 9. How Financially Up Approaches Tax Planning & Why Choose Us (Sections 8 & 9) */}
       <WhyChooseFinanciallyUp />
 
-      {/* 10. Frequently Asked Questions (Central FaqSection with 5 Exact Client FAQs) */}
+      {/* 10. Frequently Asked Questions (Section 10 - Central FaqSection with 5 Verbatim FAQs) */}
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently asked questions"
@@ -320,10 +338,10 @@ export default function TaxPlanningMainPage() {
         showSideColumn={false}
       />
 
-      {/* 11. Pre-Footer Call to Action Banner */}
+      {/* 11. Closing Call to Action: Book an Appointment (Section 11) */}
       <CallToActionBanner
         tag="Ready When You Are"
-        title="Discuss Your Tax Planning Position"
+        title="Book an Appointment"
         subtitle="Discuss your business or personal tax position, upcoming decisions and the records available. Financially Up can identify the appropriate tax planning scope and next steps."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"

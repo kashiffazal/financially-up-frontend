@@ -22,3 +22,24 @@
   background-size: 250% 250%;
   animation: topbarShift 10s ease infinite;
 }
+
+/* Mega Menu Smooth Height & Content Transitions */
+@keyframes pillarContentFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pillarTransition {
+  animation: pillarContentFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.smoothHeight {
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+

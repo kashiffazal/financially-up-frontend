@@ -7,60 +7,61 @@ import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
 /**
  * CommonStructuresComparison Component
  * ====================================
- * Section 3: Four Common Business Structures Compared.
+ * Section 3: Which business structures are commonly used?
  *
+ * Implements verbatim copy from Paragraphs 19 to 27 of '6th Pillar Business Structures.docx'.
  * Reuses ProfileCardsGrid (4 columns) to contrast:
- * 1. Sole Trader
- * 2. Partnership
- * 3. Company
- * 4. Trust
+ * 1. Sole trader (H3, Paras 20-21)
+ * 2. Partnership (H3, Paras 22-23)
+ * 3. Company (H3, Paras 24-25)
+ * 4. Trust (H3, Paras 26-27)
  *
- * Injects EntityRoutingBanner into bottom slot for routing between
- * Company Registration and ABN Registration.
- *
- * Background: Lite Brand Gradient.
+ * Background: Lite Brand Gradient with alternating palette.
  */
 export default function CommonStructuresComparison() {
+  /**
+   * The 4 commonly used structures with verbatim descriptions from document
+   */
   const structureProfiles = [
     {
       id: "sole-trader",
       icon: "user",
       tag: "Individual",
-      title: "Sole Trader",
+      title: "Sole trader",
       description:
-        "Operated by an individual. Direct control and simple to establish, but the individual has unlimited personal liability for all business debts. Income is reported through your personal tax return.",
+        "A sole trader structure is operated by an individual. It is generally straightforward to establish, and the individual is responsible for the business's debts and obligations. Business income and expenses are reported through the individual's tax affairs. A sole trader may still need an ABN, GST registration, PAYG registrations or other registrations depending on the circumstances.",
       href: "/services/business-structures/abn-registration",
-      actionText: "Sole trader ABN",
+      actionText: "Sole trader ABN setup",
     },
     {
       id: "partnership",
       icon: "team",
-      tag: "Joint Enterprise",
+      tag: "Partnership Entity",
       title: "Partnership",
       description:
-        "Two or more people or entities carrying on business together. Lodges an annual partnership return while distributing net profit or loss to partners. Partners generally share joint liability.",
+        "A partnership involves two or more people carrying on business together and sharing income or losses under the partnership arrangement. A partnership generally has its own ABN and tax file number and lodges a partnership tax return, while each partner is taxed on their share of partnership income. Partnership rights and responsibilities can also depend on the applicable state or territory law and any partnership agreement.",
       href: "/services/business-structures/partnership-registration",
       actionText: "Partnership setup",
     },
     {
       id: "company",
       icon: "bank",
-      tag: "Pty Ltd",
+      tag: "Corporate Entity",
       title: "Company",
       description:
-        "A distinct legal entity registered with ASIC. Offers limited liability protection, corporate tax rates, and ownership via shares. Requires formal director governance and separate company money.",
+        "A company is a separate legal entity registered with ASIC. It has its own legal and tax obligations, and company money is not simply the personal money of its shareholders or directors. Establishing a company also creates ongoing corporate administration responsibilities. If a company is the intended structure, Financially Up can assist with company registration and coordinate the accounting registrations needed after incorporation.",
       href: "/services/business-structures/company-registration",
-      actionText: "Company setup",
+      actionText: "Company registration",
     },
     {
       id: "trust",
       icon: "apartment",
-      tag: "Trustee & Deed",
-      title: "Discretionary / Unit Trust",
+      tag: "Trust Structure",
+      title: "Trust",
       description:
-        "A trustee holds business assets or operations for beneficiaries under a formal trust deed. Offers distribution flexibility and asset protection, often paired with a corporate trustee.",
+        "A trust is an arrangement under which a trustee holds and manages property or business activities for beneficiaries in accordance with the trust deed and applicable law. Trusts can be more complex to establish and administer. Legal documentation, including the trust deed, should be prepared or reviewed by an appropriately qualified legal adviser where required. Financially Up can assist with the related accounting, tax and registration steps once the structure is appropriately established.",
       href: "/services/business-structures/corporate-trustee",
-      actionText: "Trust & trustee",
+      actionText: "Corporate trustee setup",
     },
   ];
 
@@ -68,7 +69,7 @@ export default function CommonStructuresComparison() {
     <ProfileCardsGrid
       sectionId="common-structures-comparison"
       tag="Entity Comparison"
-      title="Which Business Structures Are Commonly Used?"
+      title="Which business structures are commonly used?"
       subtitle="In Australia, businesses typically operate as a sole trader, partnership, company, or trust. Each entity carries distinct legal rights, liability exposures, tax rules, and compliance requirements."
       profiles={structureProfiles}
       columns={4}

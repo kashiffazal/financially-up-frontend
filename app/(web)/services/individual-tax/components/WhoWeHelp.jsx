@@ -21,9 +21,9 @@ export default function WhoWeHelp() {
       id: "multi-source-earners",
       tag: "Pillar 1.1",
       icon: "user",
-      title: "Multi-Source Earners",
+      title: "Multiple Income Sources",
       description:
-        "Employees and professionals with more than one source of income, work deductions, and tax offsets.",
+        "employees and professionals with more than one source of income",
       href: "/services/individual-tax/individual-tax-return",
       actionText: "Explore service",
     },
@@ -31,9 +31,9 @@ export default function WhoWeHelp() {
       id: "medical-high-income",
       tag: "Pillar 1.2",
       icon: "crown",
-      title: "Medical & High Earners",
+      title: "High-Income Professionals",
       description:
-        "Doctors, dentists, executives, and consultants with complex salary, bonus, and investment packaging.",
+        "doctors, dentists, consultants, executives and other high-income professionals",
       href: "/services/individual-tax/high-income-professionals",
       actionText: "Explore service",
     },
@@ -43,7 +43,7 @@ export default function WhoWeHelp() {
       icon: "home",
       title: "Property & Asset Investors",
       description:
-        "Rental property, share portfolio, and managed-fund investors seeking deduction and CGT optimization.",
+        "property, share and managed-fund investors",
       href: "/services/individual-tax/investment-property-tax-accountant",
       actionText: "Explore service",
     },
@@ -51,9 +51,9 @@ export default function WhoWeHelp() {
       id: "complex-assets",
       tag: "Pillar 1.5–1.7",
       icon: "line-chart",
-      title: "Complex Asset Owners",
+      title: "Capital Gains & Asset Disposals",
       description:
-        "Individuals navigating capital gains, foreign income, employee share schemes, or crypto transactions.",
+        "individuals with capital gains, foreign income, employee shares or crypto assets",
       href: "/services/individual-tax/capital-gains-tax",
       actionText: "Explore service",
     },
@@ -61,9 +61,9 @@ export default function WhoWeHelp() {
       id: "contractors-sole-traders",
       tag: "Pillar 1.3",
       icon: "shop",
-      title: "Contractors & Sole Traders",
+      title: "Sole Traders & Contractors",
       description:
-        "Sole traders and contractors reporting business income and managing quarterly GST obligations.",
+        "sole traders and contractors",
       href: "/services/individual-tax/sole-trader-tax-return",
       actionText: "Explore service",
     },
@@ -71,9 +71,9 @@ export default function WhoWeHelp() {
       id: "overdue-amendments",
       tag: "Pillar 1.10–1.11",
       icon: "clock",
-      title: "Overdue & Amendments",
+      title: "Overdue Returns & Amendments",
       description:
-        "Individuals with prior-year returns, missing ATO records, or lodgements requiring correction.",
+        "people with overdue returns or a return that may need amendment",
       href: "/services/individual-tax/prior-year-overdue-tax-returns",
       actionText: "Explore service",
     },
@@ -81,9 +81,9 @@ export default function WhoWeHelp() {
       id: "executors-estates",
       tag: "Pillar 1.12",
       icon: "safety",
-      title: "Executors & Estates",
+      title: "Executors & Legal Representatives",
       description:
-        "Executors and legal representatives preparing date-of-death or deceased estate trust tax returns.",
+        "executors and legal personal representatives requiring tax assistance",
       href: "/services/individual-tax/deceased-estate-tax-returns",
       actionText: "Explore service",
     },
@@ -108,7 +108,7 @@ export default function WhoWeHelp() {
           sectionId="who-we-help"
           tag="Target Client Profiles"
           title="Who we help"
-          subtitle="Our individual tax practice is tailored for individuals across Australia who need expert preparation or personal tax advisory, including:"
+          subtitle="This service is suitable for individuals who need help with an annual return or a personal tax matter, including:"
           services={targetProfiles}
           columns={4}
           actionText="Explore service"

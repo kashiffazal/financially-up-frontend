@@ -1,16 +1,20 @@
 "use client";
 
 import React from "react";
-import { Tag, Button } from "antd";
+import { Button } from "antd";
 import {
   SolutionOutlined,
   CheckCircleOutlined,
   UserOutlined,
   ShopOutlined,
+  CalendarOutlined,
   PieChartOutlined,
+  ApartmentOutlined,
+  IdcardOutlined,
+  TeamOutlined,
   LineChartOutlined,
+  PropertySafetyOutlined,
   FileTextOutlined,
-  FileProtectOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
@@ -18,87 +22,79 @@ import Link from "next/link";
 /**
  * WhatInformationNeeded Component
  * ===============================
- * Section 7: What Information Is Needed for Setup?
+ * Section 7: What information may be needed?
  *
- * Detailed checklist of the 6 essential categories of data and documentation
- * required to establish or review a business structure accurately.
+ * Implements verbatim copy from Paragraphs 44 to 46 of '6th Pillar Business Structures.docx':
+ * - Verbatim Heading 2: "What information may be needed?" (Para 44)
+ * - Verbatim Text: Paragraph 45 & Paragraph 46
+ * - Features the 10 exact information requirements from Paragraph 45
  *
- * Background: Lite Brand Gradient.
+ * Background: Lite Brand Gradient with alternating palette.
  */
 export default function WhatInformationNeeded() {
-  const checklistCards = [
+  /**
+   * The 10 exact information items itemized in Paragraph 45:
+   * "proposed owners or directors, business activities, expected start date,
+   * ownership percentages, existing entities, current ABNs or ACNs, expected employees,
+   * projected turnover, asset ownership and any existing agreements."
+   */
+  const informationChecklist = [
     {
-      icon: <UserOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Owners, Directors & Director IDs",
-      tag: "Identity & Consent",
-      items: [
-        "Full legal names, residential addresses, and dates of birth",
-        "Tax File Numbers (TFNs) for all associates and partners",
-        "Mandatory 15-digit Director IDs for all proposed directors",
-        "Signed written consent to act as director or secretary",
-      ],
+      icon: <UserOutlined className="text-teal-600 dark:text-teal-400" />,
+      title: "Proposed owners or directors",
+      description: "Full legal names, residential addresses, dates of birth, and director identification numbers (Director IDs).",
     },
     {
-      icon: <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Enterprise Activities & Start Date",
-      tag: "Commercial Scope",
-      items: [
-        "Detailed description of main business activities and industry",
-        "Genuine business commencement date or planned launch date",
-        "Principal place of business and registered office addresses",
-        "Online domain names, websites, or social trading channels",
-      ],
+      icon: <ShopOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      title: "Business activities",
+      description: "Detailed description of principal commercial activities, primary industry, and trading model.",
     },
     {
-      icon: <PieChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Ownership Percentages & Shares",
-      tag: "Capital Structure",
-      items: [
-        "Number, value, and classes of shares to be issued (Pty Ltd)",
-        "Member share allocations and written shareholder consents",
-        "Partnership profit and loss distribution ratios",
-        "Trust beneficiary designations and corporate trustee setup",
-      ],
+      icon: <CalendarOutlined className="text-blue-600 dark:text-blue-400" />,
+      title: "Expected start date",
+      description: "Planned date of enterprise commencement or official commercial transaction start.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Turnover Forecasts & Thresholds",
-      tag: "Statutory Triggers",
-      items: [
-        "Expected first-year turnover to assess GST compulsory threshold ($75k)",
-        "Anticipated employee headcount and payroll schedules for PAYG",
-        "Quarterly or monthly BAS reporting cycle preferences",
-        "State or territory payroll tax aggregation considerations",
-      ],
+      icon: <PieChartOutlined className="text-purple-600 dark:text-purple-400" />,
+      title: "Ownership percentages",
+      description: "Proposed equity allocations, share classes, or partnership profit and loss distribution ratios.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Existing Entities, ABNs & Numbers",
-      tag: "Current Records",
-      items: [
-        "Existing sole trader, partnership, or corporate ABNs and ACNs",
-        "Prior activity statements, tax returns, and balance sheets",
-        "Company constitution, replaceable rules, or existing trust deeds",
-        "Authorised contact details for ATO and ASIC correspondence",
-      ],
+      icon: <ApartmentOutlined className="text-cyan-600 dark:text-cyan-400" />,
+      title: "Existing entities",
+      description: "Details of any associated corporate entities, discretionary family trusts, or current trading setups.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Commercial Contracts & Assets",
-      tag: "Asset Inventory",
-      items: [
-        "Commercial premises leases, hire-purchase, or loan agreements",
-        "Valuable plant, equipment, tooling, or vehicle registrations",
-        "Registered trademarks, intellectual property, and patents",
-        "Customer contracts or vendor agreements transferring to the new entity",
-      ],
+      icon: <IdcardOutlined className="text-amber-600 dark:text-amber-400" />,
+      title: "Current ABNs or ACNs",
+      description: "Existing Australian Business Numbers or Australian Company Numbers linked to associates.",
+    },
+    {
+      icon: <TeamOutlined className="text-indigo-600 dark:text-indigo-400" />,
+      title: "Expected employees",
+      description: "Anticipated staff hiring plans to assess PAYG withholding, superannuation, and workers compensation setups.",
+    },
+    {
+      icon: <LineChartOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      title: "Projected turnover",
+      description: "Estimated 12-month turnover to determine whether compulsory GST registration ($75k) applies from inception.",
+    },
+    {
+      icon: <PropertySafetyOutlined className="text-teal-600 dark:text-teal-400" />,
+      title: "Asset ownership",
+      description: "Details of business vehicles, plant, machinery, premises, and intellectual property being introduced or held.",
+    },
+    {
+      icon: <FileTextOutlined className="text-rose-600 dark:text-rose-400" />,
+      title: "Any existing agreements",
+      description: "Prior partnership pacts, shareholder agreements, existing leases, client contracts, or supplier commitments.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header: Verbatim Heading 2 (Para 44) & Paragraphs 45 & 46 */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60 mb-4">
             <SolutionOutlined className="text-teal-600 dark:text-teal-400 text-xs sm:text-sm" />
@@ -107,56 +103,49 @@ export default function WhatInformationNeeded() {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            What Information Is Needed for Setup?
+            What information may be needed?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Providing accurate information early prevents registrations from being created under the wrong entity or with conflicting details across ASIC and the Australian Business Register.
+          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+            The information required depends on what you are establishing or reviewing. It may include the proposed owners or directors, business activities, expected start date, ownership percentages, existing entities, current ABNs or ACNs, expected employees, projected turnover, asset ownership and any existing agreements.
+          </p>
+          <p className="mt-2 text-sm sm:text-base font-medium text-teal-700 dark:text-teal-300">
+            Providing this information early helps avoid registrations being created under the wrong entity or with inconsistent details.
           </p>
         </div>
 
-        {/* 6 Checklist Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {checklistCards.map((card, idx) => (
+        {/* 10 Information Checklist Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 mb-12">
+          {informationChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
-                    {card.icon}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-lg group-hover:scale-105 transition-transform">
+                    {item.icon}
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
-                    {card.tag}
-                  </span>
+                  <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-sm" />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-4">
-                  {card.title}
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1.5 leading-snug">
+                  {item.title}
                 </h3>
-                <ul className="space-y-2.5">
-                  {card.items.map((item, itemIdx) => (
-                    <li
-                      key={itemIdx}
-                      className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed"
-                    >
-                      <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0 text-xs" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA Helper */}
+        {/* Bottom CTA Card */}
         <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
-              Not sure which details apply to your entity?
+              Ready to discuss what information applies to your proposed entity?
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1">
-              Book an appointment with Financially Up. We&apos;ll walk you through the checklist and coordinate your setup.
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1 font-normal">
+              Book an appointment with Financially Up to review your documents and establish your entity cleanly.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -164,10 +153,10 @@ export default function WhatInformationNeeded() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
             >
-              Get Started
+              Book an Appointment
             </Button>
           </Link>
         </div>

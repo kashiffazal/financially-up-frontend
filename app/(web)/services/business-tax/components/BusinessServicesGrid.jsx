@@ -147,7 +147,7 @@ export default function BusinessServicesGrid() {
       subtitle="From annual Pty Ltd company tax returns and discretionary trusts to financial statement preparation and Division 7A director loans, explore our comprehensive commercial accounting solutions."
       services={businessServices}
       columns={3}
-      className="py-16 md:py-24 bg-slate-50/60 dark:bg-zinc-950 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors"
+      className="py-16 md:py-24 bg-white dark:bg-zinc-950 border-b border-slate-100 dark:border-zinc-800 transition-colors"
       containerClassName="max-w-7xl"
     />
   );

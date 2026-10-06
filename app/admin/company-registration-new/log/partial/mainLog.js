@@ -41,6 +41,8 @@ export default function CompanyRegistrationMainLog({
   changeStatus,
   fetchData,
   loading = false,
+  autoOpenRecord = null,
+  onAutoOpenHandled,
 }) {
   // Context-aware Ant Design dynamic instances (Modal, Message, Notification)
   const { modal } = App.useApp();
@@ -59,6 +61,15 @@ export default function CompanyRegistrationMainLog({
 
   // Tracks individual row status loaders during async updates
   const [statusLoader, setStatusLoader] = useState({});
+
+  // Open View Details for a record requested via `?open=<id>` (Global Search).
+  // Adjusted during render (not in an effect) so the modal opens in the same pass.
+  const [handledAutoOpen, setHandledAutoOpen] = useState(null);
+  if (autoOpenRecord && autoOpenRecord !== handledAutoOpen) {
+    setHandledAutoOpen(autoOpenRecord);
+    setViewDetailsRecord(autoOpenRecord);
+    setIsViewDetailsOpen(true);
+  }
 
   // --------------------------------------------------------------------------
   // 2. HELPER: STATUS TAG COLORS
@@ -540,6 +551,7 @@ export default function CompanyRegistrationMainLog({
         onClose={() => {
           setIsViewDetailsOpen(false);
           setViewDetailsRecord(null);
+          if (autoOpenRecord && typeof onAutoOpenHandled === "function") onAutoOpenHandled();
         }}
       />
 

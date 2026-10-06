@@ -1,24 +1,26 @@
 "use client";
 
 import React from "react";
-import { Tag } from "antd";
 import {
   SafetyCertificateOutlined,
   TeamOutlined,
-  CalendarOutlined,
   GlobalOutlined,
+  SyncOutlined,
+  PhoneOutlined,
+  EnvironmentOutlined,
+  IdcardOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
-import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
 
 /**
  * WhyChooseFinanciallyUpTrusts Component
  * =====================================
- * Section 8: Why Choose Financially Up (Trust Accounting Practice).
+ * Section 9: Why choose Financially Up for trust accounting?
  *
- * Demonstrates firm credentials, CPA/IPA accreditation, registered tax agent status (#26234055),
- * and 10+ years of Australian private trust accounting and tax return experience.
- * Consumes dynamic company contact information via `useCompany()`.
+ * Implements verbatim content from '8th Pillar Trust Services.docx' (Page 1: 1- Trust Services).
+ * Highlights firm credentials, CPA/IPA qualifications, 10+ years experience,
+ * Australia-wide delivery, and the practical value of multi-service continuity.
+ * Centralized company contact values are dynamically accessed via `useCompany()`.
  *
  * Background: Clean White.
  */
@@ -28,60 +30,75 @@ export default function WhyChooseFinanciallyUpTrusts() {
   const firmStrengths = [
     {
       icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Registered Tax Agent & Trust Specialist",
+      title: "Registered Tax Agent",
       description:
-        "Financially Up is officially registered with the Tax Practitioners Board (TPB #26234055). We are authorised to prepare trust financial accounts, lodgements, and represent trustees before the ATO.",
+        "Registered with the Tax Practitioners Board (TPB #26234055), authorized to represent trustees before the Australian Taxation Office.",
     },
     {
       icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
-      title: "CPA & IPA Qualified Tax Professionals",
+      title: "CPA & IPA Qualified Team",
       description:
-        "Our team includes accredited members of CPA Australia and the Institute of Public Accountants (IPA), ensuring rigorous deed interpretation, Section 95 calculations, and compliance with ATO rulings.",
+        "Our professional accounting team includes qualified members of CPA Australia and the Institute of Public Accountants (IPA).",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
-      title: "10+ Years of Private Trust & Wealth Structuring",
+      icon: <IdcardOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      title: "10+ Years of Experience",
       description:
-        "Over a decade managing discretionary family trusts, commercial unit trusts, bare trusts for SMSFs, and corporate trustees for family groups across Australia.",
+        "More than a decade of proven practice across accounting, taxation, bookkeeping, and business advisory services for Australian trusts.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
-      title: "Complete Continuity: Accounting, Tax & Corporate Governance",
+      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      title: "Australia-Wide Service",
       description:
-        "We review your trust accounts, corporate trustee ASIC records, and beneficiary tax returns together under one unified firm, eliminating communication gaps.",
+        "Comprehensive support across all Australian states and territories with flexible online video consultations and in-person appointments.",
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-zinc-950 transition-colors">
+    <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <Tag color="green" className="brand-section-tag">
-            Firm Credentials
-          </Tag>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 mb-4">
+            <SafetyCertificateOutlined className="text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm" />
+            <span className="text-xs font-semibold text-emerald-800 dark:text-emerald-300 tracking-wide uppercase">
+              Professional Credentials
+            </span>
+          </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why Choose Financially Up for Trust Accounting?
+          {/* Exact H2 Heading from Document */}
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Why choose Financially Up for trust accounting?
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up Pty Ltd"} provides accounting, tax, bookkeeping, and advisory support to trustees and family groups nationwide. We ensure your trust operates smoothly and complies with Australian trust law.
+          {/* Exact Verbatim Paragraph 1 from Document */}
+          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent with more
+            than 10 years of experience across accounting, taxation, bookkeeping and business
+            advisory work. Our team includes CPA and IPA members, and we support clients
+            Australia-wide through online appointments as well as in-person appointments.
+          </p>
+
+          {/* Exact Verbatim Paragraph 2 from Document */}
+          <p className="mt-3 text-sm sm:text-base text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
+            The practical benefit is continuity: the accounting records, trust tax return and related
+            tax questions can be reviewed together, while more specialised planning is separately
+            identified rather than assumed to be included.
           </p>
         </div>
 
         {/* 4 Firm Strengths Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
+              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-teal-500/50 hover:shadow-md transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                 {item.icon}
               </div>
-              <div className="space-y-2">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0 tracking-tight">
+              <div className="space-y-1.5">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
@@ -92,18 +109,32 @@ export default function WhyChooseFinanciallyUpTrusts() {
           ))}
         </div>
 
-        {/* Advisory Clarity Reassurance Banner */}
-        <AdvisoryReassuranceBanner
-          tag="Trust Accounting & Distribution Consultation"
-          tagIcon="safety"
-          title="Discuss Your Trust Accounting & Tax Position"
-          description="Whether establishing a new discretionary trust, preparing June 30 distribution resolutions, or resolving prior-year trust tax returns, book an appointment with Financially Up."
-          primaryButton={{
-            text: "Book an Appointment",
-            href: "/book-an-appointment",
-          }}
-          showPhone={true}
-        />
+        {/* Centralized Dynamic Company Verification Callout */}
+        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+              <SyncOutlined className="text-xl" />
+            </div>
+            <div>
+              <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
+                Connected Advice & Complete Compliance Continuity
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 font-normal mt-1">
+                {company?.legalName || "Financially Up Pty Ltd"} • ABN: {company?.abn || "84 659 717 263"} • Head Office: {company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href={`tel:${company?.phone?.replace(/\s/g, "") || "1300328316"}`}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:text-teal-600 dark:hover:text-teal-400 text-sm font-semibold shadow-2xs hover:shadow-xs transition-all"
+            >
+              <PhoneOutlined />
+              <span>{company?.phone || "1300 328 316"}</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

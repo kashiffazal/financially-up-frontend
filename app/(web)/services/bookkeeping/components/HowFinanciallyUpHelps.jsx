@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Tag } from "antd";
 import {
   FileTextOutlined,
   SyncOutlined,
@@ -14,66 +15,73 @@ import {
 /**
  * HowFinanciallyUpHelps Component
  * ===============================
- * Section 6: How Financially Up Can Help.
- * Outlines the 6 practical operational pillars of our bookkeeping services.
- * Background: Clean White.
+ * Section 7: How Financially Up can help.
+ *
+ * Content is 100% VERBATIM from the professional SEO specialist document:
+ * '4th Pillar Bookkeeping.docx' (Page 1).
+ * Background: Lite Brand Gradient.
  */
 export default function HowFinanciallyUpHelps() {
+  /**
+   * The 6 exact assistance pillars verbatim from Page 1 of the client document
+   */
   const servicePillars = [
     {
       icon: <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Day-to-Day Transaction Recording",
+      title: "Day-to-day transaction recording and coding, where included in scope",
       description:
-        "Consistent recording and classification of business sales, operating expenses, asset purchases, and bank fees within your agreed service scope.",
+        "Consistent recording and classification of daily sales, operating expenses, and banking transactions.",
     },
     {
       icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Bank & Credit-Card Reconciliations",
+      title: "Bank and credit-card reconciliations",
       description:
-        "Matching your live bank, credit-card, and merchant transactions against bank statements to ensure zero unaccounted-for differences.",
+        "Matching accounting file transactions against official bank and card statements to ensure accurate balances.",
     },
     {
       icon: <ClearOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Review & File Clean-Up",
+      title: "Review and clean-up of bookkeeping records",
       description:
-        "Investigating older suspense accounts, clearing uncleared cheques, fixing historical coding errors, and reconciling opening balances.",
+        "Investigating unexplained balances, historical coding errors, and clearing suspense items.",
     },
     {
       icon: <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Supplier & Customer Accounts (AP/AR)",
+      title: "Customer and supplier transaction support where relevant",
       description:
-        "Assisting with accounts payable bill processing, supplier statement reconciliation, customer invoicing, and debtor aging reports.",
+        "Processing supplier bills, managing accounts payable, customer invoices, and debtor records.",
     },
     {
       icon: <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Preparation for BAS & Tax Work",
+      title: "Preparation of bookkeeping records for BAS, tax or accounting work",
       description:
-        "Structuring accounts and organizing source documentation so your accountant can lodge BAS and year-end tax returns without delays.",
+        "Structuring and validating underlying records so accountants can prepare compliance lodgements efficiently.",
     },
     {
       icon: <InteractionOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Coordinated Compliance Services",
+      title: "Coordination with separately scoped payroll, BAS, tax and accounting services",
       description:
-        "Smooth integration with our separately scoped payroll, Single Touch Payroll (STP), BAS lodgement, and tax compliance offerings.",
+        "Seamless alignment between day-to-day bookkeeping routines and registered tax agent compliance services.",
     },
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 transition-colors">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60 mb-4">
-            <ToolOutlined className="text-teal-600 dark:text-teal-400 text-xs sm:text-sm" />
-            <span className="text-xs font-semibold text-teal-800 dark:text-teal-300 tracking-wide uppercase">
-              Practical Support
-            </span>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+          <Tag color="green" className="brand-section-tag">
+            <ToolOutlined className="mr-1" /> Practical Support
+          </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How Financially Up can help
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            We review your current bookkeeping setup, identify areas that need clean-up, and agree on a practical scope for ongoing support. We work with the records you already have to establish a consistent, reliable financial workflow.
+          {/* Document Introductory Paragraph - Verbatim */}
+          <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
+            Financially Up can review your current bookkeeping setup, identify
+            areas that need clean-up and agree on a practical scope for ongoing
+            support. We can work with the accounting records you already have
+            and help establish a more consistent process for receiving
+            documents, reconciling accounts and resolving queries.
           </p>
         </div>
 
@@ -82,16 +90,16 @@ export default function HowFinanciallyUpHelps() {
           {servicePillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
+              className="p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                   {pillar.icon}
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
                   {pillar.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
                   {pillar.description}
                 </p>
               </div>

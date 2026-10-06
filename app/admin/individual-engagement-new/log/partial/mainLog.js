@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Tag, Button, Dropdown, Popconfirm, Tooltip, Modal } from "antd";
 import {
+  EyeOutlined,
   EditOutlined,
   DeleteOutlined,
   FilePdfOutlined,
@@ -13,6 +14,7 @@ import {
 import DataTable from "@/components/mutual/andt-data-table-component";
 import ExportButtons from "@/components/admin/ExportButtons";
 import IndividualEngagementAdminForm from "@/components/admin/forms/individual-engagement-admin";
+import IndividualEngagementViewDetails from "../../viewDetails";
 import RiskLevelExplainer from "@/components/admin/RiskLevelExplainer";
 import { HTTP, antdMsg, getFileUrl } from "@/services";
 
@@ -37,6 +39,7 @@ const EXPORT_COLUMNS = [
  * 1. Renders the reusable `DataTable` configured for Individual Client Engagements.
  * 2. Defines table columns (Ref #, Client Name, Email & Phone, Occupation, Residency, Attachments, Status, Risk, Actions).
  * 3. Handles Row Action Dropdowns:
+ *    - "View Details": Opens the structured `IndividualEngagementViewDetails` modal.
  *    - "Client Engagement PDF": Direct click opens generated Client PDF in a new tab.
  *    - "Review & Decision": Opens `IndividualEngagementAdminForm` compliance assessment modal.
  *    - "Official PDFs": Direct links to other generated legal PDFs (Admin review, Acceptance, Audit).
@@ -48,6 +51,8 @@ export default function IndividualEngagementMainLog({
   statusName = "All",
   fetchData,
   loading = false,
+  autoOpenRecord = null,
+  onAutoOpenHandled,
 }) {
   // --------------------------------------------------------------------------
   // 1. LOCAL COMPONENT STATE (MODALS & LOADERS)
@@ -57,6 +62,37 @@ export default function IndividualEngagementMainLog({
   const [riskRecord, setRiskRecord] = useState(null);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [isReviewSubmitting, setIsReviewSubmitting] = useState(false);
+  // Record shown in the read-only View Details modal
+  const [viewDetailsRecord, setViewDetailsRecord] = useState(null);
+
+  // Open View Details for a record requested via `?open=<id>` (Global Search).
+  // Adjusted during render (not in an effect) so the modal opens in the same pass.
+  const [handledAutoOpen, setHandledAutoOpen] = useState(null);
+  if (autoOpenRecord && autoOpenRecord !== handledAutoOpen) {
+    setHandledAutoOpen(autoOpenRecord);
+    setViewDetailsRecord(autoOpenRecord);
+  }
+
+  const clearAutoOpen = () => {
+    if (autoOpenRecord && typeof onAutoOpenHandled === "function") onAutoOpenHandled();
+  };
+
+  const closeViewDetails = () => {
+    setViewDetailsRecord(null);
+    clearAutoOpen();
+  };
+
+  // "Review & Decision" button inside View Details → swap to the review modal
+  const openReviewFromDetails = (record) => {
+    setViewDetailsRecord(null);
+    setReviewRecord(record);
+    setIsReviewModalOpen(true);
+  };
+
+  const closeReviewModal = () => {
+    setIsReviewModalOpen(false);
+    clearAutoOpen();
+  };
 
   // --------------------------------------------------------------------------
   // 2. STATUS & RISK COLOR HELPERS
@@ -386,6 +422,12 @@ export default function IndividualEngagementMainLog({
           // Main Action Menu Items
           const menuItems = [
             {
+              key: "view_details",
+              icon: <EyeOutlined className="text-brand-primary" />,
+              label: "View Details",
+              onClick: () => setViewDetailsRecord(record),
+            },
+            {
               key: "client_pdf",
               icon: <FilePdfOutlined className="text-red-500" />,
               label: "Client Engagement PDF",
@@ -496,11 +538,19 @@ export default function IndividualEngagementMainLog({
         onClose={() => setRiskRecord(null)}
       />
 
+      {/* Read-only Engagement Details Modal */}
+      <IndividualEngagementViewDetails
+        visible={Boolean(viewDetailsRecord)}
+        data={viewDetailsRecord}
+        onClose={closeViewDetails}
+        onReview={openReviewFromDetails}
+      />
+
       {/* Compliance Assessment & Review Modal */}
       {isReviewModalOpen && (
         <Modal
           open={isReviewModalOpen}
-          onCancel={() => !isReviewSubmitting && setIsReviewModalOpen(false)}
+          onCancel={() => !isReviewSubmitting && closeReviewModal()}
           footer={null}
           width={980}
           destroyOnClose
@@ -510,7 +560,7 @@ export default function IndividualEngagementMainLog({
           <IndividualEngagementAdminForm
             record={reviewRecord}
             onFinish={handleAdminDecisionSubmit}
-            onCancel={() => !isReviewSubmitting && setIsReviewModalOpen(false)}
+            onCancel={() => !isReviewSubmitting && closeReviewModal()}
             isSubmitting={isReviewSubmitting}
           />
         </Modal>

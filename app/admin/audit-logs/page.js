@@ -923,7 +923,7 @@ export default function AuditLogsPage() {
 
         {/* Dynamic Category Plain-English Explanation Banner (For Non-Technical Users) */}
         {TAB_EXPLANATIONS[activeTabKey] && (
-          <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-zinc-800 bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-zinc-800 bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
             <div className="flex items-start sm:items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 shadow-2xs">
                 {TAB_EXPLANATIONS[activeTabKey].icon}

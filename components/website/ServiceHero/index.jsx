@@ -30,6 +30,10 @@ import {
   BranchesOutlined,
   FileProtectOutlined,
   AuditOutlined,
+  FundOutlined,
+  CompassOutlined,
+  ExperimentOutlined,
+  FileDoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import styles from "./ServiceHero.module.css";
@@ -97,6 +101,20 @@ const renderIcon = (icon, defaultClasses = "") => {
         return <AuditOutlined className={defaultClasses} />;
       case "arrow-right":
         return <ArrowRightOutlined className={defaultClasses} />;
+      case "fund":
+      case "dashboard":
+      case "dashboards":
+        return <FundOutlined className={defaultClasses} />;
+      case "compass":
+      case "navigation":
+        return <CompassOutlined className={defaultClasses} />;
+      case "experiment":
+      case "rnd":
+      case "science":
+        return <ExperimentOutlined className={defaultClasses} />;
+      case "file-done":
+      case "filing":
+        return <FileDoneOutlined className={defaultClasses} />;
       default:
         return null;
     }

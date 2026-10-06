@@ -723,8 +723,13 @@ body {
    GLOBAL VERTICAL CENTERING: MODALS & MODULE DATA TABLES
    ========================================================================== */
 
-/* Vertically center all Ant Design Modals across the entire application */
-.ant-modal-wrap:not(.ant-modal-wrap-top) {
+/*
+ * Vertically center all Ant Design Modals across the entire application.
+ * A closed (but still mounted) modal hides its wrap with an inline
+ * `display: none`; skip those, otherwise the invisible full-screen wrap stays
+ * on top of the page and swallows every click.
+ */
+.ant-modal-wrap:not(.ant-modal-wrap-top):not([style*="display: none"]):not([style*="display:none"]) {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

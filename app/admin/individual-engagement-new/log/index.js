@@ -13,6 +13,8 @@ import {
   AppstoreOutlined,
 } from "@ant-design/icons";
 import IndividualEngagementMainLog from "./partial/mainLog";
+import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
+import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
 import { HTTP, antdMsg } from "@/services";
 
 /**
@@ -85,6 +87,15 @@ export default function IndividualEngagementLogModule() {
   const [loading, setLoading] = useState(false);
   const [activeStatusKey, setActiveStatusKey] = useState("All");
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  // Record requested via `?open=<id>` (Global Search) — opened by the "All" tab log
+  const [autoOpenRecord, setAutoOpenRecord] = useState(null);
+  // Global Search "View all" filter (?ids=…&q=…) — narrows every status tab
+  const [searchFilter, setSearchFilter] = useState(null);
+  const visibleByStatus = useMemo(
+    () => filterStatusMapByIds(listDataByStatus, searchFilter?.ids),
+    [listDataByStatus, searchFilter]
+  );
 
   // --------------------------------------------------------------------------
   // 2. DATA FETCHING & GROUPING LOGIC
@@ -124,6 +135,7 @@ export default function IndividualEngagementLogModule() {
       antdMsg.error("Failed to load individual engagement records.");
     } finally {
       setLoading(false);
+      setHasLoaded(true);
     }
   }, []);
 
@@ -142,6 +154,23 @@ export default function IndividualEngagementLogModule() {
   }, [fetchRecords]);
 
   // --------------------------------------------------------------------------
+  // DEEP LINK (?open=<id>) — OPEN A RECORD FROM GLOBAL SEARCH
+  // --------------------------------------------------------------------------
+  // The list endpoint returns every engagement, so no fetch-by-id fallback is needed.
+  const handleOpenFromUrl = useCallback((record) => {
+    setActiveStatusKey("All");
+    // Fresh object so re-opening the same record from search still triggers the modal
+    setAutoOpenRecord({ ...record });
+  }, []);
+
+  const handleAutoOpenHandled = useCallback(() => setAutoOpenRecord(null), []);
+
+  const handleSearchFilter = useCallback((filter) => {
+    setSearchFilter(filter);
+    if (filter) setActiveStatusKey("All");
+  }, []);
+
+  // --------------------------------------------------------------------------
   // 3. GENERATE TABS WITH DYNAMIC LIVE-COUNT BADGES
   // --------------------------------------------------------------------------
   const tabItems = useMemo(() => {
@@ -153,23 +182,25 @@ export default function IndividualEngagementLogModule() {
           <AppstoreOutlined />
           <span>All</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
-            {listDataByStatus.All?.length || 0}
+            {visibleByStatus.All?.length || 0}
           </span>
         </span>
       ),
       children: (
         <IndividualEngagementMainLog
-          data={listDataByStatus.All || []}
+          data={visibleByStatus.All || []}
           statusName="All"
           fetchData={fetchRecords}
           loading={loading}
+          autoOpenRecord={autoOpenRecord}
+          onAutoOpenHandled={handleAutoOpenHandled}
         />
       ),
     };
 
     // 2. Status-specific tabs
     const statusTabs = INDIVIDUAL_ENG_STATUS_LIST.map((st) => {
-      const count = listDataByStatus[st.key]?.length || 0;
+      const count = visibleByStatus[st.key]?.length || 0;
       return {
         key: st.key,
         label: (
@@ -190,7 +221,7 @@ export default function IndividualEngagementLogModule() {
         ),
         children: (
           <IndividualEngagementMainLog
-            data={listDataByStatus[st.key] || []}
+            data={visibleByStatus[st.key] || []}
             statusName={st.label}
             fetchData={fetchRecords}
             loading={loading}
@@ -200,13 +231,20 @@ export default function IndividualEngagementLogModule() {
     });
 
     return [allTab, ...statusTabs];
-  }, [listDataByStatus, fetchRecords, loading]);
+  }, [visibleByStatus, fetchRecords, loading, autoOpenRecord, handleAutoOpenHandled]);
 
   // --------------------------------------------------------------------------
   // 4. RENDER TABS
   // --------------------------------------------------------------------------
   return (
     <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+      <OpenRecordFromUrl
+        records={listDataByStatus.All}
+        ready={hasLoaded && !loading}
+        onOpen={handleOpenFromUrl}
+        onFilter={handleSearchFilter}
+      />
+      <SearchFilterBanner filter={searchFilter} shownCount={visibleByStatus.All?.length || 0} />
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

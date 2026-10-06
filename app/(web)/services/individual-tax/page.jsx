@@ -197,8 +197,7 @@ const individualTaxFaqs = [
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Fees depend on the work required and the complexity of your
-        circumstances. We provide upfront, transparent fee quotes before
-        commencing work so there are no unexpected costs.
+        circumstances.
       </p>
     ),
   },
@@ -208,8 +207,7 @@ const individualTaxFaqs = [
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Timing depends on the complexity of the return, whether all records have
-        been provided and the firm’s current workload. We will provide an
-        estimated timeframe once your documentation has been reviewed.
+        been provided and the firm’s current workload.
       </p>
     ),
   },
@@ -283,7 +281,7 @@ const faqSchema = {
       name: "How much does the service cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Fees depend on the work required and the complexity of your circumstances. We provide upfront, transparent fee quotes before commencing work so there are no unexpected costs.",
+        text: "Fees depend on the work required and the complexity of your circumstances.",
       },
     },
     {
@@ -291,7 +289,7 @@ const faqSchema = {
       name: "How long will my tax return take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Timing depends on the complexity of the return, whether all records have been provided and the firm’s current workload. We will provide an estimated timeframe once your documentation has been reviewed.",
+        text: "Timing depends on the complexity of the return, whether all records have been provided and the firm’s current workload.",
       },
     },
     {
@@ -310,7 +308,7 @@ const faqSchema = {
  * =====================
  * Pillar 1: Individual Tax Main Hub Page (/services/individual-tax/).
  * Assembles all modular sections using the exact professional client copy,
- * the central FaqSection, and the relocated CallToActionBanner as Pre-Footer.
+ * the central FaqSection, and the CallToActionBanner as Pre-Footer.
  */
 export default function IndividualTaxMainPage() {
   return (
@@ -359,8 +357,8 @@ export default function IndividualTaxMainPage() {
           icon: "arrow-right",
         }}
         secondaryButton={{
-          text: "Start My Tax Return",
-          href: "/resources/engagement-forms/individual-engagement-form",
+          text: "View individual tax services",
+          href: "#services-overview",
         }}
         supportingText="Join countless Australians who experience a stress-free tax lodgement with us."
         scopeTag="Practice Scope Overview"
@@ -402,14 +400,15 @@ export default function IndividualTaxMainPage() {
         showSideColumn={false}
       />
 
-      {/* 9. Pre-Footer Call to Action Banner (Moved to components/website/CallToActionBanner) */}
+      {/* 9. Pre-Footer Call to Action Banner */}
       <CallToActionBanner
         tag="Ready When You Are"
-        title="Speak With an Individual Tax Accountant"
-        subtitle="Book an appointment online, discuss your circumstances or get clear advice about your return before lodging."
+        title="Speak with an individual tax accountant"
+        subtitle="If you need help with an individual tax return or a more complex personal tax matter, book an appointment with Financially Up. We will discuss your circumstances, identify the appropriate service and explain the next step."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
-        secondaryButtonText="Contact Us"
+        secondaryButtonText="Contact Financially Up"
+        secondaryButtonHref="/contact-us"
       />
     </main>
   );

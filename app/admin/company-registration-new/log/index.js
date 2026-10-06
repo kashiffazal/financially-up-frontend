@@ -15,6 +15,8 @@ import {
 } from "@ant-design/icons";
 import CompanyRegistrationMainLog from "./partial/mainLog";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
+import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
+import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
 
 /**
  * ============================================================================
@@ -107,6 +109,18 @@ export default function CompanyRegistrationLogModule() {
   // e.g. { All: [...], Submitted: [...], "Under Review": [...], Approved: [...] }
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
 
+  // True once the first fetch has finished (gates `?open=<id>` deep links)
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  // Record requested via `?open=<id>` (Global Search) — opened by the "All" tab log
+  const [autoOpenRecord, setAutoOpenRecord] = useState(null);
+  // Global Search "View all" filter (?ids=…&q=…) — narrows every status tab
+  const [searchFilter, setSearchFilter] = useState(null);
+  const visibleByStatus = useMemo(
+    () => filterStatusMapByIds(listDataByStatus, searchFilter?.ids),
+    [listDataByStatus, searchFilter]
+  );
+
   // --------------------------------------------------------------------------
   // 2. DATA FETCHING & GROUPING LOGIC
   // --------------------------------------------------------------------------
@@ -153,6 +167,7 @@ export default function CompanyRegistrationLogModule() {
       antdMsg.error("Failed to load company registration logs.");
     } finally {
       setLoading(false);
+      setHasLoaded(true);
     }
   }, []);
 
@@ -160,6 +175,28 @@ export default function CompanyRegistrationLogModule() {
   useEffect(() => {
     fetchRecords();
   }, [fetchRecords]);
+
+  // --------------------------------------------------------------------------
+  // DEEP LINK (?open=<id>) — OPEN A RECORD FROM GLOBAL SEARCH
+  // --------------------------------------------------------------------------
+  const fetchRecordById = useCallback(async (id) => {
+    const res = await HTTP("GET", `/new-company-registrations/${id}`, undefined, false, true);
+    const record = res?.data;
+    return record?.id ? { ...record, key: record.id } : null;
+  }, []);
+
+  const handleOpenFromUrl = useCallback((record) => {
+    setActiveStatusKey("All");
+    // Fresh object so re-opening the same record from search still triggers the modal
+    setAutoOpenRecord({ ...record });
+  }, []);
+
+  const handleAutoOpenHandled = useCallback(() => setAutoOpenRecord(null), []);
+
+  const handleSearchFilter = useCallback((filter) => {
+    setSearchFilter(filter);
+    if (filter) setActiveStatusKey("All");
+  }, []);
 
   // --------------------------------------------------------------------------
   // 3. REAL-TIME STATUS UPDATE HANDLER (NO FULL PAGE RELOAD)
@@ -223,25 +260,27 @@ export default function CompanyRegistrationLogModule() {
           <AppstoreOutlined />
           <span>All</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
-            {listDataByStatus.All?.length || 0}
+            {visibleByStatus.All?.length || 0}
           </span>
         </span>
       ),
       children: (
         <CompanyRegistrationMainLog
-          data={listDataByStatus.All || []}
+          data={visibleByStatus.All || []}
           statusName="All"
           statusList={COMPANY_REG_STATUS_LIST}
           changeStatus={handleUpdateListOnChangeStatus}
           fetchData={fetchRecords}
           loading={loading}
+          autoOpenRecord={autoOpenRecord}
+          onAutoOpenHandled={handleAutoOpenHandled}
         />
       ),
     };
 
     // 2. Status-specific tabs
     const statusTabs = COMPANY_REG_STATUS_LIST.map((st) => {
-      const count = listDataByStatus[st.key]?.length || 0;
+      const count = visibleByStatus[st.key]?.length || 0;
       return {
         key: st.key,
         label: (
@@ -262,7 +301,7 @@ export default function CompanyRegistrationLogModule() {
         ),
         children: (
           <CompanyRegistrationMainLog
-            data={listDataByStatus[st.key] || []}
+            data={visibleByStatus[st.key] || []}
             statusName={st.label}
             statusList={COMPANY_REG_STATUS_LIST}
             changeStatus={handleUpdateListOnChangeStatus}
@@ -274,13 +313,28 @@ export default function CompanyRegistrationLogModule() {
     });
 
     return [allTab, ...statusTabs];
-  }, [listDataByStatus, handleUpdateListOnChangeStatus, fetchRecords, loading]);
+  }, [
+    visibleByStatus,
+    handleUpdateListOnChangeStatus,
+    fetchRecords,
+    loading,
+    autoOpenRecord,
+    handleAutoOpenHandled,
+  ]);
 
   // --------------------------------------------------------------------------
   // 5. RENDER TABS
   // --------------------------------------------------------------------------
   return (
     <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+      <OpenRecordFromUrl
+        records={listDataByStatus.All}
+        ready={hasLoaded && !loading}
+        fetchById={fetchRecordById}
+        onOpen={handleOpenFromUrl}
+        onFilter={handleSearchFilter}
+      />
+      <SearchFilterBanner filter={searchFilter} shownCount={visibleByStatus.All?.length || 0} />
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

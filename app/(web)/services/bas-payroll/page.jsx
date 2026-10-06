@@ -4,7 +4,7 @@ import WhatBasLodgementInvolves from "./components/WhatBasLodgementInvolves";
 import BasPayrollServicesGrid from "./components/BasPayrollServicesGrid";
 import WhoNeedsBasServices from "./components/WhoNeedsBasServices";
 import BasComplianceNotice from "./components/BasComplianceNotice";
-import PayrollAndStpWorkflow from "./components/PayrollAndStpWorkflow";
+import BasHelpSmallBusiness from "./components/BasHelpSmallBusiness";
 import HowFinanciallyUpHelps from "./components/HowFinanciallyUpHelps";
 import WhatInformationNeeded from "./components/WhatInformationNeeded";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
@@ -12,7 +12,9 @@ import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 /**
- * Server Metadata for SEO (Exact values from client document: 5th Pillar BAS, GST & Payroll.docx)
+ * Server Metadata for SEO
+ * Exact values from client document:
+ * '5th Pillar BAS, GST & Payroll.docx' (Page 1 - Verbatim)
  */
 export const metadata = {
   title: "BAS Lodgement & GST Services Australia | Financially Up",
@@ -21,14 +23,14 @@ export const metadata = {
   keywords: [
     "BAS lodgement",
     "BAS lodgement service",
-    "GST registration service",
-    "payroll services Australia",
-    "single touch payroll STP",
-    "IAS lodgement",
-    "PAYG withholding",
-    "fringe benefits tax FBT",
+    "GST registration",
+    "GST records",
     "activity statement accountant",
-    "superannuation guarantee processing",
+    "payroll support Australia",
+    "PAYG withholding",
+    "PAYG instalments",
+    "superannuation processing",
+    "business activity statement",
   ],
   alternates: {
     canonical: "https://financiallyup.com.au/services/bas-payroll/",
@@ -50,7 +52,7 @@ export const metadata = {
 const basPayrollBreadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services-overview" },
-  { label: "BAS & Payroll" },
+  { label: "BAS, GST & Payroll" },
 ];
 
 /**
@@ -67,7 +69,7 @@ const basPayrollScopeItems = [
   {
     icon: "safety",
     theme: "blue",
-    title: "GST Registration & Credits",
+    title: "GST Registration & Records",
     description: "Turnover assessments, voluntary registration & input credit substantiation",
     tag: "GST Support",
   },
@@ -88,7 +90,7 @@ const basPayrollScopeItems = [
   {
     icon: "calculator",
     theme: "purple",
-    title: "FBT & Activity Statements (IAS)",
+    title: "FBT & Monthly IAS Reporting",
     description: "Fringe benefits tax returns, salary packaging & monthly IAS reporting",
     tag: "FBT & IAS",
   },
@@ -113,7 +115,7 @@ const basPayrollVerificationBadges = [
 ];
 
 /**
- * 5 Exact Frequently Asked Questions from Client Document (Pillar 5)
+ * 5 Exact Frequently Asked Questions from Client Document (Pillar 5, Page 1 - Verbatim)
  */
 const basPayrollFaqs = [
   {
@@ -121,9 +123,10 @@ const basPayrollFaqs = [
     label: "What is a BAS?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A business activity statement is an ATO form used to report tax obligations that
-        apply to a business, which may include GST, PAYG withholding and PAYG instalments.
-        The labels that appear depend on the business&apos;s registrations and circumstances.
+        A business activity statement is an ATO form used to report tax
+        obligations that apply to a business, which may include GST, PAYG
+        withholding and PAYG instalments. The labels that appear depend on the
+        business&apos;s registrations and circumstances.
       </p>
     ),
   },
@@ -132,9 +135,10 @@ const basPayrollFaqs = [
     label: "How often do I need to lodge a BAS?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Businesses may report monthly, quarterly or annually depending on their circumstances
-        and ATO reporting cycle. Your actual due dates and reporting frequency should be checked
-        against the activity statement issued by the ATO or your ATO account.
+        Businesses may report monthly, quarterly or annually depending on their
+        circumstances and ATO reporting cycle. Your actual due dates and
+        reporting frequency should be checked against the activity statement
+        issued by the ATO or your ATO account.
       </p>
     ),
   },
@@ -143,10 +147,11 @@ const basPayrollFaqs = [
     label: "Do I need a BAS agent or accountant?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        You can manage your own activity statements if you are comfortable doing so, but many
-        businesses use professional BAS lodgement support to review records, prepare figures and
-        reduce avoidable reporting errors. The appropriate service depends on the complexity of the
-        business and its records.
+        You can manage your own activity statements if you are comfortable doing
+        so, but many businesses use professional BAS lodgement support to review
+        records, prepare figures and reduce avoidable reporting errors. The
+        appropriate service depends on the complexity of the business and its
+        records.
       </p>
     ),
   },
@@ -155,9 +160,9 @@ const basPayrollFaqs = [
     label: "Can you help if my bookkeeping is behind?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Where records are incomplete, the bookkeeping may need to be brought up to date or
-        reconciled before a BAS can be prepared reliably. Catch-up work can be scoped separately
-        where required.
+        Yes. Where records are incomplete, the bookkeeping may need to be
+        brought up to date or reconciled before a BAS can be prepared reliably.
+        Catch-up work can be scoped separately where required.
       </p>
     ),
   },
@@ -166,9 +171,9 @@ const basPayrollFaqs = [
     label: "Is BAS lodgement the same as a business tax return?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. A BAS reports activity-statement obligations for a reporting period. A business tax return
-        is a separate annual income-tax reporting process. Some figures may relate, but the lodgements
-        are different.
+        No. A BAS reports activity-statement obligations for a reporting period.
+        A business tax return is a separate annual income-tax reporting process.
+        Some figures may relate, but the lodgements are different.
       </p>
     ),
   },
@@ -227,8 +232,19 @@ const faqSchema = {
  * ==================
  * Pillar 5: BAS Lodgement, GST & Payroll Support Hub Page (/services/bas-payroll/).
  *
- * Implements the full client content from '5th Pillar BAS, GST & Payroll.docx',
- * structured into 10 cohesive, responsive sections with strict alternating background palette.
+ * Implements 100% of the verbatim client content from '5th Pillar BAS, GST & Payroll.docx',
+ * structured into cohesive, responsive sections with strict alternating background palette:
+ * 1. Hero: ServiceHero Composite
+ * 2. Section 1: What Does BAS Lodgement Involve? (Lite Brand Gradient)
+ * 3. Section 2: Our BAS, GST & Payroll Services - 10 Card Hub (Clean White)
+ * 4. Section 3: Who May Need BAS Services? (Lite Brand Gradient)
+ * 5. Section 4: GST, BAS & Payroll Service Boundaries (Clean White)
+ * 6. Section 5: BAS Help for Small Business (Lite Brand Gradient)
+ * 7. Section 6: How Financially Up Can Help (Clean White)
+ * 8. Section 7: What Information May Be Needed? (Lite Brand Gradient)
+ * 9. Section 8: Why Choose Financially Up? (Clean White)
+ * 10. Section 9: Frequently Asked Questions (Lite Brand Gradient)
+ * 11. Section 10: Call to Action Banner (Dark Brand Accent)
  */
 export default function BasPayrollMainPage() {
   return (
@@ -247,20 +263,31 @@ export default function BasPayrollMainPage() {
           text: "ATO Registered Tax Agents • Australia-Wide",
         }}
         title="BAS Lodgement, GST & Payroll Support"
-        titleHighlight="for Australian Businesses"
+        titleHighlight=""
         description={
           <p className="m-0">
-            Financially Up provides practical BAS lodgement, GST and payroll support for businesses that want their activity-statement reporting, GST records and related compliance kept organized. The service is suited to sole traders, companies, trusts and partnerships that need help understanding what belongs on a business activity statement, preparing accurate figures and keeping records ready for lodgement.
+            Financially Up provides practical BAS lodgement, GST and payroll
+            support for businesses that want their activity-statement reporting,
+            GST records and related compliance kept organized. The service is
+            suited to sole traders, companies, trusts and partnerships that need
+            help understanding what belongs on a business activity statement,
+            preparing accurate figures and keeping records ready for lodgement.
           </p>
         }
         subDescription={
           <p className="m-0">
-            A BAS can report more than GST. Depending on a business&apos;s registrations and obligations, an activity statement may also include PAYG withholding, PAYG instalments and other amounts. What appears on a particular BAS depends on the business and the registrations the ATO has in place.
+            A BAS can report more than GST. Depending on a business&apos;s
+            registrations and obligations, an activity statement may also
+            include PAYG withholding, PAYG instalments and other amounts. What
+            appears on a particular BAS depends on the business and the
+            registrations the ATO has in place.
           </p>
         }
         scopeNotice={
           <p className="m-0">
-            Need help working out what needs to be reported and what records are required? Book an appointment to discuss your business activity statements, registrations, and filing cycle.
+            Need help working out what needs to be reported and what records are
+            required? Book an appointment to discuss your business activity
+            statements, registrations, and filing cycle.
           </p>
         }
         primaryButton={{
@@ -272,7 +299,7 @@ export default function BasPayrollMainPage() {
           text: "Explore Services",
           href: "#bas-payroll-services-overview",
         }}
-        supportingText="Trusted BAS and payroll compliance for Australian employers, companies, and traders."
+        supportingText="Trusted BAS and payroll compliance for Australian employers, companies, and sole traders."
         scopeTag="Compliance Scope Overview"
         scopeTitle="BAS & Payroll Practice"
         scopeStatus="2024–25 Ready"
@@ -282,31 +309,31 @@ export default function BasPayrollMainPage() {
         backgroundAlt="Australian BAS Lodgement and Payroll Services"
       />
 
-      {/* 2. What Does BAS Lodgement Involve? (Lite Brand Gradient) */}
+      {/* 2. What Does BAS Lodgement Involve? (Section 1 - Lite Brand Gradient) */}
       <WhatBasLodgementInvolves />
 
-      {/* 3. Our BAS, GST & Payroll Services - 10 Card Navigation Grid (Clean White) */}
+      {/* 3. Our BAS, GST & Payroll Services - 10 Card Navigation Grid (Section 2 - Clean White) */}
       <BasPayrollServicesGrid />
 
-      {/* 4. Who May Need BAS Services? (Lite Brand Gradient - ProfileCardsGrid) */}
+      {/* 4. Who May Need BAS Services? (Section 3 - Lite Brand Gradient) */}
       <WhoNeedsBasServices />
 
-      {/* 5. Distinct Scope & ATO 5-Year Rule (Clean White - AdvisoryReassuranceBanner) */}
+      {/* 5. GST, BAS and Payroll Are Related - But Distinct Services (Section 4 - Clean White) */}
       <BasComplianceNotice />
 
-      {/* 6. Payroll, STP Phase 2 & Superannuation Guarantee (Lite Brand Gradient) */}
-      <PayrollAndStpWorkflow />
+      {/* 6. BAS Help for Small Business (Section 5 - Lite Brand Gradient) */}
+      <BasHelpSmallBusiness />
 
-      {/* 7. How Financially Up Can Help - 6 Practical Steps (Clean White) */}
+      {/* 7. How Financially Up Can Help - 6 Practical Steps (Section 6 - Clean White) */}
       <HowFinanciallyUpHelps />
 
-      {/* 8. What Records Should You Have Ready? - 6-Item Checklist (Lite Brand Gradient) */}
+      {/* 8. What Information May Be Needed? & 5-Year Rule (Section 7 - Lite Brand Gradient) */}
       <WhatInformationNeeded />
 
-      {/* 9. Why Choose Financially Up - Credentials & Contact Clarity (Clean White) */}
+      {/* 9. Why Choose Financially Up? - Credentials & Contact (Section 8 - Clean White) */}
       <WhyChooseFinanciallyUp />
 
-      {/* 10. Frequently Asked Questions (Lite Brand Gradient) */}
+      {/* 10. Frequently Asked Questions (Section 9 - Lite Brand Gradient) */}
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently asked questions"
@@ -318,11 +345,11 @@ export default function BasPayrollMainPage() {
         showSideColumn={false}
       />
 
-      {/* 11. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
+      {/* 11. Pre-Footer Call to Action Banner (Section 10 - Dark Brand Accent) */}
       <CallToActionBanner
         tag="Ready When You Are"
-        title="Get Practical BAS & Payroll Support"
-        subtitle="Book an appointment to discuss your BAS cycle, GST registrations, payroll-related reporting, bookkeeping records and any outstanding activity statements."
+        title="Book an Appointment"
+        subtitle="Book an appointment to discuss your BAS cycle, GST registrations, payroll-related reporting, bookkeeping records and any outstanding activity statements. We can help establish what information is needed and the appropriate scope of work."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

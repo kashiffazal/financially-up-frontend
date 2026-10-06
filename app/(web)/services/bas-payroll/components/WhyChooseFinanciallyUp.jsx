@@ -14,45 +14,50 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
 /**
  * WhyChooseFinanciallyUp Component
  * ================================
- * Section 8: Why Choose Financially Up (BAS & Payroll Practice).
+ * Section 8 of BAS, GST & Payroll Hub:
+ * "Why choose Financially Up?"
  *
- * Demonstrates firm credentials, CPA/IPA accreditation, registered tax agent status (#26234055),
- * 10+ years of Australian BAS, GST, and payroll experience.
- * Consumes dynamic company contact information via `useCompany()`.
+ * Content is 100% VERBATIM from the professional SEO specialist document:
+ * '5th Pillar BAS, GST & Payroll.docx' (Page 1).
+ *
+ * Consumes dynamic company variables via `useCompany()` hook from `@/context/SettingsContext`.
  * Background: Clean White.
  */
 export default function WhyChooseFinanciallyUp() {
   const company = useCompany();
 
+  /**
+   * The 4 core firm credentials matching the verbatim document statement
+   */
   const firmStrengths = [
     {
       icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Registered Tax Agent & Authorised Lodgement",
+      title: "Registered Tax Agent",
       description:
-        "Financially Up is officially registered with the Tax Practitioners Board (TPB #26234055). We are legally authorised to prepare and lodge all activity statements, GST matters, and payroll tax returns.",
+        "Registered Australian tax agent firm providing authorized, accurate activity statement preparation, lodgement and ATO liaison.",
     },
     {
       icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
-      title: "CPA & IPA Qualified Tax Professionals",
+      title: "CPA & IPA Members",
       description:
-        "Our team includes accredited members of CPA Australia and the Institute of Public Accountants (IPA), ensuring rigorous attention to Australian tax rulings and compliance accuracy.",
+        "Our professional accounting team includes accredited CPA Australia and Institute of Public Accountants (IPA) members.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
-      title: "10+ Years of Australian Small Business Tax",
+      icon: <CalendarOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      title: "10+ Years of Experience",
       description:
-        "Over a decade helping Australian sole traders, companies, and trusts navigate GST rules, Single Touch Payroll, employee awards, and ATO lodgements.",
+        "Bringing more than 10 years of hands-on experience across Australian business accounting, tax work, and compliance reporting.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
-      title: "Extended ATO Deadlines & Online Ease",
+      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      title: "Australia-Wide Support",
       description:
-        "Access registered tax agent lodgement extensions for quarterly BAS, supported by 100% online screen-sharing consultations and in-person appointments at North Sydney.",
+        "Comprehensive support is available Australia-wide, featuring convenient online video consultations and in-person appointments.",
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-zinc-950 transition-colors">
+    <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
@@ -61,11 +66,17 @@ export default function WhyChooseFinanciallyUp() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why Choose Financially Up?
+            Why choose Financially Up?
           </h2>
 
+          {/* Document Section 7 Paragraph - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up Pty Ltd"} is an Australian accounting, taxation, bookkeeping and business advisory firm. We ensure your activity statements and employee obligations are compliant, accurate, and lodged on time.
+            {company?.legalName || "Financially Up Pty Ltd"} is an Australian
+            accounting, taxation, bookkeeping and business advisory firm and a
+            registered tax agent. The team includes CPA and IPA members and
+            brings more than 10 years of experience across business accounting
+            and tax work. Support is available Australia-wide, with online and
+            in-person appointments.
           </p>
         </div>
 
@@ -96,12 +107,10 @@ export default function WhyChooseFinanciallyUp() {
           tag="Activity Statement Consultation"
           tagIcon="safety"
           title="Discuss Your BAS & Payroll Requirements"
-          description="Book an appointment with our qualified tax agents to review your BAS cycle, GST registrations, Single Touch Payroll, and any outstanding activity statements. We'll establish what records are needed and confirm next steps."
-          primaryButton={{
-            text: "Book an Appointment",
-            href: "/book-an-appointment",
-          }}
-          showPhone={true}
+          description="Book an appointment to discuss your BAS cycle, GST registrations, payroll-related reporting, bookkeeping records and any outstanding activity statements. We can help establish what information is needed and the appropriate scope of work."
+          primaryButtonText="Book an Appointment"
+          primaryButtonHref="/book-an-appointment"
+          secondaryButtonText="Call"
         />
       </div>
     </section>

@@ -4,6 +4,8 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Tabs } from "antd";
 import { AppstoreOutlined } from "@ant-design/icons";
 import GenericMainLog from "./GenericMainLog";
+import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
+import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
 import { STANDARD_FORM_STATUS_LIST } from "./constants";
 
@@ -46,6 +48,15 @@ export default function FormLogModule({
   const [loading, setLoading] = useState(false);
   const [activeStatusKey, setActiveStatusKey] = useState("All");
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  // Record requested via `?open=<id>` (Global Search) — opened by the "All" tab log
+  const [autoOpenRecord, setAutoOpenRecord] = useState(null);
+  // Global Search "View all" filter (?ids=…&q=…) — narrows every status tab
+  const [searchFilter, setSearchFilter] = useState(null);
+  const visibleByStatus = useMemo(
+    () => filterStatusMapByIds(listDataByStatus, searchFilter?.ids),
+    [listDataByStatus, searchFilter]
+  );
 
   // --------------------------------------------------------------------------
   // DATA FETCHING & BUCKETING LOGIC
@@ -93,6 +104,7 @@ export default function FormLogModule({
       antdMsg.error(err?.message || `Failed to load ${filenamePrefix} records.`);
     } finally {
       setLoading(false);
+      setHasLoaded(true);
     }
   }, [endpoint, queryLimit, normalizeRecord, statusList, defaultStatus, filenamePrefix]);
 
@@ -100,6 +112,33 @@ export default function FormLogModule({
   useEffect(() => {
     fetchRecords();
   }, [fetchRecords]);
+
+  // --------------------------------------------------------------------------
+  // DEEP LINK (?open=<id>) — OPEN A RECORD FROM GLOBAL SEARCH
+  // --------------------------------------------------------------------------
+  const fetchRecordById = useCallback(
+    async (id) => {
+      const res = await HTTP("GET", `${endpoint}/${id}`, undefined, false, true);
+      const raw = res?.data;
+      if (!raw || !raw.id) return null;
+      const base = typeof normalizeRecord === "function" ? normalizeRecord(raw) : raw;
+      return { ...base, key: base.id || base._id };
+    },
+    [endpoint, normalizeRecord]
+  );
+
+  const handleOpenFromUrl = useCallback((record) => {
+    setActiveStatusKey("All");
+    // Fresh object so re-opening the same record from search still triggers the modal
+    setAutoOpenRecord({ ...record });
+  }, []);
+
+  const handleAutoOpenHandled = useCallback(() => setAutoOpenRecord(null), []);
+
+  const handleSearchFilter = useCallback((filter) => {
+    setSearchFilter(filter);
+    if (filter) setActiveStatusKey("All");
+  }, []);
 
   // --------------------------------------------------------------------------
   // REAL-TIME STATUS UPDATE HANDLER (NO FULL PAGE RELOAD)
@@ -150,13 +189,13 @@ export default function FormLogModule({
           <AppstoreOutlined />
           <span>All</span>
           <span className="text-xs px-1.5 py-0.2 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
-            {listDataByStatus.All?.length || 0}
+            {visibleByStatus.All?.length || 0}
           </span>
         </span>
       ),
       children: (
         <GenericMainLog
-          data={listDataByStatus.All || []}
+          data={visibleByStatus.All || []}
           statusName="All"
           statusList={statusList}
           changeStatus={handleUpdateListOnChangeStatus}
@@ -175,13 +214,15 @@ export default function FormLogModule({
           renderViewDetails={renderViewDetails}
           extraActions={extraActions}
           extraModals={extraModals}
+          autoOpenRecord={autoOpenRecord}
+          onAutoOpenHandled={handleAutoOpenHandled}
         />
       ),
     };
 
     // 2. Status-specific tabs
     const statusTabs = statusList.map((st) => {
-      const count = listDataByStatus[st.key]?.length || 0;
+      const count = visibleByStatus[st.key]?.length || 0;
       return {
         key: st.key,
         label: (
@@ -202,7 +243,7 @@ export default function FormLogModule({
         ),
         children: (
           <GenericMainLog
-            data={listDataByStatus[st.key] || []}
+            data={visibleByStatus[st.key] || []}
             statusName={st.label}
             statusList={statusList}
             changeStatus={handleUpdateListOnChangeStatus}
@@ -228,7 +269,7 @@ export default function FormLogModule({
 
     return [allTab, ...statusTabs];
   }, [
-    listDataByStatus,
+    visibleByStatus,
     statusList,
     handleUpdateListOnChangeStatus,
     fetchRecords,
@@ -246,6 +287,8 @@ export default function FormLogModule({
     renderViewDetails,
     extraActions,
     extraModals,
+    autoOpenRecord,
+    handleAutoOpenHandled,
   ]);
 
   // --------------------------------------------------------------------------
@@ -253,6 +296,14 @@ export default function FormLogModule({
   // --------------------------------------------------------------------------
   return (
     <div className="w-full bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+      <OpenRecordFromUrl
+        records={listDataByStatus.All}
+        ready={hasLoaded && !loading}
+        fetchById={fetchRecordById}
+        onOpen={handleOpenFromUrl}
+        onFilter={handleSearchFilter}
+      />
+      <SearchFilterBanner filter={searchFilter} shownCount={visibleByStatus.All?.length || 0} />
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

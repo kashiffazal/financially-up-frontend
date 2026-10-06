@@ -1,0 +1,121 @@
+/* Individual Engagement — View Details modal */
+
+/*
+ * Edge-to-edge layout. The container padding is removed by the app-wide
+ * `.modal-flush` opt-out (globals.css); the corner radius stays the global
+ * var(--radius-modal) so this modal matches every other modal in the app.
+ * Selectors are anchored on .ant-modal-root + .ant-modal-container so they
+ * outrank the global ":not(:has(.ant-modal-confirm))" spacing rules.
+ */
+.modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-header) {
+  margin: 0 !important;
+  padding: 20px 64px 16px 24px !important;
+  /* container clips the top corners to var(--radius-modal); keep the divider straight */
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  background: linear-gradient(180deg, var(--brand-primary-light) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+:global(.dark) .modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-header) {
+  border-bottom-color: rgba(63, 63, 70, 0.8);
+  background: linear-gradient(180deg, rgba(6, 78, 59, 0.28) 0%, rgba(24, 24, 27, 0) 100%);
+}
+
+.modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-footer) {
+  margin: 0 !important;
+  padding: 12px 24px !important;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  background: #f8fafc;
+}
+
+:global(.dark) .modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-footer) {
+  border-top-color: rgba(63, 63, 70, 0.8);
+  background: rgba(24, 24, 27, 0.6);
+}
+
+/* Avatar with brand gradient */
+.avatar {
+  background: linear-gradient(135deg, #008043 0%, #10b981 100%);
+  box-shadow: 0 6px 16px -6px rgba(0, 128, 67, 0.55);
+}
+
+/* Scrollable body; tab bar stays pinned */
+.body {
+  max-height: min(64vh, 640px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+}
+
+.body :global(.ant-tabs-nav) {
+  position: sticky !important;
+  top: 0;
+  z-index: 2;
+  margin: 0 0 16px !important;
+  background: #ffffff;
+}
+
+:global(.dark) .body :global(.ant-tabs-nav) {
+  background: #18181b;
+}
+
+/* Section card */
+.section {
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+:global(.dark) .section {
+  border-color: rgba(63, 63, 70, 0.8);
+  background: rgba(24, 24, 27, 0.5);
+}
+
+.sectionHeader {
+  border-bottom: 1px solid rgba(241, 245, 249, 1);
+}
+
+:global(.dark) .sectionHeader {
+  border-bottom-color: rgba(39, 39, 42, 1);
+}
+
+.fieldLabel {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* Quick facts + file tiles */
+.fact,
+.tile {
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  background: #ffffff;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+:global(.dark) .fact,
+:global(.dark) .tile {
+  border-color: rgba(63, 63, 70, 0.8);
+  background: rgba(24, 24, 27, 0.5);
+}
+
+.tile:hover {
+  border-color: rgba(0, 128, 67, 0.45);
+  box-shadow: 0 8px 20px -12px rgba(0, 128, 67, 0.45);
+  transform: translateY(-1px);
+}
+
+.tileAction {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.tile:hover .tileAction {
+  opacity: 1;
+}

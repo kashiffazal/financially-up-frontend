@@ -11,71 +11,74 @@ import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
  *
  * Utilizes the mutual ProfileCardsGrid component for the 6 target business profiles,
  * and the mutual EntityRoutingBanner component for corporate entity practice routing.
+ *
+ * Content is 100% VERBATIM from the professional SEO specialist document:
+ * '2nd pillar Business Tax Final Pages.docx'.
  */
 export default function WhoWeHelp() {
   /**
-   * The 6 Target Business Profiles from client documentation
+   * The 6 Target Business Profiles from client documentation (verbatim)
    */
   const businessProfiles = [
     {
       id: "sme",
       icon: "shop",
       tag: "SMEs",
-      title: "Small & Medium Businesses",
+      title: "Small and Medium Businesses",
       description:
-        "Established enterprises seeking unified, end-to-end accounting, tax compliance, BAS reporting, and strategic tax planning in one place.",
+        "Small and medium-sized businesses that want accounting and tax support in one place.",
       href: "/services/business-tax/business-tax-compliance",
-      actionText: "Learn more",
+      actionText: "Tax & accounting support",
     },
     {
       id: "companies",
       icon: "bank",
-      tag: "Pty Ltd",
-      title: "Trading & Holding Companies",
+      tag: "Companies",
+      title: "Australian Companies",
       description:
-        "Proprietary limited companies requiring annual company tax returns, financial statements, Division 7A management, and franking account reconciliations.",
+        "Companies requiring annual company tax and accounting work.",
       href: "/services/business-tax/company-tax-returns",
-      actionText: "Learn more",
+      actionText: "Company tax returns",
     },
     {
       id: "trusts",
       icon: "apartment",
       tag: "Trusts",
-      title: "Family & Unit Trusts",
+      title: "Trust Entities",
       description:
-        "Trust entities that need statutory trust tax returns, balance sheets, and distribution resolutions documented before the mandatory 30 June deadline.",
+        "Trusts that need trust tax returns, accounts and distribution reporting.",
       href: "/services/business-tax/trust-tax-returns",
-      actionText: "Learn more",
+      actionText: "Trust tax returns",
     },
     {
       id: "sole-traders",
       icon: "user",
       tag: "Sole Traders",
-      title: "Independent Contractors & Traders",
+      title: "Sole Traders",
       description:
-        "Sole traders whose commercial business activity, expenses, and GST are reported through their individual tax return business schedule.",
+        "Sole traders whose business activity is reported through their individual return.",
       href: "/services/business-tax/sole-trader-tax",
-      actionText: "Learn more",
+      actionText: "Sole trader tax",
     },
     {
-      id: "scaling",
+      id: "growing",
       icon: "rise",
       tag: "Growth",
-      title: "Growing Commercial Enterprises",
+      title: "Growing Businesses",
       description:
-        "Businesses that have expanded beyond basic bookkeeping software and require clearer year-end reporting, cashflow analysis, and balance sheet integrity.",
+        "Businesses that have grown beyond basic bookkeeping and need clearer year-end reporting.",
       href: "/services/business-tax/business-financial-statements",
-      actionText: "Learn more",
+      actionText: "Year-end reporting",
     },
     {
       id: "planning",
       icon: "solution",
       tag: "Planning",
-      title: "Proactive Business Owners",
+      title: "Business Owners",
       description:
-        "Directors and owners seeking accurate tax compliance completed alongside practical discussions regarding tax timing, asset write-offs, and distributions.",
+        "Owners who want tax compliance completed alongside practical tax planning discussions.",
       href: "/services/business-tax/year-end-accounting",
-      actionText: "Learn more",
+      actionText: "Tax planning discussions",
     },
   ];
 
@@ -84,13 +87,28 @@ export default function WhoWeHelp() {
       sectionId="who-we-help"
       tag="Client Profiles"
       title="Who We Help"
-      subtitle="Financially Up works with business owners across Australia who need ongoing accounting and tax support or help bringing year-end records into a position that can be used for tax reporting."
+      subtitle={
+        <span className="block space-y-2">
+          <span className="block">
+            Financially Up works with business owners who need ongoing
+            accounting and tax support or help bringing year-end records into a
+            position that can be used for tax reporting.
+          </span>
+          <span className="block text-slate-500 dark:text-zinc-400">
+            This can include businesses with straightforward operations as well
+            as businesses with multiple income streams, employees, GST
+            obligations, asset purchases, loans between related parties or more
+            involved ownership structures.
+          </span>
+        </span>
+      }
       profiles={businessProfiles}
       columns={3}
+      className="py-16 md:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 border-b border-slate-100 dark:border-zinc-800 transition-colors"
       bottomBanner={
         <EntityRoutingBanner
-          tag="Specific Annual Returns"
-          description="If your enquiry relates specifically to annual company tax reporting or discretionary trust distribution resolutions, explore our specialized service pathways below."
+          tag="Entity Tax Reporting"
+          description="For company-specific annual tax reporting, see our Company Tax Returns. For trusts, see our Trust Tax Returns."
           buttons={[
             {
               label: "Company Tax Returns",

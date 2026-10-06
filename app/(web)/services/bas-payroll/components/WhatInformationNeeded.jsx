@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Tag } from "antd";
 import {
   FileTextOutlined,
   DollarOutlined,
@@ -8,87 +9,89 @@ import {
   UsergroupAddOutlined,
   SafetyCertificateOutlined,
   FolderOpenOutlined,
-  CheckOutlined,
+  ClockCircleOutlined,
 } from "@ant-design/icons";
 
 /**
  * WhatInformationNeeded Component
  * ===============================
- * Section 7: What Information May Be Needed?
- * Document checklist for accurate BAS and activity statement preparation.
+ * Section 7 of BAS, GST & Payroll Hub:
+ * "What information may be needed?"
+ *
+ * Content is 100% VERBATIM from the professional SEO specialist document:
+ * '5th Pillar BAS, GST & Payroll.docx' (Page 1).
+ *
  * Background: Lite Brand Gradient.
  */
 export default function WhatInformationNeeded() {
+  /**
+   * The 6 Verbatim Document Items from Document Section 4
+   */
   const documents = [
     {
       icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
       title: "Sales Invoices & Income Records",
-      description:
-        "Total sales invoices, EFTPOS terminal summaries, online payment settlement reports, and any export or GST-free sales.",
-      tag: "Total Sales",
+      description: "Sales invoices and income records",
+      tag: "Income Records",
     },
     {
       icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Supplier Bills & Valid Tax Invoices",
-      description:
-        "Invoices from suppliers for operating expenses, inventory, utilities, and capital purchases showing supplier ABN and GST breakdown.",
-      tag: "Input Credits",
+      title: "Supplier Bills & Expense Receipts",
+      description: "Supplier bills and expense receipts",
+      tag: "Expense Receipts",
     },
     {
       icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Bank & Card Reconciliations",
-      description:
-        "Reconciled transaction listings from your business bank and credit-card accounts confirming all payments and deposits for the period.",
-      tag: "Reconciled Feeds",
+      title: "Bank & Credit-Card Transactions",
+      description: "Business bank and credit-card transactions",
+      tag: "Bank Transactions",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      title: "GST Coding in Accounting Software",
+      description: "GST coding in accounting software",
+      tag: "Software Coding",
+    },
+    {
+      icon: <UsergroupAddOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
       title: "Payroll & PAYG Withholding Data",
-      description:
-        "Wages reports, gross payments (W1), tax withheld (W2), and Single Touch Payroll filing logs for the reporting period.",
-      tag: "PAYG Withholding",
-    },
-    {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Prior BAS & ATO Correspondence",
-      description:
-        "Previously lodged activity statements, ATO payment notices, or running balance accounts if reviewing prior adjustments.",
-      tag: "ATO Records",
+      description: "Payroll and PAYG withholding information where relevant",
+      tag: "Payroll Data",
     },
     {
       icon: <FolderOpenOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Major Asset Purchases & Finance",
+      title: "Prior BAS or ATO Correspondence",
       description:
-        "Contracts, tax invoices, and chattel mortgage or hire purchase agreements for vehicles, equipment, or machinery purchased in the period.",
-      tag: "Capital Purchases",
+        "Previous BAS information or ATO correspondence where an issue needs to be reviewed",
+      tag: "ATO Correspondence",
     },
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60 mb-4">
-            <FolderOpenOutlined className="text-teal-600 dark:text-teal-400 text-xs sm:text-sm" />
-            <span className="text-xs font-semibold text-teal-800 dark:text-teal-300 tracking-wide uppercase">
-              Preparation Checklist
-            </span>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <Tag color="green" className="brand-section-tag">
+            <FolderOpenOutlined className="mr-1" /> Preparation Checklist
+          </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            What Information May Be Needed?
+            What information may be needed?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            BAS preparation relies on complete and reconciled records for the reporting period. Having these records ready ensures your activity statement is completed quickly and accurately.
+          {/* Document Intro Paragraph - Verbatim */}
+          <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
+            The exact information depends on the business, but BAS preparation
+            often relies on complete and reconciled records for the reporting
+            period.
           </p>
         </div>
 
         {/* 6 Document Checklist Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {documents.map((doc, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-sm transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -102,7 +105,8 @@ export default function WhatInformationNeeded() {
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                   {doc.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+                {/* Verbatim Bullet Item */}
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed m-0">
                   {doc.description}
                 </p>
               </div>
@@ -110,18 +114,26 @@ export default function WhatInformationNeeded() {
           ))}
         </div>
 
-        {/* Reassurance Notice Box */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex items-center gap-5 shadow-sm">
-          <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
-            <CheckOutlined className="text-lg" />
-          </div>
-          <div className="space-y-1">
-            <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-              Need Help With Reconciling Your Period?
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
-              If your bank reconciliations or software coding are incomplete, Financially Up can provide catch-up bookkeeping before finalizing your BAS to ensure every figure reported to the ATO is fully compliant.
-            </p>
+        {/* Statutory 5-Year Record Keeping Rule Callout (Document Paragraph - Verbatim) */}
+        <div className="rounded-2xl p-6 sm:p-8 bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/60 shadow-xs">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0 mt-0.5">
+              <ClockCircleOutlined className="text-amber-700 dark:text-amber-400 text-lg" />
+            </div>
+            <div className="space-y-2">
+              <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
+                ATO 5-Year Record-Keeping Rule
+              </h4>
+              {/* Document Record-Keeping Paragraph - Verbatim */}
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
+                ATO record-keeping rules generally require businesses to keep
+                records that explain their transactions and tax obligations, and
+                many business and GST records need to be retained for at least
+                five years. The required period can differ for particular
+                records or circumstances, so records should not be discarded
+                merely because a BAS has been lodged.
+              </p>
+            </div>
           </div>
         </div>
       </div>

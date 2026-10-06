@@ -7,64 +7,69 @@ import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
 /**
  * WhoNeedsSmsfSupport Component
  * =============================
- * Section 3: Who Needs SMSF Accounting Support?
+ * Section 4: Who may need SMSF accounting support?
  *
- * Reuses ProfileCardsGrid for 5 target trustee profiles,
- * and EntityRoutingBanner for routing between Annual Accounting and Setup.
+ * Implements 100% exact copy from "Who may need SMSF accounting support?" in 9th Pillar SMSF.docx.
+ *
+ * Features:
+ * - Verbatim introductory paragraph explaining self-directed trustee needs.
+ * - 5 exact trustee scenarios represented word-for-word in an interactive grid.
+ * - EntityRoutingBanner directing trustees to either annual accounting or new fund setup.
  *
  * Background: Lite Brand Gradient.
  */
 export default function WhoNeedsSmsfSupport() {
+  // 5 exact scenarios verbatim from 9th Pillar SMSF.docx
   const trusteeProfiles = [
     {
-      id: "self-directed-investors",
+      id: "annual-accounts-trustees",
       icon: "line-chart",
-      tag: "Active Investors",
-      title: "Self-Directed Trustees",
+      tag: "Annual Accounts",
+      title: "Annual Accounts & Tax Reporting",
       description:
-        "Trustees managing direct shares, term deposits, and managed funds who want reliable annual financial accounts, tax returns, and audit coordination.",
+        "trustees who want annual SMSF accounts and tax reporting prepared from investment and bank records",
       href: "/services/smsf/accounting",
       actionText: "Annual accounts",
     },
     {
-      id: "property-trustees",
+      id: "multi-asset-property-funds",
       icon: "home",
-      tag: "Real Estate",
-      title: "Funds Holding Property & LRBA",
+      tag: "Property & Investments",
+      title: "Multi-Asset & Property Reconciliations",
       description:
-        "SMSFs holding commercial premises or residential rental property, requiring annual market valuations, lease agreements, and bare trust loan schedules.",
+        "funds with investment property, listed investments, managed funds, cash or other assets that need year-end reconciliation and valuation support",
       href: "/services/smsf/property",
-      actionText: "Property accounting",
+      actionText: "Property & valuation",
     },
     {
-      id: "pension-members",
+      id: "retirement-phase-members",
       icon: "wallet",
       tag: "Retirement Phase",
-      title: "Trustees Paying Pensions",
+      title: "Retirement-Phase Benefit Management",
       description:
-        "Members entering retirement requiring tax-exempt pension calculations, minimum annual drawdown management, and Transfer Balance Cap (TBAR) reporting.",
+        "trustees approaching or already paying retirement-phase benefits where member balances and reporting need careful attention",
       href: "/services/smsf/administration",
-      actionText: "Pension management",
+      actionText: "Pension reporting",
     },
     {
-      id: "new-fund-founders",
+      id: "new-smsf-foundations",
       icon: "bank",
-      tag: "New Establishments",
-      title: "Newly Established Funds",
+      tag: "First-Year Funds",
+      title: "First-Year Fund Accounting",
       description:
-        "Founders setting up an SMSF who need corporate trustee setup, fund deed execution, ABN/TFN registrations, and seamless rollover from APRA super funds.",
+        "new SMSFs that need an accounting process established from the first year",
       href: "/services/smsf/establishment",
-      actionText: "Setup new fund",
+      actionText: "Setup accounting",
     },
     {
-      id: "overdue-funds",
+      id: "catchup-overdue-funds",
       icon: "clock",
-      tag: "Backlog & Audit",
-      title: "Overdue Funds & Audit Rectification",
+      tag: "Overdue & Catch-Up",
+      title: "Incomplete or Delayed Records",
       description:
-        "Funds with historical accounting backlogs, missed tax returns, or Auditor Contravention Reports (ACRs) needing comprehensive reconciliation.",
-      href: "/services/smsf/compliance",
-      actionText: "Audit rectification",
+        "existing funds whose records are incomplete, inconsistent or behind schedule",
+      href: "/book-an-appointment",
+      actionText: "Bring records up to date",
     },
   ];
 
@@ -72,8 +77,8 @@ export default function WhoNeedsSmsfSupport() {
     <ProfileCardsGrid
       sectionId="who-needs-smsf-support"
       tag="Trustee Profiles"
-      title="Who Needs SMSF Accounting Support?"
-      subtitle="Our SMSF accounting practice supports self-directed investors, commercial landlords, retiring professionals, and new fund trustees seeking clarity and compliance."
+      title="Who may need SMSF accounting support?"
+      subtitle="SMSF accounting support can be useful for trustees who manage investments themselves but want the fund's records and reporting handled professionally. It may also be relevant where the fund has several investment types, property, pensions, rollovers, member contributions or historical bookkeeping that needs to be reconciled before year-end work can be completed."
       profiles={trusteeProfiles}
       columns={3}
       className="py-16 md:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors"

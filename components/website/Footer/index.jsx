@@ -29,6 +29,7 @@ export default function WebsiteFooter() {
   /* Quick Navigation Links */
   const quickLinks = [
     { href: "/", label: "Home" },
+    { href: "/services", label: "All Services" },
     {
       href: "/individual-services/individual-tax-return",
       label: "Individual Tax Return",

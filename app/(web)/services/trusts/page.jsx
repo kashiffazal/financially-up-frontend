@@ -2,11 +2,11 @@ import React from "react";
 import ServiceHero from "@/components/website/ServiceHero";
 import WhatTrustAccountantDoes from "./components/WhatTrustAccountantDoes";
 import TrustServicesGrid from "./components/TrustServicesGrid";
-import TrustTypesComparison from "./components/TrustTypesComparison";
-import June30DistributionNotice from "./components/June30DistributionNotice";
-import TrustVsCompanyTaxation from "./components/TrustVsCompanyTaxation";
-import CommonTrustAccountingIssues from "./components/CommonTrustAccountingIssues";
+import WhoNeedsTrustServices from "./components/WhoNeedsTrustServices";
+import TrustAccountingTaxDistributions from "./components/TrustAccountingTaxDistributions";
 import WhatInformationNeededTrusts from "./components/WhatInformationNeededTrusts";
+import CommonTrustAccountingIssues from "./components/CommonTrustAccountingIssues";
+import HowFinanciallyUpHelpsTrusts from "./components/HowFinanciallyUpHelpsTrusts";
 import WhyChooseFinanciallyUpTrusts from "./components/WhyChooseFinanciallyUpTrusts";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
@@ -75,7 +75,7 @@ const trustScopeItems = [
     icon: "calendar",
     theme: "amber",
     title: "June 30 Distribution Resolutions",
-    description: "Year-end resolution drafting support & pre-30 June tax planning",
+    description: "Year-end resolution accounting support & distribution timing",
     tag: "30 June Planning",
   },
   {
@@ -113,7 +113,7 @@ const trustVerificationBadges = [
 ];
 
 /**
- * 4 Exact Frequently Asked Questions from Client Document (Pillar 8)
+ * 4 Exact Frequently Asked Questions from Client Document (Pillar 8: 1- Trust Services)
  */
 const trustFaqs = [
   {
@@ -164,7 +164,9 @@ const trustFaqs = [
   },
 ];
 
-// JSON-LD Schema for Google Search Rich Snippets
+/**
+ * JSON-LD Schema for Google Search Rich Snippets
+ */
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -209,8 +211,19 @@ const faqSchema = {
  * =============
  * Pillar 8: Trust Accountant & Trust Accounting Services Hub Page (/services/trusts/).
  *
- * Implements the full client content from '8th Pillar Trust Services.docx',
- * structured into 10 cohesive, responsive sections with strict alternating background palette.
+ * Implements 100% verbatim client content from '8th Pillar Trust Services.docx' (1- Trust Services),
+ * structured into 10 responsive sections with strict alternating background palette:
+ * - Section 1: Hero (Dark / Brand Hero)
+ * - Section 2: What Does a Trust Accountant Do? (Lite Brand Gradient)
+ * - Section 3: Our Trust Services - 10 Sub-Service Navigation Grid (Clean White)
+ * - Section 4: Who May Need Trust Accounting Services? (Lite Brand Gradient)
+ * - Section 5: Trust Accounting, Tax and Distributions (Clean White)
+ * - Section 6: What Records Are Needed for Trust Accounting? (Lite Brand Gradient)
+ * - Section 7: Common Trust Accounting Issues We Help Identify (Clean White)
+ * - Section 8: How Financially Up Can Help (Lite Brand Gradient)
+ * - Section 9: Why Choose Financially Up for Trust Accounting? (Clean White)
+ * - Section 10: Frequently Asked Questions (Lite Brand Gradient)
+ * - Section 11: Call to Action Banner (Dark Brand Accent)
  */
 export default function TrustMainPage() {
   return (
@@ -221,28 +234,38 @@ export default function TrustMainPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* 1. Hero Section using Flagship Mutual ServiceHero */}
+      {/* 1. Hero Section using Flagship ServiceHero with Exact H1 & Verbatim Lead Text */}
       <ServiceHero
         breadcrumbs={trustBreadcrumbs}
         statusBadge={{
           icon: "safety",
           text: "ATO Registered Tax Agents • Australia-Wide",
         }}
-        title="Trust Accountant & Accounting"
-        titleHighlight="Australia-Wide Advisory"
+        title="Trust Accountant and"
+        titleHighlight="Trust Accounting Services"
         description={
           <p className="m-0">
-            A trust can separate legal ownership from beneficial interests, but it also creates ongoing accounting, tax and administrative responsibilities. A trust accountant helps trustees keep accurate records, understand the tax position of the trust, prepare required reporting and coordinate annual compliance so decisions are supported by reliable information.
+            A trust can separate legal ownership from beneficial interests, but it also creates
+            ongoing accounting, tax and administrative responsibilities. A trust accountant helps
+            trustees keep accurate records, understand the tax position of the trust, prepare
+            required reporting and coordinate annual compliance so decisions are supported by
+            reliable information.
           </p>
         }
         subDescription={
           <p className="m-0">
-            Financially Up provides trust accounting services for trustees, family groups, business owners and investors across Australia. Our work can include trust accounts, tax-return preparation, distribution-related accounting, beneficiary reporting and coordination of related tax matters.
+            Financially Up provides trust accounting services for trustees, family groups, business
+            owners and investors across Australia. Our work can include trust accounts, tax-return
+            preparation, distribution-related accounting, beneficiary reporting and coordination of
+            related tax matters. The exact scope depends on the trust deed, the trust&apos;s
+            activities, the trustee&apos;s decisions and the entities involved.
           </p>
         }
         scopeNotice={
           <p className="m-0">
-            Need help with your trust accounts, annual tax returns, or June 30 distribution planning? Book an appointment to discuss your trust deed, current records, and upcoming deadlines.
+            If you want to discuss a new or existing trust, Book an Appointment. An initial discussion
+            can help identify the trust type, current records, upcoming deadlines and whether
+            accounting, tax-return work or separately scoped tax advice is required.
           </p>
         }
         primaryButton={{
@@ -251,7 +274,7 @@ export default function TrustMainPage() {
           icon: "arrow-right",
         }}
         secondaryButton={{
-          text: "Explore Services",
+          text: "Explore Trust Services",
           href: "#trust-services-overview",
         }}
         supportingText="Trusted accounting, distribution planning, and tax compliance for Australian private trusts."
@@ -267,25 +290,25 @@ export default function TrustMainPage() {
       {/* 2. What Does a Trust Accountant Do? (Lite Brand Gradient) */}
       <WhatTrustAccountantDoes />
 
-      {/* 3. Our Trust Services - 10 Card Navigation Grid (Clean White) */}
+      {/* 3. Our Trust Services - 10 Card Sub-Service Grid (Clean White) */}
       <TrustServicesGrid />
 
-      {/* 4. Four Common Trust Types Compared (Lite Brand Gradient - ProfileCardsGrid) */}
-      <TrustTypesComparison />
+      {/* 4. Who May Need Trust Accounting Services? (Lite Brand Gradient) */}
+      <WhoNeedsTrustServices />
 
-      {/* 5. June 30 Distribution Resolutions & Timing Rules (Clean White - AdvisoryReassuranceBanner) */}
-      <June30DistributionNotice />
+      {/* 5. Trust Accounting, Tax and Distributions (Clean White) */}
+      <TrustAccountingTaxDistributions />
 
-      {/* 6. Trust Taxation vs Company Taxation (Lite Brand Gradient) */}
-      <TrustVsCompanyTaxation />
+      {/* 6. What Records Are Needed for Trust Accounting? (Lite Brand Gradient) */}
+      <WhatInformationNeededTrusts />
 
       {/* 7. Common Trust Accounting Issues We Help Identify (Clean White) */}
       <CommonTrustAccountingIssues />
 
-      {/* 8. What Records Are Needed for Trust Accounting? - 6-Item Checklist (Lite Brand Gradient) */}
-      <WhatInformationNeededTrusts />
+      {/* 8. How Financially Up Can Help (Lite Brand Gradient) */}
+      <HowFinanciallyUpHelpsTrusts />
 
-      {/* 9. Why Choose Financially Up - Credentials & Contact Clarity (Clean White) */}
+      {/* 9. Why Choose Financially Up for Trust Accounting? (Clean White) */}
       <WhyChooseFinanciallyUpTrusts />
 
       {/* 10. Frequently Asked Questions (Lite Brand Gradient) */}
@@ -300,11 +323,11 @@ export default function TrustMainPage() {
         showSideColumn={false}
       />
 
-      {/* 11. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
+      {/* 11. Pre-Footer Call to Action Banner (Dark Brand Accent) with Exact Document Verbatim Text */}
       <CallToActionBanner
-        tag="Ready When You Are"
-        title="Get Practical Trust Accounting Support"
-        subtitle="Book an appointment with Financially Up to review your trust deed, prepare annual financial accounts, or plan your upcoming June 30 beneficiary distributions."
+        tag="Book an Appointment"
+        title="Book an Appointment"
+        subtitle="For help with trust accounting, tax reporting or an existing trust's records, Book an Appointment. We can discuss the trust structure, current records, annual compliance and whether any additional tax or specialist advice should be separately scoped."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

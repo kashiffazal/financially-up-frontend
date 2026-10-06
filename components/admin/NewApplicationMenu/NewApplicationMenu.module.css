@@ -1,0 +1,73 @@
+/* Header "+ New application" panel */
+
+.popover :global(.ant-popover-container),
+.popover :global(.ant-popover-inner) {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.scroll {
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+}
+
+.row {
+  transition: background-color 120ms ease;
+}
+
+.row:hover,
+.row:focus-visible {
+  background: var(--brand-primary-light);
+}
+
+:global(.dark) .row:hover,
+:global(.dark) .row:focus-visible {
+  background: rgba(6, 78, 59, 0.3);
+}
+
+/* Copy / Send actions appear on hover or keyboard focus */
+.actions {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.row:hover .actions,
+.row:focus-within .actions {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .actions {
+    opacity: 1;
+  }
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.iconBtn:hover {
+  background: #ffffff;
+  color: var(--brand-primary);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+}
+
+:global(.dark) .iconBtn {
+  color: #a1a1aa;
+}
+
+:global(.dark) .iconBtn:hover {
+  background: rgba(39, 39, 42, 1);
+  color: #34d399;
+}

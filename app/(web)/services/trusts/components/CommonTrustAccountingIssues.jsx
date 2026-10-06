@@ -1,150 +1,147 @@
 "use client";
 
 import React from "react";
-import { Tag, Button } from "antd";
 import {
   WarningOutlined,
-  DollarOutlined,
-  ApartmentOutlined,
   CalendarOutlined,
-  FileSearchOutlined,
   SyncOutlined,
-  ArrowRightOutlined,
+  FileSearchOutlined,
+  ExclamationCircleOutlined,
+  BankOutlined,
+  ApartmentOutlined,
+  AuditOutlined,
 } from "@ant-design/icons";
-import Link from "next/link";
 
 /**
  * CommonTrustAccountingIssues Component
  * =====================================
- * Section 6: Common Trust Accounting Issues We Help Identify.
+ * Section 7: Common trust accounting issues we help identify
  *
- * 6 diagnostic cards highlighting critical trust accounting pitfalls:
- * Division 7A UPEs, Section 100A reimbursement agreements, late resolutions,
- * beneficiary account confusion, and capital asset cost base records.
+ * Implements verbatim content from '8th Pillar Trust Services.docx' (Page 1: 1- Trust Services).
+ * Explains how delayed accounting and poorly documented transactions cause compliance failures,
+ * breaking down the exact 6 common issues listed in the document, plus the private company review note.
  *
  * Background: Clean White.
  */
 export default function CommonTrustAccountingIssues() {
-  const commonIssues = [
+  /**
+   * Exact 6 common trust accounting issues identified in the document
+   */
+  const diagnosticIssues = [
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Division 7A Unpaid Entitlements (UPEs)",
-      description:
-        "When a trust distributes income to a corporate beneficiary ('bucket company') without transferring physical cash, the unpaid balance can trigger deemed unfranked dividends unless formalized under a complying 7-year loan agreement.",
-      tag: "Division 7A",
+      title: "unreconciled bank accounts",
+      icon: <BankOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      tag: "Reconciliations",
+      context:
+        "Bank feeds or trust accounts left unreconciled until year-end, obscuring true trust earnings.",
     },
     {
-      icon: <WarningOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Section 100A Integrity Scrutiny",
-      description:
-        "ATO scrutiny applies where trust income is allocated to low-tax-bracket adult beneficiaries, but the economic benefit is retained or enjoyed by other family members under non-commercial reimbursement arrangements.",
-      tag: "ATO Scrutiny",
+      title: "unclear beneficiary balances",
+      icon: <SyncOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      tag: "Beneficiary Ledger",
+      context:
+        "Drawings and distributions mixed together without clear individual beneficiary ledger accounts.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Late or Defective 30 June Resolutions",
-      description:
-        "Resolutions drafted after 30 June are invalid under trust law. Without timely present entitlement, the trustee faces default taxation at the top 47% marginal rate under Section 99A.",
+      title: "missing cost-base records",
+      icon: <FileSearchOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      tag: "CGT & Cost Base",
+      context:
+        "Incomplete records of purchase outlays, stamp duties, legal fees, or property improvements.",
+    },
+    {
+      title: "inconsistent treatment of expenses",
+      icon: <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      tag: "Expense Treatment",
+      context:
+        "Private family living costs mixed with deductible trust expenses or capitalised items.",
+    },
+    {
+      title: "late consideration of distribution decisions",
+      icon: <CalendarOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
       tag: "Resolution Timing",
+      context:
+        "Distribution resolutions delayed past 30 June, risking default trustee tax assessments.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Beneficiary Loan Account Confusion",
-      description:
-        "Mixing personal family living expenses with trust funds results in messy loan accounts and conflicting balance sheet liabilities between related entities.",
-      tag: "Loan Accounts",
-    },
-    {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Missing Capital Gains Cost-Base Records",
-      description:
-        "Inadequate records of property acquisition costs, stamp duty, legal outlays, and capital renovations lead to overpaying capital gains tax upon asset disposals.",
-      tag: "CGT Records",
-    },
-    {
-      icon: <ApartmentOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Mismatched Beneficiary Tax Returns",
-      description:
-        "Discrepancies between what the trust tax return reports on distribution statements and what individual beneficiaries declare trigger immediate ATO data-matching audit flags.",
-      tag: "Data Matching",
+      title: "mismatches between trust accounts and beneficiary tax information",
+      icon: <AuditOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      tag: "Tax Mismatches",
+      context:
+        "Discrepancies between what the trust return lodges and what beneficiaries report on their individual returns.",
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-zinc-950 transition-colors">
+    <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <Tag color="green" className="brand-section-tag">
-            Audit & Diagnostic Review
-          </Tag>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/60 mb-4">
+            <WarningOutlined className="text-amber-600 dark:text-amber-400 text-xs sm:text-sm" />
+            <span className="text-xs font-semibold text-amber-800 dark:text-amber-300 tracking-wide uppercase">
+              Compliance Diagnostics
+            </span>
+          </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Common Trust Accounting Issues We Help Identify
+          {/* Exact H2 Heading from Document */}
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Common trust accounting issues we help identify
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Trust accounting requires active management throughout the financial year. Financially Up identifies and rectifies compliance vulnerabilities before tax returns and activity statements are lodged.
+          {/* Exact Verbatim Paragraph 1 from Document */}
+          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+            Trust records can become difficult when accounting is left until year-end, distributions
+            are considered without reliable figures, or transactions between related entities are
+            not clearly documented. Common issues include unreconciled bank accounts, unclear
+            beneficiary balances, missing cost-base records, inconsistent treatment of expenses,
+            late consideration of distribution decisions and mismatches between trust accounts and
+            beneficiary tax information.
           </p>
         </div>
 
-        {/* 6 Issues Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {commonIssues.map((item, idx) => (
+        {/* 6 Issues Diagnostic Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {diagnosticIssues.map((issue, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-amber-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
-                    {item.icon}
+                    {issue.icon}
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200/60 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
-                    {item.tag}
+                  <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
+                    {issue.tag}
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  {item.title}
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 capitalize-first">
+                  {issue.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
-                  {item.description}
+                  {issue.context}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Trust Diagnostic Advisory Strip */}
-        <div className="rounded-2xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/50 p-6 sm:p-8">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0 mt-1">
-                <WarningOutlined className="text-amber-700 dark:text-amber-400 text-lg" />
-              </div>
-              <div className="space-y-1 max-w-3xl">
-                <h4 className="text-base font-bold text-amber-950 dark:text-amber-200 m-0">
-                  Are Your Trust Accounts and Division 7A Loans Fully Compliant?
-                </h4>
-                <p className="text-xs sm:text-sm text-amber-900/90 dark:text-amber-300/90 leading-relaxed m-0">
-                  Unreconciled trust accounts, missing loan agreements, and outdated distribution minutes can trigger significant tax assessments. Book a trust compliance health check to ensure your family trust accounts and corporate beneficiaries satisfy current ATO guidelines.
-                </p>
-              </div>
-            </div>
-
-            <div className="shrink-0">
-              <Link href="/book-an-appointment">
-                <Button
-                  type="primary"
-                  size="large"
-                  icon={<ArrowRightOutlined />}
-                  iconPosition="end"
-                  className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
-                >
-                  Book Trust Health Check
-                </Button>
-              </Link>
-            </div>
+        {/* Exact Verbatim Private Company Guidance Box from Document */}
+        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+          <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+            <ApartmentOutlined className="text-xl" />
+          </div>
+          <div className="space-y-1">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white m-0">
+              Private Company Involvement & Related-Entity Rules
+            </h3>
+            {/* Exact Verbatim Paragraph 2 from Document */}
+            <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
+              Where a private company is involved in a trust group, additional tax rules may also need
+              review. Those issues are not automatically part of routine trust bookkeeping or return
+              preparation and may require a separately scoped tax review.
+            </p>
           </div>
         </div>
       </div>

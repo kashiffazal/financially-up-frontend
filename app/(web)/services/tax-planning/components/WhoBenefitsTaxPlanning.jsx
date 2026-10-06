@@ -7,75 +7,78 @@ import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
 /**
  * WhoBenefitsTaxPlanning Component
  * =================================
- * Section 3: Who May Benefit From Tax Planning?
+ * Section 2: Who May Benefit From Tax Planning?
  *
  * Utilizes the mutual ProfileCardsGrid component for the 6 target beneficiary profiles,
  * and the mutual EntityRoutingBanner component for routing between Business and Personal planning pathways.
+ *
+ * All content is 100% VERBATIM from the professional SEO specialist document:
+ * '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx' (Page 1).
  */
 export default function WhoBenefitsTaxPlanning() {
   /**
-   * The 6 Target Beneficiary Profiles from official Pillar 3 client documentation
+   * The 6 Target Beneficiary Profiles from official Pillar 3 client documentation (Verbatim)
    */
   const beneficiaryProfiles = [
     {
       id: "business-owners",
       icon: "shop",
       tag: "Business Owners",
-      title: "Commercial Business Owners",
+      title: "Business Owners",
       description:
-        "Owners of companies, trusts, and partnerships who want to understand expected tax liabilities, PAYG obligations, and cash-flow implications well before year-end.",
+        "Business owners who want to understand expected tax liabilities and cash-flow implications before year end.",
       href: "/services/tax-planning/business-tax-planning",
-      actionText: "Business planning",
+      actionText: "Business tax planning",
     },
     {
-      id: "multi-income",
+      id: "multiple-income-sources",
       icon: "user",
-      tag: "Multi-Source Income",
-      title: "Multiple Income Stream Earners",
+      tag: "Multiple Income Streams",
+      title: "Multiple Income Sources",
       description:
-        "Individuals deriving revenue from executive salary, consulting, dividends, trusts, or rental portfolios where proactive tax timing prevents unexpected tax bills.",
+        "Individuals with salary, investment, rental or other income from several sources.",
       href: "/services/tax-planning/personal-tax-planning",
-      actionText: "Personal planning",
+      actionText: "Personal tax planning",
     },
     {
-      id: "cgt-assets",
+      id: "cgt-asset-sales",
       icon: "line-chart",
-      tag: "CGT Assets",
+      tag: "Asset Disposals",
       title: "Property & Asset Sellers",
       description:
-        "Individuals and companies contemplating the sale of real estate, company shares, crypto, or business assets where cost bases and CGT discounts must be reviewed before contract exchange.",
+        "People considering the sale of property, shares or another CGT asset.",
       href: "/services/tax-planning/cgt-planning",
-      actionText: "CGT review",
+      actionText: "CGT planning",
     },
     {
-      id: "superannuation",
+      id: "superannuation-contributions",
       icon: "safety",
       tag: "Superannuation",
       title: "Superannuation Contributors",
       description:
-        "Taxpayers reviewing concessional contributions, carry-forward caps, Division 293 thresholds, and the strict ATO 30 June notice of intent documentation requirements.",
+        "Taxpayers reviewing superannuation contributions where tax rules and contribution caps may be relevant.",
       href: "/services/tax-planning/year-end-planning",
-      actionText: "Super review",
+      actionText: "Year-end review",
     },
     {
-      id: "restructuring",
+      id: "ownership-structure-changes",
       icon: "apartment",
-      tag: "Structure & Growth",
-      title: "Ownership & Structure Changes",
+      tag: "Business Evolution",
+      title: "Structure & Ownership Changes",
       description:
-        "Enterprises introducing new shareholders, acquiring substantial equipment, or reviewing whether their original setup still provides tax efficiency and asset protection.",
+        "Businesses considering changes to ownership, structure, asset purchases or how profits are retained or distributed.",
       href: "/services/tax-planning/business-structure-advice",
       actionText: "Structure advice",
     },
     {
-      id: "proactive-planners",
+      id: "proactive-decision-makers",
       icon: "solution",
-      tag: "Strategic Mindset",
-      title: "Proactive Decision Makers",
+      tag: "Strategic Review",
+      title: "Proactive Clients",
       description:
-        "Clients seeking to move beyond reactive annual tax return preparation towards a structured, forward-looking review of upcoming financial transactions and decisions.",
+        "Clients who want to move from reactive tax-return preparation to a more proactive review of upcoming decisions.",
       href: "/services/tax-planning/high-income-tax-planning",
-      actionText: "Proactive review",
+      actionText: "Proactive planning",
     },
   ];
 

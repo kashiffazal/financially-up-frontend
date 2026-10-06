@@ -5,6 +5,7 @@ import BookkeepingServicesGrid from "./components/BookkeepingServicesGrid";
 import WhoBenefitsBookkeeping from "./components/WhoBenefitsBookkeeping";
 import BookkeepingCompliance from "./components/BookkeepingCompliance";
 import OnlineAndOutsourced from "./components/OnlineAndOutsourced";
+import WhatGoodBookkeepingHelpsYouSee from "./components/WhatGoodBookkeepingHelpsYouSee";
 import HowFinanciallyUpHelps from "./components/HowFinanciallyUpHelps";
 import WhatInformationNeeded from "./components/WhatInformationNeeded";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
@@ -12,7 +13,7 @@ import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
 
 /**
- * Server Metadata for SEO (Exact values from client document: 4th Pillar Bookkeeping.docx)
+ * Server Metadata for SEO (Exact values from client document: 4th Pillar Bookkeeping.docx - Page 1)
  */
 export const metadata = {
   title: "Bookkeeping Services Australia | Financially Up",
@@ -24,10 +25,11 @@ export const metadata = {
     "xero bookkeeping services",
     "monthly bookkeeping services",
     "catch up bookkeeping",
-    "bookkeeping clean up",
+    "bookkeeping cleanup services",
     "accounts payable services",
-    "accounts receivable bookkeeping",
+    "accounts receivable services",
     "bank reconciliation services",
+    "management reporting services",
     "small business bookkeeping",
     "outsourced bookkeeping Australia",
   ],
@@ -46,7 +48,7 @@ export const metadata = {
 };
 
 /**
- * Breadcrumbs configuration for Bookkeeping
+ * Breadcrumbs configuration for Bookkeeping Hub
  */
 const bookkeepingBreadcrumbs = [
   { label: "Home", href: "/" },
@@ -55,7 +57,7 @@ const bookkeepingBreadcrumbs = [
 ];
 
 /**
- * 5 Practice Scope Items for Bookkeeping
+ * 5 Practice Scope Items for Hero sidebar
  */
 const bookkeepingScopeItems = [
   {
@@ -96,7 +98,7 @@ const bookkeepingScopeItems = [
 ];
 
 /**
- * Trust & Credential Verification Badges
+ * Trust & Credential Verification Badges for Hero
  */
 const bookkeepingVerificationBadges = [
   {
@@ -114,7 +116,7 @@ const bookkeepingVerificationBadges = [
 ];
 
 /**
- * 5 Exact Frequently Asked Questions from Client Document (Pillar 4)
+ * 5 Exact Frequently Asked Questions from Client Document (Pillar 4, Page 1 - Verbatim)
  */
 const bookkeepingFaqs = [
   {
@@ -228,8 +230,8 @@ const faqSchema = {
  * ===================
  * Pillar 4: Bookkeeping Services Main Hub Page (/services/bookkeeping/).
  *
- * Implements the full client content from '4th Pillar Bookkeeping.docx',
- * structured into 10 cohesive, responsive sections with strict alternating background palette.
+ * Implements 100% of the verbatim client content from '4th Pillar Bookkeeping.docx' (Page 1),
+ * structured into 11 cohesive, responsive sections with strict alternating background palette.
  */
 export default function BookkeepingMainPage() {
   return (
@@ -261,7 +263,7 @@ export default function BookkeepingMainPage() {
         }
         scopeNotice={
           <p className="m-0">
-            Book an appointment to discuss the state of your books, the systems you currently use and what level of ongoing support would be practical.
+            Book an Appointment to discuss the state of your books, the systems you currently use and what level of ongoing support would be practical.
           </p>
         }
         primaryButton={{
@@ -298,19 +300,22 @@ export default function BookkeepingMainPage() {
       {/* 6. Online and Outsourced Bookkeeping Services (Lite Brand Gradient) */}
       <OnlineAndOutsourced />
 
-      {/* 7. How Financially Up Can Help - 6 Operational Pillars (Clean White) */}
+      {/* 7. What Good Bookkeeping Helps You See (Clean White) */}
+      <WhatGoodBookkeepingHelpsYouSee />
+
+      {/* 8. How Financially Up Can Help - 6 Operational Pillars (Lite Brand Gradient) */}
       <HowFinanciallyUpHelps />
 
-      {/* 8. What Information May Be Needed? - 6-Item Checklist (Lite Brand Gradient) */}
+      {/* 9. What Information May Be Needed? - 8-Item Checklist (Clean White) */}
       <WhatInformationNeeded />
 
-      {/* 9. Why Choose Financially Up - Credentials & Contact Clarity (Clean White) */}
+      {/* 10. Why Choose Financially Up - Credentials & Dynamic Firm Context (Lite Brand Gradient) */}
       <WhyChooseFinanciallyUp />
 
-      {/* 10. Frequently Asked Questions (Lite Brand Gradient) */}
+      {/* 11. Frequently Asked Questions (Clean White) */}
       <FaqSection
         badgeTag="Answers & Clarity"
-        title="Frequently asked questions"
+        title="Frequently Asked Questions"
         subtitle="Common questions about bookkeeping services, software setup, frequency, catch-up work, and BAS coordination."
         image="/images/services/faq.webp"
         imageAlt="Bookkeeping Services Frequently Asked Questions"
@@ -319,14 +324,15 @@ export default function BookkeepingMainPage() {
         showSideColumn={false}
       />
 
-      {/* 11. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
+      {/* 12. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
       <CallToActionBanner
-        tag="Ready When You Are"
-        title="Organise Your Financial Records Today"
-        subtitle="If your business needs organised records, regular reconciliations or a more reliable bookkeeping process, book an appointment with Financially Up. We will discuss your current setup and confirm an appropriate service scope."
+        tag="Book an Appointment"
+        title="Book an Appointment with Financially Up"
+        subtitle="If your business needs organised records, regular reconciliations or a more reliable bookkeeping process, book an appointment with Financially Up. We can discuss your current bookkeeping, software, transaction volume and reporting needs, then confirm an appropriate service scope."
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"
+        secondaryButtonHref="/contact-us"
       />
     </main>
   );

@@ -149,7 +149,7 @@ export default function TrustVsCompanyTaxation() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
             >
               Discuss Trust Strategy

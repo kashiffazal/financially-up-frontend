@@ -30,34 +30,34 @@ export default function PreDecisionAdvice() {
    */
   const decisionScenarios = [
     {
+      id: "investments",
+      icon: "line-chart",
+      tag: "Capital Gains",
+      title: "Selling an Investment",
+      description:
+        "Model transaction timing, assess CGT discount eligibility, offset capital losses, and clarify tax consequences before selling shares, crypto, or other assets.",
+      href: "/services/individual-tax/capital-gains-tax",
+      actionText: "CGT advice",
+    },
+    {
       id: "property",
       icon: "home",
       tag: "Property & CGT",
       title: "Buying or Changing Ownership of a Property",
       description:
-        "Assess main residence exemption eligibility, ownership structures (joint tenants vs tenants in common), stamp duty, and depreciation schedules before exchanging contracts.",
+        "Assess main residence exemption eligibility, co-ownership structures, stamp duty considerations, and depreciation records before entering into contracts.",
       href: "/services/individual-tax/investment-property-tax-accountant",
       actionText: "Property advice",
-    },
-    {
-      id: "investments-crypto",
-      icon: "line-chart",
-      tag: "Capital Gains",
-      title: "Selling Investments or Crypto Assets",
-      description:
-        "Model transaction timing, apply the 50% CGT discount (12+ months rule), offset carried-forward capital losses, and avoid unexpected year-end tax liabilities.",
-      href: "/services/individual-tax/capital-gains-tax",
-      actionText: "CGT planning",
     },
     {
       id: "side-business",
       icon: "shop",
       tag: "Structure & ABN",
-      title: "Starting a Side Business or Contracting",
+      title: "Starting a Side Business",
       description:
-        "Determine the right entity structure (Sole Trader vs Company vs Trust), understand Personal Services Income (PSI) rules, and plan GST registration thresholds.",
+        "Determine the appropriate business structure, review Personal Services Income (PSI) rules, and plan record keeping and GST obligations from day one.",
       href: "/services/individual-tax/sole-trader-tax-return",
-      actionText: "ABN structuring",
+      actionText: "Business advice",
     },
     {
       id: "residency",
@@ -65,7 +65,7 @@ export default function PreDecisionAdvice() {
       tag: "Residency Shifts",
       title: "Moving to or from Australia",
       description:
-        "Clarify your Australian tax residency status, assess deemed disposal of assets, review foreign source income exemptions, and apply Double Taxation Agreements.",
+        "Understand Australian tax residency implications, deemed disposals of assets, foreign source income reporting, and applicable tax treaty rules.",
       href: "/services/individual-tax/foreign-income-tax-accountant",
       actionText: "Residency review",
     },
@@ -73,21 +73,21 @@ export default function PreDecisionAdvice() {
       id: "employee-shares",
       icon: "gift",
       tag: "Equity & Options",
-      title: "Receiving Employee Equity (ESS / ESOP)",
+      title: "Receiving Employee Equity",
       description:
-        "Navigate complex taxing points (grant vs vesting vs exercise), the 30-day rule, start-up tax concessions, and capital gains implications upon future share disposal.",
+        "Understand taxing points for shares and options, available concessions, and record-keeping requirements under employee share schemes.",
       href: "/services/individual-tax/employee-share-schemes",
-      actionText: "ESS guidance",
+      actionText: "Equity guidance",
     },
     {
-      id: "portfolio-wealth",
+      id: "investments-change",
       icon: "rise",
-      tag: "Wealth & Advisory",
-      title: "Major Portfolio Shifts & Transfers",
+      tag: "Investments",
+      title: "Making a Significant Change to Your Investments",
       description:
-        "Review the tax consequences of substantial managed fund reallocations, trust distributions, family wealth transfers, or non-concessional super contribution caps.",
+        "Evaluate the tax impact of major portfolio reallocations, managed fund distributions, or restructuring your personal investments.",
       href: "/services/individual-tax/share-trading-investment-accountant",
-      actionText: "Portfolio review",
+      actionText: "Investment review",
     },
   ];
 
@@ -99,7 +99,7 @@ export default function PreDecisionAdvice() {
           sectionId="pre-decision-advice"
           tag="Strategic Proactive Advice"
           title="Tax advice before important decisions"
-          subtitle="Some tax and financial matters are vastly simpler and more effective to assess before a transaction takes place. Early advice gives you clarity on available options and ATO record-keeping requirements before commitments are signed."
+          subtitle="Some tax and financial matters are easier to assess before a transaction takes place. Consider seeking advice before selling an investment, buying or changing ownership of a property, starting a side business, moving to or from Australia, receiving employee equity or making a significant change to your investments. Early advice cannot guarantee a particular tax result, but it can help you understand the available options and record-keeping requirements before you proceed."
           services={decisionScenarios}
           columns={3}
           className="p-0 bg-transparent dark:bg-transparent"
@@ -112,7 +112,7 @@ export default function PreDecisionAdvice() {
           tag="Why Pre-Transaction Planning Matters"
           tagIcon="compass"
           title="Plan ahead to protect your tax position"
-          description="Early advice cannot guarantee a particular tax result, but it ensures you understand the available options, structural risks, and ATO record-keeping requirements before money changes hands or contracts become binding."
+          description="Early advice cannot guarantee a particular tax result, but it can help you understand the available options and record-keeping requirements before you proceed."
           primaryButton={{
             text: "Book Pre-Decision Advice",
             href: "/book-an-appointment",
