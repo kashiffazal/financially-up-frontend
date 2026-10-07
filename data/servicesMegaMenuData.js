@@ -800,3 +800,74 @@ export const MAIN_SERVICES_MEGA_MENU = [
     ],
   },
 ];
+
+/**
+ * Normalizes a URL path for consistent cross-route comparison.
+ * - Trims whitespace
+ * - Converts to lower-case
+ * - Removes trailing slashes
+ * - Guarantees leading slash
+ */
+export function normalizeServicePath(path) {
+  if (!path || typeof path !== "string") return "";
+  let clean = path.trim().toLowerCase().replace(/\/+$/, "");
+  if (!clean.startsWith("/")) clean = "/" + clean;
+  return clean;
+}
+
+/**
+ * Checks whether a target URL matches the current active pathname.
+ * Handles exact matches as well as matching when '/services' prefix is present or omitted.
+ */
+export function isServicePathMatch(targetHref, currentPath) {
+  const normTarget = normalizeServicePath(targetHref);
+  const normCurrent = normalizeServicePath(currentPath);
+  if (!normTarget || !normCurrent) return false;
+
+  // Exact canonical match
+  if (normTarget === normCurrent) return true;
+
+  // Matched when one path has '/services' prefix and the other doesn't
+  if (`/services${normCurrent}` === normTarget) return true;
+  if (normCurrent.replace(/^\/services/, "") === normTarget) return true;
+
+  return false;
+}
+
+/**
+ * Resolves the corresponding Service Pillar based on the given pathname.
+ * Checks direct pillar href, sub-service hrefs, and route prefixes.
+ */
+export function findPillarByPath(pathname) {
+  if (!pathname || typeof pathname !== "string") return null;
+  const normCurrent = normalizeServicePath(pathname);
+
+  // 1. Direct pillar match (e.g. /services/bookkeeping or /bookkeeping)
+  for (const pillar of MAIN_SERVICES_MEGA_MENU) {
+    if (isServicePathMatch(pillar.href, normCurrent)) {
+      return pillar;
+    }
+  }
+
+  // 2. Sub-service match (e.g. /services/bookkeeping/catch-up-bookkeeping or /bookkeeping/catch-up-bookkeeping)
+  for (const pillar of MAIN_SERVICES_MEGA_MENU) {
+    if (
+      pillar.subServices?.some((sub) => isServicePathMatch(sub.href, normCurrent))
+    ) {
+      return pillar;
+    }
+  }
+
+  // 3. Fallback prefix check for nested sub-routes
+  for (const pillar of MAIN_SERVICES_MEGA_MENU) {
+    const normPillar = normalizeServicePath(pillar.href);
+    if (
+      normCurrent.startsWith(normPillar) ||
+      `/services${normCurrent}`.startsWith(normPillar)
+    ) {
+      return pillar;
+    }
+  }
+
+  return null;
+}

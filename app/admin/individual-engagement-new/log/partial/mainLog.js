@@ -53,6 +53,7 @@ export default function IndividualEngagementMainLog({
   loading = false,
   autoOpenRecord = null,
   onAutoOpenHandled,
+  freshIds = [],
 }) {
   // --------------------------------------------------------------------------
   // 1. LOCAL COMPONENT STATE (MODALS & LOADERS)
@@ -501,6 +502,7 @@ export default function IndividualEngagementMainLog({
     <div className="w-full space-y-4">
       {/* Reusable Data Table */}
       <DataTable
+        rowClassName={(record) => (freshIds.includes(String(record.id)) ? "live-new-row" : "")}
         columns={columns}
         dataSource={data}
         loading={loading}

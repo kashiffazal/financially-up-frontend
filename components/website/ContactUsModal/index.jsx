@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
-import { antdMsg } from "@/services";
+import { antdMsg, HTTP } from "@/services";
+
+const CONTACT_METHOD_LABELS = { email: "Email", phone: "Phone Call", whatsapp: "WhatsApp / SMS" };
 import {
   SendOutlined,
   MailOutlined,
@@ -15,17 +17,34 @@ import styles from "./ContactUsModal.module.css";
 export default function ContactUsModal({ open, onClose }) {
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
+  // When the popup opened — very fast submissions are treated as bots
+  const formOpenedAtRef = useRef(null);
+  useEffect(() => {
+    if (open) formOpenedAtRef.current = Date.now();
+  }, [open]);
 
-  const handleSubmit = (values) => {
+  /** Send the enquiry to the practice (stored + staff notified). Errors are shown by HTTP(). */
+  const handleSubmit = async (values) => {
     setSubmitting(true);
-    setTimeout(() => {
+    try {
+      const { contactMethod, notes, ...rest } = values;
+      const res = await HTTP("POST", "/contact-enquiries", {
+        ...rest,
+        preferredContact: CONTACT_METHOD_LABELS[contactMethod] || contactMethod,
+        message: notes,
+        source: "contact_modal",
+        formElapsedMs: formOpenedAtRef.current ? Date.now() - formOpenedAtRef.current : undefined,
+      });
+      if (res?.success) {
+        antdMsg.success(
+          "Thank you! Your enquiry has been submitted. Our team will contact you shortly.",
+        );
+        form.resetFields();
+        if (onClose) onClose();
+      }
+    } finally {
       setSubmitting(false);
-      antdMsg.success(
-        "Thank you! Your enquiry has been submitted. Our team will contact you shortly.",
-      );
-      form.resetFields();
-      if (onClose) onClose();
-    }, 1000);
+    }
   };
 
   return (
@@ -79,6 +98,13 @@ export default function ContactUsModal({ open, onClose }) {
           requiredMark={false}
           className="space-y-3.5"
         >
+          {/* Anti-spam honeypot: display:none so browsers and password managers never autofill it; bots reading the HTML still do */}
+          <div aria-hidden="true" hidden style={{ display: "none" }}>
+            <Form.Item name="fu_contact_trap" noStyle>
+              <input type="text" tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore="true" />
+            </Form.Item>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <Form.Item
               label={

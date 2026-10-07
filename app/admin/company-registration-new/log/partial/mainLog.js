@@ -43,6 +43,7 @@ export default function CompanyRegistrationMainLog({
   loading = false,
   autoOpenRecord = null,
   onAutoOpenHandled,
+  freshIds = [],
 }) {
   // Context-aware Ant Design dynamic instances (Modal, Message, Notification)
   const { modal } = App.useApp();
@@ -522,6 +523,7 @@ export default function CompanyRegistrationMainLog({
     <div className="w-full space-y-4">
       {/* Main Reusable DataTable Component */}
       <DataTable
+        rowClassName={(record) => (freshIds.includes(String(record.id)) ? "live-new-row" : "")}
         columns={columns}
         dataSource={data}
         loading={loading}

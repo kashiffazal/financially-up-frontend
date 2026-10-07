@@ -9,6 +9,7 @@ import {
 } from "@ant-design/icons";
 import { getFileUrl } from "@/services";
 import { getStatusColor } from "./constants";
+import SubmittedAnswers from "./SubmittedAnswers";
 
 /**
  * ============================================================================
@@ -20,6 +21,7 @@ import { getStatusColor } from "./constants";
  * 3. Quick-action PDF preview button (if record has PDF attached).
  * 4. Status Tag badge.
  * 5. Calls custom `renderContent(record, layout)` for module-specific fields.
+ * 6. "All Submitted Answers" + uploaded files from `record.submissionData` (website forms).
  */
 export default function GenericViewDetailsModal({
   visible,
@@ -129,6 +131,7 @@ export default function GenericViewDetailsModal({
         ) : (
           <div className="text-slate-500 text-sm">No custom details renderer provided.</div>
         )}
+        <SubmittedAnswers submissionData={data.submissionData} layout={layout} />
       </div>
     </Modal>
   );

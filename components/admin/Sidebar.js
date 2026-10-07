@@ -38,6 +38,7 @@ import {
   RightOutlined,
   DownOutlined,
   CheckCircleFilled,
+  MessageOutlined,
 } from "@ant-design/icons";
 import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
@@ -181,6 +182,14 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
           icon: <IdcardOutlined />,
         },
       ],
+    },
+    {
+      key: "enquiries",
+      label: "Enquiries",
+      fullTitle: "Website Contact Enquiries",
+      icon: <MessageOutlined />,
+      href: "/admin/enquiries",
+      permission: "enquiries.view",
     },
     {
       key: "users",

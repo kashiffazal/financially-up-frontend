@@ -56,6 +56,7 @@ import "./styles.css";
  * @param {boolean} smallTable - If true, renders the table in compact size.
  * @param {ReactNode} extraHeader - Slot for extra header components (e.g. Export buttons).
  * @param {function} onChange - Ant Design Table onChange handler (pagination, filters, sorter).
+ * @param {string|function} rowClassName - Optional Ant Design rowClassName (e.g. live "new row" highlight).
  */
 export default function DataTable({
   columns = [],
@@ -88,6 +89,7 @@ export default function DataTable({
   smallTable = false,
   extraHeader = null,
   onChange = null,
+  rowClassName = undefined,
 }) {
   // --------------------------------------------------------------------------
   // 1. COMPONENT STATE
@@ -408,6 +410,7 @@ export default function DataTable({
           onChange={onChange}
           size={smallTable ? "small" : "middle"}
           rowKey={(record) => record.id || record._id || record.key}
+          rowClassName={rowClassName}
         />
       </Spin>
 

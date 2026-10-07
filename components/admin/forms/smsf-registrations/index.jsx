@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Form, Button, Card, App } from "antd";
+import { HTTP } from "@/services";
 import {
   ArrowRightOutlined,
   SaveOutlined,
@@ -70,7 +71,13 @@ export default function SMSFRegistrationsForm() {
         const mergedPayload = { ...formData, ...values };
         setIsSubmitting(true);
         try {
-          console.log("Submitting SMSF Payload:", mergedPayload);
+          // Send to the practice: saved, staff notified (bell + email). Uploaded files are
+          // sent as multipart automatically. On failure HTTP() shows the error and the
+          // draft is kept so the client can simply try again.
+          const res = await HTTP("POST", "/smsf-registrations", mergedPayload);
+          if (!res?.success) return;
+          const referenceNumber = res?.data?.referenceNumber;
+
           localStorage.removeItem(DRAFT_STORAGE_KEY);
           setFormData({});
           form.resetFields();
@@ -101,6 +108,16 @@ export default function SMSFRegistrationsForm() {
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                  {referenceNumber && (
+                    <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
+                      <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
+                        Reference Number
+                      </span>
+                      <span className="text-sm font-mono font-extrabold text-slate-900 dark:text-zinc-50">
+                        {referenceNumber}
+                      </span>
+                    </div>
+                  )}
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Fund Name

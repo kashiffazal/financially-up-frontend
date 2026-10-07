@@ -29,6 +29,7 @@ export default function WebsiteFooter() {
   /* Quick Navigation Links */
   const quickLinks = [
     { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
     { href: "/services", label: "All Services" },
     {
       href: "/individual-services/individual-tax-return",
@@ -44,10 +45,7 @@ export default function WebsiteFooter() {
       href: "/business-services/bas-gst-lodgement",
       label: "BAS & GST Lodgement",
     },
-    {
-      href: "/resources/registration-forms/company-registration",
-      label: "Forms & Documents",
-    },
+    { href: "/contact", label: "Contact Us" },
     { href: "/book-an-appointment", label: "Book an Appointment" },
   ];
 

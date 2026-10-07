@@ -17,6 +17,7 @@ import CompanyRegistrationMainLog from "./partial/mainLog";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
 import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
+import { useLiveNotifications, upsertIntoStatusMap, FRESH_ROW_MS } from "@/components/admin/NotificationCenter/liveEvents";
 
 /**
  * ============================================================================
@@ -130,8 +131,9 @@ export default function CompanyRegistrationLogModule() {
    * Loads all company registration applications from the REST API
    * and buckets each record into its corresponding status array.
    */
-  const fetchRecords = useCallback(async () => {
-    setLoading(true);
+  const fetchRecords = useCallback(async ({ silent = false } = {}) => {
+    // Silent refetch (live updates) keeps the table on screen without a spinner
+    if (!silent) setLoading(true);
     try {
       const res = await HTTP("GET", "/new-company-registrations", {
         limit: 500,
@@ -197,6 +199,28 @@ export default function CompanyRegistrationLogModule() {
     setSearchFilter(filter);
     if (filter) setActiveStatusKey("All");
   }, []);
+
+  // Live updates: another user's submission / decision for this module →
+  // fetch ONLY that row (list shape via ?id=) and insert / replace it in place,
+  // then briefly highlight it (no page refresh, no full list reload)
+  const [freshIds, setFreshIds] = useState([]);
+  useLiveNotifications(async (notification) => {
+    if (notification?.moduleKey !== "new-company") return;
+    if (!notification.recordId) {
+      fetchRecords({ silent: true });
+      return;
+    }
+    const res = await HTTP("GET", "/new-company-registrations", { id: notification.recordId, limit: 1 }, false, true);
+    const row = (res?.data?.records || [])[0];
+    if (!row?.id) {
+      fetchRecords({ silent: true }); // not readable → silent full refresh
+      return;
+    }
+    setListDataByStatus((prev) => upsertIntoStatusMap(prev, { ...row, key: row.id }, "Submitted"));
+    const id = String(row.id);
+    setFreshIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setTimeout(() => setFreshIds((prev) => prev.filter((x) => x !== id)), FRESH_ROW_MS);
+  });
 
   // --------------------------------------------------------------------------
   // 3. REAL-TIME STATUS UPDATE HANDLER (NO FULL PAGE RELOAD)
@@ -271,6 +295,7 @@ export default function CompanyRegistrationLogModule() {
           statusList={COMPANY_REG_STATUS_LIST}
           changeStatus={handleUpdateListOnChangeStatus}
           fetchData={fetchRecords}
+          freshIds={freshIds}
           loading={loading}
           autoOpenRecord={autoOpenRecord}
           onAutoOpenHandled={handleAutoOpenHandled}
@@ -306,6 +331,7 @@ export default function CompanyRegistrationLogModule() {
             statusList={COMPANY_REG_STATUS_LIST}
             changeStatus={handleUpdateListOnChangeStatus}
             fetchData={fetchRecords}
+            freshIds={freshIds}
             loading={loading}
           />
         ),
@@ -320,6 +346,7 @@ export default function CompanyRegistrationLogModule() {
     loading,
     autoOpenRecord,
     handleAutoOpenHandled,
+    freshIds,
   ]);
 
   // --------------------------------------------------------------------------

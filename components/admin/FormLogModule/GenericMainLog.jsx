@@ -50,6 +50,7 @@ export default function GenericMainLog({
   extraModals,
   autoOpenRecord = null,
   onAutoOpenHandled,
+  freshIds = [],
 }) {
   const { modal } = App.useApp();
 
@@ -372,6 +373,7 @@ export default function GenericMainLog({
     <div className="w-full space-y-4">
       {/* Main Reusable DataTable Component */}
       <DataTable
+        rowClassName={(record) => (freshIds.includes(String(record.id)) ? "live-new-row" : "")}
         columns={columns}
         dataSource={data}
         loading={loading}

@@ -79,7 +79,7 @@ function AdminLayoutContent({ children }) {
   return (
     <ConfigProvider theme={adminTheme}>
       <App className="min-h-full flex flex-col flex-1">
-        <div className="admin-portal-root flex min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
+        <div className="admin-portal-root flex min-h-screen overflow-x-clip bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
           {/* Modern compact rail navigation panel */}
           <Sidebar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
 

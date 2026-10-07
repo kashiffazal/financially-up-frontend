@@ -36,6 +36,8 @@ import {
   SwapOutlined,
   IdcardOutlined,
   CalendarOutlined,
+  TeamOutlined,
+  ContactsOutlined,
 } from "@ant-design/icons";
 import { useTheme } from "../../../app/ThemeProvider";
 import styles from "./Header.module.css";
@@ -44,6 +46,8 @@ import ServicesMegaMenu from "./ServicesMegaMenu";
 import {
   MAIN_SERVICES_MEGA_MENU,
   MEGA_MENU_CATEGORIES,
+  findPillarByPath,
+  isServicePathMatch,
 } from "@/data/servicesMegaMenuData";
 
 /**
@@ -86,6 +90,11 @@ export default function WebsiteHeader() {
   const company = useCompany();
   const pathname = usePathname();
 
+  // Resolve current route pillar based on pathname
+  const currentRoutePillar = useMemo(() => {
+    return findPillarByPath(pathname);
+  }, [pathname]);
+
   // Desktop Mega Menu open state with mouse-intent debounce
   const [servicesMegaMenuOpen, setServicesMegaMenuOpen] = useState(false);
   const closeTimeoutRef = useRef(null);
@@ -101,6 +110,15 @@ export default function WebsiteHeader() {
     medForms: false,
   });
   const [mobileActivePillarId, setMobileActivePillarId] = useState(null);
+
+  // Open mobile drawer with pre-expanded active service section if present
+  const handleOpenMobileMenu = () => {
+    if (currentRoutePillar) {
+      setMobileExpandedSection((prev) => ({ ...prev, services: true }));
+      setMobileActivePillarId(currentRoutePillar.id);
+    }
+    setMobileMenuOpen(true);
+  };
 
   // Filtered pillars for mobile services explorer
   const filteredMobilePillars = useMemo(() => {
@@ -351,18 +369,28 @@ export default function WebsiteHeader() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700 dark:text-zinc-200">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-semibold text-slate-700 dark:text-zinc-200">
             {/* 1. Home */}
             <Link
               href="/"
               className={`hover:text-brand-primary transition-colors ${
-                pathname === "/" ? "text-brand-primary" : ""
+                pathname === "/" ? "text-brand-primary font-bold" : ""
               }`}
             >
               Home
             </Link>
 
-            {/* 2. Services Dropdown as Mega Menu */}
+            {/* 2. About */}
+            <Link
+              href="/about"
+              className={`hover:text-brand-primary transition-colors ${
+                pathname === "/about" ? "text-brand-primary font-bold" : ""
+              }`}
+            >
+              About
+            </Link>
+
+            {/* 3. Services Dropdown as Mega Menu */}
             <div
               className="relative py-2"
               onMouseEnter={handleServicesMouseEnter}
@@ -389,7 +417,7 @@ export default function WebsiteHeader() {
               </Link>
             </div>
 
-            {/* 3. Resources Sub-dropdown */}
+            {/* 4. Resources Sub-dropdown */}
             <Dropdown
               menu={{ items: resourcesItems }}
               placement="bottomLeft"
@@ -405,14 +433,24 @@ export default function WebsiteHeader() {
               </button>
             </Dropdown>
 
-            {/* 4. Blog */}
+            {/* 5. Blog */}
             <Link
               href="/blog"
               className={`hover:text-brand-primary transition-colors ${
-                pathname === "/blog" ? "text-brand-primary" : ""
+                pathname === "/blog" ? "text-brand-primary font-bold" : ""
               }`}
             >
               Blog
+            </Link>
+
+            {/* 6. Contact */}
+            <Link
+              href="/contact"
+              className={`hover:text-brand-primary transition-colors ${
+                pathname === "/contact" ? "text-brand-primary font-bold" : ""
+              }`}
+            >
+              Contact
             </Link>
           </nav>
 
@@ -448,7 +486,7 @@ export default function WebsiteHeader() {
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={handleOpenMobileMenu}
               className="lg:hidden p-2 rounded-xl border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-200 cursor-pointer"
               aria-label="Open Mobile Menu"
             >
@@ -559,6 +597,35 @@ export default function WebsiteHeader() {
                     )}
                   </Link>
 
+                  {/* About Link */}
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-4 py-3.5 flex items-center justify-between transition-colors ${
+                      pathname === "/about"
+                        ? "bg-brand-primary/10 text-brand-primary dark:text-emerald-400 font-bold"
+                        : "text-slate-800 dark:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-800/50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm transition-colors ${
+                          pathname === "/about"
+                            ? "bg-brand-primary text-white"
+                            : "bg-emerald-50 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                        }`}
+                      >
+                        <TeamOutlined />
+                      </div>
+                      <span className="text-sm font-semibold">About Us</span>
+                    </div>
+                    {pathname === "/about" ? (
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0" />
+                    ) : (
+                      <RightOutlined className="text-xs text-slate-300 dark:text-zinc-600" />
+                    )}
+                  </Link>
+
                   {/* Services Accordion (All 15 Pillars with Category Filter) */}
                   <div>
                     <button
@@ -592,113 +659,187 @@ export default function WebsiteHeader() {
                       </div>
                     </button>
 
-                    {mobileExpandedSection.services && (
-                      <div className="p-3 bg-slate-50/70 dark:bg-zinc-950/70 border-t border-slate-100 dark:border-zinc-800 space-y-2.5">
-                        {/* Master Directory Link */}
-                        <Link
-                          href="/services"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="px-3 py-2.5 rounded-xl flex items-center justify-between text-xs font-bold bg-brand-primary hover:bg-brand-primary-hover text-white shadow-sm transition-all"
+                    {/* Animated Services Accordion Container */}
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                        mobileExpandedSection.services
+                          ? "grid-rows-[1fr]"
+                          : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden min-h-0">
+                        <div
+                          className={`p-3 bg-slate-50/70 dark:bg-zinc-950/70 border-t border-slate-100 dark:border-zinc-800 space-y-2.5 transition-opacity duration-300 ease-in-out ${
+                            mobileExpandedSection.services
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
                         >
-                          <span>Explore All 15 Services Directory</span>
-                          <ArrowRightOutlined className="text-[10px]" />
-                        </Link>
+                          {/* Master Directory Link */}
+                          <Link
+                            href="/services"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="px-3 py-2.5 rounded-xl flex items-center justify-between text-xs font-bold bg-brand-primary hover:bg-brand-primary-hover text-white shadow-sm transition-all"
+                          >
+                            <span>Explore All 15 Services Directory</span>
+                            <ArrowRightOutlined className="text-[10px]" />
+                          </Link>
 
-                        {/* Category Filter Pills for Mobile */}
-                        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-                          {MEGA_MENU_CATEGORIES.map((cat) => {
-                            const isCatActive = mobileCategory === cat.id;
-                            return (
-                              <button
-                                key={cat.id}
-                                onClick={() => setMobileCategory(cat.id)}
-                                className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
-                                  isCatActive
-                                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs"
-                                    : "bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:text-brand-primary"
-                                }`}
-                              >
-                                {cat.label} ({cat.count})
-                              </button>
-                            );
-                          })}
-                        </div>
-
-                        {/* Filtered Pillars List */}
-                        <div className="space-y-1.5 pt-1">
-                          {filteredMobilePillars.map((pillar) => {
-                            const isPillarOpen = mobileActivePillarId === pillar.id;
-
-                            return (
-                              <div
-                                key={pillar.id}
-                                className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs"
-                              >
+                          {/* Category Filter Pills for Mobile */}
+                          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                            {MEGA_MENU_CATEGORIES.map((cat) => {
+                              const isCatActive = mobileCategory === cat.id;
+                              return (
                                 <button
-                                  onClick={() => toggleMobilePillar(pillar.id)}
-                                  className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                                  key={cat.id}
+                                  onClick={() => setMobileCategory(cat.id)}
+                                  className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                                    isCatActive
+                                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs"
+                                      : "bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 hover:text-brand-primary"
+                                  }`}
                                 >
-                                  <div className="flex items-center gap-2 min-w-0">
-                                    <span className="w-5 h-5 rounded-md bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">
-                                      {pillar.number}
-                                    </span>
-                                    <div className="min-w-0">
-                                      <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
-                                        {pillar.title}
-                                      </span>
-                                      <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
-                                        {pillar.subServices.length} sub-services • {pillar.badge || "ATO Ready"}
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <DownOutlined
-                                    className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
-                                      isPillarOpen ? "rotate-180 text-brand-primary" : "text-slate-400"
-                                    }`}
-                                  />
+                                  {cat.label} ({cat.count})
                                 </button>
+                              );
+                            })}
+                          </div>
 
-                                {isPillarOpen && (
-                                  <div className="p-2.5 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1.5">
-                                    {/* Direct Pillar Hub Link */}
-                                    <Link
-                                      href={pillar.href}
-                                      onClick={() => setMobileMenuOpen(false)}
-                                      className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 transition-colors"
-                                    >
-                                      <span>View {pillar.shortTitle || pillar.title} Hub</span>
-                                      <ArrowRightOutlined className="text-[10px]" />
-                                    </Link>
+                          {/* Filtered Pillars List */}
+                          <div className="space-y-1.5 pt-1">
+                            {filteredMobilePillars.map((pillar) => {
+                              const isPillarOpen = mobileActivePillarId === pillar.id;
+                              const isCurrentPillar = currentRoutePillar?.id === pillar.id;
 
-                                    {/* Sub-services list */}
-                                    <div className="grid grid-cols-1 gap-1">
-                                      {pillar.subServices.map((sub, sIdx) => (
-                                        <Link
-                                          key={sIdx}
-                                          href={sub.href}
-                                          onClick={() => setMobileMenuOpen(false)}
-                                          className="p-2 rounded-lg flex items-center justify-between text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                              return (
+                                <div
+                                  key={pillar.id}
+                                  className={`rounded-xl border transition-all overflow-hidden shadow-2xs ${
+                                    isCurrentPillar
+                                      ? "border-emerald-300 dark:border-emerald-800 bg-emerald-50/20 dark:bg-emerald-950/20"
+                                      : "border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900"
+                                  }`}
+                                >
+                                  <button
+                                    onClick={() => toggleMobilePillar(pillar.id)}
+                                    className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                                  >
+                                    <div className="flex items-center gap-2 min-w-0">
+                                      <span
+                                        className={`w-5 h-5 rounded-md flex items-center justify-center font-mono text-[10px] font-bold shrink-0 transition-colors ${
+                                          isCurrentPillar
+                                            ? "bg-brand-primary text-white shadow-xs"
+                                            : "bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400"
+                                        }`}
+                                      >
+                                        {pillar.number}
+                                      </span>
+                                      <div className="min-w-0">
+                                        <span
+                                          className={`text-xs block truncate ${
+                                            isCurrentPillar
+                                              ? "font-bold text-brand-primary dark:text-emerald-400"
+                                              : "font-bold text-slate-800 dark:text-zinc-200"
+                                          }`}
                                         >
-                                          <div className="flex items-center gap-2 truncate min-w-0">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                            <span className="truncate">{sub.title}</span>
-                                          </div>
-                                          {sub.badge && (
-                                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-zinc-800 dark:text-zinc-400 shrink-0 ml-1.5">
-                                              {sub.badge}
-                                            </span>
-                                          )}
+                                          {pillar.title}
+                                        </span>
+                                        <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                          {pillar.subServices.length} sub-services • {pillar.badge || "ATO Ready"}
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                                      {isCurrentPillar && (
+                                        <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400">
+                                          Current
+                                        </span>
+                                      )}
+                                      <DownOutlined
+                                        className={`text-[10px] transition-transform duration-300 ${
+                                          isPillarOpen ? "rotate-180 text-brand-primary" : "text-slate-400"
+                                        }`}
+                                      />
+                                    </div>
+                                  </button>
+
+                                  {/* Animated Pillar Sub-Services Container */}
+                                  <div
+                                    className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                                      isPillarOpen
+                                        ? "grid-rows-[1fr]"
+                                        : "grid-rows-[0fr]"
+                                    }`}
+                                  >
+                                    <div className="overflow-hidden min-h-0">
+                                      <div
+                                        className={`p-2.5 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1.5 transition-opacity duration-300 ease-in-out ${
+                                          isPillarOpen
+                                            ? "opacity-100"
+                                            : "opacity-0"
+                                        }`}
+                                      >
+                                        {/* Direct Pillar Hub Link */}
+                                        <Link
+                                          href={pillar.href}
+                                          onClick={() => setMobileMenuOpen(false)}
+                                          className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 transition-colors"
+                                        >
+                                          <span>View {pillar.shortTitle || pillar.title} Hub</span>
+                                          <ArrowRightOutlined className="text-[10px]" />
                                         </Link>
-                                      ))}
+
+                                        {/* Sub-services list */}
+                                        <div className="grid grid-cols-1 gap-1">
+                                          {pillar.subServices.map((sub, sIdx) => {
+                                            const isCurrentSub = isServicePathMatch(sub.href, pathname);
+
+                                            return (
+                                              <Link
+                                                key={sIdx}
+                                                href={sub.href}
+                                                onClick={() => setMobileMenuOpen(false)}
+                                                className={`p-2 rounded-lg flex items-center justify-between text-xs transition-colors ${
+                                                  isCurrentSub
+                                                    ? "bg-emerald-500/10 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-300 font-bold border border-brand-primary/40 shadow-xs"
+                                                    : "font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900"
+                                                }`}
+                                              >
+                                                <div className="flex items-center gap-2 truncate min-w-0">
+                                                  <span
+                                                    className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                                                      isCurrentSub
+                                                        ? "bg-brand-primary ring-2 ring-emerald-300 dark:ring-emerald-500 scale-125"
+                                                        : "bg-emerald-500"
+                                                    }`}
+                                                  />
+                                                  <span className="truncate">{sub.title}</span>
+                                                </div>
+                                                <div className="flex items-center gap-1.5 shrink-0 ml-1.5">
+                                                  {isCurrentSub ? (
+                                                    <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-brand-primary text-white shadow-2xs">
+                                                      Active
+                                                    </span>
+                                                  ) : sub.badge ? (
+                                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-zinc-800 dark:text-zinc-400">
+                                                      {sub.badge}
+                                                    </span>
+                                                  ) : null}
+                                                </div>
+                                              </Link>
+                                            );
+                                          })}
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
-                                )}
-                              </div>
-                            );
-                          })}
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
 
                   {/* Resources & Forms Accordion */}
@@ -729,217 +870,276 @@ export default function WebsiteHeader() {
                       />
                     </button>
 
-                    {mobileExpandedSection.resources && (
-                      <div className="p-2.5 bg-slate-50/70 dark:bg-zinc-950/70 border-t border-slate-100 dark:border-zinc-800 space-y-1.5">
-                        
-                        {/* Sub-Accordion 1: Registration Forms */}
-                        <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
-                          <button
-                            onClick={() => toggleMobileSection("regForms")}
-                            className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
-                          >
-                            <div className="flex items-center gap-2.5 min-w-0">
-                              <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
-                                <FileProtectOutlined />
+                    {/* Animated Resources & Forms Container */}
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                        mobileExpandedSection.resources
+                          ? "grid-rows-[1fr]"
+                          : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden min-h-0">
+                        <div
+                          className={`p-2.5 bg-slate-50/70 dark:bg-zinc-950/70 border-t border-slate-100 dark:border-zinc-800 space-y-1.5 transition-opacity duration-300 ease-in-out ${
+                            mobileExpandedSection.resources
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        >
+                          {/* Sub-Accordion 1: Registration Forms */}
+                          <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
+                            <button
+                              onClick={() => toggleMobileSection("regForms")}
+                              className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                                  <FileProtectOutlined />
+                                </div>
+                                <div className="min-w-0">
+                                  <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                    Registration Forms
+                                  </span>
+                                  <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                    7 registration portals
+                                  </span>
+                                </div>
                               </div>
-                              <div className="min-w-0">
-                                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
-                                  Registration Forms
-                                </span>
-                                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
-                                  7 registration portals
-                                </span>
-                              </div>
-                            </div>
-                            <DownOutlined
-                              className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                              <DownOutlined
+                                className={`text-[10px] transition-transform duration-300 shrink-0 ml-2 ${
+                                  mobileExpandedSection.regForms
+                                    ? "rotate-180 text-brand-primary"
+                                    : "text-slate-400"
+                                }`}
+                              />
+                            </button>
+
+                            {/* Animated Registration Forms Container */}
+                            <div
+                              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
                                 mobileExpandedSection.regForms
-                                  ? "rotate-180 text-brand-primary"
-                                  : "text-slate-400"
+                                  ? "grid-rows-[1fr]"
+                                  : "grid-rows-[0fr]"
                               }`}
-                            />
-                          </button>
-
-                          {mobileExpandedSection.regForms && (
-                            <div className="p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1">
-                              <Link
-                                href="/resources/registration-forms"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
-                              >
-                                <span>View Registration Forms Hub</span>
-                                <ArrowRightOutlined className="text-[10px]" />
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/gst-registrations"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">GST Registrations</span>
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/company-registration"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Company Registration</span>
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/changes-to-company-details"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Changes to Company Details</span>
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/trust-registrations"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Trust Registrations</span>
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/smsf-registrations"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">SMSF Registrations</span>
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/business-name-registrations"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Business Name Registrations</span>
-                              </Link>
-                              <Link
-                                href="/resources/registration-forms/apply-tfn-abns"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Apply TFN / ABNs</span>
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Sub-Accordion 2: Engagement Forms */}
-                        <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
-                          <button
-                            onClick={() => toggleMobileSection("engForms")}
-                            className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
-                          >
-                            <div className="flex items-center gap-2.5 min-w-0">
-                              <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
-                                <FormOutlined />
-                              </div>
-                              <div className="min-w-0">
-                                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
-                                  Engagement Forms
-                                </span>
-                                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
-                                  2 client onboarding forms
-                                </span>
+                            >
+                              <div className="overflow-hidden min-h-0">
+                                <div
+                                  className={`p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1 transition-opacity duration-300 ease-in-out ${
+                                    mobileExpandedSection.regForms
+                                      ? "opacity-100"
+                                      : "opacity-0"
+                                  }`}
+                                >
+                                  <Link
+                                    href="/resources/registration-forms"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
+                                  >
+                                    <span>View Registration Forms Hub</span>
+                                    <ArrowRightOutlined className="text-[10px]" />
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/gst-registrations"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">GST Registrations</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/company-registration"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Company Registration</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/changes-to-company-details"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Changes to Company Details</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/trust-registrations"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Trust Registrations</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/smsf-registrations"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">SMSF Registrations</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/business-name-registrations"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Business Name Registrations</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/registration-forms/apply-tfn-abns"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Apply TFN / ABNs</span>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
-                            <DownOutlined
-                              className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                          </div>
+
+                          {/* Sub-Accordion 2: Engagement Forms */}
+                          <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
+                            <button
+                              onClick={() => toggleMobileSection("engForms")}
+                              className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                                  <FormOutlined />
+                                </div>
+                                <div className="min-w-0">
+                                  <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                    Engagement Forms
+                                  </span>
+                                  <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                    2 client onboarding forms
+                                  </span>
+                                </div>
+                              </div>
+                              <DownOutlined
+                                className={`text-[10px] transition-transform duration-300 shrink-0 ml-2 ${
+                                  mobileExpandedSection.engForms
+                                    ? "rotate-180 text-brand-primary"
+                                    : "text-slate-400"
+                                }`}
+                              />
+                            </button>
+
+                            {/* Animated Engagement Forms Container */}
+                            <div
+                              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
                                 mobileExpandedSection.engForms
-                                  ? "rotate-180 text-brand-primary"
-                                  : "text-slate-400"
+                                  ? "grid-rows-[1fr]"
+                                  : "grid-rows-[0fr]"
                               }`}
-                            />
-                          </button>
-
-                          {mobileExpandedSection.engForms && (
-                            <div className="p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1">
-                              <Link
-                                href="/resources/engagement-forms"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
-                              >
-                                <span>View Engagement Forms Hub</span>
-                                <ArrowRightOutlined className="text-[10px]" />
-                              </Link>
-                              <Link
-                                href="/resources/engagement-forms/individual-engagement-form"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Individual Engagement Form</span>
-                              </Link>
-                              <Link
-                                href="/resources/engagement-forms/entity-engagements-form"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Entity Engagements Form</span>
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Sub-Accordion 3: Medicare Forms */}
-                        <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
-                          <button
-                            onClick={() => toggleMobileSection("medForms")}
-                            className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
-                          >
-                            <div className="flex items-center gap-2.5 min-w-0">
-                              <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
-                                <MedicineBoxOutlined />
-                              </div>
-                              <div className="min-w-0">
-                                <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
-                                  Medicare Forms
-                                </span>
-                                <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
-                                  Exemption certificate form
-                                </span>
+                            >
+                              <div className="overflow-hidden min-h-0">
+                                <div
+                                  className={`p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1 transition-opacity duration-300 ease-in-out ${
+                                    mobileExpandedSection.engForms
+                                      ? "opacity-100"
+                                      : "opacity-0"
+                                  }`}
+                                >
+                                  <Link
+                                    href="/resources/engagement-forms"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
+                                  >
+                                    <span>View Engagement Forms Hub</span>
+                                    <ArrowRightOutlined className="text-[10px]" />
+                                  </Link>
+                                  <Link
+                                    href="/resources/engagement-forms/individual-engagement-form"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Individual Engagement Form</span>
+                                  </Link>
+                                  <Link
+                                    href="/resources/engagement-forms/entity-engagements-form"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Entity Engagements Form</span>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
-                            <DownOutlined
-                              className={`text-[10px] transition-transform duration-200 shrink-0 ml-2 ${
+                          </div>
+
+                          {/* Sub-Accordion 3: Medicare Forms */}
+                          <div className="rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-2xs">
+                            <button
+                              onClick={() => toggleMobileSection("medForms")}
+                              className="w-full p-2.5 flex items-center justify-between text-left cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors"
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-xs shrink-0">
+                                  <MedicineBoxOutlined />
+                                </div>
+                                <div className="min-w-0">
+                                  <span className="text-xs font-bold text-slate-800 dark:text-zinc-200 block truncate">
+                                    Medicare Forms
+                                  </span>
+                                  <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-medium">
+                                    Exemption certificate form
+                                  </span>
+                                </div>
+                              </div>
+                              <DownOutlined
+                                className={`text-[10px] transition-transform duration-300 shrink-0 ml-2 ${
+                                  mobileExpandedSection.medForms
+                                    ? "rotate-180 text-brand-primary"
+                                    : "text-slate-400"
+                                }`}
+                              />
+                            </button>
+
+                            {/* Animated Medicare Forms Container */}
+                            <div
+                              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
                                 mobileExpandedSection.medForms
-                                  ? "rotate-180 text-brand-primary"
-                                  : "text-slate-400"
+                                  ? "grid-rows-[1fr]"
+                                  : "grid-rows-[0fr]"
                               }`}
-                            />
-                          </button>
-
-                          {mobileExpandedSection.medForms && (
-                            <div className="p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1">
-                              <Link
-                                href="/resources/medicare-forms"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
-                              >
-                                <span>View Medicare Forms Hub</span>
-                                <ArrowRightOutlined className="text-[10px]" />
-                              </Link>
-                              <Link
-                                href="/resources/medicare-forms/medicare-exemption-form"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
-                              >
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                <span className="truncate">Medicare Exemption Form</span>
-                              </Link>
+                            >
+                              <div className="overflow-hidden min-h-0">
+                                <div
+                                  className={`p-2 bg-slate-50 dark:bg-zinc-950/80 border-t border-slate-100 dark:border-zinc-800 space-y-1 transition-opacity duration-300 ease-in-out ${
+                                    mobileExpandedSection.medForms
+                                      ? "opacity-100"
+                                      : "opacity-0"
+                                  }`}
+                                >
+                                  <Link
+                                    href="/resources/medicare-forms"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-2 rounded-lg flex items-center justify-between text-xs font-bold text-brand-primary dark:text-emerald-400 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100/70 transition-colors mb-1"
+                                  >
+                                    <span>View Medicare Forms Hub</span>
+                                    <ArrowRightOutlined className="text-[10px]" />
+                                  </Link>
+                                  <Link
+                                    href="/resources/medicare-forms/medicare-exemption-form"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="p-1.5 px-2 rounded-lg flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-brand-primary hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                    <span className="truncate">Medicare Exemption Form</span>
+                                  </Link>
+                                </div>
+                              </div>
                             </div>
-                          )}
-                        </div>
+                          </div>
 
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
 
                   {/* Blog Link */}
@@ -965,6 +1165,35 @@ export default function WebsiteHeader() {
                       <span className="text-sm font-semibold">Blog</span>
                     </div>
                     {pathname === "/blog" ? (
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0" />
+                    ) : (
+                      <RightOutlined className="text-xs text-slate-300 dark:text-zinc-600" />
+                    )}
+                  </Link>
+
+                  {/* Contact Link */}
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-4 py-3.5 flex items-center justify-between transition-colors ${
+                      pathname === "/contact"
+                        ? "bg-brand-primary/10 text-brand-primary dark:text-emerald-400 font-bold"
+                        : "text-slate-800 dark:text-zinc-100 hover:bg-slate-50 dark:hover:bg-zinc-800/50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm transition-colors ${
+                          pathname === "/contact"
+                            ? "bg-brand-primary text-white"
+                            : "bg-emerald-50 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400"
+                        }`}
+                      >
+                        <ContactsOutlined />
+                      </div>
+                      <span className="text-sm font-semibold">Contact Us</span>
+                    </div>
+                    {pathname === "/contact" ? (
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0" />
                     ) : (
                       <RightOutlined className="text-xs text-slate-300 dark:text-zinc-600" />

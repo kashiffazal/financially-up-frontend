@@ -15,6 +15,7 @@ import {
 import IndividualEngagementMainLog from "./partial/mainLog";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
 import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
+import { useLiveNotifications, upsertIntoStatusMap, FRESH_ROW_MS } from "@/components/admin/NotificationCenter/liveEvents";
 import { HTTP, antdMsg } from "@/services";
 
 /**
@@ -100,8 +101,9 @@ export default function IndividualEngagementLogModule() {
   // --------------------------------------------------------------------------
   // 2. DATA FETCHING & GROUPING LOGIC
   // --------------------------------------------------------------------------
-  const fetchRecords = useCallback(async () => {
-    setLoading(true);
+  const fetchRecords = useCallback(async ({ silent = false } = {}) => {
+    // Silent refetch (live updates) keeps the table on screen without a spinner
+    if (!silent) setLoading(true);
     try {
       const res = await HTTP("GET", "/new-individual-engagements");
 
@@ -170,6 +172,28 @@ export default function IndividualEngagementLogModule() {
     if (filter) setActiveStatusKey("All");
   }, []);
 
+  // Live updates: another user's submission / decision for this module →
+  // fetch ONLY that row (list shape via ?id=) and insert / replace it in place,
+  // then briefly highlight it (no page refresh, no full list reload)
+  const [freshIds, setFreshIds] = useState([]);
+  useLiveNotifications(async (notification) => {
+    if (notification?.moduleKey !== "new-individual") return;
+    if (!notification.recordId) {
+      fetchRecords({ silent: true });
+      return;
+    }
+    const res = await HTTP("GET", "/new-individual-engagements", { id: notification.recordId }, false, true);
+    const row = (Array.isArray(res?.data) ? res.data : [])[0];
+    if (!row?.id) {
+      fetchRecords({ silent: true }); // not readable → silent full refresh
+      return;
+    }
+    setListDataByStatus((prev) => upsertIntoStatusMap(prev, { ...row, key: row.id }, "Pending Review"));
+    const id = String(row.id);
+    setFreshIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setTimeout(() => setFreshIds((prev) => prev.filter((x) => x !== id)), FRESH_ROW_MS);
+  });
+
   // --------------------------------------------------------------------------
   // 3. GENERATE TABS WITH DYNAMIC LIVE-COUNT BADGES
   // --------------------------------------------------------------------------
@@ -191,6 +215,7 @@ export default function IndividualEngagementLogModule() {
           data={visibleByStatus.All || []}
           statusName="All"
           fetchData={fetchRecords}
+          freshIds={freshIds}
           loading={loading}
           autoOpenRecord={autoOpenRecord}
           onAutoOpenHandled={handleAutoOpenHandled}
@@ -224,6 +249,7 @@ export default function IndividualEngagementLogModule() {
             data={visibleByStatus[st.key] || []}
             statusName={st.label}
             fetchData={fetchRecords}
+            freshIds={freshIds}
             loading={loading}
           />
         ),
@@ -231,7 +257,7 @@ export default function IndividualEngagementLogModule() {
     });
 
     return [allTab, ...statusTabs];
-  }, [visibleByStatus, fetchRecords, loading, autoOpenRecord, handleAutoOpenHandled]);
+  }, [visibleByStatus, fetchRecords, loading, autoOpenRecord, handleAutoOpenHandled, freshIds]);
 
   // --------------------------------------------------------------------------
   // 4. RENDER TABS

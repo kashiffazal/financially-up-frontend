@@ -27,6 +27,8 @@ import {
 import {
   MEGA_MENU_CATEGORIES,
   MAIN_SERVICES_MEGA_MENU,
+  findPillarByPath,
+  isServicePathMatch,
 } from "@/data/servicesMegaMenuData";
 import { useCompany } from "@/context/SettingsContext";
 import styles from "./Header.module.css";
@@ -66,16 +68,118 @@ function renderPillarIcon(iconKey, className = "text-sm") {
  * 2. Balanced 2-column layout on the left with spacious clickable cards
  * 3. Roomy right pane with comfortable sub-services spacing
  * 4. Buttery-smooth height transitions via dynamic ResizeObserver measurement
+ * 5. Automatic active state resolution for current pillar and sub-service
+ * 6. Direct navigation links to service hubs from left pane pillars
  */
 export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
   const company = useCompany();
+
+  // Resolve which pillar corresponds to the current page route
+  const currentRoutePillar = useMemo(
+    () => findPillarByPath(activePath),
+    [activePath]
+  );
+
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [activePillarId, setActivePillarId] = useState("individual-tax");
+  const [activePillarId, setActivePillarId] = useState(
+    () => currentRoutePillar?.id || "individual-tax"
+  );
+
+  // Adjust active pillar during render when route or menu open state changes
+  const [prevActivePath, setPrevActivePath] = useState(activePath);
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (prevActivePath !== activePath || (!prevIsOpen && isOpen)) {
+    setPrevActivePath(activePath);
+    setPrevIsOpen(isOpen);
+    if (currentRoutePillar) {
+      setActivePillarId(currentRoutePillar.id);
+    }
+  }
 
   // Dynamic height measurement for buttery-smooth height transitions between pillars
   const contentRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(undefined);
   const [isMeasured, setIsMeasured] = useState(false);
+
+  // Refs for tracking mouse intent & trajectory (Amazon / Stripe mouse-intent pattern)
+  const hoverTimeoutRef = useRef(null);
+  const mousePosRef = useRef({
+    x: 0,
+    y: 0,
+    prevX: 0,
+    prevY: 0,
+    lastCheckTime: 0,
+  });
+
+  // Track cursor velocity & trajectory
+  const handleMouseMove = (e) => {
+    const now = Date.now();
+    if (now - mousePosRef.current.lastCheckTime > 30) {
+      mousePosRef.current.prevX = mousePosRef.current.x;
+      mousePosRef.current.prevY = mousePosRef.current.y;
+      mousePosRef.current.lastCheckTime = now;
+    }
+    mousePosRef.current.x = e.clientX;
+    mousePosRef.current.y = e.clientY;
+  };
+
+  // Smart Pillar Hover with Directional Intent Delay
+  const handlePillarHover = (pillarId) => {
+    if (activePillarId === pillarId) return;
+
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+
+    const deltaX = mousePosRef.current.x - mousePosRef.current.prevX;
+
+    // If mouse is moving rightward towards the right pane (sub-services),
+    // apply a 200ms transit grace period so crossing Column 2 doesn't hijack the menu.
+    // If browsing vertically or stationary, switch with a snappy 40ms delay.
+    const isMovingRight = deltaX > 1.5;
+    const delay = isMovingRight ? 200 : 40;
+
+    hoverTimeoutRef.current = setTimeout(() => {
+      setActivePillarId(pillarId);
+      hoverTimeoutRef.current = null;
+    }, delay);
+  };
+
+  // Immediate Click Switch
+  const handlePillarClick = (pillarId) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setActivePillarId(pillarId);
+  };
+
+  // Right Pane Entrance: Immediately lock active pillar and cancel pending transit switches
+  const handleRightPaneMouseEnter = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+  };
+
+  // Mega Menu Mouse Leave
+  const handleMenuMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    onClose();
+  };
+
+  // Clean up pending timers on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (!contentRef.current) return;
@@ -124,6 +228,10 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
 
   // When category changes, auto-select first pillar in category if needed
   const handleCategorySelect = (categoryId) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
     setSelectedCategory(categoryId);
     const inCat =
       categoryId === "all"
@@ -141,7 +249,8 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
       role="region"
       aria-label="Services Mega Menu"
       className="absolute top-full left-0 right-0 z-50 w-full animate-fadeIn"
-      onMouseLeave={onClose}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMenuMouseLeave}
     >
       {/* Backdrop overlay for focus */}
       <div
@@ -215,15 +324,19 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                   <div className="grid grid-cols-2 gap-2.5">
                     {filteredPillars.map((pillar) => {
                       const isSelected = activePillarId === pillar.id;
+                      const isCurrentPillar = currentRoutePillar?.id === pillar.id;
 
                       return (
-                        <div
+                        <Link
                           key={pillar.id}
-                          onMouseEnter={() => setActivePillarId(pillar.id)}
-                          onClick={() => setActivePillarId(pillar.id)}
+                          href={pillar.href}
+                          onClick={onClose}
+                          onMouseEnter={() => handlePillarHover(pillar.id)}
                           className={`group relative py-2 px-2.5 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-between border ${
                             isSelected
                               ? "bg-white dark:bg-zinc-900 border-emerald-500/40 dark:border-emerald-500/30 shadow-sm shadow-emerald-500/5 ring-1 ring-emerald-500/25"
+                              : isCurrentPillar
+                              ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-300/70 dark:border-emerald-800/60 shadow-2xs"
                               : "border-transparent hover:bg-white/70 dark:hover:bg-zinc-900/70 hover:border-slate-200/60 dark:hover:border-zinc-800"
                           }`}
                         >
@@ -231,7 +344,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                             {/* Number Badge */}
                             <div
                               className={`w-6 h-6 rounded-lg font-mono text-[11px] font-bold flex items-center justify-center shrink-0 border transition-colors ${
-                                isSelected
+                                isSelected || isCurrentPillar
                                   ? "bg-brand-primary text-white border-brand-primary shadow-xs"
                                   : "bg-emerald-50/80 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 border-emerald-100 dark:border-emerald-900/50 group-hover:bg-brand-primary group-hover:text-white"
                               }`}
@@ -242,7 +355,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                             {/* Title */}
                             <span
                               className={`text-[13px] font-semibold truncate transition-colors ${
-                                isSelected
+                                isSelected || isCurrentPillar
                                   ? "text-slate-900 dark:text-white font-bold"
                                   : "text-slate-700 dark:text-zinc-200 group-hover:text-brand-primary dark:group-hover:text-emerald-400"
                               }`}
@@ -251,11 +364,18 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                             </span>
                           </div>
 
-                          {/* Active Dot Indicator */}
-                          {isSelected && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0 ml-1.5 animate-pulse" />
-                          )}
-                        </div>
+                          {/* Active and Current Route Indicators */}
+                          <div className="flex items-center gap-1.5 shrink-0 ml-1.5">
+                            {isCurrentPillar && (
+                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400">
+                                Current
+                              </span>
+                            )}
+                            {isSelected && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 shrink-0 animate-pulse" />
+                            )}
+                          </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -264,22 +384,26 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                   <div className="space-y-2.5">
                     {filteredPillars.map((pillar) => {
                       const isSelected = activePillarId === pillar.id;
+                      const isCurrentPillar = currentRoutePillar?.id === pillar.id;
 
                       return (
-                        <div
+                        <Link
                           key={pillar.id}
-                          onMouseEnter={() => setActivePillarId(pillar.id)}
-                          onClick={() => setActivePillarId(pillar.id)}
+                          href={pillar.href}
+                          onClick={onClose}
+                          onMouseEnter={() => handlePillarHover(pillar.id)}
                           className={`group relative p-3 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-between border ${
                             isSelected
                               ? "bg-white dark:bg-zinc-900 border-emerald-500/40 dark:border-emerald-500/30 shadow-md shadow-emerald-500/5 ring-1 ring-emerald-500/20"
+                              : isCurrentPillar
+                              ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-300/70 dark:border-emerald-800/60 shadow-2xs"
                               : "border-transparent hover:bg-white/60 dark:hover:bg-zinc-900/60 hover:border-slate-200/50 dark:hover:border-zinc-800"
                           }`}
                         >
                           <div className="flex items-center gap-3 min-w-0">
                             <div
                               className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                                isSelected
+                                isSelected || isCurrentPillar
                                   ? "bg-brand-primary text-white shadow-sm shadow-emerald-700/20"
                                   : "bg-emerald-50 text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400 group-hover:bg-brand-primary-soft"
                               }`}
@@ -291,7 +415,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                               <div className="flex items-center gap-2">
                                 <span
                                   className={`text-xs font-mono font-bold ${
-                                    isSelected
+                                    isSelected || isCurrentPillar
                                       ? "text-brand-primary dark:text-emerald-400"
                                       : "text-slate-400 dark:text-zinc-500"
                                   }`}
@@ -300,7 +424,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                                 </span>
                                 <span
                                   className={`text-sm font-semibold truncate ${
-                                    isSelected
+                                    isSelected || isCurrentPillar
                                       ? "text-slate-900 dark:text-white font-bold"
                                       : "text-slate-700 dark:text-zinc-200 group-hover:text-brand-primary dark:group-hover:text-emerald-400"
                                   }`}
@@ -315,7 +439,12 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                             </div>
                           </div>
 
-                          <div className="shrink-0 pl-2">
+                          <div className="shrink-0 pl-2 flex items-center gap-1.5">
+                            {isCurrentPillar && (
+                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400">
+                                Current
+                              </span>
+                            )}
                             <RightOutlined
                               className={`text-xs transition-transform ${
                                 isSelected
@@ -324,7 +453,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                               }`}
                             />
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -332,12 +461,15 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
               </div>
 
               {/* Right Pane: Selected Pillar Explorer & Sub-Services (Col Span 7 - Spacious & Smooth) */}
-              <div className="col-span-7 p-6 bg-white dark:bg-zinc-900 overflow-hidden flex flex-col justify-between">
+              <div
+                onMouseEnter={handleRightPaneMouseEnter}
+                className="col-span-7 p-6 bg-white dark:bg-zinc-900 overflow-hidden flex flex-col justify-between"
+              >
                 <div key={activePillar.id} className={styles.pillarTransition}>
                   {/* Pillar Header Card */}
                   <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50/70 to-teal-50/30 dark:from-zinc-950 dark:to-zinc-900 border border-emerald-100 dark:border-zinc-800 mb-4 flex items-center justify-between gap-4 shadow-sm">
                     <div className="space-y-1 min-w-0">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs font-mono font-bold text-brand-primary dark:text-emerald-400 bg-white dark:bg-zinc-800 px-2 py-0.5 rounded-md border border-emerald-200/50 dark:border-zinc-700">
                           Pillar {activePillar.number}
                         </span>
@@ -347,6 +479,11 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                         {activePillar.badge && (
                           <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary dark:bg-emerald-950 dark:text-emerald-400">
                             {activePillar.badge}
+                          </span>
+                        )}
+                        {currentRoutePillar?.id === activePillar.id && (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-primary text-white shadow-2xs">
+                            Current Pillar
                           </span>
                         )}
                       </div>
@@ -379,30 +516,60 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2.5 content-start">
-                      {activePillar.subServices.map((sub, idx) => (
-                        <Link
-                          key={idx}
-                          href={sub.href}
-                          onClick={onClose}
-                          className="group flex items-center justify-between py-2 px-3 rounded-xl border border-slate-100 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-950/50 hover:bg-white dark:hover:bg-zinc-800/90 hover:border-emerald-300 dark:hover:border-emerald-600 hover:shadow-sm transition-all"
-                        >
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 group-hover:scale-125 transition-transform" />
-                            <span className="text-xs font-semibold text-slate-700 dark:text-zinc-200 group-hover:text-brand-primary dark:group-hover:text-emerald-400 truncate">
-                              {sub.title}
-                            </span>
-                          </div>
+                      {activePillar.subServices.map((sub, idx) => {
+                        const isCurrentSub = isServicePathMatch(sub.href, activePath);
 
-                          <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                            {sub.badge && (
-                              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-100/70 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-                                {sub.badge}
+                        return (
+                          <Link
+                            key={idx}
+                            href={sub.href}
+                            onClick={onClose}
+                            className={`group flex items-center justify-between py-2 px-3 rounded-xl border transition-all ${
+                              isCurrentSub
+                                ? "bg-emerald-500/10 dark:bg-emerald-950/60 border-brand-primary dark:border-emerald-500 shadow-xs ring-1 ring-brand-primary/40"
+                                : "border-slate-100 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-950/50 hover:bg-white dark:hover:bg-zinc-800/90 hover:border-emerald-300 dark:hover:border-emerald-600 hover:shadow-sm"
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <span
+                                className={`w-2 h-2 rounded-full shrink-0 transition-transform ${
+                                  isCurrentSub
+                                    ? "bg-brand-primary ring-2 ring-emerald-300 dark:ring-emerald-500 scale-125"
+                                    : "bg-emerald-400 group-hover:scale-125"
+                                }`}
+                              />
+                              <span
+                                className={`text-xs truncate transition-colors ${
+                                  isCurrentSub
+                                    ? "text-brand-primary dark:text-emerald-300 font-bold"
+                                    : "font-semibold text-slate-700 dark:text-zinc-200 group-hover:text-brand-primary dark:group-hover:text-emerald-400"
+                                }`}
+                              >
+                                {sub.title}
                               </span>
-                            )}
-                            <ArrowRightOutlined className="text-[10px] text-slate-300 dark:text-zinc-600 opacity-0 group-hover:opacity-100 group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition-all -translate-x-1 group-hover:translate-x-0" />
-                          </div>
-                        </Link>
-                      ))}
+                            </div>
+
+                            <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                              {isCurrentSub ? (
+                                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-brand-primary text-white shadow-2xs">
+                                  Active
+                                </span>
+                              ) : sub.badge ? (
+                                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-100/70 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                                  {sub.badge}
+                                </span>
+                              ) : null}
+                              <ArrowRightOutlined
+                                className={`text-[10px] transition-all ${
+                                  isCurrentSub
+                                    ? "text-brand-primary dark:text-emerald-400 opacity-100 translate-x-0"
+                                    : "text-slate-300 dark:text-zinc-600 opacity-0 group-hover:opacity-100 group-hover:text-brand-primary dark:group-hover:text-emerald-400 -translate-x-1 group-hover:translate-x-0"
+                                }`}
+                              />
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

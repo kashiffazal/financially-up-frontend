@@ -12,14 +12,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Dropdown, Badge, Avatar } from "antd";
+import { Dropdown, Avatar } from "antd";
 import {
-  MenuFoldOutlined,
   MenuUnfoldOutlined,
   SunOutlined,
   MoonOutlined,
-  QuestionCircleOutlined,
-  BellOutlined,
   DownOutlined,
   UserOutlined,
   SettingOutlined,
@@ -28,9 +25,9 @@ import {
 } from "@ant-design/icons";
 import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
-import { antdMsg } from "@/services";
 import GlobalSearch from "./GlobalSearch";
 import NewApplicationMenu from "./NewApplicationMenu";
+import NotificationCenter from "./NotificationCenter";
 
 export default function Header({ onOpenMobile }) {
   const { isDark, toggleTheme } = useTheme();
@@ -81,7 +78,7 @@ export default function Header({ onOpenMobile }) {
   ];
 
   return (
-    <header className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 md:px-6 bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800 transition-colors duration-300">
+    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 md:px-6 bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800 transition-colors duration-300">
       {/* Header Left: Menu toggle (mobile only), Logo, Search and New Application */}
       <div className="flex items-center gap-3 flex-1 min-w-0">
         <button
@@ -132,27 +129,8 @@ export default function Header({ onOpenMobile }) {
           )}
         </button>
 
-        {/* Help Button */}
-        <button
-          onClick={() =>
-            antdMsg.info("Financially Up Documentation & Knowledge Base")
-          }
-          className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
-          aria-label="Help & Documentation"
-        >
-          <QuestionCircleOutlined className="text-base" />
-        </button>
-
-        {/* Notification Bell with Badge */}
-        <button
-          onClick={() => antdMsg.info("You have 4 new notifications")}
-          className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 relative transition-all cursor-pointer"
-          aria-label="Notifications"
-        >
-          <Badge count={4} size="small" color="#008043" offset={[-2, 2]}>
-            <BellOutlined className="text-base text-slate-600 dark:text-zinc-400" />
-          </Badge>
-        </button>
+        {/* Staff Notifications (submissions, status changes, website enquiries) */}
+        <NotificationCenter />
 
         {/* User Dropdown */}
         <Dropdown

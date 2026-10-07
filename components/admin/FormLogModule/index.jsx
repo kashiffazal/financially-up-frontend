@@ -6,8 +6,30 @@ import { AppstoreOutlined } from "@ant-design/icons";
 import GenericMainLog from "./GenericMainLog";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
 import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
+import {
+  useLiveNotifications,
+  upsertIntoStatusMap,
+  ENDPOINT_MODULE_KEYS,
+  FRESH_ROW_MS,
+} from "@/components/admin/NotificationCenter/liveEvents";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
 import { STANDARD_FORM_STATUS_LIST } from "./constants";
+import { parseSubmissionData } from "./SubmittedAnswers";
+
+/**
+ * Website form answers saved in `submissionData.fields` fill any record value that
+ * is empty (answers without a dedicated column), so module tables and renderers
+ * can show them. Real column values always win.
+ */
+const withSubmittedFields = (record) => {
+  const fields = parseSubmissionData(record?.submissionData)?.fields;
+  if (!fields || typeof fields !== "object") return record;
+  const merged = { ...fields };
+  Object.entries(record).forEach(([key, value]) => {
+    if (value !== null && value !== undefined && value !== "") merged[key] = value;
+  });
+  return merged;
+};
 
 /**
  * ============================================================================
@@ -61,9 +83,10 @@ export default function FormLogModule({
   // --------------------------------------------------------------------------
   // DATA FETCHING & BUCKETING LOGIC
   // --------------------------------------------------------------------------
-  const fetchRecords = useCallback(async () => {
+  const fetchRecords = useCallback(async ({ silent = false } = {}) => {
     if (!endpoint) return;
-    setLoading(true);
+    // Silent refetch (live updates) keeps the table on screen without a spinner
+    if (!silent) setLoading(true);
     try {
       const res = await HTTP("GET", endpoint, {
         limit: queryLimit,
@@ -74,7 +97,8 @@ export default function FormLogModule({
       const recordsArray = Array.isArray(rawRecords) ? rawRecords : [];
 
       const normalizedRecords = recordsArray.map((r, index) => {
-        const base = typeof normalizeRecord === "function" ? normalizeRecord(r) : r;
+        const merged = withSubmittedFields(r);
+        const base = typeof normalizeRecord === "function" ? normalizeRecord(merged) : merged;
         return {
           ...base,
           key: base.id || base._id || base.key || `rec-${index}`,
@@ -121,7 +145,8 @@ export default function FormLogModule({
       const res = await HTTP("GET", `${endpoint}/${id}`, undefined, false, true);
       const raw = res?.data;
       if (!raw || !raw.id) return null;
-      const base = typeof normalizeRecord === "function" ? normalizeRecord(raw) : raw;
+      const merged = withSubmittedFields(raw);
+      const base = typeof normalizeRecord === "function" ? normalizeRecord(merged) : merged;
       return { ...base, key: base.id || base._id };
     },
     [endpoint, normalizeRecord]
@@ -139,6 +164,30 @@ export default function FormLogModule({
     setSearchFilter(filter);
     if (filter) setActiveStatusKey("All");
   }, []);
+
+  // --------------------------------------------------------------------------
+  // LIVE UPDATES — when another user's submission / status change for this
+  // module arrives, fetch ONLY that record and insert / replace it in place
+  // (no full list reload), then briefly highlight the row
+  // --------------------------------------------------------------------------
+  const liveModuleKey = ENDPOINT_MODULE_KEYS[endpoint];
+  const [freshIds, setFreshIds] = useState([]);
+  useLiveNotifications(async (notification) => {
+    if (!liveModuleKey || notification?.moduleKey !== liveModuleKey) return;
+    if (!notification.recordId) {
+      fetchRecords({ silent: true });
+      return;
+    }
+    const record = await fetchRecordById(notification.recordId);
+    if (!record) {
+      fetchRecords({ silent: true }); // not readable (deleted / network) → silent full refresh
+      return;
+    }
+    setListDataByStatus((prev) => upsertIntoStatusMap(prev, record, defaultStatus));
+    const id = String(record.key);
+    setFreshIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setTimeout(() => setFreshIds((prev) => prev.filter((x) => x !== id)), FRESH_ROW_MS);
+  });
 
   // --------------------------------------------------------------------------
   // REAL-TIME STATUS UPDATE HANDLER (NO FULL PAGE RELOAD)
@@ -214,6 +263,7 @@ export default function FormLogModule({
           renderViewDetails={renderViewDetails}
           extraActions={extraActions}
           extraModals={extraModals}
+          freshIds={freshIds}
           autoOpenRecord={autoOpenRecord}
           onAutoOpenHandled={handleAutoOpenHandled}
         />
@@ -262,6 +312,7 @@ export default function FormLogModule({
             renderViewDetails={renderViewDetails}
             extraActions={extraActions}
             extraModals={extraModals}
+          freshIds={freshIds}
           />
         ),
       };
@@ -289,6 +340,7 @@ export default function FormLogModule({
     extraModals,
     autoOpenRecord,
     handleAutoOpenHandled,
+    freshIds,
   ]);
 
   // --------------------------------------------------------------------------

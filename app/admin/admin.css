@@ -83,3 +83,13 @@
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
 }
 
+
+/* Live updates: a row that just arrived or changed (another user's action).
+   Highlight is removed after a few seconds; antd's cell transition fades it out. */
+.ant-table-wrapper .ant-table-tbody > tr.live-new-row > td {
+  background-color: var(--brand-primary-light) !important;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr.live-new-row > td:first-child {
+  box-shadow: inset 3px 0 0 var(--brand-primary);
+}

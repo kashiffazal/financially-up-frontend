@@ -42,6 +42,7 @@ import {
 } from "./DashboardCharts";
 import { get, getFileUrl } from "@/services";
 import { useAuth } from "../../../context/AuthContext";
+import { useLiveNotifications } from "@/components/admin/NotificationCenter/liveEvents";
 
 /**
  * ============================================================================
@@ -129,6 +130,14 @@ export default function Dashboard() {
   useEffect(() => {
     fetchDashboardStats(activeRange);
   }, [activeRange, fetchDashboardStats]);
+
+  // Live updates: refresh metrics & recent submissions silently when another
+  // user's submission or status change arrives (no page refresh)
+  useLiveNotifications((notification) => {
+    if (notification?.type === "submission" || notification?.type === "status_change") {
+      fetchDashboardStats(activeRange, true);
+    }
+  });
 
   // Handle Range Toggle
   const handleRangeChange = (range) => {
