@@ -1,18 +1,26 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import ThemeProvider from "./ThemeProvider";
 import { SettingsProvider } from "../context/SettingsContext";
 import { getSettings } from "../lib/getSettings";
 import "./globals.css";
 
-const geistSans = Geist({
+// Geist fonts are bundled with the project (app/fonts, SIL Open Font License)
+// instead of `next/font/google`. Google fonts are downloaded during `next build`
+// with no time limit, so a build server that can't reach Google hangs forever
+// with no error. Same font family and CSS variables as before.
+const geistSans = localFont({
+  src: "./fonts/Geist-Variable.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/GeistMono-Variable.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
+  adjustFontFallback: false,
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
 });
 
 export const metadata = {
