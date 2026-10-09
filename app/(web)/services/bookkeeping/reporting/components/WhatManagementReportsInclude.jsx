@@ -19,40 +19,53 @@ export default function WhatManagementReportsInclude() {
   const reportDeliverables = [
     {
       title: "Profit and loss reporting for a month, quarter or year to date",
-      detail: "Tracking operating revenue, cost of goods sold, gross margin, and operating overheads across discrete reporting periods.",
+      detail:
+        "Tracking operating revenue, cost of goods sold, gross margin, and operating overheads across discrete reporting periods.",
     },
     {
-      title: "Balance sheet reporting showing assets, liabilities and equity at a point in time",
-      detail: "Clear snapshots of bank accounts, receivables, inventory, tax liabilities, bank debt, and retained earnings.",
+      title:
+        "Balance sheet reporting showing assets, liabilities and equity at a point in time",
+      detail:
+        "Clear snapshots of bank accounts, receivables, inventory, tax liabilities, bank debt, and retained earnings.",
     },
     {
       title: "Cash-flow or cash-movement information",
-      detail: "Visualizing actual inflows and outflows so business owners understand how operational profits convert into bank cash.",
+      detail:
+        "Visualizing actual inflows and outflows so business owners understand how operational profits convert into bank cash.",
     },
     {
       title: "Aged accounts receivable and accounts payable summaries",
-      detail: "Categorising customer debts and supplier commitments by due date to safeguard short-term liquidity.",
+      detail:
+        "Categorising customer debts and supplier commitments by due date to safeguard short-term liquidity.",
     },
     {
-      title: "Comparisons with prior months, prior years or budgets where available",
-      detail: "Benchmarking month-on-month and year-on-year trends and identifying variance against projected operating targets.",
+      title:
+        "Comparisons with prior months, prior years or budgets where available",
+      detail:
+        "Benchmarking month-on-month and year-on-year trends and identifying variance against projected operating targets.",
     },
     {
-      title: "Category, department or tracking reports where the accounting setup supports them",
-      detail: "Segmented performance reporting across locations, divisions, commercial projects, or business service lines.",
+      title:
+        "Category, department or tracking reports where the accounting setup supports them",
+      detail:
+        "Segmented performance reporting across locations, divisions, commercial projects, or business service lines.",
     },
     {
-      title: "Commentary on material movements or bookkeeping items requiring management attention",
-      detail: "Practical accounting notes highlighting significant variances, unusual expense spikes, or pending reconciliations.",
+      title:
+        "Commentary on material movements or bookkeeping items requiring management attention",
+      detail:
+        "Practical accounting notes highlighting significant variances, unusual expense spikes, or pending reconciliations.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mb-12">
-          <Tag color="cyan" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <ProfileOutlined className="mr-1.5" />
             Reporting Pack
           </Tag>
@@ -62,7 +75,9 @@ export default function WhatManagementReportsInclude() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The right report set depends on the business and the decisions management needs to make. Financial management reporting may include:
+            The right report set depends on the business and the decisions
+            management needs to make. Financial management reporting may
+            include:
           </p>
         </div>
 
@@ -96,7 +111,9 @@ export default function WhatManagementReportsInclude() {
               Struggling with Outstanding Customer Invoices?
             </div>
             <p className="text-base text-slate-800 dark:text-zinc-200 leading-relaxed font-medium">
-              If customer collections are a recurring issue, our accounts receivable services can help maintain the receivables records that support aged-debtor reporting.
+              If customer collections are a recurring issue, our accounts
+              receivable services can help maintain the receivables records that
+              support aged-debtor reporting.
             </p>
           </div>
           <Link href="/services/bookkeeping/accounts-receivable">
@@ -105,13 +122,12 @@ export default function WhatManagementReportsInclude() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Explore Accounts Receivable
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

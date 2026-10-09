@@ -31,35 +31,45 @@ export default function HighIncomeProcessSteps() {
       number: "01",
       title: "1. Book an appointment",
       description: `Book online through the Financially Up website or arrange a time by phone (${phoneDisplay}). Online meetings and in-person appointments are available.`,
-      icon: <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       number: "02",
       title: "2. Discuss your circumstances",
       description:
         "We discuss your income, remuneration, investments, employment arrangements and concerns to determine whether you need return preparation, separate planning support or both.",
-      icon: <CommentOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CommentOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       number: "03",
       title: "3. Confirm the scope and documents",
       description:
         "We explain the service scope and information needed. Separate planning scope and fees are confirmed before that work proceeds.",
-      icon: <FileProtectOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <FileProtectOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />
+      ),
     },
     {
       number: "04",
       title: "4. Review and prepare",
       description:
         "Financially Up reviews the information provided, prepares your individual tax return and raises any questions before finalization.",
-      icon: <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       number: "05",
       title: "5. Confirm and lodge",
       description:
         "You have an opportunity to review the return, understand the outcome and ask questions before lodgement.",
-      icon: <CheckCircleOutlined className="text-2xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-2xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
   ];
 
@@ -68,14 +78,19 @@ export default function HighIncomeProcessSteps() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Step-By-Step Workflow
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How the Process Works
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A structured, collaborative approach ensuring accurate reporting, proactive advisory clarity, and transparent communication from initial consultation to ATO lodgement.
+            A structured, collaborative approach ensuring accurate reporting,
+            proactive advisory clarity, and transparent communication from
+            initial consultation to ATO lodgement.
           </p>
         </div>
 
@@ -124,7 +139,9 @@ export default function HighIncomeProcessSteps() {
                 Australia-Wide Professional Service
               </h4>
               <p className="text-xs sm:text-sm text-zinc-300 font-normal">
-                Financially Up works with clients Australia-wide. Meetings can be held online through an Outlook Calendar online meeting, or in person by arrangement.
+                Financially Up works with clients Australia-wide. Meetings can
+                be held online through an Outlook Calendar online meeting, or in
+                person by arrangement.
               </p>
             </div>
           </div>
@@ -148,7 +165,7 @@ export default function HighIncomeProcessSteps() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full sm:w-auto font-bold rounded-xl bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11 px-6"
               >
                 Book Appointment

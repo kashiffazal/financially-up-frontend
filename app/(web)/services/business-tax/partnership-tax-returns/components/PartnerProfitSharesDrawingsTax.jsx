@@ -22,22 +22,30 @@ import {
 export default function PartnerProfitSharesDrawingsTax() {
   const taxPrinciples = [
     {
-      icon: <UserDeleteOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <UserDeleteOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Partners Are Not Employees",
       desc: "Partners are not treated as employees of the partnership merely because they work in the business. They do not receive tax-deductible employee salaries or wages from the partnership.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Drawings Are Not Deductible Wages",
       desc: "Amounts withdrawn by partners are not automatically deductible wages. Cash drawings represent personal advances against capital or profit shares, not business tax deductions.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Taxable Result vs Cash Transfers",
       desc: "The partnership’s taxable result and each partner’s share need to be considered separately from cash drawings or transfers between the business and partners.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Profit-Sharing Variations & Loans",
       desc: "Where there are different profit-sharing arrangements, changes in partners, partner loans or unusual allocations, additional review may be appropriate.",
     },
@@ -48,14 +56,19 @@ export default function PartnerProfitSharesDrawingsTax() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Principle Clarification
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Partner Profit Shares, Drawings and Tax
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Partners are not treated as employees of the partnership merely because they work in the business. Amounts withdrawn by partners are not automatically deductible wages.
+            Partners are not treated as employees of the partnership merely
+            because they work in the business. Amounts withdrawn by partners are
+            not automatically deductible wages.
           </p>
         </div>
 
@@ -88,7 +101,9 @@ export default function PartnerProfitSharesDrawingsTax() {
               Routine Return Preparation &amp; Separately Scoped Advice
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can prepare the return and accounting information, while more detailed tax advice can be separately scoped where the circumstances require it.
+              Financially Up can prepare the return and accounting information,
+              while more detailed tax advice can be separately scoped where the
+              circumstances require it.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -97,7 +112,7 @@ export default function PartnerProfitSharesDrawingsTax() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss Partner Allocations
               </Button>

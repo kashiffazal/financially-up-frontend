@@ -37,7 +37,8 @@ export default function RecordsToKeepShareholderLoans() {
       desc: "Evidence of principal repayments made before June 30, interest calculations, and corresponding ledger journal entries.",
     },
     {
-      title: "Dividend, salary, reimbursement or expense records connected with the account",
+      title:
+        "Dividend, salary, reimbursement or expense records connected with the account",
       desc: "Director resolutions, dividend distribution statements, PAYG salary pay slips, and verified business expense receipts.",
     },
     {
@@ -55,14 +56,19 @@ export default function RecordsToKeepShareholderLoans() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Substantiation & Documentation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What records should you keep?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Good records make it easier to establish what actually happened and reduce the risk of relying on year-end adjustments without supporting evidence.
+            Good records make it easier to establish what actually happened and
+            reduce the risk of relying on year-end adjustments without
+            supporting evidence.
           </p>
         </div>
 
@@ -96,7 +102,10 @@ export default function RecordsToKeepShareholderLoans() {
               Statutory Retention Periods (7+ Years)
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Company financial records generally need to be retained for at least seven years. Tax records may have different retention periods, and records connected with assets, losses or ongoing loan arrangements may need to be kept for longer.
+              Company financial records generally need to be retained for at
+              least seven years. Tax records may have different retention
+              periods, and records connected with assets, losses or ongoing loan
+              arrangements may need to be kept for longer.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -105,7 +114,7 @@ export default function RecordsToKeepShareholderLoans() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Organise Loan Records
               </Button>

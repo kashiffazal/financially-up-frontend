@@ -53,7 +53,8 @@ export default function HowFinanciallyUpHelpsCrypto() {
       desc: "Organising complex multi-chain portfolios across Ethereum, Solana, Bitcoin, Polygon, and Arbitrum.",
     },
     {
-      title: "Review of Prior-Year Information Where an Amendment May Need Consideration",
+      title:
+        "Review of Prior-Year Information Where an Amendment May Need Consideration",
       icon: <HistoryOutlined className="text-rose-500" />,
       desc: "Correcting previously undeclared crypto gains or missing cost-base records through ATO amendments.",
     },
@@ -64,14 +65,19 @@ export default function HowFinanciallyUpHelpsCrypto() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How a Cryptocurrency Tax Accountant Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} provides crypto tax services to individuals Australia-wide. Depending on the agreed scope, assistance may include:
+            {company?.legalName || "Financially Up Pty Ltd"} provides crypto tax
+            services to individuals Australia-wide. Depending on the agreed
+            scope, assistance may include:
           </p>
         </div>
 
@@ -107,13 +113,16 @@ export default function HowFinanciallyUpHelpsCrypto() {
             <span className="font-bold text-slate-900 dark:text-white block mb-1">
               Advisory Scoping Note:
             </span>
-            Tax-return preparation and transaction review are distinct from tax advice or planning. Advice scope and fees are confirmed separately before work begins. For non-crypto items, see our{" "}
+            Tax-return preparation and transaction review are distinct from tax
+            advice or planning. Advice scope and fees are confirmed separately
+            before work begins. For non-crypto items, see our{" "}
             <Link
               href="/services/individual-tax/individual-tax-return"
               className="text-brand-primary dark:text-emerald-400 font-bold hover:underline"
             >
               Individual Tax Return service
-            </Link>.
+            </Link>
+            .
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
             <Button
@@ -121,7 +130,7 @@ export default function HowFinanciallyUpHelpsCrypto() {
               size="large"
               className="brand-btn-primary font-bold px-6 h-11 text-sm shadow-md"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Book Crypto Consultation
             </Button>
@@ -137,8 +146,12 @@ export default function HowFinanciallyUpHelpsCrypto() {
           >
             <PhoneOutlined /> {company.phone}
           </a>
-          <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">•</span>
-          <span>Registered Tax Agent #{company?.taxAgentNumber || "26242127"}</span>
+          <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">
+            •
+          </span>
+          <span>
+            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+          </span>
         </div>
       </div>
     </section>

@@ -24,7 +24,9 @@ export default function RecordsNeededYearEndAccounting() {
   const recordCategories = [
     {
       category: "Software & Banking Facilities",
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       items: [
         "Accounting software access",
         "Bank and credit-card statements",
@@ -33,7 +35,9 @@ export default function RecordsNeededYearEndAccounting() {
     },
     {
       category: "Assets, Purchases & Stock",
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       items: [
         "Asset purchase and sale documents",
         "Inventory information and end-of-year stock counts",
@@ -41,7 +45,9 @@ export default function RecordsNeededYearEndAccounting() {
     },
     {
       category: "Payroll & Indirect Taxes",
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       items: [
         "Payroll reports and STP finalisation summaries",
         "BAS records and GST calculation sheets",
@@ -49,7 +55,9 @@ export default function RecordsNeededYearEndAccounting() {
     },
     {
       category: "Prior Accounts & One-Off Events",
-      icon: <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       items: [
         "Prior-year accounts and balance sheets",
         "Details of unusual or one-off transactions",
@@ -62,14 +70,21 @@ export default function RecordsNeededYearEndAccounting() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Records May Be Needed?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Useful year-end information can include accounting software access, bank and credit-card statements, loan statements, asset purchase and sale documents, payroll reports, BAS records, inventory information, finance agreements, prior-year accounts and details of unusual or one-off transactions.
+            Useful year-end information can include accounting software access,
+            bank and credit-card statements, loan statements, asset purchase and
+            sale documents, payroll reports, BAS records, inventory information,
+            finance agreements, prior-year accounts and details of unusual or
+            one-off transactions.
           </p>
         </div>
 
@@ -90,7 +105,10 @@ export default function RecordsNeededYearEndAccounting() {
               </div>
               <ul className="space-y-2.5">
                 {cat.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+                  <li
+                    key={itemIdx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -108,7 +126,10 @@ export default function RecordsNeededYearEndAccounting() {
               Missing Records &amp; Gap Resolution
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-              Complete source records make it easier to resolve balances without assumptions. Where information is missing, we can identify the gaps and explain what supporting material is needed before the accounts are finalized.
+              Complete source records make it easier to resolve balances without
+              assumptions. Where information is missing, we can identify the
+              gaps and explain what supporting material is needed before the
+              accounts are finalized.
             </p>
             <div>
               <Link href="/book-an-appointment">
@@ -116,7 +137,7 @@ export default function RecordsNeededYearEndAccounting() {
                   type="default"
                   className="brand-btn-outline text-xs font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Send Records for Review
                 </Button>
@@ -134,7 +155,11 @@ export default function RecordsNeededYearEndAccounting() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                Business tax records generally need to be kept for five years, although some records may need to be retained for longer. Companies must generally keep their financial records for at least seven years. The applicable period depends on the entity and the type of record.
+                Business tax records generally need to be kept for five years,
+                although some records may need to be retained for longer.
+                Companies must generally keep their financial records for at
+                least seven years. The applicable period depends on the entity
+                and the type of record.
               </p>
             </div>
           </div>

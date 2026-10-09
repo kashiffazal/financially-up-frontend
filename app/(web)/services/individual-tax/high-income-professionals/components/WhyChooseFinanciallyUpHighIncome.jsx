@@ -27,17 +27,23 @@ export default function WhyChooseFinanciallyUpHighIncome() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       subtitle: "Tax Agent Number: 26242127",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Specialists",
       subtitle: "Qualified Accounting & Tax Team",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Australia-Wide Support",
       subtitle: "Virtual Outlook Meetings & In-Person",
     },
@@ -48,14 +54,18 @@ export default function WhyChooseFinanciallyUpHighIncome() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             About Financially Up
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Professional accounting and advisory practice supporting executives, high-income earners, and business leaders across Australia.
+            Professional accounting and advisory practice supporting executives,
+            high-income earners, and business leaders across Australia.
           </p>
         </div>
 
@@ -69,12 +79,18 @@ export default function WhyChooseFinanciallyUpHighIncome() {
                 <span>Registered Tax Agent Credentials</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent, Tax Agent Number 26242127. We provide individual tax return preparation and tax planning support for Australian professionals, executives and individuals with complex tax circumstances.
+                {company?.legalName || "Financially Up Pty Ltd"} is a registered
+                tax agent, Tax Agent Number 26242127. We provide individual tax
+                return preparation and tax planning support for Australian
+                professionals, executives and individuals with complex tax
+                circumstances.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 flex items-center justify-between">
               <span>ABN: {company?.abn || "84 659 717 263"}</span>
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400">TPB Registered</span>
+              <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                TPB Registered
+              </span>
             </div>
           </div>
 
@@ -86,12 +102,17 @@ export default function WhyChooseFinanciallyUpHighIncome() {
                 <span>Compliance &amp; Advisory Standard</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                We explain what needs to be reported, identify the information required and prepare your return based on the records provided and applicable rules.
+                We explain what needs to be reported, identify the information
+                required and prepare your return based on the records provided
+                and applicable rules.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 flex items-center gap-2">
               <EnvironmentOutlined className="text-emerald-600 dark:text-emerald-400" />
-              <span>{company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}</span>
+              <span>
+                {company?.address ||
+                  "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+              </span>
             </div>
           </div>
         </div>
@@ -123,7 +144,8 @@ export default function WhyChooseFinanciallyUpHighIncome() {
               Have Questions Before Booking?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 font-normal">
-              Speak with our senior client services team to discuss your executive or professional requirements.
+              Speak with our senior client services team to discuss your
+              executive or professional requirements.
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -143,7 +165,7 @@ export default function WhyChooseFinanciallyUpHighIncome() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="font-bold rounded-xl bg-brand-primary hover:bg-brand-primary-dark border-none h-11"
               >
                 Book Appointment

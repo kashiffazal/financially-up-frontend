@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import {
   Form,
   Button,
-  Card,
   Badge,
   Descriptions,
   Table,
@@ -236,8 +235,9 @@ export default function CompanyRegistrationAdminForm({
     : [];
   const documents = Array.isArray(record?.documents) ? record.documents : [];
 
+  // Rendered inside a Modal, which already provides the container (no inner card)
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950 p-2 sm:p-4">
+    <div>
       {/* Header Summary Banner */}
       <div className="p-5 sm:p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -607,6 +607,8 @@ export default function CompanyRegistrationAdminForm({
               penColor="#008043"
               placeholder="Draw reviewer signature smoothly using mouse, stylus, or touch..."
               storageKey="companyAdminStaffSignature"
+              // Saved signature from a previous decision: shown as "Signature on file" when reopening
+              initialImage={record?.adminReview?.signatureDrawnData || null}
             />
           </div>
         </div>
@@ -632,6 +634,6 @@ export default function CompanyRegistrationAdminForm({
           </Button>
         </div>
       </Form>
-    </Card>
+    </div>
   );
 }

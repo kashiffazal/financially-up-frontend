@@ -27,39 +27,63 @@ import {
 export default function WhoBenefitsFromPropertyTaxPlanning() {
   const investorScenarios = [
     {
-      icon: <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      scenario: "Buying an investment property personally, jointly or through another structure",
-      detail: "Evaluate ownership titles, negative gearing impact, land tax thresholds, and legal structure alternatives.",
+      icon: (
+        <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      scenario:
+        "Buying an investment property personally, jointly or through another structure",
+      detail:
+        "Evaluate ownership titles, negative gearing impact, land tax thresholds, and legal structure alternatives.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       scenario: "Changing how borrowed funds will be used",
-      detail: "Avoid contaminating deductible debt when redrawing loan equity or converting investment funds for private use.",
+      detail:
+        "Avoid contaminating deductible debt when redrawing loan equity or converting investment funds for private use.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       scenario: "Moving into or out of a property that has been rented",
-      detail: "Establish market valuation cost-bases and apply the 6-year temporary absence rule to preserve main residence exemptions.",
+      detail:
+        "Establish market valuation cost-bases and apply the 6-year temporary absence rule to preserve main residence exemptions.",
     },
     {
-      icon: <ToolOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       scenario: "Undertaking repairs, renovations or capital improvements",
-      detail: "Categorize expenditures correctly across immediate repairs, capital works (Division 43), and depreciating assets.",
+      detail:
+        "Categorize expenditures correctly across immediate repairs, capital works (Division 43), and depreciating assets.",
     },
     {
-      icon: <AppstoreAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AppstoreAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       scenario: "Adding another property to an existing portfolio",
-      detail: "Model overall cash flows, state land tax thresholds across jurisdictions, and debt serviceability buffers.",
+      detail:
+        "Model overall cash flows, state land tax thresholds across jurisdictions, and debt serviceability buffers.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      scenario: "Selling a rental property or other property that may have CGT implications",
-      detail: "Analyze contract signing dates, calculate 5-element cost bases, and verify 12-month 50% CGT discount eligibility.",
+      icon: (
+        <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      scenario:
+        "Selling a rental property or other property that may have CGT implications",
+      detail:
+        "Analyze contract signing dates, calculate 5-element cost bases, and verify 12-month 50% CGT discount eligibility.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      scenario: "Reviewing records before year end or before a major transaction",
-      detail: "Reconcile rental ledgers, property depreciation reports, and council rate notices before 30 June statutory cut-offs.",
+      icon: (
+        <CalendarOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      scenario:
+        "Reviewing records before year end or before a major transaction",
+      detail:
+        "Reconcile rental ledgers, property depreciation reports, and council rate notices before 30 June statutory cut-offs.",
     },
   ];
 
@@ -68,14 +92,20 @@ export default function WhoBenefitsFromPropertyTaxPlanning() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Investor Scenarios
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who May Benefit from Property Tax Planning?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Tax planning for property investors can be useful for first-time investors, people expanding a portfolio, joint owners, investors considering a refinance or renovation, and anyone planning to sell or change the use of a property.
+            Tax planning for property investors can be useful for first-time
+            investors, people expanding a portfolio, joint owners, investors
+            considering a refinance or renovation, and anyone planning to sell
+            or change the use of a property.
           </p>
         </div>
 
@@ -120,7 +150,8 @@ export default function WhoBenefitsFromPropertyTaxPlanning() {
               Planning a property acquisition, refinance, or sale?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-              Speak with an Australian property tax specialist before signing contracts or adjusting loan structures.
+              Speak with an Australian property tax specialist before signing
+              contracts or adjusting loan structures.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -128,7 +159,7 @@ export default function WhoBenefitsFromPropertyTaxPlanning() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
             >
               Consult a Property Advisor

@@ -21,17 +21,23 @@ import {
 export default function WhatIsBusinessTaxCompliance() {
   const compliancePillars = [
     {
-      icon: <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Entity-Specific Requirements",
       desc: "Those obligations differ by entity type and activity. A company has different income-tax reporting from a sole trader; a GST-registered business has BAS requirements; and an employer has PAYG withholding and superannuation obligations.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Unified Compliance Strategy",
       desc: "A tax compliance accountant can help bring these obligations together, ensuring that BAS filings, payroll declarations, and annual income tax returns are synchronized rather than handled in isolation.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Pre-Submission Data Verification",
       desc: "Checking that available accounting information accurately supports all lodgments and proactively identifying complex issues that require separate tax advice before submission.",
     },
@@ -42,14 +48,19 @@ export default function WhatIsBusinessTaxCompliance() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Compliance Fundamentals
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Is Business Tax Compliance?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Business tax compliance means identifying and meeting the tax obligations that apply to a business. Those obligations differ by entity type and activity.
+            Business tax compliance means identifying and meeting the tax
+            obligations that apply to a business. Those obligations differ by
+            entity type and activity.
           </p>
         </div>
 
@@ -63,11 +74,20 @@ export default function WhatIsBusinessTaxCompliance() {
                 Coordinated Business Tax Obligations
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Business tax compliance means identifying and meeting the tax obligations that apply to a business. Those obligations differ by entity type and activity. A company has different income-tax reporting from a sole trader; a GST-registered business has BAS requirements; and an employer can have PAYG withholding and superannuation-related obligations in addition to its annual income tax work.
+                Business tax compliance means identifying and meeting the tax
+                obligations that apply to a business. Those obligations differ
+                by entity type and activity. A company has different income-tax
+                reporting from a sole trader; a GST-registered business has BAS
+                requirements; and an employer can have PAYG withholding and
+                superannuation-related obligations in addition to its annual
+                income tax work.
               </p>
               <div className="h-px bg-slate-200 dark:bg-zinc-700 my-2" />
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A tax compliance accountant can help bring these obligations together, check that the available accounting information supports the lodgments and identify issues that need separate tax advice before submission.
+                A tax compliance accountant can help bring these obligations
+                together, check that the available accounting information
+                supports the lodgments and identify issues that need separate
+                tax advice before submission.
               </p>
             </div>
 
@@ -77,7 +97,7 @@ export default function WhatIsBusinessTaxCompliance() {
                   type="primary"
                   className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Compliance Consultation
                 </Button>

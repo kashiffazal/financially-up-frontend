@@ -25,37 +25,51 @@ import {
 export default function WhatInformationNeededTrustPlanning() {
   const documents = [
     {
-      icon: <BookOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <BookOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Current Trust Deed & Variations",
       desc: "The current trust deed and any amendments or variations.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Prior Returns & Resolutions",
       desc: "Prior-year trust tax returns and distribution resolutions.",
     },
     {
-      icon: <FundOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FundOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Accounts & Income Estimates",
       desc: "Current-year accounts or a reliable estimate of trust income and taxable income.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Potential Beneficiaries",
       desc: "Details of potential beneficiaries and any entities connected with them.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Capital Gains & Franked Dividends",
       desc: "Information about capital gains, franked dividends and other significant income.",
     },
     {
-      icon: <BankOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Company Beneficiaries & Balances",
       desc: "Details of company beneficiaries, unpaid entitlements or related-party balances where relevant.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Family Trust Elections (FTE/IEE)",
       desc: "Any family trust election or interposed entity election information, if applicable.",
     },
@@ -103,7 +117,11 @@ export default function WhatInformationNeededTrustPlanning() {
           <div className="flex items-start gap-4 mb-6">
             <InfoCircleOutlined className="text-2xl text-emerald-400 mt-1 shrink-0" />
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Accurate records matter because the annual trust tax return needs to reflect the legal and tax position created by the trustee’s decisions. Our Trust Tax Returns service focuses on annual return preparation and reporting once the relevant distribution position is established.
+              Accurate records matter because the annual trust tax return needs
+              to reflect the legal and tax position created by the trustee’s
+              decisions. Our Trust Tax Returns service focuses on annual return
+              preparation and reporting once the relevant distribution position
+              is established.
             </p>
           </div>
 
@@ -113,7 +131,7 @@ export default function WhatInformationNeededTrustPlanning() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Explore Trust Tax Returns Service
               </Button>

@@ -24,14 +24,20 @@ export default function AccountsPayableBookkeepingAndBas() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Broader Ecosystem
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Accounts Payable, Bookkeeping and BAS Support
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Accounts payable is one part of the bookkeeping system. Accurate supplier-bill processing helps keep expense records, liabilities and cash-flow information more current, but it does not replace complete bookkeeping, accounting or tax work.
+            Accounts payable is one part of the bookkeeping system. Accurate
+            supplier-bill processing helps keep expense records, liabilities and
+            cash-flow information more current, but it does not replace complete
+            bookkeeping, accounting or tax work.
           </p>
         </div>
 
@@ -51,14 +57,19 @@ export default function AccountsPayableBookkeepingAndBas() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Where a business also needs broader transaction processing and reconciliations, our Monthly Bookkeeping service may be more suitable. For businesses needing an overall bookkeeping solution, our Bookkeeping services cover the wider record-keeping process beyond supplier bills alone.
+                  Where a business also needs broader transaction processing and
+                  reconciliations, our Monthly Bookkeeping service may be more
+                  suitable. For businesses needing an overall bookkeeping
+                  solution, our Bookkeeping services cover the wider
+                  record-keeping process beyond supplier bills alone.
                 </p>
               </div>
 
               <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Connect supplier bill tracking with bank reconciliation, accounts receivable, and recurring monthly closes.
+                  Connect supplier bill tracking with bank reconciliation,
+                  accounts receivable, and recurring monthly closes.
                 </p>
               </div>
             </div>
@@ -72,7 +83,7 @@ export default function AccountsPayableBookkeepingAndBas() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Monthly Bookkeeping
                 </Button>
@@ -94,14 +105,23 @@ export default function AccountsPayableBookkeepingAndBas() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  GST treatment depends on the purchase and the business&apos;s circumstances. GST-registered businesses must keep records supporting reported amounts and GST credits. Most business records generally need to be kept for five years, although longer periods can apply. Accounts payable can help organize those records, but BAS preparation, lodgement, GST treatment requiring interpretation of the law and tax advice must be confirmed within the agreed scope.
+                  GST treatment depends on the purchase and the business&apos;s
+                  circumstances. GST-registered businesses must keep records
+                  supporting reported amounts and GST credits. Most business
+                  records generally need to be kept for five years, although
+                  longer periods can apply. Accounts payable can help organize
+                  those records, but BAS preparation, lodgement, GST treatment
+                  requiring interpretation of the law and tax advice must be
+                  confirmed within the agreed scope.
                 </p>
               </div>
 
               <div className="mt-6 p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex items-start gap-3">
                 <ClockCircleOutlined className="text-amber-600 dark:text-amber-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-normal">
-                  <strong>ATO 5-Year Requirement:</strong> Valid supplier tax invoices must be held for 5 years to substantiate GST input tax credits and tax deduction claims.
+                  <strong>ATO 5-Year Requirement:</strong> Valid supplier tax
+                  invoices must be held for 5 years to substantiate GST input
+                  tax credits and tax deduction claims.
                 </p>
               </div>
             </div>
@@ -115,7 +135,7 @@ export default function AccountsPayableBookkeepingAndBas() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   BAS &amp; GST Lodgement
                 </Button>

@@ -27,21 +27,27 @@ export default function PropertyCapitalGainsAndTiming() {
       desc: "For detailed annual rental-property tax reporting, schedule preparation, and depreciation claims.",
       href: "/services/individual-tax/investment-property-tax-accountant",
       btnText: "Explore Rental Property Tax",
-      icon: <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "Capital Gains Tax",
       desc: "For the detailed tax calculation on a property sale, cost-base modeling, and concession reviews.",
       href: "/services/individual-tax/capital-gains-tax",
       btnText: "Explore CGT Service",
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       title: "Personal Tax Planning",
       desc: "Broader individual planning across multi-source salary, bonuses, shares, and personal super.",
       href: "/services/tax-planning/personal-tax-planning",
       btnText: "Explore Personal Planning",
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
   ];
 
@@ -50,17 +56,31 @@ export default function PropertyCapitalGainsAndTiming() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Capital Gains Timing
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Capital Gains and Timing
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Selling an investment property may trigger CGT. For a disposal under a contract, CGT event A1 generally occurs when the contract is entered into rather than at settlement; other CGT events can have different timing. Eligible acquisition, ownership, improvement and disposal costs may form part of the cost base, but the treatment depends on the cost and circumstances, and amounts already claimed as deductions generally cannot also be included. Prior use of the property can also affect the calculation.
+            Selling an investment property may trigger CGT. For a disposal under
+            a contract, CGT event A1 generally occurs when the contract is
+            entered into rather than at settlement; other CGT events can have
+            different timing. Eligible acquisition, ownership, improvement and
+            disposal costs may form part of the cost base, but the treatment
+            depends on the cost and circumstances, and amounts already claimed
+            as deductions generally cannot also be included. Prior use of the
+            property can also affect the calculation.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Because CGT can depend on the property’s history, keeping purchase documents, improvement costs, sale records and records of periods of private or income-producing use is important. Detailed CGT calculations are covered more fully in Financially Up’s Capital Gains Tax service.
+            Because CGT can depend on the property’s history, keeping purchase
+            documents, improvement costs, sale records and records of periods of
+            private or income-producing use is important. Detailed CGT
+            calculations are covered more fully in Financially Up’s Capital
+            Gains Tax service.
           </p>
         </div>
 
@@ -91,7 +111,7 @@ export default function PropertyCapitalGainsAndTiming() {
                     type="primary"
                     size="large"
                     icon={<ArrowRightOutlined />}
-                    iconPosition="end"
+                    iconPlacement="end"
                     className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-10 text-xs sm:text-sm"
                   >
                     {card.btnText}

@@ -27,47 +27,65 @@ import {
 export default function SoleTraderBusinessIncomeExpenses() {
   const expenseCategories = [
     {
-      icon: <ToolOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Equipment & Tools",
       desc: "Commercial tools, trade equipment, machinery, and specialized business apparatus.",
     },
     {
-      icon: <LaptopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LaptopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Software & Technology",
       desc: "Cloud accounting subscriptions, industry apps, domain hosting, and IT infrastructure.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Professional Fees",
       desc: "Accounting fees, legal advisory, business consulting, and industry memberships.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Business Insurance",
       desc: "Public liability, professional indemnity, commercial vehicle, and tool insurance.",
     },
     {
-      icon: <FundProjectionScreenOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FundProjectionScreenOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Advertising & Marketing",
       desc: "Website development, digital campaigns, social media ads, signage, and promotions.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Subcontractor Costs",
       desc: "Payments to bona fide independent subcontractors and specialized trade assistants.",
     },
     {
-      icon: <CarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Motor Vehicle Expenses",
       desc: "Travel between job sites, client visits, fuel, maintenance, and logbook substantiation.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Home-Based Business Costs",
       desc: "Dedicated home office heating, lighting, internet, phone, and depreciation costs.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Asset Purchases & Capital",
       desc: "Depreciating assets, simplified depreciation pool, and balancing adjustments.",
     },
@@ -78,14 +96,20 @@ export default function SoleTraderBusinessIncomeExpenses() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Deductions &amp; Apportionment
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Business Income and Expenses
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Sole traders generally need to report income earned from the business and can claim deductions for expenses that satisfy the applicable tax rules. Where an expense has both business and private use, only the business-related portion may be deductible.
+            Sole traders generally need to report income earned from the
+            business and can claim deductions for expenses that satisfy the
+            applicable tax rules. Where an expense has both business and private
+            use, only the business-related portion may be deductible.
           </p>
         </div>
 
@@ -118,7 +142,12 @@ export default function SoleTraderBusinessIncomeExpenses() {
               Substantiation, Depreciation &amp; Private Use Rules
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Common areas requiring review can include equipment, software, professional fees, insurance, advertising, subcontractor costs, motor vehicle expenses, home-based business costs and asset purchases. The treatment of each item can vary, particularly where capital expenditure, depreciation, private use or specific substantiation rules apply.
+              Common areas requiring review can include equipment, software,
+              professional fees, insurance, advertising, subcontractor costs,
+              motor vehicle expenses, home-based business costs and asset
+              purchases. The treatment of each item can vary, particularly where
+              capital expenditure, depreciation, private use or specific
+              substantiation rules apply.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -127,7 +156,7 @@ export default function SoleTraderBusinessIncomeExpenses() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Your Deductions
               </Button>

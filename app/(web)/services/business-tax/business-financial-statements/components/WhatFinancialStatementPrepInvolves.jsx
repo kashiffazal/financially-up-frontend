@@ -28,55 +28,75 @@ export default function WhatFinancialStatementPrepInvolves() {
   const preparationScopes = [
     {
       num: "01",
-      icon: <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Reviewing the general ledger and trial balance",
       desc: "Examining chart of accounts structure, unusual ledger entries, opening balances, and trial balance integrity.",
     },
     {
       num: "02",
-      icon: <ReconciliationOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ReconciliationOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Reconciling bank, loan and key balance-sheet accounts",
       desc: "Verifying trading bank accounts, commercial credit lines, term facilities, and principal loan balances.",
     },
     {
       num: "03",
-      icon: <ContactsOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ContactsOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Reviewing debtors and creditors",
       desc: "Checking trade accounts receivable, aging schedules, bad debt provisions, and accounts payable balances.",
     },
     {
       num: "04",
-      icon: <FileProtectOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Checking GST and tax-related control accounts where relevant",
       desc: "Reconciling GST collected, GST paid, PAYG withholding, and Integrated Client Account (ICA) balances.",
     },
     {
       num: "05",
-      icon: <ToolOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Reviewing fixed assets and depreciation information",
       desc: "Maintaining the fixed asset register, additions, disposals, and calculating commercial depreciation.",
     },
     {
       num: "06",
-      icon: <InboxOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
-      title: "Considering inventory or work-in-progress information where applicable",
+      icon: (
+        <InboxOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
+      title:
+        "Considering inventory or work-in-progress information where applicable",
       desc: "Incorporating end-of-period stocktake valuations, raw materials, finished goods, and work-in-progress (WIP).",
     },
     {
       num: "07",
-      icon: <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Reviewing director, shareholder, partner or related-party balances where relevant",
+      icon: (
+        <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "Reviewing director, shareholder, partner or related-party balances where relevant",
       desc: "Balancing owner loan accounts, drawings, capital introduced, and related-entity intercompany transfers.",
     },
     {
       num: "08",
-      icon: <CalculatorOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Making agreed year-end accounting adjustments",
       desc: "Posting journals for accruals, prepayments, unearned revenue, provisions, and closing journal entries.",
     },
     {
       num: "09",
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Preparing profit and loss, balance sheet and supporting reports",
       desc: "Compiling formatted, structured financial statements with notes and supporting analytical schedules.",
     },
@@ -87,14 +107,19 @@ export default function WhatFinancialStatementPrepInvolves() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Preparation Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Does Financial Statement Preparation Involve?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Preparing reliable statements usually requires more than exporting a report from accounting software. The underlying accounts may need to be reviewed and reconciled before the statements are finalized.
+            Preparing reliable statements usually requires more than exporting a
+            report from accounting software. The underlying accounts may need to
+            be reviewed and reconciled before the statements are finalized.
           </p>
         </div>
 
@@ -132,7 +157,10 @@ export default function WhatFinancialStatementPrepInvolves() {
               The Purpose of the Statements Matters
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Reports prepared for internal management may not be the same as statements required under a specific legal, finance or assurance framework. Financially Up ensures that the structure and presentation match your agreed engagement goals.
+              Reports prepared for internal management may not be the same as
+              statements required under a specific legal, finance or assurance
+              framework. Financially Up ensures that the structure and
+              presentation match your agreed engagement goals.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -141,7 +169,7 @@ export default function WhatFinancialStatementPrepInvolves() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss Statement Scope
               </Button>

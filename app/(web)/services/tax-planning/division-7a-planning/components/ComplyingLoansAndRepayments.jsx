@@ -23,17 +23,23 @@ import {
 export default function ComplyingLoansAndRepayments() {
   const complianceSteps = [
     {
-      icon: <FileProtectOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Written Loan Agreement Before Lodgement",
       desc: "Must be formally executed before the private company’s tax return lodgement day for the income year the loan was made.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Statutory Interest & Maximum Term",
       desc: "Agreement must satisfy the statutory benchmark interest rate and maximum term rules (e.g. 7 years unsecured, up to 25 years secured by real property mortgage).",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Minimum Yearly Repayment (MYR)",
       desc: "First minimum repayment is generally due by the end of the income year after the loan was made, continuing annually over the remaining term.",
     },
@@ -54,7 +60,14 @@ export default function ComplyingLoansAndRepayments() {
 
         {/* Verbatim Paragraph 1 */}
         <div className="max-w-4xl mx-auto mb-12 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          Where an eligible private company loan is not repaid before the company’s lodgement day, a written complying loan agreement entered into by that day may prevent section 109D from treating the loan as a dividend, provided the statutory requirements are met. The agreement needs to satisfy the statutory interest and maximum-term requirements. The first minimum yearly repayment is generally due by the end of the income year after the year in which the loan was made, and minimum repayments continue over the loan term.
+          Where an eligible private company loan is not repaid before the
+          company’s lodgement day, a written complying loan agreement entered
+          into by that day may prevent section 109D from treating the loan as a
+          dividend, provided the statutory requirements are met. The agreement
+          needs to satisfy the statutory interest and maximum-term requirements.
+          The first minimum yearly repayment is generally due by the end of the
+          income year after the year in which the loan was made, and minimum
+          repayments continue over the loan term.
         </div>
 
         {/* 3 Step Criteria Grid */}
@@ -82,7 +95,10 @@ export default function ComplyingLoansAndRepayments() {
         {/* Verbatim Paragraph 2 on Holistic Planning */}
         <div className="max-w-4xl mx-auto mb-14 bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
-            A complying loan agreement is not a blanket solution. Good planning still requires review of the original transaction, agreement timing, outstanding balance, interest, actual repayments and accounting records.
+            A complying loan agreement is not a blanket solution. Good planning
+            still requires review of the original transaction, agreement timing,
+            outstanding balance, interest, actual repayments and accounting
+            records.
           </p>
         </div>
 
@@ -93,7 +109,8 @@ export default function ComplyingLoansAndRepayments() {
               Corporate Returns &amp; Business Tax Compliance Integration
             </h3>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              For broader tax-return and compliance work involving the company, see our Company Tax Returns and Business Tax Compliance services.
+              For broader tax-return and compliance work involving the company,
+              see our Company Tax Returns and Business Tax Compliance services.
             </p>
           </div>
 
@@ -103,7 +120,7 @@ export default function ComplyingLoansAndRepayments() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Company Tax Returns
               </Button>
@@ -114,7 +131,7 @@ export default function ComplyingLoansAndRepayments() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Tax Compliance
               </Button>

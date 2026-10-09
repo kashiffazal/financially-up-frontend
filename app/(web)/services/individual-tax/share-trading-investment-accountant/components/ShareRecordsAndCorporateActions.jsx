@@ -42,14 +42,19 @@ export default function ShareRecordsAndCorporateActions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Substantiation &amp; Events
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Records for Shares, Investments and Corporate Actions
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Corporate actions and dividend reinvestments continually reshape share portfolio cost bases. Diligent record keeping protects your future tax position.
+            Corporate actions and dividend reinvestments continually reshape
+            share portfolio cost bases. Diligent record keeping protects your
+            future tax position.
           </p>
         </div>
 
@@ -73,7 +78,11 @@ export default function ShareRecordsAndCorporateActions() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Keep contract notes or transaction confirmations showing acquisition and disposal dates, quantities, prices and brokerage. Also retain dividend statements, distribution and annual tax statements, foreign-income records where relevant and details of each investment parcel.
+                Keep contract notes or transaction confirmations showing
+                acquisition and disposal dates, quantities, prices and
+                brokerage. Also retain dividend statements, distribution and
+                annual tax statements, foreign-income records where relevant and
+                details of each investment parcel.
               </p>
 
               <div className="space-y-2 mb-6">
@@ -92,7 +101,10 @@ export default function ShareRecordsAndCorporateActions() {
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-start gap-2.5 text-xs text-slate-500 dark:text-zinc-400">
               <HistoryOutlined className="text-base text-brand-primary dark:text-emerald-400 shrink-0 mt-0.5" />
               <span>
-                Records relevant to a CGT calculation should generally be kept for at least five years after the relevant CGT event. Longer retention may be required where records are needed for holdings that have not yet been disposed of.
+                Records relevant to a CGT calculation should generally be kept
+                for at least five years after the relevant CGT event. Longer
+                retention may be required where records are needed for holdings
+                that have not yet been disposed of.
               </span>
             </div>
           </div>
@@ -115,7 +127,10 @@ export default function ShareRecordsAndCorporateActions() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Corporate actions such as share splits, mergers, takeovers, demergers, rights issues, bonus shares and dividend reinvestment plans can affect the number, acquisition date or cost base of holdings.
+                Corporate actions such as share splits, mergers, takeovers,
+                demergers, rights issues, bonus shares and dividend reinvestment
+                plans can affect the number, acquisition date or cost base of
+                holdings.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
@@ -133,7 +148,9 @@ export default function ShareRecordsAndCorporateActions() {
                 <span className="font-bold block mb-1">
                   Dividend Reinvestment Plan (DRP) Rule:
                 </span>
-                Under a dividend reinvestment plan, each allocation should generally be recorded as a separate acquisition with its own purchase price, date and cost base.
+                Under a dividend reinvestment plan, each allocation should
+                generally be recorded as a separate acquisition with its own
+                purchase price, date and cost base.
               </div>
             </div>
 
@@ -146,7 +163,7 @@ export default function ShareRecordsAndCorporateActions() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Record Reconciliation
                 </Button>

@@ -53,21 +53,33 @@ export default function TrustUpesAfterBendel() {
           <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <ApartmentOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
             <p>
-              The High Court’s 10 June 2026 decision in Commissioner of Taxation v Bendel is important for trusts with a private company beneficiary. The Court held that the unpaid present entitlements considered in that case were not loans for section 109D merely because the private company had not demanded payment and the trust retained the amount.
+              The High Court’s 10 June 2026 decision in Commissioner of Taxation
+              v Bendel is important for trusts with a private company
+              beneficiary. The Court held that the unpaid present entitlements
+              considered in that case were not loans for section 109D merely
+              because the private company had not demanded payment and the trust
+              retained the amount.
             </p>
           </div>
 
           <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <p>
-              That does not mean all Division 7A issues involving trusts have disappeared. Other Division 7A provisions can still apply, and a UPE may be replaced or satisfied by a separate loan or arrangement requiring its own analysis.
+              That does not mean all Division 7A issues involving trusts have
+              disappeared. Other Division 7A provisions can still apply, and a
+              UPE may be replaced or satisfied by a separate loan or arrangement
+              requiring its own analysis.
             </p>
           </div>
 
           <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
             <p>
-              Current Division 7A loan advice should therefore avoid treating every unpaid present entitlement as an automatic section 109D loan, while also recognizing that Bendel does not remove all risk from trust-company arrangements. Our Trust Tax Returns service covers the underlying trust reporting.
+              Current Division 7A loan advice should therefore avoid treating
+              every unpaid present entitlement as an automatic section 109D
+              loan, while also recognizing that Bendel does not remove all risk
+              from trust-company arrangements. Our Trust Tax Returns service
+              covers the underlying trust reporting.
             </p>
           </div>
         </div>
@@ -100,7 +112,7 @@ export default function TrustUpesAfterBendel() {
               size="large"
               className="bg-brand-primary dark:bg-emerald-500 hover:bg-brand-primary/90 text-white font-bold px-8 h-12 rounded-xl text-sm shadow-md"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Explore Trust Tax Returns Service
             </Button>

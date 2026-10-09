@@ -22,25 +22,33 @@ import {
 export default function WhatAreAccountsPayableServices() {
   const scopeHighlights = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Supplier Bill Ingestion & Entry",
       description:
         "Receiving, scanning, and entering incoming vendor invoices directly into your accounting platform with digital attachments.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "General Ledger & GST Coding",
       description:
         "Classifying line items to appropriate cost accounts and applying correct Australian GST input tax credits.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Due Date & Cash Flow Tracking",
       description:
         "Monitoring credit terms, payment deadlines, and early settlement opportunities to maintain strong supplier relationships.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Separation of Processing & Approval",
       description:
         "We handle the heavy lifting of administrative processing, while ultimate payment approval and banking authority remain 100% with you.",
@@ -52,17 +60,28 @@ export default function WhatAreAccountsPayableServices() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Service Definition &amp; Governance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Are Accounts Payable Services?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Accounts payable services support the bookkeeping process for supplier bills and amounts owed by the business. Depending on the agreed scope, this can include receiving or entering bills, coding transactions, maintaining supplier records, matching supporting documents, monitoring due dates and reconciling payable balances.
+            Accounts payable services support the bookkeeping process for
+            supplier bills and amounts owed by the business. Depending on the
+            agreed scope, this can include receiving or entering bills, coding
+            transactions, maintaining supplier records, matching supporting
+            documents, monitoring due dates and reconciling payable balances.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Accounts payable outsourcing does not have to mean giving up financial control. A well-designed outsourced AP process separates routine processing from approval authority. Financially Up can support the bookkeeping workflow, while payment approval and banking authority remain subject to the controls agreed with the client.
+            Accounts payable outsourcing does not have to mean giving up
+            financial control. A well-designed outsourced AP process separates
+            routine processing from approval authority. Financially Up can
+            support the bookkeeping workflow, while payment approval and banking
+            authority remain subject to the controls agreed with the client.
           </p>
         </div>
 
@@ -93,7 +112,9 @@ export default function WhatAreAccountsPayableServices() {
           <div className="flex items-start gap-3">
             <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-xl shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">
-              Maintain full executive oversight: we organize bills and compile payment schedules, while you retain absolute authority over bank payments.
+              Maintain full executive oversight: we organize bills and compile
+              payment schedules, while you retain absolute authority over bank
+              payments.
             </p>
           </div>
           <Link href="/book-an-appointment">
@@ -102,7 +123,7 @@ export default function WhatAreAccountsPayableServices() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Discuss Your AP Process
             </Button>

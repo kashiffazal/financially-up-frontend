@@ -24,17 +24,23 @@ import {
 export default function WhatIsTaxConsolidation() {
   const regimePillars = [
     {
-      icon: <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "One Single Entity for Income Tax",
       desc: "Under the Australian consolidation regime, an eligible group can choose to be treated as one entity for income tax purposes, pooling tax calculations and simplifying intra-group transactions.",
     },
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Head Company as the Taxpayer",
       desc: "Broadly, the head company is recognized as the taxpayer and eligible wholly owned subsidiary members are treated as parts of the head company for the group's income-tax calculations.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Limited to Income Tax Regime",
       desc: "The regime applies to income tax. It does not automatically mean that all other obligations, such as GST, payroll tax, ASIC requirements or employment obligations, are consolidated in the same way.",
     },
@@ -45,14 +51,21 @@ export default function WhatIsTaxConsolidation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Corporate Tax Architecture
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What is tax consolidation?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Under the Australian consolidation regime, an eligible group can choose to be treated as one entity for income tax purposes. Broadly, the head company is recognized as the taxpayer and eligible wholly owned subsidiary members are treated as parts of the head company for the group&apos;s income-tax calculations.
+            Under the Australian consolidation regime, an eligible group can
+            choose to be treated as one entity for income tax purposes. Broadly,
+            the head company is recognized as the taxpayer and eligible wholly
+            owned subsidiary members are treated as parts of the head company
+            for the group&apos;s income-tax calculations.
           </p>
         </div>
 
@@ -86,7 +99,10 @@ export default function WhatIsTaxConsolidation() {
               Distinct Regulatory & Non-Income Tax Responsibilities
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The regime applies to income tax. It does not automatically mean that all other obligations, such as GST, payroll tax, ASIC requirements or employment obligations, are consolidated in the same way.
+              The regime applies to income tax. It does not automatically mean
+              that all other obligations, such as GST, payroll tax, ASIC
+              requirements or employment obligations, are consolidated in the
+              same way.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -95,7 +111,7 @@ export default function WhatIsTaxConsolidation() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Assess Group Structure
               </Button>

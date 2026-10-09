@@ -24,21 +24,27 @@ export default function WhatIsASoleTraderTaxReturn() {
       title: "Individual Tax Return Lodgement",
       description:
         "A sole trader's individual tax return includes income and expenses from the business they operate. The business does not lodge a separate income tax return as a company would.",
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Structure",
     },
     {
       title: "Net Business Profit & Personal Income",
       description:
         "Net business profit is generally assessable business income less allowable deductions. It is considered with other personal income, such as salary, investments or rent.",
-      icon: <CalculatorOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Calculation",
     },
     {
       title: "Treatment of Business Losses",
       description:
         "If the business makes a loss, the applicable rules determine whether it can be used immediately or must be deferred.",
-      icon: <PieChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <PieChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Loss Rules",
     },
   ];
@@ -48,14 +54,19 @@ export default function WhatIsASoleTraderTaxReturn() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Framework
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Is a Sole Trader Tax Return
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Operating as a sole trader combines your business venture with your personal Australian tax return under your individual Tax File Number (TFN) and Australian Business Number (ABN).
+            Operating as a sole trader combines your business venture with your
+            personal Australian tax return under your individual Tax File Number
+            (TFN) and Australian Business Number (ABN).
           </p>
         </div>
 
@@ -107,7 +118,10 @@ export default function WhatIsASoleTraderTaxReturn() {
                 Integrated Personal &amp; Business Assessment
               </h4>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                Because sole trader business income is reported within your individual return, your marginal tax rates apply to your total combined taxable income across all personal and business sources.
+                Because sole trader business income is reported within your
+                individual return, your marginal tax rates apply to your total
+                combined taxable income across all personal and business
+                sources.
               </p>
             </div>
           </div>
@@ -117,7 +131,7 @@ export default function WhatIsASoleTraderTaxReturn() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full md:w-auto font-bold rounded-xl bg-brand-primary hover:bg-brand-primary-dark border-none h-11 px-6"
               >
                 Book Sole Trader Consultation

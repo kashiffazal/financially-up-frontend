@@ -44,7 +44,8 @@ export default function GenericViewDetailsModal({
     data._id ||
     "N/A";
 
-  const pdfPath = data.pdfUrl || data.pdf_path || data.pdfPath || data.clientPdfPath;
+  const pdfPath =
+    data.pdfUrl || data.pdf_path || data.pdfPath || data.clientPdfPath;
   const resolvedPdfUrl = pdfPath ? getFileUrl(pdfPath) : null;
 
   return (
@@ -60,7 +61,9 @@ export default function GenericViewDetailsModal({
             )}
             <div>
               <div className="text-base font-bold text-slate-900 dark:text-zinc-50">
-                {typeof title === "function" ? title(data) : title || "Application Details"}
+                {typeof title === "function"
+                  ? title(data)
+                  : title || "Application Details"}
               </div>
               <div className="text-xs text-slate-400 font-mono">
                 Ref: {refNumber}
@@ -122,16 +125,21 @@ export default function GenericViewDetailsModal({
         </Button>,
       ]}
       width={900}
-      destroyOnClose
+      destroyOnHidden
       className="view-details-modal"
     >
       <div className="py-4 space-y-4 max-h-[75vh] overflow-y-auto pr-1">
         {typeof renderContent === "function" ? (
           renderContent(data, layout)
         ) : (
-          <div className="text-slate-500 text-sm">No custom details renderer provided.</div>
+          <div className="text-slate-500 text-sm">
+            No custom details renderer provided.
+          </div>
         )}
-        <SubmittedAnswers submissionData={data.submissionData} layout={layout} />
+        <SubmittedAnswers
+          submissionData={data.submissionData}
+          layout={layout}
+        />
       </div>
     </Modal>
   );

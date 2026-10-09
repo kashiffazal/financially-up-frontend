@@ -22,19 +22,25 @@ import {
 export default function WhoThisServiceIsFor() {
   const specialistLinks = [
     {
-      icon: <HomeOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Property & Rental Tax",
       desc: "Negative gearing, rental schedules & depreciation deductions",
       href: "/services/property-tax",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Capital Gains & Investments",
       desc: "Shares, crypto transactions, managed funds & CGT discounts",
       href: "/services/tax-planning",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Prior-Year & Overdue Returns",
       desc: "Catch-up lodgements, missing records & ATO penalty remission",
       href: "/services/ato-help",
@@ -46,7 +52,10 @@ export default function WhoThisServiceIsFor() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Profile
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -67,7 +76,13 @@ export default function WhoThisServiceIsFor() {
                 Complex Personal Tax Portfolios
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                This service is primarily for individuals whose tax affairs are more complex than a basic salary-and-wage return. It may suit you if you have multiple income sources, employment income plus investments, an investment property, an asset sale, share or managed fund income, crypto asset activity, overseas income, employee shares, contracting income or deductions that need careful review.
+                This service is primarily for individuals whose tax affairs are
+                more complex than a basic salary-and-wage return. It may suit
+                you if you have multiple income sources, employment income plus
+                investments, an investment property, an asset sale, share or
+                managed fund income, crypto asset activity, overseas income,
+                employee shares, contracting income or deductions that need
+                careful review.
               </p>
             </div>
 
@@ -76,7 +91,12 @@ export default function WhoThisServiceIsFor() {
                 Tailored CPA assessment for every income stream
               </span>
               <Link href="/book-an-appointment">
-                <Button type="primary" size="middle" icon={<ArrowRightOutlined />} iconPosition="end">
+                <Button
+                  type="primary"
+                  size="middle"
+                  icon={<ArrowRightOutlined />}
+                  iconPlacement="end"
+                >
                   Book Consult
                 </Button>
               </Link>
@@ -94,7 +114,12 @@ export default function WhoThisServiceIsFor() {
                 Straightforward Returns with Expert Guidance
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                We also provide tax return assistance for individuals with straightforward returns who want a personal tax return accountant to prepare the return and answer their questions. If your matter requires detailed advice about property, capital gains or outstanding lodgements, Financially Up can connect the return work with the relevant specialist tax service.
+                We also provide tax return assistance for individuals with
+                straightforward returns who want a personal tax return
+                accountant to prepare the return and answer their questions. If
+                your matter requires detailed advice about property, capital
+                gains or outstanding lodgements, Financially Up can connect the
+                return work with the relevant specialist tax service.
               </p>
             </div>
 
@@ -103,7 +128,12 @@ export default function WhoThisServiceIsFor() {
                 Fast turnarounds &amp; direct accountant access
               </span>
               <Link href="/services/individual-tax">
-                <Button type="default" size="middle" icon={<ArrowRightOutlined />} iconPosition="end">
+                <Button
+                  type="default"
+                  size="middle"
+                  icon={<ArrowRightOutlined />}
+                  iconPlacement="end"
+                >
                   View Individual Hub
                 </Button>
               </Link>
@@ -137,7 +167,7 @@ export default function WhoThisServiceIsFor() {
                       type="link"
                       className="p-0 text-xs font-bold text-brand-primary dark:text-emerald-400 h-auto inline-flex items-center gap-1"
                       icon={<ArrowRightOutlined className="text-[10px]" />}
-                      iconPosition="end"
+                      iconPlacement="end"
                     >
                       Learn more
                     </Button>

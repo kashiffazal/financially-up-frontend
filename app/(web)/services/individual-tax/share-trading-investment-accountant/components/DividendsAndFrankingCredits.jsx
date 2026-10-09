@@ -42,14 +42,19 @@ export default function DividendsAndFrankingCredits() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Dividend Taxation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Dividends and Franking Credits
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Australian companies may pay franked, partly franked or unfranked dividends. A franked dividend has a franking credit attached, representing tax paid by the company on the distributed profit.
+            Australian companies may pay franked, partly franked or unfranked
+            dividends. A franked dividend has a franking credit attached,
+            representing tax paid by the company on the distributed profit.
           </p>
         </div>
 
@@ -97,13 +102,18 @@ export default function DividendsAndFrankingCredits() {
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Where an investor is entitled to the credit, both the franked dividend and attached franking credit are generally included in assessable income, and the credit may provide a tax offset.
+                Where an investor is entitled to the credit, both the franked
+                dividend and attached franking credit are generally included in
+                assessable income, and the credit may provide a tax offset.
               </p>
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
                 <span className="font-bold text-slate-900 dark:text-white block mb-1">
                   Holding Period Requirements:
                 </span>
-                Entitlement can be affected by rules such as the holding-period requirements (45-day rule). A franking credit does not automatically produce a refund; the result depends on eligibility and the investor’s overall tax position.
+                Entitlement can be affected by rules such as the holding-period
+                requirements (45-day rule). A franking credit does not
+                automatically produce a refund; the result depends on
+                eligibility and the investor’s overall tax position.
               </div>
             </div>
 
@@ -122,13 +132,18 @@ export default function DividendsAndFrankingCredits() {
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Dividend statements should be checked against pre-filled information. Pre-fill data may be incomplete when a return is prepared, so it should not replace the investor’s own statements and records.
+                Dividend statements should be checked against pre-filled
+                information. Pre-fill data may be incomplete when a return is
+                prepared, so it should not replace the investor’s own statements
+                and records.
               </p>
               <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                 <span className="font-bold block mb-1">
                   Our Professional Audit Check:
                 </span>
-                We reconcile broker reports (CommSec, CMC, Selfwealth, Superhero, Stake) and registry statements (Computershare, Link Market Services, Boardroom) directly against ATO portal feeds.
+                We reconcile broker reports (CommSec, CMC, Selfwealth,
+                Superhero, Stake) and registry statements (Computershare, Link
+                Market Services, Boardroom) directly against ATO portal feeds.
               </div>
             </div>
 
@@ -141,7 +156,7 @@ export default function DividendsAndFrankingCredits() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Statement Review
                 </Button>

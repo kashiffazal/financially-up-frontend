@@ -26,34 +26,57 @@ import {
 export default function WhoBenefitsFromPlanningReview() {
   const beneficiaryScenarios = [
     {
-      icon: <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      scenario: "Business owners expecting a significantly different profit result from the prior year.",
-      detail: "Avoid sudden tax spikes or under-estimated PAYG instalments when trading revenue shifts markedly.",
+      icon: (
+        <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      scenario:
+        "Business owners expecting a significantly different profit result from the prior year.",
+      detail:
+        "Avoid sudden tax spikes or under-estimated PAYG instalments when trading revenue shifts markedly.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      scenario: "Companies, trusts or partnerships considering distributions, drawings or owner-related transactions.",
-      detail: "Ensure trust streaming rules, company dividend allocations, and partner drawings comply with current law.",
+      icon: (
+        <SwapOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      scenario:
+        "Companies, trusts or partnerships considering distributions, drawings or owner-related transactions.",
+      detail:
+        "Ensure trust streaming rules, company dividend allocations, and partner drawings comply with current law.",
     },
     {
-      icon: <ToolOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       scenario: "Businesses buying significant equipment or other assets.",
-      detail: "Determine whether to acquire assets before 30 June, evaluate write-off limits, and structure finance agreements.",
+      detail:
+        "Determine whether to acquire assets before 30 June, evaluate write-off limits, and structure finance agreements.",
     },
     {
-      icon: <BranchesOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      scenario: "Owners considering a restructure, sale, new investor or change in ownership.",
-      detail: "Evaluate CGT concessions, rollover relief, and tax implications before signing commercial agreements.",
+      icon: (
+        <BranchesOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      scenario:
+        "Owners considering a restructure, sale, new investor or change in ownership.",
+      detail:
+        "Evaluate CGT concessions, rollover relief, and tax implications before signing commercial agreements.",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      scenario: "Businesses with changing GST, BAS, PAYG or payroll obligations.",
-      detail: "Keep cash flow aligned with rising statutory obligations as turnover or staff headcount expands.",
+      icon: (
+        <PercentageOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      scenario:
+        "Businesses with changing GST, BAS, PAYG or payroll obligations.",
+      detail:
+        "Keep cash flow aligned with rising statutory obligations as turnover or staff headcount expands.",
     },
     {
-      icon: <AccountBookOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      scenario: "Owners who want to understand likely tax liabilities before cash is committed elsewhere.",
-      detail: "Gain complete visibility over tax provision reserves so operating cash is protected from unexpected notices.",
+      icon: (
+        <AccountBookOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      scenario:
+        "Owners who want to understand likely tax liabilities before cash is committed elsewhere.",
+      detail:
+        "Gain complete visibility over tax provision reserves so operating cash is protected from unexpected notices.",
     },
   ];
 
@@ -62,14 +85,22 @@ export default function WhoBenefitsFromPlanningReview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Scenarios
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who May Benefit From a Planning Review?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A planning review may be useful for established businesses, growing businesses and owners facing a material change. Small business tax planning can be particularly relevant when profits or cash flow are changing, new assets are being acquired, owners are drawing money from a company or trust, or a sale or restructure is being considered.
+            A planning review may be useful for established businesses, growing
+            businesses and owners facing a material change. Small business tax
+            planning can be particularly relevant when profits or cash flow are
+            changing, new assets are being acquired, owners are drawing money
+            from a company or trust, or a sale or restructure is being
+            considered.
           </p>
         </div>
 
@@ -112,7 +143,8 @@ export default function WhoBenefitsFromPlanningReview() {
               Unsure if your business needs a pre-year-end review?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-              Schedule an obligation-free discussion to clarify whether your circumstances call for a targeted planning review.
+              Schedule an obligation-free discussion to clarify whether your
+              circumstances call for a targeted planning review.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -120,7 +152,7 @@ export default function WhoBenefitsFromPlanningReview() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
             >
               Consult an Advisor

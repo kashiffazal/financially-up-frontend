@@ -21,35 +21,49 @@ export default function BankReconciliationWorkflow() {
     {
       number: "1",
       title: "Confirm accounts and access",
-      description: "We identify the bank accounts, cards and payment facilities to be reconciled and agree how access and supporting information will be provided.",
-      icon: <KeyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      description:
+        "We identify the bank accounts, cards and payment facilities to be reconciled and agree how access and supporting information will be provided.",
+      icon: (
+        <KeyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       number: "2",
       title: "Review the accounting file",
-      description: "We check the period to be reconciled, opening position and any existing unreconciled or duplicated items.",
-      icon: <SearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      description:
+        "We check the period to be reconciled, opening position and any existing unreconciled or duplicated items.",
+      icon: (
+        <SearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       number: "3",
       title: "Match and investigate",
-      description: "Transactions are matched to the bank activity. Exceptions are reviewed and questions are raised where the correct treatment cannot be determined from the available records.",
-      icon: <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      description:
+        "Transactions are matched to the bank activity. Exceptions are reviewed and questions are raised where the correct treatment cannot be determined from the available records.",
+      icon: (
+        <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       number: "4",
       title: "Complete and maintain",
-      description: "Once differences are resolved, reconciliations are completed and can be repeated on an agreed schedule as part of ongoing bookkeeping.",
-      icon: <SyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      description:
+        "Once differences are resolved, reconciliations are completed and can be repeated on an agreed schedule as part of ongoing bookkeeping.",
+      icon: (
+        <SyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mb-16">
-          <Tag color="purple" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="purple"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <SyncOutlined className="mr-1.5" />
             Process Overview
           </Tag>
@@ -59,7 +73,8 @@ export default function BankReconciliationWorkflow() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Our systematic 4-step workflow ensures every account is reconciled with clarity, transparency, and precision.
+            Our systematic 4-step workflow ensures every account is reconciled
+            with clarity, transparency, and precision.
           </p>
         </div>
 
@@ -97,7 +112,10 @@ export default function BankReconciliationWorkflow() {
               Looking for Year-Round Consistency?
             </h4>
             <p className="text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Businesses that want reconciliation performed consistently throughout the year may prefer our monthly bookkeeping services, which can combine transaction processing with regular reconciliations and file maintenance.
+              Businesses that want reconciliation performed consistently
+              throughout the year may prefer our monthly bookkeeping services,
+              which can combine transaction processing with regular
+              reconciliations and file maintenance.
             </p>
           </div>
           <Link href="/services/bookkeeping/monthly-bookkeeping">
@@ -106,13 +124,12 @@ export default function BankReconciliationWorkflow() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Explore Monthly Bookkeeping
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

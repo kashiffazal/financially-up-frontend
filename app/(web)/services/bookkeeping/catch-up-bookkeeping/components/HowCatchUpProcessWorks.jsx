@@ -20,24 +20,33 @@ export default function HowCatchUpProcessWorks() {
   const steps = [
     {
       number: "01",
-      icon: <FileSearchOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Establish Period & Review Gaps",
       body: "First, we establish the period to be brought up to date, review the accounting file and identify the available source data and major gaps.",
-      detail: "Diagnostic evaluation of missing months, bank statement completeness, and initial ledger health check.",
+      detail:
+        "Diagnostic evaluation of missing months, bank statement completeness, and initial ledger health check.",
     },
     {
       number: "02",
-      icon: <SyncOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SyncOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Staged Processing & Query Grouping",
       body: "The records are processed and reconciled in stages. Questions are grouped where practical, and unresolved items are identified rather than hidden inside generic accounts.",
-      detail: "Sequential month-by-month reconciliation, disciplined transaction coding, and isolated query logs.",
+      detail:
+        "Sequential month-by-month reconciliation, disciplined transaction coding, and isolated query logs.",
     },
     {
       number: "03",
-      icon: <CheckCircleOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Current Baseline & Next Steps",
       body: "Once the agreed period is current, the next step may be ongoing bookkeeping, handover to your internal team, or separately scoped accounting and tax work.",
-      detail: "Clean cut-off position enabling seamless routine bookkeeping or direct handover for tax return lodgement.",
+      detail:
+        "Clean cut-off position enabling seamless routine bookkeeping or direct handover for tax return lodgement.",
     },
   ];
 
@@ -46,14 +55,18 @@ export default function HowCatchUpProcessWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Step-by-Step Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How the Catch-Up Process Works
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A staged, transparent roadmap designed to clear months of overdue transactions without stress or confusion.
+            A staged, transparent roadmap designed to clear months of overdue
+            transactions without stress or confusion.
           </p>
         </div>
 
@@ -101,7 +114,7 @@ export default function HowCatchUpProcessWorks() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold"
             >
               Book an Appointment

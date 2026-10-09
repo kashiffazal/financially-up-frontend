@@ -24,14 +24,21 @@ export default function WhatIsAnEssAndHowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Equity Remuneration Framework
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Is an Employee Share Scheme and How Does It Work?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            An employee share scheme, commonly called an ESS, is an arrangement under which an employee receives shares, stapled securities, rights or options in connection with employment. The employee may pay less than market value or receive the interest subject to vesting, forfeiture or disposal conditions.
+            An employee share scheme, commonly called an ESS, is an arrangement
+            under which an employee receives shares, stapled securities, rights
+            or options in connection with employment. The employee may pay less
+            than market value or receive the interest subject to vesting,
+            forfeiture or disposal conditions.
           </p>
         </div>
 
@@ -40,7 +47,11 @@ export default function WhatIsAnEssAndHowItWorks() {
           <span className="font-bold text-slate-900 dark:text-white block text-sm sm:text-base mb-1.5">
             How Discount Taxation Operates:
           </span>
-          The ESS rules generally tax the discount received through employment. Timing and amount depend on the scheme, interest, amount paid, market value and whether conditions for concessional or deferred treatment are met. The ESS statement, plan documents and later transactions may all require review.
+          The ESS rules generally tax the discount received through employment.
+          Timing and amount depend on the scheme, interest, amount paid, market
+          value and whether conditions for concessional or deferred treatment
+          are met. The ESS statement, plan documents and later transactions may
+          all require review.
         </div>
 
         {/* 2 Taxation Pathways */}
@@ -64,14 +75,19 @@ export default function WhatIsAnEssAndHowItWorks() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Under an upfront scheme, the ESS discount is generally included in assessable income in the income year the interest is acquired. Some eligible schemes may provide a concession, but this depends on statutory conditions and is not automatic.
+                  Under an upfront scheme, the ESS discount is generally
+                  included in assessable income in the income year the interest
+                  is acquired. Some eligible schemes may provide a concession,
+                  but this depends on statutory conditions and is not automatic.
                 </p>
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-amber-100 dark:border-zinc-700 space-y-1">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Concessional Reductions:
                   </span>
                   <p>
-                    Where eligibility requirements are met, an upfront concession (e.g. up to $1,000 reduction under qualifying conditions) may be available.
+                    Where eligibility requirements are met, an upfront
+                    concession (e.g. up to $1,000 reduction under qualifying
+                    conditions) may be available.
                   </p>
                 </div>
               </div>
@@ -101,16 +117,27 @@ export default function WhatIsAnEssAndHowItWorks() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Under an eligible tax-deferred scheme, the discount is generally included in assessable income in the year of the deferred taxing point. For shares, this may be when there is no longer a real risk of forfeiture and no genuine restriction preventing disposal, or when the statutory maximum deferral period is reached.
+                  Under an eligible tax-deferred scheme, the discount is
+                  generally included in assessable income in the year of the
+                  deferred taxing point. For shares, this may be when there is
+                  no longer a real risk of forfeiture and no genuine restriction
+                  preventing disposal, or when the statutory maximum deferral
+                  period is reached.
                 </p>
                 <p>
-                  Rights and options require separate analysis. Exercise by itself does not always determine the taxing point. The conditions applying to the right and any resulting share, including forfeiture risk and genuine disposal restrictions, must be considered.
+                  Rights and options require separate analysis. Exercise by
+                  itself does not always determine the taxing point. The
+                  conditions applying to the right and any resulting share,
+                  including forfeiture risk and genuine disposal restrictions,
+                  must be considered.
                 </p>
                 <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                   <span className="font-bold block mb-1">
                     Crucial Legal Caution:
                   </span>
-                  Vesting, a trading window opening or a restriction ending may be relevant, but none should be assumed to be the taxing point without checking the scheme terms and the ESS rules.
+                  Vesting, a trading window opening or a restriction ending may
+                  be relevant, but none should be assumed to be the taxing point
+                  without checking the scheme terms and the ESS rules.
                 </div>
               </div>
             </div>
@@ -124,7 +151,7 @@ export default function WhatIsAnEssAndHowItWorks() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Verify Your Taxing Point
                 </Button>

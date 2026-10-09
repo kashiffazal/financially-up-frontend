@@ -53,14 +53,18 @@ export default function TaxableCryptoTransactions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Taxable Disposals
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Which Crypto Transactions Have Tax Consequences?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Under ATO rules, disposing of digital currency encompasses far more than withdrawing funds back to an Australian bank account.
+            Under ATO rules, disposing of digital currency encompasses far more
+            than withdrawing funds back to an Australian bank account.
           </p>
         </div>
 
@@ -108,13 +112,18 @@ export default function TaxableCryptoTransactions() {
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                A crypto-to-crypto swap generally involves disposing of one asset and acquiring another. The Australian-dollar market value at the time is usually needed, even if no cash changes hands.
+                A crypto-to-crypto swap generally involves disposing of one
+                asset and acquiring another. The Australian-dollar market value
+                at the time is usually needed, even if no cash changes hands.
               </p>
               <div className="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed">
                 <span className="font-bold block mb-1">
                   Tax Calculation Note:
                 </span>
-                For example, swapping BTC for ETH requires determining the AUD value of the BTC at the exact minute of the transaction to calculate capital gain or loss on the BTC disposal, which then becomes the cost base of the newly acquired ETH.
+                For example, swapping BTC for ETH requires determining the AUD
+                value of the BTC at the exact minute of the transaction to
+                calculate capital gain or loss on the BTC disposal, which then
+                becomes the cost base of the newly acquired ETH.
               </div>
             </div>
 
@@ -133,13 +142,19 @@ export default function TaxableCryptoTransactions() {
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Moving crypto between accounts you beneficially own is generally not a disposal merely because its location changes. Keep evidence linking both sides. Fees paid in crypto and changes in beneficial ownership may have separate consequences.
+                Moving crypto between accounts you beneficially own is generally
+                not a disposal merely because its location changes. Keep
+                evidence linking both sides. Fees paid in crypto and changes in
+                beneficial ownership may have separate consequences.
               </p>
               <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                 <span className="font-bold block mb-1">
                   Gas &amp; Network Fees:
                 </span>
-                Transferring tokens between MetaMask and a Ledger hardware wallet is non-taxable, but network gas fees paid in native crypto (e.g. ETH) to execute the transfer constitute a disposal of that gas amount.
+                Transferring tokens between MetaMask and a Ledger hardware
+                wallet is non-taxable, but network gas fees paid in native
+                crypto (e.g. ETH) to execute the transfer constitute a disposal
+                of that gas amount.
               </div>
             </div>
 
@@ -152,7 +167,7 @@ export default function TaxableCryptoTransactions() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Transaction Review
                 </Button>

@@ -24,14 +24,18 @@ export default function CessationOfEmploymentAndEssStatements() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Employment Changes &amp; Reporting
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Employment Cessation and ESS Statements
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Key legislative changes regarding leaving an employer, and essential compliance checks for employer ESS statements and ATO pre-fill data.
+            Key legislative changes regarding leaving an employer, and essential
+            compliance checks for employer ESS statements and ATO pre-fill data.
           </p>
         </div>
 
@@ -59,15 +63,22 @@ export default function CessationOfEmploymentAndEssStatements() {
                   <span className="font-bold block mb-1">
                     Major Rule Change (Post-1 July 2022):
                   </span>
-                  For cessation of employment on or after 1 July 2022, leaving an employer is no longer, by itself, a deferred taxing point under the current rules.
+                  For cessation of employment on or after 1 July 2022, leaving
+                  an employer is no longer, by itself, a deferred taxing point
+                  under the current rules.
                 </div>
 
                 <p>
-                  However, leaving may cause rights to vest or lapse, remove restrictions, alter forfeiture conditions or trigger a sale under the plan. Those events can still affect the ESS or CGT treatment.
+                  However, leaving may cause rights to vest or lapse, remove
+                  restrictions, alter forfeiture conditions or trigger a sale
+                  under the plan. Those events can still affect the ESS or CGT
+                  treatment.
                 </p>
 
                 <p>
-                  Older interests, including some acquired before 1 July 2009, may follow different rules. Review the grant date, scheme terms and events occurring when employment ended.
+                  Older interests, including some acquired before 1 July 2009,
+                  may follow different rules. Review the grant date, scheme
+                  terms and events occurring when employment ended.
                 </p>
               </div>
             </div>
@@ -96,11 +107,19 @@ export default function CessationOfEmploymentAndEssStatements() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Employers generally provide an ESS statement containing information reported to the ATO, such as the scheme type and assessable discount. The information may pre-fill in the employee&apos;s tax return, but pre-fill should be checked against the statement, grant records and actual events.
+                  Employers generally provide an ESS statement containing
+                  information reported to the ATO, such as the scheme type and
+                  assessable discount. The information may pre-fill in the
+                  employee&apos;s tax return, but pre-fill should be checked
+                  against the statement, grant records and actual events.
                 </p>
 
                 <p>
-                  The employer statement may not contain everything needed for a later disposal calculation. Keep the underlying plan, acquisition, vesting, exercise, restriction and sale records. Financially Up can assist with ESS-related return preparation and identify missing information.
+                  The employer statement may not contain everything needed for a
+                  later disposal calculation. Keep the underlying plan,
+                  acquisition, vesting, exercise, restriction and sale records.
+                  Financially Up can assist with ESS-related return preparation
+                  and identify missing information.
                 </p>
               </div>
             </div>
@@ -114,7 +133,7 @@ export default function CessationOfEmploymentAndEssStatements() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Statement Review
                 </Button>

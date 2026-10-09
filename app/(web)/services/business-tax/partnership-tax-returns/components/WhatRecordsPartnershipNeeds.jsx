@@ -24,7 +24,9 @@ export default function WhatRecordsPartnershipNeeds() {
   const recordCategories = [
     {
       category: "Bookkeeping & Bank Statements",
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       items: [
         "Accounting software or bookkeeping reports",
         "Business bank and loan statements",
@@ -32,7 +34,9 @@ export default function WhatRecordsPartnershipNeeds() {
     },
     {
       category: "Income & Operating Expenses",
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       items: [
         "Sales, fees and other income records",
         "Invoices, receipts and expense records",
@@ -40,7 +44,9 @@ export default function WhatRecordsPartnershipNeeds() {
     },
     {
       category: "Assets, Payroll & Indirect Taxes",
-      icon: <FolderOpenOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       items: [
         "Asset purchases and disposal information",
         "Payroll and contractor information where relevant",
@@ -49,7 +55,9 @@ export default function WhatRecordsPartnershipNeeds() {
     },
     {
       category: "Partners, Prior Returns & Distributions",
-      icon: <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       items: [
         "Details of partner contributions, drawings and loans",
         "Prior-year financial statements and tax returns",
@@ -63,14 +71,18 @@ export default function WhatRecordsPartnershipNeeds() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Records Do We Usually Need?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The exact records depend on the partnership, but useful information can include:
+            The exact records depend on the partnership, but useful information
+            can include:
           </p>
         </div>
 
@@ -91,7 +103,10 @@ export default function WhatRecordsPartnershipNeeds() {
               </div>
               <ul className="space-y-2.5">
                 {cat.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+                  <li
+                    key={itemIdx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -109,7 +124,11 @@ export default function WhatRecordsPartnershipNeeds() {
               Statutory 5-Year Record Retention Rule
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Businesses generally need to keep tax records for five years, although some records—such as those relating to assets, capital gains or carried-forward losses—may need to be retained for longer. Complete records make it easier to reconcile the partnership accounts and prepare the return correctly.
+              Businesses generally need to keep tax records for five years,
+              although some records—such as those relating to assets, capital
+              gains or carried-forward losses—may need to be retained for
+              longer. Complete records make it easier to reconcile the
+              partnership accounts and prepare the return correctly.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -118,7 +137,7 @@ export default function WhatRecordsPartnershipNeeds() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Send Records for Review
               </Button>

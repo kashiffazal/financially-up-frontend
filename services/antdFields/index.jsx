@@ -17,6 +17,7 @@ import {
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { CheckCircleFilled } from "@ant-design/icons";
+import { auPhoneRule, formatAuPhone, isAuMobile, isAuPhone } from "@/lib/auPhone";
 
 dayjs.extend(customParseFormat);
 
@@ -362,6 +363,9 @@ export const AntInput = ({
 
     return formatted;
   }, [options, setValueLabel]);
+
+  // Parent form (used by phone fields to tidy the number on blur); undefined outside a <Form>
+  const formInstance = Form.useFormInstance();
 
   let validateKeyword = undefined;
 
@@ -966,6 +970,57 @@ export const AntInput = ({
           disabled={loading || disabled}
           autoComplete={autoComplete}
           maxLength={maxLength}
+        />
+      </Form.Item>
+    );
+  }
+
+  // 12. Australian phone ("phone": mobile, landline or 1300/1800/13) / mobile only ("mobile")
+  //     Validated while typing (like the email field); on blur a valid number is
+  //     tidied to the standard format (e.g. "+61412345678" -> "0412 345 678").
+  //     Rules live in lib/auPhone.js.
+  if (type === "phone" || type === "mobile") {
+    const mobileOnly = type === "mobile";
+    const isValidNumber = mobileOnly ? isAuMobile : isAuPhone;
+    return (
+      <Form.Item
+        label={label}
+        name={name}
+        {...(value !== undefined ? { initialValue: value } : {})}
+        rules={[...fieldRules, auPhoneRule({ mobileOnly })]}
+        validateStatus={loading ? "validating" : validateKeyword}
+        hasFeedback={loading ? true : feedback}
+        help={help}
+        style={containerStyle}
+        className={containerClassName}
+      >
+        <Input
+          type="tel"
+          inputMode="tel"
+          style={style}
+          className={className}
+          size={size}
+          prefix={
+            preIconLine ? (
+              <i className={preIconLine} style={{ color: preIconColorLine }} />
+            ) : (
+              preIconAnt || ""
+            )
+          }
+          placeholder={placeholder || (mobileOnly ? "0412 345 678" : "0412 345 678 or 02 9876 5432")}
+          onChange={(e) => {
+            onChange && onChange(e.target.value);
+          }}
+          onBlur={(e) => {
+            const formatted = formatAuPhone(e.target.value);
+            if (formInstance && formatted !== e.target.value && isValidNumber(formatted)) {
+              formInstance.setFieldValue(name, formatted);
+            }
+            onBlur && onBlur(e);
+          }}
+          disabled={loading || disabled}
+          autoComplete={autoComplete || "tel"}
+          maxLength={maxLength || 20}
         />
       </Form.Item>
     );

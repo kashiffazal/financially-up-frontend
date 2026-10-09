@@ -99,7 +99,7 @@ export default function Step2ApplicantDetails() {
           containerClassName="!mb-2"
         />
         <AntInput
-          type="text"
+          type="phone"
           name="phoneNumber"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">

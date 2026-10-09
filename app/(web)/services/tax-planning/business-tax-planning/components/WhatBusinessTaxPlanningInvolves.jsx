@@ -27,32 +27,44 @@ import {
 export default function WhatBusinessTaxPlanningInvolves() {
   const reviewAreas = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Business Income & Deductions",
       desc: "Reviewing expected trading revenue and deductible expenditure against current ATO substantiation rules.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "PAYG Instalments & Cash Outflows",
       desc: "Evaluating instalment rates, forecasting quarterly payments, and planning for anticipated income tax obligations.",
     },
     {
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "GST and BAS Positions",
       desc: "Assessing GST liabilities and business reporting requirements to safeguard working capital and operational liquidity.",
     },
     {
-      icon: <AppstoreOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <AppstoreOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Asset Purchases & Capital Timing",
       desc: "Analyzing depreciation treatments, immediate write-offs, and GST implications before committing to equipment purchases.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Ownership & Structure Changes",
       desc: "Reviewing company, trust, or partnership alignment with growth goals, commercial risk, and profit distribution.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Director & Shareholder Transactions",
       desc: "Examining drawings, loans, dividends, and trust allocations to identify potential compliance and Division 7A considerations.",
     },
@@ -63,17 +75,28 @@ export default function WhatBusinessTaxPlanningInvolves() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Scope &amp; Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Does the Service Involve?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The service involves reviewing the business’s current and expected financial position, identifying tax and compliance issues, and considering lawful options before transactions are completed. It can also help owners estimate tax-related cash outflows and understand which matters need separate advice.
+            The service involves reviewing the business’s current and expected
+            financial position, identifying tax and compliance issues, and
+            considering lawful options before transactions are completed. It can
+            also help owners estimate tax-related cash outflows and understand
+            which matters need separate advice.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            A business tax advisor may review areas such as business income, deductible expenditure, PAYG instalments, GST and BAS positions, asset purchases, ownership or structure changes, distributions, director or shareholder transactions, and the timing of significant business events. Not every item will be relevant to every business.
+            A business tax advisor may review areas such as business income,
+            deductible expenditure, PAYG instalments, GST and BAS positions,
+            asset purchases, ownership or structure changes, distributions,
+            director or shareholder transactions, and the timing of significant
+            business events. Not every item will be relevant to every business.
           </p>
         </div>
 
@@ -120,7 +143,9 @@ export default function WhatBusinessTaxPlanningInvolves() {
               Discuss Your Upcoming Business Transactions Early
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-              Review your expected business results, entity structure, tax obligations, upcoming transactions, current records and any decisions you are considering before year end.
+              Review your expected business results, entity structure, tax
+              obligations, upcoming transactions, current records and any
+              decisions you are considering before year end.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -129,7 +154,7 @@ export default function WhatBusinessTaxPlanningInvolves() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full md:w-auto rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 px-6 shadow-md"
               >
                 Book an Appointment

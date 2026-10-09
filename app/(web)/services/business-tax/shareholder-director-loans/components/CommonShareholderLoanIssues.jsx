@@ -21,7 +21,8 @@ import {
 export default function CommonShareholderLoanIssues() {
   const issues = [
     {
-      title: "Private expenses paid from the company bank account and posted to a director loan account",
+      title:
+        "Private expenses paid from the company bank account and posted to a director loan account",
       desc: "Personal bills, travel, or living expenses paid via company debit cards and posted to director drawings without formal review.",
     },
     {
@@ -41,15 +42,18 @@ export default function CommonShareholderLoanIssues() {
       desc: "Journal entries or purported repayments that lack corroborating bank cash movements or that conflict with anti-avoidance rules.",
     },
     {
-      title: "Multiple loans involving shareholders, directors, associates or related trusts",
+      title:
+        "Multiple loans involving shareholders, directors, associates or related trusts",
       desc: "Complex interconnected balances across family groups, related companies, trusts, and individual shareholder accounts.",
     },
     {
-      title: "Unclear treatment of interest, dividends, wages or reimbursements",
+      title:
+        "Unclear treatment of interest, dividends, wages or reimbursements",
       desc: "Ambiguity over whether transfers represent director remuneration, franked dividends, genuine expense reimbursements, or loans.",
     },
     {
-      title: "A large year-end loan balance identified during company tax-return preparation",
+      title:
+        "A large year-end loan balance identified during company tax-return preparation",
       desc: "Unresolved debit loan balances discovered late during annual company return preparation approaching statutory lodgment dates.",
     },
   ];
@@ -59,14 +63,18 @@ export default function CommonShareholderLoanIssues() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Integrity Pitfalls
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common shareholder and director loan issues
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Private company loan accounts frequently accumulate transactions that trigger Australian tax compliance risks if not reviewed early.
+            Private company loan accounts frequently accumulate transactions
+            that trigger Australian tax compliance risks if not reviewed early.
           </p>
         </div>
 
@@ -100,7 +108,9 @@ export default function CommonShareholderLoanIssues() {
               Substance Over Bookkeeping Labels
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              These issues should be reviewed in context. Simply relabeling a transaction in the accounts does not necessarily change its tax character.
+              These issues should be reviewed in context. Simply relabeling a
+              transaction in the accounts does not necessarily change its tax
+              character.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -109,7 +119,7 @@ export default function CommonShareholderLoanIssues() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Book a Loan Review
               </Button>

@@ -29,42 +29,58 @@ import {
 export default function CommonSituationsCgtAdvice() {
   const situations = [
     {
-      icon: <ShopOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Selling a business or business goodwill",
       desc: "Disposals of complete operating enterprises, client books, brand names, or goodwill balances where substantial capital gains arise.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Selling commercial property used in a business",
       desc: "Disposing of business premises, warehouses, or land used directly in trading operations or held through related entities.",
     },
     {
-      icon: <StockOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <StockOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Selling shares in a private company or interests in a trust",
       desc: "Equity sales where small business participation percentages and concession stakeholder tests must be satisfied.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Restructuring ownership before a future sale",
       desc: "Strategic restructuring of business assets, subsidiaries, or trust arrangements well in advance of a market disposal.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Retirement or succession transactions",
       desc: "Transferring operations to the next generation or exiting the business upon reaching age 55 or permanent retirement.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "A sale involving connected entities or family groups",
       desc: "Transactions within complex family group structures where cross-entity control and affiliate rules impact turnover and assets.",
     },
     {
-      icon: <QuestionCircleOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Uncertainty about aggregated turnover or maximum net asset value",
       desc: "Evaluating borderline balances near the $2M turnover or $6M net asset thresholds before finalizing sale agreements.",
     },
     {
-      icon: <NodeIndexOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <NodeIndexOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "A transaction where several CGT concessions may interact",
       desc: "Modelling the sequence of applying general 50% discount, 50% active asset reduction, retirement exemption, and rollover.",
     },
@@ -75,14 +91,18 @@ export default function CommonSituationsCgtAdvice() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Commercial Scenarios
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common situations where advice is useful
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Business sales, property disposals, and ownership transfers present critical tax considerations that benefit from early evaluation.
+            Business sales, property disposals, and ownership transfers present
+            critical tax considerations that benefit from early evaluation.
           </p>
         </div>
 
@@ -116,7 +136,9 @@ export default function CommonSituationsCgtAdvice() {
               Distinct Tax & Legal Boundaries
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A small business CGT review does not by itself determine GST, state duty, revenue-account treatment or legal consequences. Those matters may require separate advice depending on the transaction.
+              A small business CGT review does not by itself determine GST,
+              state duty, revenue-account treatment or legal consequences. Those
+              matters may require separate advice depending on the transaction.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -125,7 +147,7 @@ export default function CommonSituationsCgtAdvice() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss Transaction Scope
               </Button>

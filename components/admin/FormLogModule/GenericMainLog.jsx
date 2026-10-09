@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import { Tag, Button, Dropdown, Popconfirm, App } from "antd";
+import { Tag, Button, Dropdown, App } from "antd";
 import {
   EyeOutlined,
-  DeleteOutlined,
   FilePdfOutlined,
   MoreOutlined,
   SwapOutlined,
@@ -23,9 +22,10 @@ import { getStatusColor, STANDARD_FORM_STATUS_LIST } from "./constants";
  * Standardized data table view matching Company Registration (New) & Individual Engagement (New):
  * 1. Renders `DataTable` with universal search & column-specific dropdown filter.
  * 2. Record size selector (10, 20, 50, 100).
- * 3. Bottom-left bulk actions (Bulk Status Change, Bulk Delete) with Popconfirm.
+ * 3. Bottom-left bulk actions (Bulk Status Change) with Popconfirm.
  * 4. Header with CSV/Excel & PDF export buttons.
- * 5. Actions dropdown: View Details, Change Status (with confirmation modal), View PDF, Delete.
+ * 5. Actions dropdown: View Details, Change Status (with confirmation modal), View PDF.
+ *    (No delete: records are kept for compliance record-keeping.)
  * 6. Structured View Details Modal.
  */
 export default function GenericMainLog({
@@ -37,7 +37,6 @@ export default function GenericMainLog({
   loading = false,
   endpoint,
   statusUpdateEndpoint,
-  deleteEndpoint,
   columns: customColumns,
   customFilterCols = [],
   exportColumns = [],
@@ -149,29 +148,8 @@ export default function GenericMainLog({
     [endpoint, statusUpdateEndpoint, changeStatus, fetchData, modal, statusList]
   );
 
-  // --------------------------------------------------------------------------
-  // ROW ACTIONS: DELETE RECORD
-  // --------------------------------------------------------------------------
-  const handleDeleteRecord = useCallback(
-    async (record) => {
-      const recordId = record.id || record._id || record.key;
-      try {
-        const targetUrl = typeof deleteEndpoint === "function"
-          ? deleteEndpoint(recordId)
-          : deleteEndpoint || `${endpoint}/${recordId}`;
-
-        await HTTP("DELETE", targetUrl);
-        antdMsg.success("Record deleted successfully.");
-
-        if (typeof fetchData === "function") {
-          fetchData();
-        }
-      } catch (err) {
-        antdMsg.error(err?.message || "Failed to delete record.");
-      }
-    },
-    [deleteEndpoint, endpoint, fetchData]
-  );
+  // Records are never deleted (kept for compliance record-keeping), so there is
+  // no delete action here and the API refuses DELETE requests.
 
   // --------------------------------------------------------------------------
   // ACTION COLUMN GENERATOR HELPER
@@ -239,26 +217,6 @@ export default function GenericMainLog({
           disabled: isUpdating,
           children: statusSubmenu,
         },
-        {
-          type: "divider",
-        },
-        {
-          key: "delete-record",
-          icon: <DeleteOutlined />,
-          label: (
-            <Popconfirm
-              title="Delete Record"
-              description="Are you sure you want to permanently delete this application record?"
-              onConfirm={() => handleDeleteRecord(record)}
-              okText="Yes, Delete"
-              cancelText="Cancel"
-              okButtonProps={{ danger: true }}
-            >
-              <span className="text-red-600 block w-full">Delete Record</span>
-            </Popconfirm>
-          ),
-          danger: true,
-        },
       ];
 
       return (
@@ -274,7 +232,7 @@ export default function GenericMainLog({
         </Dropdown>
       );
     },
-    [confirmStatusChange, extraActions, handleDeleteRecord, statusList, statusLoader]
+    [confirmStatusChange, extraActions, statusList, statusLoader]
   );
 
   // --------------------------------------------------------------------------
@@ -323,12 +281,6 @@ export default function GenericMainLog({
         bulkActionMsg: "Are you sure you want to place selected records on hold?",
         bulkActionBottomBtnLabel: "Hold Selected",
       },
-      {
-        label: "Delete Selected",
-        value: "bulk-delete",
-        bulkActionMsg: "Are you sure you want to permanently delete selected records?",
-        bulkActionBottomBtnLabel: "Delete Selected",
-      },
     ];
   }, []);
 
@@ -349,11 +301,6 @@ export default function GenericMainLog({
             )
           );
           antdMsg.success(`Selected records updated to "${targetStatus}".`);
-        } else if (actionValue === "bulk-delete") {
-          await Promise.all(
-            selectedIds.map((id) => HTTP("DELETE", `${endpoint}/${id}`))
-          );
-          antdMsg.success("Selected records deleted successfully.");
         }
 
         if (typeof fetchData === "function") {

@@ -55,14 +55,22 @@ export default function CommonTaxComplianceIssues() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="red" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="red"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Risk &amp; Diagnostic Review
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common Business Tax Compliance Issues
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Businesses often seek help when compliance has become fragmented across bookkeeping, BAS, payroll and annual tax work. Common issues include unreconciled GST accounts, missed lodgments, changes in business structure, mixed business and private transactions, unexplained director or shareholder balances, asset purchases coded incorrectly, or accounting records that do not match prior returns.
+            Businesses often seek help when compliance has become fragmented
+            across bookkeeping, BAS, payroll and annual tax work. Common issues
+            include unreconciled GST accounts, missed lodgments, changes in
+            business structure, mixed business and private transactions,
+            unexplained director or shareholder balances, asset purchases coded
+            incorrectly, or accounting records that do not match prior returns.
           </p>
         </div>
 
@@ -96,7 +104,11 @@ export default function CommonTaxComplianceIssues() {
               Issues Requiring More Than Routine Compliance
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Some issues require more than routine compliance. For example, private-company payments or loans involving shareholders or associates may need specific Division 7A review. Tax planning, restructures, disputes and specialist advice can also be scoped separately where required.
+              Some issues require more than routine compliance. For example,
+              private-company payments or loans involving shareholders or
+              associates may need specific Division 7A review. Tax planning,
+              restructures, disputes and specialist advice can also be scoped
+              separately where required.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -105,7 +117,7 @@ export default function CommonTaxComplianceIssues() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Division 7A Rules
               </Button>

@@ -29,7 +29,10 @@ import { SERVICES_LIST, SERVICE_CATEGORIES } from "./ServicesData";
 /**
  * Universal Icon Resolver for Services Directory Cards
  */
-const renderDirectoryIcon = (iconName, className = "text-xl text-brand-primary") => {
+const renderDirectoryIcon = (
+  iconName,
+  className = "text-xl text-brand-primary",
+) => {
   switch (iconName?.toLowerCase()) {
     case "wallet":
       return <WalletOutlined className={className} />;
@@ -72,59 +75,81 @@ const getAccentClasses = (accent) => {
   switch (accent) {
     case "teal":
       return {
-        badge: "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800/60",
-        iconBox: "bg-teal-100/70 dark:bg-teal-900/40 text-teal-600 dark:text-teal-300",
+        badge:
+          "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800/60",
+        iconBox:
+          "bg-teal-100/70 dark:bg-teal-900/40 text-teal-600 dark:text-teal-300",
       };
     case "cyan":
       return {
-        badge: "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800/60",
-        iconBox: "bg-cyan-100/70 dark:bg-cyan-900/40 text-cyan-600 dark:text-cyan-300",
+        badge:
+          "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800/60",
+        iconBox:
+          "bg-cyan-100/70 dark:bg-cyan-900/40 text-cyan-600 dark:text-cyan-300",
       };
     case "blue":
       return {
-        badge: "bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/60",
-        iconBox: "bg-blue-100/70 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300",
+        badge:
+          "bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/60",
+        iconBox:
+          "bg-blue-100/70 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300",
       };
     case "indigo":
       return {
-        badge: "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/60",
-        iconBox: "bg-indigo-100/70 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300",
+        badge:
+          "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/60",
+        iconBox:
+          "bg-indigo-100/70 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300",
       };
     case "violet":
       return {
-        badge: "bg-violet-50 dark:bg-violet-950/60 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800/60",
-        iconBox: "bg-violet-100/70 dark:bg-violet-900/40 text-violet-600 dark:text-violet-300",
+        badge:
+          "bg-violet-50 dark:bg-violet-950/60 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800/60",
+        iconBox:
+          "bg-violet-100/70 dark:bg-violet-900/40 text-violet-600 dark:text-violet-300",
       };
     case "amber":
       return {
-        badge: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800/60",
-        iconBox: "bg-amber-100/70 dark:bg-amber-900/40 text-amber-600 dark:text-amber-300",
+        badge:
+          "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800/60",
+        iconBox:
+          "bg-amber-100/70 dark:bg-amber-900/40 text-amber-600 dark:text-amber-300",
       };
     case "rose":
       return {
-        badge: "bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800/60",
-        iconBox: "bg-rose-100/70 dark:bg-rose-900/40 text-rose-600 dark:text-rose-300",
+        badge:
+          "bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800/60",
+        iconBox:
+          "bg-rose-100/70 dark:bg-rose-900/40 text-rose-600 dark:text-rose-300",
       };
     case "orange":
       return {
-        badge: "bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800/60",
-        iconBox: "bg-orange-100/70 dark:bg-orange-900/40 text-orange-600 dark:text-orange-300",
+        badge:
+          "bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800/60",
+        iconBox:
+          "bg-orange-100/70 dark:bg-orange-900/40 text-orange-600 dark:text-orange-300",
       };
     case "purple":
       return {
-        badge: "bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800/60",
-        iconBox: "bg-purple-100/70 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300",
+        badge:
+          "bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800/60",
+        iconBox:
+          "bg-purple-100/70 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300",
       };
     case "sky":
       return {
-        badge: "bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800/60",
-        iconBox: "bg-sky-100/70 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300",
+        badge:
+          "bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800/60",
+        iconBox:
+          "bg-sky-100/70 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300",
       };
     case "emerald":
     default:
       return {
-        badge: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60",
-        iconBox: "bg-emerald-100/70 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300",
+        badge:
+          "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60",
+        iconBox:
+          "bg-emerald-100/70 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300",
       };
   }
 };
@@ -160,8 +185,12 @@ export default function ServicesDirectory({
       const matchDesc = service.description.toLowerCase().includes(q);
       const matchTag = service.tag.toLowerCase().includes(q);
       const matchPillar = service.pillar.toLowerCase().includes(q);
-      const matchHighlights = service.highlights.some((h) => h.toLowerCase().includes(q));
-      const matchKeywords = service.keywords?.some((k) => k.toLowerCase().includes(q));
+      const matchHighlights = service.highlights.some((h) =>
+        h.toLowerCase().includes(q),
+      );
+      const matchKeywords = service.keywords?.some((k) =>
+        k.toLowerCase().includes(q),
+      );
 
       return (
         matchTitle ||
@@ -181,19 +210,25 @@ export default function ServicesDirectory({
   };
 
   return (
-    <section id="services-catalog" className="py-16 sm:py-20 bg-slate-50/60 dark:bg-zinc-950/80 transition-colors duration-300">
+    <section
+      id="services-catalog"
+      className="py-16 sm:py-20 bg-slate-50/60 dark:bg-zinc-950/80 transition-colors duration-300"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Complete Practice Catalog
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Explore Our 15 Practice Pillars
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Select a practice category or search by topic to review scope, capabilities,
-            and compliance details for each dedicated service.
+            Select a practice category or search by topic to review scope,
+            capabilities, and compliance details for each dedicated service.
           </p>
         </div>
 
@@ -290,7 +325,10 @@ export default function ServicesDirectory({
                       </div>
                       <div className="min-w-0">
                         <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition-colors leading-snug">
-                          <Link href={service.href} className="focus:outline-none">
+                          <Link
+                            href={service.href}
+                            className="focus:outline-none"
+                          >
                             {service.title}
                           </Link>
                         </h3>
@@ -327,8 +365,10 @@ export default function ServicesDirectory({
                       <Button
                         type="link"
                         className="p-0 text-xs sm:text-sm font-bold text-brand-primary dark:text-emerald-400 inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all h-auto"
-                        icon={<ArrowRightOutlined className="text-xs transition-transform group-hover:translate-x-1" />}
-                        iconPosition="end"
+                        icon={
+                          <ArrowRightOutlined className="text-xs transition-transform group-hover:translate-x-1" />
+                        }
+                        iconPlacement="end"
                       >
                         Explore service
                       </Button>
@@ -358,8 +398,8 @@ export default function ServicesDirectory({
               No matching practice services found
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mb-6">
-              We couldn&apos;t find any service matching &ldquo;{searchQuery}&rdquo;.
-              Try adjusting your search terms or view all services.
+              We couldn&apos;t find any service matching &ldquo;{searchQuery}
+              &rdquo;. Try adjusting your search terms or view all services.
             </p>
             <Button
               type="primary"

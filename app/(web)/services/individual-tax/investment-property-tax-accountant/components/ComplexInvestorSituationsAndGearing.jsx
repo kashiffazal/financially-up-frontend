@@ -49,14 +49,19 @@ export default function ComplexInvestorSituationsAndGearing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Advanced Portfolio Management
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Complex Investor Situations and Gearing
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Navigating multi-property portfolios, ownership shifts, converted principal residences, and the realistic tax mechanics of negative gearing.
+            Navigating multi-property portfolios, ownership shifts, converted
+            principal residences, and the realistic tax mechanics of negative
+            gearing.
           </p>
         </div>
 
@@ -81,7 +86,9 @@ export default function ComplexInvestorSituationsAndGearing() {
                     key={idx}
                     className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
                   >
-                    <span className="text-base shrink-0 mt-0.5">{item.icon}</span>
+                    <span className="text-base shrink-0 mt-0.5">
+                      {item.icon}
+                    </span>
                     <span>{item.text}</span>
                   </div>
                 ))}
@@ -89,10 +96,17 @@ export default function ComplexInvestorSituationsAndGearing() {
 
               <div className="space-y-3 p-4 rounded-2xl bg-slate-50/80 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
                 <p>
-                  <strong>Former Home Conversion:</strong> For a former home, the date it first produced income, its market value at that time and any period covered by the main residence rules may be relevant to a future CGT calculation.
+                  <strong>Former Home Conversion:</strong> For a former home,
+                  the date it first produced income, its market value at that
+                  time and any period covered by the main residence rules may be
+                  relevant to a future CGT calculation.
                 </p>
                 <p>
-                  <strong>Multiple Properties:</strong> Investors with several properties should maintain records for each property so income, expenses, loan use and capital costs can be identified separately. If property income forms part of a broader complex tax position, our{" "}
+                  <strong>Multiple Properties:</strong> Investors with several
+                  properties should maintain records for each property so
+                  income, expenses, loan use and capital costs can be identified
+                  separately. If property income forms part of a broader complex
+                  tax position, our{" "}
                   <Link
                     href="/services/individual-tax/high-income-professionals"
                     className="text-brand-primary dark:text-emerald-400 font-bold hover:underline"
@@ -113,7 +127,7 @@ export default function ComplexInvestorSituationsAndGearing() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Portfolio Review
                 </Button>
@@ -138,7 +152,8 @@ export default function ComplexInvestorSituationsAndGearing() {
                     <span>Negative Gearing</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                    A property is generally negatively geared when deductible rental expenses exceed rental income.
+                    A property is generally negatively geared when deductible
+                    rental expenses exceed rental income.
                   </p>
                 </div>
 
@@ -148,7 +163,8 @@ export default function ComplexInvestorSituationsAndGearing() {
                     <span>Positive Gearing</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                    It is positively geared when rental income exceeds deductible expenses.
+                    It is positively geared when rental income exceeds
+                    deductible expenses.
                   </p>
                 </div>
               </div>
@@ -157,7 +173,10 @@ export default function ComplexInvestorSituationsAndGearing() {
                 <span className="font-bold block mb-1">
                   Our Professional Advisory Note:
                 </span>
-                The tax effect depends on the investor’s income, ownership, property use, documentation and the rules applying to their circumstances. Negative gearing does not guarantee a particular refund or tax saving.
+                The tax effect depends on the investor’s income, ownership,
+                property use, documentation and the rules applying to their
+                circumstances. Negative gearing does not guarantee a particular
+                refund or tax saving.
               </div>
             </div>
 

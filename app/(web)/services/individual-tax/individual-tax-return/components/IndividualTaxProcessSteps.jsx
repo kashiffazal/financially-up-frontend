@@ -31,35 +31,45 @@ export default function IndividualTaxProcessSteps() {
       step: "1",
       title: "Book an Appointment",
       description: `Book online through the Financially Up website or arrange an appointment by calling ${phoneDisplay}. Online meetings are conducted using an Outlook Calendar online meeting link. In-person appointments are also available by arrangement.`,
-      icon: <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       step: "2",
       title: "Discuss Your Circumstances",
       description:
         "We discuss your income sources, investments, deductions and any changes or issues affecting the return. This helps identify the work required and whether a specialist tax matter needs separate consideration.",
-      icon: <CommentOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CommentOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       step: "3",
       title: "Provide Your Documents",
       description:
         "Financially Up will advise which records are needed and how to provide them. If information is incomplete or unclear, we will let you know what else is required before the return can be finalized.",
-      icon: <CloudUploadOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <CloudUploadOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />
+      ),
     },
     {
       step: "4",
       title: "Review the Prepared Return",
       description:
         "Your return is prepared based on the information and records provided. We explain the key details, raise any outstanding questions and give you an opportunity to review the return.",
-      icon: <FileDoneOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       step: "5",
       title: "Approve Lodgement",
       description:
         "Once the return is complete, you approve it before lodgement with the ATO. Any additional tax advice or broader financial advice is provided only within the services Financially Up is legally authorized to provide and may require a separate scope.",
-      icon: <CheckCircleOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
   ];
 
@@ -68,7 +78,10 @@ export default function IndividualTaxProcessSteps() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Clear Workflow
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -125,7 +138,9 @@ export default function IndividualTaxProcessSteps() {
               </h3>
 
               <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-                Book online or speak with our registered CPA tax team. We will review your income, identify all eligible deductions, and prepare your return with full transparency.
+                Book online or speak with our registered CPA tax team. We will
+                review your income, identify all eligible deductions, and
+                prepare your return with full transparency.
               </p>
             </div>
 
@@ -135,7 +150,7 @@ export default function IndividualTaxProcessSteps() {
                   type="primary"
                   size="middle"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full rounded-xl font-bold bg-white text-emerald-950 hover:bg-emerald-50 border-none shadow-md h-10"
                 >
                   Book Appointment
@@ -143,7 +158,10 @@ export default function IndividualTaxProcessSteps() {
               </Link>
 
               {company?.phone && (
-                <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="flex-1">
+                <a
+                  href={`tel:${company.phone.replace(/\s/g, "")}`}
+                  className="flex-1"
+                >
                   <Button
                     size="middle"
                     icon={<PhoneOutlined />}

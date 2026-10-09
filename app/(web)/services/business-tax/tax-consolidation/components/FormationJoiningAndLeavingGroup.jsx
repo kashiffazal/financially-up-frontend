@@ -26,17 +26,23 @@ import {
 export default function FormationJoiningAndLeavingGroup() {
   const lifecycleStages = [
     {
-      icon: <FormOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FormOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Formation: Beyond the ATO Election",
       desc: "Choosing to consolidate can involve more than lodging a notification. The group may need to determine joining tax costs, transfer eligible losses, identify relevant tax attributes and establish records that support future calculations.",
     },
     {
-      icon: <ImportOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ImportOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Joining the Group: Entry ACA Setting",
       desc: "A joining entity may require asset tax-cost setting and analysis of transferred losses, recalculating the tax base of underlying business assets according to consolidation entry formulas.",
     },
     {
-      icon: <ExportOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ExportOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Leaving the Group: Exit Tax-Cost Setting",
       desc: "When an entity leaves, exit tax-cost setting and the treatment of relevant assets and liabilities can affect the tax outcome, determining the head company's capital gain or loss on disposing of member shares.",
     },
@@ -47,14 +53,20 @@ export default function FormationJoiningAndLeavingGroup() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Consolidation Lifecycle
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Formation requires more than an election
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Because the choice is irrevocable, tax consolidation advice should consider both immediate compliance and the longer-term effect on acquisitions, disposals, financing and group structure. Detailed transaction modelling is separately scoped where required.
+            Because the choice is irrevocable, tax consolidation advice should
+            consider both immediate compliance and the longer-term effect on
+            acquisitions, disposals, financing and group structure. Detailed
+            transaction modelling is separately scoped where required.
           </p>
         </div>
 
@@ -88,7 +100,13 @@ export default function FormationJoiningAndLeavingGroup() {
               Commercial Price Does Not Equal Consolidation Tax Value
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Changes in group membership can trigger specific consolidation calculations. A joining entity may require asset tax-cost setting and analysis of transferred losses. When an entity leaves, exit tax-cost setting and the treatment of relevant assets and liabilities can affect the tax outcome. The commercial sale price or accounting values should not be assumed to equal the tax values produced by the consolidation rules.
+              Changes in group membership can trigger specific consolidation
+              calculations. A joining entity may require asset tax-cost setting
+              and analysis of transferred losses. When an entity leaves, exit
+              tax-cost setting and the treatment of relevant assets and
+              liabilities can affect the tax outcome. The commercial sale price
+              or accounting values should not be assumed to equal the tax values
+              produced by the consolidation rules.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -97,7 +115,7 @@ export default function FormationJoiningAndLeavingGroup() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Model Joining/Leaving Event
               </Button>

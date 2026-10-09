@@ -24,14 +24,19 @@ export default function WhyRecurringVsCatchUp() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Strategic Advantages
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Recurring Cadence vs. Catch-Up Scrambles
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Why proactive monthly bookkeeping preserves institutional memory, avoids missing paperwork, and delivers higher value than reactive catch-up work.
+            Why proactive monthly bookkeeping preserves institutional memory,
+            avoids missing paperwork, and delivers higher value than reactive
+            catch-up work.
           </p>
         </div>
 
@@ -50,10 +55,19 @@ export default function WhyRecurringVsCatchUp() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  When bookkeeping is delayed for long periods, business owners may have difficulty remembering what older transactions relate to, source documents can be harder to locate, and errors can remain unnoticed until compliance work begins. A recurring process creates regular points to resolve questions and keep the file moving forward.
+                  When bookkeeping is delayed for long periods, business owners
+                  may have difficulty remembering what older transactions relate
+                  to, source documents can be harder to locate, and errors can
+                  remain unnoticed until compliance work begins. A recurring
+                  process creates regular points to resolve questions and keep
+                  the file moving forward.
                 </p>
                 <p>
-                  It also gives accountants and business owners a more current starting point for financial reporting or advisory work. Bookkeeping alone does not provide tax planning or strategic advice, but reliable records make those separate services more useful.
+                  It also gives accountants and business owners a more current
+                  starting point for financial reporting or advisory work.
+                  Bookkeeping alone does not provide tax planning or strategic
+                  advice, but reliable records make those separate services more
+                  useful.
                 </p>
               </div>
 
@@ -61,7 +75,8 @@ export default function WhyRecurringVsCatchUp() {
               <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Queries are answered within days—not 9 months later when receipts are lost and transaction context is forgotten.
+                  Queries are answered within days—not 9 months later when
+                  receipts are lost and transaction context is forgotten.
                 </p>
               </div>
             </div>
@@ -75,7 +90,7 @@ export default function WhyRecurringVsCatchUp() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Catch-Up Bookkeeping Services
                 </Button>
@@ -96,10 +111,16 @@ export default function WhyRecurringVsCatchUp() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  If your business uses Xero, monthly bookkeeping can be delivered within that system using an agreed workflow for reconciliations, transaction review and document queries. Businesses that specifically want Xero-focused support can read more about our Xero bookkeeping services.
+                  If your business uses Xero, monthly bookkeeping can be
+                  delivered within that system using an agreed workflow for
+                  reconciliations, transaction review and document queries.
+                  Businesses that specifically want Xero-focused support can
+                  read more about our Xero bookkeeping services.
                 </p>
                 <p>
-                  If you are still deciding whether recurring support or a broader bookkeeping engagement is right for you, our main bookkeeping services page explains the wider service.
+                  If you are still deciding whether recurring support or a
+                  broader bookkeeping engagement is right for you, our main
+                  bookkeeping services page explains the wider service.
                 </p>
               </div>
 
@@ -107,7 +128,8 @@ export default function WhyRecurringVsCatchUp() {
               <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Full cloud integration: direct electronic bank feeds, invoice capture, and shared secure access with zero paper clutter.
+                  Full cloud integration: direct electronic bank feeds, invoice
+                  capture, and shared secure access with zero paper clutter.
                 </p>
               </div>
             </div>
@@ -121,7 +143,7 @@ export default function WhyRecurringVsCatchUp() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Xero Bookkeeping Services
                 </Button>

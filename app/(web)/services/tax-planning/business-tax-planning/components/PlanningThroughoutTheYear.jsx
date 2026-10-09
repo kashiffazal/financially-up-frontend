@@ -27,14 +27,19 @@ export default function PlanningThroughoutTheYear() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Year-Round Timing
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Planning Throughout the Financial Year
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Tax planning for business owners is not limited to June. Reviewing the position during the year can help monitor taxable income, maintain records, forecast payments and identify issues early.
+            Tax planning for business owners is not limited to June. Reviewing
+            the position during the year can help monitor taxable income,
+            maintain records, forecast payments and identify issues early.
           </p>
         </div>
 
@@ -52,20 +57,28 @@ export default function PlanningThroughoutTheYear() {
               </h3>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                For businesses in the PAYG instalments system, instalments are intended to contribute towards expected income tax during the year. GST and BAS obligations may also affect cash flow where the business is registered or otherwise required to report. Planning does not replace these compliance obligations; it helps the business understand how they fit into the broader financial position.
+                For businesses in the PAYG instalments system, instalments are
+                intended to contribute towards expected income tax during the
+                year. GST and BAS obligations may also affect cash flow where
+                the business is registered or otherwise required to report.
+                Planning does not replace these compliance obligations; it helps
+                the business understand how they fit into the broader financial
+                position.
               </p>
 
               <div className="space-y-3 pt-4 border-t border-slate-100 dark:border-zinc-800">
                 <div className="flex items-start gap-2.5">
                   <CheckOutlined className="text-brand-primary dark:text-emerald-400 text-sm mt-1 shrink-0" />
                   <span className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                    Align quarterly PAYG instalments with actual fluctuating earnings.
+                    Align quarterly PAYG instalments with actual fluctuating
+                    earnings.
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckOutlined className="text-brand-primary dark:text-emerald-400 text-sm mt-1 shrink-0" />
                   <span className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                    Forecast GST net liabilities prior to reporting period deadlines.
+                    Forecast GST net liabilities prior to reporting period
+                    deadlines.
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5">
@@ -90,7 +103,8 @@ export default function PlanningThroughoutTheYear() {
               </h3>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                Where the main need is lodgment and ongoing reporting rather than planning, see our Business Tax Compliance service.
+                Where the main need is lodgment and ongoing reporting rather
+                than planning, see our Business Tax Compliance service.
               </p>
 
               <div className="rounded-xl bg-white dark:bg-zinc-900 p-5 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
@@ -99,8 +113,11 @@ export default function PlanningThroughoutTheYear() {
                   <span>Key Distinction</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                  <strong>Tax Planning:</strong> Proactive modeling of decisions before year end to preserve options.<br />
-                  <strong>Tax Compliance:</strong> Accurate statutory reporting and submission of historical transactions to the ATO.
+                  <strong>Tax Planning:</strong> Proactive modeling of decisions
+                  before year end to preserve options.
+                  <br />
+                  <strong>Tax Compliance:</strong> Accurate statutory reporting
+                  and submission of historical transactions to the ATO.
                 </p>
               </div>
             </div>
@@ -111,7 +128,7 @@ export default function PlanningThroughoutTheYear() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
                 >
                   Explore Business Tax Compliance

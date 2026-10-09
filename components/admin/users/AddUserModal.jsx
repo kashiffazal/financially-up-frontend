@@ -193,6 +193,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
               className="rounded-lg"
             />
             <AntInput
+              type="phone"
               name="phone"
               label="Contact Phone / Mobile"
               placeholder="0400 000 000"

@@ -21,22 +21,30 @@ import {
 export default function KeyCgtPlanningConsiderations() {
   const cards = [
     {
-      icon: <CalculatorOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Cost Base & Capital Proceeds",
       text: "For most CGT events, the calculation starts with the capital proceeds and the asset’s cost base or reduced cost base. The correct cost base may include more than the original purchase price, but not every cost can be included and amounts already claimed as deductions may affect the calculation.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Capital Loss Quarantining",
       text: "Capital losses are generally applied against capital gains, not against salary or other ordinary income. Unused net capital losses may generally be carried forward, subject to the rules that apply to the taxpayer.",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <PercentageOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "50% General CGT Discount",
       text: "Individuals and some trusts may be eligible for the CGT discount for qualifying assets held for at least 12 months, but the discount is not automatic and can be affected by the taxpayer’s circumstances, including residency.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Property & Main Residence Nuances",
       text: "Property transactions can also involve main-residence rules, periods of income-producing use and other fact-specific issues.",
     },
@@ -84,7 +92,10 @@ export default function KeyCgtPlanningConsiderations() {
               Comprehensive Post-Sale Compliance &amp; Rental Property Tax
             </h3>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              If you need the detailed calculation after a transaction, our Capital Gains Tax service covers CGT reporting and calculation. Property investors can also refer to our Investment Property Tax service for rental-property tax issues.
+              If you need the detailed calculation after a transaction, our
+              Capital Gains Tax service covers CGT reporting and calculation.
+              Property investors can also refer to our Investment Property Tax
+              service for rental-property tax issues.
             </p>
           </div>
 
@@ -94,7 +105,7 @@ export default function KeyCgtPlanningConsiderations() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Capital Gains Tax Service
               </Button>
@@ -105,7 +116,7 @@ export default function KeyCgtPlanningConsiderations() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Investment Property Tax Service
               </Button>

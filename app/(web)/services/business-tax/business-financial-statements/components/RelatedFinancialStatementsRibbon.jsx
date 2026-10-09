@@ -26,14 +26,16 @@ export default function RelatedFinancialStatementsRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Year-End Accounting
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Partnership accounts:
@@ -42,14 +44,16 @@ export default function RelatedFinancialStatementsRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Partnership Tax Returns
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Sole trader business tax:
@@ -58,7 +62,7 @@ export default function RelatedFinancialStatementsRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Sole Trader Tax
               </Button>

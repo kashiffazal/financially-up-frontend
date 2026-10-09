@@ -24,7 +24,9 @@ export default function SoleTraderRecordKeeping() {
   const recordCategories = [
     {
       category: "Sales & Invoicing",
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       items: [
         "Sales invoices and payment records",
         "Point of sale (POS) and merchant payment summaries",
@@ -32,7 +34,9 @@ export default function SoleTraderRecordKeeping() {
     },
     {
       category: "Banking & Operating Expenses",
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       items: [
         "Business bank and credit-card statements",
         "Expense invoices and receipts",
@@ -40,7 +44,9 @@ export default function SoleTraderRecordKeeping() {
     },
     {
       category: "Travel, Vehicles & Assets",
-      icon: <ToolOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       items: [
         "Vehicle or travel records where relevant (logbooks, odometer records)",
         "Asset purchase and disposal documents",
@@ -49,7 +55,9 @@ export default function SoleTraderRecordKeeping() {
     },
     {
       category: "Taxes, Payroll & Prior Returns",
-      icon: <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       items: [
         "GST and BAS working papers",
         "Payroll and contractor records where applicable",
@@ -63,14 +71,20 @@ export default function SoleTraderRecordKeeping() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Record Keeping for Sole Traders
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Good records are central to accurate sole trader accounting. The ATO requires businesses to keep records that support their tax, superannuation and registration affairs. Depending on your business, useful records can include:
+            Good records are central to accurate sole trader accounting. The ATO
+            requires businesses to keep records that support their tax,
+            superannuation and registration affairs. Depending on your business,
+            useful records can include:
           </p>
         </div>
 
@@ -91,7 +105,10 @@ export default function SoleTraderRecordKeeping() {
               </div>
               <ul className="space-y-2.5">
                 {cat.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+                  <li
+                    key={itemIdx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -113,7 +130,9 @@ export default function SoleTraderRecordKeeping() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                Business tax records generally need to be kept for five years, although records relating to assets, capital gains or carried-forward losses may need to be retained for longer.
+                Business tax records generally need to be kept for five years,
+                although records relating to assets, capital gains or
+                carried-forward losses may need to be retained for longer.
               </p>
             </div>
           </div>
@@ -128,7 +147,9 @@ export default function SoleTraderRecordKeeping() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                If your bookkeeping is behind, our broader accounting and bookkeeping support can be separately scoped before the tax return is prepared.
+                If your bookkeeping is behind, our broader accounting and
+                bookkeeping support can be separately scoped before the tax
+                return is prepared.
               </p>
             </div>
             <div>
@@ -137,7 +158,7 @@ export default function SoleTraderRecordKeeping() {
                   type="default"
                   className="brand-btn-outline text-xs font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Bookkeeping Catch-Up
                 </Button>

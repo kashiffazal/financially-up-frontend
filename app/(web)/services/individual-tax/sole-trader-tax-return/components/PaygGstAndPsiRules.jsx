@@ -24,14 +24,19 @@ export default function PaygGstAndPsiRules() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Regulations &amp; Compliance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             PAYG, GST, BAS and Personal Services Income
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Essential Australian tax systems that directly impact your sole trader cash flow, tax instalments, and statutory business reporting obligations.
+            Essential Australian tax systems that directly impact your sole
+            trader cash flow, tax instalments, and statutory business reporting
+            obligations.
           </p>
         </div>
 
@@ -44,7 +49,10 @@ export default function PaygGstAndPsiRules() {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl">
                   <ClockCircleOutlined />
                 </div>
-                <Tag color="green" className="font-bold text-xs uppercase px-2.5 py-0.5">
+                <Tag
+                  color="green"
+                  className="font-bold text-xs uppercase px-2.5 py-0.5"
+                >
                   Tax Cash Flow
                 </Tag>
               </div>
@@ -54,11 +62,20 @@ export default function PaygGstAndPsiRules() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Tax may not be withheld from customer payments, which can create a liability when the annual return is assessed. Setting money aside may help, but the appropriate amount depends on individual circumstances.
+                Tax may not be withheld from customer payments, which can create
+                a liability when the annual return is assessed. Setting money
+                aside may help, but the appropriate amount depends on individual
+                circumstances.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                PAYG instalments are payments during the year towards expected tax on business and investment income. The ATO may enter a taxpayer into the system using information from a lodged return, and voluntary entry may be available. Instalments are credited against the annual assessment and do not replace the annual return. Amounts and timing depend on ATO requirements and individual circumstances.
+                PAYG instalments are payments during the year towards expected
+                tax on business and investment income. The ATO may enter a
+                taxpayer into the system using information from a lodged return,
+                and voluntary entry may be available. Instalments are credited
+                against the annual assessment and do not replace the annual
+                return. Amounts and timing depend on ATO requirements and
+                individual circumstances.
               </p>
             </div>
 
@@ -75,7 +92,10 @@ export default function PaygGstAndPsiRules() {
                 <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl">
                   <FileSyncOutlined />
                 </div>
-                <Tag color="cyan" className="font-bold text-xs uppercase px-2.5 py-0.5">
+                <Tag
+                  color="cyan"
+                  className="font-bold text-xs uppercase px-2.5 py-0.5"
+                >
                   $75K Threshold
                 </Tag>
               </div>
@@ -85,23 +105,32 @@ export default function PaygGstAndPsiRules() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-3">
-                For most businesses, GST registration is required when current or projected GST turnover reaches $75,000. Different rules apply in some circumstances, so the business activity and turnover should be reviewed.
+                For most businesses, GST registration is required when current
+                or projected GST turnover reaches $75,000. Different rules apply
+                in some circumstances, so the business activity and turnover
+                should be reviewed.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                A business activity statement, or BAS, is separate from the annual individual return. Depending on the obligations involved, it may report GST, PAYG instalments and other amounts. The annual return reports taxable income for the financial year.
+                A business activity statement, or BAS, is separate from the
+                annual individual return. Depending on the obligations involved,
+                it may report GST, PAYG instalments and other amounts. The
+                annual return reports taxable income for the financial year.
               </p>
 
               <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-300">
                 <p className="font-normal mb-2">
-                  If you are registered for GST, the records used for both lodgements should be consistent. Financially Up can review the connection and provide separate BAS and GST Services where required.
+                  If you are registered for GST, the records used for both
+                  lodgements should be consistent. Financially Up can review the
+                  connection and provide separate BAS and GST Services where
+                  required.
                 </p>
                 <Link href="/services/bas-gst-payroll">
                   <Button
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline flex items-center gap-1 h-auto"
                     icon={<ArrowRightOutlined className="text-xs" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     View BAS &amp; GST Services
                   </Button>
@@ -122,7 +151,10 @@ export default function PaygGstAndPsiRules() {
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">
                   <SafetyCertificateOutlined />
                 </div>
-                <Tag color="blue" className="font-bold text-xs uppercase px-2.5 py-0.5">
+                <Tag
+                  color="blue"
+                  className="font-bold text-xs uppercase px-2.5 py-0.5"
+                >
                   Contractor Rules
                 </Tag>
               </div>
@@ -132,15 +164,22 @@ export default function PaygGstAndPsiRules() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Personal Services Income, or PSI, is income mainly produced from an individual&apos;s efforts or skills. It may apply to contractors, freelancers, consultants and professionals, including people with an ABN.
+                Personal Services Income, or PSI, is income mainly produced from
+                an individual&apos;s efforts or skills. It may apply to
+                contractors, freelancers, consultants and professionals,
+                including people with an ABN.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                PSI rules may affect income reporting and available deductions. Their application depends on the working arrangements and relevant tests, not occupation alone.
+                PSI rules may affect income reporting and available deductions.
+                Their application depends on the working arrangements and
+                relevant tests, not occupation alone.
               </p>
 
               <div className="p-3.5 rounded-xl bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 text-xs text-blue-950 dark:text-blue-200 font-normal">
-                <strong>PSI Tests We Review:</strong> Results test, 80% rule, unrelated clients test, employment test, and business premises test.
+                <strong>PSI Tests We Review:</strong> Results test, 80% rule,
+                unrelated clients test, employment test, and business premises
+                test.
               </div>
             </div>
 

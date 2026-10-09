@@ -100,7 +100,7 @@ export default function Step1BusinessDetails() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
-            type="text"
+            type="phone"
             name="PhoneNumber"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200">

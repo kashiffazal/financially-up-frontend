@@ -20,7 +20,8 @@ import {
 export default function CommonTrustDistributionIssues() {
   const issues = [
     {
-      title: "Distribution resolutions prepared too late or without checking the deed",
+      title:
+        "Distribution resolutions prepared too late or without checking the deed",
       desc: "Executing trustee minutes after 30 June or without verifying deed-specific clauses on income calculation and default beneficiaries.",
     },
     {
@@ -32,7 +33,8 @@ export default function CommonTrustDistributionIssues() {
       desc: "Discrepancies arising between distributable accounting profits and Section 95 tax net income due to non-deductible items or timing differences.",
     },
     {
-      title: "Capital gains or franked distributions not recorded consistently with the resolution",
+      title:
+        "Capital gains or franked distributions not recorded consistently with the resolution",
       desc: "Mismatch between trustee resolution intentions, financial statement ledger entries, and formal tax-return schedule allocations.",
     },
     {
@@ -40,15 +42,18 @@ export default function CommonTrustDistributionIssues() {
       desc: "TFNs, dates of birth, residency status, or distribution amounts on beneficiary tax returns diverging from the lodged trust return.",
     },
     {
-      title: "Private-company beneficiaries creating possible Division 7A considerations",
+      title:
+        "Private-company beneficiaries creating possible Division 7A considerations",
       desc: "Distributing trust net income to a corporate beneficiary where funds remain unpaid or are loaned back to family members.",
     },
     {
-      title: "Unpaid or outstanding beneficiary entitlements that require further review",
+      title:
+        "Unpaid or outstanding beneficiary entitlements that require further review",
       desc: "Historical unpaid present entitlements (UPEs) accumulating on trust balance sheets requiring structural legal and tax review.",
     },
     {
-      title: "Changes in family or business circumstances that make last year’s approach unsuitable",
+      title:
+        "Changes in family or business circumstances that make last year’s approach unsuitable",
       desc: "Adult children turning 18, beneficiaries reaching top tax brackets, marriage or separation making rolled-over prior patterns risky.",
     },
   ];
@@ -58,14 +63,18 @@ export default function CommonTrustDistributionIssues() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Year-End Risks
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common trust distribution issues
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Trust distribution compliance requires close alignment between trust deeds, accounting figures, and tax legislation.
+            Trust distribution compliance requires close alignment between trust
+            deeds, accounting figures, and tax legislation.
           </p>
         </div>
 
@@ -99,7 +108,9 @@ export default function CommonTrustDistributionIssues() {
               Private Company Beneficiaries & Division 7A
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Where a private company beneficiary is involved, Division 7A can also become relevant depending on how an unpaid entitlement or financial accommodation is dealt with. See our{" "}
+              Where a private company beneficiary is involved, Division 7A can
+              also become relevant depending on how an unpaid entitlement or
+              financial accommodation is dealt with. See our{" "}
               <Link
                 href="/services/business-tax/division-7a"
                 className="text-teal-600 dark:text-teal-400 font-semibold underline underline-offset-4 hover:text-teal-700"
@@ -115,7 +126,7 @@ export default function CommonTrustDistributionIssues() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Division 7A Rules
               </Button>

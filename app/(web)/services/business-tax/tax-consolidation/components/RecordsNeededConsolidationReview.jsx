@@ -34,7 +34,8 @@ export default function RecordsNeededConsolidationReview() {
       desc: "Share purchase agreements (SPAs), asset transfer contracts, and legal completion statements for all historical corporate transactions.",
     },
     {
-      title: "Tax returns, financial statements and tax-effect accounting records",
+      title:
+        "Tax returns, financial statements and tax-effect accounting records",
       desc: "Lodged tax returns, audited balance sheets, and deferred tax asset/liability schedules for each joining entity up to formation date.",
     },
     {
@@ -64,14 +65,19 @@ export default function RecordsNeededConsolidationReview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Substantiation & Documentation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Records and information we may need
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            To evaluate group eligibility, model entry tax cost setting, and manage head company tax compliance, we review the following documentation:
+            To evaluate group eligibility, model entry tax cost setting, and
+            manage head company tax compliance, we review the following
+            documentation:
           </p>
         </div>
 
@@ -105,7 +111,10 @@ export default function RecordsNeededConsolidationReview() {
               Indefinite Statutory Record Retention Rule
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Formation, tax-cost-setting, loss and membership records should be retained for as long as they remain relevant to later tax calculations, rather than being treated as single-year working papers.
+              Formation, tax-cost-setting, loss and membership records should be
+              retained for as long as they remain relevant to later tax
+              calculations, rather than being treated as single-year working
+              papers.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -114,7 +123,7 @@ export default function RecordsNeededConsolidationReview() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Group Records
               </Button>

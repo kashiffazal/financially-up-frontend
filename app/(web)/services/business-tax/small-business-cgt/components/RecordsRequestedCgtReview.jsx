@@ -35,7 +35,8 @@ export default function RecordsRequestedCgtReview() {
       desc: "Financial records and revenue reports for all related Australian and foreign trading entities to assess the $2M turnover test.",
     },
     {
-      title: "Balance sheets and market-value information relevant to the net asset test",
+      title:
+        "Balance sheets and market-value information relevant to the net asset test",
       desc: "Asset values and liabilities for the taxpayer, connected entities, and affiliates immediately before the sale for the $6M MNAVT.",
     },
     {
@@ -57,14 +58,18 @@ export default function RecordsRequestedCgtReview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Review Preparation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Records we may request
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            To assess eligibility for the small business CGT concessions and calculate tax outcomes, we may request the following records:
+            To assess eligibility for the small business CGT concessions and
+            calculate tax outcomes, we may request the following records:
           </p>
         </div>
 
@@ -98,7 +103,9 @@ export default function RecordsRequestedCgtReview() {
               Gathering Transaction Documentation Early
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Reviewing these records ahead of signing binding contracts allows our accountants to model concessions and structure the sale for optimal tax outcomes.
+              Reviewing these records ahead of signing binding contracts allows
+              our accountants to model concessions and structure the sale for
+              optimal tax outcomes.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -107,7 +114,7 @@ export default function RecordsRequestedCgtReview() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Schedule CGT Assessment
               </Button>

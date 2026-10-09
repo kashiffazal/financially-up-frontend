@@ -38,14 +38,19 @@ export default function ShareCapitalGainsAndEtfs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Disposals &amp; Fund Structures
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Share Capital Gains, ETFs and Managed Funds
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Managing share parcel cost bases, capital loss offsets, 12-month discounts, and the intricate tax components of exchange-traded funds and managed investments.
+            Managing share parcel cost bases, capital loss offsets, 12-month
+            discounts, and the intricate tax components of exchange-traded funds
+            and managed investments.
           </p>
         </div>
 
@@ -70,7 +75,11 @@ export default function ShareCapitalGainsAndEtfs() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  When an investor disposes of shares, the calculation generally considers the capital proceeds, acquisition cost and eligible incidental costs such as brokerage. Accurate parcel records are important where the same shares were purchased at different times and prices.
+                  When an investor disposes of shares, the calculation generally
+                  considers the capital proceeds, acquisition cost and eligible
+                  incidental costs such as brokerage. Accurate parcel records
+                  are important where the same shares were purchased at
+                  different times and prices.
                 </p>
 
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
@@ -78,7 +87,12 @@ export default function ShareCapitalGainsAndEtfs() {
                     Loss Quarantining &amp; 50% Concession:
                   </span>
                   <p>
-                    Capital losses can generally be applied against capital gains, but not against salary, dividends or other ordinary income. Unused net capital losses may generally be carried forward. An eligible individual may be able to apply the CGT discount to shares held for at least 12 months, after applying relevant capital losses.
+                    Capital losses can generally be applied against capital
+                    gains, but not against salary, dividends or other ordinary
+                    income. Unused net capital losses may generally be carried
+                    forward. An eligible individual may be able to apply the CGT
+                    discount to shares held for at least 12 months, after
+                    applying relevant capital losses.
                   </p>
                 </div>
               </div>
@@ -93,7 +107,7 @@ export default function ShareCapitalGainsAndEtfs() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   View Capital Gains Tax Service
                 </Button>
@@ -120,7 +134,11 @@ export default function ShareCapitalGainsAndEtfs() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  ETFs and managed funds do not all have identical tax treatment. Depending on the investment structure, an investor may receive an annual tax statement, Standard Distribution Statement or Attribution Managed Investment Trust Member Annual statement.
+                  ETFs and managed funds do not all have identical tax
+                  treatment. Depending on the investment structure, an investor
+                  may receive an annual tax statement, Standard Distribution
+                  Statement or Attribution Managed Investment Trust Member
+                  Annual statement.
                 </p>
 
                 <div className="space-y-1.5 p-3.5 rounded-2xl bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700">
@@ -128,7 +146,10 @@ export default function ShareCapitalGainsAndEtfs() {
                     Complex Statement Components:
                   </span>
                   {statementComponents.map((comp, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-zinc-300">
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs text-slate-700 dark:text-zinc-300"
+                    >
                       <CheckCircleOutlined className="text-blue-500 text-xs shrink-0" />
                       <span>{comp}</span>
                     </div>
@@ -139,13 +160,17 @@ export default function ShareCapitalGainsAndEtfs() {
                   <span className="font-bold block mb-1">
                     Cash vs Taxable Income:
                   </span>
-                  The amounts reported for tax may differ from the cash received. Financially Up can review the relevant statement components, including investments held through multiple funds or platforms.
+                  The amounts reported for tax may differ from the cash
+                  received. Financially Up can review the relevant statement
+                  components, including investments held through multiple funds
+                  or platforms.
                 </div>
               </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-zinc-700/60 text-2xs text-slate-500 dark:text-zinc-400">
-              Vanguard, Betashares, VanEck &amp; managed fund statements verified
+              Vanguard, Betashares, VanEck &amp; managed fund statements
+              verified
             </div>
           </div>
         </div>

@@ -27,17 +27,27 @@ export default function EntityStructureOwnerTransactions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Structural Alignment
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Entity Structure and Owner Transactions
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A business structure affects tax and registration obligations and can also affect how profits, losses and owner transactions are treated. A structure that was appropriate when the business started may need review as ownership, risk, profit or long-term objectives change.
+            A business structure affects tax and registration obligations and
+            can also affect how profits, losses and owner transactions are
+            treated. A structure that was appropriate when the business started
+            may need review as ownership, risk, profit or long-term objectives
+            change.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Tax advice can address the tax consequences of a proposed structure or restructure. Legal establishment documents, changes to governing documents and other legal implementation work may require a separately qualified legal adviser.
+            Tax advice can address the tax consequences of a proposed structure
+            or restructure. Legal establishment documents, changes to governing
+            documents and other legal implementation work may require a
+            separately qualified legal adviser.
           </p>
         </div>
 
@@ -55,23 +65,37 @@ export default function EntityStructureOwnerTransactions() {
               </h3>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                For companies, annual return preparation is covered separately under Company Tax Returns. Trust return compliance is covered under Trust Tax Returns.
+                For companies, annual return preparation is covered separately
+                under Company Tax Returns. Trust return compliance is covered
+                under Trust Tax Returns.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 mb-6">
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">Company Returns</h4>
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">Corporate tax rates, franking accounts &amp; retained profits.</p>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                    Company Returns
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
+                    Corporate tax rates, franking accounts &amp; retained
+                    profits.
+                  </p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">Trust Returns</h4>
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">Discretionary &amp; unit trust resolutions before 30 June.</p>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                    Trust Returns
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
+                    Discretionary &amp; unit trust resolutions before 30 June.
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100 dark:border-zinc-800">
-              <Link href="/services/business-tax/company-tax-returns" className="flex-1">
+              <Link
+                href="/services/business-tax/company-tax-returns"
+                className="flex-1"
+              >
                 <Button
                   type="default"
                   className="w-full rounded-xl font-semibold border-slate-300 dark:border-zinc-700 h-10 text-xs"
@@ -79,7 +103,10 @@ export default function EntityStructureOwnerTransactions() {
                   Company Tax Returns
                 </Button>
               </Link>
-              <Link href="/services/business-tax/trust-tax-returns" className="flex-1">
+              <Link
+                href="/services/business-tax/trust-tax-returns"
+                className="flex-1"
+              >
                 <Button
                   type="default"
                   className="w-full rounded-xl font-semibold border-slate-300 dark:border-zinc-700 h-10 text-xs"
@@ -102,7 +129,11 @@ export default function EntityStructureOwnerTransactions() {
               </h3>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Owner transactions require particular care. Loans, payments or other benefits involving a private company and shareholders or associates can raise Division 7A issues depending on the facts. Detailed treatment belongs within a specific review rather than being assumed from a year-end balance.
+                Owner transactions require particular care. Loans, payments or
+                other benefits involving a private company and shareholders or
+                associates can raise Division 7A issues depending on the facts.
+                Detailed treatment belongs within a specific review rather than
+                being assumed from a year-end balance.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal mb-6">
@@ -114,7 +145,9 @@ export default function EntityStructureOwnerTransactions() {
                   Compliance Risk Alert
                 </div>
                 <p className="text-xs text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-                  Unmanaged drawings or shareholder debit balances can be deemed unfranked dividends by the ATO if not covered by a compliant Division 7A loan agreement and benchmark interest payments.
+                  Unmanaged drawings or shareholder debit balances can be deemed
+                  unfranked dividends by the ATO if not covered by a compliant
+                  Division 7A loan agreement and benchmark interest payments.
                 </p>
               </div>
             </div>
@@ -125,7 +158,7 @@ export default function EntityStructureOwnerTransactions() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
                 >
                   Explore Division 7A Planning

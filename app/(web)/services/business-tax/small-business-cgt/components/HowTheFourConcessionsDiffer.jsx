@@ -27,7 +27,9 @@ import {
 export default function HowTheFourConcessionsDiffer() {
   const concessions = [
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "15-year exemption",
       tag: "Total Disregard",
       tagColor: "cyan",
@@ -35,7 +37,9 @@ export default function HowTheFourConcessionsDiffer() {
         "This concession can disregard an eligible capital gain where the asset has been continuously owned for at least 15 years and additional requirements are met. For an individual, this includes conditions connected with retirement at age 55 or over, or permanent incapacity. Companies and trusts have further stakeholder requirements.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "50% active asset reduction",
       tag: "50% Tax Cut",
       tagColor: "emerald",
@@ -43,7 +47,9 @@ export default function HowTheFourConcessionsDiffer() {
         "Where the conditions are satisfied, this concession can reduce an eligible capital gain by 50%. It is distinct from the general CGT discount, and companies are not entitled to the general CGT discount.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Retirement exemption",
       tag: "Lifetime Limit ($500k)",
       tagColor: "blue",
@@ -51,7 +57,9 @@ export default function HowTheFourConcessionsDiffer() {
         "The retirement exemption can disregard eligible capital gains up to a lifetime limit under the legislation. Additional payment and superannuation requirements can apply, including where the relevant individual is under 55.",
     },
     {
-      icon: <RetweetOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <RetweetOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Small business rollover",
       tag: "Tax Deferral",
       tagColor: "orange",
@@ -65,14 +73,19 @@ export default function HowTheFourConcessionsDiffer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Comparative Breakdown
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How the four concessions differ
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Each concession provides a distinct tax mechanism to disregard, reduce, or defer capital gains arising from eligible business assets.
+            Each concession provides a distinct tax mechanism to disregard,
+            reduce, or defer capital gains arising from eligible business
+            assets.
           </p>
         </div>
 
@@ -111,14 +124,16 @@ export default function HowTheFourConcessionsDiffer() {
               General CGT Concepts vs Small Business Concessions
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For general CGT concepts such as cost base, capital proceeds and capital losses, see our{" "}
+              For general CGT concepts such as cost base, capital proceeds and
+              capital losses, see our{" "}
               <Link
                 href="/services/individual-tax/capital-gains-tax"
                 className="text-teal-600 dark:text-teal-400 font-semibold underline underline-offset-4 hover:text-teal-700"
               >
                 Capital Gains Tax
               </Link>{" "}
-              page. This page is specifically about the small business concessions.
+              page. This page is specifically about the small business
+              concessions.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -127,7 +142,7 @@ export default function HowTheFourConcessionsDiffer() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 General CGT Guidance
               </Button>

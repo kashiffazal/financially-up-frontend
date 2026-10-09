@@ -23,39 +23,61 @@ import {
 export default function HowFinanciallyUpCanAssist() {
   const serviceItems = [
     {
-      title: "preparing and lodging your individual tax return with sole trader business income",
-      detail: "Complete preparation of your individual return including business schedules, income statement reconciliations, and direct ATO portal submission.",
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      title:
+        "preparing and lodging your individual tax return with sole trader business income",
+      detail:
+        "Complete preparation of your individual return including business schedules, income statement reconciliations, and direct ATO portal submission.",
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "reviewing income, expenses and supporting records",
-      detail: "Thorough verification of your gross revenue, invoices, supplier receipts, and accounting software exports to substantiate claims.",
-      icon: <SearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      detail:
+        "Thorough verification of your gross revenue, invoices, supplier receipts, and accounting software exports to substantiate claims.",
+      icon: (
+        <SearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       title: "separating private and business-use amounts",
-      detail: "Careful apportionment of phone, internet, vehicle, travel, and personal equipment expenses according to ATO substantiation rules.",
-      icon: <PercentageOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      detail:
+        "Careful apportionment of phone, internet, vehicle, travel, and personal equipment expenses according to ATO substantiation rules.",
+      icon: (
+        <PercentageOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
     },
     {
       title: "considering assets, vehicles and home-based business costs",
-      detail: "Assessment of motor vehicle logbook vs cents-per-km methods, home office running costs, and depreciating machinery or tools.",
-      icon: <CarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      detail:
+        "Assessment of motor vehicle logbook vs cents-per-km methods, home office running costs, and depreciating machinery or tools.",
+      icon: (
+        <CarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       title: "reviewing GST, BAS and PAYG information where relevant",
-      detail: "Reconciling annual tax figures with lodged Business Activity Statements and tracking PAYG income tax instalment credits.",
-      icon: <FileSyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      detail:
+        "Reconciling annual tax figures with lodged Business Activity Statements and tracking PAYG income tax instalment credits.",
+      icon: (
+        <FileSyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
     {
       title: "identifying matters requiring clarification",
-      detail: "Proactive review of ambiguous transactions, unusual expense spikes, or missing documents before drafting schedules.",
-      icon: <QuestionCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      detail:
+        "Proactive review of ambiguous transactions, unusual expense spikes, or missing documents before drafting schedules.",
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
     },
     {
       title: "explaining the return and outcome before lodgement",
-      detail: "Clear walkthrough of your net taxable income, estimated refund or tax payable, and obtaining your approval before submission.",
-      icon: <CheckCircleFilled className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      detail:
+        "Clear walkthrough of your net taxable income, estimated refund or tax payable, and obtaining your approval before submission.",
+      icon: (
+        <CheckCircleFilled className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
   ];
 
@@ -64,14 +86,18 @@ export default function HowFinanciallyUpCanAssist() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Service Capabilities
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Assist
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            An accountant for sole traders can bring business and personal tax information together in one return. Financially Up can assist with:
+            An accountant for sole traders can bring business and personal tax
+            information together in one return. Financially Up can assist with:
           </p>
         </div>
 
@@ -116,14 +142,18 @@ export default function HowFinanciallyUpCanAssist() {
           {/* 8th Card: Non-Business Cross-Link Callout Card */}
           <div className="flex flex-col justify-between rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-slate-900 via-zinc-900 to-emerald-950 text-white shadow-xl border border-emerald-800/40 relative overflow-hidden">
             <div>
-              <Tag color="cyan" className="font-bold text-xs uppercase mb-3 px-3 py-1">
+              <Tag
+                color="cyan"
+                className="font-bold text-xs uppercase mb-3 px-3 py-1"
+              >
                 Personal Only?
               </Tag>
               <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 leading-snug">
                 Non-Business Individual Returns
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
-                If you only need help with personal income that does not involve a business, see our Individual Tax Return Services.
+                If you only need help with personal income that does not involve
+                a business, see our Individual Tax Return Services.
               </p>
             </div>
             <div>
@@ -132,7 +162,7 @@ export default function HowFinanciallyUpCanAssist() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full rounded-xl font-bold bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11"
                 >
                   View Individual Tax Return Services

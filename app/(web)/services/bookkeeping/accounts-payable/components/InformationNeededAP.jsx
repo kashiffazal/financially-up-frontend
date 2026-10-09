@@ -23,38 +23,55 @@ import {
 export default function InformationNeededAP() {
   const documentChecklist = [
     {
-      icon: <KeyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Access to the accounting system and agreed bill-processing tools.",
+      icon: (
+        <KeyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Access to the accounting system and agreed bill-processing tools.",
       desc: "Standard or advisor permissions in Xero, MYOB, or automated receipt capture software.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Supplier invoices, credit notes and statements.",
       desc: "Vendor tax invoices, credit memoranda, and monthly merchant statements for matching.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Existing supplier lists and coding conventions.",
       desc: "Preferred general ledger chart-of-accounts expense codes and supplier payment terms.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Details of who can approve purchases and payments.",
       desc: "Clear internal hierarchy of delegated authority limits and authorized sign-offs.",
     },
     {
-      icon: <FolderOpenOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Purchase-order or job information, where used by the business.",
       desc: "PO tracking, project job codes, or division tags for multi-entity reporting.",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Bank or payment information needed for reconciliation, subject to agreed access controls.",
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "Bank or payment information needed for reconciliation, subject to agreed access controls.",
       desc: "Read-only bank feed access or statement extracts to verify payment settlements.",
     },
     {
-      icon: <QuestionCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Guidance on recurring suppliers, unusual purchases and business-specific coding.",
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Guidance on recurring suppliers, unusual purchases and business-specific coding.",
       desc: "Contextual instructions on contractor retainers, non-routine utility lines, and software seats.",
     },
   ];
@@ -64,14 +81,18 @@ export default function InformationNeededAP() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Onboarding Requirements
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Information May Be Needed?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            To set up a structured accounts payable routine, we gather key workflow tools, authority rules, and invoice channels.
+            To set up a structured accounts payable routine, we gather key
+            workflow tools, authority rules, and invoice channels.
           </p>
         </div>
 
@@ -102,7 +123,8 @@ export default function InformationNeededAP() {
           <div className="flex items-start gap-3">
             <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">
-              We configure clear supplier payment channels and approval steps before processing live vendor bills.
+              We configure clear supplier payment channels and approval steps
+              before processing live vendor bills.
             </p>
           </div>
           <Link href="/book-an-appointment">
@@ -110,7 +132,7 @@ export default function InformationNeededAP() {
               type="primary"
               size="middle"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold shrink-0"
             >
               Establish AP Workflow

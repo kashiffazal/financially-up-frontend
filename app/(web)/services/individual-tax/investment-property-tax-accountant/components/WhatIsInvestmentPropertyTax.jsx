@@ -21,19 +21,25 @@ import {
 export default function WhatIsInvestmentPropertyTax() {
   const corePrinciples = [
     {
-      icon: <FileTextOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Rental Schedule in Individual Return",
       description:
         "For most individual owners, there is no separate rental property tax return. Rental income and eligible expenses are reported in a rental property schedule within the owner’s individual tax return.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Ownership & Borrowing Basis",
       description:
         "The correct treatment depends on the property’s ownership, how and when it was used, the purpose of any borrowed funds and the records available.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Capital Gains Tax (CGT) Intersection",
       description:
         "Capital gains tax may also need to be considered when the property is sold or its ownership changes, taking into account historical records and cost-base adjustments.",
@@ -45,14 +51,18 @@ export default function WhatIsInvestmentPropertyTax() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Overview &amp; Reporting Framework
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Is Investment Property Tax?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Investment property tax refers to the Australian tax treatment of income, expenses and capital gains connected with a rental property.
+            Investment property tax refers to the Australian tax treatment of
+            income, expenses and capital gains connected with a rental property.
           </p>
         </div>
 
@@ -90,7 +100,9 @@ export default function WhatIsInvestmentPropertyTax() {
               First-time Landlord or Expanding Property Portfolio?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 max-w-2xl font-normal leading-relaxed">
-              We review your ownership structure, tenant settlement statements, loan accounts and depreciation schedules to ensure complete reporting accuracy.
+              We review your ownership structure, tenant settlement statements,
+              loan accounts and depreciation schedules to ensure complete
+              reporting accuracy.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -99,7 +111,7 @@ export default function WhatIsInvestmentPropertyTax() {
               size="large"
               className="brand-btn-primary font-bold px-6 h-11 text-sm shadow-md"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Book Property Review
             </Button>

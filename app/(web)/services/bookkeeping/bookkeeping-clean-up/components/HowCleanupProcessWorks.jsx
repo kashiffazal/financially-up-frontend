@@ -21,24 +21,33 @@ export default function HowCleanupProcessWorks() {
   const steps = [
     {
       number: "01",
-      icon: <FileSearchOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Scoping the Objective & Depth",
       body: "We begin by understanding the problem you are trying to solve. A file that needs to be ready for a current-year bookkeeping handover may require a different depth of review from a file that is being prepared for historical tax or financial reporting.",
-      detail: "Clarifying whether the file targets ongoing operational handover, bank financing, or compliance lodgement.",
+      detail:
+        "Clarifying whether the file targets ongoing operational handover, bank financing, or compliance lodgement.",
     },
     {
       number: "02",
-      icon: <ToolOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ToolOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Orderly Review & Evidence Matching",
       body: "Next, we review the relevant balances and reconciliations, compare them with the available source records and work through corrections in an orderly way. Questions and missing information are identified for the client rather than buried in the ledger.",
-      detail: "Methodical ledger reconciliation, adjusting unsubstantiated entries, and highlighting open queries transparently.",
+      detail:
+        "Methodical ledger reconciliation, adjusting unsubstantiated entries, and highlighting open queries transparently.",
     },
     {
       number: "03",
-      icon: <CheckCircleOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Clean Baseline & Ongoing Handover",
       body: "At the end of the agreed clean-up, the file should have a clearer reconciliation position and a more consistent bookkeeping basis. If ongoing Xero processing is required, our Xero Bookkeeping service can be scoped separately after the historical issues have been addressed.",
-      detail: "Delivering a fully balanced, trustworthy ledger ready for regular operations or seamless tax compliance.",
+      detail:
+        "Delivering a fully balanced, trustworthy ledger ready for regular operations or seamless tax compliance.",
     },
   ];
 
@@ -47,14 +56,18 @@ export default function HowCleanupProcessWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Remediation Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Our Bookkeeping Clean-Up Process Works
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A three-stage systematic framework to diagnose, substantiate, and rectify accounting errors with complete transparency.
+            A three-stage systematic framework to diagnose, substantiate, and
+            rectify accounting errors with complete transparency.
           </p>
         </div>
 
@@ -102,7 +115,7 @@ export default function HowCleanupProcessWorks() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold"
             >
               Book an Appointment

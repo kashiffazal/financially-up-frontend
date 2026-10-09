@@ -22,22 +22,30 @@ import {
 export default function FinancialReportingForDecisions() {
   const insights = [
     {
-      icon: <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Commercial Profitability",
       desc: "Understanding gross margins, operational overheads, net profit trends, and revenue drivers across business divisions.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Working Capital & Liquidity",
       desc: "Monitoring short-term cash reserves, current assets vs current liabilities, and debtor collection efficiency.",
     },
     {
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Debt Levels & Leverage",
       desc: "Reviewing commercial loan commitments, equipment finance schedules, and total enterprise liabilities.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Changes in Financial Position",
       desc: "Tracking net asset growth, retained profits, and equity movements from one trading period to the next.",
     },
@@ -48,14 +56,20 @@ export default function FinancialReportingForDecisions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Commercial Intelligence
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Financial Reporting for Better Business Decisions
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Business financial reporting is not only a year-end compliance exercise. Regular financial information can help business owners understand profitability, working capital, debt levels and changes in financial position.
+            Business financial reporting is not only a year-end compliance
+            exercise. Regular financial information can help business owners
+            understand profitability, working capital, debt levels and changes
+            in financial position.
           </p>
         </div>
 
@@ -88,7 +102,12 @@ export default function FinancialReportingForDecisions() {
               Separately Scoped Management Reporting
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Management reporting services can also be scoped separately where a business needs more frequent reports, comparisons against budgets or deeper analysis. This page focuses on preparing the financial statements themselves; ongoing advisory and management accounting work can be agreed according to the level of analysis required.
+              Management reporting services can also be scoped separately where
+              a business needs more frequent reports, comparisons against
+              budgets or deeper analysis. This page focuses on preparing the
+              financial statements themselves; ongoing advisory and management
+              accounting work can be agreed according to the level of analysis
+              required.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -97,7 +116,7 @@ export default function FinancialReportingForDecisions() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Inquire About Management Reports
               </Button>

@@ -23,25 +23,33 @@ import {
 export default function WhatIsCatchUpBookkeeping() {
   const scopeHighlights = [
     {
-      icon: <HistoryOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Systematic Historical Processing",
       description:
         "Importing and entering transactions across missed months rather than rushing through entries without evidentiary backing.",
     },
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Sequential Bank Reconciliation",
       description:
         "Matching statements chronological period by period to eliminate discrepancies and ensure cash ledgers balance to external feeds.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Investigating Gaps & Differences",
       description:
         "Isolating unexplained variances, missing bills, and uncategorized entries so the ledger reflects true commercial activity.",
     },
     {
-      icon: <ClearOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClearOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Catch-Up vs. Clean-Up Clarity",
       description:
         "If transactions are already recorded but contain duplicate lines or coding errors, our Clean-Up service provides diagnostic repairs.",
@@ -53,17 +61,30 @@ export default function WhatIsCatchUpBookkeeping() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Service Definition
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Is Catch Up Bookkeeping?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Catch up bookkeeping is the process of bringing incomplete or overdue business records up to date. It is not simply entering transactions quickly. A proper bookkeeping catch up service works through the available source records, reconciles accounts and investigates differences so the ledger reflects the business as accurately as the available information allows.
+            Catch up bookkeeping is the process of bringing incomplete or
+            overdue business records up to date. It is not simply entering
+            transactions quickly. A proper bookkeeping catch up service works
+            through the available source records, reconciles accounts and
+            investigates differences so the ledger reflects the business as
+            accurately as the available information allows.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            The scope depends on the condition of the books. Some businesses mainly need missing months entered and reconciled. Others need a broader review because transactions have been duplicated, uncategorized or posted to the wrong accounts. If the records are already entered but unreliable, our dedicated Bookkeeping Clean-Up service may be the more appropriate starting point.
+            The scope depends on the condition of the books. Some businesses
+            mainly need missing months entered and reconciled. Others need a
+            broader review because transactions have been duplicated,
+            uncategorized or posted to the wrong accounts. If the records are
+            already entered but unreliable, our dedicated Bookkeeping Clean-Up
+            service may be the more appropriate starting point.
           </p>
         </div>
 
@@ -94,7 +115,9 @@ export default function WhatIsCatchUpBookkeeping() {
           <div className="flex items-start gap-3">
             <ClearOutlined className="text-amber-600 dark:text-amber-400 text-xl shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">
-              Are your transactions already in the software but tangled with suspense errors or bad coding? Explore our dedicated Clean-Up service.
+              Are your transactions already in the software but tangled with
+              suspense errors or bad coding? Explore our dedicated Clean-Up
+              service.
             </p>
           </div>
           <Link href="/services/bookkeeping/bookkeeping-clean-up">
@@ -103,7 +126,7 @@ export default function WhatIsCatchUpBookkeeping() {
               size="middle"
               className="font-bold bg-amber-600 hover:bg-amber-500 border-none shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Bookkeeping Clean-Up
             </Button>

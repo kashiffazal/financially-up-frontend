@@ -31,8 +31,11 @@ export default function PropertyCostsTreatment() {
         "Landlord insurance policies",
         "Eligible wear-and-tear repairs",
       ],
-      icon: <ThunderboltOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      theme: "border-emerald-200/80 dark:border-emerald-800/40 bg-emerald-50/40 dark:bg-emerald-950/20",
+      icon: (
+        <ThunderboltOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      theme:
+        "border-emerald-200/80 dark:border-emerald-800/40 bg-emerald-50/40 dark:bg-emerald-950/20",
     },
     {
       tier: "Tier 2",
@@ -45,8 +48,11 @@ export default function PropertyCostsTreatment() {
         "Capital works (Division 43 - structural building write-off)",
         "Depreciating plant & equipment assets (Division 40)",
       ],
-      icon: <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      theme: "border-blue-200/80 dark:border-blue-800/40 bg-blue-50/40 dark:bg-blue-950/20",
+      icon: (
+        <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      theme:
+        "border-blue-200/80 dark:border-blue-800/40 bg-blue-50/40 dark:bg-blue-950/20",
     },
     {
       tier: "Tier 3",
@@ -60,8 +66,11 @@ export default function PropertyCostsTreatment() {
         "Substantial renovations & structural additions",
         "Cost base reductions for Division 43 claims",
       ],
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      theme: "border-purple-200/80 dark:border-purple-800/40 bg-purple-50/40 dark:bg-purple-950/20",
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      theme:
+        "border-purple-200/80 dark:border-purple-800/40 bg-purple-50/40 dark:bg-purple-950/20",
     },
   ];
 
@@ -70,14 +79,19 @@ export default function PropertyCostsTreatment() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Classification
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Property Costs May Be Treated
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Property-related costs do not all receive the same tax treatment under Australian law. Understanding the 3 treatment categories is essential for correct lodgement.
+            Property-related costs do not all receive the same tax treatment
+            under Australian law. Understanding the 3 treatment categories is
+            essential for correct lodgement.
           </p>
         </div>
 
@@ -136,7 +150,7 @@ export default function PropertyCostsTreatment() {
               size="large"
               className="brand-btn-primary font-bold px-8 h-11 text-sm shadow-md"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Get Your Property Costs Properly Categorised
             </Button>

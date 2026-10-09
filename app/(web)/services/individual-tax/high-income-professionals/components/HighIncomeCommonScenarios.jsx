@@ -24,7 +24,9 @@ export default function HighIncomeCommonScenarios() {
       title: "Executive remuneration and bonuses",
       description:
         "Salary, bonuses, allowances, salary packaging and reportable fringe benefits may appear across different records. We can review how the available information should be reflected in your return.",
-      icon: <TrophyOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <TrophyOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       badge: "Executive Packages",
       link: null,
     },
@@ -32,7 +34,9 @@ export default function HighIncomeCommonScenarios() {
       title: "Employee share schemes",
       description:
         "Employee shares, options and other equity incentives can create income-tax and capital-gains considerations. Treatment depends on the arrangement, relevant dates and documents issued. We can review the information and explain how it may affect your return.",
-      icon: <StockOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <StockOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       badge: "ESS & Equity Plans",
       link: {
         label: "See Employee Share Schemes Service",
@@ -44,7 +48,9 @@ export default function HighIncomeCommonScenarios() {
       description:
         "Shares, managed funds, crypto assets and other investments may generate income or capital gains events. A sale or transfer may require complete transaction and cost records.",
       subText: "See our Capital Gains Tax service.",
-      icon: <LineChartOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <LineChartOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       badge: "CGT & Portfolios",
       link: {
         label: "See Capital Gains Tax Service",
@@ -56,7 +62,9 @@ export default function HighIncomeCommonScenarios() {
       description:
         "Rental income, interest, repairs, depreciation information and capital improvements may require different tax treatment. We can review the relevant records.",
       subText: "See our Investment Property Tax service for detailed support.",
-      icon: <HomeOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <HomeOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       badge: "Property Portfolios",
       link: {
         label: "See Investment Property Tax Service",
@@ -70,14 +78,19 @@ export default function HighIncomeCommonScenarios() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Specialized Practice Scenarios
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common Situations We Can Assist With
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            High income earners frequently hold multi-layered financial portfolios requiring specialist accounting across remuneration, equity, property and capital investments.
+            High income earners frequently hold multi-layered financial
+            portfolios requiring specialist accounting across remuneration,
+            equity, property and capital investments.
           </p>
         </div>
 
@@ -120,7 +133,7 @@ export default function HighIncomeCommonScenarios() {
                       type="link"
                       className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline flex items-center gap-2 group-hover:gap-3 transition-all h-auto text-sm"
                       icon={<ArrowRightOutlined className="text-xs" />}
-                      iconPosition="end"
+                      iconPlacement="end"
                     >
                       {item.link.label}
                     </Button>
@@ -131,7 +144,7 @@ export default function HighIncomeCommonScenarios() {
                       type="link"
                       className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline flex items-center gap-2 group-hover:gap-3 transition-all h-auto text-sm"
                       icon={<ArrowRightOutlined className="text-xs" />}
-                      iconPosition="end"
+                      iconPlacement="end"
                     >
                       Book Remuneration Consultation
                     </Button>

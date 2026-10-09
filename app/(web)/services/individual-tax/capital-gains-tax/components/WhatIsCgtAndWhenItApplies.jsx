@@ -30,14 +30,19 @@ export default function WhatIsCgtAndWhenItApplies() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Framework
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Is Capital Gains Tax and When Does It Apply?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Understanding Australian CGT fundamentals, marginal tax rate application, and the statutory disposal events that trigger capital gain or capital loss calculations.
+            Understanding Australian CGT fundamentals, marginal tax rate
+            application, and the statutory disposal events that trigger capital
+            gain or capital loss calculations.
           </p>
         </div>
 
@@ -62,19 +67,28 @@ export default function WhatIsCgtAndWhenItApplies() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Capital gains tax, usually called CGT, is part of the Australian income tax system. A net capital gain is generally included in your assessable income and taxed at your applicable marginal tax rate. CGT is not a separate flat tax.
+                  Capital gains tax, usually called CGT, is part of the
+                  Australian income tax system. A net capital gain is generally
+                  included in your assessable income and taxed at your
+                  applicable marginal tax rate. CGT is not a separate flat tax.
                 </p>
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700">
                   <span className="font-bold text-slate-900 dark:text-white block mb-1">
                     CGT Events Explained:
                   </span>
-                  A CGT event is an event that can result in a capital gain or capital loss. A common example is disposing of a CGT asset, such as an investment property, shares, units in a managed fund or another investment asset. Not every asset is subject to CGT, and not every disposal results in tax to pay. The rules depend on the asset and your circumstances.
+                  A CGT event is an event that can result in a capital gain or
+                  capital loss. A common example is disposing of a CGT asset,
+                  such as an investment property, shares, units in a managed
+                  fund or another investment asset. Not every asset is subject
+                  to CGT, and not every disposal results in tax to pay. The
+                  rules depend on the asset and your circumstances.
                 </div>
               </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-zinc-700/60 text-2xs text-slate-500 dark:text-zinc-400">
-              Taxed at your individual marginal tax rate (up to 45% + Medicare levy)
+              Taxed at your individual marginal tax rate (up to 45% + Medicare
+              levy)
             </div>
           </div>
 
@@ -96,7 +110,9 @@ export default function WhatIsCgtAndWhenItApplies() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                CGT can apply when you sell, transfer or otherwise dispose of a CGT asset. It may also apply in other circumstances under the CGT rules. Common situations include:
+                CGT can apply when you sell, transfer or otherwise dispose of a
+                CGT asset. It may also apply in other circumstances under the
+                CGT rules. Common situations include:
               </p>
 
               <div className="space-y-2.5 mb-5">
@@ -112,7 +128,10 @@ export default function WhatIsCgtAndWhenItApplies() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Professional CGT assistance may be useful when the ownership or use of an asset has changed, several CGT events need to be considered, records require review, or you need advice about potential CGT considerations before selling an asset.
+                Professional CGT assistance may be useful when the ownership or
+                use of an asset has changed, several CGT events need to be
+                considered, records require review, or you need advice about
+                potential CGT considerations before selling an asset.
               </p>
             </div>
 
@@ -125,7 +144,7 @@ export default function WhatIsCgtAndWhenItApplies() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book CGT Review
                 </Button>

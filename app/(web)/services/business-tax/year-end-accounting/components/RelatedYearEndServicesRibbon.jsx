@@ -26,14 +26,16 @@ export default function RelatedYearEndServicesRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Financial Statements
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Director loan issues:
@@ -42,14 +44,16 @@ export default function RelatedYearEndServicesRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Division 7A
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Corporate tax lodgment:
@@ -58,7 +62,7 @@ export default function RelatedYearEndServicesRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Company Tax Returns
               </Button>

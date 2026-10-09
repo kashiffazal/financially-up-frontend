@@ -28,22 +28,30 @@ export default function WhyChooseFinanciallyUpXero() {
 
   const trustBadges = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       desc: `TPB Registration #${company.taxAgentNumber || "26234055"} with formal regulatory standing.`,
     },
     {
-      icon: <TrophyOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TrophyOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Members",
       desc: "Qualified accounting professionals adhering to high technical and ethical standards.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "10+ Years Experience",
       desc: "Proven track record advising Australian companies, trusts, and sole traders.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Service",
       desc: "Appointments available online via video meetings, with in-person options available.",
     },
@@ -54,14 +62,21 @@ export default function WhyChooseFinanciallyUpXero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Credentials &amp; Reputation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why choose Financially Up?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up Pty Ltd"} provides accounting, tax, bookkeeping and business advisory services Australia-wide. We are a registered tax agent with more than 10 years of experience, and our professional team includes CPA and IPA members. Appointments are available online and in person.
+            {company.legalName || "Financially Up Pty Ltd"} provides accounting,
+            tax, bookkeeping and business advisory services Australia-wide. We
+            are a registered tax agent with more than 10 years of experience,
+            and our professional team includes CPA and IPA members. Appointments
+            are available online and in person.
           </p>
         </div>
 
@@ -124,7 +139,7 @@ export default function WhyChooseFinanciallyUpXero() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold bg-emerald-500 hover:bg-emerald-400 border-none shrink-0"
             >
               Book an Appointment

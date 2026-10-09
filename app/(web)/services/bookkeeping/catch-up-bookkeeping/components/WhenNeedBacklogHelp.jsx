@@ -25,38 +25,59 @@ import {
 export default function WhenNeedBacklogHelp() {
   const triggerScenarios = [
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Several weeks or months of bank and credit-card transactions have not been reconciled.",
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Several weeks or months of bank and credit-card transactions have not been reconciled.",
       desc: "Electronic bank lines have accumulated without ledger verification, creating uncertainty around true cash position.",
     },
     {
-      icon: <FolderOpenOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Supplier bills, receipts or customer payments are sitting outside the accounting system.",
+      icon: (
+        <FolderOpenOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "Supplier bills, receipts or customer payments are sitting outside the accounting system.",
       desc: "Physical receipts or inbox attachments remain unentered, leading to incomplete accounts payable and debtor figures.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "The business has changed bookkeepers, accountants or accounting software.",
+      icon: (
+        <SwapOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "The business has changed bookkeepers, accountants or accounting software.",
       desc: "Handover gaps, disrupted software migrations, or staff departures have left transactions unattended across months.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Management reports cannot be relied on because recent transactions are missing.",
+      icon: (
+        <LineChartOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "Management reports cannot be relied on because recent transactions are missing.",
       desc: "Profit and loss figures are incomplete, preventing confident cash budgeting or commercial decision-making.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      title: "A BAS, tax return, finance application or year-end process requires more complete records.",
+      icon: (
+        <FileDoneOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      title:
+        "A BAS, tax return, finance application or year-end process requires more complete records.",
       desc: "Approaching statutory ATO lodgement deadlines or bank finance applications demand fully balanced, verified accounts.",
     },
     {
-      icon: <DesktopOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "The owner has been maintaining records manually and now needs a structured accounting file.",
+      icon: (
+        <DesktopOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "The owner has been maintaining records manually and now needs a structured accounting file.",
       desc: "Transitioning out of makeshift spreadsheets into professional cloud accounting software like Xero or MYOB.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "The business has a bookkeeping backlog after a busy trading period, staffing change or growth phase.",
+      icon: (
+        <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "The business has a bookkeeping backlog after a busy trading period, staffing change or growth phase.",
       desc: "Operational demand outpaced administrative time during seasonal spikes or rapid corporate expansion.",
     },
   ];
@@ -66,14 +87,18 @@ export default function WhenNeedBacklogHelp() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Backlog Triggers &amp; Scenarios
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             When Might a Business Need Bookkeeping Backlog Help?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Businesses usually seek backlog support when the books have stopped keeping pace with day-to-day activity.
+            Businesses usually seek backlog support when the books have stopped
+            keeping pace with day-to-day activity.
           </p>
         </div>
 
@@ -117,7 +142,9 @@ export default function WhenNeedBacklogHelp() {
                 Clear Your Backlog
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100 dark:text-emerald-200 leading-relaxed font-normal">
-                Don&apos;t let overdue books become an ATO crisis. We systematically organize your historical records period by period.
+                Don&apos;t let overdue books become an ATO crisis. We
+                systematically organize your historical records period by
+                period.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/20">
@@ -126,7 +153,7 @@ export default function WhenNeedBacklogHelp() {
                   type="primary"
                   className="w-full bg-white text-emerald-800 hover:bg-emerald-50 border-none font-bold"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book an Appointment
                 </Button>
@@ -139,7 +166,12 @@ export default function WhenNeedBacklogHelp() {
         <div className="p-6 sm:p-7 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/50 flex items-start gap-3 sm:gap-4">
           <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 leading-relaxed font-medium">
-            <strong>Evidence-Based Remediation:</strong> An overdue bookkeeping service should focus first on establishing what is missing and what can be supported by evidence. Financially Up does not encourage estimates where records should be available; gaps are identified so the client can provide further documentation or decide how they should be handled.
+            <strong>Evidence-Based Remediation:</strong> An overdue bookkeeping
+            service should focus first on establishing what is missing and what
+            can be supported by evidence. Financially Up does not encourage
+            estimates where records should be available; gaps are identified so
+            the client can provide further documentation or decide how they
+            should be handled.
           </p>
         </div>
       </div>

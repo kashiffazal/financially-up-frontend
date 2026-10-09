@@ -22,19 +22,25 @@ import {
 export default function BeneficiaryReportingAndTFN() {
   const reportingPillars = [
     {
-      icon: <FileSyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileSyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Individual Return Alignment",
       detail:
         "Trust distributions create reporting obligations for beneficiaries as well as the trust. Beneficiaries require comprehensive distribution statements detailing primary income, capital gains, and franking credits to complete their personal returns accurately.",
     },
     {
-      icon: <IdcardOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <IdcardOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Closely Held Trust TFN Rules",
       detail:
         "Closely held trusts may have beneficiary TFN reporting and withholding obligations. Trustees may need to report a beneficiary’s quoted TFN to the ATO and withhold tax at top marginal rates from certain distributions where a TFN is not provided.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Data Consistency & Reconciliation",
       detail:
         "Because trust and beneficiary reporting must align perfectly, distribution information used in the trust return must be complete and consistent with individual statements to prevent ATO matching discrepancies.",
@@ -46,14 +52,20 @@ export default function BeneficiaryReportingAndTFN() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             ATO Reporting & Withholding
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Beneficiary Reporting and TFN Considerations
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Trust distributions can create reporting obligations for beneficiaries as well as the trust. Beneficiaries generally need the relevant trust distribution information to complete their own tax returns.
+            Trust distributions can create reporting obligations for
+            beneficiaries as well as the trust. Beneficiaries generally need the
+            relevant trust distribution information to complete their own tax
+            returns.
           </p>
         </div>
 
@@ -71,7 +83,11 @@ export default function BeneficiaryReportingAndTFN() {
                     Closely Held Trust TFN Withholding
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                    Closely held trusts may have beneficiary TFN reporting and withholding obligations. Subject to the applicable rules and exclusions, the trustee may need to report a beneficiary’s quoted TFN to the ATO and withhold from certain distributions where the beneficiary has not quoted a TFN.
+                    Closely held trusts may have beneficiary TFN reporting and
+                    withholding obligations. Subject to the applicable rules and
+                    exclusions, the trustee may need to report a beneficiary’s
+                    quoted TFN to the ATO and withhold from certain
+                    distributions where the beneficiary has not quoted a TFN.
                   </p>
                 </div>
               </div>
@@ -87,7 +103,10 @@ export default function BeneficiaryReportingAndTFN() {
                     Consistency in Lodgment Statements
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                    Because the trust and beneficiary reporting need to align, it is important that the distribution information used in the trust return is complete and consistent with the statements provided to beneficiaries.
+                    Because the trust and beneficiary reporting need to align,
+                    it is important that the distribution information used in
+                    the trust return is complete and consistent with the
+                    statements provided to beneficiaries.
                   </p>
                 </div>
               </div>
@@ -99,7 +118,7 @@ export default function BeneficiaryReportingAndTFN() {
                   type="default"
                   className="brand-btn-outline inline-flex items-center gap-2 text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Beneficiary Individual Tax Returns
                 </Button>

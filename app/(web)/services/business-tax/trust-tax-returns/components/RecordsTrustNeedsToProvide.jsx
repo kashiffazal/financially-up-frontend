@@ -25,7 +25,9 @@ export default function RecordsTrustNeedsToProvide() {
   const recordCategories = [
     {
       category: "Bookkeeping & Bank Accounts",
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       items: [
         "Bookkeeping reports (Trial Balance, P&L, Balance Sheet)",
         "Bank statements for all trust accounts and end-of-year reconciliations",
@@ -34,7 +36,9 @@ export default function RecordsTrustNeedsToProvide() {
     },
     {
       category: "Investments & Property Assets",
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       items: [
         "Investment portfolios, dividend statements & annual tax statements",
         "Property rental schedules, agent summary reports & outgoings",
@@ -43,7 +47,9 @@ export default function RecordsTrustNeedsToProvide() {
     },
     {
       category: "Trust Deed & Governance",
-      icon: <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       items: [
         "Original trust deed and any subsequent deeds of variation or amendment",
         "Trustee distribution minutes and written resolutions executed by 30 June",
@@ -52,7 +58,9 @@ export default function RecordsTrustNeedsToProvide() {
     },
     {
       category: "Beneficiaries & Loans / UPEs",
-      icon: <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       items: [
         "Beneficiary details (full names, TFNs, addresses, relationship to family group)",
         "Prior-year financial statements and trust tax returns",
@@ -66,14 +74,22 @@ export default function RecordsTrustNeedsToProvide() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Records We May Need
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Useful records can include bookkeeping reports, bank statements and reconciliations, investment and property statements, the trust deed and relevant amendments, prior-year financial statements and tax returns, beneficiary details, distribution resolutions, asset purchase or disposal records, and details of loans or unpaid beneficiary entitlements.
+            Useful records can include bookkeeping reports, bank statements and
+            reconciliations, investment and property statements, the trust deed
+            and relevant amendments, prior-year financial statements and tax
+            returns, beneficiary details, distribution resolutions, asset
+            purchase or disposal records, and details of loans or unpaid
+            beneficiary entitlements.
           </p>
         </div>
 
@@ -94,7 +110,10 @@ export default function RecordsTrustNeedsToProvide() {
               </div>
               <ul className="space-y-2.5">
                 {cat.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+                  <li
+                    key={itemIdx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -112,7 +131,11 @@ export default function RecordsTrustNeedsToProvide() {
               Operating a Business or Corporate Trustee Structure?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Where the trust also runs a business, our Business Tax &amp; Accounting service can cover the broader accounting and tax work. If the business is operated through a company as well, the company generally has its own separate obligations; see our Company Tax Returns service.
+              Where the trust also runs a business, our Business Tax &amp;
+              Accounting service can cover the broader accounting and tax work.
+              If the business is operated through a company as well, the company
+              generally has its own separate obligations; see our Company Tax
+              Returns service.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0 w-full md:w-auto">
@@ -129,7 +152,7 @@ export default function RecordsTrustNeedsToProvide() {
                 type="primary"
                 className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Company Tax Returns
               </Button>

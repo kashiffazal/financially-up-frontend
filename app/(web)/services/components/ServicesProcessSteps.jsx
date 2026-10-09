@@ -21,7 +21,9 @@ const PROCESS_STEPS = [
     subtitle: "Online Booking or Phone Call",
     description:
       "Choose the service you need and book a discovery consult online or by phone. We discuss your circumstances and provide transparent, fixed-fee terms before any work begins.",
-    icon: <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+    icon: (
+      <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+    ),
   },
   {
     step: "02",
@@ -29,7 +31,9 @@ const PROCESS_STEPS = [
     subtitle: "Encrypted Digital Portal",
     description:
       "Share your income statements, records, cloud accounting access, or ATO notices directly through our bank-grade portal without cumbersome paper handling.",
-    icon: <CloudUploadOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+    icon: (
+      <CloudUploadOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+    ),
   },
   {
     step: "03",
@@ -37,7 +41,9 @@ const PROCESS_STEPS = [
     subtitle: "CPA-Led Preparation",
     description:
       "Our registered tax agents meticulously review your documents, calculate deductions, test compliance against current ATO/ASIC rulings, and draft your returns.",
-    icon: <AuditOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />,
+    icon: (
+      <AuditOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />
+    ),
   },
   {
     step: "04",
@@ -45,7 +51,9 @@ const PROCESS_STEPS = [
     subtitle: "Instant Digital Submission",
     description:
       "Review the finalized figures, approve with one-click digital signing from your phone or computer, and we lodge directly with the ATO or ASIC.",
-    icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+    icon: (
+      <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+    ),
   },
 ];
 
@@ -61,15 +69,19 @@ export default function ServicesProcessSteps() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             How We Work
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             A Seamless 4-Step Engagement Process
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Experience stress-free accounting and taxation. We have streamlined every stage
-            from onboarding to lodgement for maximum speed, accuracy, and convenience.
+            Experience stress-free accounting and taxation. We have streamlined
+            every stage from onboarding to lodgement for maximum speed,
+            accuracy, and convenience.
           </p>
         </div>
 
@@ -120,7 +132,7 @@ export default function ServicesProcessSteps() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-semibold text-sm h-12 px-6 shadow-md shadow-brand-primary/20 hover:scale-[1.02] transition-transform"
             >
               Start Your Engagement Today

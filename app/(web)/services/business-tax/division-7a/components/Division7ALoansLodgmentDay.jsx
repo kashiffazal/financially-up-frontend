@@ -21,12 +21,16 @@ import {
 export default function Division7ALoansLodgmentDay() {
   const compliancePathways = [
     {
-      icon: <CheckCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Pathway 1: Full Repayment Before Lodgment Day",
       desc: "Fully repaying the loan principal and interest before the company's lodgment day for the relevant income year, ensuring genuine bona fide settlement.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Pathway 2: Written Complying Loan Agreement",
       desc: "Placing the loan under a formal written loan agreement complying with statutory terms (e.g., maximum 7 years for unsecured loans or 25 years for secured loans) before the relevant lodgment day.",
     },
@@ -37,14 +41,20 @@ export default function Division7ALoansLodgmentDay() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Critical Timeline &amp; Agreements
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Division 7A Loans and the Company Lodgment Day
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A private-company loan to a shareholder or associate may be treated as a dividend if it is not fully repaid before the company&apos;s lodgment day for the relevant year and no applicable exclusion applies.
+            A private-company loan to a shareholder or associate may be treated
+            as a dividend if it is not fully repaid before the company&apos;s
+            lodgment day for the relevant year and no applicable exclusion
+            applies.
           </p>
         </div>
 
@@ -58,7 +68,9 @@ export default function Division7ALoansLodgmentDay() {
               Definition of Company Lodgment Day
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The ATO defines the lodgment day as the earlier of the due date for lodgment or the date the company actually lodges its income tax return.
+              The ATO defines the lodgment day as the earlier of the due date
+              for lodgment or the date the company actually lodges its income
+              tax return.
             </p>
           </div>
         </div>
@@ -93,7 +105,14 @@ export default function Division7ALoansLodgmentDay() {
               ATO Benchmark Interest Rates &amp; Minimum Yearly Repayments
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              One common way a qualifying loan may avoid immediate deemed-dividend treatment is for it to be placed under a written complying loan agreement before the relevant lodgment day, with the Division 7A requirements then met. These arrangements generally involve the ATO benchmark interest rate and minimum yearly repayments. The benchmark rate can change by income year, so repayment calculations should use the rate and rules applying to the relevant period rather than a historical figure.
+              One common way a qualifying loan may avoid immediate
+              deemed-dividend treatment is for it to be placed under a written
+              complying loan agreement before the relevant lodgment day, with
+              the Division 7A requirements then met. These arrangements
+              generally involve the ATO benchmark interest rate and minimum
+              yearly repayments. The benchmark rate can change by income year,
+              so repayment calculations should use the rate and rules applying
+              to the relevant period rather than a historical figure.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -102,7 +121,7 @@ export default function Division7ALoansLodgmentDay() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Set Up Loan Agreement
               </Button>

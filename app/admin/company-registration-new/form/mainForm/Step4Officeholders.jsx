@@ -349,7 +349,7 @@ export default function Step4Officeholders({
               />
 
               <AntInput
-                type="text"
+                type="mobile"
                 name={`officer_${idx}_mobile`}
                 label={
                   <span className="font-bold text-slate-800 dark:text-zinc-200">

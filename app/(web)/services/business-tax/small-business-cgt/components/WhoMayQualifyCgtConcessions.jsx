@@ -26,25 +26,33 @@ import {
 export default function WhoMayQualifyCgtConcessions() {
   const pathways = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "$2 Million Aggregated Turnover Pathway",
       desc: "Satisfying the small business entity pathway where the entity carries on a business and its aggregated turnover (including connected entities and affiliates) is under $2 million.",
       badge: "Turnover Pathway",
     },
     {
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "$6 Million Maximum Net Asset Value Test",
       desc: "Satisfying the maximum net asset value test where total net market value of CGT assets owned by the entity, affiliates, and connected entities does not exceed $6 million immediately before the CGT event.",
       badge: "Net Assets Pathway",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Connected Entities & Affiliates Rules",
       desc: "Specific tax aggregation rules require combining the turnover and net assets of entities you control (40%+ test) or affiliates that act in accordance with your directions.",
       badge: "Aggregation Rules",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Shares & Trust Interests (Stakeholders)",
       desc: "Additional conditions apply where selling shares or units, requiring significant individuals (20%+ small business participation percentage) and CGT concession stakeholders.",
       badge: "Equity & Trusts",
@@ -56,14 +64,24 @@ export default function WhoMayQualifyCgtConcessions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Basic Eligibility Thresholds
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who may qualify?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Eligibility starts with the basic conditions. Depending on the circumstances, access may involve satisfying the small business entity pathway based on aggregated turnover or the maximum net asset value test, as well as the active asset test. Current law generally uses a $2 million aggregated-turnover threshold for the relevant small business CGT test and a $6 million maximum net asset value threshold, but the calculations include specific rules for connected entities and affiliates.
+            Eligibility starts with the basic conditions. Depending on the
+            circumstances, access may involve satisfying the small business
+            entity pathway based on aggregated turnover or the maximum net asset
+            value test, as well as the active asset test. Current law generally
+            uses a $2 million aggregated-turnover threshold for the relevant
+            small business CGT test and a $6 million maximum net asset value
+            threshold, but the calculations include specific rules for connected
+            entities and affiliates.
           </p>
         </div>
 
@@ -102,7 +120,11 @@ export default function WhoMayQualifyCgtConcessions() {
               Ownership Chain and Related Entity Assessment
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Additional conditions can apply where the CGT asset is a share or trust interest, or where the concession is being claimed by a company or trust. A small business CGT advice accountant should therefore review the ownership chain and related entities rather than looking only at the selling entity.
+              Additional conditions can apply where the CGT asset is a share or
+              trust interest, or where the concession is being claimed by a
+              company or trust. A small business CGT advice accountant should
+              therefore review the ownership chain and related entities rather
+              than looking only at the selling entity.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -111,7 +133,7 @@ export default function WhoMayQualifyCgtConcessions() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Assess Basic Conditions
               </Button>

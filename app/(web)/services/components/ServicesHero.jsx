@@ -24,27 +24,39 @@ import { useCompany } from "@/context/SettingsContext";
  * Uses daylight architectural backdrop in Light mode and deep luxury emerald evening in Dark mode.
  * Always utilizes Ant Design Button components for interactive actions.
  */
-export default function ServicesHero({ searchQuery, setSearchQuery, onSearchSubmit }) {
+export default function ServicesHero({
+  searchQuery,
+  setSearchQuery,
+  onSearchSubmit,
+}) {
   const company = useCompany();
 
   const trustMetrics = [
     {
-      icon: <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-300 text-lg sm:text-xl" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-300 text-lg sm:text-xl" />
+      ),
       label: "15 Practice Pillars",
       subtext: "Complete end-to-end scope",
     },
     {
-      icon: <CheckCircleOutlined className="text-teal-600 dark:text-teal-300 text-lg sm:text-xl" />,
+      icon: (
+        <CheckCircleOutlined className="text-teal-600 dark:text-teal-300 text-lg sm:text-xl" />
+      ),
       label: "100% ATO Compliant",
       subtext: "Registered Tax Agents",
     },
     {
-      icon: <GlobalOutlined className="text-cyan-600 dark:text-cyan-300 text-lg sm:text-xl" />,
+      icon: (
+        <GlobalOutlined className="text-cyan-600 dark:text-cyan-300 text-lg sm:text-xl" />
+      ),
       label: "Australia-Wide",
       subtext: "100% Online & In-Person",
     },
     {
-      icon: <DollarCircleOutlined className="text-amber-600 dark:text-amber-300 text-lg sm:text-xl" />,
+      icon: (
+        <DollarCircleOutlined className="text-amber-600 dark:text-amber-300 text-lg sm:text-xl" />
+      ),
       label: "Fixed-Fee Clarity",
       subtext: "No hidden hourly charges",
     },
@@ -90,18 +102,25 @@ export default function ServicesHero({ searchQuery, setSearchQuery, onSearchSubm
           aria-label="Breadcrumb"
           className="flex items-center justify-center flex-wrap gap-2 text-xs font-semibold text-slate-600 dark:text-emerald-200/90 mb-6"
         >
-          <Link href="/" className="hover:text-emerald-700 dark:hover:text-white transition-colors">
+          <Link
+            href="/"
+            className="hover:text-emerald-700 dark:hover:text-white transition-colors"
+          >
             Home
           </Link>
           <RightOutlined className="text-[10px] text-slate-400 dark:text-emerald-400" />
-          <span className="text-slate-900 dark:text-white font-bold">Services</span>
+          <span className="text-slate-900 dark:text-white font-bold">
+            Services
+          </span>
         </nav>
 
         {/* Credential Badge */}
         <div className="flex justify-center mb-5">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-white/10 backdrop-blur-md border border-emerald-300/80 dark:border-emerald-400/30 text-emerald-800 dark:text-white text-xs font-bold uppercase tracking-wider shadow-xs">
             <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-300 text-sm" />
-            <span>ATO Registered Tax Agents • ASIC Registered Agents • CPA Team</span>
+            <span>
+              ATO Registered Tax Agents • ASIC Registered Agents • CPA Team
+            </span>
           </div>
         </div>
 
@@ -115,9 +134,10 @@ export default function ServicesHero({ searchQuery, setSearchQuery, onSearchSubm
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-emerald-100/90 max-w-3xl mx-auto font-normal leading-relaxed">
-            From individual tax returns and property investments to complex corporate structures,
-            trust management, and Virtual CFO leadership — explore our complete suite of 15 registered
-            practice pillars designed for Australians nationwide.
+            From individual tax returns and property investments to complex
+            corporate structures, trust management, and Virtual CFO leadership —
+            explore our complete suite of 15 registered practice pillars
+            designed for Australians nationwide.
           </p>
         </div>
 
@@ -154,7 +174,7 @@ export default function ServicesHero({ searchQuery, setSearchQuery, onSearchSubm
               type="primary"
               htmlType="submit"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="hidden sm:inline-flex rounded-xl font-semibold text-xs sm:text-sm h-10 px-5 shrink-0"
             >
               Explore
@@ -169,7 +189,7 @@ export default function ServicesHero({ searchQuery, setSearchQuery, onSearchSubm
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-semibold h-12 px-6 shadow-md shadow-brand-primary/25 hover:scale-[1.02] transition-transform"
             >
               Book an Appointment
@@ -180,7 +200,9 @@ export default function ServicesHero({ searchQuery, setSearchQuery, onSearchSubm
             <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
               <Button
                 size="large"
-                icon={<PhoneOutlined className="text-brand-primary dark:text-emerald-300" />}
+                icon={
+                  <PhoneOutlined className="text-brand-primary dark:text-emerald-300" />
+                }
                 className="rounded-xl font-semibold h-12 px-6 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/15 border-slate-200 dark:border-white/20 text-slate-800 dark:text-white shadow-xs"
               >
                 Call {company.phone}

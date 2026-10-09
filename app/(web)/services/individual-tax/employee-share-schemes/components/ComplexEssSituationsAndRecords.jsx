@@ -46,14 +46,18 @@ export default function ComplexEssSituationsAndRecords() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Complexity &amp; Substantiation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Complex ESS Matters and Records to Keep
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Managing corporate actions, unlisted startup valuations, foreign equity plans, and essential record retention standards.
+            Managing corporate actions, unlisted startup valuations, foreign
+            equity plans, and essential record retention standards.
           </p>
         </div>
 
@@ -95,7 +99,11 @@ export default function ComplexEssSituationsAndRecords() {
                 <span className="font-bold block mb-1">
                   Forfeited Interests &amp; Lapsed Rights:
                 </span>
-                If an ESS interest is forfeited or a right lapses, the outcome depends on why it was lost, whether the loss was connected with the scheme conditions and whether an ESS amount was previously included. An amendment may be available in some circumstances, but this should not be assumed without reviewing the facts.
+                If an ESS interest is forfeited or a right lapses, the outcome
+                depends on why it was lost, whether the loss was connected with
+                the scheme conditions and whether an ESS amount was previously
+                included. An amendment may be available in some circumstances,
+                but this should not be assumed without reviewing the facts.
               </div>
             </div>
 
@@ -142,7 +150,10 @@ export default function ComplexEssSituationsAndRecords() {
                   <HistoryOutlined />
                   <span>Statutory Record Retention Period:</span>
                 </div>
-                Keep records supporting the tax return for the required retention period. CGT records may need to be kept until at least five years after the relevant disposal, particularly where they establish acquisition dates and cost bases.
+                Keep records supporting the tax return for the required
+                retention period. CGT records may need to be kept until at least
+                five years after the relevant disposal, particularly where they
+                establish acquisition dates and cost bases.
               </div>
             </div>
 
@@ -155,7 +166,7 @@ export default function ComplexEssSituationsAndRecords() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Record Review
                 </Button>

@@ -24,14 +24,20 @@ export default function ForeignTaxPaidAndFito() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Double Tax Relief
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What If You Paid Tax Overseas?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Paying tax overseas does not automatically remove the Australian reporting obligation. If foreign income tax has been paid on an amount included in Australian assessable income, you may be eligible for a foreign income tax offset (FITO).
+            Paying tax overseas does not automatically remove the Australian
+            reporting obligation. If foreign income tax has been paid on an
+            amount included in Australian assessable income, you may be eligible
+            for a foreign income tax offset (FITO).
           </p>
         </div>
 
@@ -56,21 +62,27 @@ export default function ForeignTaxPaidAndFito() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  The offset is subject to eligibility requirements and a limit. It is not necessarily equal to all foreign tax paid, is generally non-refundable and unused amounts generally cannot be carried forward.
+                  The offset is subject to eligibility requirements and a limit.
+                  It is not necessarily equal to all foreign tax paid, is
+                  generally non-refundable and unused amounts generally cannot
+                  be carried forward.
                 </p>
                 <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     The $1,000 Cap Rule:
                   </span>
                   <p>
-                    Where the total foreign tax claimed exceeds $1,000, the FITO limit generally needs to be calculated. Keep foreign assessments, withholding statements and payment evidence.
+                    Where the total foreign tax claimed exceeds $1,000, the FITO
+                    limit generally needs to be calculated. Keep foreign
+                    assessments, withholding statements and payment evidence.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800 text-2xs text-slate-400 dark:text-zinc-500">
-              Non-refundable tax offset applied against Australian income tax payable
+              Non-refundable tax offset applied against Australian income tax
+              payable
             </div>
           </div>
 
@@ -93,13 +105,20 @@ export default function ForeignTaxPaidAndFito() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Tax treaties can allocate taxing rights, limit some withholding rates or provide mechanisms for double-tax relief. They do not automatically make foreign income exempt in Australia.
+                  Tax treaties can allocate taxing rights, limit some
+                  withholding rates or provide mechanisms for double-tax relief.
+                  They do not automatically make foreign income exempt in
+                  Australia.
                 </p>
                 <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                   <span className="font-bold block mb-1">
                     Treaty Determination:
                   </span>
-                  Treaty treatment depends on the country, income type, residency position and wording of the agreement. Australia maintains treaties with over 40 jurisdictions (including the US, UK, New Zealand, Canada, Singapore, China, and EU nations).
+                  Treaty treatment depends on the country, income type,
+                  residency position and wording of the agreement. Australia
+                  maintains treaties with over 40 jurisdictions (including the
+                  US, UK, New Zealand, Canada, Singapore, China, and EU
+                  nations).
                 </div>
               </div>
             </div>
@@ -113,7 +132,7 @@ export default function ForeignTaxPaidAndFito() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Review Overseas Tax Offset
                 </Button>

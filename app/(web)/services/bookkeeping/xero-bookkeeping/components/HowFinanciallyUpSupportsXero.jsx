@@ -24,38 +24,54 @@ import {
 export default function HowFinanciallyUpSupportsXero() {
   const serviceActions = [
     {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Review the current Xero bookkeeping process",
       desc: "Detailed diagnostic of how transactions are entered, rules are applied, and bank feeds are managed.",
     },
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Reconcile bank and credit-card accounts",
       desc: "Rigorous alignment between external financial institution feeds and internal ledger balances.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Code and review transactions within the agreed scope",
       desc: "Accurate allocation across chart of accounts with verified Australian GST treatment.",
     },
     {
-      icon: <QuestionCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Identify bookkeeping items requiring clarification",
       desc: "Proactive communication regarding unexplained debits, missing receipts, and non-routine transfers.",
     },
     {
-      icon: <ClearOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ClearOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Clean up incomplete or inconsistent records",
       desc: "Resolving duplicate entries, historical discrepancies, and out-of-balance suspense accounts.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Prepare bookkeeping records for separately scoped BAS, tax or accounting work",
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "Prepare bookkeeping records for separately scoped BAS, tax or accounting work",
       desc: "Delivering reconciled underlying records ready for seamless activity statement and tax compliance.",
     },
     {
-      icon: <InteractionOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Establish a practical process for receiving documents and resolving queries",
+      icon: (
+        <InteractionOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Establish a practical process for receiving documents and resolving queries",
       desc: "Designing simple, recurring workflows for digital receipt submission and query resolution.",
     },
   ];
@@ -65,14 +81,18 @@ export default function HowFinanciallyUpSupportsXero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Our Service Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up can help with Xero bookkeeping
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            We work collaboratively with your team to maintain clean, accurate, and audit-ready records within Xero.
+            We work collaboratively with your team to maintain clean, accurate,
+            and audit-ready records within Xero.
           </p>
         </div>
 
@@ -114,7 +134,9 @@ export default function HowFinanciallyUpSupportsXero() {
                 Customised to Your Business
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100 dark:text-emerald-200 leading-relaxed font-normal">
-                Whether you need weekly reconciliation, monthly closes, or ad hoc clean-up, we structure an engagement that fits your exact workflow.
+                Whether you need weekly reconciliation, monthly closes, or ad
+                hoc clean-up, we structure an engagement that fits your exact
+                workflow.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/20">
@@ -123,7 +145,7 @@ export default function HowFinanciallyUpSupportsXero() {
                   type="primary"
                   className="w-full bg-white text-emerald-800 hover:bg-emerald-50 border-none font-bold"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book an Appointment
                 </Button>
@@ -136,7 +158,11 @@ export default function HowFinanciallyUpSupportsXero() {
         <div className="p-6 sm:p-7 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3 sm:gap-4">
           <InfoCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            <strong>Important Engagement Scope:</strong> The exact work depends on your file and service agreement. Tax advice, BAS preparation and lodgement, financial product advice and legal advice are not automatically included in a bookkeeping engagement and should be scoped separately where required.
+            <strong>Important Engagement Scope:</strong> The exact work depends
+            on your file and service agreement. Tax advice, BAS preparation and
+            lodgement, financial product advice and legal advice are not
+            automatically included in a bookkeeping engagement and should be
+            scoped separately where required.
           </p>
         </div>
       </div>

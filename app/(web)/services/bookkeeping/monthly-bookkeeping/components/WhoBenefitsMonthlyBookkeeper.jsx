@@ -23,33 +23,49 @@ import {
 export default function WhoBenefitsMonthlyBookkeeper() {
   const targetProfiles = [
     {
-      icon: <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Small businesses with recurring sales and expenses",
       desc: "Maintain regular oversight over consistent trading activity, subscription income, rent, and overhead outlays without transaction pile-ups.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Businesses registered for GST that need current underlying records",
+      icon: (
+        <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "Businesses registered for GST that need current underlying records",
       desc: "Stay fully prepared for quarterly Business Activity Statements with up-to-date sales, purchases, and verifiable input tax credits.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Owners who want to stop doing bookkeeping in evenings or at the end of each quarter",
+      icon: (
+        <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "Owners who want to stop doing bookkeeping in evenings or at the end of each quarter",
       desc: "Reclaim personal weekends and evenings by handing over administrative ledger maintenance to professional bookkeepers.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Businesses that need cleaner records for management or accounting discussions",
+      icon: (
+        <LineChartOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "Businesses that need cleaner records for management or accounting discussions",
       desc: "Walk into strategic planning meetings, loan reviews, or advisor conversations with accurate profit-and-loss and balance-sheet figures.",
     },
     {
-      icon: <BankOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Businesses with multiple bank or credit-card accounts",
       desc: "Ensure seamless synchronization across operating accounts, merchant settlement gateways, savings buffers, and corporate cards.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Growing businesses whose transaction volume has outgrown ad hoc bookkeeping",
+      icon: (
+        <RiseOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "Growing businesses whose transaction volume has outgrown ad hoc bookkeeping",
       desc: "Transition smoothly from makeshift spreadsheets or sporadic data entry to an institutional-grade, repeatable financial workflow.",
     },
   ];
@@ -59,14 +75,20 @@ export default function WhoBenefitsMonthlyBookkeeper() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Profile &amp; Fit
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who benefits from a monthly bookkeeper?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A monthly bookkeeper can be useful for owners who have steady transaction activity but do not require a full in-house bookkeeping function. It can also suit businesses that currently complete records irregularly and want a repeatable process.
+            A monthly bookkeeper can be useful for owners who have steady
+            transaction activity but do not require a full in-house bookkeeping
+            function. It can also suit businesses that currently complete
+            records irregularly and want a repeatable process.
           </p>
         </div>
 
@@ -104,14 +126,15 @@ export default function WhoBenefitsMonthlyBookkeeper() {
         {/* CTA Strip */}
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-sm text-slate-600 dark:text-zinc-300 mb-4 font-normal">
-            Ready to replace ad hoc stress with a predictable, stress-free monthly bookkeeping routine?
+            Ready to replace ad hoc stress with a predictable, stress-free
+            monthly bookkeeping routine?
           </p>
           <Link href="/book-an-appointment">
             <Button
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold"
             >
               Book an Appointment

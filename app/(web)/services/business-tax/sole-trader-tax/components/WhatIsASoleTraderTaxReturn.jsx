@@ -21,17 +21,23 @@ import {
 export default function WhatIsASoleTraderTaxReturn() {
   const corePrinciples = [
     {
-      icon: <UserOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Individual Carrying on a Business",
       desc: "A sole trader is an individual carrying on a business. Business income and deductible business expenses are generally reported in the business section of the individual’s tax return. There is no separate income tax return for the sole trader business itself.",
     },
     {
-      icon: <SplitCellsOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SplitCellsOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Separating Business From Private",
       desc: "A sole trader tax accountant can help separate business items from private spending and identify records needed to support the figures reported, including business-use percentages and substantiation.",
     },
     {
-      icon: <ExclamationCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ExclamationCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Business Loss Rules & Deferrals",
       desc: "If the business makes a loss, whether it can be offset in the current year or must be deferred depends on the applicable loss rules (such as non-commercial loss provisions) and the taxpayer’s circumstances.",
     },
@@ -51,14 +57,20 @@ export default function WhatIsASoleTraderTaxReturn() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Structure &amp; Lodgment
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Does a Sole Trader Tax Return Work?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A sole trader is an individual carrying on a business. Business income and deductible business expenses are generally reported in the business section of the individual’s tax return. There is no separate income tax return for the sole trader business itself.
+            A sole trader is an individual carrying on a business. Business
+            income and deductible business expenses are generally reported in
+            the business section of the individual’s tax return. There is no
+            separate income tax return for the sole trader business itself.
           </p>
         </div>
 
@@ -72,11 +84,18 @@ export default function WhatIsASoleTraderTaxReturn() {
                 Business Section of Your Individual Return
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                The return may need to deal with sales or service income, business deductions, depreciation, business-use percentages, trading stock, losses and other items depending on the nature of the activity.
+                The return may need to deal with sales or service income,
+                business deductions, depreciation, business-use percentages,
+                trading stock, losses and other items depending on the nature of
+                the activity.
               </p>
               <div className="h-px bg-slate-200 dark:bg-zinc-700 my-2" />
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A sole trader tax accountant can help separate business items from private spending and identify records needed to support the figures reported. If the business makes a loss, whether it can be offset in the current year or must be deferred depends on the applicable loss rules and the taxpayer’s circumstances.
+                A sole trader tax accountant can help separate business items
+                from private spending and identify records needed to support the
+                figures reported. If the business makes a loss, whether it can
+                be offset in the current year or must be deferred depends on the
+                applicable loss rules and the taxpayer’s circumstances.
               </p>
             </div>
 
@@ -86,7 +105,7 @@ export default function WhatIsASoleTraderTaxReturn() {
                   type="primary"
                   className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Sole Trader Consultation
                 </Button>
@@ -132,7 +151,10 @@ export default function WhatIsASoleTraderTaxReturn() {
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {returnScopeItems.map((scope, sIdx) => (
-              <div key={sIdx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-zinc-300">
+              <div
+                key={sIdx}
+                className="flex items-center gap-2 text-xs text-slate-700 dark:text-zinc-300"
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:text-teal-400 shrink-0" />
                 <span>{scope}</span>
               </div>

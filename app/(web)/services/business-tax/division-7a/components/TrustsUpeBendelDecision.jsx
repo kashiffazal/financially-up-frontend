@@ -25,17 +25,23 @@ import {
 export default function TrustsUpeBendelDecision() {
   const complexAspects = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Trust Beneficiary Entitlements",
       desc: "Following the High Court's 2026 decision in Commissioner of Taxation v Bendel, an unpaid present entitlement (UPE) owed by a trust to a private company beneficiary is not, merely because it remains unpaid, a loan for section 109D.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Separate Loans & Interposed Entities",
       desc: "Separate loans, payments, interposed-entity arrangements or other benefits involving the trust, company, shareholders or associates may still require Division 7A review, and other tax provisions can also be relevant.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Complete Records vs Generic Checklists",
       desc: "These matters should be assessed from the complete records rather than reduced to a generic director-loan checklist, reviewing underlying trust deeds, distribution minutes, and cash flows.",
     },
@@ -46,14 +52,22 @@ export default function TrustsUpeBendelDecision() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             High Court 2026 Bendel Decision & Trusts
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Trusts, Unpaid Entitlements and More Complex Arrangements
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Division 7A can interact with trusts and private-company beneficiaries, but the treatment depends on the legal and transaction history. Following the High Court&apos;s 2026 decision in Commissioner of Taxation v Bendel, an unpaid present entitlement owed by a trust to a private company beneficiary is not, merely because it remains unpaid, a loan for section 109D.
+            Division 7A can interact with trusts and private-company
+            beneficiaries, but the treatment depends on the legal and
+            transaction history. Following the High Court&apos;s 2026 decision
+            in Commissioner of Taxation v Bendel, an unpaid present entitlement
+            owed by a trust to a private company beneficiary is not, merely
+            because it remains unpaid, a loan for section 109D.
           </p>
         </div>
 
@@ -87,7 +101,12 @@ export default function TrustsUpeBendelDecision() {
               Tailored Legal and Tax Review for Trust Groups
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Separate loans, payments, interposed-entity arrangements or other benefits involving the trust, company, shareholders or associates may still require Division 7A review, and other tax provisions can also be relevant. These matters should be assessed from the complete records rather than reduced to a generic director-loan checklist.
+              Separate loans, payments, interposed-entity arrangements or other
+              benefits involving the trust, company, shareholders or associates
+              may still require Division 7A review, and other tax provisions can
+              also be relevant. These matters should be assessed from the
+              complete records rather than reduced to a generic director-loan
+              checklist.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -96,7 +115,7 @@ export default function TrustsUpeBendelDecision() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss Trust Arrangements
               </Button>

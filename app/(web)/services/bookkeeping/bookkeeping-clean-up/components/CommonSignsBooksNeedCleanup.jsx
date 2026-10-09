@@ -27,53 +27,81 @@ import {
 export default function CommonSignsBooksNeedCleanup() {
   const signs = [
     {
-      icon: <BankOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Bank or credit-card balances in the software do not agree with statements.",
+      icon: (
+        <BankOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      title:
+        "Bank or credit-card balances in the software do not agree with statements.",
       desc: "Software shows one balance while the actual bank account shows another, breaking cash reconciliation integrity.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Old unreconciled transactions remain in the bank-reconciliation screen.",
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "Old unreconciled transactions remain in the bank-reconciliation screen.",
       desc: "Stale payments or unexplained deposits from past quarters linger in the matching feed without resolution.",
     },
     {
-      icon: <CopyOutlined className="text-xl text-orange-600 dark:text-orange-400" />,
+      icon: (
+        <CopyOutlined className="text-xl text-orange-600 dark:text-orange-400" />
+      ),
       title: "The same income or expense appears more than once.",
       desc: "Duplicate bill entries or manual journal entries duplicate automatic bank feed imports, distorting profits.",
     },
     {
-      icon: <QuestionCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Large balances sit in suspense, uncategorized or clearing accounts.",
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "Large balances sit in suspense, uncategorized or clearing accounts.",
       desc: "Transactions were parked into holding accounts during data entry and never allocated to proper accounts.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Supplier or customer balances do not make sense.",
       desc: "Aged debtor or creditor schedules display paid bills as overdue or show negative balances.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "GST coding is inconsistent or transactions are missing tax treatment information.",
+      icon: (
+        <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "GST coding is inconsistent or transactions are missing tax treatment information.",
       desc: "Similar supplier expenses are tagged with conflicting BAS tax codes or default without GST verification.",
     },
     {
-      icon: <UserSwitchOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Personal and business transactions have been mixed without clear treatment.",
+      icon: (
+        <UserSwitchOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "Personal and business transactions have been mixed without clear treatment.",
       desc: "Private director drawings and business purchases flow through the same account without drawings or loan separation.",
     },
     {
-      icon: <ImportOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
-      title: "Opening balances were imported incorrectly during a software change.",
+      icon: (
+        <ImportOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
+      title:
+        "Opening balances were imported incorrectly during a software change.",
       desc: "Migrating from spreadsheets or another system left carry-forward equity and bank balances out of balance.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Reports vary materially depending on how transactions have been coded.",
+      icon: (
+        <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Reports vary materially depending on how transactions have been coded.",
       desc: "Inconsistent accounting definitions produce erratic profit and loss swings that obscure true commercial trends.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-slate-600 dark:text-slate-400" />,
-      title: "The file has passed through several bookkeepers and there is no consistent process.",
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-slate-600 dark:text-slate-400" />
+      ),
+      title:
+        "The file has passed through several bookkeepers and there is no consistent process.",
       desc: "Differing methods and philosophies over time have left disjointed chart-of-accounts conventions.",
     },
   ];
@@ -83,14 +111,19 @@ export default function CommonSignsBooksNeedCleanup() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Diagnostic Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common Signs Your Books Need Cleaning Up
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            If you recognise one or more of these symptoms in your ledger, a professional diagnostic clean-up will restore order and accounting reliability.
+            If you recognise one or more of these symptoms in your ledger, a
+            professional diagnostic clean-up will restore order and accounting
+            reliability.
           </p>
         </div>
 
@@ -134,7 +167,9 @@ export default function CommonSignsBooksNeedCleanup() {
                 Need an Expert Ledger Health Check?
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100 dark:text-emerald-200 leading-relaxed font-normal">
-                Our qualified accountants review your file, diagnose the root causes of discrepancy, and outline a fixed-scope clean-up plan before making adjustments.
+                Our qualified accountants review your file, diagnose the root
+                causes of discrepancy, and outline a fixed-scope clean-up plan
+                before making adjustments.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/20 flex flex-wrap items-center justify-between gap-4">
@@ -146,7 +181,7 @@ export default function CommonSignsBooksNeedCleanup() {
                   type="primary"
                   className="bg-white text-emerald-800 hover:bg-emerald-50 border-none font-bold"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book an Appointment
                 </Button>
@@ -162,18 +197,30 @@ export default function CommonSignsBooksNeedCleanup() {
               Unsure whether you need Catch-Up or Clean-Up?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              If the main problem is that transactions have not been entered at all for recent months, Catch-Up Bookkeeping may be the more direct service. If the records are current but need an ongoing monthly process after the clean-up, Monthly Bookkeeping can help maintain the file going forward.
+              If the main problem is that transactions have not been entered at
+              all for recent months, Catch-Up Bookkeeping may be the more direct
+              service. If the records are current but need an ongoing monthly
+              process after the clean-up, Monthly Bookkeeping can help maintain
+              the file going forward.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Link href="/services/bookkeeping/catch-up-bookkeeping">
-              <Button type="default" size="middle" className="font-medium text-xs sm:text-sm">
+              <Button
+                type="default"
+                size="middle"
+                className="font-medium text-xs sm:text-sm"
+              >
                 Catch-Up Bookkeeping
               </Button>
             </Link>
             <Link href="/services/bookkeeping/monthly-bookkeeping">
-              <Button type="primary" size="middle" className="font-bold text-xs sm:text-sm">
+              <Button
+                type="primary"
+                size="middle"
+                className="font-bold text-xs sm:text-sm"
+              >
                 Monthly Bookkeeping
               </Button>
             </Link>

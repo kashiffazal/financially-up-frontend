@@ -40,14 +40,21 @@ export default function WhoIsPartnershipServiceFor() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="blue" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="blue"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Eligibility &amp; Structure
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who Is This Service For?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            This service is for partnerships carrying on a business, including professional, consulting, trade, service and other jointly operated businesses. It may also be relevant where the partnership has employees, GST or BAS obligations, business assets, investment income or transactions that require more detailed tax treatment.
+            This service is for partnerships carrying on a business, including
+            professional, consulting, trade, service and other jointly operated
+            businesses. It may also be relevant where the partnership has
+            employees, GST or BAS obligations, business assets, investment
+            income or transactions that require more detailed tax treatment.
           </p>
         </div>
 
@@ -61,7 +68,10 @@ export default function WhoIsPartnershipServiceFor() {
                   <ShopOutlined className="text-xl" />
                 </div>
                 <div>
-                  <Tag color="green" className="font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Tag
+                    color="green"
+                    className="font-semibold text-xs uppercase tracking-wider mb-1"
+                  >
                     Partnership Tax Return Required
                   </Tag>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -70,11 +80,15 @@ export default function WhoIsPartnershipServiceFor() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
-                Applies when two or more persons or entities jointly carry on a business enterprise with a view of profit.
+                Applies when two or more persons or entities jointly carry on a
+                business enterprise with a view of profit.
               </p>
               <ul className="space-y-2.5">
                 {businessPartnershipTypes.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -83,7 +97,8 @@ export default function WhoIsPartnershipServiceFor() {
             </div>
             <div className="pt-6 border-t border-slate-100 dark:border-zinc-700/80 mt-6">
               <span className="text-xs text-slate-500 dark:text-zinc-400 font-medium">
-                Lodges annual Australian Partnership Tax Return &amp; partner statements.
+                Lodges annual Australian Partnership Tax Return &amp; partner
+                statements.
               </span>
             </div>
           </div>
@@ -96,7 +111,10 @@ export default function WhoIsPartnershipServiceFor() {
                   <HomeOutlined className="text-xl" />
                 </div>
                 <div>
-                  <Tag color="blue" className="font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Tag
+                    color="blue"
+                    className="font-semibold text-xs uppercase tracking-wider mb-1"
+                  >
                     Co-Ownership Reporting
                   </Tag>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -105,11 +123,17 @@ export default function WhoIsPartnershipServiceFor() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
-                It is important to distinguish a business partnership from people simply owning an investment jointly. Co-owners can still have joint tax reporting obligations even where they are not carrying on a business partnership.
+                It is important to distinguish a business partnership from
+                people simply owning an investment jointly. Co-owners can still
+                have joint tax reporting obligations even where they are not
+                carrying on a business partnership.
               </p>
               <ul className="space-y-2.5">
                 {coOwnershipScenarios.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed"
+                  >
                     <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -118,7 +142,8 @@ export default function WhoIsPartnershipServiceFor() {
             </div>
             <div className="pt-6 border-t border-slate-100 dark:border-zinc-700/80 mt-6">
               <span className="text-xs text-slate-500 dark:text-zinc-400 font-medium">
-                Reported proportionally on individual tax returns (see Rental Property services).
+                Reported proportionally on individual tax returns (see Rental
+                Property services).
               </span>
             </div>
           </div>
@@ -132,7 +157,12 @@ export default function WhoIsPartnershipServiceFor() {
               Arrangement &amp; Activity Assessment
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For example, jointly receiving rent, bank interest or dividends does not automatically mean a partnership business exists or that a partnership return is required. Co-owners can still have joint tax reporting obligations even where they are not carrying on a business partnership. The correct treatment depends on the arrangement and the activities being carried on.
+              For example, jointly receiving rent, bank interest or dividends
+              does not automatically mean a partnership business exists or that
+              a partnership return is required. Co-owners can still have joint
+              tax reporting obligations even where they are not carrying on a
+              business partnership. The correct treatment depends on the
+              arrangement and the activities being carried on.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -141,7 +171,7 @@ export default function WhoIsPartnershipServiceFor() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Assess Your Structure
               </Button>

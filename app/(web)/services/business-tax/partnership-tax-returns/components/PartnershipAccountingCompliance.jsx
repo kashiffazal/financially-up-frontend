@@ -23,22 +23,30 @@ import {
 export default function PartnershipAccountingCompliance() {
   const accountingScopes = [
     {
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Reviewing Bookkeeping Data",
       desc: "Examining general ledger transactions, journals, reconciliations, and chart of accounts integrity.",
     },
     {
-      icon: <ReconciliationOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ReconciliationOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Reconciling Bank & Balance Sheet",
       desc: "Balancing business trading accounts, credit facilities, commercial loans, and partner capital/current accounts.",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Preparing Year-End Figures",
       desc: "Finalizing accurate profit and loss figures, balance sheet schedules, and tax adjustments for lodgment.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Checking Income & Expenses",
       desc: "Verifying business income, claiming allowable operating deductions, and preparing tax lodgment schedules.",
     },
@@ -51,7 +59,8 @@ export default function PartnershipAccountingCompliance() {
     },
     {
       label: "PAYG Withholding (PAYGW)",
-      detail: "Tax withheld from employee wages and reported via Single Touch Payroll (STP).",
+      detail:
+        "Tax withheld from employee wages and reported via Single Touch Payroll (STP).",
     },
     {
       label: "Superannuation Guarantee",
@@ -59,7 +68,8 @@ export default function PartnershipAccountingCompliance() {
     },
     {
       label: "Activity Statements (BAS / IAS)",
-      detail: "Timely lodgments meeting ATO compliance milestones throughout the year.",
+      detail:
+        "Timely lodgments meeting ATO compliance milestones throughout the year.",
     },
   ];
 
@@ -68,14 +78,21 @@ export default function PartnershipAccountingCompliance() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Year-End Accounting &amp; Compliance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Partnership Accounting and Compliance Support
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Good partnership accounting starts with complete records. Depending on the business, our partnership accounting services may include reviewing bookkeeping data, reconciling bank and balance-sheet accounts, preparing year-end figures, checking business income and expenses and preparing the information required for tax lodgment.
+            Good partnership accounting starts with complete records. Depending
+            on the business, our partnership accounting services may include
+            reviewing bookkeeping data, reconciling bank and balance-sheet
+            accounts, preparing year-end figures, checking business income and
+            expenses and preparing the information required for tax lodgment.
           </p>
         </div>
 
@@ -106,7 +123,11 @@ export default function PartnershipAccountingCompliance() {
               GST, BAS &amp; Employer Obligations
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Where relevant, the partnership may also have GST, BAS, PAYG withholding, superannuation or other employer obligations. These obligations are separate from the annual partnership tax return and should be managed according to the registrations and activities of the business.
+              Where relevant, the partnership may also have GST, BAS, PAYG
+              withholding, superannuation or other employer obligations. These
+              obligations are separate from the annual partnership tax return
+              and should be managed according to the registrations and
+              activities of the business.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -137,7 +158,9 @@ export default function PartnershipAccountingCompliance() {
               Need Broader Business Reporting or Accounting?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For broader reporting needs, see our Business Financial Statements service. For an overview of the wider tax and accounting support available to businesses, see Business Tax &amp; Accounting.
+              For broader reporting needs, see our Business Financial Statements
+              service. For an overview of the wider tax and accounting support
+              available to businesses, see Business Tax &amp; Accounting.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0 w-full md:w-auto">
@@ -154,7 +177,7 @@ export default function PartnershipAccountingCompliance() {
                 type="primary"
                 className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Tax Hub
               </Button>

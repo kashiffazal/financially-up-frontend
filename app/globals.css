@@ -733,6 +733,17 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  /* Breathing room: a modal taller than the screen scrolls with a gap above and
+     below instead of touching the top and bottom edges */
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+
+@media (max-width: 640px) {
+  .ant-modal-wrap:not(.ant-modal-wrap-top):not([style*="display: none"]):not([style*="display:none"]) {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
 }
 
 .ant-modal-wrap:not(.ant-modal-wrap-top) .ant-modal {

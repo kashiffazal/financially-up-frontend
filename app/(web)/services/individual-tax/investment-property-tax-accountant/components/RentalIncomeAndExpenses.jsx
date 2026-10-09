@@ -44,14 +44,19 @@ export default function RentalIncomeAndExpenses() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Income &amp; Deductions
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Rental Income and Expenses Are Reported
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A comprehensive overview of assessable receipts, deductible operational outgoings, and strict Australian tax rules governing investment loan interest.
+            A comprehensive overview of assessable receipts, deductible
+            operational outgoings, and strict Australian tax rules governing
+            investment loan interest.
           </p>
         </div>
 
@@ -75,7 +80,9 @@ export default function RentalIncomeAndExpenses() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
-                Rental income generally needs to be declared in the income year in which it is received or becomes payable, depending on the circumstances. It may include:
+                Rental income generally needs to be declared in the income year
+                in which it is received or becomes payable, depending on the
+                circumstances. It may include:
               </p>
 
               <div className="space-y-2.5">
@@ -95,7 +102,9 @@ export default function RentalIncomeAndExpenses() {
               <span className="font-semibold text-slate-900 dark:text-white block mb-1">
                 Joint Ownership Rule:
               </span>
-              If the property is jointly owned, each owner generally reports their share of income and expenses according to their legal ownership interest.
+              If the property is jointly owned, each owner generally reports
+              their share of income and expenses according to their legal
+              ownership interest.
             </div>
           </div>
 
@@ -117,7 +126,8 @@ export default function RentalIncomeAndExpenses() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
-                Depending on the circumstances, expenses that may be deductible include:
+                Depending on the circumstances, expenses that may be deductible
+                include:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
@@ -137,7 +147,9 @@ export default function RentalIncomeAndExpenses() {
               <span className="font-semibold text-slate-900 dark:text-white block mb-1">
                 Eligibility Standard:
               </span>
-              Eligibility depends on the nature of the expense, when it was incurred and how the property was used. The private or capital portion of an expense is generally not immediately deductible.
+              Eligibility depends on the nature of the expense, when it was
+              incurred and how the property was used. The private or capital
+              portion of an expense is generally not immediately deductible.
             </div>
           </div>
 
@@ -160,16 +172,26 @@ export default function RentalIncomeAndExpenses() {
 
               <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Interest is not automatically deductible simply because a loan is secured against a rental property. Deductibility generally depends on how the borrowed money was used.
+                  Interest is not automatically deductible simply because a loan
+                  is secured against a rental property. Deductibility generally
+                  depends on how the borrowed money was used.
                 </p>
                 <p>
-                  Interest on funds used to purchase or meet eligible costs of an income-producing rental property may be deductible to the extent the relevant requirements are satisfied. If part of the loan was used privately, the interest may need to be apportioned.
+                  Interest on funds used to purchase or meet eligible costs of
+                  an income-producing rental property may be deductible to the
+                  extent the relevant requirements are satisfied. If part of the
+                  loan was used privately, the interest may need to be
+                  apportioned.
                 </p>
                 <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                   <span className="font-bold block mb-1">
                     Refinancing &amp; Redraws:
                   </span>
-                  The same principle applies when a loan is refinanced or money is redrawn. Refinancing does not automatically make the interest deductible or non-deductible. The purpose and use of the borrowed funds, including any private component, must be reviewed.
+                  The same principle applies when a loan is refinanced or money
+                  is redrawn. Refinancing does not automatically make the
+                  interest deductible or non-deductible. The purpose and use of
+                  the borrowed funds, including any private component, must be
+                  reviewed.
                 </div>
               </div>
             </div>
@@ -180,7 +202,7 @@ export default function RentalIncomeAndExpenses() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Review Loan Interest Apportionment
                 </Button>

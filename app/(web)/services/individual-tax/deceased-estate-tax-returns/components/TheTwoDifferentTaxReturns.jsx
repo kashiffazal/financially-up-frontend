@@ -42,14 +42,19 @@ export default function TheTwoDifferentTaxReturns() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Dual Lodgment Structure
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             The Two Different Tax Returns
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Finalizing tax affairs following a death requires distinguishing between pre-death personal earnings and post-death estate administration income.
+            Finalizing tax affairs following a death requires distinguishing
+            between pre-death personal earnings and post-death estate
+            administration income.
           </p>
         </div>
 
@@ -73,7 +78,8 @@ export default function TheTwoDifferentTaxReturns() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                The deceased person&apos;s final individual tax return covers the period from 1 July to the date of death. It may include:
+                The deceased person&apos;s final individual tax return covers
+                the period from 1 July to the date of death. It may include:
               </p>
 
               <div className="space-y-2 mb-6">
@@ -90,10 +96,13 @@ export default function TheTwoDifferentTaxReturns() {
 
               <div className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
                 <p>
-                  The final return uses the deceased person&apos;s existing TFN. Before lodging it, the legal personal representative should also determine whether any earlier returns remain outstanding.
+                  The final return uses the deceased person&apos;s existing TFN.
+                  Before lodging it, the legal personal representative should
+                  also determine whether any earlier returns remain outstanding.
                 </p>
                 <p>
-                  If no final return is required, the ATO may still need to be notified through the appropriate non-lodgment process.
+                  If no final return is required, the ATO may still need to be
+                  notified through the appropriate non-lodgment process.
                 </p>
               </div>
             </div>
@@ -107,7 +116,7 @@ export default function TheTwoDifferentTaxReturns() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Individual Tax Return Service
                 </Button>
@@ -133,7 +142,8 @@ export default function TheTwoDifferentTaxReturns() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                After death, the estate may derive income while assets are collected, managed or distributed. This may include:
+                After death, the estate may derive income while assets are
+                collected, managed or distributed. This may include:
               </p>
 
               <div className="space-y-2 mb-6">
@@ -150,13 +160,19 @@ export default function TheTwoDifferentTaxReturns() {
 
               <div className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
                 <p>
-                  Where a trust tax return is required, the deceased estate generally needs its own TFN. The estate&apos;s TFN is separate from the deceased person&apos;s TFN.
+                  Where a trust tax return is required, the deceased estate
+                  generally needs its own TFN. The estate&apos;s TFN is separate
+                  from the deceased person&apos;s TFN.
                 </p>
                 <div className="p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-blue-950 dark:text-blue-200 text-xs leading-relaxed">
                   <span className="font-bold block mb-1">
                     Timing of Derivation:
                   </span>
-                  The correct treatment depends on when the relevant amount was derived, not simply when it appeared in a bank account. Information received after death may sometimes relate to the deceased person&apos;s pre-death affairs and should be reviewed before preparing either return.
+                  The correct treatment depends on when the relevant amount was
+                  derived, not simply when it appeared in a bank account.
+                  Information received after death may sometimes relate to the
+                  deceased person&apos;s pre-death affairs and should be
+                  reviewed before preparing either return.
                 </div>
               </div>
             </div>

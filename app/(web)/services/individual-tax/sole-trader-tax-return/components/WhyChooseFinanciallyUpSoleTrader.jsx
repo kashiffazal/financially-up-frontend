@@ -27,17 +27,23 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       subtitle: "Tax Agent Number: 26242127",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Qualified",
       subtitle: "Small Business Tax Specialists",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Australia-Wide Support",
       subtitle: "Virtual Outlook Meetings & In-Person",
     },
@@ -48,14 +54,19 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             About Financially Up
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Specialist small business tax accountants providing reliable return preparation for Australian sole traders, contractors and freelancers.
+            Specialist small business tax accountants providing reliable return
+            preparation for Australian sole traders, contractors and
+            freelancers.
           </p>
         </div>
 
@@ -69,12 +80,17 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
                 <span>Registered Tax Agent Credentials</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent, Tax Agent Number 26242127. Bookings are available online or by phone, with online and in-person meetings for sole traders across Australia.
+                {company?.legalName || "Financially Up Pty Ltd"} is a registered
+                tax agent, Tax Agent Number 26242127. Bookings are available
+                online or by phone, with online and in-person meetings for sole
+                traders across Australia.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 flex items-center justify-between">
               <span>ABN: {company?.abn || "84 659 717 263"}</span>
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400">TPB Registered Agent</span>
+              <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                TPB Registered Agent
+              </span>
             </div>
           </div>
 
@@ -86,12 +102,17 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
                 <span>Statutory Compliance Notice</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Our work reflects the records provided and applicable Australian tax rules. We do not guarantee a deduction, refund or tax saving.
+                Our work reflects the records provided and applicable Australian
+                tax rules. We do not guarantee a deduction, refund or tax
+                saving.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 flex items-center gap-2">
               <EnvironmentOutlined className="text-emerald-600 dark:text-emerald-400" />
-              <span>{company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}</span>
+              <span>
+                {company?.address ||
+                  "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+              </span>
             </div>
           </div>
         </div>
@@ -123,7 +144,8 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
               Ready to Prepare Your Sole Trader Return?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 font-normal">
-              Speak with our small business accounting team to review your invoices, expenses and lodgement timeline.
+              Speak with our small business accounting team to review your
+              invoices, expenses and lodgement timeline.
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -143,7 +165,7 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="font-bold rounded-xl bg-brand-primary hover:bg-brand-primary-dark border-none h-11 px-6"
               >
                 Book Appointment

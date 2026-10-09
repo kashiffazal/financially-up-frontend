@@ -142,7 +142,7 @@ export default function Step3MembersInfo() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
           <AntInput
-            type="text"
+            type="phone"
             name="m1Phone"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200">

@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import { Tag, Button, Dropdown, Popconfirm, Tooltip, Modal } from "antd";
+import { Tag, Button, Dropdown, Tooltip, Modal } from "antd";
 import {
   EyeOutlined,
   EditOutlined,
-  DeleteOutlined,
   FilePdfOutlined,
   MoreOutlined,
   IdcardOutlined,
@@ -43,7 +42,6 @@ const EXPORT_COLUMNS = [
  *    - "Client Engagement PDF": Direct click opens generated Client PDF in a new tab.
  *    - "Review & Decision": Opens `IndividualEngagementAdminForm` compliance assessment modal.
  *    - "Official PDFs": Direct links to other generated legal PDFs (Admin review, Acceptance, Audit).
- *    - "Delete Record": Popconfirm confirmation to remove application.
  * 4. Provides one-click Excel & PDF/CSV export via `ExportButtons`.
  */
 export default function IndividualEngagementMainLog({
@@ -75,7 +73,8 @@ export default function IndividualEngagementMainLog({
   }
 
   const clearAutoOpen = () => {
-    if (autoOpenRecord && typeof onAutoOpenHandled === "function") onAutoOpenHandled();
+    if (autoOpenRecord && typeof onAutoOpenHandled === "function")
+      onAutoOpenHandled();
   };
 
   const closeViewDetails = () => {
@@ -124,24 +123,8 @@ export default function IndividualEngagementMainLog({
     return "success";
   }, []);
 
-  // --------------------------------------------------------------------------
-  // 3. ROW ACTIONS: SINGLE RECORD DELETION
-  // --------------------------------------------------------------------------
-  const handleDeleteRecord = useCallback(
-    async (record) => {
-      const recordId = record.id || record._id || record.key;
-      try {
-        await HTTP("DELETE", `/new-individual-engagements/${recordId}`);
-        antdMsg.success("Individual engagement deleted successfully.");
-        if (typeof fetchData === "function") {
-          fetchData();
-        }
-      } catch (err) {
-        antdMsg.error(`Failed to delete record: ${err.message || "Error"}`);
-      }
-    },
-    [fetchData],
-  );
+  // Records are never deleted (kept for compliance record-keeping): no delete
+  // row action, and the API refuses DELETE requests.
 
   // --------------------------------------------------------------------------
   // 4. REVIEW & DECISION SUBMISSION HANDLER
@@ -198,7 +181,9 @@ export default function IndividualEngagementMainLog({
           return (
             <div>
               <div className="font-semibold text-[13px] leading-snug text-slate-900 dark:text-zinc-100">
-                {name || <span className="italic text-slate-400">Unnamed Client</span>}
+                {name || (
+                  <span className="italic text-slate-400">Unnamed Client</span>
+                )}
               </div>
               {occupation && (
                 <div className="text-[11px] text-slate-400 mt-0.5">
@@ -249,7 +234,9 @@ export default function IndividualEngagementMainLog({
         key: "attachments",
         width: 120,
         render: (_, record) => {
-          const rawDocs = Array.isArray(record.documents) ? record.documents : [];
+          const rawDocs = Array.isArray(record.documents)
+            ? record.documents
+            : [];
           const combinedDocs = [...rawDocs];
           if (record.identity?.primaryIdPath) {
             combinedDocs.push({
@@ -285,16 +272,28 @@ export default function IndividualEngagementMainLog({
 
           const pdfItems = [];
           if (record.clientPdfPath) {
-            pdfItems.push({ label: "Client Engagement PDF", url: record.clientPdfPath });
+            pdfItems.push({
+              label: "Client Engagement PDF",
+              url: record.clientPdfPath,
+            });
           }
           if (record.adminPdfPath) {
-            pdfItems.push({ label: "Admin Review Package PDF", url: record.adminPdfPath });
+            pdfItems.push({
+              label: "Admin Review Package PDF",
+              url: record.adminPdfPath,
+            });
           }
           if (record.acceptancePdfPath) {
-            pdfItems.push({ label: "Acceptance Certificate PDF", url: record.acceptancePdfPath });
+            pdfItems.push({
+              label: "Acceptance Certificate PDF",
+              url: record.acceptancePdfPath,
+            });
           }
           if (record.auditPdfPath) {
-            pdfItems.push({ label: "Compliance Audit Report PDF", url: record.auditPdfPath });
+            pdfItems.push({
+              label: "Compliance Audit Report PDF",
+              url: record.auditPdfPath,
+            });
           }
 
           const totalAttachments = docList.length + pdfItems.length;
@@ -309,7 +308,9 @@ export default function IndividualEngagementMainLog({
               label: pdf.label,
               onClick: () => window.open(getFileUrl(pdf.url), "_blank"),
             })),
-            ...(pdfItems.length > 0 && docList.length > 0 ? [{ type: "divider" }] : []),
+            ...(pdfItems.length > 0 && docList.length > 0
+              ? [{ type: "divider" }]
+              : []),
             ...docList.map((doc, idx) => ({
               key: `doc-${idx}`,
               icon: <LinkOutlined className="text-brand-primary" />,
@@ -355,7 +356,9 @@ export default function IndividualEngagementMainLog({
         dataIndex: "createdAt",
         key: "createdAt",
         width: 120,
-        sorter: (a, b) => new Date(a.createdAt || a.submittedAt) - new Date(b.createdAt || b.submittedAt),
+        sorter: (a, b) =>
+          new Date(a.createdAt || a.submittedAt) -
+          new Date(b.createdAt || b.submittedAt),
         render: (date, row) => (
           <span className="text-[12px] text-slate-500 dark:text-zinc-400">
             {date || row.submittedAt
@@ -391,7 +394,12 @@ export default function IndividualEngagementMainLog({
               key: "pdf_admin",
               icon: <FilePdfOutlined className="text-brand-primary" />,
               label: (
-                <a href={getFileUrl(record.adminPdfPath)} target="_blank" rel="noopener noreferrer" className="text-inherit">
+                <a
+                  href={getFileUrl(record.adminPdfPath)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-inherit"
+                >
                   Admin Review Package
                 </a>
               ),
@@ -402,7 +410,12 @@ export default function IndividualEngagementMainLog({
               key: "pdf_acceptance",
               icon: <FilePdfOutlined className="text-emerald-600" />,
               label: (
-                <a href={getFileUrl(record.acceptancePdfPath)} target="_blank" rel="noopener noreferrer" className="text-inherit">
+                <a
+                  href={getFileUrl(record.acceptancePdfPath)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-inherit"
+                >
                   Acceptance Certificate
                 </a>
               ),
@@ -413,7 +426,12 @@ export default function IndividualEngagementMainLog({
               key: "pdf_audit",
               icon: <FilePdfOutlined className="text-blue-500" />,
               label: (
-                <a href={getFileUrl(record.auditPdfPath)} target="_blank" rel="noopener noreferrer" className="text-inherit">
+                <a
+                  href={getFileUrl(record.auditPdfPath)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-inherit"
+                >
                   Audit Report PDF
                 </a>
               ),
@@ -436,7 +454,9 @@ export default function IndividualEngagementMainLog({
                 if (record.clientPdfPath) {
                   window.open(getFileUrl(record.clientPdfPath), "_blank");
                 } else {
-                  antdMsg.info("Client Engagement PDF is not yet generated for this record.");
+                  antdMsg.info(
+                    "Client Engagement PDF is not yet generated for this record.",
+                  );
                 }
               },
             },
@@ -459,28 +479,14 @@ export default function IndividualEngagementMainLog({
                   },
                 ]
               : []),
-            { type: "divider" },
-            {
-              key: "delete",
-              danger: true,
-              icon: <DeleteOutlined />,
-              label: (
-                <Popconfirm
-                  title="Delete Individual Engagement"
-                  description="Are you sure you want to permanently delete this engagement record?"
-                  onConfirm={() => handleDeleteRecord(record)}
-                  okText="Yes, Delete"
-                  cancelText="Cancel"
-                  okButtonProps={{ danger: true }}
-                >
-                  <span className="w-full inline-block">Delete Record</span>
-                </Popconfirm>
-              ),
-            },
           ].filter(Boolean);
 
           return (
-            <Dropdown menu={{ items: menuItems }} trigger={["click"]} placement="bottomRight">
+            <Dropdown
+              menu={{ items: menuItems }}
+              trigger={["click"]}
+              placement="bottomRight"
+            >
               <Button size="small" icon={<MoreOutlined />}>
                 Actions
               </Button>
@@ -489,7 +495,7 @@ export default function IndividualEngagementMainLog({
         },
       },
     ];
-  }, [getRiskColor, getStatusTagColor, handleDeleteRecord]);
+  }, [getRiskColor, getStatusTagColor]);
 
   // --------------------------------------------------------------------------
   // 7. DATA PROVIDER FOR CSV/EXCEL EXPORT
@@ -502,7 +508,9 @@ export default function IndividualEngagementMainLog({
     <div className="w-full space-y-4">
       {/* Reusable Data Table */}
       <DataTable
-        rowClassName={(record) => (freshIds.includes(String(record.id)) ? "live-new-row" : "")}
+        rowClassName={(record) =>
+          freshIds.includes(String(record.id)) ? "live-new-row" : ""
+        }
         columns={columns}
         dataSource={data}
         loading={loading}
@@ -555,7 +563,7 @@ export default function IndividualEngagementMainLog({
           onCancel={() => !isReviewSubmitting && closeReviewModal()}
           footer={null}
           width={980}
-          destroyOnClose
+          destroyOnHidden
           centered
           className="admin-form-modal"
         >

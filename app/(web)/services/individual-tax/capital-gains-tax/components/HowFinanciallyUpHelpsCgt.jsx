@@ -69,14 +69,20 @@ export default function HowFinanciallyUpHelpsCgt() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Practice &amp; Records
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} provides capital gains tax assistance to Australian individuals. The appropriate service depends on the transaction, records, complexity and the type of assistance required.
+            {company?.legalName || "Financially Up Pty Ltd"} provides capital
+            gains tax assistance to Australian individuals. The appropriate
+            service depends on the transaction, records, complexity and the type
+            of assistance required.
           </p>
         </div>
 
@@ -115,7 +121,10 @@ export default function HowFinanciallyUpHelpsCgt() {
                 Detailed Advice Scope
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Detailed pre-sale advice and written tax advice are not automatically included in standard tax-return preparation. The required work can be confirmed after the circumstances and records have been reviewed.
+                Detailed pre-sale advice and written tax advice are not
+                automatically included in standard tax-return preparation. The
+                required work can be confirmed after the circumstances and
+                records have been reviewed.
               </p>
             </div>
             <Link href="/book-an-appointment" className="mt-4">
@@ -123,7 +132,7 @@ export default function HowFinanciallyUpHelpsCgt() {
                 type="primary"
                 className="brand-btn-primary font-bold text-xs h-9 px-4 w-full"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Book Initial Consultation
               </Button>
@@ -141,7 +150,9 @@ export default function HowFinanciallyUpHelpsCgt() {
               What Records Should You Keep for CGT?
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 mt-2 leading-relaxed">
-              Keep records that explain how you acquired, held, improved and disposed of a CGT asset and that support each amount used in the calculation. Depending on the asset, relevant records may include:
+              Keep records that explain how you acquired, held, improved and
+              disposed of a CGT asset and that support each amount used in the
+              calculation. Depending on the asset, relevant records may include:
             </p>
           </div>
 
@@ -163,7 +174,12 @@ export default function HowFinanciallyUpHelpsCgt() {
               <span className="font-bold block mb-1">
                 Statutory Retention Period:
               </span>
-              CGT records generally need to be kept for at least five years after the relevant CGT event. If a net capital loss is carried forward, records supporting that loss generally need to be kept for at least five years after the income year in which the loss is applied. Records may therefore need to be retained throughout a long ownership period and beyond the eventual disposal.
+              CGT records generally need to be kept for at least five years
+              after the relevant CGT event. If a net capital loss is carried
+              forward, records supporting that loss generally need to be kept
+              for at least five years after the income year in which the loss is
+              applied. Records may therefore need to be retained throughout a
+              long ownership period and beyond the eventual disposal.
             </div>
           </div>
         </div>
@@ -177,8 +193,12 @@ export default function HowFinanciallyUpHelpsCgt() {
           >
             <PhoneOutlined /> {company.phone}
           </a>
-          <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">•</span>
-          <span>Registered Tax Agent #{company?.taxAgentNumber || "26242127"}</span>
+          <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">
+            •
+          </span>
+          <span>
+            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+          </span>
         </div>
       </div>
     </section>

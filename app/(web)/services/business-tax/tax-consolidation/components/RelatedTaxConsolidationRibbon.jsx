@@ -29,14 +29,16 @@ export default function RelatedTaxConsolidationRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-teal-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Company Tax Returns
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Statutory reporting:
@@ -45,14 +47,16 @@ export default function RelatedTaxConsolidationRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-teal-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Tax Compliance
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Consolidated financials:
@@ -61,7 +65,7 @@ export default function RelatedTaxConsolidationRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-teal-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Financial Statements
               </Button>

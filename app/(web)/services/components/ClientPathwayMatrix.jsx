@@ -55,15 +55,19 @@ export default function ClientPathwayMatrix() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Solutions Matrix
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Find the Right Services for Your Situation
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Whether you are lodging an individual tax return, structuring a multi-entity business,
-            managing property investments, or seeking strategic Virtual CFO advice, we tailor our scope to you.
+            Whether you are lodging an individual tax return, structuring a
+            multi-entity business, managing property investments, or seeking
+            strategic Virtual CFO advice, we tailor our scope to you.
           </p>
         </div>
 
@@ -128,7 +132,7 @@ export default function ClientPathwayMatrix() {
                     type="link"
                     className="p-0 text-xs font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center justify-between w-full h-auto pt-1"
                     icon={<ArrowRightOutlined className="text-xs" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     Book a tailored consultation
                   </Button>

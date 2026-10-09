@@ -25,17 +25,23 @@ import {
 export default function HowTrustDistributionsTaxed() {
   const principles = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Distinct from Company Taxation",
       desc: "A trust is not automatically taxed like a company. Trusts are generally conduit structures where taxable net income flows through to entitled beneficiaries rather than paying entity-level flat corporate tax.",
     },
     {
-      icon: <UserOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Present Entitlement Assessment",
       desc: "In broad terms, the way trust net income is assessed depends on matters such as whether beneficiaries are presently entitled to trust income and whether particular capital gains or franked distributions are specifically allocated under the relevant rules.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Trustee Liability on Undistributed Income",
       desc: "The trustee may be assessed on some amounts where there is no beneficiary who is appropriately entitled, or where the tax law otherwise places the liability on the trustee. The result can differ significantly between trusts and between income years.",
     },
@@ -46,14 +52,21 @@ export default function HowTrustDistributionsTaxed() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Trust Taxation Framework
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How are trust distributions taxed?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A trust is not automatically taxed like a company. In broad terms, the way trust net income is assessed depends on matters such as whether beneficiaries are presently entitled to trust income and whether particular capital gains or franked distributions are specifically allocated under the relevant rules.
+            A trust is not automatically taxed like a company. In broad terms,
+            the way trust net income is assessed depends on matters such as
+            whether beneficiaries are presently entitled to trust income and
+            whether particular capital gains or franked distributions are
+            specifically allocated under the relevant rules.
           </p>
         </div>
 
@@ -87,7 +100,10 @@ export default function HowTrustDistributionsTaxed() {
               Annual Assessment Outcomes Differ Across Years
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The trustee may be assessed on some amounts where there is no beneficiary who is appropriately entitled, or where the tax law otherwise places the liability on the trustee. The result can differ significantly between trusts and between income years.
+              The trustee may be assessed on some amounts where there is no
+              beneficiary who is appropriately entitled, or where the tax law
+              otherwise places the liability on the trustee. The result can
+              differ significantly between trusts and between income years.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -96,7 +112,7 @@ export default function HowTrustDistributionsTaxed() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss Trust Assessment
               </Button>

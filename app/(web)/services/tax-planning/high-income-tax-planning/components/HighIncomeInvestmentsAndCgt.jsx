@@ -27,21 +27,27 @@ export default function HighIncomeInvestmentsAndCgt() {
       desc: "For detailed reporting of salary, bonuses, executive packaging, and complex investment income schedules.",
       href: "/services/individual-tax/high-income-professionals",
       btnText: "Explore High-Income Service",
-      icon: <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "Capital Gains Tax",
       desc: "For disposals of property, shares, crypto, or other CGT assets, covering detailed cost-base calculations.",
       href: "/services/individual-tax/capital-gains-tax",
       btnText: "Explore CGT Service",
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       title: "Personal Tax Planning",
       desc: "For broader individual planning, pre-30 June timing reviews, and personal superannuation strategies.",
       href: "/services/tax-planning/personal-tax-planning",
       btnText: "Explore Personal Planning",
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
   ];
 
@@ -50,17 +56,29 @@ export default function HighIncomeInvestmentsAndCgt() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Portfolios &amp; CGT
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Investments, Property and Capital Gains
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Investment transactions can affect taxable income in different ways. Dividends, distributions, interest and rental income are generally dealt with differently from capital gains, and the treatment of a transaction depends on the asset and circumstances.
+            Investment transactions can affect taxable income in different ways.
+            Dividends, distributions, interest and rental income are generally
+            dealt with differently from capital gains, and the treatment of a
+            transaction depends on the asset and circumstances.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            If you are planning to sell an asset, timing can matter. For a disposal under a contract, CGT event A1 generally occurs when the contract is entered into rather than at settlement. Other CGT events can have different timing, so the transaction and documents should be reviewed. The full CGT calculation belongs on a dedicated review, but considering a proposed disposal before signing can help identify the records and tax consequences that may follow.
+            If you are planning to sell an asset, timing can matter. For a
+            disposal under a contract, CGT event A1 generally occurs when the
+            contract is entered into rather than at settlement. Other CGT events
+            can have different timing, so the transaction and documents should
+            be reviewed. The full CGT calculation belongs on a dedicated review,
+            but considering a proposed disposal before signing can help identify
+            the records and tax consequences that may follow.
           </p>
         </div>
 
@@ -91,7 +109,7 @@ export default function HighIncomeInvestmentsAndCgt() {
                     type="primary"
                     size="large"
                     icon={<ArrowRightOutlined />}
-                    iconPosition="end"
+                    iconPlacement="end"
                     className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-10 text-xs sm:text-sm"
                   >
                     {card.btnText}

@@ -170,6 +170,7 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
         {/* Section: Contact & Department */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-0">
           <AntInput
+            type="phone"
             name="phone"
             label="Phone"
             placeholder="e.g. +61 400 000 000"

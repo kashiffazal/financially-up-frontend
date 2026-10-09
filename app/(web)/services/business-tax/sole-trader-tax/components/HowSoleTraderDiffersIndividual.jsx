@@ -24,14 +24,21 @@ export default function HowSoleTraderDiffersIndividual() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="blue" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="blue"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Service Scope Clarification
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How This Page Differs From a Basic Individual Tax Return
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            This service is designed around people actively carrying on a business as a sole trader. It focuses on business income, business deductions, accounting records and related compliance. For a return that is primarily salary, investment or other personal income, see our Individual Tax Return service.
+            This service is designed around people actively carrying on a
+            business as a sole trader. It focuses on business income, business
+            deductions, accounting records and related compliance. For a return
+            that is primarily salary, investment or other personal income, see
+            our Individual Tax Return service.
           </p>
         </div>
 
@@ -45,7 +52,10 @@ export default function HowSoleTraderDiffersIndividual() {
                   <ShopOutlined className="text-xl" />
                 </div>
                 <div>
-                  <Tag color="green" className="font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Tag
+                    color="green"
+                    className="font-semibold text-xs uppercase tracking-wider mb-1"
+                  >
                     Current Service
                   </Tag>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -54,12 +64,15 @@ export default function HowSoleTraderDiffersIndividual() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Focuses on trading revenue, allowable business operating deductions, equipment depreciation, business-use percentages, GST/BAS working papers, and business schedules.
+                Focuses on trading revenue, allowable business operating
+                deductions, equipment depreciation, business-use percentages,
+                GST/BAS working papers, and business schedules.
               </p>
             </div>
             <div className="pt-4 border-t border-slate-200/80 dark:border-zinc-800">
               <span className="text-xs text-teal-700 dark:text-teal-400 font-semibold">
-                Designed for contractors, trades, professional sole practitioners &amp; freelancers.
+                Designed for contractors, trades, professional sole
+                practitioners &amp; freelancers.
               </span>
             </div>
           </div>
@@ -72,7 +85,10 @@ export default function HowSoleTraderDiffersIndividual() {
                   <UserOutlined className="text-xl" />
                 </div>
                 <div>
-                  <Tag color="blue" className="font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Tag
+                    color="blue"
+                    className="font-semibold text-xs uppercase tracking-wider mb-1"
+                  >
                     Personal Tax Return
                   </Tag>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -81,7 +97,9 @@ export default function HowSoleTraderDiffersIndividual() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                For individuals whose income is primarily salary and wages (PAYG payment summaries), dividends, managed fund distributions, or personal rental property investments.
+                For individuals whose income is primarily salary and wages (PAYG
+                payment summaries), dividends, managed fund distributions, or
+                personal rental property investments.
               </p>
             </div>
             <div className="pt-4 border-t border-slate-200/80 dark:border-zinc-700">
@@ -90,7 +108,7 @@ export default function HowSoleTraderDiffersIndividual() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Go to Individual Tax Return Service
                 </Button>
@@ -107,7 +125,10 @@ export default function HowSoleTraderDiffersIndividual() {
               Expanding Operations or Need Formal Reports?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For broader business tax and accounting support as your operations grow, see Business Tax &amp; Accounting. Where formal year-end reports are needed, our Business Financial Statements service may also be relevant.
+              For broader business tax and accounting support as your operations
+              grow, see Business Tax &amp; Accounting. Where formal year-end
+              reports are needed, our Business Financial Statements service may
+              also be relevant.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0 w-full md:w-auto">
@@ -124,7 +145,7 @@ export default function HowSoleTraderDiffersIndividual() {
                 type="primary"
                 className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Tax Hub
               </Button>

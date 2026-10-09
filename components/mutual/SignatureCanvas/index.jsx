@@ -27,7 +27,6 @@
  */
 
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { Button, Tooltip, Form } from "antd";
 import { UndoOutlined, ClearOutlined, EditOutlined } from "@ant-design/icons";
@@ -287,7 +286,7 @@ const SignatureCanvasControl = ({
     const key = storageKey;
     if (!key || typeof window === "undefined") return;
 
-    if (value || initialImage) {
+    if (value) {
       // If form has an active signature value/draft, restore vector paths
       if (canvasRef.current) {
         const savedPaths = localStorage.getItem(`sig_paths_${key}`);
@@ -422,13 +421,16 @@ const SignatureCanvasControl = ({
       localStorage.removeItem(`sig_paths_${storageKey}`);
   }, [onChange, storageKey]);
 
-  /* Switch from image view to drawing mode */
+  /* Switch from image view to a blank drawing pad (old strokes must not reappear) */
   const handleEditSignature = useCallback(() => {
     setShowImage(false);
     setInternalHasDrawn(false);
     setIsInteracting(false);
+    if (storageKey && typeof window !== "undefined") {
+      localStorage.removeItem(`sig_paths_${storageKey}`);
+    }
     if (onChange) onChange(null);
-  }, [onChange]);
+  }, [onChange, storageKey]);
 
   /* Signature presence check */
   const hasSignature = Boolean(value) || internalHasDrawn;
@@ -478,16 +480,10 @@ const SignatureCanvasControl = ({
           className={`${styles.existingSignature} relative rounded-xl border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-transparent overflow-hidden shadow-inner flex items-center justify-center`}
           style={{ height: heightStyle }}
         >
-          {/* Next.js Image component with unoptimized prop to handle dynamic Base64 data URLs & remote signatures */}
-          <div className="relative w-full h-full p-3 flex items-center justify-center">
-            <Image
-              src={activeImage}
-              alt="Saved signature"
-              fill
-              sizes="(max-width: 768px) 100vw, 500px"
-              className="object-contain p-3"
-              unoptimized
-            />
+          {/* Natural size (never enlarged), so the signature looks exactly as it was drawn */}
+          <div className="w-full h-full p-3 flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element -- base64 data URL / uploaded file */}
+            <img src={activeImage} alt="Saved signature" className="max-w-full max-h-full object-contain" />
           </div>
         </div>
       </div>

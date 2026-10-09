@@ -27,22 +27,30 @@ import {
 export default function WhatAreSmallBusinessCgtConcessions() {
   const fourConcessions = [
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "15-Year Exemption",
       desc: "Can disregard an entire eligible capital gain where the asset has been continuously owned for at least 15 years and retirement or incapacity conditions are satisfied.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "50% Active Asset Reduction",
       desc: "Reduces an eligible capital gain by 50%. This is distinct from the general 50% CGT discount and is available to companies that qualify.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Retirement Exemption",
       desc: "Can disregard eligible capital gains up to a statutory lifetime limit ($500,000), with superannuation payment requirements if under 55.",
     },
     {
-      icon: <RetweetOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <RetweetOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Small Business Rollover",
       desc: "Can defer all or part of an eligible capital gain for two years or longer when acquiring a replacement active asset or improving existing assets.",
     },
@@ -53,14 +61,21 @@ export default function WhatAreSmallBusinessCgtConcessions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Division 152 Framework
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What are the small business CGT concessions?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The small business CGT concessions are a set of concessions in the tax law that may reduce, defer or disregard an eligible capital gain. They are separate from the ordinary CGT rules and are not automatically available just because the seller considers the business to be small.
+            The small business CGT concessions are a set of concessions in the
+            tax law that may reduce, defer or disregard an eligible capital
+            gain. They are separate from the ordinary CGT rules and are not
+            automatically available just because the seller considers the
+            business to be small.
           </p>
         </div>
 
@@ -94,7 +109,10 @@ export default function WhatAreSmallBusinessCgtConcessions() {
               Order of Application Affects the Final Tax Outcome
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The four main concessions are the 15-year exemption, the 50% active asset reduction, the retirement exemption and the small business rollover. Each has its own conditions, and the order in which concessions are applied can affect the final outcome.
+              The four main concessions are the 15-year exemption, the 50%
+              active asset reduction, the retirement exemption and the small
+              business rollover. Each has its own conditions, and the order in
+              which concessions are applied can affect the final outcome.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -103,7 +121,7 @@ export default function WhatAreSmallBusinessCgtConcessions() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Model Concessions Order
               </Button>

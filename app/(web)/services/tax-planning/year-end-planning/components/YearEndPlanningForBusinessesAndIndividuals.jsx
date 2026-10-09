@@ -69,11 +69,18 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
                 </div>
               </div>
               <p className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
-                Business year-end planning may involve a review of expected profit, expenses, asset purchases, PAYG instalments, GST/BAS information and the interaction between business transactions and the chosen entity structure. The planning should reflect commercial reality and the tax rules that apply to the entity.
+                Business year-end planning may involve a review of expected
+                profit, expenses, asset purchases, PAYG instalments, GST/BAS
+                information and the interaction between business transactions
+                and the chosen entity structure. The planning should reflect
+                commercial reality and the tax rules that apply to the entity.
               </p>
               <div className="border-t border-slate-100 dark:border-zinc-800 pt-5 space-y-2.5">
                 {businessFocus.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
+                  <div
+                    key={idx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400"
+                  >
                     <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -99,7 +106,13 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
                 </div>
               </div>
               <p className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed mb-4">
-                For individuals, the focus may be employment income, investment income, rental property, deductions, superannuation considerations and capital gains. Higher-income taxpayers with bonuses, employee shares, investments or multiple income sources may benefit from a more detailed review through our High-Income Professionals service where tax-return complexity is the main issue.
+                For individuals, the focus may be employment income, investment
+                income, rental property, deductions, superannuation
+                considerations and capital gains. Higher-income taxpayers with
+                bonuses, employee shares, investments or multiple income sources
+                may benefit from a more detailed review through our High-Income
+                Professionals service where tax-return complexity is the main
+                issue.
               </p>
               <div className="mb-6">
                 <Link href="/services/individual-tax/high-income-professionals">
@@ -107,7 +120,7 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                     icon={<ArrowRightOutlined className="text-xs" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     High-Income Professionals Service
                   </Button>
@@ -115,7 +128,10 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
               </div>
               <div className="border-t border-slate-100 dark:border-zinc-800 pt-5 space-y-2.5">
                 {individualFocus.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
+                  <div
+                    key={idx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400"
+                  >
                     <CheckCircleOutlined className="text-blue-500 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -129,7 +145,9 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
         <div className="max-w-4xl mx-auto bg-slate-100 dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200 dark:border-zinc-800 flex items-start gap-4">
           <InfoCircleOutlined className="text-xl text-slate-500 dark:text-zinc-400 mt-1 shrink-0" />
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
-            Year-end planning does not replace bookkeeping, BAS preparation, financial advice or legal advice. Those services may support the planning process, but they have different purposes.
+            Year-end planning does not replace bookkeeping, BAS preparation,
+            financial advice or legal advice. Those services may support the
+            planning process, but they have different purposes.
           </p>
         </div>
       </div>

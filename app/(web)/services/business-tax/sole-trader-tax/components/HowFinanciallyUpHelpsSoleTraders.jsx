@@ -29,22 +29,30 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
 
   const serviceCapabilities = [
     {
-      icon: <FileDoneOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Reviewing Business Records",
       desc: "Checking sales records, expense receipts, bank statements, and software working papers for accuracy.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Preparing Year-End Figures",
       desc: "Reconciling profit and loss numbers, asset depreciation schedules, and trading stock balances.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Business Tax Return Schedules",
       desc: "Preparing the business components of the individual tax return and identifying missing information before lodgment.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Reviewing GST/BAS & Scoped Advisory",
       desc: "Reviewing GST/BAS information where relevant. Where you need tax planning, business restructuring or advice beyond preparing the return, the scope can be agreed separately.",
     },
@@ -52,22 +60,30 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       desc: `Financially Up is a registered tax agent (TPB #${company?.tpbNumber || "26234055"}), providing authorized ATO representation and lodgment program extensions.`,
     },
     {
-      icon: <ClockCircleOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "10+ Years of Experience",
       desc: "More than 10 years of experience delivering practical accounting and taxation services to Australian businesses and sole traders.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       desc: "Our professional accounting and tax team includes qualified CPA and IPA members upholding the highest ethical standards.",
     },
     {
-      icon: <EnvironmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <EnvironmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Support",
       desc: "We support sole traders Australia-wide through online appointments, with in-person meetings also available where preferred.",
     },
@@ -78,14 +94,21 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section 1: How Financially Up Can Help */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Assistance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Our sole trader accounting services can include reviewing business records, preparing year-end accounting figures, preparing the business components of the individual tax return, reviewing GST/BAS information where relevant and helping identify missing information before lodgment.
+            Our sole trader accounting services can include reviewing business
+            records, preparing year-end accounting figures, preparing the
+            business components of the individual tax return, reviewing GST/BAS
+            information where relevant and helping identify missing information
+            before lodgment.
           </p>
         </div>
 
@@ -114,20 +137,30 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
         {/* Advisory Scoping Note */}
         <div className="p-6 rounded-2xl bg-white dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700 mb-16 text-center max-w-3xl mx-auto shadow-sm">
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Tax planning, business restructuring and other advisory matters are not automatically included in standard return preparation. Where you need advice beyond preparing the return, the scope can be agreed separately.
+            Tax planning, business restructuring and other advisory matters are
+            not automatically included in standard return preparation. Where you
+            need advice beyond preparing the return, the scope can be agreed
+            separately.
           </p>
         </div>
 
         {/* Section 2: Why Choose Financially Up? */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Practitioner Credentials
           </Tag>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why Choose Financially Up?
           </h3>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of experience. Our professional accounting and tax team includes CPA and IPA members. We support sole traders Australia-wide through online appointments, with in-person meetings also available where preferred.
+            Financially Up is a registered tax agent with more than 10 years of
+            experience. Our professional accounting and tax team includes CPA
+            and IPA members. We support sole traders Australia-wide through
+            online appointments, with in-person meetings also available where
+            preferred.
           </p>
         </div>
 
@@ -183,7 +216,7 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Book Sole Trader Consultation
               </Button>

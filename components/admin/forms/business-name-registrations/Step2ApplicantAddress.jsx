@@ -74,7 +74,7 @@ export default function Step2ApplicantAddress() {
       </div>
 
       <AntInput
-        type="text"
+        type="phone"
         name="phone"
         label={
           <span className="font-bold text-slate-800 dark:text-zinc-200">

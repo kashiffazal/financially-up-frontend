@@ -21,28 +21,36 @@ import {
 export default function TaxReturnsAnnualCompliance() {
   const entityStructures = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Pty Ltd Companies",
       desc: "Lodges a separate Company Tax Return reporting commercial profit, corporate tax at 25% or 30%, and franking account balances.",
       linkText: "Company Tax Returns",
       href: "/services/business-tax/company-tax-returns",
     },
     {
-      icon: <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Family & Unit Trusts",
       desc: "Lodges an annual Trust Tax Return distributing net income to beneficiaries under effective pre-30 June distribution resolutions.",
       linkText: "Trust Tax Returns",
       href: "/services/business-tax/trust-tax-returns",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Business Partnerships",
       desc: "Lodges a Partnership Tax Return allocating net profit shares or flow-through business losses to individual partner tax returns.",
       linkText: "Partnership Tax Returns",
       href: "/services/business-tax/partnership-tax-returns",
     },
     {
-      icon: <UserOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Sole Traders",
       desc: "Reports business income, deductible operating expenses, and vehicle/home-based costs directly in the personal tax return.",
       linkText: "Sole Trader Tax",
@@ -55,14 +63,21 @@ export default function TaxReturnsAnnualCompliance() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="blue" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="blue"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Annual Filing Obligations
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Tax Returns and Annual Compliance
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Annual income tax compliance starts with reliable accounting and tax records. The return required depends on the entity. Companies, trusts and partnerships lodge their own entity returns, while a sole trader generally reports business income and deductions in their individual tax return.
+            Annual income tax compliance starts with reliable accounting and tax
+            records. The return required depends on the entity. Companies,
+            trusts and partnerships lodge their own entity returns, while a sole
+            trader generally reports business income and deductions in their
+            individual tax return.
           </p>
         </div>
 
@@ -90,7 +105,7 @@ export default function TaxReturnsAnnualCompliance() {
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                     icon={<ArrowRightOutlined className="text-[11px]" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     {entity.linkText}
                   </Button>
@@ -107,7 +122,9 @@ export default function TaxReturnsAnnualCompliance() {
               Coordinated Corporate Close &amp; Year-End Accounting
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Where the business is a company, our Company Tax Returns service covers the company return in more detail. Broader annual close work can also be coordinated through Year-End Accounting.
+              Where the business is a company, our Company Tax Returns service
+              covers the company return in more detail. Broader annual close
+              work can also be coordinated through Year-End Accounting.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0 w-full md:w-auto">
@@ -124,7 +141,7 @@ export default function TaxReturnsAnnualCompliance() {
                 type="primary"
                 className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Year-End Accounting
               </Button>

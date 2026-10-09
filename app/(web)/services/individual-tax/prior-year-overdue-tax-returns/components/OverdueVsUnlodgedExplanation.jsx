@@ -55,14 +55,21 @@ export default function OverdueVsUnlodgedExplanation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Clarifying Status &amp; Obligations
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Are Overdue or Unlodged Tax Returns?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            An overdue tax return is a return that was required but was not lodged by its due date. An unlodged return remains outstanding, while a late tax return is lodged after the applicable deadline. A prior-year return relates to an earlier income year that still needs to be prepared.
+            An overdue tax return is a return that was required but was not
+            lodged by its due date. An unlodged return remains outstanding,
+            while a late tax return is lodged after the applicable deadline. A
+            prior-year return relates to an earlier income year that still needs
+            to be prepared.
           </p>
         </div>
 
@@ -78,7 +85,10 @@ export default function OverdueVsUnlodgedExplanation() {
                   <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-700/60 flex items-center justify-center text-lg">
                     {item.icon}
                   </div>
-                  <Tag color={item.tagColor} className="font-semibold text-2xs uppercase tracking-wider">
+                  <Tag
+                    color={item.tagColor}
+                    className="font-semibold text-2xs uppercase tracking-wider"
+                  >
                     {item.badge}
                   </Tag>
                 </div>
@@ -105,7 +115,12 @@ export default function OverdueVsUnlodgedExplanation() {
                 Non-Lodgment Advice (NLA) Assessment
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Not every person needs to lodge a tax return for every year. If a return was not required, the appropriate step may be to lodge a non-lodgment advice rather than a tax return. This must be checked separately for each year because income, residency, government payments, investments and other circumstances can change.
+                Not every person needs to lodge a tax return for every year. If
+                a return was not required, the appropriate step may be to lodge
+                a non-lodgment advice rather than a tax return. This must be
+                checked separately for each year because income, residency,
+                government payments, investments and other circumstances can
+                change.
               </p>
             </div>
           </div>
@@ -120,7 +135,10 @@ export default function OverdueVsUnlodgedExplanation() {
                 Amendments vs Unlodged Returns
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                An amendment is different. It applies where a return has already been lodged but needs to be corrected. Amendment time limits and procedures depend on the circumstances, so an amended return should not be treated as an unlodged return.
+                An amendment is different. It applies where a return has already
+                been lodged but needs to be corrected. Amendment time limits and
+                procedures depend on the circumstances, so an amended return
+                should not be treated as an unlodged return.
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-blue-200/60 dark:border-blue-800/40">
@@ -129,7 +147,7 @@ export default function OverdueVsUnlodgedExplanation() {
                   type="link"
                   className="p-0 font-bold text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5 h-auto text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   View Tax Return Amendments Service
                 </Button>
@@ -148,7 +166,12 @@ export default function OverdueVsUnlodgedExplanation() {
               What If Several Years Are Outstanding?
             </h3>
             <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-              Tax returns for multiple years are usually handled year by year. The process starts by confirming which years remain outstanding and whether a return or non-lodgment advice is required for each year. Income, deductions, private health insurance, study-loan obligations, investments, residency and family circumstances may differ between years.
+              Tax returns for multiple years are usually handled year by year.
+              The process starts by confirming which years remain outstanding
+              and whether a return or non-lodgment advice is required for each
+              year. Income, deductions, private health insurance, study-loan
+              obligations, investments, residency and family circumstances may
+              differ between years.
             </p>
           </div>
 
@@ -158,7 +181,11 @@ export default function OverdueVsUnlodgedExplanation() {
                 Year-by-Year Legislative Rules
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Catching up can involve reviewing ATO information, gathering supporting records, checking deductions for each year and preparing returns under the rules relevant to those years. It may also involve reviewing ATO notices, balances or post-lodgment requirements.
+                Catching up can involve reviewing ATO information, gathering
+                supporting records, checking deductions for each year and
+                preparing returns under the rules relevant to those years. It
+                may also involve reviewing ATO notices, balances or
+                post-lodgment requirements.
               </p>
             </div>
 
@@ -168,7 +195,9 @@ export default function OverdueVsUnlodgedExplanation() {
                   Sole Trader Income in Outstanding Years
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                  If an outstanding year includes sole-trader income and expenses, our Sole Trader Tax Return service may also be relevant.
+                  If an outstanding year includes sole-trader income and
+                  expenses, our Sole Trader Tax Return service may also be
+                  relevant.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-zinc-800">
@@ -177,7 +206,7 @@ export default function OverdueVsUnlodgedExplanation() {
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1.5 h-auto text-xs"
                     icon={<ArrowRightOutlined className="text-xs" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     Sole Trader Tax Return Service
                   </Button>

@@ -32,7 +32,9 @@ export default function WhatWeNeedAndHowWeHelp() {
 
   const onboardingChecklist = [
     {
-      icon: <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Company ACN & Name",
       desc: "Australian Company Number and official registered company name.",
     },
@@ -57,7 +59,9 @@ export default function WhatWeNeedAndHowWeHelp() {
       desc: "Details of any currently appointed registered agent for a clean transition via Form 362.",
     },
     {
-      icon: <ExclamationCircleOutlined className="text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <ExclamationCircleOutlined className="text-rose-600 dark:text-rose-400" />
+      ),
       title: "Pending or Unlodged Changes",
       desc: "Confirmation of any recent director, address, or share changes not yet lodged with ASIC.",
     },
@@ -76,14 +80,22 @@ export default function WhatWeNeedAndHowWeHelp() {
         {/* Subsection 1: What we may need to get started */}
         <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
           <div className="text-center mb-10">
-            <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Onboarding Checklist
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What we may need to get started
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              To establish or take over registered agent administration, we may need the company’s ACN, current ASIC annual statement, corporate key or relevant access details, current officeholder and address information, and confirmation of any outstanding or recently completed changes. If another agent is currently appointed, the changeover also needs to be handled correctly.
+              To establish or take over registered agent administration, we may
+              need the company’s ACN, current ASIC annual statement, corporate
+              key or relevant access details, current officeholder and address
+              information, and confirmation of any outstanding or recently
+              completed changes. If another agent is currently appointed, the
+              changeover also needs to be handled correctly.
             </p>
           </div>
 
@@ -108,7 +120,10 @@ export default function WhatWeNeedAndHowWeHelp() {
 
           <div className="p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40">
             <p className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed m-0 font-normal">
-              <strong>Record Reconciliation Note:</strong> Where the ASIC record does not match the company’s internal records, we may first need to identify and correct the differences before ongoing administration can operate cleanly.
+              <strong>Record Reconciliation Note:</strong> Where the ASIC record
+              does not match the company’s internal records, we may first need
+              to identify and correct the differences before ongoing
+              administration can operate cleanly.
             </p>
           </div>
         </div>
@@ -123,10 +138,18 @@ export default function WhatWeNeedAndHowWeHelp() {
               How Financially Up can help
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-4">
-              Financially Up can manage the practical registered-agent workflow and help keep ASIC administration connected with broader company accounting. If a company is newly being established, our company registration service covers the setup stage. Once the company exists, registered-agent support can form part of its ongoing administration.
+              Financially Up can manage the practical registered-agent workflow
+              and help keep ASIC administration connected with broader company
+              accounting. If a company is newly being established, our company
+              registration service covers the setup stage. Once the company
+              exists, registered-agent support can form part of its ongoing
+              administration.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-emerald-200 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up has more than 10 years of experience, a professional team including CPA and IPA members, and registered tax agent status. We provide Australia-wide support with online and in-person appointment options.
+              Financially Up has more than 10 years of experience, a
+              professional team including CPA and IPA members, and registered
+              tax agent status. We provide Australia-wide support with online
+              and in-person appointment options.
             </p>
 
             {/* Credential Metrics Grid */}
@@ -150,7 +173,7 @@ export default function WhatWeNeedAndHowWeHelp() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full sm:w-auto rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
                 >
                   Book an Appointment
@@ -176,7 +199,8 @@ export default function WhatWeNeedAndHowWeHelp() {
                 href="/services/business-structures/company-registration"
                 className="text-xs text-emerald-300 hover:text-white hover:underline sm:ml-auto"
               >
-                Need to register a new company first? Explore Company Registration →
+                Need to register a new company first? Explore Company
+                Registration →
               </Link>
             </div>
           </div>

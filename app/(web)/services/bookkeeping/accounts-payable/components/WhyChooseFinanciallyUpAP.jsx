@@ -27,22 +27,30 @@ export default function WhyChooseFinanciallyUpAP() {
 
   const trustBadges = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       desc: `TPB Registration #${company.taxAgentNumber || "26234055"} with formal regulatory accountability.`,
     },
     {
-      icon: <TrophyOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TrophyOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Members",
       desc: "Qualified practitioners recognizing when an AP item requires accounting or tax review.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "10+ Years Experience",
       desc: "A decade of dependable accounts payable and bookkeeping workflows across Australian enterprises.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Support",
       desc: "Delivered online via secure cloud systems with in-person appointments also available.",
     },
@@ -53,17 +61,28 @@ export default function WhyChooseFinanciallyUpAP() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Governance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why Choose Financially Up
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up Pty Ltd"} combines bookkeeping support with accounting, taxation and business advisory services. We are a registered tax agent with more than 10 years of experience, and our team includes CPA and IPA members. This broader context helps us recognize when an AP issue is a routine bookkeeping matter and when it should be referred for accounting or tax review.
+            {company.legalName || "Financially Up Pty Ltd"} combines bookkeeping
+            support with accounting, taxation and business advisory services. We
+            are a registered tax agent with more than 10 years of experience,
+            and our team includes CPA and IPA members. This broader context
+            helps us recognize when an AP issue is a routine bookkeeping matter
+            and when it should be referred for accounting or tax review.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            We support businesses Australia-wide through online appointments, with in-person appointments also available. The accounts payable scope can be set around the business&apos;s existing software, volume and approval structure.
+            We support businesses Australia-wide through online appointments,
+            with in-person appointments also available. The accounts payable
+            scope can be set around the business&apos;s existing software,
+            volume and approval structure.
           </p>
         </div>
 
@@ -126,7 +145,7 @@ export default function WhyChooseFinanciallyUpAP() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold bg-emerald-500 hover:bg-emerald-400 border-none shrink-0"
             >
               Book an Appointment

@@ -25,43 +25,63 @@ import {
 export default function WhenAreConsolidationServicesUseful() {
   const triggers = [
     {
-      icon: <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "A holding company has acquired or is establishing wholly owned subsidiaries",
+      icon: (
+        <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "A holding company has acquired or is establishing wholly owned subsidiaries",
       desc: "Expanding corporate structures with new operating, property-holding, or intellectual property subsidiary entities.",
     },
     {
-      icon: <BranchesOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BranchesOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "A group is considering whether to form a consolidated group",
       desc: "Weighing the irrevocable decision to consolidate against ongoing stand-alone entity filing requirements.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "A new company, trust or partnership may join an existing consolidated group",
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "A new company, trust or partnership may join an existing consolidated group",
       desc: "Acquiring a new business or bringing existing group entities into an established consolidated tax group.",
     },
     {
-      icon: <DisconnectOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DisconnectOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "A subsidiary is being sold or otherwise leaving the group",
       desc: "Divesting a business unit or de-merging a subsidiary requiring exit tax-cost setting and liability allocations.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "The group has carried-forward tax losses or complex tax attributes",
+      icon: (
+        <DollarCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "The group has carried-forward tax losses or complex tax attributes",
       desc: "Managing continuity of ownership tests (COT), business continuity tests (BCT), and available fraction limits.",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "An acquisition requires tax cost-setting calculations",
       desc: "Performing detailed Allocable Cost Amount (ACA) calculations to reset tax cost bases of acquired business assets.",
     },
     {
-      icon: <HistoryOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Historic consolidation records are incomplete or need review",
       desc: "Reconciling historical tax cost setting spreadsheets, entry ACA calculations, and missing ATO notices.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
-      title: "The head company needs support with annual consolidated-group tax compliance",
+      icon: (
+        <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
+      title:
+        "The head company needs support with annual consolidated-group tax compliance",
       desc: "Preparing the consolidated company income tax return, head company schedules, and franking account updates.",
     },
   ];
@@ -71,14 +91,18 @@ export default function WhenAreConsolidationServicesUseful() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Corporate Triggers
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             When are tax consolidation services useful?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Corporate groups encounter distinct inflection points where specialized consolidation advisory and calculations are essential.
+            Corporate groups encounter distinct inflection points where
+            specialized consolidation advisory and calculations are essential.
           </p>
         </div>
 
@@ -111,7 +135,9 @@ export default function WhenAreConsolidationServicesUseful() {
               Evaluate Your Group Consolidation Position
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Whether forming a new tax consolidated group or preparing annual head company returns, Financially Up provides clear statutory guidance.
+              Whether forming a new tax consolidated group or preparing annual
+              head company returns, Financially Up provides clear statutory
+              guidance.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -120,7 +146,7 @@ export default function WhenAreConsolidationServicesUseful() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss Group Situation
               </Button>

@@ -26,32 +26,44 @@ import {
 export default function WhatPropertyTaxPlanningCovers() {
   const lifecycleAreas = [
     {
-      icon: <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Ownership & Structure",
       desc: "Evaluating whether personal, joint, company, or discretionary trust ownership aligns with your goals.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Financing & Borrowing Purpose",
       desc: "Reviewing the actual use of borrowed funds to maintain clear interest deductibility nexus.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Rental Income & Expenses",
       desc: "Distinguishing deductible holding expenses, body corporate fees, council rates, and insurances.",
     },
     {
-      icon: <ToolOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Improvements & Capital Works",
       desc: "Differentiating between immediate deductible repairs, capital works (Division 43), and plant depreciation.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "CGT & Future Disposal",
       desc: "Modeling cost bases, capital gains tax events, main residence exemptions, and 50% CGT discounts.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Advisory & Specialist Referral",
       desc: "Identifying when legal conveyancing, mortgage broker advice, or licensed financial planning is required.",
     },
@@ -62,17 +74,28 @@ export default function WhatPropertyTaxPlanningCovers() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Property Lifecycle Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Does Property Tax Planning Cover?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Property tax planning looks at the tax implications of owning, financing, renting, improving and disposing of investment property. There is no single structure or strategy that is automatically best for every investor. The outcome depends on ownership, financing, use of the property, other income, future plans and applicable tax rules.
+            Property tax planning looks at the tax implications of owning,
+            financing, renting, improving and disposing of investment property.
+            There is no single structure or strategy that is automatically best
+            for every investor. The outcome depends on ownership, financing, use
+            of the property, other income, future plans and applicable tax
+            rules.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            A property tax adviser can help identify the questions to resolve before a purchase, refinance, renovation, ownership change or sale, and can explain which matters require separate legal, lending or financial advice.
+            A property tax adviser can help identify the questions to resolve
+            before a purchase, refinance, renovation, ownership change or sale,
+            and can explain which matters require separate legal, lending or
+            financial advice.
           </p>
         </div>
 
@@ -119,7 +142,10 @@ export default function WhatPropertyTaxPlanningCovers() {
               Schedule Your Property Tax Consultation
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-              Your first discussion can cover your current or proposed property, ownership, borrowing arrangements, rental activity, planned renovations or disposal, available records and the scope of any further tax advice.
+              Your first discussion can cover your current or proposed property,
+              ownership, borrowing arrangements, rental activity, planned
+              renovations or disposal, available records and the scope of any
+              further tax advice.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -128,7 +154,7 @@ export default function WhatPropertyTaxPlanningCovers() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full md:w-auto rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 px-6 shadow-md"
               >
                 Book an Appointment

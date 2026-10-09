@@ -26,32 +26,44 @@ import {
 export default function WhatHighIncomePlanningInvolves() {
   const scopeAreas = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Salary, Bonuses & Commissions",
       desc: "Analyzing bonus timing, withholding rate variations, top marginal tax bracket thresholds, and salary packaging.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Investment Portfolios & Dividends",
       desc: "Reviewing franking credits, trust distributions, interest, and foreign investment income across diversified holdings.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Rental Property Portfolios",
       desc: "Evaluating borrowing costs, depreciation deductions, negative gearing cash flows, and prospective property sales.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Capital Gains & Asset Disposals",
       desc: "Reviewing CGT event A1 contract dates, available cost bases, 50% CGT discounts, and capital loss utilization.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Superannuation & Division 293",
       desc: "Modeling concessional contribution caps, carry-forward unused amounts, and Division 293 high-earner tax liabilities.",
     },
     {
-      icon: <ThunderboltOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ThunderboltOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Employee Share Schemes (ESS)",
       desc: "Assessing taxing points for employee share schemes, rights, performance options, and deferred vesting rules.",
     },
@@ -62,17 +74,28 @@ export default function WhatHighIncomePlanningInvolves() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Executive Advisory Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Does High Income Tax Planning Involve?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            High income tax planning involves reviewing the tax implications of income, investments and planned transactions before they are finalized where possible. It differs from tax return preparation, which mainly reports events that have already occurred.
+            High income tax planning involves reviewing the tax implications of
+            income, investments and planned transactions before they are
+            finalized where possible. It differs from tax return preparation,
+            which mainly reports events that have already occurred.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            A planning review may consider salary and bonuses, investment income, rental property, capital gains, eligible deductions, superannuation contributions, employee share interests and changes in personal circumstances. The appropriate focus depends on your facts; not every strategy or concession is available to every taxpayer.
+            A planning review may consider salary and bonuses, investment
+            income, rental property, capital gains, eligible deductions,
+            superannuation contributions, employee share interests and changes
+            in personal circumstances. The appropriate focus depends on your
+            facts; not every strategy or concession is available to every
+            taxpayer.
           </p>
         </div>
 
@@ -119,7 +142,9 @@ export default function WhatHighIncomePlanningInvolves() {
               Schedule Your Executive Tax Planning Session
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-              Your first discussion can cover your income sources, investments, expected transactions, current records, timing issues and whether separate tax or specialist advice is required.
+              Your first discussion can cover your income sources, investments,
+              expected transactions, current records, timing issues and whether
+              separate tax or specialist advice is required.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -128,7 +153,7 @@ export default function WhatHighIncomePlanningInvolves() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full md:w-auto rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 px-6 shadow-md"
               >
                 Book an Appointment

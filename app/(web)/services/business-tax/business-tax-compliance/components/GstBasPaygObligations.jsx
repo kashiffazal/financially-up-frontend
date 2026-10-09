@@ -22,17 +22,23 @@ import {
 export default function GstBasPaygObligations() {
   const obligations = [
     {
-      icon: <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "GST Reporting via BAS",
       desc: "A business registered for GST generally needs to report GST through its business activity statement. Reporting frequency (quarterly or monthly) depends on turnover registrations and ATO requirements.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "PAYG Withholding (PAYGW)",
       desc: "Employers must withhold income tax from payments to employees and eligible contractors, remitting tax withheld to the ATO via BAS and reporting through Single Touch Payroll (STP).",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "PAYG Instalments (PAYGI)",
       desc: "Pre-paying expected business income tax across activity statements helps manage cash flow and avoid large, unexpected annual tax bills when commercial trading profits grow.",
     },
@@ -43,14 +49,21 @@ export default function GstBasPaygObligations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Periodic Tax Filings
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             GST, BAS and PAYG Obligations
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A business registered for GST generally needs to report GST through its business activity statement. BAS obligations can also include PAYG withholding or PAYG instalments, depending on the business. The frequency and information required depend on registrations and ATO requirements.
+            A business registered for GST generally needs to report GST through
+            its business activity statement. BAS obligations can also include
+            PAYG withholding or PAYG instalments, depending on the business. The
+            frequency and information required depend on registrations and ATO
+            requirements.
           </p>
         </div>
 
@@ -84,7 +97,12 @@ export default function GstBasPaygObligations() {
               Reconciled Control Accounts Prevent Recurring Errors
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Good compliance depends on correct transaction coding and reconciled control accounts. A BAS prepared from unreconciled records can carry errors into later periods, so recurring tax compliance services may include reviewing the underlying accounting information rather than only transferring figures onto a form.
+              Good compliance depends on correct transaction coding and
+              reconciled control accounts. A BAS prepared from unreconciled
+              records can carry errors into later periods, so recurring tax
+              compliance services may include reviewing the underlying
+              accounting information rather than only transferring figures onto
+              a form.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -93,7 +111,7 @@ export default function GstBasPaygObligations() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Activity Statements
               </Button>

@@ -19,36 +19,47 @@ export default function WhatStpReportingCanHelpWith() {
   const capabilities = [
     {
       title: "Reviewing whether payroll software is set up for STP reporting.",
-      detail: "Configuring BMS identifiers, ATO digital software certificates, and payroll clearing accounts.",
+      detail:
+        "Configuring BMS identifiers, ATO digital software certificates, and payroll clearing accounts.",
     },
     {
       title: "Checking employee payroll information before reporting begins.",
-      detail: "Verifying TFN declarations, residency status, super USI fund codes, and contact details to avoid ATO rejection.",
+      detail:
+        "Verifying TFN declarations, residency status, super USI fund codes, and contact details to avoid ATO rejection.",
     },
     {
-      title: "Coordinating pay-event reporting with regular payroll processing.",
-      detail: "Automating or managing the transmission of pay event payloads each pay run without operational delays.",
+      title:
+        "Coordinating pay-event reporting with regular payroll processing.",
+      detail:
+        "Automating or managing the transmission of pay event payloads each pay run without operational delays.",
     },
     {
-      title: "Reviewing rejected or incorrect STP submissions and identifying corrections.",
-      detail: "Diagnosing error codes, mismatched employee identifiers, or failed transmissions and preparing update events.",
+      title:
+        "Reviewing rejected or incorrect STP submissions and identifying corrections.",
+      detail:
+        "Diagnosing error codes, mismatched employee identifiers, or failed transmissions and preparing update events.",
     },
     {
       title: "Assisting with year-end finalization declarations.",
-      detail: "Reconciling annual payroll ledgers, W1/W2 activity statements, and signing off on 14 July final declarations.",
+      detail:
+        "Reconciling annual payroll ledgers, W1/W2 activity statements, and signing off on 14 July final declarations.",
     },
     {
-      title: "Helping update previously reported payroll information where appropriate.",
-      detail: "Submitting replacement pay events or update events when prior pay calculations or leave payouts are adjusted.",
+      title:
+        "Helping update previously reported payroll information where appropriate.",
+      detail:
+        "Submitting replacement pay events or update events when prior pay calculations or leave payouts are adjusted.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <SendOutlined className="mr-1.5" />
             Support Capabilities
           </Tag>
@@ -58,7 +69,9 @@ export default function WhatStpReportingCanHelpWith() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            STP reporting services are useful when a business wants payroll reporting to be part of a controlled, repeatable process rather than handled as a separate last-minute compliance task.
+            STP reporting services are useful when a business wants payroll
+            reporting to be part of a controlled, repeatable process rather than
+            handled as a separate last-minute compliance task.
           </p>
         </div>
 
@@ -92,7 +105,8 @@ export default function WhatStpReportingCanHelpWith() {
               Need Routine Pay Run Management?
             </div>
             <p className="text-base text-slate-800 dark:text-zinc-200 leading-relaxed font-medium">
-              If you also need the underlying pay runs processed, explore our comprehensive Payroll Services page for end-to-end administration.
+              If you also need the underlying pay runs processed, explore our
+              comprehensive Payroll Services page for end-to-end administration.
             </p>
           </div>
           <Link href="/services/bas-payroll/payroll-services">
@@ -101,13 +115,12 @@ export default function WhatStpReportingCanHelpWith() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Explore Payroll Services
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

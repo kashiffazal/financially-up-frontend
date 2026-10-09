@@ -22,13 +22,17 @@ import {
 export default function WhatIsShareholderDirectorLoan() {
   const directionCards = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Company Lending to Shareholder / Associate",
       desc: "Where private company funds are advanced to a director, shareholder, or relative. For private companies, Division 7A can treat certain payments, loans or forgiven debts provided to shareholders or their associates as unfranked dividends unless an exclusion applies or the arrangement satisfies the relevant rules.",
       tag: "Division 7A Risk",
     },
     {
-      icon: <SwapOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Shareholder Lending to Company",
       desc: "Where a shareholder or director introduces personal funds to finance business operations. This raises entirely different tax considerations and is not treated in the same way as company-to-shareholder advances.",
       tag: "Company Liability",
@@ -40,14 +44,21 @@ export default function WhatIsShareholderDirectorLoan() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Loan Definition & Directionality
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What is a shareholder or director loan?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A shareholder loan tax or director loan usually refers to money owed between a company and a shareholder, director or related person. The direction of the loan matters. A company lending money to a shareholder or associate can raise different tax issues from a shareholder lending money to the company.
+            A shareholder loan tax or director loan usually refers to money owed
+            between a company and a shareholder, director or related person. The
+            direction of the loan matters. A company lending money to a
+            shareholder or associate can raise different tax issues from a
+            shareholder lending money to the company.
           </p>
         </div>
 
@@ -63,7 +74,10 @@ export default function WhatIsShareholderDirectorLoan() {
                   <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                     {card.icon}
                   </div>
-                  <Tag color={idx === 0 ? "orange" : "blue"} className="font-semibold text-xs">
+                  <Tag
+                    color={idx === 0 ? "orange" : "blue"}
+                    className="font-semibold text-xs"
+                  >
                     {card.tag}
                   </Tag>
                 </div>
@@ -86,7 +100,11 @@ export default function WhatIsShareholderDirectorLoan() {
               Why Accurate Loan-Account Records Are Vital
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For private companies, Division 7A can treat certain payments, loans or forgiven debts provided to shareholders or their associates as unfranked dividends unless an exclusion applies or the arrangement satisfies the relevant rules. That is why accurate loan-account records are important.
+              For private companies, Division 7A can treat certain payments,
+              loans or forgiven debts provided to shareholders or their
+              associates as unfranked dividends unless an exclusion applies or
+              the arrangement satisfies the relevant rules. That is why accurate
+              loan-account records are important.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -95,7 +113,7 @@ export default function WhatIsShareholderDirectorLoan() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Loan Account
               </Button>

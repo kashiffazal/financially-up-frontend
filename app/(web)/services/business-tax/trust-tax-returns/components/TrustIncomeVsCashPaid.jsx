@@ -26,7 +26,9 @@ export default function TrustIncomeVsCashPaid() {
       title: "Taxable Net Income & Entitlement",
       badge: "Tax Assessment",
       badgeColor: "blue",
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       points: [
         "Determined by the trust deed formula and s95 net tax income calculations",
         "Created by effective trustee resolution on or before 30 June",
@@ -38,7 +40,9 @@ export default function TrustIncomeVsCashPaid() {
       title: "Physical Cash Movement & Drawings",
       badge: "Banking & Cashflow",
       badgeColor: "orange",
-      icon: <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       points: [
         "Physical bank transfers or personal drawings throughout the year",
         "Paying cash later does not, by itself, create the required present entitlement",
@@ -60,14 +64,21 @@ export default function TrustIncomeVsCashPaid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Concept Clarification
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Trust Income Is Not the Same as Cash Paid Out
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A common source of confusion is assuming that tax follows only the cash physically transferred to a beneficiary. Trust tax outcomes can depend on present entitlement, the trust deed and the tax character of income, not simply whether money has moved to a beneficiary’s bank account.
+            A common source of confusion is assuming that tax follows only the
+            cash physically transferred to a beneficiary. Trust tax outcomes can
+            depend on present entitlement, the trust deed and the tax character
+            of income, not simply whether money has moved to a beneficiary’s
+            bank account.
           </p>
         </div>
 
@@ -83,7 +94,10 @@ export default function TrustIncomeVsCashPaid() {
                   <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center">
                     {card.icon}
                   </div>
-                  <Tag color={card.badgeColor} className="font-semibold text-xs uppercase tracking-wider">
+                  <Tag
+                    color={card.badgeColor}
+                    className="font-semibold text-xs uppercase tracking-wider"
+                  >
                     {card.badge}
                   </Tag>
                 </div>
@@ -92,7 +106,10 @@ export default function TrustIncomeVsCashPaid() {
                 </h3>
                 <ul className="space-y-3">
                   {card.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
+                    <li
+                      key={pIdx}
+                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed"
+                    >
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-primary dark:bg-emerald-400 mt-2 shrink-0" />
                       <span>{pt}</span>
                     </li>
@@ -114,11 +131,16 @@ export default function TrustIncomeVsCashPaid() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                This is one reason trust tax should be reviewed before year-end where possible, particularly when the trust has capital gains, franked distributions, several beneficiaries or retained cash.
+                This is one reason trust tax should be reviewed before year-end
+                where possible, particularly when the trust has capital gains,
+                franked distributions, several beneficiaries or retained cash.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                 {reviewTriggers.map((trig, tIdx) => (
-                  <div key={tIdx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-zinc-300">
+                  <div
+                    key={tIdx}
+                    className="flex items-center gap-2 text-xs text-slate-600 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0" />
                     <span>{trig}</span>
                   </div>
@@ -132,7 +154,7 @@ export default function TrustIncomeVsCashPaid() {
                   type="primary"
                   className="brand-btn-primary w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Schedule Year-End Review
                 </Button>

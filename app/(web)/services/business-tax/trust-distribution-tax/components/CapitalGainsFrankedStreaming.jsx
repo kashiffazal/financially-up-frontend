@@ -25,12 +25,16 @@ import {
 export default function CapitalGainsFrankedStreaming() {
   const streamingStreams = [
     {
-      icon: <StockOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <StockOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Streaming Capital Gains",
       desc: "Allocating specific capital gains to individual beneficiaries who can access the 50% CGT discount or offset personal capital losses, requiring deed power and specific entitlement records.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Streaming Franked Distributions",
       desc: "Directing franked dividends and attached franking credits to beneficiaries who can utilize the tax offset effectively, subject to the benchmark rule and holding period rules.",
     },
@@ -41,14 +45,21 @@ export default function CapitalGainsFrankedStreaming() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Specific Entitlements & Tax Offsets
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Capital gains and franked distributions
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Where permitted by the trust deed and the tax rules, a trust may be able to stream capital gains or franked distributions so that a particular beneficiary is specifically entitled to the relevant amount. This can affect how the gain or franking credit is dealt with in the beneficiary&apos;s tax position.
+            Where permitted by the trust deed and the tax rules, a trust may be
+            able to stream capital gains or franked distributions so that a
+            particular beneficiary is specifically entitled to the relevant
+            amount. This can affect how the gain or franking credit is dealt
+            with in the beneficiary&apos;s tax position.
           </p>
         </div>
 
@@ -82,7 +93,11 @@ export default function CapitalGainsFrankedStreaming() {
               Rigorous Advance Documentation Required
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Streaming is not simply a matter of choosing the most favourable beneficiary after year-end. The entitlement, records, deed and integrity rules all need to be considered. Detailed trust distribution advice is separately scoped where the facts require it.
+              Streaming is not simply a matter of choosing the most favourable
+              beneficiary after year-end. The entitlement, records, deed and
+              integrity rules all need to be considered. Detailed trust
+              distribution advice is separately scoped where the facts require
+              it.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -91,7 +106,7 @@ export default function CapitalGainsFrankedStreaming() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Scope Streaming Advice
               </Button>

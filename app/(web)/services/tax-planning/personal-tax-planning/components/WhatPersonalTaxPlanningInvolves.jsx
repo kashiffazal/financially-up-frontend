@@ -26,32 +26,44 @@ import {
 export default function WhatPersonalTaxPlanningInvolves() {
   const scopeAreas = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Employment Income & Bonuses",
       desc: "Analyzing bonus timing, salary packaging, multi-employer withholding rates, and employee equity considerations.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Investment Portfolios & Dividends",
       desc: "Reviewing franking credits, interest, managed fund annual tax statements, and overseas investment reporting.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Rental Property Portfolios",
       desc: "Evaluating rental schedules, financing costs, repairs versus capital improvements, and potential future disposal timing.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Capital Gains Events & Timing",
       desc: "Reviewing CGT event A1 contract dates, available cost bases, historical capital losses, and 50% CGT discounts.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Deductible Expenses & Apportionment",
       desc: "Assessing work-related deductions, home office substantiate logs, vehicle expenses, and investment borrowing costs.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Personal Concessional Super",
       desc: "Evaluating eligibility for personal deductible super contributions, concessional caps, and formal Notice of Intent rules.",
     },
@@ -62,17 +74,29 @@ export default function WhatPersonalTaxPlanningInvolves() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Personal Advisory Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Does a Personal Planning Review Involve?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A planning review looks at expected taxable income, deductions, investment or property income, capital gains and other relevant tax matters. A personal tax adviser can explain the likely tax treatment of a planned decision and identify issues to consider before the transaction occurs.
+            A planning review looks at expected taxable income, deductions,
+            investment or property income, capital gains and other relevant tax
+            matters. A personal tax adviser can explain the likely tax treatment
+            of a planned decision and identify issues to consider before the
+            transaction occurs.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            The scope depends on the individual. It may involve employment income, bonuses, multiple jobs, investment income, rental property, capital gains, deductible expenses, personal super contributions or other tax matters. Financial advice about which investment or financial product to choose is separate and may require a licensed adviser.
+            The scope depends on the individual. It may involve employment
+            income, bonuses, multiple jobs, investment income, rental property,
+            capital gains, deductible expenses, personal super contributions or
+            other tax matters. Financial advice about which investment or
+            financial product to choose is separate and may require a licensed
+            adviser.
           </p>
         </div>
 
@@ -119,7 +143,9 @@ export default function WhatPersonalTaxPlanningInvolves() {
               Plan Ahead Before Key Personal Decisions Take Effect
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-              Discuss your income sources, investments, property, expected capital gains, superannuation-related considerations, upcoming decisions and the records you currently have.
+              Discuss your income sources, investments, property, expected
+              capital gains, superannuation-related considerations, upcoming
+              decisions and the records you currently have.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -128,7 +154,7 @@ export default function WhatPersonalTaxPlanningInvolves() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full md:w-auto rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 px-6 shadow-md"
               >
                 Book an Appointment

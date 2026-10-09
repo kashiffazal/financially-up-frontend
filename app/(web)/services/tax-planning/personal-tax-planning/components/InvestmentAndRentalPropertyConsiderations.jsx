@@ -35,17 +35,26 @@ export default function InvestmentAndRentalPropertyConsiderations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Assets &amp; Portfolios
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Investment and Rental Property Considerations
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Investment income can involve more than reporting cash received. Dividends, managed fund distributions, interest, foreign income and capital gains may each have different tax treatment and record requirements.
+            Investment income can involve more than reporting cash received.
+            Dividends, managed fund distributions, interest, foreign income and
+            capital gains may each have different tax treatment and record
+            requirements.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Rental property planning may involve expected rental income, deductible expenses, financing records, repairs versus capital expenditure, depreciation-related information and a possible future sale. The treatment depends on the property and the facts.
+            Rental property planning may involve expected rental income,
+            deductible expenses, financing records, repairs versus capital
+            expenditure, depreciation-related information and a possible future
+            sale. The treatment depends on the property and the facts.
           </p>
         </div>
 
@@ -63,21 +72,37 @@ export default function InvestmentAndRentalPropertyConsiderations() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                Tax planning identifies the distinct tax characteristics of varied asset classes before annual statements arrive.
+                Tax planning identifies the distinct tax characteristics of
+                varied asset classes before annual statements arrive.
               </p>
 
               <div className="space-y-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">Managed Funds (AMMA Statements)</h4>
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">Attributed income, capital gains tax components, and tax-deferred adjustments.</p>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                    Managed Funds (AMMA Statements)
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
+                    Attributed income, capital gains tax components, and
+                    tax-deferred adjustments.
+                  </p>
                 </div>
                 <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">Australian Share Portfolios</h4>
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">Franked vs unfranked dividends, franking credit offsets, and DRP cost bases.</p>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                    Australian Share Portfolios
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
+                    Franked vs unfranked dividends, franking credit offsets, and
+                    DRP cost bases.
+                  </p>
                 </div>
                 <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">Overseas &amp; Foreign Income</h4>
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">Foreign tax offsets (FITO), withholding taxes, and exchange rate conversions.</p>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                    Overseas &amp; Foreign Income
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
+                    Foreign tax offsets (FITO), withholding taxes, and exchange
+                    rate conversions.
+                  </p>
                 </div>
               </div>
             </div>
@@ -95,14 +120,17 @@ export default function InvestmentAndRentalPropertyConsiderations() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                For detailed rental-property compliance and tax-return support, see Investment Property Tax.
+                For detailed rental-property compliance and tax-return support,
+                see Investment Property Tax.
               </p>
 
               <div className="space-y-2 mb-6">
                 {propertyReviewElements.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2">
                     <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-xs mt-1 shrink-0" />
-                    <span className="text-xs text-slate-600 dark:text-zinc-300 font-normal">{item}</span>
+                    <span className="text-xs text-slate-600 dark:text-zinc-300 font-normal">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -114,7 +142,7 @@ export default function InvestmentAndRentalPropertyConsiderations() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
                 >
                   Explore Investment Property Tax

@@ -105,7 +105,7 @@ export default function RelatedBasPayrollRibbon({ currentSlug = "" }) {
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs sm:text-sm"
                     icon={<ArrowRightOutlined className="text-[11px]" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     {service.label}
                   </Button>

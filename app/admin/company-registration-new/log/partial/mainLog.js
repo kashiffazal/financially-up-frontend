@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import { Tag, Button, Dropdown, Modal, Popconfirm, App } from "antd";
+import { Tag, Button, Dropdown, Modal, App } from "antd";
 import {
   EyeOutlined,
   EditOutlined,
-  DeleteOutlined,
   FilePdfOutlined,
   MoreOutlined,
   SwapOutlined,
@@ -30,8 +29,7 @@ import { HTTP, antdMsg, getFileUrl } from "@/services";
  *    - "Review & Decision": Opens `CompanyRegistrationAdminForm` compliance assessment modal.
  *    - "View Official PDF": Direct link to the generated Australian incorporation PDF package.
  *    - "Change Status to...": Submenu with confirmation modal for status lifecycle transitions.
- *    - "Delete Record": Popconfirm confirmation to remove application.
- * 4. Handles Bulk Actions (e.g. Bulk Approve, Bulk Hold, Bulk Lodge with ASIC, Bulk Delete).
+ * 4. Handles Bulk Actions (e.g. Bulk Approve, Bulk Hold, Bulk Lodge with ASIC). Records are never deleted.
  * 5. Provides one-click Excel & PDF export via `ExportButtons`.
  */
 export default function CompanyRegistrationMainLog({
@@ -172,27 +170,11 @@ export default function CompanyRegistrationMainLog({
     [changeStatus, fetchData, getStatusTagColor, modal],
   );
 
-  // --------------------------------------------------------------------------
-  // 4. ROW ACTIONS: SINGLE RECORD DELETION
-  // --------------------------------------------------------------------------
-  const handleDeleteRecord = useCallback(
-    async (record) => {
-      const recordId = record.id || record._id || record.key;
-      try {
-        await HTTP("DELETE", `/new-company-registrations/${recordId}`);
-        antdMsg.success("Company registration record deleted successfully.");
-        if (typeof fetchData === "function") {
-          fetchData();
-        }
-      } catch (err) {
-        antdMsg.error(`Failed to delete record: ${err.message || "Error"}`);
-      }
-    },
-    [fetchData],
-  );
+  // Records are never deleted (kept for compliance record-keeping): no delete
+  // row action or bulk delete, and the API refuses DELETE requests.
 
   // --------------------------------------------------------------------------
-  // 5. BULK ACTION HANDLER (MULTI-ROW SELECTION)
+  // 5. BULK ACTION HANDLER (MULTI-ROW SELECTION) — status changes only
   // --------------------------------------------------------------------------
   const handleBulkAction = useCallback(
     async (selectedRowsInfo, actionValue) => {
@@ -200,29 +182,16 @@ export default function CompanyRegistrationMainLog({
       if (!selectedRowKeys || selectedRowKeys.length === 0) return;
 
       try {
-        if (actionValue === "DELETE") {
-          // Bulk delete operation
-          await Promise.all(
-            selectedRowKeys.map((id) =>
-              HTTP("DELETE", `/new-company-registrations/${id}`),
-            ),
-          );
-          antdMsg.success(
-            `Successfully deleted ${selectedRowKeys.length} records.`,
-          );
-        } else {
-          // Bulk status transition operation
-          await Promise.all(
-            selectedRowKeys.map((id) =>
-              HTTP("PUT", `/new-company-registrations/${id}/status`, {
-                status: actionValue,
-              }),
-            ),
-          );
-          antdMsg.success(
-            `Updated ${selectedRowKeys.length} records to '${actionValue}'.`,
-          );
-        }
+        await Promise.all(
+          selectedRowKeys.map((id) =>
+            HTTP("PUT", `/new-company-registrations/${id}/status`, {
+              status: actionValue,
+            }),
+          ),
+        );
+        antdMsg.success(
+          `Updated ${selectedRowKeys.length} records to '${actionValue}'.`,
+        );
 
         if (typeof fetchData === "function") {
           fetchData();
@@ -416,24 +385,6 @@ export default function CompanyRegistrationMainLog({
               label: "Change Status to...",
               children: statusChangeItems,
             },
-            { type: "divider" },
-            {
-              key: "delete",
-              danger: true,
-              icon: <DeleteOutlined />,
-              label: (
-                <Popconfirm
-                  title="Delete Company Registration"
-                  description="Are you sure you want to delete this company registration?"
-                  onConfirm={() => handleDeleteRecord(record)}
-                  okText="Yes, Delete"
-                  cancelText="Cancel"
-                  okButtonProps={{ danger: true }}
-                >
-                  <span className="w-full inline-block">Delete Record</span>
-                </Popconfirm>
-              ),
-            },
           ].filter(Boolean);
 
           return (
@@ -450,7 +401,7 @@ export default function CompanyRegistrationMainLog({
         },
       },
     ];
-  }, [confirmStatusChange, getStatusTagColor, handleDeleteRecord, statusList]);
+  }, [confirmStatusChange, getStatusTagColor, statusList]);
 
   // --------------------------------------------------------------------------
   // 7. BULK ACTIONS LIST
@@ -477,12 +428,6 @@ export default function CompanyRegistrationMainLog({
         label: "Mark as Lodged with ASIC",
         value: "Lodged with ASIC",
         bulkActionMsg: "Update selected records as Lodged with ASIC?",
-      },
-      {
-        label: "Delete Selected",
-        value: "DELETE",
-        bulkActionMsg:
-          "WARNING: Are you sure you want to delete all selected records permanently?",
       },
     ];
   }, []);

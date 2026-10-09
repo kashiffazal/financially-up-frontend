@@ -24,7 +24,9 @@ export default function RecordKeepingSupportingInfo() {
   const recordCategories = [
     {
       category: "Invoicing & Banking",
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       items: [
         "Invoices and receipts for all business transactions",
         "Bank and credit-card statements verifying payments",
@@ -32,7 +34,9 @@ export default function RecordKeepingSupportingInfo() {
     },
     {
       category: "Payroll & Human Resources",
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       items: [
         "Payroll information, STP reports and wage reconciliations",
         "Superannuation guarantee payment confirmations",
@@ -40,7 +44,9 @@ export default function RecordKeepingSupportingInfo() {
     },
     {
       category: "Assets & Legal Agreements",
-      icon: <FolderOpenOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       items: [
         "Asset records, purchase invoices and disposal contracts",
         "Commercial contracts, leases and finance agreements",
@@ -48,7 +54,9 @@ export default function RecordKeepingSupportingInfo() {
     },
     {
       category: "Accounting & Tax Calculations",
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       items: [
         "Accounting reports and trial balance exports",
         "Supporting tax calculations, workpapers and depreciation schedules",
@@ -61,14 +69,21 @@ export default function RecordKeepingSupportingInfo() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Standards
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Record Keeping and Supporting Information
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The ATO requires businesses to keep records that explain transactions relevant to their tax and superannuation affairs. Depending on the matter, records may include invoices, receipts, bank statements, payroll information, asset records, contracts, calculations and accounting reports.
+            The ATO requires businesses to keep records that explain
+            transactions relevant to their tax and superannuation affairs.
+            Depending on the matter, records may include invoices, receipts,
+            bank statements, payroll information, asset records, contracts,
+            calculations and accounting reports.
           </p>
         </div>
 
@@ -89,7 +104,10 @@ export default function RecordKeepingSupportingInfo() {
               </div>
               <ul className="space-y-2.5">
                 {cat.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
+                  <li
+                    key={itemIdx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -111,7 +129,10 @@ export default function RecordKeepingSupportingInfo() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                Business tax records generally need to be kept for five years, although some records must be retained for longer depending on the transaction, asset, loss or legal requirement. Companies also have separate corporate record-keeping obligations.
+                Business tax records generally need to be kept for five years,
+                although some records must be retained for longer depending on
+                the transaction, asset, loss or legal requirement. Companies
+                also have separate corporate record-keeping obligations.
               </p>
             </div>
           </div>
@@ -126,7 +147,10 @@ export default function RecordKeepingSupportingInfo() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Financially Up can identify the records needed for the work being prepared. We do not recommend guessing figures where source information is unavailable; missing information should be addressed using appropriate records and a supportable method.
+                Financially Up can identify the records needed for the work
+                being prepared. We do not recommend guessing figures where
+                source information is unavailable; missing information should be
+                addressed using appropriate records and a supportable method.
               </p>
             </div>
             <div>
@@ -135,7 +159,7 @@ export default function RecordKeepingSupportingInfo() {
                   type="default"
                   className="brand-btn-outline text-xs font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Verify Your Records
                 </Button>

@@ -25,14 +25,19 @@ export default function CatchUpVsTaxCompliance() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Regulatory Boundaries
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Catch-Up Bookkeeping and Tax Compliance Are Different Services
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Catch-up work creates or repairs the accounting records used by the business. It does not automatically mean every tax or reporting obligation has been reviewed or lodged.
+            Catch-up work creates or repairs the accounting records used by the
+            business. It does not automatically mean every tax or reporting
+            obligation has been reviewed or lodged.
           </p>
         </div>
 
@@ -52,14 +57,21 @@ export default function CatchUpVsTaxCompliance() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Bookkeeping may support BAS preparation or a tax return by improving the underlying records, but preparation and lodgement must be included expressly in the agreed scope. GST coding that requires interpretation or application of GST law is a BAS or tax agent service. Tax advice, amendments and complex accounting issues may require separate review.
+                  Bookkeeping may support BAS preparation or a tax return by
+                  improving the underlying records, but preparation and
+                  lodgement must be included expressly in the agreed scope. GST
+                  coding that requires interpretation or application of GST law
+                  is a BAS or tax agent service. Tax advice, amendments and
+                  complex accounting issues may require separate review.
                 </p>
               </div>
 
               <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <InfoCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Need BAS or tax return lodgement alongside backlog clearing? We coordinate your catch-up ledger directly with our registered tax agent team.
+                  Need BAS or tax return lodgement alongside backlog clearing?
+                  We coordinate your catch-up ledger directly with our
+                  registered tax agent team.
                 </p>
               </div>
             </div>
@@ -73,7 +85,7 @@ export default function CatchUpVsTaxCompliance() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   BAS &amp; GST Lodgement
                 </Button>
@@ -95,14 +107,23 @@ export default function CatchUpVsTaxCompliance() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  The ATO requires businesses to keep records that explain transactions relevant to their tax affairs. GST-registered businesses also need records supporting reported amounts and GST credits. Most business records must generally be kept for five years from when they are prepared or obtained, or when the transaction is completed, whichever is later. Longer periods can apply. Catch-up work should therefore rely on source documents rather than unsupported assumptions.
+                  The ATO requires businesses to keep records that explain
+                  transactions relevant to their tax affairs. GST-registered
+                  businesses also need records supporting reported amounts and
+                  GST credits. Most business records must generally be kept for
+                  five years from when they are prepared or obtained, or when
+                  the transaction is completed, whichever is later. Longer
+                  periods can apply. Catch-up work should therefore rely on
+                  source documents rather than unsupported assumptions.
                 </p>
               </div>
 
               <div className="mt-6 p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex items-start gap-3">
                 <ClockCircleOutlined className="text-amber-600 dark:text-amber-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-normal">
-                  <strong>Source Documents Over Assumptions:</strong> Valid tax invoices, bank statements, and deduction records protect your business against adverse ATO audit penalties.
+                  <strong>Source Documents Over Assumptions:</strong> Valid tax
+                  invoices, bank statements, and deduction records protect your
+                  business against adverse ATO audit penalties.
                 </p>
               </div>
             </div>
@@ -116,7 +137,7 @@ export default function CatchUpVsTaxCompliance() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   ATO Support &amp; Review
                 </Button>

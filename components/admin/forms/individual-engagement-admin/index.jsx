@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Form, Button, Card, Badge } from "antd";
+import { Form, Button, Badge } from "antd";
 import { AuditOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import { antdMsg, GetUserData } from "@/services";
 
@@ -22,6 +22,14 @@ export default function IndividualEngagementAdminForm({
   const [internalForm] = Form.useForm();
   const form = externalForm || internalForm;
 
+  // The signing staff member is always the logged-in user (not typed in)
+  const currentUser = GetUserData();
+  const staffName =
+    currentUser?.name ||
+    currentUser?.fullName ||
+    `${currentUser?.firstName || ""} ${currentUser?.lastName || ""}`.trim() ||
+    "Financially Up Tax Agent";
+
   const clientName =
     `${record?.FirstName || ""} ${record?.LastName || ""}`.trim() ||
     record?.fullName ||
@@ -31,9 +39,6 @@ export default function IndividualEngagementAdminForm({
   useEffect(() => {
     if (record) {
       const adminReview = record.adminReview || null;
-      const taxAgentSig = Array.isArray(record?.signatures)
-        ? record?.signatures.find((s) => s.signerType === "TaxAgent")
-        : null;
 
       if (adminReview) {
         // Populate from saved DB admin review record
@@ -65,8 +70,6 @@ export default function IndividualEngagementAdminForm({
             adminReview.sanctionsHighRiskJurisdictionCheck || undefined,
           sanctionsNameMatchCheck:
             adminReview.sanctionsNameMatchCheck || undefined,
-          staffMemberName:
-            adminReview.reviewerName || taxAgentSig?.signerFullName || "",
           staffDrawnSignature: adminReview.signatureDrawnData || null,
           reviewNotes: adminReview.reviewNotes || "",
         });
@@ -86,7 +89,6 @@ export default function IndividualEngagementAdminForm({
           sanctionsOverseasActivityCheck: undefined,
           sanctionsHighRiskJurisdictionCheck: undefined,
           sanctionsNameMatchCheck: undefined,
-          staffMemberName: "",
           staffDrawnSignature: null,
           reviewNotes: "",
         });
@@ -95,11 +97,12 @@ export default function IndividualEngagementAdminForm({
   }, [record, form]);
 
   const handleSubmit = (values) => {
-    const currentUser = GetUserData();
     const roleName =
       currentUser?.roles?.[0]?.name || currentUser?.role || "Administrator";
     const payload = {
       ...values,
+      // Signed by the logged-in user (the backend also takes the name from the session)
+      staffMemberName: staffName,
       userRole: values.userRole || record?.adminReview?.userRole || roleName,
     };
     if (onFinish) {
@@ -121,8 +124,9 @@ export default function IndividualEngagementAdminForm({
     }
   };
 
+  // Rendered inside a Modal, which already provides the container (no inner card)
   return (
-    <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950 p-2 sm:p-4">
+    <div>
       {/* 10-Step Matching Header Progress Box */}
       <div className="p-5 sm:p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -230,7 +234,11 @@ export default function IndividualEngagementAdminForm({
           <Section6SanctionsReview />
 
           {/* Section 7: Decision, Staff Signature & Audit Notes */}
-          <Section7DecisionSignature />
+          <Section7DecisionSignature
+            savedSignature={record?.adminReview?.signatureDrawnData || null}
+            staffName={staffName}
+            staffEmail={currentUser?.email || ""}
+          />
 
           {/* Form Footer Action Buttons */}
           <div className="flex items-center justify-end gap-3 pt-6 border-t border-slate-200/80 dark:border-zinc-800">
@@ -256,6 +264,6 @@ export default function IndividualEngagementAdminForm({
           </div>
         </div>
       </Form>
-    </Card>
+    </div>
   );
 }

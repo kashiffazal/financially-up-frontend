@@ -26,22 +26,30 @@ import {
 export default function WhichGroupsCanConsolidate() {
   const eligibilityCriteria = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Australian-Resident Head Company",
       desc: "A typical consolidated group requires an Australian-resident head company that is not itself a wholly owned subsidiary of another Australian-resident company.",
     },
     {
-      icon: <BranchesOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BranchesOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "100% Wholly Owned Subsidiary Members",
       desc: "At least one eligible Australian-resident entity that is wholly owned, directly or indirectly, by the head company. The detailed eligibility rules also deal with companies, trusts, partnerships and multiple-entry consolidated groups.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "The 'All-In' Subsidiary Rule",
       desc: "If an eligible head company chooses to consolidate, all eligible resident wholly owned subsidiaries generally join the group. You cannot selectively leave specific subsidiaries out.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Written Choice & ATO Form Timelines",
       desc: "The head company must make the choice in writing within the statutory timeframe and notify the ATO using the approved form by the applicable due date. The exact dates should be confirmed for the formation year rather than assumed from a later return.",
     },
@@ -52,14 +60,21 @@ export default function WhichGroupsCanConsolidate() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Eligibility Requirements
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Which groups can consolidate?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A typical consolidated group requires an Australian-resident head company and at least one eligible Australian-resident entity that is wholly owned, directly or indirectly, by the head company. The detailed eligibility rules also deal with companies, trusts, partnerships and multiple-entry consolidated groups.
+            A typical consolidated group requires an Australian-resident head
+            company and at least one eligible Australian-resident entity that is
+            wholly owned, directly or indirectly, by the head company. The
+            detailed eligibility rules also deal with companies, trusts,
+            partnerships and multiple-entry consolidated groups.
           </p>
         </div>
 
@@ -93,7 +108,13 @@ export default function WhichGroupsCanConsolidate() {
               Optional Choice, But Irrevocable Once Made
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              If an eligible head company chooses to consolidate, all eligible resident wholly owned subsidiaries generally join the group. The choice is optional, but a valid choice is irrevocable. The head company must make the choice in writing within the statutory timeframe and notify the ATO using the approved form by the applicable due date. The exact dates should be confirmed for the formation year rather than assumed from a later return.
+              If an eligible head company chooses to consolidate, all eligible
+              resident wholly owned subsidiaries generally join the group. The
+              choice is optional, but a valid choice is irrevocable. The head
+              company must make the choice in writing within the statutory
+              timeframe and notify the ATO using the approved form by the
+              applicable due date. The exact dates should be confirmed for the
+              formation year rather than assumed from a later return.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -102,7 +123,7 @@ export default function WhichGroupsCanConsolidate() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Formation Feasibility
               </Button>

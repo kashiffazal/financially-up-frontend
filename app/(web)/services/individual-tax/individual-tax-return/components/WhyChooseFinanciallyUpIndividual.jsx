@@ -26,17 +26,23 @@ export default function WhyChooseFinanciallyUpIndividual() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       subtitle: "TPB Registered Agent #26234055",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Specialists",
       subtitle: "Qualified Accounting Team",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Australia-Wide Support",
       subtitle: "100% Online & In-Person",
     },
@@ -47,7 +53,10 @@ export default function WhyChooseFinanciallyUpIndividual() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -64,7 +73,12 @@ export default function WhyChooseFinanciallyUpIndividual() {
               <span>Certified Tax Credentials</span>
             </div>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up Pty Ltd is a registered tax agent providing tax return preparation and related tax services to clients Australia-wide. With 10+ years of experience and Our professional team includes experienced accounting and tax professionals, including CPA and IPA members, providing reliable support across a range of tax and accounting matters.
+              Financially Up Pty Ltd is a registered tax agent providing tax
+              return preparation and related tax services to clients
+              Australia-wide. With 10+ years of experience and Our professional
+              team includes experienced accounting and tax professionals,
+              including CPA and IPA members, providing reliable support across a
+              range of tax and accounting matters.
             </p>
           </div>
 
@@ -75,7 +89,10 @@ export default function WhyChooseFinanciallyUpIndividual() {
               <span>Flexible Consultations &amp; Specialist Care</span>
             </div>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              You can book online or by phone and meet online or in person. Your return is discussed with you before lodgement, with specialist support available for matters such as Investment Property Tax, Capital Gains Tax and Prior-Year and Overdue Tax Returns.
+              You can book online or by phone and meet online or in person. Your
+              return is discussed with you before lodgement, with specialist
+              support available for matters such as Investment Property Tax,
+              Capital Gains Tax and Prior-Year and Overdue Tax Returns.
             </p>
           </div>
         </div>
@@ -107,7 +124,7 @@ export default function WhyChooseFinanciallyUpIndividual() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book an Appointment

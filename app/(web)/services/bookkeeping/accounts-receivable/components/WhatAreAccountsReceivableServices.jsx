@@ -22,25 +22,33 @@ import {
 export default function WhatAreAccountsReceivableServices() {
   const scopeHighlights = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Invoice Generation & Dispatch",
       description:
         "Converting approved timesheets, sales quotes, and milestone completions into professional client invoices.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Payment Receipt Allocation",
       description:
         "Matching electronic customer deposits and merchant payments against specific open invoices to eliminate unallocated cash.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Customer Account Reconciliation",
       description:
         "Investigating unmatched customer deposits, duplicate credits, or split payments to keep debtor ledgers balanced.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Aged Receivables & Reminders",
       description:
         "Tracking overdue terms and sending polite, systematic payment reminders within your agreed customer communication protocols.",
@@ -52,17 +60,29 @@ export default function WhatAreAccountsReceivableServices() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Service Definition &amp; Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What are accounts receivable services?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Accounts receivable services cover the bookkeeping processes used to record money owed by customers and monitor amounts as they move from invoice to payment. The objective is to keep the receivables ledger accurate, current and easy to review so the business can see what has been billed, what has been paid and what remains outstanding.
+            Accounts receivable services cover the bookkeeping processes used to
+            record money owed by customers and monitor amounts as they move from
+            invoice to payment. The objective is to keep the receivables ledger
+            accurate, current and easy to review so the business can see what
+            has been billed, what has been paid and what remains outstanding.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Depending on the agreed scope, outsourced accounts receivable may include invoice processing, allocation of customer payments, customer account reconciliation, overdue invoice tracking, aged receivables reporting and routine payment follow-up. It does not automatically include legal debt recovery, credit advice or commercial dispute resolution.
+            Depending on the agreed scope, outsourced accounts receivable may
+            include invoice processing, allocation of customer payments,
+            customer account reconciliation, overdue invoice tracking, aged
+            receivables reporting and routine payment follow-up. It does not
+            automatically include legal debt recovery, credit advice or
+            commercial dispute resolution.
           </p>
         </div>
 
@@ -93,7 +113,8 @@ export default function WhatAreAccountsReceivableServices() {
           <div className="flex items-start gap-3">
             <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-xl shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">
-              Maintain professional customer relationships while keeping payment terms enforced and cash flowing smoothly.
+              Maintain professional customer relationships while keeping payment
+              terms enforced and cash flowing smoothly.
             </p>
           </div>
           <Link href="/book-an-appointment">
@@ -102,7 +123,7 @@ export default function WhatAreAccountsReceivableServices() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Book an Appointment
             </Button>

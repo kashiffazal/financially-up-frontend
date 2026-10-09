@@ -27,49 +27,65 @@ export default function WhatShouldBeReviewedBeforeJune30() {
   const reviewAreas = [
     {
       number: "01",
-      icon: <FundOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FundOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Expected Assessable Income",
       text: "Expected assessable income and any material changes from the prior year.",
     },
     {
       number: "02",
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Deductions & Expenses",
       text: "Deductions and expenses, including whether the expenditure is genuinely deductible and correctly documented.",
     },
     {
       number: "03",
-      icon: <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Capital Gains & Losses Timing",
       text: "Capital gains and capital losses from property, shares or other CGT assets. The timing of a CGT event depends on the relevant rules and cannot simply be changed after the event has occurred.",
     },
     {
       number: "04",
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Investment & Rental Property",
       text: "Investment and rental property income, expenses and records where relevant.",
     },
     {
       number: "05",
-      icon: <ShoppingOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ShoppingOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Asset Purchases & Depreciation",
       text: "Business asset purchases and depreciation treatment. The tax timing of an asset is not determined solely by when cash is paid, so the facts should be reviewed before assuming a deduction is available in the current year.",
     },
     {
       number: "06",
-      icon: <CalculatorOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "PAYG Instalments & Cash Flow",
       text: "PAYG instalments and anticipated tax liabilities, so cash-flow requirements can be considered.",
     },
     {
       number: "07",
-      icon: <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Superannuation Contribution Rules",
       text: "Superannuation contributions where relevant. A personal contribution does not automatically create a tax deduction. Where the eligibility requirements are met, the contribution must be received by the fund in the relevant income year, a valid notice of intent generally needs to be given within the required time, and the fund’s acknowledgement should be received before the deduction is claimed. Contribution caps and other conditions also need to be considered.",
     },
     {
       number: "08",
-      icon: <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Records & Cost Base Evidence",
       text: "Records needed to support income, deductions and asset cost bases.",
     },
@@ -87,7 +103,8 @@ export default function WhatShouldBeReviewedBeforeJune30() {
             What Should Be Reviewed Before 30 June?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Year-end planning should focus on matters that are actually relevant to you. Common review areas include:
+            Year-end planning should focus on matters that are actually relevant
+            to you. Common review areas include:
           </p>
         </div>
 
@@ -97,7 +114,9 @@ export default function WhatShouldBeReviewedBeforeJune30() {
             <div
               key={idx}
               className={`bg-slate-50 dark:bg-zinc-800/60 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
-                item.number === "07" ? "md:col-span-2 bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-200/70 dark:border-emerald-800/40" : ""
+                item.number === "07"
+                  ? "md:col-span-2 bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-200/70 dark:border-emerald-800/40"
+                  : ""
               }`}
             >
               <div>
@@ -125,7 +144,10 @@ export default function WhatShouldBeReviewedBeforeJune30() {
           <div className="flex items-start gap-4 mb-6">
             <InfoCircleOutlined className="text-2xl text-emerald-400 mt-1 shrink-0" />
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              For detailed compliance work after year-end, our Business Tax Compliance service can assist with ongoing obligations. Individuals who are ready to report completed transactions can also use our Individual Tax Return service.
+              For detailed compliance work after year-end, our Business Tax
+              Compliance service can assist with ongoing obligations.
+              Individuals who are ready to report completed transactions can
+              also use our Individual Tax Return service.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-2 border-t border-white/10">
@@ -134,7 +156,7 @@ export default function WhatShouldBeReviewedBeforeJune30() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Tax Compliance
               </Button>
@@ -145,7 +167,7 @@ export default function WhatShouldBeReviewedBeforeJune30() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Individual Tax Return
               </Button>

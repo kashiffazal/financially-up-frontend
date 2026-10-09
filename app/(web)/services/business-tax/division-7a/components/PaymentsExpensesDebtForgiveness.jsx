@@ -23,17 +23,23 @@ import {
 export default function PaymentsExpensesDebtForgiveness() {
   const benefitCategories = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Payments of Private Expenses",
       desc: "Private-company funds used to pay personal expenses, credit cards, or living costs recorded through shareholder or drawings accounts.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Benefits Recorded in Shareholder Accounts",
       desc: "Use of company assets, transfers of property, or personal benefits provided directly to a shareholder or associate without formal documentation.",
     },
     {
-      icon: <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Debt Forgiveness",
       desc: "Where a private company waives, releases, or forgives a debt legally owed by a shareholder or associate in relevant circumstances.",
     },
@@ -44,14 +50,21 @@ export default function PaymentsExpensesDebtForgiveness() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Beyond Formal Loan Documents
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Payments, Private Expenses and Debt Forgiveness
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Division 7A is not limited to formal loan documents. Private-company funds used for a shareholder or associate&apos;s benefit can require review, including payments of private expenses or other benefits recorded through shareholder accounts. Debt forgiveness can also fall within Division 7A in relevant circumstances.
+            Division 7A is not limited to formal loan documents. Private-company
+            funds used for a shareholder or associate&apos;s benefit can require
+            review, including payments of private expenses or other benefits
+            recorded through shareholder accounts. Debt forgiveness can also
+            fall within Division 7A in relevant circumstances.
           </p>
         </div>
 
@@ -85,7 +98,9 @@ export default function PaymentsExpensesDebtForgiveness() {
               Bookkeeping Labels vs. Tax Reality
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Bookkeeping labels do not determine the tax outcome. The transaction, available exclusions, documentation and surrounding circumstances must be reviewed.
+              Bookkeeping labels do not determine the tax outcome. The
+              transaction, available exclusions, documentation and surrounding
+              circumstances must be reviewed.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -94,7 +109,7 @@ export default function PaymentsExpensesDebtForgiveness() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Transactions
               </Button>

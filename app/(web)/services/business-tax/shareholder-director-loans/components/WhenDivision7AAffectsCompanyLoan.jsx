@@ -27,22 +27,30 @@ import {
 export default function WhenDivision7AAffectsCompanyLoan() {
   const compliancePillars = [
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Repayment Before Company Lodgment Day",
       desc: "A loan that would otherwise be caught may avoid being treated as a deemed dividend where, for example, it is repaid or converted to a complying loan by the relevant company lodgment day and the legislative requirements are met.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Written Complying Loan Agreement",
       desc: "Complying loans generally require a written agreement, at least the benchmark interest rate and repayments that satisfy the minimum yearly repayment rules.",
     },
     {
-      icon: <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Anti-Avoidance & Disregarded Repayments",
       desc: "Some repayments can be disregarded under Division 7A where the amount is reborrowed or a similar arrangement is made. The transaction history should therefore be reviewed rather than relying only on the year-end balance.",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <PercentageOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Variable Benchmark Interest Rates",
       desc: "The benchmark interest rate changes by income year, so it should be checked for the relevant period rather than copied from a previous year. If a minimum yearly repayment is not met, Division 7A consequences may arise depending on the facts.",
     },
@@ -53,14 +61,20 @@ export default function WhenDivision7AAffectsCompanyLoan() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Division 7A & Private Drawings
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             When can Division 7A affect a company loan?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Division 7A may apply where a private company provides a loan, payment or other benefit to a shareholder or an associate. A common example is a director drawing company funds for private use and leaving the amount outstanding in the loan account.
+            Division 7A may apply where a private company provides a loan,
+            payment or other benefit to a shareholder or an associate. A common
+            example is a director drawing company funds for private use and
+            leaving the amount outstanding in the loan account.
           </p>
         </div>
 
@@ -94,7 +108,10 @@ export default function WhenDivision7AAffectsCompanyLoan() {
               Comprehensive Division 7A Guidance Available
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For complete details on complying loan terms (7-year unsecured vs 25-year secured), minimum yearly repayment calculators, and the High Court Bendel decision, explore our dedicated Division 7A advisory service.
+              For complete details on complying loan terms (7-year unsecured vs
+              25-year secured), minimum yearly repayment calculators, and the
+              High Court Bendel decision, explore our dedicated Division 7A
+              advisory service.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -103,7 +120,7 @@ export default function WhenDivision7AAffectsCompanyLoan() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Explore Division 7A Service
               </Button>

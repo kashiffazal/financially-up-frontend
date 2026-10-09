@@ -56,14 +56,20 @@ export default function HowCapitalGainIsCalculated() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Step-by-Step Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Is a Capital Gain Calculated?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            At a general level, a capital gain is worked out by comparing the capital proceeds from a CGT event with the asset&apos;s relevant cost base. A capital loss may arise where the capital proceeds are less than the asset&apos;s reduced cost base.
+            At a general level, a capital gain is worked out by comparing the
+            capital proceeds from a CGT event with the asset&apos;s relevant
+            cost base. A capital loss may arise where the capital proceeds are
+            less than the asset&apos;s reduced cost base.
           </p>
         </div>
 
@@ -100,7 +106,9 @@ export default function HowCapitalGainIsCalculated() {
         </div>
 
         <p className="text-center text-xs text-slate-500 dark:text-zinc-400 mb-12 italic">
-          The method and order can depend on the asset, CGT event and available concessions. This is a general explanation only and is not a personalized calculation.
+          The method and order can depend on the asset, CGT event and available
+          concessions. This is a general explanation only and is not a
+          personalized calculation.
         </p>
 
         {/* Understanding the Cost Base Deep Dive */}
@@ -119,7 +127,7 @@ export default function HowCapitalGainIsCalculated() {
                 type="primary"
                 className="brand-btn-primary font-bold text-xs sm:text-sm h-10 px-5 shadow-xs"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Request Cost-Base Review
               </Button>
@@ -129,25 +137,36 @@ export default function HowCapitalGainIsCalculated() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             <div className="space-y-4">
               <p>
-                The cost base is not simply the original purchase price. Depending on the CGT rules, it may include permitted acquisition costs, certain disposal costs, eligible ownership costs, capital improvements and other qualifying amounts.
+                The cost base is not simply the original purchase price.
+                Depending on the CGT rules, it may include permitted acquisition
+                costs, certain disposal costs, eligible ownership costs, capital
+                improvements and other qualifying amounts.
               </p>
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70">
                 <span className="font-bold text-slate-900 dark:text-white block mb-1">
                   Permitted Elements Include:
                 </span>
-                Purchase consideration, conveyancing legal costs, stamp duty, selling agent fees, advertising costs, and major structural improvements.
+                Purchase consideration, conveyancing legal costs, stamp duty,
+                selling agent fees, advertising costs, and major structural
+                improvements.
               </div>
             </div>
 
             <div className="space-y-4">
               <p>
-                Not every expense connected with an asset belongs in the cost base. Amounts already claimed or otherwise deductible may need to be excluded or adjusted, and capital works deductions can affect a property&apos;s cost base. An accountant experienced in CGT can review the available records and determine which amounts should be considered.
+                Not every expense connected with an asset belongs in the cost
+                base. Amounts already claimed or otherwise deductible may need
+                to be excluded or adjusted, and capital works deductions can
+                affect a property&apos;s cost base. An accountant experienced in
+                CGT can review the available records and determine which amounts
+                should be considered.
               </p>
               <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200">
                 <span className="font-bold block mb-1">
                   Division 43 Adjustment Warning:
                 </span>
-                Capital works deductions claimed during ownership must be subtracted from the cost base when calculating a capital gain.
+                Capital works deductions claimed during ownership must be
+                subtracted from the cost base when calculating a capital gain.
               </div>
             </div>
           </div>

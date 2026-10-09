@@ -25,17 +25,23 @@ import {
 export default function ActiveAssetTestExplained() {
   const activeAssetPillars = [
     {
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Business Usage Duration",
       desc: "The asset must be used or held ready for use in the course of carrying on a business by you, an affiliate, or connected entity for at least half the ownership period (or 7.5 years if owned over 15 years).",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Intangible Assets & Goodwill",
       desc: "Certain intangible assets, such as goodwill, licenses, patents, or intellectual property inherently connected to the commercial operations of the business, may also qualify where the conditions are met.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Rental & Commercial Property Rules",
       desc: "Assets mainly used to derive rent can be excluded from active-asset treatment, subject to the detailed rules and facts. Property transactions in particular need careful review because the business-use history and relationship between the property owner and operating entity can be important.",
     },
@@ -46,14 +52,20 @@ export default function ActiveAssetTestExplained() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Core Asset Criteria
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             The active asset test
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The active asset test examines whether the asset was used, or held ready for use, in the course of carrying on a business for the required period. Certain intangible assets, such as goodwill, may also qualify where the conditions are met.
+            The active asset test examines whether the asset was used, or held
+            ready for use, in the course of carrying on a business for the
+            required period. Certain intangible assets, such as goodwill, may
+            also qualify where the conditions are met.
           </p>
         </div>
 
@@ -87,7 +99,11 @@ export default function ActiveAssetTestExplained() {
               Careful Scrutiny for Commercial Real Estate
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Assets mainly used to derive rent can be excluded from active-asset treatment, subject to the detailed rules and facts. Property transactions in particular need careful review because the business-use history and relationship between the property owner and operating entity can be important.
+              Assets mainly used to derive rent can be excluded from
+              active-asset treatment, subject to the detailed rules and facts.
+              Property transactions in particular need careful review because
+              the business-use history and relationship between the property
+              owner and operating entity can be important.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -96,7 +112,7 @@ export default function ActiveAssetTestExplained() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Active Asset Status
               </Button>

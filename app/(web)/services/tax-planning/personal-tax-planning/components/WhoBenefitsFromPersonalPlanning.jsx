@@ -27,39 +27,67 @@ import {
 export default function WhoBenefitsFromPersonalPlanning() {
   const beneficiaryProfiles = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      scenario: "Employees expecting a significant bonus, equity-related payment or change in income.",
-      detail: "Evaluate tax brackets, withholding variations, and timing before large lump-sum bonuses or vestings land.",
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      scenario:
+        "Employees expecting a significant bonus, equity-related payment or change in income.",
+      detail:
+        "Evaluate tax brackets, withholding variations, and timing before large lump-sum bonuses or vestings land.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      scenario: "Individuals with salary plus dividends, interest, managed funds or other investment income.",
-      detail: "Understand how investment cash distributions, franking credits, and attribution rules impact total assessable income.",
+      icon: (
+        <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      scenario:
+        "Individuals with salary plus dividends, interest, managed funds or other investment income.",
+      detail:
+        "Understand how investment cash distributions, franking credits, and attribution rules impact total assessable income.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      scenario: "Property investors reviewing rental income, expenses or a planned sale.",
-      detail: "Clarify deductibility of borrowing expenses, repairs vs capital works, and model expected outcomes before selling.",
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      scenario:
+        "Property investors reviewing rental income, expenses or a planned sale.",
+      detail:
+        "Clarify deductibility of borrowing expenses, repairs vs capital works, and model expected outcomes before selling.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      scenario: "People planning to sell shares, property or another CGT asset.",
-      detail: "Assess contract dates, 12-month 50% CGT discounts, cost base records, and offsettable carried-forward capital losses.",
+      icon: (
+        <AuditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      scenario:
+        "People planning to sell shares, property or another CGT asset.",
+      detail:
+        "Assess contract dates, 12-month 50% CGT discounts, cost base records, and offsettable carried-forward capital losses.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      scenario: "Individuals considering deductible personal super contributions where relevant conditions apply.",
-      detail: "Review concessional caps, carry-forward unused amounts, and ensure valid Notice of Intent forms are submitted.",
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      scenario:
+        "Individuals considering deductible personal super contributions where relevant conditions apply.",
+      detail:
+        "Review concessional caps, carry-forward unused amounts, and ensure valid Notice of Intent forms are submitted.",
     },
     {
-      icon: <ThunderboltOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      scenario: "High-income taxpayers or people with several interacting tax issues.",
-      detail: "Manage Division 293 tax, Medicare Levy Surcharge thresholds, and multifaceted personal tax interactions.",
+      icon: (
+        <ThunderboltOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      scenario:
+        "High-income taxpayers or people with several interacting tax issues.",
+      detail:
+        "Manage Division 293 tax, Medicare Levy Surcharge thresholds, and multifaceted personal tax interactions.",
     },
     {
-      icon: <UserOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      scenario: "Taxpayers making a major financial decision and wanting to understand the Australian tax consequences first.",
-      detail: "Gain complete forward visibility so there are no surprises or irreversible tax outcomes after transactions complete.",
+      icon: (
+        <UserOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      scenario:
+        "Taxpayers making a major financial decision and wanting to understand the Australian tax consequences first.",
+      detail:
+        "Gain complete forward visibility so there are no surprises or irreversible tax outcomes after transactions complete.",
     },
   ];
 
@@ -68,14 +96,20 @@ export default function WhoBenefitsFromPersonalPlanning() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Taxpayer Profiles
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who May Benefit From Planning?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Tax planning for individuals may be useful when income is changing, investment activity is increasing or a significant transaction is expected. It can also help when circumstances have become more complicated than a standard salary-and-wages return.
+            Tax planning for individuals may be useful when income is changing,
+            investment activity is increasing or a significant transaction is
+            expected. It can also help when circumstances have become more
+            complicated than a standard salary-and-wages return.
           </p>
         </div>
 
@@ -120,7 +154,8 @@ export default function WhoBenefitsFromPersonalPlanning() {
               Do any of these scenarios apply to your tax year?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-              Book a planning session with a registered tax agent to review your position before the financial year closes.
+              Book a planning session with a registered tax agent to review your
+              position before the financial year closes.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -128,7 +163,7 @@ export default function WhoBenefitsFromPersonalPlanning() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
             >
               Book Personal Consultation

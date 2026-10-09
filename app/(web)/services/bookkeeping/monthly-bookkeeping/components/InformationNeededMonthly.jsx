@@ -23,32 +23,44 @@ import {
 export default function InformationNeededMonthly() {
   const documentChecklist = [
     {
-      icon: <KeyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <KeyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Accounting-Software Access",
       desc: "Inviting our team with advisor or standard user privileges in Xero, MYOB, or your cloud accounting file.",
     },
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Bank & Credit-Card Statements",
       desc: "Regular monthly PDF statements to verify statement closing balances against software bank feeds.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Invoices & Receipts",
       desc: "Supplier tax invoices, bills, and purchase receipts for expense verification and GST claim support.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Loan or Finance Records",
       desc: "Chattel mortgage statements, equipment finance contracts, and interest schedules.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Payroll Details",
       desc: "Monthly payroll summaries, STP pay run confirmations, and superannuation clearing reports.",
     },
     {
-      icon: <QuestionCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Explanations for Unusual Transactions",
       desc: "Brief notes on non-routine owner transfers, personal reimbursements, or large one-off asset purchases.",
     },
@@ -59,14 +71,23 @@ export default function InformationNeededMonthly() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation &amp; Collaboration
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What information do we need from you?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A monthly workflow works best when documents and questions are dealt with regularly. Depending on your business, we may need accounting-software access, bank and credit-card statements, invoices, receipts, loan or finance records, payroll details and explanations for unusual transactions. You should not guess information that is missing; unresolved items can be identified and followed up.
+            A monthly workflow works best when documents and questions are dealt
+            with regularly. Depending on your business, we may need
+            accounting-software access, bank and credit-card statements,
+            invoices, receipts, loan or finance records, payroll details and
+            explanations for unusual transactions. You should not guess
+            information that is missing; unresolved items can be identified and
+            followed up.
           </p>
         </div>
 
@@ -97,7 +118,8 @@ export default function InformationNeededMonthly() {
           <div className="flex items-start gap-3">
             <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">
-              Never guess missing numbers. We track open items systematically in a simple query log, making monthly resolution painless.
+              Never guess missing numbers. We track open items systematically in
+              a simple query log, making monthly resolution painless.
             </p>
           </div>
           <Link href="/book-an-appointment">
@@ -105,7 +127,7 @@ export default function InformationNeededMonthly() {
               type="primary"
               size="middle"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="font-bold shrink-0"
             >
               Set Up Your Routine

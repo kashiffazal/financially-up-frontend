@@ -28,11 +28,13 @@ export default function WhatHappensAfterRegistration() {
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: What happens after GST registration? */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="blue" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="blue"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <FileTextOutlined className="mr-1.5" />
               Operational Obligations
             </Tag>
@@ -42,7 +44,12 @@ export default function WhatHappensAfterRegistration() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Once registered, a business generally needs to include GST in the price of taxable sales, issue appropriate tax invoices where required, keep records supporting GST treatment and report GST through activity statements. The business may also be able to claim GST credits on eligible business purchases, subject to the GST rules and documentation requirements.
+              Once registered, a business generally needs to include GST in the
+              price of taxable sales, issue appropriate tax invoices where
+              required, keep records supporting GST treatment and report GST
+              through activity statements. The business may also be able to
+              claim GST credits on eligible business purchases, subject to the
+              GST rules and documentation requirements.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -59,7 +66,11 @@ export default function WhatHappensAfterRegistration() {
             </div>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal pt-2">
-              Ongoing reporting after registration is handled through the business activity statement. See our BAS Lodgement service for assistance preparing and lodging activity statements. If transaction coding and reconciliations need ongoing attention, our Bookkeeping services may also be relevant.
+              Ongoing reporting after registration is handled through the
+              business activity statement. See our BAS Lodgement service for
+              assistance preparing and lodging activity statements. If
+              transaction coding and reconciliations need ongoing attention, our
+              Bookkeeping services may also be relevant.
             </p>
           </div>
 
@@ -71,7 +82,9 @@ export default function WhatHappensAfterRegistration() {
                   BAS Lodgement Services
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                  Prepare, reconcile, and lodge your quarterly or monthly activity statements smoothly with registered tax agent support.
+                  Prepare, reconcile, and lodge your quarterly or monthly
+                  activity statements smoothly with registered tax agent
+                  support.
                 </p>
               </div>
               <Link href="/services/bas-payroll/bas-lodgement">
@@ -80,7 +93,7 @@ export default function WhatHappensAfterRegistration() {
                   size="middle"
                   className="font-bold w-full"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Explore BAS Lodgement
                 </Button>
@@ -94,7 +107,8 @@ export default function WhatHappensAfterRegistration() {
                   Routine Bookkeeping Support
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                  Accurate GST coding begins with reconciled bank feeds and properly classified bills in Xero, MYOB, or QuickBooks.
+                  Accurate GST coding begins with reconciled bank feeds and
+                  properly classified bills in Xero, MYOB, or QuickBooks.
                 </p>
               </div>
               <Link href="/services/bookkeeping">
@@ -103,7 +117,7 @@ export default function WhatHappensAfterRegistration() {
                   size="middle"
                   className="font-bold w-full"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Explore Bookkeeping
                 </Button>
@@ -123,14 +137,20 @@ export default function WhatHappensAfterRegistration() {
               GST registration and business structure changes
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A change from one legal entity to another can affect registrations. For example, moving from a sole trader to a company creates a different entity for tax purposes. The GST position should therefore be reviewed as part of the wider restructure rather than assuming the old registration simply continues unchanged.
+              A change from one legal entity to another can affect
+              registrations. For example, moving from a sole trader to a company
+              creates a different entity for tax purposes. The GST position
+              should therefore be reviewed as part of the wider restructure
+              rather than assuming the old registration simply continues
+              unchanged.
             </p>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Where a structure change has broader tax or legal consequences, registration work should be coordinated with separately scoped accounting, tax or legal advice.
+              Where a structure change has broader tax or legal consequences,
+              registration work should be coordinated with separately scoped
+              accounting, tax or legal advice.
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );

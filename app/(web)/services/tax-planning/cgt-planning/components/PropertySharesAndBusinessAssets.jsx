@@ -22,7 +22,9 @@ export default function PropertySharesAndBusinessAssets() {
   const assetClasses = [
     {
       title: "Real Estate & Property",
-      icon: <HomeOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       tag: "Property CGT",
       verbatim:
         "Property CGT planning may involve purchase and sale records, ownership percentages, main-residence history, rental periods, improvements and cost-base records. It should not be treated as a substitute for detailed property tax-return work.",
@@ -37,7 +39,9 @@ export default function PropertySharesAndBusinessAssets() {
     },
     {
       title: "Shares & Investment Portfolios",
-      icon: <FundOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FundOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Equities & ETFs",
       verbatim:
         "For shares and investments, planning may involve acquisition records, brokerage, corporate actions, prior capital losses and the intended disposal. Our Share Trading & Investment Accountant service covers broader investment-income and share-tax reporting where required.",
@@ -54,7 +58,9 @@ export default function PropertySharesAndBusinessAssets() {
     },
     {
       title: "Business Assets & Small Business Concessions",
-      icon: <ShopOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ShopOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Enterprise Disposals",
       verbatim:
         "Business asset disposals can involve additional rules, including possible small business CGT concessions where eligibility conditions are met. These concessions are highly fact-dependent and should be reviewed separately rather than assumed to apply.",
@@ -106,7 +112,10 @@ export default function PropertySharesAndBusinessAssets() {
                 </p>
                 <div className="border-t border-slate-200/60 dark:border-zinc-700 pt-4 space-y-2">
                   {item.highlights.map((h, hIdx) => (
-                    <div key={hIdx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-zinc-400">
+                    <div
+                      key={hIdx}
+                      className="flex items-start gap-2 text-xs text-slate-600 dark:text-zinc-400"
+                    >
                       <CheckCircleOutlined className="text-emerald-500 mt-0.5 shrink-0" />
                       <span>{h}</span>
                     </div>
@@ -121,7 +130,7 @@ export default function PropertySharesAndBusinessAssets() {
                       type="link"
                       className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                       icon={<ArrowRightOutlined className="text-xs" />}
-                      iconPosition="end"
+                      iconPlacement="end"
                     >
                       {item.link.label}
                     </Button>

@@ -3,10 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Tag, Button } from "antd";
-import {
-  CheckCircleOutlined,
-  ArrowRightOutlined,
-} from "@ant-design/icons";
+import { CheckCircleOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 /**
  * TaxComplianceProcessWorkflow Component
@@ -30,7 +27,8 @@ export default function TaxComplianceProcessWorkflow() {
     {
       step: "03",
       title: "Request Accounting Records & Documents",
-      detail: "Request the accounting records and supporting documents relevant to each obligation.",
+      detail:
+        "Request the accounting records and supporting documents relevant to each obligation.",
     },
     {
       step: "04",
@@ -40,12 +38,14 @@ export default function TaxComplianceProcessWorkflow() {
     {
       step: "05",
       title: "Raise Queries on Incomplete Figures",
-      detail: "Raise queries where figures are incomplete, unusual or require clarification.",
+      detail:
+        "Raise queries where figures are incomplete, unusual or require clarification.",
     },
     {
       step: "06",
       title: "Prepare Agreed Returns for Lodgment",
-      detail: "Prepare the agreed returns or statements for review and lodgment.",
+      detail:
+        "Prepare the agreed returns or statements for review and lodgment.",
     },
     {
       step: "07",
@@ -60,14 +60,19 @@ export default function TaxComplianceProcessWorkflow() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Systematic Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Our Business Tax Compliance Process Works
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A structured seven-step framework designed to maintain accuracy, verify supporting records, and provide clear communication from start to lodgment.
+            A structured seven-step framework designed to maintain accuracy,
+            verify supporting records, and provide clear communication from
+            start to lodgment.
           </p>
         </div>
 
@@ -117,7 +122,8 @@ export default function TaxComplianceProcessWorkflow() {
               Flexible for One-Off Catch-Ups or Ongoing Engagements
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              The process can be adjusted for a one-off catch-up engagement or ongoing business tax compliance services.
+              The process can be adjusted for a one-off catch-up engagement or
+              ongoing business tax compliance services.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -126,7 +132,7 @@ export default function TaxComplianceProcessWorkflow() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Start Compliance Process
               </Button>

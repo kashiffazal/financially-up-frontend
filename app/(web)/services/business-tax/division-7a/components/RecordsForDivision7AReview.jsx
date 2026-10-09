@@ -48,7 +48,8 @@ export default function RecordsForDivision7AReview() {
       desc: "Worksheets detailing interest charged using the official ATO benchmark rate across the relevant financial year.",
     },
     {
-      title: "Details of payments or benefits provided to shareholders or associates",
+      title:
+        "Details of payments or benefits provided to shareholders or associates",
       desc: "Invoices, expense records, or asset usage details where private company funds or property were utilized.",
     },
     {
@@ -66,7 +67,10 @@ export default function RecordsForDivision7AReview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Review Preparation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -107,7 +111,8 @@ export default function RecordsForDivision7AReview() {
               Transaction History and Timing
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A complete transaction history is important because the timing of advances, repayments and lodgment can affect the analysis.
+              A complete transaction history is important because the timing of
+              advances, repayments and lodgment can affect the analysis.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -116,7 +121,7 @@ export default function RecordsForDivision7AReview() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Book Review Consultation
               </Button>

@@ -35,14 +35,19 @@ export default function AudCurrencyConversionsAndRecords() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             FX Translation &amp; Substantiation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Converting Foreign Amounts and Records to Keep
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Australian tax compliance requires foreign currency translation using approved exchange rate standards, backed by robust cross-border documentation.
+            Australian tax compliance requires foreign currency translation
+            using approved exchange rate standards, backed by robust
+            cross-border documentation.
           </p>
         </div>
 
@@ -67,18 +72,26 @@ export default function AudCurrencyConversionsAndRecords() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Foreign income, deductible expenses and foreign tax paid must generally be translated into Australian dollars. The appropriate rate and translation time depend on the amount and the applicable rules.
+                  Foreign income, deductible expenses and foreign tax paid must
+                  generally be translated into Australian dollars. The
+                  appropriate rate and translation time depend on the amount and
+                  the applicable rules.
                 </p>
                 <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     ATO-Approved Rates:
                   </span>
                   <p>
-                    An ATO-published rate or another supportable rate may be used where permitted. An average rate may be acceptable for recurring amounts if it provides a reasonable approximation and does not distort the result; it should not be used automatically.
+                    An ATO-published rate or another supportable rate may be
+                    used where permitted. An average rate may be acceptable for
+                    recurring amounts if it provides a reasonable approximation
+                    and does not distort the result; it should not be used
+                    automatically.
                   </p>
                 </div>
                 <p>
-                  Keep the foreign amount, transaction date, rate, source and Australian-dollar calculation.
+                  Keep the foreign amount, transaction date, rate, source and
+                  Australian-dollar calculation.
                 </p>
               </div>
             </div>
@@ -126,7 +139,11 @@ export default function AudCurrencyConversionsAndRecords() {
                   <HistoryOutlined />
                   <span>Statutory Record Retention Period:</span>
                 </div>
-                Tax records generally need to be kept for at least five years after lodging the relevant return. Records establishing an asset&apos;s cost base may need to be retained until at least five years after disposal. If documents are incomplete or not in English, additional information or translation may be required.
+                Tax records generally need to be kept for at least five years
+                after lodging the relevant return. Records establishing an
+                asset&apos;s cost base may need to be retained until at least
+                five years after disposal. If documents are incomplete or not in
+                English, additional information or translation may be required.
               </div>
             </div>
 
@@ -139,7 +156,7 @@ export default function AudCurrencyConversionsAndRecords() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Verify Your Records
                 </Button>

@@ -138,7 +138,7 @@ export default function Step1EngagementService({ form }) {
           />
 
           <AntInput
-            type="text"
+            type="mobile"
             name="contactMobile"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200">

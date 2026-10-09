@@ -38,9 +38,11 @@ export default function HowFinanciallyUpHelpsFbt() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <SolutionOutlined className="mr-1.5" />
             Employer Compliance
           </Tag>
@@ -50,7 +52,11 @@ export default function HowFinanciallyUpHelpsFbt() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can assist employers with FBT reviews, calculations, return preparation and related payroll reporting where required. We can help identify the information needed, review the treatment of benefits and prepare the compliance work based on the available facts and current ATO rules.
+            Financially Up can assist employers with FBT reviews, calculations,
+            return preparation and related payroll reporting where required. We
+            can help identify the information needed, review the treatment of
+            benefits and prepare the compliance work based on the available
+            facts and current ATO rules.
           </p>
         </div>
 
@@ -83,7 +89,9 @@ export default function HowFinanciallyUpHelpsFbt() {
               Broader Compliance Context
             </h4>
             <p className="text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              For businesses also managing recurring employer and activity-statement obligations, our BAS, GST &amp; Payroll services provide the broader compliance context.
+              For businesses also managing recurring employer and
+              activity-statement obligations, our BAS, GST &amp; Payroll
+              services provide the broader compliance context.
             </p>
           </div>
           <Link href="/services/bas-payroll">
@@ -92,13 +100,12 @@ export default function HowFinanciallyUpHelpsFbt() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               All BAS &amp; Payroll Services
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

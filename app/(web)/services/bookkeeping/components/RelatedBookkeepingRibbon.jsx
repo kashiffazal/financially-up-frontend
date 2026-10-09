@@ -66,9 +66,9 @@ export default function RelatedBookkeepingRibbon({ currentSlug = "" }) {
   ];
 
   // Filter out current active page and pick 3-4 most relevant sibling services
-  const displayedServices = allSubServices.filter(
-    (item) => item.slug !== currentSlug
-  ).slice(0, 4);
+  const displayedServices = allSubServices
+    .filter((item) => item.slug !== currentSlug)
+    .slice(0, 4);
 
   return (
     <section className="py-8 bg-white dark:bg-zinc-900 border-t border-slate-200/80 dark:border-zinc-800 text-center transition-colors">
@@ -93,7 +93,7 @@ export default function RelatedBookkeepingRibbon({ currentSlug = "" }) {
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs sm:text-sm"
                     icon={<ArrowRightOutlined className="text-[11px]" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     {service.label}
                   </Button>

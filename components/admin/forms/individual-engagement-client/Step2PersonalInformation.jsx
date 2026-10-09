@@ -276,6 +276,7 @@ export default function Step2PersonalInformation({ form }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* PI-011: Mobile */}
         <AntInput
+          type="mobile"
           name="mobile"
           label={
             <span className="font-bold text-slate-800 dark:text-zinc-200">
@@ -286,14 +287,7 @@ export default function Step2PersonalInformation({ form }) {
           preIconAnt={<PhoneOutlined className="text-slate-400" />}
           size="large"
           className="rounded-xl"
-          rules={[
-            { required: true, message: "Please enter your mobile number." },
-            {
-              pattern: /^(?:\+61|0)4\d{8}$/,
-              message:
-                "Please enter a valid Australian mobile number (04xx xxx xxx).",
-            },
-          ]}
+          reqMsg="Please enter your mobile number."
           containerClassName="!mb-2"
         />
 

@@ -26,14 +26,16 @@ export default function RelatedBusinessServicesRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Trust Tax Returns
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Year-end accounts & compliance:
@@ -42,14 +44,16 @@ export default function RelatedBusinessServicesRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Business Tax Hub
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Director loan compliance:
@@ -58,7 +62,7 @@ export default function RelatedBusinessServicesRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Division 7A
               </Button>

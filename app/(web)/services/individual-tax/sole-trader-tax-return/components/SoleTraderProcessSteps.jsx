@@ -31,35 +31,45 @@ export default function SoleTraderProcessSteps() {
       number: "01",
       title: "1. Book an Appointment",
       description: `Choose a suitable time online or arrange a booking by calling ${phoneDisplay}.`,
-      icon: <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       number: "02",
       title: "2. Discuss Your Situation",
       description:
         "We discuss your activities, income, expenses, records, GST or BAS position and other income.",
-      icon: <CommentOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CommentOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       number: "03",
       title: "3. Provide Your Records",
       description:
         "We confirm the relevant documents, such as income reports, bank records, invoices, receipts, asset information and vehicle or home-based business records.",
-      icon: <FolderOpenOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />
+      ),
     },
     {
       number: "04",
       title: "4. Review and Prepare",
       description:
         "Financially Up reviews the information, prepares your return and raises questions where clarification is required.",
-      icon: <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       number: "05",
       title: "5. Confirm and Lodge",
       description:
         "You can review the return, understand the outcome and ask questions before lodgement.",
-      icon: <CheckCircleOutlined className="text-2xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-2xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
   ];
 
@@ -68,14 +78,19 @@ export default function SoleTraderProcessSteps() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Simple 5-Step Process
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Online Sole Trader Tax Return Process
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up assists sole traders Australia-wide. Book online or arrange a time by phone, then meet online through an appointment arranged in Outlook Calendar or in person by arrangement.
+            Financially Up assists sole traders Australia-wide. Book online or
+            arrange a time by phone, then meet online through an appointment
+            arranged in Outlook Calendar or in person by arrangement.
           </p>
         </div>
 
@@ -124,13 +139,17 @@ export default function SoleTraderProcessSteps() {
                 Virtual &amp; In-Person Consultations Across Australia
               </h4>
               <p className="text-xs sm:text-sm text-zinc-300 font-normal">
-                Book online or arrange a time by phone. Remote digital lodgement with complete security, or visit in person by arrangement.
+                Book online or arrange a time by phone. Remote digital lodgement
+                with complete security, or visit in person by arrangement.
               </p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             {company?.phone && (
-              <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="w-full sm:w-auto">
+              <a
+                href={`tel:${company.phone.replace(/\s/g, "")}`}
+                className="w-full sm:w-auto"
+              >
                 <Button
                   size="large"
                   icon={<PhoneOutlined />}
@@ -145,7 +164,7 @@ export default function SoleTraderProcessSteps() {
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
                 className="w-full sm:w-auto font-bold rounded-xl bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11 px-6"
               >
                 Book Appointment

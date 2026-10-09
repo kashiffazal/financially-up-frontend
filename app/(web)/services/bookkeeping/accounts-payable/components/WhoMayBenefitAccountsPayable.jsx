@@ -24,38 +24,59 @@ import {
 export default function WhoMayBenefitAccountsPayable() {
   const benefitProfiles = [
     {
-      icon: <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Businesses receiving a steady volume of supplier invoices each week or month.",
+      icon: (
+        <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Businesses receiving a steady volume of supplier invoices each week or month.",
       desc: "High transaction flow demands a structured capture process so invoices don't get lost in employee email inboxes.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Owners spending too much time entering bills and checking due dates.",
+      icon: (
+        <ClockCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "Owners spending too much time entering bills and checking due dates.",
       desc: "Reclaim strategic executive hours by delegating manual invoice data entry and due date calculations to bookkeepers.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Businesses with remote teams or multiple people involved in purchasing and approvals.",
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "Businesses with remote teams or multiple people involved in purchasing and approvals.",
       desc: "Coordinate decentralized orders through a transparent, cloud-based digital approval and document repository.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Growing businesses that need clearer separation between processing and payment approval.",
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "Growing businesses that need clearer separation between processing and payment approval.",
       desc: "Establish proper internal segregation of duties to prevent fraud, payment duplication, or unauthorized transactions.",
     },
     {
-      icon: <CloudSyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      title: "Businesses using cloud accounting software and wanting more consistent supplier records.",
+      icon: (
+        <CloudSyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      title:
+        "Businesses using cloud accounting software and wanting more consistent supplier records.",
       desc: "Maintain standardized vendor contact cards, ABN entries, and historical purchase records inside Xero or MYOB.",
     },
     {
-      icon: <EyeOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Teams that need regular visibility over unpaid bills and upcoming commitments.",
+      icon: (
+        <EyeOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "Teams that need regular visibility over unpaid bills and upcoming commitments.",
       desc: "Get crystal-clear aged payables schedules to optimize working capital buffers and schedule cash outflows.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Businesses preparing to move from ad hoc bookkeeping to a structured monthly process.",
+      icon: (
+        <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Businesses preparing to move from ad hoc bookkeeping to a structured monthly process.",
       desc: "Build dependable supplier record foundations that feed directly into a streamlined month-end close routine.",
     },
   ];
@@ -65,14 +86,18 @@ export default function WhoMayBenefitAccountsPayable() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Scenarios &amp; Fit
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who May Benefit from Outsourced Accounts Payable?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            AP management services can be useful when the volume or complexity of supplier transactions has outgrown an informal process.
+            AP management services can be useful when the volume or complexity
+            of supplier transactions has outgrown an informal process.
           </p>
         </div>
 
@@ -116,7 +141,8 @@ export default function WhoMayBenefitAccountsPayable() {
                 Streamline Your Payables
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100 dark:text-emerald-200 leading-relaxed font-normal">
-                Eliminate missed vendor deadlines and invoice clutter with a disciplined, cloud-connected accounts payable system.
+                Eliminate missed vendor deadlines and invoice clutter with a
+                disciplined, cloud-connected accounts payable system.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/20">
@@ -125,7 +151,7 @@ export default function WhoMayBenefitAccountsPayable() {
                   type="primary"
                   className="w-full bg-white text-emerald-800 hover:bg-emerald-50 border-none font-bold"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book an Appointment
                 </Button>

@@ -25,14 +25,20 @@ export default function BankReconciliationAndGstRecords() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Data Integrity &amp; Compliance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Bank Reconciliation, Coding &amp; GST Records
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Reliable bookkeeping goes beyond automated bank rules. It requires careful verification, disciplined account coding and strict adherence to Australian Taxation Office statutory record-keeping rules.
+            Reliable bookkeeping goes beyond automated bank rules. It requires
+            careful verification, disciplined account coding and strict
+            adherence to Australian Taxation Office statutory record-keeping
+            rules.
           </p>
         </div>
 
@@ -52,10 +58,19 @@ export default function BankReconciliationAndGstRecords() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Reconciliation is a core part of maintaining reliable bookkeeping records. It involves checking transactions in the accounting file against bank, credit-card or other financial records and resolving differences rather than simply accepting every imported item.
+                  Reconciliation is a core part of maintaining reliable
+                  bookkeeping records. It involves checking transactions in the
+                  accounting file against bank, credit-card or other financial
+                  records and resolving differences rather than simply accepting
+                  every imported item.
                 </p>
                 <p>
-                  Correct coding also matters. A transaction may need to be classified to the appropriate income, expense, asset, liability or equity account, and GST treatment may depend on the nature of the transaction and the supporting evidence. If the tax treatment is unclear, it should be reviewed rather than guessed.
+                  Correct coding also matters. A transaction may need to be
+                  classified to the appropriate income, expense, asset,
+                  liability or equity account, and GST treatment may depend on
+                  the nature of the transaction and the supporting evidence. If
+                  the tax treatment is unclear, it should be reviewed rather
+                  than guessed.
                 </p>
               </div>
 
@@ -63,7 +78,9 @@ export default function BankReconciliationAndGstRecords() {
               <div className="mt-6 p-4 rounded-xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  We resolve unmatched entries, multi-line splits, and bank fee variances systematically so your general ledger reflects actual cash balances.
+                  We resolve unmatched entries, multi-line splits, and bank fee
+                  variances systematically so your general ledger reflects
+                  actual cash balances.
                 </p>
               </div>
             </div>
@@ -77,7 +94,7 @@ export default function BankReconciliationAndGstRecords() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Bank Reconciliation Service
                 </Button>
@@ -99,10 +116,22 @@ export default function BankReconciliationAndGstRecords() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  For GST-registered businesses, bookkeeping records should support the sales, purchases, GST credits and other figures reported through activity statements. The ATO generally requires most business records to be kept for five years from when they are prepared or obtained, or when the relevant transaction is completed, whichever is later. Some records may need to be kept for longer, depending on what they relate to.
+                  For GST-registered businesses, bookkeeping records should
+                  support the sales, purchases, GST credits and other figures
+                  reported through activity statements. The ATO generally
+                  requires most business records to be kept for five years from
+                  when they are prepared or obtained, or when the relevant
+                  transaction is completed, whichever is later. Some records may
+                  need to be kept for longer, depending on what they relate to.
                 </p>
                 <p>
-                  Xero can be used to organise those records, but using software does not replace the need for valid source documents or correct GST treatment. Where a transaction&apos;s GST treatment is unclear, it should be reviewed rather than guessed. Where BAS preparation and lodgement are needed, these can be coordinated with Financially Up&apos;s BAS and GST lodgement service.
+                  Xero can be used to organise those records, but using software
+                  does not replace the need for valid source documents or
+                  correct GST treatment. Where a transaction&apos;s GST
+                  treatment is unclear, it should be reviewed rather than
+                  guessed. Where BAS preparation and lodgement are needed, these
+                  can be coordinated with Financially Up&apos;s BAS and GST
+                  lodgement service.
                 </p>
               </div>
 
@@ -110,7 +139,9 @@ export default function BankReconciliationAndGstRecords() {
               <div className="mt-6 p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex items-start gap-3">
                 <ClockCircleOutlined className="text-amber-600 dark:text-amber-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-normal">
-                  <strong>ATO 5-Year Rule:</strong> Source tax invoices, bank statements, and deduction receipts must be retained electronically for a minimum of 5 years.
+                  <strong>ATO 5-Year Rule:</strong> Source tax invoices, bank
+                  statements, and deduction receipts must be retained
+                  electronically for a minimum of 5 years.
                 </p>
               </div>
             </div>
@@ -124,7 +155,7 @@ export default function BankReconciliationAndGstRecords() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   BAS &amp; GST Lodgement Service
                 </Button>

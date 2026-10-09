@@ -41,14 +41,20 @@ export default function SoleTraderExpensesAndAssets() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Deductions &amp; Substantiation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Business Expenses Assets and Records
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Sole traders may generally claim expenses incurred in earning assessable business income when the relevant requirements are met and records are available. For mixed expenses, only the eligible business-use portion may generally be claimed.
+            Sole traders may generally claim expenses incurred in earning
+            assessable business income when the relevant requirements are met
+            and records are available. For mixed expenses, only the eligible
+            business-use portion may generally be claimed.
           </p>
         </div>
 
@@ -66,7 +72,10 @@ export default function SoleTraderExpensesAndAssets() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
-                Common areas include tools, software, phone and internet use, motor vehicle expenses, home-based business costs, insurance, professional fees, subcontractors and supplies. Eligibility depends on the expense, its use and the applicable rules.
+                Common areas include tools, software, phone and internet use,
+                motor vehicle expenses, home-based business costs, insurance,
+                professional fees, subcontractors and supplies. Eligibility
+                depends on the expense, its use and the applicable rules.
               </p>
 
               {/* Expense Tags Grid */}
@@ -102,7 +111,10 @@ export default function SoleTraderExpensesAndAssets() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Some purchases are depreciating assets or capital expenses. Whether an amount is deductible immediately or over time depends on the asset, cost, business use, purchase date and rules for that income year.
+                Some purchases are depreciating assets or capital expenses.
+                Whether an amount is deductible immediately or over time depends
+                on the asset, cost, business use, purchase date and rules for
+                that income year.
               </p>
 
               <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2 text-xs text-slate-600 dark:text-zinc-300">
@@ -112,7 +124,9 @@ export default function SoleTraderExpensesAndAssets() {
                 <ul className="space-y-1 list-disc pl-4 font-normal">
                   <li>Instant asset write-off thresholds</li>
                   <li>Simplified depreciation pool for small business</li>
-                  <li>Effective life calculation for machinery &amp; vehicles</li>
+                  <li>
+                    Effective life calculation for machinery &amp; vehicles
+                  </li>
                 </ul>
               </div>
             </div>
@@ -134,7 +148,11 @@ export default function SoleTraderExpensesAndAssets() {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Records may include invoices, receipts, bank transactions, software reports, asset documents, vehicle records, home-based business calculations and BAS information. Business records generally need to be kept for five years, although some must be retained longer.
+                Records may include invoices, receipts, bank transactions,
+                software reports, asset documents, vehicle records, home-based
+                business calculations and BAS information. Business records
+                generally need to be kept for five years, although some must be
+                retained longer.
               </p>
 
               <div className="p-4 rounded-xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/50 text-xs text-emerald-900 dark:text-emerald-200">
@@ -146,7 +164,7 @@ export default function SoleTraderExpensesAndAssets() {
                     type="link"
                     className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline flex items-center gap-1 h-auto"
                     icon={<ArrowRightOutlined className="text-xs" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     Explore Bookkeeping Services
                   </Button>

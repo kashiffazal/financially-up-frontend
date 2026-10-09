@@ -25,37 +25,55 @@ export default function CommonRecordsNeededForFbt() {
   const records = [
     {
       title: "Motor vehicle details, odometer records & valid logbooks",
-      icon: <CarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <CarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
     },
     {
       title: "Supplier invoices, receipts & employee reimbursement forms",
-      icon: <FileTextOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <FileTextOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
     },
     {
-      title: "Signed employee declarations (e.g. private use, living away from home)",
-      icon: <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      title:
+        "Signed employee declarations (e.g. private use, living away from home)",
+      icon: (
+        <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
     },
     {
-      title: "Detailed travel itineraries, attendance logs & meal entertainment accounts",
-      icon: <CoffeeOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />,
+      title:
+        "Detailed travel itineraries, attendance logs & meal entertainment accounts",
+      icon: (
+        <CoffeeOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />
+      ),
     },
     {
-      title: "Commercial loan agreements, interest statements & repayment schedules",
-      icon: <DollarOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      title:
+        "Commercial loan agreements, interest statements & repayment schedules",
+      icon: (
+        <DollarOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
     },
     {
-      title: "Employee contribution records & documentation supporting exemptions",
-      icon: <SolutionOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      title:
+        "Employee contribution records & documentation supporting exemptions",
+      icon: (
+        <SolutionOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: Common Records Needed for FBT */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="geekblue" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="geekblue"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <FolderOpenOutlined className="mr-1.5" />
             Substantiation &amp; Audit Trail
           </Tag>
@@ -65,7 +83,12 @@ export default function CommonRecordsNeededForFbt() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The records required depend on the benefit. They may include motor vehicle details and logbook information where relevant, invoices, reimbursement records, employee declarations, travel or entertainment records, loan details, payroll records, employee contributions and documentation supporting any exemption or concession being applied.
+            The records required depend on the benefit. They may include motor
+            vehicle details and logbook information where relevant, invoices,
+            reimbursement records, employee declarations, travel or
+            entertainment records, loan details, payroll records, employee
+            contributions and documentation supporting any exemption or
+            concession being applied.
           </p>
         </div>
 
@@ -91,7 +114,17 @@ export default function CommonRecordsNeededForFbt() {
           <div className="flex items-start gap-4">
             <InfoCircleOutlined className="text-xl sm:text-2xl text-amber-600 dark:text-amber-400 shrink-0 mt-1" />
             <div className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
-              <span className="font-bold">Five-Year Retention Requirement:</span> The ATO expects employers to keep sufficient records to support FBT calculations and employee reporting. FBT records generally need to be kept for five years from the date the relevant return is lodged, or from the due date if no return is lodged, although specific records may have different requirements. Missing records can restrict the valuation methods, exemptions or concessions available, so documentation should be considered during the year rather than only when the return is due.
+              <span className="font-bold">
+                Five-Year Retention Requirement:
+              </span>{" "}
+              The ATO expects employers to keep sufficient records to support
+              FBT calculations and employee reporting. FBT records generally
+              need to be kept for five years from the date the relevant return
+              is lodged, or from the due date if no return is lodged, although
+              specific records may have different requirements. Missing records
+              can restrict the valuation methods, exemptions or concessions
+              available, so documentation should be considered during the year
+              rather than only when the return is due.
             </div>
           </div>
         </div>
@@ -103,10 +136,15 @@ export default function CommonRecordsNeededForFbt() {
               FBT and Business Bookkeeping
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              FBT often starts with accounting data, but bookkeeping entries alone do not determine the tax treatment. Expense descriptions may not show who received the benefit, whether there was private use, or whether an exemption applies. A proper FBT review may therefore require information beyond the general ledger.
+              FBT often starts with accounting data, but bookkeeping entries
+              alone do not determine the tax treatment. Expense descriptions may
+              not show who received the benefit, whether there was private use,
+              or whether an exemption applies. A proper FBT review may therefore
+              require information beyond the general ledger.
             </p>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              If your business records also need ongoing transaction processing and reconciliation, see our Bookkeeping services page.
+              If your business records also need ongoing transaction processing
+              and reconciliation, see our Bookkeeping services page.
             </p>
           </div>
 
@@ -117,14 +155,13 @@ export default function CommonRecordsNeededForFbt() {
                 size="large"
                 className="font-bold"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Explore Bookkeeping
               </Button>
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
 import { antdMsg, HTTP } from "@/services";
+import { auPhoneRule, formatAuPhone, isAuPhone } from "@/lib/auPhone";
 
 const CONTACT_METHOD_LABELS = { email: "Email", phone: "Phone Call", whatsapp: "WhatsApp / SMS" };
 import {
@@ -171,12 +172,21 @@ export default function ContactUsModal({ open, onClose }) {
               }
               name="phone"
               className="mb-0"
+              rules={[auPhoneRule()]}
             >
               <Input
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                maxLength={20}
                 size="large"
                 prefix={<PhoneOutlined className="text-slate-400 text-xs" />}
                 placeholder="0400 000 000"
                 className="rounded-xl text-sm"
+                onBlur={(e) => {
+                  // Tidy a valid number into the standard format, e.g. "+61412345678" -> "0412 345 678"
+                  if (isAuPhone(e.target.value)) form.setFieldValue("phone", formatAuPhone(e.target.value));
+                }}
               />
             </Form.Item>
           </div>

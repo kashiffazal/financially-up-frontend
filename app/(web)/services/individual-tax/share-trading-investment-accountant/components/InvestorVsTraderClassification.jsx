@@ -23,14 +23,19 @@ export default function InvestorVsTraderClassification() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Classification
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Share Investor or Share Trader
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The Australian tax treatment of your share market activities depends fundamentally on whether your trading constitutes passive investing or carrying on a business.
+            The Australian tax treatment of your share market activities depends
+            fundamentally on whether your trading constitutes passive investing
+            or carrying on a business.
           </p>
         </div>
 
@@ -55,14 +60,18 @@ export default function InvestorVsTraderClassification() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  A share investor generally buys and holds shares or units as investments. Shares are usually CGT assets, so a disposal may result in a capital gain or capital loss.
+                  A share investor generally buys and holds shares or units as
+                  investments. Shares are usually CGT assets, so a disposal may
+                  result in a capital gain or capital loss.
                 </p>
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Key Tax Characteristics:
                   </span>
                   <p>
-                    Longer holding periods, dividend income focus, 50% CGT discount eligibility for shares held 12+ months, and capital losses quarantined against capital gains.
+                    Longer holding periods, dividend income focus, 50% CGT
+                    discount eligibility for shares held 12+ months, and capital
+                    losses quarantined against capital gains.
                   </p>
                 </div>
               </div>
@@ -92,14 +101,20 @@ export default function InvestorVsTraderClassification() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  A share trader may be carrying on a business of share trading. Where that applies, shares may be treated as trading stock and sales, purchases and stock on hand may be dealt with under ordinary income and trading stock rules rather than the CGT rules applying to an investor.
+                  A share trader may be carrying on a business of share trading.
+                  Where that applies, shares may be treated as trading stock and
+                  sales, purchases and stock on hand may be dealt with under
+                  ordinary income and trading stock rules rather than the CGT
+                  rules applying to an investor.
                 </p>
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Key Tax Characteristics:
                   </span>
                   <p>
-                    Profits taxed as ordinary business income, trading losses generally deductible against ordinary income, and the 50% CGT discount is NOT available.
+                    Profits taxed as ordinary business income, trading losses
+                    generally deductible against ordinary income, and the 50%
+                    CGT discount is NOT available.
                   </p>
                 </div>
               </div>
@@ -118,7 +133,12 @@ export default function InvestorVsTraderClassification() {
               ATO Multi-Factor Business Test:
             </span>
             <p className="m-0">
-              Frequent transactions, a large portfolio or active market participation do not automatically make someone a share trader. The classification depends on the overall circumstances, including the nature, scale, repetition and organization of the activity, the intention behind it and whether it is conducted in a business-like manner.
+              Frequent transactions, a large portfolio or active market
+              participation do not automatically make someone a share trader.
+              The classification depends on the overall circumstances, including
+              the nature, scale, repetition and organization of the activity,
+              the intention behind it and whether it is conducted in a
+              business-like manner.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -126,7 +146,7 @@ export default function InvestorVsTraderClassification() {
               type="primary"
               className="brand-btn-primary font-bold text-xs h-10 px-5 shadow-xs"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Assess Your Classification
             </Button>

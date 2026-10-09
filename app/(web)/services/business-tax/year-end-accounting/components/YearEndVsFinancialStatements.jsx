@@ -23,14 +23,21 @@ export default function YearEndVsFinancialStatements() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="blue" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="blue"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Service Distinction
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Year-End Accounting vs Business Financial Statements
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Year end accounting focuses on the close process: reviewing and finalizing the accounting records. Financial statements are the reports produced from those records, such as a profit and loss statement and balance sheet. The two are closely connected, but they are not identical services.
+            Year end accounting focuses on the close process: reviewing and
+            finalizing the accounting records. Financial statements are the
+            reports produced from those records, such as a profit and loss
+            statement and balance sheet. The two are closely connected, but they
+            are not identical services.
           </p>
         </div>
 
@@ -44,7 +51,10 @@ export default function YearEndVsFinancialStatements() {
                   <SyncOutlined className="text-xl" />
                 </div>
                 <div>
-                  <Tag color="cyan" className="font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Tag
+                    color="cyan"
+                    className="font-semibold text-xs uppercase tracking-wider mb-1"
+                  >
                     The Close Process
                   </Tag>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -53,12 +63,16 @@ export default function YearEndVsFinancialStatements() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Focuses on auditing the general ledger, reconciling bank and control accounts, resolving discrepancies, posting year-end adjusting journals, and establishing reliable opening balances for the new year.
+                Focuses on auditing the general ledger, reconciling bank and
+                control accounts, resolving discrepancies, posting year-end
+                adjusting journals, and establishing reliable opening balances
+                for the new year.
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-700">
               <span className="text-xs text-teal-700 dark:text-teal-400 font-semibold">
-                Ensures underlying records are 100% balanced, verified, and complete.
+                Ensures underlying records are 100% balanced, verified, and
+                complete.
               </span>
             </div>
           </div>
@@ -71,7 +85,10 @@ export default function YearEndVsFinancialStatements() {
                   <FileDoneOutlined className="text-xl" />
                 </div>
                 <div>
-                  <Tag color="blue" className="font-semibold text-xs uppercase tracking-wider mb-1">
+                  <Tag
+                    color="blue"
+                    className="font-semibold text-xs uppercase tracking-wider mb-1"
+                  >
                     Structured Reporting
                   </Tag>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -80,7 +97,10 @@ export default function YearEndVsFinancialStatements() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                The formal reports compiled from those records: Profit and Loss statements, Balance Sheets, Cash-Flow statements, and notes prepared for owners, tax returns, bank lenders, or third parties.
+                The formal reports compiled from those records: Profit and Loss
+                statements, Balance Sheets, Cash-Flow statements, and notes
+                prepared for owners, tax returns, bank lenders, or third
+                parties.
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-700">
@@ -89,7 +109,7 @@ export default function YearEndVsFinancialStatements() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   See Business Financial Statements
                 </Button>
@@ -105,7 +125,11 @@ export default function YearEndVsFinancialStatements() {
               Combined Close &amp; Statement Preparation
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              If you specifically need the preparation of reports for owners, tax work, lenders or other users, see our Business Financial Statements service. Where both services are required, the accounting close and statement preparation can be coordinated as one engagement.
+              If you specifically need the preparation of reports for owners,
+              tax work, lenders or other users, see our Business Financial
+              Statements service. Where both services are required, the
+              accounting close and statement preparation can be coordinated as
+              one engagement.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -114,7 +138,7 @@ export default function YearEndVsFinancialStatements() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Coordinate Your Year-End
               </Button>

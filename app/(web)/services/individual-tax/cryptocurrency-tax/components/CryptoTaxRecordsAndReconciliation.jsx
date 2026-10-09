@@ -34,14 +34,19 @@ export default function CryptoTaxRecordsAndReconciliation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Substantiation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Records for a Crypto Tax Return
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Australian tax legislation requires complete documentation for every acquisition, transfer, and disposal across all exchanges and on-chain wallets.
+            Australian tax legislation requires complete documentation for every
+            acquisition, transfer, and disposal across all exchanges and
+            on-chain wallets.
           </p>
         </div>
 
@@ -82,13 +87,15 @@ export default function CryptoTaxRecordsAndReconciliation() {
             </div>
 
             <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-700/60 flex items-center justify-between text-2xs text-slate-500 dark:text-zinc-400">
-              <span>Binance, CoinSpot, Kraken, Swyftx &amp; DeFi logs accepted</span>
+              <span>
+                Binance, CoinSpot, Kraken, Swyftx &amp; DeFi logs accepted
+              </span>
               <Link href="/book-an-appointment">
                 <Button
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Log Reconciliation
                 </Button>
@@ -108,11 +115,16 @@ export default function CryptoTaxRecordsAndReconciliation() {
                   </h4>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                  Records generally need to be kept for five years after the relevant disposal, with longer retention where they establish the cost base of assets still held. Reconcile data from multiple or foreign platforms.
+                  Records generally need to be kept for five years after the
+                  relevant disposal, with longer retention where they establish
+                  the cost base of assets still held. Reconcile data from
+                  multiple or foreign platforms.
                 </p>
                 <div className="p-3.5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed">
                   <GlobalOutlined className="mr-1.5" />
-                  Australian tax residents must also report worldwide crypto transactions, including overseas exchanges, decentralized platforms and foreign income.
+                  Australian tax residents must also report worldwide crypto
+                  transactions, including overseas exchanges, decentralized
+                  platforms and foreign income.
                 </div>
               </div>
             </div>
@@ -127,12 +139,15 @@ export default function CryptoTaxRecordsAndReconciliation() {
                   </h4>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                  If records are incomplete, Financially Up can identify gaps and explain what further information may be needed. Not every missing transaction can necessarily be reconstructed.
+                  If records are incomplete, Financially Up can identify gaps
+                  and explain what further information may be needed. Not every
+                  missing transaction can necessarily be reconstructed.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-amber-200/60 dark:border-amber-800/60 text-2xs text-amber-900 dark:text-amber-200 font-medium">
-                We assist with blockchain explorers (Etherscan, Solscan) to trace missing trade hashes
+                We assist with blockchain explorers (Etherscan, Solscan) to
+                trace missing trade hashes
               </div>
             </div>
           </div>

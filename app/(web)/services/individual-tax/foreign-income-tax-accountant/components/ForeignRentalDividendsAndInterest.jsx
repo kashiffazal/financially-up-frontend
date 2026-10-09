@@ -23,14 +23,19 @@ export default function ForeignRentalDividendsAndInterest() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Passive Investment Income
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Foreign Rental Income, Dividends and Interest
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Australian tax residents must report gross offshore passive receipts in Australian dollars, claiming allowable deductions and reconciling foreign withholding certificates.
+            Australian tax residents must report gross offshore passive receipts
+            in Australian dollars, claiming allowable deductions and reconciling
+            foreign withholding certificates.
           </p>
         </div>
 
@@ -55,7 +60,13 @@ export default function ForeignRentalDividendsAndInterest() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  An Australian resident generally needs to report gross rent from an overseas property and may claim eligible expenses under Australian rules. Interest, agent fees, repairs and other costs require the same connection and substantiation principles that apply to rental deductions generally. Private use, below-market rent and capital expenditure can change the treatment.
+                  An Australian resident generally needs to report gross rent
+                  from an overseas property and may claim eligible expenses
+                  under Australian rules. Interest, agent fees, repairs and
+                  other costs require the same connection and substantiation
+                  principles that apply to rental deductions generally. Private
+                  use, below-market rent and capital expenditure can change the
+                  treatment.
                 </p>
 
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700 space-y-2">
@@ -63,7 +74,10 @@ export default function ForeignRentalDividendsAndInterest() {
                     Conversions &amp; Disposals:
                   </span>
                   <p>
-                    Foreign rental income tax reporting also requires Australian-dollar conversion and evidence of foreign tax paid. A sale or change in use of the property can raise separate CGT issues.
+                    Foreign rental income tax reporting also requires
+                    Australian-dollar conversion and evidence of foreign tax
+                    paid. A sale or change in use of the property can raise
+                    separate CGT issues.
                   </p>
                 </div>
               </div>
@@ -78,7 +92,7 @@ export default function ForeignRentalDividendsAndInterest() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   View Capital Gains Tax Service
                 </Button>
@@ -105,7 +119,12 @@ export default function ForeignRentalDividendsAndInterest() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Australian residents generally report foreign dividends and interest in Australian dollars. Reportable income is generally the gross amount before foreign withholding tax, not only the net cash received. Dividend, interest and withholding statements should be checked rather than relying only on Australian pre-fill information.
+                  Australian residents generally report foreign dividends and
+                  interest in Australian dollars. Reportable income is generally
+                  the gross amount before foreign withholding tax, not only the
+                  net cash received. Dividend, interest and withholding
+                  statements should be checked rather than relying only on
+                  Australian pre-fill information.
                 </p>
 
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700 space-y-2">
@@ -113,7 +132,11 @@ export default function ForeignRentalDividendsAndInterest() {
                     Offshore Entities &amp; Accounts:
                   </span>
                   <p>
-                    Foreign shares, managed investments or bank accounts may also produce gains, distributions or other amounts requiring different treatment. This page remains focused on foreign-income reporting rather than duplicating specialist share, crypto or general CGT guidance.
+                    Foreign shares, managed investments or bank accounts may
+                    also produce gains, distributions or other amounts requiring
+                    different treatment. This page remains focused on
+                    foreign-income reporting rather than duplicating specialist
+                    share, crypto or general CGT guidance.
                   </p>
                 </div>
               </div>
@@ -128,7 +151,7 @@ export default function ForeignRentalDividendsAndInterest() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Statement Audit
                 </Button>

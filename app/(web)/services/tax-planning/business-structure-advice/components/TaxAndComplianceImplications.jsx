@@ -24,21 +24,27 @@ export default function TaxAndComplianceImplications() {
     {
       title: "Company Tax Returns",
       href: "/services/business-tax/company-tax-returns",
-      icon: <FileTextOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       description:
         "Comprehensive annual corporate tax reporting, dividend franking accounts, and corporate compliance schedules.",
     },
     {
       title: "Trust Tax Returns",
       href: "/services/business-tax/trust-tax-returns",
-      icon: <ApartmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       description:
         "Discretionary and unit trust return preparation, beneficiary distributions, and section 100A compliance.",
     },
     {
       title: "Business Tax Compliance",
       href: "/services/business-tax/business-tax-compliance",
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       description:
         "Holistic ongoing Australian compliance covering BAS, GST reconciliations, PAYG withholding, and lodgment management.",
     },
@@ -68,7 +74,12 @@ export default function TaxAndComplianceImplications() {
                 Distinct Entity Obligations
               </h3>
               <p className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
-                Different structures can have different tax-return, registration and record-keeping requirements. Companies have their own income and assets, and there can be tax consequences when company money or assets are used privately. Trusts can have specific distribution and trustee obligations. Partnerships and sole traders also have distinct reporting rules.
+                Different structures can have different tax-return, registration
+                and record-keeping requirements. Companies have their own income
+                and assets, and there can be tax consequences when company money
+                or assets are used privately. Trusts can have specific
+                distribution and trustee obligations. Partnerships and sole
+                traders also have distinct reporting rules.
               </p>
             </div>
           </div>
@@ -82,7 +93,11 @@ export default function TaxAndComplianceImplications() {
                 Beyond the Annual Tax Bill
               </h3>
               <p className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
-                The structure chosen can therefore affect more than the annual tax bill. It can influence bookkeeping, business activity statements, payroll obligations, year-end accounts and the records required to support transactions between the business and its owners.
+                The structure chosen can therefore affect more than the annual
+                tax bill. It can influence bookkeeping, business activity
+                statements, payroll obligations, year-end accounts and the
+                records required to support transactions between the business
+                and its owners.
               </p>
             </div>
           </div>
@@ -95,7 +110,10 @@ export default function TaxAndComplianceImplications() {
               Ongoing Lodgment &amp; Compliance Integration
             </h3>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Where the chosen structure is a company or trust, the ongoing return requirements are covered in our Company Tax Returns and Trust Tax Returns services. Broader ongoing obligations are covered under Business Tax Compliance.
+              Where the chosen structure is a company or trust, the ongoing
+              return requirements are covered in our Company Tax Returns and
+              Trust Tax Returns services. Broader ongoing obligations are
+              covered under Business Tax Compliance.
             </p>
           </div>
 
@@ -122,7 +140,7 @@ export default function TaxAndComplianceImplications() {
                     type="link"
                     className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                     icon={<ArrowRightOutlined className="text-xs" />}
-                    iconPosition="end"
+                    iconPlacement="end"
                   >
                     View Service
                   </Button>

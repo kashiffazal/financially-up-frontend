@@ -24,42 +24,59 @@ import {
 export default function WhatYouNeedToProvide() {
   const commonRecords = [
     {
-      icon: <FileTextOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />
+      ),
       label: "Income & Employment Statements",
       detail: "Income statements, salary summaries & allowances",
     },
     {
-      icon: <DollarOutlined className="text-lg text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-lg text-teal-600 dark:text-teal-400" />
+      ),
       label: "Bank Interest & Dividends",
-      detail: "Bank interest certificates & managed fund distribution statements",
+      detail:
+        "Bank interest certificates & managed fund distribution statements",
     },
     {
-      icon: <FileTextOutlined className="text-lg text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <FileTextOutlined className="text-lg text-cyan-600 dark:text-cyan-400" />
+      ),
       label: "Private Health Insurance",
       detail: "Private health insurance annual tax statements",
     },
     {
-      icon: <DollarOutlined className="text-lg text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarOutlined className="text-lg text-blue-600 dark:text-blue-400" />
+      ),
       label: "Work-Related Expense Records",
       detail: "Receipts, vehicle logbooks & home office diaries",
     },
     {
-      icon: <HomeOutlined className="text-lg text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <HomeOutlined className="text-lg text-indigo-600 dark:text-indigo-400" />
+      ),
       label: "Investment Property Records",
       detail: "Rental property income and expense summaries",
     },
     {
-      icon: <LineChartOutlined className="text-lg text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <LineChartOutlined className="text-lg text-purple-600 dark:text-purple-400" />
+      ),
       label: "Capital Gains & Asset Sales",
       detail: "CGT calculations, share purchase and sale contract notes",
     },
     {
-      icon: <LineChartOutlined className="text-lg text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <LineChartOutlined className="text-lg text-amber-600 dark:text-amber-400" />
+      ),
       label: "Crypto Asset Transaction Reports",
       detail: "Cryptocurrency exchange reports and disposal logs",
     },
     {
-      icon: <GlobalOutlined className="text-lg text-sky-600 dark:text-sky-400" />,
+      icon: (
+        <GlobalOutlined className="text-lg text-sky-600 dark:text-sky-400" />
+      ),
       label: "Foreign Income & Earlier Years",
       detail: "Foreign income information and documents from earlier tax years",
     },
@@ -70,7 +87,10 @@ export default function WhatYouNeedToProvide() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -81,7 +101,13 @@ export default function WhatYouNeedToProvide() {
         {/* Verbatim Paragraph 1 Card */}
         <div className="w-full bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The documents required depend on your tax situation. Common records include income statements, bank interest, dividend and managed fund statements, private health insurance information, work-related expense records, investment property income and expenses, capital gains calculations or purchase and sale records, crypto asset reports, foreign income information and documents from earlier tax years.
+            The documents required depend on your tax situation. Common records
+            include income statements, bank interest, dividend and managed fund
+            statements, private health insurance information, work-related
+            expense records, investment property income and expenses, capital
+            gains calculations or purchase and sale records, crypto asset
+            reports, foreign income information and documents from earlier tax
+            years.
           </p>
         </div>
 
@@ -111,7 +137,11 @@ export default function WhatYouNeedToProvide() {
         <div className="w-full rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 p-6 sm:p-7 flex items-start gap-4 mb-10">
           <InfoCircleOutlined className="text-emerald-700 dark:text-emerald-400 text-xl mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
-            Information shown in ATO systems may not contain everything needed to support your return or deductions. Keep the relevant records and provide any information Financially Up requests. You do not need to identify every document before booking; we will guide you based on your circumstances.
+            Information shown in ATO systems may not contain everything needed
+            to support your return or deductions. Keep the relevant records and
+            provide any information Financially Up requests. You do not need to
+            identify every document before booking; we will guide you based on
+            your circumstances.
           </p>
         </div>
 
@@ -122,7 +152,7 @@ export default function WhatYouNeedToProvide() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-semibold px-7 shadow-md"
             >
               Book an Appointment

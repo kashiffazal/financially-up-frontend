@@ -26,22 +26,30 @@ import {
 export default function TrustDeedDistributionResolutions() {
   const deedChecks = [
     {
-      icon: <FileTextOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Trust Deed Definition of Income",
       desc: "Checking whether the deed defines income as accounting income, section 95 taxable net income, or gives the trustee discretion to determine.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Class of Eligible Beneficiaries",
       desc: "Verifying that every nominated individual, company, or charity strictly falls within the primary, general, or default beneficiary definitions.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Default & Timing Provisions",
       desc: "Reviewing default distribution clauses that automatically trigger if a trustee fails to execute an effective resolution by the required date.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Streaming Powers in Deed",
       desc: "Confirming whether the trustee has explicit legal power under the deed to stream capital gains and franked distributions separately.",
     },
@@ -52,14 +60,21 @@ export default function TrustDeedDistributionResolutions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Legal Powers & Crucial Deadlines
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why the trust deed and distribution resolution matter
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A trustee must act within the powers and requirements of the trust deed. Before making a distribution, the deed should be checked for the definition of income, the class of eligible beneficiaries, default provisions, timing requirements and any powers relevant to streaming capital gains or franked distributions.
+            A trustee must act within the powers and requirements of the trust
+            deed. Before making a distribution, the deed should be checked for
+            the definition of income, the class of eligible beneficiaries,
+            default provisions, timing requirements and any powers relevant to
+            streaming capital gains or franked distributions.
           </p>
         </div>
 
@@ -93,7 +108,15 @@ export default function TrustDeedDistributionResolutions() {
               Statutory Deadlines: 30 June and 31 August
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A beneficiary&apos;s present entitlement to trust income generally needs to be created by 30 June, or earlier if required by the deed. For streaming, a beneficiary&apos;s specific entitlement to a franked distribution generally needs to be recorded by the end of the income year. A specific entitlement to a capital gain must generally be recorded by 31 August for a 30 June balancing trust under the tax-law extension, although the deed may require earlier action. The records and timing should be checked for the particular trust.
+              A beneficiary&apos;s present entitlement to trust income generally
+              needs to be created by 30 June, or earlier if required by the
+              deed. For streaming, a beneficiary&apos;s specific entitlement to
+              a franked distribution generally needs to be recorded by the end
+              of the income year. A specific entitlement to a capital gain must
+              generally be recorded by 31 August for a 30 June balancing trust
+              under the tax-law extension, although the deed may require earlier
+              action. The records and timing should be checked for the
+              particular trust.
             </p>
           </div>
 
@@ -104,7 +127,10 @@ export default function TrustDeedDistributionResolutions() {
                 No Retrospective Reconstruction
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A resolution that is ineffective under the deed or tax rules can change who is assessed. Trust distribution planning should therefore be completed before the relevant deadline, not reconstructed after the event.
+                A resolution that is ineffective under the deed or tax rules can
+                change who is assessed. Trust distribution planning should
+                therefore be completed before the relevant deadline, not
+                reconstructed after the event.
               </p>
             </div>
             <div className="shrink-0 w-full md:w-auto">
@@ -113,7 +139,7 @@ export default function TrustDeedDistributionResolutions() {
                   type="primary"
                   className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Prepare June 30 Resolution
                 </Button>

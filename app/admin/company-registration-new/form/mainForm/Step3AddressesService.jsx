@@ -475,7 +475,7 @@ export default function Step3AddressesService({ form }) {
                 />
 
                 <AntInput
-                  type="text"
+                  type="phone"
                   name="authorisedRecipientPhone"
                   label={
                     <span className="font-bold text-slate-800 dark:text-zinc-200">

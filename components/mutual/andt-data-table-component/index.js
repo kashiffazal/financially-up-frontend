@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import {
-  Form,
   Select,
   Input,
   Button,
@@ -188,15 +187,12 @@ export default function DataTable({
   }, []);
 
   // Handler: User changes the "Filter by" column dropdown
-  const handleCustomFilterColChange = useCallback(
-    (value) => {
-      setSelectedCustomFilterCol(value || null);
-      form.setFieldsValue({ filter: "" });
-      setSearchText("");
-      setCurrentPage(1);
-    },
-    [form],
-  );
+  // (clearing searchText also clears the search box, which is controlled by it)
+  const handleCustomFilterColChange = useCallback((value) => {
+    setSelectedCustomFilterCol(value || null);
+    setSearchText("");
+    setCurrentPage(1);
+  }, []);
 
   // Handler: User changes the rows-per-page dropdown
   const handlePageSizeChange = useCallback(

@@ -48,14 +48,23 @@ export default function BeneficiariesAndTaxConsequences() {
           <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start gap-4">
             <UserOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
             <p>
-              In broad terms, a beneficiary who is presently entitled to a share of trust income may be assessed on a corresponding share of the trust’s taxable income, subject to the specific rules that apply. The trustee may instead be assessed on some amounts in particular circumstances.
+              In broad terms, a beneficiary who is presently entitled to a share
+              of trust income may be assessed on a corresponding share of the
+              trust’s taxable income, subject to the specific rules that apply.
+              The trustee may instead be assessed on some amounts in particular
+              circumstances.
             </p>
           </div>
 
           <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start gap-4">
             <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
             <p>
-              Good trust tax planning therefore looks beyond the accounting profit. It considers the trust’s income under the deed, taxable income, beneficiary eligibility, prior-year arrangements and whether any integrity provisions may be relevant. Distribution outcomes should not be based only on a beneficiary’s marginal tax rate.
+              Good trust tax planning therefore looks beyond the accounting
+              profit. It considers the trust’s income under the deed, taxable
+              income, beneficiary eligibility, prior-year arrangements and
+              whether any integrity provisions may be relevant. Distribution
+              outcomes should not be based only on a beneficiary’s marginal tax
+              rate.
             </p>
           </div>
         </div>
@@ -84,7 +93,11 @@ export default function BeneficiariesAndTaxConsequences() {
                 Private Company Beneficiaries &amp; Division 7A Interaction
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Where a private company is or may become a beneficiary, the interaction with private-company tax rules may also need review. Our linked Division 7A service explains the broader rules, while separately scoped advice may be needed for a particular trust-company arrangement.
+                Where a private company is or may become a beneficiary, the
+                interaction with private-company tax rules may also need review.
+                Our linked Division 7A service explains the broader rules, while
+                separately scoped advice may be needed for a particular
+                trust-company arrangement.
               </p>
             </div>
           </div>
@@ -95,7 +108,7 @@ export default function BeneficiariesAndTaxConsequences() {
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"
                 icon={<ArrowRightOutlined className="text-xs" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Explore Division 7A Planning Service
               </Button>

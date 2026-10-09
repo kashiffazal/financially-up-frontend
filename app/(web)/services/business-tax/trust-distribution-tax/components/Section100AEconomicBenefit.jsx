@@ -25,17 +25,23 @@ import {
 export default function Section100AEconomicBenefit() {
   const s100aFactors = [
     {
-      icon: <SwapOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Reimbursement Agreements",
       desc: "Section 100A may apply where a beneficiary is made presently entitled to trust income, but under an agreement, the real economic benefit is provided to another person for a tax-reduction purpose.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Ordinary Family or Commercial Dealings",
       desc: "Reimbursement agreements do not trigger Section 100A if entered into in the course of ordinary family or commercial dealing, which requires factual substantiation of family and business purposes.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Complete Fund Flow Analysis",
       desc: "The outcome depends on the complete arrangement, including how funds are paid, retained, gifted, loaned or applied rather than relying solely on the accounting journal entries.",
     },
@@ -46,14 +52,22 @@ export default function Section100AEconomicBenefit() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Anti-Avoidance Integrity Review
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Section 100A and who receives the benefit
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A distribution can require further review where a beneficiary is made presently entitled but another person receives or uses the economic benefit. Section 100A may apply to a reimbursement agreement entered into for a tax-reduction purpose, subject to exclusions including an agreement entered into in the course of ordinary family or commercial dealing.
+            A distribution can require further review where a beneficiary is
+            made presently entitled but another person receives or uses the
+            economic benefit. Section 100A may apply to a reimbursement
+            agreement entered into for a tax-reduction purpose, subject to
+            exclusions including an agreement entered into in the course of
+            ordinary family or commercial dealing.
           </p>
         </div>
 
@@ -87,7 +101,11 @@ export default function Section100AEconomicBenefit() {
               Valid Trust Deed Resolution Does Not Settle Tax Status Alone
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The outcome depends on the complete arrangement, including how funds are paid, retained, gifted, loaned or applied. A resolution that is valid under the trust deed does not by itself determine whether section 100A applies, so higher-risk arrangements should be separately reviewed and documented.
+              The outcome depends on the complete arrangement, including how
+              funds are paid, retained, gifted, loaned or applied. A resolution
+              that is valid under the trust deed does not by itself determine
+              whether section 100A applies, so higher-risk arrangements should
+              be separately reviewed and documented.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -96,7 +114,7 @@ export default function Section100AEconomicBenefit() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Section 100A Risk
               </Button>

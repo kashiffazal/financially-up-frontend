@@ -35,14 +35,18 @@ export default function PropertyCgtAndRecords() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Disposal &amp; Substantiation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Capital Gains Tax and Record Keeping
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Essential Australian tax principles for property disposals, cost-base calculations, and statutory document retention periods.
+            Essential Australian tax principles for property disposals,
+            cost-base calculations, and statutory document retention periods.
           </p>
         </div>
 
@@ -67,18 +71,27 @@ export default function PropertyCgtAndRecords() {
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Capital gains tax may apply when a rental property is sold. The calculation can involve the purchase and sale contracts, ownership dates, acquisition and disposal costs, capital improvements, capital works deductions and other cost-base adjustments.
+                  Capital gains tax may apply when a rental property is sold.
+                  The calculation can involve the purchase and sale contracts,
+                  ownership dates, acquisition and disposal costs, capital
+                  improvements, capital works deductions and other cost-base
+                  adjustments.
                 </p>
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Key Timing &amp; Concession Rules:
                   </span>
                   <p>
-                    The timing of the CGT event is generally connected with the sale contract rather than the settlement date. Main residence rules, changes in use and eligibility for any CGT discount can also affect the result.
+                    The timing of the CGT event is generally connected with the
+                    sale contract rather than the settlement date. Main
+                    residence rules, changes in use and eligibility for any CGT
+                    discount can also affect the result.
                   </p>
                 </div>
                 <p>
-                  Keeping complete records throughout ownership helps support the final calculation and identify costs that may otherwise be overlooked.
+                  Keeping complete records throughout ownership helps support
+                  the final calculation and identify costs that may otherwise be
+                  overlooked.
                 </p>
               </div>
             </div>
@@ -92,7 +105,7 @@ export default function PropertyCgtAndRecords() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   View Capital Gains Tax Service
                 </Button>
@@ -118,7 +131,9 @@ export default function PropertyCgtAndRecords() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Keep records that explain your rental income, expenses, ownership, loan use and capital costs. Relevant documents may include:
+                Keep records that explain your rental income, expenses,
+                ownership, loan use and capital costs. Relevant documents may
+                include:
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
@@ -138,7 +153,12 @@ export default function PropertyCgtAndRecords() {
                   <HistoryOutlined />
                   <span>Statutory Record Retention Requirements</span>
                 </div>
-                Rental income and expense records generally need to be kept for at least five years under the applicable record-keeping rules. Documents relevant to acquisition, ownership and CGT should generally be retained throughout ownership and for at least five years after disposal. Longer periods can apply in some circumstances.
+                Rental income and expense records generally need to be kept for
+                at least five years under the applicable record-keeping rules.
+                Documents relevant to acquisition, ownership and CGT should
+                generally be retained throughout ownership and for at least five
+                years after disposal. Longer periods can apply in some
+                circumstances.
               </div>
             </div>
 

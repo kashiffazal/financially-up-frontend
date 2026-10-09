@@ -48,7 +48,7 @@ import { useLiveNotifications } from "@/components/admin/NotificationCenter/live
  * ============================================================================
  * Executive Practice Operations & Client Applications Dashboard
  * ============================================================================
- * 
+ *
  * Features:
  * 1. Executive Practice Header with time-aware greeting, quick status indicators, and timeframe switcher.
  * 2. Visual Client Application Lifecycle Pipeline (Drafts -> Under Review -> Officially Lodged).
@@ -101,7 +101,7 @@ export default function Dashboard() {
         day: "numeric",
         month: "long",
         year: "numeric",
-      })
+      }),
     );
   }, []);
 
@@ -123,7 +123,7 @@ export default function Dashboard() {
         setRefreshing(false);
       }
     },
-    []
+    [],
   );
 
   // Fetch on mount or range change
@@ -134,7 +134,10 @@ export default function Dashboard() {
   // Live updates: refresh metrics & recent submissions silently when another
   // user's submission or status change arrives (no page refresh)
   useLiveNotifications((notification) => {
-    if (notification?.type === "submission" || notification?.type === "status_change") {
+    if (
+      notification?.type === "submission" ||
+      notification?.type === "status_change"
+    ) {
       fetchDashboardStats(activeRange, true);
     }
   });
@@ -319,7 +322,7 @@ export default function Dashboard() {
       (s) =>
         s.title.toLowerCase().includes(q) ||
         s.desc.toLowerCase().includes(q) ||
-        (s.plainHelp && s.plainHelp.toLowerCase().includes(q))
+        (s.plainHelp && s.plainHelp.toLowerCase().includes(q)),
     );
   }, [launchpadSearch, launchpadServices]);
 
@@ -341,7 +344,7 @@ export default function Dashboard() {
       (metrics.draftIncomplete || 0) +
         (metrics.pendingReview || 0) +
         (metrics.approvedLodged || 0) +
-        (metrics.rejectedDeclined || 0)
+        (metrics.rejectedDeclined || 0),
     );
     const draft = metrics.draftIncomplete || 0;
     const pending = metrics.pendingReview || 0;
@@ -469,7 +472,8 @@ export default function Dashboard() {
                 📄 What is a Lodgement?
               </span>
               <p className="text-[11px] text-slate-600 dark:text-zinc-400 m-0">
-                A formal legal submission sent to government bodies (ASIC or the ATO) to register a new company, business name, or tax return.
+                A formal legal submission sent to government bodies (ASIC or the
+                ATO) to register a new company, business name, or tax return.
               </p>
             </div>
 
@@ -478,7 +482,9 @@ export default function Dashboard() {
                 ⏳ Needs Review Status
               </span>
               <p className="text-[11px] text-slate-600 dark:text-zinc-400 m-0">
-                Client submitted their information, but your team must check ID documents (AML/CTF) or obtain sign-offs before official lodgement.
+                Client submitted their information, but your team must check ID
+                documents (AML/CTF) or obtain sign-offs before official
+                lodgement.
               </p>
             </div>
 
@@ -487,7 +493,8 @@ export default function Dashboard() {
                 ✅ Completed &amp; Registered
               </span>
               <p className="text-[11px] text-slate-600 dark:text-zinc-400 m-0">
-                The government body (ASIC or ATO) accepted and registered the entity. The ACN, ABN, or certificate is ready for the client.
+                The government body (ASIC or ATO) accepted and registered the
+                entity. The ACN, ABN, or certificate is ready for the client.
               </p>
             </div>
 
@@ -496,7 +503,9 @@ export default function Dashboard() {
                 🚀 Fast-Action Launchpad
               </span>
               <p className="text-[11px] text-slate-600 dark:text-zinc-400 m-0">
-                Start any client onboarding, company formation, or GST registration directly on behalf of a client in just a few clicks.
+                Start any client onboarding, company formation, or GST
+                registration directly on behalf of a client in just a few
+                clicks.
               </p>
             </div>
           </div>
@@ -532,7 +541,9 @@ export default function Dashboard() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-primary)]"></span>
                 Active Inflow
               </span>
-              <span className="text-slate-400 dark:text-zinc-500">across 10 client services</span>
+              <span className="text-slate-400 dark:text-zinc-500">
+                across 10 client services
+              </span>
             </div>
           </div>
         </div>
@@ -563,7 +574,9 @@ export default function Dashboard() {
               <span className="font-bold text-amber-600 dark:text-amber-400">
                 Action Required
               </span>
-              <span className="text-slate-400 dark:text-zinc-500">waiting for team check</span>
+              <span className="text-slate-400 dark:text-zinc-500">
+                waiting for team check
+              </span>
             </div>
           </div>
         </div>
@@ -594,7 +607,9 @@ export default function Dashboard() {
               <span className="font-bold text-emerald-600 dark:text-emerald-400">
                 Officially Registered
               </span>
-              <span className="text-slate-400 dark:text-zinc-500">with ASIC &amp; ATO</span>
+              <span className="text-slate-400 dark:text-zinc-500">
+                with ASIC &amp; ATO
+              </span>
             </div>
           </div>
         </div>
@@ -633,7 +648,9 @@ export default function Dashboard() {
               >
                 {metrics.totalAuditLogs} Activity Logs
               </Link>
-              <span className="text-slate-400 dark:text-zinc-500">tamper-proof</span>
+              <span className="text-slate-400 dark:text-zinc-500">
+                tamper-proof
+              </span>
             </div>
           </div>
         </div>
@@ -655,7 +672,8 @@ export default function Dashboard() {
             </Tooltip>
           </div>
           <span className="text-[11px] text-slate-400">
-            Total Tracked Volume: <strong>{pipelineStats.total} applications</strong>
+            Total Tracked Volume:{" "}
+            <strong>{pipelineStats.total} applications</strong>
           </span>
         </div>
 
@@ -688,7 +706,9 @@ export default function Dashboard() {
           <div className="flex items-center gap-2 text-xs">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0"></span>
             <div className="min-w-0">
-              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">Completed / Lodged</span>
+              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">
+                Completed / Lodged
+              </span>
               <strong className="text-slate-800 dark:text-zinc-200">
                 {pipelineStats.approved} ({pipelineStats.approvedPct}%)
               </strong>
@@ -698,7 +718,9 @@ export default function Dashboard() {
           <div className="flex items-center gap-2 text-xs">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0 animate-pulse"></span>
             <div className="min-w-0">
-              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">Awaiting Review</span>
+              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">
+                Awaiting Review
+              </span>
               <strong className="text-slate-800 dark:text-zinc-200">
                 {pipelineStats.pending} ({pipelineStats.pendingPct}%)
               </strong>
@@ -708,7 +730,9 @@ export default function Dashboard() {
           <div className="flex items-center gap-2 text-xs">
             <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shrink-0"></span>
             <div className="min-w-0">
-              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">Client Drafts</span>
+              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">
+                Client Drafts
+              </span>
               <strong className="text-slate-800 dark:text-zinc-200">
                 {pipelineStats.draft} ({pipelineStats.draftPct}%)
               </strong>
@@ -718,7 +742,9 @@ export default function Dashboard() {
           <div className="flex items-center gap-2 text-xs">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0"></span>
             <div className="min-w-0">
-              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">Requires Re-check</span>
+              <span className="text-slate-500 dark:text-zinc-400 block text-[11px]">
+                Requires Re-check
+              </span>
               <strong className="text-slate-800 dark:text-zinc-200">
                 {pipelineStats.rejected} ({pipelineStats.rejectedPct}%)
               </strong>
@@ -811,7 +837,8 @@ export default function Dashboard() {
             onClick={() => setIsLaunchpadOpen(true)}
             className="text-xs font-bold text-[var(--brand-primary)] hover:underline inline-flex items-center gap-1 cursor-pointer"
           >
-            View all 10 client services <ArrowRightOutlined className="text-[10px]" />
+            View all 10 client services{" "}
+            <ArrowRightOutlined className="text-[10px]" />
           </button>
         </div>
 
@@ -881,7 +908,8 @@ export default function Dashboard() {
               </Tooltip>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 m-0">
-              Live incoming submissions from clients and taxpayers across all client services
+              Live incoming submissions from clients and taxpayers across all
+              client services
             </p>
           </div>
 
@@ -912,14 +940,19 @@ export default function Dashboard() {
                     <Spin size="small" /> Loading incoming submissions...
                   </td>
                 </tr>
-              ) : (stats?.recentApplications || stats?.recentSubmissions || []).length === 0 ? (
+              ) : (stats?.recentApplications || stats?.recentSubmissions || [])
+                  .length === 0 ? (
                 <tr>
                   <td colSpan={6} className="py-8 text-center text-slate-400">
                     No recent applications found in this timeframe.
                   </td>
                 </tr>
               ) : (
-                (stats?.recentApplications || stats?.recentSubmissions || []).map((req, idx) => {
+                (
+                  stats?.recentApplications ||
+                  stats?.recentSubmissions ||
+                  []
+                ).map((req, idx) => {
                   const statusInfo = getStatusBadge(req.status);
                   const isEven = idx % 2 === 0;
 
@@ -927,7 +960,9 @@ export default function Dashboard() {
                     <tr
                       key={req.id || idx}
                       className={`hover:bg-slate-50/80 dark:hover:bg-zinc-800/40 transition-colors ${
-                        isEven ? "bg-transparent" : "bg-slate-50/30 dark:bg-zinc-900/30"
+                        isEven
+                          ? "bg-transparent"
+                          : "bg-slate-50/30 dark:bg-zinc-900/30"
                       }`}
                     >
                       {/* Client Name & Reference */}
@@ -957,7 +992,8 @@ export default function Dashboard() {
                               <div className="flex items-center justify-between gap-3 pb-1 border-b border-slate-100 dark:border-zinc-800 text-xs font-bold text-slate-900 dark:text-zinc-100">
                                 <span className="flex items-center gap-1.5">
                                   <PaperClipOutlined className="text-[var(--brand-primary)]" />
-                                  Attached Documents ({req.attachedFiles.length})
+                                  Attached Documents ({req.attachedFiles.length}
+                                  )
                                 </span>
                                 <span className="text-[10px] text-slate-400 font-mono font-normal">
                                   {req.refNumber}
@@ -998,7 +1034,12 @@ export default function Dashboard() {
                               title="Click or hover to view attached files"
                             >
                               <PaperClipOutlined className="text-[10px]" />
-                              <span>{req.attachedFiles.length} {req.attachedFiles.length === 1 ? "file" : "files"}</span>
+                              <span>
+                                {req.attachedFiles.length}{" "}
+                                {req.attachedFiles.length === 1
+                                  ? "file"
+                                  : "files"}
+                              </span>
                             </button>
                           </Popover>
                         ) : (
@@ -1014,7 +1055,9 @@ export default function Dashboard() {
                           <span
                             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold cursor-help ${statusInfo.badgeClass}`}
                           >
-                            <span className={`w-1.5 h-1.5 rounded-full ${statusInfo.dotClass}`}></span>
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full ${statusInfo.dotClass}`}
+                            ></span>
                             {statusInfo.label}
                           </span>
                         </Tooltip>
@@ -1023,10 +1066,13 @@ export default function Dashboard() {
                       {/* Received Date */}
                       <td className="py-3 px-3 text-slate-500 dark:text-zinc-400 whitespace-nowrap">
                         {req.createdAt
-                          ? new Date(req.createdAt).toLocaleDateString("en-AU", {
-                              day: "numeric",
-                              month: "short",
-                            })
+                          ? new Date(req.createdAt).toLocaleDateString(
+                              "en-AU",
+                              {
+                                day: "numeric",
+                                month: "short",
+                              },
+                            )
                           : "Today"}
                       </td>
 
@@ -1043,7 +1089,8 @@ export default function Dashboard() {
                             className="inline-flex items-center gap-1 px-2.5 py-1 bg-white dark:bg-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-700 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:text-[var(--brand-primary)] text-xs font-semibold rounded-md shadow-2xs transition-all cursor-pointer"
                             title="View complete application details"
                           >
-                            <EyeOutlined className="text-xs text-[var(--brand-primary)]" /> Details
+                            <EyeOutlined className="text-xs text-[var(--brand-primary)]" />{" "}
+                            Details
                           </button>
 
                           {/* Quick Direct PDF Preview Button (if generated PDF exists) */}
@@ -1055,13 +1102,16 @@ export default function Dashboard() {
                               className="inline-flex items-center gap-1 px-2 py-1 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 border border-rose-200/80 dark:border-rose-800/50 text-rose-700 dark:text-rose-300 text-xs font-semibold rounded-md shadow-2xs transition-all"
                               title="View official generated PDF in new tab"
                             >
-                              <FilePdfOutlined className="text-xs text-rose-600" /> PDF
+                              <FilePdfOutlined className="text-xs text-rose-600" />{" "}
+                              PDF
                             </a>
                           )}
 
                           {/* Redirect to Main Log Table Button */}
                           <Link
-                            href={req.logUrl || "/admin/company-registration-new"}
+                            href={
+                              req.logUrl || "/admin/company-registration-new"
+                            }
                             className="inline-flex items-center gap-1 px-2 py-1 bg-slate-50 dark:bg-zinc-800 hover:bg-slate-100 border border-slate-200/70 dark:border-zinc-700 text-slate-500 hover:text-slate-800 dark:hover:text-zinc-200 text-xs font-medium rounded-md transition-all"
                             title="Open full administrative log table"
                           >
@@ -1097,7 +1147,8 @@ export default function Dashboard() {
         className="admin-portal-modal"
       >
         <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3">
-          Select a client service below to start a new form on behalf of a client. You will be guided through every step.
+          Select a client service below to start a new form on behalf of a
+          client. You will be guided through every step.
         </p>
 
         {/* Live Search Filter */}
@@ -1169,226 +1220,268 @@ export default function Dashboard() {
         open={isDetailsOpen}
         onCancel={() => setIsDetailsOpen(false)}
         afterClose={() => setSelectedApplication(null)}
-        destroyOnClose
+        destroyOnHidden
         footer={null}
         width={720}
         centered
         className="rounded-2xl"
       >
-        {selectedApplication && (() => {
-          const statusInfo = getStatusBadge(selectedApplication.status);
-          const primaryPdf = selectedApplication.pdfUrl;
+        {selectedApplication &&
+          (() => {
+            const statusInfo = getStatusBadge(selectedApplication.status);
+            const primaryPdf = selectedApplication.pdfUrl;
 
-          return (
-            <div className="space-y-5 pt-1">
-              {/* Modal Header Bar */}
-              <div className="flex flex-wrap items-start justify-between gap-3 pb-3 border-b border-slate-100 dark:border-zinc-800">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center text-xl font-bold shrink-0">
-                    <FileTextOutlined />
+            return (
+              <div className="space-y-5 pt-1">
+                {/* Modal Header Bar */}
+                <div className="flex flex-wrap items-start justify-between gap-3 pb-3 border-b border-slate-100 dark:border-zinc-800">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center text-xl font-bold shrink-0">
+                      <FileTextOutlined />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h2 className="text-base font-extrabold text-slate-900 dark:text-white m-0">
+                          {selectedApplication.name}
+                        </h2>
+                        <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 font-semibold border border-slate-200/70 dark:border-zinc-700">
+                          {selectedApplication.refNumber}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 m-0">
+                        {selectedApplication.module} • Submitted{" "}
+                        {selectedApplication.createdAt
+                          ? new Date(
+                              selectedApplication.createdAt,
+                            ).toLocaleDateString("en-AU", {
+                              day: "numeric",
+                              month: "long",
+                              year: "numeric",
+                            })
+                          : "Recently"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${statusInfo.badgeClass}`}
+                    >
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${statusInfo.dotClass}`}
+                      ></span>
+                      {statusInfo.label}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Key Details Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-800 text-xs">
+                  <div>
+                    <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
+                      Contact Person
+                    </span>
+                    <strong className="text-slate-800 dark:text-zinc-200 font-semibold">
+                      {selectedApplication.contactName ||
+                        selectedApplication.name ||
+                        "N/A"}
+                    </strong>
                   </div>
                   <div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h2 className="text-base font-extrabold text-slate-900 dark:text-white m-0">
-                        {selectedApplication.name}
-                      </h2>
-                      <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 font-semibold border border-slate-200/70 dark:border-zinc-700">
-                        {selectedApplication.refNumber}
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 m-0">
-                      {selectedApplication.module} • Submitted {selectedApplication.createdAt ? new Date(selectedApplication.createdAt).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" }) : "Recently"}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${statusInfo.badgeClass}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${statusInfo.dotClass}`}></span>
-                    {statusInfo.label}
-                  </span>
-                </div>
-              </div>
-
-              {/* Key Details Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-800 text-xs">
-                <div>
-                  <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Contact Person</span>
-                  <strong className="text-slate-800 dark:text-zinc-200 font-semibold">
-                    {selectedApplication.contactName || selectedApplication.name || "N/A"}
-                  </strong>
-                </div>
-                <div>
-                  <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Email Address</span>
-                  <span className="text-slate-800 dark:text-zinc-200 font-medium truncate block">
-                    {selectedApplication.contactEmail || "Not provided"}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Phone / Mobile</span>
-                  <span className="text-slate-800 dark:text-zinc-200 font-mono font-medium">
-                    {selectedApplication.contactMobile || "Not provided"}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Service Type</span>
-                  <span className="text-slate-800 dark:text-zinc-200 font-medium">
-                    {selectedApplication.module}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Specifics / Structure</span>
-                  <span className="text-slate-800 dark:text-zinc-200 font-medium">
-                    {selectedApplication.extraInfo || "Standard Australian Practice"}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">Internal Reference</span>
-                  <span className="text-slate-800 dark:text-zinc-200 font-mono font-bold">
-                    {selectedApplication.refNumber}
-                  </span>
-                </div>
-              </div>
-
-              {/* Official Generated PDFs Section */}
-              <div className="p-4 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 m-0">
-                    <FilePdfOutlined className="text-rose-500 text-sm" />
-                    Official Application Documents &amp; PDFs
-                  </h3>
-                  <span className="text-[11px] text-slate-400">
-                    {selectedApplication.allPdfs?.length || (primaryPdf ? 1 : 0)} generated
-                  </span>
-                </div>
-
-                {selectedApplication.allPdfs && selectedApplication.allPdfs.length > 0 ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {selectedApplication.allPdfs.map((pdf, pIdx) => (
-                      <a
-                        key={pdf.id || pIdx}
-                        href={getFileUrl(pdf.url)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-lg border border-slate-200 dark:border-zinc-800 hover:border-rose-400 hover:bg-rose-50/50 dark:hover:bg-rose-950/20 transition-all flex items-center justify-between gap-2 group"
-                      >
-                        <div className="min-w-0 flex items-center gap-2">
-                          <FilePdfOutlined className="text-rose-500 text-base shrink-0" />
-                          <div className="min-w-0">
-                            <div className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-rose-600 dark:group-hover:text-rose-400 truncate">
-                              {pdf.name || "Application PDF"}
-                            </div>
-                            <span className="text-[10px] text-slate-400 capitalize">
-                              {pdf.type || "Document"}
-                            </span>
-                          </div>
-                        </div>
-                        <span className="text-xs font-bold text-rose-600 dark:text-rose-400 shrink-0 flex items-center gap-0.5">
-                          View <ArrowRightOutlined className="text-[9px]" />
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                ) : primaryPdf ? (
-                  <a
-                    href={getFileUrl(primaryPdf)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-lg border border-slate-200 dark:border-zinc-800 hover:border-rose-400 hover:bg-rose-50/50 dark:hover:bg-rose-950/20 transition-all flex items-center justify-between group"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <FilePdfOutlined className="text-rose-500 text-lg" />
-                      <div>
-                        <div className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-rose-600">
-                          Official Lodgement Document ({selectedApplication.refNumber}.pdf)
-                        </div>
-                        <span className="text-[10px] text-slate-400">Complete application summary &amp; signed disclosures</span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
-                      Open PDF <ArrowRightOutlined className="text-[9px]" />
+                    <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
+                      Email Address
                     </span>
-                  </a>
-                ) : (
-                  <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-800 rounded-lg">
-                    No generated PDF available for this lodgement yet.
+                    <span className="text-slate-800 dark:text-zinc-200 font-medium truncate block">
+                      {selectedApplication.contactEmail || "Not provided"}
+                    </span>
                   </div>
-                )}
-              </div>
-
-              {/* Client Attached Files & Evidence */}
-              <div className="p-4 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 m-0">
-                    <PaperClipOutlined className="text-[var(--brand-primary)] text-sm" />
-                    Client Uploaded Evidence &amp; Attachments
-                  </h3>
-                  <span className="text-[11px] text-slate-400 font-mono">
-                    {selectedApplication.attachedFiles?.length || 0} files
-                  </span>
+                  <div>
+                    <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
+                      Phone / Mobile
+                    </span>
+                    <span className="text-slate-800 dark:text-zinc-200 font-mono font-medium">
+                      {selectedApplication.contactMobile || "Not provided"}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
+                      Service Type
+                    </span>
+                    <span className="text-slate-800 dark:text-zinc-200 font-medium">
+                      {selectedApplication.module}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
+                      Specifics / Structure
+                    </span>
+                    <span className="text-slate-800 dark:text-zinc-200 font-medium">
+                      {selectedApplication.extraInfo ||
+                        "Standard Australian Practice"}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
+                      Internal Reference
+                    </span>
+                    <span className="text-slate-800 dark:text-zinc-200 font-mono font-bold">
+                      {selectedApplication.refNumber}
+                    </span>
+                  </div>
                 </div>
 
-                {selectedApplication.attachedFiles && selectedApplication.attachedFiles.length > 0 ? (
-                  <div className="space-y-1.5 max-h-[220px] overflow-y-auto pr-1">
-                    {selectedApplication.attachedFiles.map((file, fIdx) => (
-                      <a
-                        key={file.id || fIdx}
-                        href={getFileUrl(file.url)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-lg border border-slate-100 dark:border-zinc-800 hover:border-[var(--brand-primary)] hover:bg-slate-50 dark:hover:bg-zinc-800/60 transition-all flex items-center justify-between gap-3 group"
-                      >
-                        <div className="min-w-0 flex items-center gap-2.5">
-                          <PaperClipOutlined className="text-slate-400 group-hover:text-[var(--brand-primary)] text-sm shrink-0" />
-                          <div className="min-w-0">
-                            <div className="text-xs font-semibold text-slate-800 dark:text-zinc-200 group-hover:text-[var(--brand-primary)] truncate">
-                              {file.name}
-                            </div>
-                            <div className="text-[10px] text-slate-400 flex items-center gap-2 mt-0.5">
-                              <span className="px-1.5 py-0.2 rounded bg-slate-100 dark:bg-zinc-800 text-slate-500 font-medium">
-                                {file.category}
+                {/* Official Generated PDFs Section */}
+                <div className="p-4 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 m-0">
+                      <FilePdfOutlined className="text-rose-500 text-sm" />
+                      Official Application Documents &amp; PDFs
+                    </h3>
+                    <span className="text-[11px] text-slate-400">
+                      {selectedApplication.allPdfs?.length ||
+                        (primaryPdf ? 1 : 0)}{" "}
+                      generated
+                    </span>
+                  </div>
+
+                  {selectedApplication.allPdfs &&
+                  selectedApplication.allPdfs.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {selectedApplication.allPdfs.map((pdf, pIdx) => (
+                        <a
+                          key={pdf.id || pIdx}
+                          href={getFileUrl(pdf.url)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2.5 rounded-lg border border-slate-200 dark:border-zinc-800 hover:border-rose-400 hover:bg-rose-50/50 dark:hover:bg-rose-950/20 transition-all flex items-center justify-between gap-2 group"
+                        >
+                          <div className="min-w-0 flex items-center gap-2">
+                            <FilePdfOutlined className="text-rose-500 text-base shrink-0" />
+                            <div className="min-w-0">
+                              <div className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-rose-600 dark:group-hover:text-rose-400 truncate">
+                                {pdf.name || "Application PDF"}
+                              </div>
+                              <span className="text-[10px] text-slate-400 capitalize">
+                                {pdf.type || "Document"}
                               </span>
-                              <span>•</span>
-                              <span>{formatFileSize(file.size)}</span>
                             </div>
                           </div>
+                          <span className="text-xs font-bold text-rose-600 dark:text-rose-400 shrink-0 flex items-center gap-0.5">
+                            View <ArrowRightOutlined className="text-[9px]" />
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  ) : primaryPdf ? (
+                    <a
+                      href={getFileUrl(primaryPdf)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-lg border border-slate-200 dark:border-zinc-800 hover:border-rose-400 hover:bg-rose-50/50 dark:hover:bg-rose-950/20 transition-all flex items-center justify-between group"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <FilePdfOutlined className="text-rose-500 text-lg" />
+                        <div>
+                          <div className="text-xs font-bold text-slate-800 dark:text-zinc-200 group-hover:text-rose-600">
+                            Official Lodgement Document (
+                            {selectedApplication.refNumber}.pdf)
+                          </div>
+                          <span className="text-[10px] text-slate-400">
+                            Complete application summary &amp; signed
+                            disclosures
+                          </span>
                         </div>
-                        <span className="text-xs font-bold text-[var(--brand-primary)] group-hover:underline shrink-0 flex items-center gap-1">
-                          Download <DownloadOutlined className="text-xs" />
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-800 rounded-lg">
-                    No external client documents uploaded with this submission.
-                  </div>
-                )}
-              </div>
+                      </div>
+                      <span className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
+                        Open PDF <ArrowRightOutlined className="text-[9px]" />
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-800 rounded-lg">
+                      No generated PDF available for this lodgement yet.
+                    </div>
+                  )}
+                </div>
 
-              {/* Modal Footer Controls */}
-              <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-zinc-800">
-                <button
-                  type="button"
-                  onClick={() => setIsDetailsOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
-                >
-                  Close
-                </button>
+                {/* Client Attached Files & Evidence */}
+                <div className="p-4 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 m-0">
+                      <PaperClipOutlined className="text-[var(--brand-primary)] text-sm" />
+                      Client Uploaded Evidence &amp; Attachments
+                    </h3>
+                    <span className="text-[11px] text-slate-400 font-mono">
+                      {selectedApplication.attachedFiles?.length || 0} files
+                    </span>
+                  </div>
 
-                <div className="flex items-center gap-2">
-                  <Link
-                    href={selectedApplication?.logUrl || "/admin/company-registration-new"}
+                  {selectedApplication.attachedFiles &&
+                  selectedApplication.attachedFiles.length > 0 ? (
+                    <div className="space-y-1.5 max-h-[220px] overflow-y-auto pr-1">
+                      {selectedApplication.attachedFiles.map((file, fIdx) => (
+                        <a
+                          key={file.id || fIdx}
+                          href={getFileUrl(file.url)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2.5 rounded-lg border border-slate-100 dark:border-zinc-800 hover:border-[var(--brand-primary)] hover:bg-slate-50 dark:hover:bg-zinc-800/60 transition-all flex items-center justify-between gap-3 group"
+                        >
+                          <div className="min-w-0 flex items-center gap-2.5">
+                            <PaperClipOutlined className="text-slate-400 group-hover:text-[var(--brand-primary)] text-sm shrink-0" />
+                            <div className="min-w-0">
+                              <div className="text-xs font-semibold text-slate-800 dark:text-zinc-200 group-hover:text-[var(--brand-primary)] truncate">
+                                {file.name}
+                              </div>
+                              <div className="text-[10px] text-slate-400 flex items-center gap-2 mt-0.5">
+                                <span className="px-1.5 py-0.2 rounded bg-slate-100 dark:bg-zinc-800 text-slate-500 font-medium">
+                                  {file.category}
+                                </span>
+                                <span>•</span>
+                                <span>{formatFileSize(file.size)}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <span className="text-xs font-bold text-[var(--brand-primary)] group-hover:underline shrink-0 flex items-center gap-1">
+                            Download <DownloadOutlined className="text-xs" />
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-3 text-center text-xs text-slate-400 bg-slate-50 dark:bg-zinc-800 rounded-lg">
+                      No external client documents uploaded with this
+                      submission.
+                    </div>
+                  )}
+                </div>
+
+                {/* Modal Footer Controls */}
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-zinc-800">
+                  <button
+                    type="button"
                     onClick={() => setIsDetailsOpen(false)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white text-xs font-bold rounded-lg shadow-sm shadow-[var(--brand-primary)]/20 transition-all cursor-pointer"
+                    className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
                   >
-                    Open in Main Log Table <ArrowRightOutlined className="text-xs" />
-                  </Link>
+                    Close
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href={
+                        selectedApplication?.logUrl ||
+                        "/admin/company-registration-new"
+                      }
+                      onClick={() => setIsDetailsOpen(false)}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white text-xs font-bold rounded-lg shadow-sm shadow-[var(--brand-primary)]/20 transition-all cursor-pointer"
+                    >
+                      Open in Main Log Table{" "}
+                      <ArrowRightOutlined className="text-xs" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })()}
+            );
+          })()}
       </Modal>
     </div>
   );

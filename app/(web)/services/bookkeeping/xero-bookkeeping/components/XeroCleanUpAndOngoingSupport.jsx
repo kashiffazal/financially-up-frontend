@@ -24,14 +24,19 @@ export default function XeroCleanUpAndOngoingSupport() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             File Health &amp; Long-Term Routine
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Clean-Up &amp; Ongoing Xero Bookkeeping Support
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Whether your file requires an initial diagnostic clean-up or a reliable monthly rhythm, we tailor the engagement to your actual transaction volume and business complexity.
+            Whether your file requires an initial diagnostic clean-up or a
+            reliable monthly rhythm, we tailor the engagement to your actual
+            transaction volume and business complexity.
           </p>
         </div>
 
@@ -50,10 +55,18 @@ export default function XeroCleanUpAndOngoingSupport() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  A bookkeeping clean-up may be required when records have been maintained inconsistently or left unresolved for a period. The work can involve reconciling bank accounts, reviewing coding, identifying duplicate or stale items, checking opening balances and clarifying transactions that need supporting documents.
+                  A bookkeeping clean-up may be required when records have been
+                  maintained inconsistently or left unresolved for a period. The
+                  work can involve reconciling bank accounts, reviewing coding,
+                  identifying duplicate or stale items, checking opening
+                  balances and clarifying transactions that need supporting
+                  documents.
                 </p>
                 <p>
-                  The clean-up scope depends on the condition of the file. Historical corrections may also affect previously lodged BAS or tax returns, so material issues may need separate tax or compliance review before changes are made.
+                  The clean-up scope depends on the condition of the file.
+                  Historical corrections may also affect previously lodged BAS
+                  or tax returns, so material issues may need separate tax or
+                  compliance review before changes are made.
                 </p>
               </div>
 
@@ -61,7 +74,8 @@ export default function XeroCleanUpAndOngoingSupport() {
               <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <AlertOutlined className="text-amber-600 dark:text-amber-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Our qualified CPAs assess the impact of prior entries on historical BAS lodgements before adjustments are committed.
+                  Our qualified CPAs assess the impact of prior entries on
+                  historical BAS lodgements before adjustments are committed.
                 </p>
               </div>
             </div>
@@ -75,7 +89,7 @@ export default function XeroCleanUpAndOngoingSupport() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Bookkeeping Clean-Up Service
                 </Button>
@@ -96,10 +110,16 @@ export default function XeroCleanUpAndOngoingSupport() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
-                  Once the file is in order, an ongoing process can help keep it that way. Financially Up can agree on a recurring bookkeeping scope based on transaction volume, number of bank accounts, reporting needs and the level of review required. Businesses wanting a set recurring cadence can also consider our monthly bookkeeping services.
+                  Once the file is in order, an ongoing process can help keep it
+                  that way. Financially Up can agree on a recurring bookkeeping
+                  scope based on transaction volume, number of bank accounts,
+                  reporting needs and the level of review required. Businesses
+                  wanting a set recurring cadence can also consider our monthly
+                  bookkeeping services.
                 </p>
                 <p>
-                  For broader support that is not limited to one software platform, see our main bookkeeping services page.
+                  For broader support that is not limited to one software
+                  platform, see our main bookkeeping services page.
                 </p>
               </div>
 
@@ -107,7 +127,8 @@ export default function XeroCleanUpAndOngoingSupport() {
               <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Enjoy peace of mind with recurring month-end reconciliations, timely coding, and regular management visibility.
+                  Enjoy peace of mind with recurring month-end reconciliations,
+                  timely coding, and regular management visibility.
                 </p>
               </div>
             </div>
@@ -121,7 +142,7 @@ export default function XeroCleanUpAndOngoingSupport() {
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-xs sm:text-sm"
                   icon={<ArrowRightOutlined className="text-xs" />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Monthly Bookkeeping Services
                 </Button>

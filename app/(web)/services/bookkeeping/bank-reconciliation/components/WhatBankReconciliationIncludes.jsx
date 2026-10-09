@@ -19,44 +19,57 @@ export default function WhatBankReconciliationIncludes() {
   const scopeItems = [
     {
       title: "Reconciling business bank accounts and credit cards",
-      detail: "Comparing ledger lines with actual monthly statements and electronic feeds across all active business accounts.",
+      detail:
+        "Comparing ledger lines with actual monthly statements and electronic feeds across all active business accounts.",
     },
     {
-      title: "Matching bank-feed transactions to invoices, bills and existing entries",
-      detail: "Ensuring incoming deposits are linked to customer invoices and outgoing payments match supplier bills.",
+      title:
+        "Matching bank-feed transactions to invoices, bills and existing entries",
+      detail:
+        "Ensuring incoming deposits are linked to customer invoices and outgoing payments match supplier bills.",
     },
     {
       title: "Reviewing transfers between accounts",
-      detail: "Confirming inter-entity and inter-account funds transfers balance out without triggering phantom income or costs.",
+      detail:
+        "Confirming inter-entity and inter-account funds transfers balance out without triggering phantom income or costs.",
     },
     {
       title: "Identifying duplicated or omitted transactions",
-      detail: "Detecting feed glitches, duplicate rules, and missing bank statement periods before they skew financial reports.",
+      detail:
+        "Detecting feed glitches, duplicate rules, and missing bank statement periods before they skew financial reports.",
     },
     {
       title: "Reviewing uncleared or long-outstanding entries",
-      detail: "Investigating old cheques, unpresented transactions, or orphaned records lingering on the reconciliation report.",
+      detail:
+        "Investigating old cheques, unpresented transactions, or orphaned records lingering on the reconciliation report.",
     },
     {
-      title: "Checking merchant deposits or grouped receipts where information is available",
-      detail: "Reconciling batch settlements from EFTPOS, Stripe, or Square against individual sales orders and merchant fee deductions.",
+      title:
+        "Checking merchant deposits or grouped receipts where information is available",
+      detail:
+        "Reconciling batch settlements from EFTPOS, Stripe, or Square against individual sales orders and merchant fee deductions.",
     },
     {
-      title: "Flagging transactions that require supporting documents or client clarification",
-      detail: "Isolating unknown debits, personal expenses, or missing tax invoices into structured query schedules.",
+      title:
+        "Flagging transactions that require supporting documents or client clarification",
+      detail:
+        "Isolating unknown debits, personal expenses, or missing tax invoices into structured query schedules.",
     },
     {
       title: "Correcting bookkeeping entries within the agreed service scope",
-      detail: "Reallocating miscoded expenses, adjusting incorrect GST tax codes, and rectifying ledger discrepancies within agreed terms.",
+      detail:
+        "Reallocating miscoded expenses, adjusting incorrect GST tax codes, and rectifying ledger discrepancies within agreed terms.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mb-12">
-          <Tag color="cyan" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <ProfileOutlined className="mr-1.5" />
             Service Scope
           </Tag>
@@ -66,7 +79,10 @@ export default function WhatBankReconciliationIncludes() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Our reconciliation procedures systematically verify every transaction line against bank records, identifying discrepancies and ensuring your bookkeeping records remain accurate, complete, and fully substantiated.
+            Our reconciliation procedures systematically verify every
+            transaction line against bank records, identifying discrepancies and
+            ensuring your bookkeeping records remain accurate, complete, and
+            fully substantiated.
           </p>
         </div>
 
@@ -100,7 +116,9 @@ export default function WhatBankReconciliationIncludes() {
               Historical Discrepancies or Messy Records?
             </div>
             <p className="text-base text-slate-800 dark:text-zinc-200 leading-relaxed font-medium">
-              Where reconciliation issues come from older or inconsistent books, our bookkeeping clean-up services may be more appropriate than treating the problem as a routine monthly reconciliation.
+              Where reconciliation issues come from older or inconsistent books,
+              our bookkeeping clean-up services may be more appropriate than
+              treating the problem as a routine monthly reconciliation.
             </p>
           </div>
           <Link href="/services/bookkeeping/bookkeeping-clean-up">
@@ -109,13 +127,12 @@ export default function WhatBankReconciliationIncludes() {
               size="middle"
               className="font-bold shrink-0"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
             >
               Explore Bookkeeping Clean-Up
             </Button>
           </Link>
         </div>
-
       </div>
     </section>
   );

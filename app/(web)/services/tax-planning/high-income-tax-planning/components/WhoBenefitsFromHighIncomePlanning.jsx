@@ -27,39 +27,65 @@ import {
 export default function WhoBenefitsFromHighIncomePlanning() {
   const beneficiaryProfiles = [
     {
-      icon: <TrophyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      scenario: "Executives expecting bonuses, commissions or equity-related income",
-      detail: "Evaluate top marginal rate thresholds, withholding adjustments, and vesting milestones before payouts occur.",
+      icon: (
+        <TrophyOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      scenario:
+        "Executives expecting bonuses, commissions or equity-related income",
+      detail:
+        "Evaluate top marginal rate thresholds, withholding adjustments, and vesting milestones before payouts occur.",
     },
     {
-      icon: <UserOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      scenario: "Professionals with salary plus investment, property or business income",
-      detail: "Address the compounding tax impact of multi-tier professional earnings, consulting fees, and private investments.",
+      icon: (
+        <UserOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      scenario:
+        "Professionals with salary plus investment, property or business income",
+      detail:
+        "Address the compounding tax impact of multi-tier professional earnings, consulting fees, and private investments.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       scenario: "Individuals selling property, shares or other CGT assets",
-      detail: "Analyze contract timing, 50% CGT discounts, and capital losses to model net tax outcomes before signing contracts.",
+      detail:
+        "Analyze contract timing, 50% CGT discounts, and capital losses to model net tax outcomes before signing contracts.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       scenario: "People with multiple employers or income streams",
-      detail: "Prevent significant tax debt notices caused by under-withholding across multiple concurrent executive roles.",
+      detail:
+        "Prevent significant tax debt notices caused by under-withholding across multiple concurrent executive roles.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      scenario: "Investors with significant distributions, dividends, interest or rental income",
-      detail: "Plan around annual trust allocations, franking credits, foreign tax offsets, and positive rental cash flows.",
+      icon: (
+        <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      scenario:
+        "Investors with significant distributions, dividends, interest or rental income",
+      detail:
+        "Plan around annual trust allocations, franking credits, foreign tax offsets, and positive rental cash flows.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      scenario: "Individuals considering deductible personal super contributions, subject to eligibility and contribution limits",
-      detail: "Maximize concessional contribution caps, carry-forward unused amounts, and navigate Division 293 thresholds.",
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      scenario:
+        "Individuals considering deductible personal super contributions, subject to eligibility and contribution limits",
+      detail:
+        "Maximize concessional contribution caps, carry-forward unused amounts, and navigate Division 293 thresholds.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      scenario: "Taxpayers whose income has increased substantially from a previous year",
-      detail: "Prepare for higher tax brackets, Medicare Levy Surcharge tiers, and increased PAYG quarterly instalments.",
+      icon: (
+        <RiseOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      scenario:
+        "Taxpayers whose income has increased substantially from a previous year",
+      detail:
+        "Prepare for higher tax brackets, Medicare Levy Surcharge tiers, and increased PAYG quarterly instalments.",
     },
   ];
 
@@ -68,14 +94,19 @@ export default function WhoBenefitsFromHighIncomePlanning() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Profiles
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Who May Benefit from Proactive Planning?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Tax planning for high income earners can be useful when your income or asset position is changing, or when one transaction could materially affect the year’s tax outcome.
+            Tax planning for high income earners can be useful when your income
+            or asset position is changing, or when one transaction could
+            materially affect the year’s tax outcome.
           </p>
         </div>
 
@@ -120,7 +151,8 @@ export default function WhoBenefitsFromHighIncomePlanning() {
               Navigating high or shifting income streams this year?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-              Consult with our registered tax accountants to model your obligations before year end.
+              Consult with our registered tax accountants to model your
+              obligations before year end.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -128,7 +160,7 @@ export default function WhoBenefitsFromHighIncomePlanning() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
             >
               Consult an Advisor

@@ -349,7 +349,7 @@ export default function ProfilePage() {
                   noRequired
                 />
                 <AntInput
-                  type="text"
+                  type="phone"
                   name="phone"
                   label="Contact Phone Number"
                   preIconAnt={<PhoneOutlined className="text-slate-400" />}

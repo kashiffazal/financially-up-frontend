@@ -24,25 +24,33 @@ export default function WhatPartnershipReturnReports() {
   const returnComponents = [
     {
       num: "01",
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Business Sales, Fees & Other Income",
       desc: "Trading income, professional consulting fees, service revenues, interest, and other business earnings received during the financial year.",
     },
     {
       num: "02",
-      icon: <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Deductible Operating Costs & Expenses",
       desc: "Commercial rent, materials, utilities, professional fees, insurance, software, motor vehicle expenses, and allowable operational deductions.",
     },
     {
       num: "03",
-      icon: <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Depreciation & Asset-Related Amounts",
       desc: "Capital allowances, temporary or simplified depreciation deductions, balancing adjustments, and commercial asset write-offs.",
     },
     {
       num: "04",
-      icon: <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Trust & Partnership Distributions Received",
       desc: "Net income, capital gains, franking credits, or trust distributions received from interposed or related entity structures.",
     },
@@ -53,14 +61,19 @@ export default function WhatPartnershipReturnReports() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Return Inclusions &amp; Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Does a Partnership Tax Return Report?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A partnership tax return generally records the partnership’s assessable income and allowable deductions and provides the tax information needed to determine each partner’s share.
+            A partnership tax return generally records the partnership’s
+            assessable income and allowable deductions and provides the tax
+            information needed to determine each partner’s share.
           </p>
         </div>
 
@@ -102,10 +115,17 @@ export default function WhatPartnershipReturnReports() {
                 Partner Share Reporting &amp; Non-Commercial Loss Rules
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                The return also contains partner share information so the partners can report the appropriate amounts in their own tax returns. A partnership tax accountant can help make sure the partnership records and the partner-level reporting are consistent before lodgment.
+                The return also contains partner share information so the
+                partners can report the appropriate amounts in their own tax
+                returns. A partnership tax accountant can help make sure the
+                partnership records and the partner-level reporting are
+                consistent before lodgment.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A partner’s ability to use a partnership loss can depend on their own circumstances and rules such as the non-commercial loss provisions, so partner-level treatment may need separate review.
+                A partner’s ability to use a partnership loss can depend on
+                their own circumstances and rules such as the non-commercial
+                loss provisions, so partner-level treatment may need separate
+                review.
               </p>
             </div>
             <div className="shrink-0 w-full lg:w-auto pt-2 lg:pt-0">
@@ -114,7 +134,7 @@ export default function WhatPartnershipReturnReports() {
                   type="default"
                   className="brand-btn-outline w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Partner Individual Tax Returns
                 </Button>

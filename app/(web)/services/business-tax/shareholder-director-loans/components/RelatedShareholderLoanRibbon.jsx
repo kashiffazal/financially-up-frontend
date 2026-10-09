@@ -29,14 +29,16 @@ export default function RelatedShareholderLoanRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-teal-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Division 7A
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Corporate returns:
@@ -45,14 +47,16 @@ export default function RelatedShareholderLoanRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-teal-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Company Tax Returns
               </Button>
             </Link>
           </span>
 
-          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">•</span>
+          <span className="hidden md:inline text-slate-300 dark:text-zinc-700">
+            •
+          </span>
 
           <span className="flex items-center gap-1.5">
             Annual reconciliations:
@@ -61,7 +65,7 @@ export default function RelatedShareholderLoanRibbon() {
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-teal-400 hover:underline inline-flex items-center gap-1 h-auto"
                 icon={<ArrowRightOutlined className="text-[11px]" />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Year-End Accounting
               </Button>

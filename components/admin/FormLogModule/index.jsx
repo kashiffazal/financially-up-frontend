@@ -62,7 +62,6 @@ export default function FormLogModule({
   normalizeRecord,
   queryLimit = 1000,
   statusUpdateEndpoint,
-  deleteEndpoint,
 }) {
   // --------------------------------------------------------------------------
   // STATE DEFINITIONS
@@ -252,7 +251,6 @@ export default function FormLogModule({
           loading={loading}
           endpoint={endpoint}
           statusUpdateEndpoint={statusUpdateEndpoint}
-          deleteEndpoint={deleteEndpoint}
           columns={columns}
           customFilterCols={customFilterCols}
           exportColumns={exportColumns}
@@ -301,7 +299,6 @@ export default function FormLogModule({
             loading={loading}
             endpoint={endpoint}
             statusUpdateEndpoint={statusUpdateEndpoint}
-            deleteEndpoint={deleteEndpoint}
             columns={columns}
             customFilterCols={customFilterCols}
             exportColumns={exportColumns}
@@ -327,7 +324,6 @@ export default function FormLogModule({
     loading,
     endpoint,
     statusUpdateEndpoint,
-    deleteEndpoint,
     columns,
     customFilterCols,
     exportColumns,

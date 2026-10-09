@@ -30,32 +30,46 @@ export default function WhatAsicRegisteredAgentDoes() {
    */
   const scopeItems = [
     {
-      icon: <MailOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <MailOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "receiving and monitoring ASIC correspondence for the company",
       detail:
         "Direct receipt and proactive monitoring of official ASIC annual statements, notices, and compliance alerts at our registered agent address.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "helping review annual statements and identifying details that need updating",
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "helping review annual statements and identifying details that need updating",
       detail:
         "Systematic review of registered company records against internal documentation to identify changes required before annual invoice due dates.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "lodging common company changes when the required information and approvals are available",
+      icon: (
+        <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "lodging common company changes when the required information and approvals are available",
       detail:
         "Preparing and lodging statutory Form 484 and other ASIC updates once valid board decisions, director consents, and IDs are verified.",
     },
     {
-      icon: <FolderOpenOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "maintaining a clearer record of ASIC correspondence and completed lodgements",
+      icon: (
+        <FolderOpenOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "maintaining a clearer record of ASIC correspondence and completed lodgements",
       detail:
         "Centralising historical lodgement confirmations, ASIC transactions, and corporate documentation for seamless governance and audits.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      title: "coordinating corporate changes with accounting or tax records where relevant.",
+      icon: (
+        <SyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      title:
+        "coordinating corporate changes with accounting or tax records where relevant.",
       detail:
         "Ensuring corporate register updates align smoothly with business financial statements, tax schedules, payroll records, and ASIC registers.",
     },
@@ -66,14 +80,21 @@ export default function WhatAsicRegisteredAgentDoes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Practice Scope & Governance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What does an ASIC registered agent do?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            ASIC describes a registered agent as a person or business appointed by a company to perform certain tasks on the company’s behalf. Once properly appointed, an agent can use ASIC’s registered agent portal to view company details and complete common lodgements for companies they represent.
+            ASIC describes a registered agent as a person or business appointed
+            by a company to perform certain tasks on the company’s behalf. Once
+            properly appointed, an agent can use ASIC’s registered agent portal
+            to view company details and complete common lodgements for companies
+            they represent.
           </p>
           <p className="mt-2 text-xs sm:text-sm font-semibold text-emerald-800 dark:text-emerald-400 uppercase tracking-wider">
             In practice, an ongoing registered agent service may assist with:
@@ -121,7 +142,10 @@ export default function WhatAsicRegisteredAgentDoes() {
                 Appoint Financially Up as Your ASIC Agent
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed mb-6 font-normal">
-                If you are considering appointing Financially Up as your ASIC agent for company administration, an initial discussion can confirm the company details, current ASIC position and the scope of ongoing support required.
+                If you are considering appointing Financially Up as your ASIC
+                agent for company administration, an initial discussion can
+                confirm the company details, current ASIC position and the scope
+                of ongoing support required.
               </p>
             </div>
             <div className="relative z-10">
@@ -130,7 +154,7 @@ export default function WhatAsicRegisteredAgentDoes() {
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                   className="w-full rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 transition-all"
                 >
                   Book an Appointment
@@ -144,7 +168,9 @@ export default function WhatAsicRegisteredAgentDoes() {
         <Alert
           type="info"
           showIcon
-          icon={<SafetyCertificateOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />}
+          icon={
+            <SafetyCertificateOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />
+          }
           className="rounded-2xl border border-emerald-200/80 dark:border-emerald-800/60 bg-emerald-50/80 dark:bg-emerald-950/40 p-4 sm:p-5"
           title={
             <span className="text-sm font-bold text-slate-900 dark:text-white">
@@ -153,7 +179,9 @@ export default function WhatAsicRegisteredAgentDoes() {
           }
           description={
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 mt-1 font-normal">
-              A company can appoint a registered agent through ASIC’s prescribed process. ASIC currently uses Form 362 for appointing or ceasing a registered agent, signed by a company officeholder.
+              A company can appoint a registered agent through ASIC’s prescribed
+              process. ASIC currently uses Form 362 for appointing or ceasing a
+              registered agent, signed by a company officeholder.
             </p>
           }
         />

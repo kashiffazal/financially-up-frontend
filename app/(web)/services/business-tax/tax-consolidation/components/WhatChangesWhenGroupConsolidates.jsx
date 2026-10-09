@@ -26,22 +26,30 @@ import {
 export default function WhatChangesWhenGroupConsolidates() {
   const mechanicalChanges = [
     {
-      icon: <PartitionOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <PartitionOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "The Single Entity Rule (SER)",
       desc: "For income-tax purposes, the single entity rule treats subsidiary members as parts of the head company. Intra-group dealings are therefore generally ignored when working out the head company's income-tax liability, subject to specific provisions and exceptions.",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Tax Cost Setting (ACA Calculations)",
       desc: "When an entity joins or leaves the group, asset tax costs and loss positions may need to be calculated under the consolidation provisions using the Allocable Cost Amount (ACA) formula.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Transferred Losses & Franking Credits",
       desc: "Consolidation brings rules for tax cost setting, transferred losses, franking and other tax attributes. Franking balances pool into the head company, and transferred losses face utilization fraction caps.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Material Depreciation & CGT Impacts",
       desc: "Reset tax costs of assets upon joining can step up or reduce future depreciation deductions, capital gains upon eventual sale, and ongoing group taxable income.",
     },
@@ -52,14 +60,19 @@ export default function WhatChangesWhenGroupConsolidates() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Tax Mechanics & Attributes
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What changes when a group consolidates?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Consolidation fundamental alters how corporate groups interact with the Australian tax system, creating both operational simplifications and complex valuation adjustments.
+            Consolidation fundamental alters how corporate groups interact with
+            the Australian tax system, creating both operational simplifications
+            and complex valuation adjustments.
           </p>
         </div>
 
@@ -93,7 +106,12 @@ export default function WhatChangesWhenGroupConsolidates() {
               Tax Cost Setting & Ongoing Calculation Effects
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Consolidation also brings rules for tax cost setting, transferred losses, franking and other tax attributes. When an entity joins or leaves the group, asset tax costs and loss positions may need to be calculated under the consolidation provisions. These calculations can materially affect later depreciation, capital gains and taxable income.
+              Consolidation also brings rules for tax cost setting, transferred
+              losses, franking and other tax attributes. When an entity joins or
+              leaves the group, asset tax costs and loss positions may need to
+              be calculated under the consolidation provisions. These
+              calculations can materially affect later depreciation, capital
+              gains and taxable income.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -102,7 +120,7 @@ export default function WhatChangesWhenGroupConsolidates() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Model Asset Tax Costs
               </Button>

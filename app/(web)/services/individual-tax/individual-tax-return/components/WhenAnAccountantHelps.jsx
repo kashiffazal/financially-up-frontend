@@ -22,15 +22,18 @@ export default function WhenAnAccountantHelps() {
   const benefitPillars = [
     {
       title: "Clarity on Declarations & Deductibility",
-      description: "Understand exactly what income must be declared, which records are required, and whether an expense is legally deductible under current ATO rulings.",
+      description:
+        "Understand exactly what income must be declared, which records are required, and whether an expense is legally deductible under current ATO rulings.",
     },
     {
       title: "Navigating Life & Circumstance Changes",
-      description: "Get structured accounting support when your financial circumstances changed during the year or multiple complex tax issues need to be evaluated together.",
+      description:
+        "Get structured accounting support when your financial circumstances changed during the year or multiple complex tax issues need to be evaluated together.",
     },
     {
       title: "Beyond Data Entry: True Review & Explanation",
-      description: "For complex returns, the value is having information rigorously reviewed, queries identified prior to lodgement, and the final return explained so you approve with confidence.",
+      description:
+        "For complex returns, the value is having information rigorously reviewed, queries identified prior to lodgement, and the final return explained so you approve with confidence.",
     },
   ];
 
@@ -39,7 +42,10 @@ export default function WhenAnAccountantHelps() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Guidance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -60,7 +66,13 @@ export default function WhenAnAccountantHelps() {
                   Self-Lodgement vs Professional Accountant Review
                 </h3>
                 <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                  You can prepare and lodge your own return through ATO online services. Using an individual tax return accountant may be worthwhile when you are unsure what must be declared, which records are required, whether an expense may be deductible or how a transaction should be treated. An accountant can also help when your circumstances changed during the year or several tax issues need to be considered together.
+                  You can prepare and lodge your own return through ATO online
+                  services. Using an individual tax return accountant may be
+                  worthwhile when you are unsure what must be declared, which
+                  records are required, whether an expense may be deductible or
+                  how a transaction should be treated. An accountant can also
+                  help when your circumstances changed during the year or
+                  several tax issues need to be considered together.
                 </p>
               </div>
             </div>
@@ -77,7 +89,10 @@ export default function WhenAnAccountantHelps() {
                   The Value of an Informed, Explained Return
                 </h3>
                 <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                  For complex returns, the value is not simply entering figures. It is having the relevant information reviewed, questions identified before lodgement and the completed return explained so you can make an informed approval.
+                  For complex returns, the value is not simply entering figures.
+                  It is having the relevant information reviewed, questions
+                  identified before lodgement and the completed return explained
+                  so you can make an informed approval.
                 </p>
               </div>
             </div>
@@ -109,7 +124,7 @@ export default function WhenAnAccountantHelps() {
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
-              iconPosition="end"
+              iconPlacement="end"
               className="rounded-xl font-semibold px-7 shadow-md"
             >
               Book an Appointment

@@ -22,17 +22,23 @@ import {
 export default function SoleTraderGstBasPayg() {
   const compliancePillars = [
     {
-      icon: <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "GST Registration & BAS Lodgment",
       desc: "A sole trader may need to register for GST when the relevant registration requirements are met, or may choose to register in some circumstances. Once registered, GST and BAS obligations need to be managed separately from the annual income tax return.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "PAYG Instalments (PAYGI)",
       desc: "PAYG instalments may also apply depending on the taxpayer’s circumstances. Pre-paying tax across quarterly activity statements avoids unexpected year-end tax liabilities when business profits increase.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Staff, Payroll & Superannuation",
       desc: "If you employ staff, payroll, PAYG withholding and superannuation obligations may arise. Single Touch Payroll (STP) reporting and timely super guarantee payments are mandatory statutory employer requirements.",
     },
@@ -43,14 +49,20 @@ export default function SoleTraderGstBasPayg() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Indirect Taxes &amp; Employers
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             GST, BAS and PAYG Considerations
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A sole trader may need to register for GST when the relevant registration requirements are met, or may choose to register in some circumstances. Once registered, GST and BAS obligations need to be managed separately from the annual income tax return.
+            A sole trader may need to register for GST when the relevant
+            registration requirements are met, or may choose to register in some
+            circumstances. Once registered, GST and BAS obligations need to be
+            managed separately from the annual income tax return.
           </p>
         </div>
 
@@ -84,7 +96,9 @@ export default function SoleTraderGstBasPayg() {
               Tailored to Your Exact Business Requirements
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can help identify which accounting and tax compliance work is relevant to your business, rather than treating every sole trader as having the same obligations.
+              Financially Up can help identify which accounting and tax
+              compliance work is relevant to your business, rather than treating
+              every sole trader as having the same obligations.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -93,7 +107,7 @@ export default function SoleTraderGstBasPayg() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Discuss BAS &amp; Registrations
               </Button>

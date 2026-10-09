@@ -22,17 +22,23 @@ import {
 export default function WhatIsAPartnershipTaxReturn() {
   const highlights = [
     {
-      icon: <SwapOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Flow-Through Taxation",
       desc: "The partnership itself generally does not pay income tax on its net income; instead, each partner reports their share in their own tax return, subject to the applicable tax rules.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Organized Annual Returns",
       desc: "Financially Up Pty Ltd provides partnership tax return preparation and partnership accounting services for businesses across Australia, helping organize records and prepare compliant annual returns.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Partner Reconciliation & Advisory",
       desc: "We reconcile partner information, balance drawings against taxable profits, and identify matters that may need separate tax advice before lodgment.",
     },
@@ -43,14 +49,19 @@ export default function WhatIsAPartnershipTaxReturn() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Partnership Tax Fundamentals
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Partnership Tax Return &amp; Accounting Services
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A partnership tax return reports the partnership’s business income, deductions and tax information for the year, including how relevant income or losses are allocated to the partners.
+            A partnership tax return reports the partnership’s business income,
+            deductions and tax information for the year, including how relevant
+            income or losses are allocated to the partners.
           </p>
         </div>
 
@@ -64,11 +75,21 @@ export default function WhatIsAPartnershipTaxReturn() {
                 How Partnership Taxation Operates
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A partnership tax return reports the partnership’s business income, deductions and tax information for the year, including how relevant income or losses are allocated to the partners. The partnership itself generally does not pay income tax on its net income; instead, each partner reports their share in their own tax return, subject to the applicable tax rules.
+                A partnership tax return reports the partnership’s business
+                income, deductions and tax information for the year, including
+                how relevant income or losses are allocated to the partners. The
+                partnership itself generally does not pay income tax on its net
+                income; instead, each partner reports their share in their own
+                tax return, subject to the applicable tax rules.
               </p>
               <div className="h-px bg-slate-200 dark:bg-zinc-700 my-2" />
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up Pty Ltd provides partnership tax return preparation and partnership accounting services for businesses across Australia. We help organize the partnership’s records, prepare the annual return, reconcile partner information and identify matters that may need separate tax advice before lodgment.
+                Financially Up Pty Ltd provides partnership tax return
+                preparation and partnership accounting services for businesses
+                across Australia. We help organize the partnership’s records,
+                prepare the annual return, reconcile partner information and
+                identify matters that may need separate tax advice before
+                lodgment.
               </p>
             </div>
 
@@ -78,7 +99,7 @@ export default function WhatIsAPartnershipTaxReturn() {
                   type="primary"
                   className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
                   icon={<ArrowRightOutlined />}
-                  iconPosition="end"
+                  iconPlacement="end"
                 >
                   Book Partnership Consultation
                 </Button>

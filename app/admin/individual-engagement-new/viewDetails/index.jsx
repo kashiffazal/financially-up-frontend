@@ -476,7 +476,26 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
                     <span className="text-slate-400 dark:text-zinc-500 capitalize">· {sig.signatureMethod}</span>
                   )}
                 </span>
-                <span className="text-[12px] text-slate-500 dark:text-zinc-400">{formatDate(sig.createdAt, true)}</span>
+                <span className="flex items-center gap-3">
+                  {/* Signature preview — white card so dark ink stays visible in dark mode */}
+                  {sig.signatureFilePath && (
+                    <a
+                      href={getFileUrl(sig.signatureFilePath)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Open signature"
+                      className="flex h-12 w-32 items-center justify-center rounded-lg border border-slate-200 bg-white p-1 dark:border-zinc-700"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element -- uploaded file from the API server */}
+                      <img
+                        src={getFileUrl(sig.signatureFilePath)}
+                        alt={`Signature of ${sig.signerFullName || "signer"}`}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </a>
+                  )}
+                  <span className="text-[12px] text-slate-500 dark:text-zinc-400">{formatDate(sig.createdAt, true)}</span>
+                </span>
               </li>
             ))}
           </ul>

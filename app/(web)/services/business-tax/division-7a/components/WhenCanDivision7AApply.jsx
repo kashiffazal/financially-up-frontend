@@ -22,17 +22,23 @@ import {
 export default function WhenCanDivision7AApply() {
   const transactionTypes = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Loans & Advance Drawings",
       desc: "Direct financial loans, cash advances, or running credit account transfers from a private company to a shareholder or associate.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Company Payments & Benefits",
       desc: "Payments of money, transfers of business property, or payment of personal expenses for the benefit of a shareholder or associate.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Debt Forgiveness",
       desc: "Where a private company releases, waives, or forgives an outstanding debt legally owed by a shareholder or associate.",
     },
@@ -43,14 +49,21 @@ export default function WhenCanDivision7AApply() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Integrity Regime Triggers
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             When Can Division 7A Apply?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Division 7A can apply where a private company provides a payment, loan or debt forgiveness to a shareholder or an associate of a shareholder, unless an exclusion or other rule applies. The tax result depends on the transaction, the parties involved, timing, documentation, repayments and the company&apos;s circumstances.
+            Division 7A can apply where a private company provides a payment,
+            loan or debt forgiveness to a shareholder or an associate of a
+            shareholder, unless an exclusion or other rule applies. The tax
+            result depends on the transaction, the parties involved, timing,
+            documentation, repayments and the company&apos;s circumstances.
           </p>
         </div>
 
@@ -84,7 +97,10 @@ export default function WhenCanDivision7AApply() {
               Not Automatically a Deemed Dividend
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A director&apos;s loan balance is therefore not automatically a Division 7A dividend, and not every transfer involving a shareholder is treated the same way. The transaction should be reviewed before assumptions are made about its treatment.
+              A director&apos;s loan balance is therefore not automatically a
+              Division 7A dividend, and not every transfer involving a
+              shareholder is treated the same way. The transaction should be
+              reviewed before assumptions are made about its treatment.
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
@@ -93,7 +109,7 @@ export default function WhenCanDivision7AApply() {
                 type="primary"
                 className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
                 icon={<ArrowRightOutlined />}
-                iconPosition="end"
+                iconPlacement="end"
               >
                 Review Loan Transactions
               </Button>
