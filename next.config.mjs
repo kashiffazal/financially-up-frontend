@@ -4,6 +4,9 @@ import { PHASE_PRODUCTION_BUILD } from "next/constants.js";
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  // Hostinger's Next.js hosting runs the self-contained server in .next/standalone
+  // (public/ and .next/static are copied into it by scripts/hostinger-build.mjs)
+  output: "standalone",
   // 301 Redirects
   async redirects() {
     return [

@@ -13,6 +13,12 @@
  *   3. If the build looks frozen, the kernel state of each build process.
  *   4. Watchdog: after BUILD_WATCHDOG_MINUTES (default 12) the build is stopped
  *      with a final report, so the host's own time limit can't hide it.
+ *   5. After a successful build: public/ and .next/static are copied into the
+ *      standalone server folder (.next/standalone).
+ *
+ * Why webpack (`--webpack`): Hostinger's build servers refuse localhost TCP
+ * connections, which Turbopack's helper processes need, so Turbopack hangs there
+ * forever with no error. Webpack doesn't use localhost connections.
  *
  * Any arguments are passed to `next build` (e.g. `--webpack`).
  * Lines written by this script start with "[diag]".
@@ -25,6 +31,7 @@ import dns from "node:dns/promises";
 import fs from "node:fs";
 import net from "node:net";
 import os from "node:os";
+import path from "node:path";
 
 const require = createRequire(import.meta.url);
 const IS_LINUX = process.platform === "linux";
@@ -359,8 +366,36 @@ const main = async () => {
     clearTimeout(watchdog);
     const seconds = Math.round((Date.now() - startedAt) / 1000);
     log(`next build finished in ${seconds}s with ${signal ? `signal ${signal}` : `exit code ${code}`}`);
+    if (code === 0) {
+      try {
+        completeStandalone();
+      } catch (error) {
+        log(`FAIL  standalone copy: ${error.message}`);
+        process.exit(1);
+      }
+    }
     process.exit(code ?? 1);
   });
+};
+
+/**
+ * `output: "standalone"` builds a self-contained server in .next/standalone, but
+ * Next.js leaves out public/ and .next/static (they are meant for a CDN). Copy
+ * them in so server.js also serves images, CSS and JS.
+ */
+const completeStandalone = () => {
+  const standalone = path.join(process.cwd(), ".next", "standalone");
+  if (!fs.existsSync(path.join(standalone, "server.js"))) return; // not a standalone build
+  const copies = [
+    ["public", path.join(standalone, "public")],
+    [path.join(".next", "static"), path.join(standalone, ".next", "static")],
+  ];
+  for (const [from, to] of copies) {
+    if (!fs.existsSync(from)) continue;
+    fs.rmSync(to, { recursive: true, force: true });
+    fs.cpSync(from, to, { recursive: true });
+    log(`copied ${from} -> ${path.relative(process.cwd(), to)}`);
+  }
 };
 
 main().catch((error) => {
