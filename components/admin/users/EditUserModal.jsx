@@ -10,6 +10,9 @@ import {
 import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
 import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-component";
+import { useSettings } from "@/context/SettingsContext";
+import { useAuth } from "@/context/AuthContext";
+import { departmentOptions } from "@/lib/departments";
 
 /**
  * ============================================================================
@@ -24,6 +27,9 @@ import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-c
  * 5. Compact, balanced form layout without bloated vertical margins.
  */
 export default function EditUserModal({ open, onCancel, onSuccess, user }) {
+  const { get } = useSettings();
+  const { user: currentUser } = useAuth();
+  const isSelf = Boolean(user && currentUser && String(user.id) === String(currentUser.id));
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -36,7 +42,7 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
         firstName: user.firstName || "",
         lastName: user.lastName || "",
         phone: user.phone || "",
-        department: user.department || "",
+        department: user.department || undefined,
         jobTitle: user.jobTitle || "",
         status: user.status || "Active",
         avatar: user.avatar || "",
@@ -103,7 +109,7 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
         form={form}
         layout="vertical"
         onFinish={handleFinish}
-        className="pt-3 max-h-[75vh] overflow-y-auto pr-1"
+        className="pt-3 pb-2 pr-4 max-h-[75vh] overflow-y-auto [scrollbar-gutter:stable] [&_.ant-form-item]:mb-4! [&_.ant-divider]:my-3!"
       >
         {/* Profile Picture Uploader Studio Card */}
         <div className="p-4 mb-4 rounded-card border border-[var(--brand-primary)]/25 bg-[var(--brand-primary-soft)]/40 dark:bg-[var(--brand-primary-soft)]/10 flex flex-col sm:flex-row items-center gap-4">
@@ -177,10 +183,13 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
             noRequired
             className="rounded-lg"
           />
+          {/* Options managed in Settings > Staff (the user's current one is always kept) */}
           <AntInput
+            type="select"
             name="department"
             label="Department"
-            placeholder="e.g. Taxation & Advisory"
+            options={departmentOptions(get("staff.departments"), user?.department)}
+            placeholder="Select practice department"
             noRequired
             className="rounded-lg"
           />
@@ -194,6 +203,8 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
           className="rounded-lg"
         />
 
+        {/* You can't change your own account status (prevents locking yourself out) */}
+        {!isSelf && (
         <AntInput
           type="select"
           name="status"
@@ -205,9 +216,10 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
             { label: "Suspended", value: "Suspended" },
           ]}
         />
+        )}
 
         {/* Actions Footer */}
-        <div className="flex justify-end gap-2 pt-4 border-t border-slate-100 dark:border-zinc-800">
+        <div className="flex justify-end gap-2 pt-4 pb-3 border-t border-slate-100 dark:border-zinc-800">
           <Button
             onClick={() => {
               if (typeof onCancel === "function") onCancel();

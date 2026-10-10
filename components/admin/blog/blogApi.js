@@ -24,13 +24,14 @@ export const blogApi = {
   listCategories: () => HTTP("GET", `${BASE}/categories`, undefined, false, true),
   createCategory: (payload) => HTTP("POST", `${BASE}/categories`, payload),
   updateCategory: (id, payload) => HTTP("PUT", `${BASE}/categories/${id}`, payload),
-  deleteCategory: (id) => HTTP("DELETE", `${BASE}/categories/${id}`),
+  // replaceWith: move the posts to this category instead of just removing it from them
+  deleteCategory: (id, replaceWith) => HTTP("DELETE", `${BASE}/categories/${id}`, replaceWith ? { replaceWith } : undefined),
 
   // Tags
   listTags: () => HTTP("GET", `${BASE}/tags`, undefined, false, true),
   createTag: (payload) => HTTP("POST", `${BASE}/tags`, payload),
   updateTag: (id, payload) => HTTP("PUT", `${BASE}/tags/${id}`, payload),
-  deleteTag: (id) => HTTP("DELETE", `${BASE}/tags/${id}`),
+  deleteTag: (id, replaceWith) => HTTP("DELETE", `${BASE}/tags/${id}`, replaceWith ? { replaceWith } : undefined),
 
   // Authors
   listAuthors: () => HTTP("GET", `${BASE}/authors`, undefined, false, true),

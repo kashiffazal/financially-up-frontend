@@ -1,0 +1,149 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.addBox {
+  padding: 16px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.addForm,
+.renameForm {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.renameForm {
+  flex: 1;
+}
+
+.addInput {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fff;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.count {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.countUsed {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.modalText {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+@media (max-width: 640px) {
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .addForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+:global(.dark) .addBox {
+  border-color: #3f3f46;
+  background: #18181b;
+}
+
+:global(.dark) .list {
+  border-color: #27272a;
+}
+
+:global(.dark) .row {
+  border-bottom-color: #27272a;
+  background: #111113;
+}
+
+:global(.dark) .name {
+  color: #f4f4f5;
+}
+
+:global(.dark) .count {
+  background: #27272a;
+  color: #a1a1aa;
+}
+
+:global(.dark) .countUsed {
+  background: rgba(6, 78, 59, 0.4);
+  color: #34d399;
+}
+
+:global(.dark) .modalText,
+:global(.dark) .hint {
+  color: #a1a1aa;
+}

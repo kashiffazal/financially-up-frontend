@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import Link from "next/link";
 import {
   Tag,
   Badge,
@@ -30,6 +31,7 @@ import {
   MailOutlined,
   PhoneOutlined,
   AppstoreOutlined,
+  ThunderboltOutlined,
 } from "@ant-design/icons";
 import { useAuth } from "../../../context/AuthContext";
 import PermissionGuard from "../../../components/admin/PermissionGuard";
@@ -40,6 +42,7 @@ import AddUserModal from "@/components/admin/users/AddUserModal";
 import EditUserModal from "@/components/admin/users/EditUserModal";
 import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
+import { PASSWORD_HINT, passwordRules, generateStrongPassword } from "@/lib/passwordPolicy";
 
 /**
  * ============================================================================
@@ -53,7 +56,7 @@ import { AntInput } from "@/services/antdFields";
  * 5. Modernized Edit, Roles, Password Reset, and Audit Trail Modals/Drawers.
  */
 export default function UsersPage() {
-  const { user: currentUser, hasPermission, updateProfile } = useAuth();
+  const { user: currentUser, hasPermission, refreshUser } = useAuth();
 
   // --------------------------------------------------------------------------
   // STATE DEFINITIONS
@@ -78,6 +81,8 @@ export default function UsersPage() {
   // Forms
   const [roleForm] = Form.useForm();
   const [resetPasswordForm] = Form.useForm();
+  const resetMode = Form.useWatch("mode", resetPasswordForm) || "email";
+  const [resetting, setResetting] = useState(false);
 
   // --------------------------------------------------------------------------
   // DATA FETCHING LOGIC
@@ -162,23 +167,24 @@ export default function UsersPage() {
     }
   };
 
+  // Email a reset link (default) or set a temporary password the user must change
   const handleResetPassword = async (values) => {
     if (!selectedUser) return;
+    setResetting(true);
     try {
-      const res = await HTTP(
-        "POST",
-        `/users/${selectedUser.id}/reset-password`,
-        values,
-      );
+      const res = await HTTP("POST", `/users/${selectedUser.id}/reset-password`, {
+        mode: values.mode,
+        newPassword: values.mode === "manual" ? values.newPassword : undefined,
+      });
       if (res && res.success) {
-        antdMsg.success(
-          "Password reset successfully. Active sessions revoked.",
-        );
+        antdMsg.success(res.message || "Password reset. The user has been signed out of all devices.", 6);
         setIsResetPasswordModalOpen(false);
         resetPasswordForm.resetFields();
       }
     } catch (err) {
       antdMsg.error(err.message || "Failed to reset password");
+    } finally {
+      setResetting(false);
     }
   };
 
@@ -189,7 +195,8 @@ export default function UsersPage() {
     try {
       const res = await HTTP(
         "GET",
-        `/audit-logs?userId=${targetUser.id}&limit=50`,
+        // This user's own history: what they did and what was done to their account
+        `/users/${targetUser.id}/activity?limit=50`,
       );
       if (res && res.success) {
         setUserActivity(res.logs || []);
@@ -392,7 +399,12 @@ export default function UsersPage() {
         width: 80,
         align: "center",
         render: (_, record) => {
-          const menuItems = [
+          // Your own account: no role, password-reset or suspend actions (prevents
+          // locking yourself out — the API refuses them too). Change your password on My Profile.
+          const isSelf =
+            String(currentUser?.id) === String(record.id) ||
+            (currentUser?.email && record.email && currentUser.email.toLowerCase() === record.email.toLowerCase());
+          const allItems = [
             {
               key: "edit",
               icon: <EditOutlined className="text-blue-500" />,
@@ -402,7 +414,12 @@ export default function UsersPage() {
                 setIsEditModalOpen(true);
               },
             },
-            {
+            isSelf && {
+              key: "myPassword",
+              icon: <KeyOutlined className="text-amber-500" />,
+              label: <Link href="/admin/profile?tab=security">Change My Password</Link>,
+            },
+            !isSelf && {
               key: "roles",
               icon: <SafetyCertificateOutlined className="text-purple-500" />,
               label: "Assign Roles",
@@ -414,7 +431,7 @@ export default function UsersPage() {
                 setIsRoleModalOpen(true);
               },
             },
-            {
+            !isSelf && {
               key: "resetPassword",
               icon: <KeyOutlined className="text-amber-500" />,
               label: "Reset Password",
@@ -430,10 +447,10 @@ export default function UsersPage() {
               label: "View Audit Trail",
               onClick: () => handleOpenActivity(record),
             },
-            {
+            !isSelf && {
               type: "divider",
             },
-            {
+            !isSelf && {
               key: "status",
               icon:
                 record.status === "Active" ? (
@@ -453,6 +470,7 @@ export default function UsersPage() {
                 ),
             },
           ];
+          const menuItems = allItems.filter(Boolean);
 
           return (
             <Dropdown
@@ -643,13 +661,10 @@ export default function UsersPage() {
         onSuccess={(updatedUser) => {
           setIsEditModalOpen(false);
           fetchUsers();
-          // Real-time synchronization: If the admin modified their own account, update context immediately
-          if (
-            currentUser?.id === updatedUser?.id &&
-            typeof updateProfile === "function" &&
-            updatedUser?.avatar !== currentUser?.avatar
-          ) {
-            updateProfile({ avatar: updatedUser.avatar });
+          // Edited your own account: reload it so the header (name, photo, job title)
+          // and the rest of the portal show the new details straight away
+          if (String(currentUser?.id) === String(updatedUser?.id ?? selectedUser?.id)) {
+            refreshUser();
           }
         }}
       />
@@ -724,20 +739,58 @@ export default function UsersPage() {
           form={resetPasswordForm}
           layout="vertical"
           onFinish={handleResetPassword}
-          className="pt-4 space-y-4"
+          initialValues={{ mode: "email" }}
+          className="pt-4"
         >
           <AntInput
-            type="password"
-            name="newPassword"
-            label="New Password"
-            placeholder="Enter new password"
-            reqMsg="New password is required"
-            rules={[
-              { required: true, message: "New password is required" },
-              { min: 6, message: "Minimum 6 characters" },
+            type="radio"
+            designVariant="card"
+            name="mode"
+            radioOptions={[
+              {
+                value: "email",
+                title: "Email a reset link",
+                desc: `Recommended. ${selectedUser?.email || "They"} get a one-time link (valid 48 hours) to choose a new password.`,
+              },
+              {
+                value: "manual",
+                title: "Set a temporary password",
+                desc: "Share it securely. They must change it the next time they sign in.",
+              },
             ]}
+            gridClassName="grid grid-cols-1 gap-3 w-full"
+            noRequired
           />
-          <div className="flex justify-end gap-2 pt-4 border-t border-slate-100 dark:border-zinc-800">
+          {resetMode === "manual" && (
+            <div className="flex items-start gap-2">
+              <div className="min-w-0 flex-1">
+                <AntInput
+                  type="password"
+                  name="newPassword"
+                  label="Temporary Password"
+                  placeholder="At least 10 characters"
+                  rules={passwordRules("Please enter a temporary password")}
+                  extra={PASSWORD_HINT}
+                  autoComplete="new-password"
+                />
+              </div>
+              <Button
+                size="large"
+                icon={<ThunderboltOutlined />}
+                className="mt-[30px]"
+                onClick={() => {
+                  resetPasswordForm.setFieldValue("newPassword", generateStrongPassword());
+                  resetPasswordForm.validateFields(["newPassword"]).catch(() => {});
+                }}
+              >
+                Generate
+              </Button>
+            </div>
+          )}
+          <p className="m-0 mb-1 text-xs text-slate-500 dark:text-zinc-400">
+            Either way, they&apos;re signed out of every device right away.
+          </p>
+          <div className="flex justify-end gap-2 pt-4 mt-3 border-t border-slate-100 dark:border-zinc-800">
             <Button
               onClick={() => setIsResetPasswordModalOpen(false)}
               className="rounded-pill"
@@ -748,9 +801,10 @@ export default function UsersPage() {
               type="primary"
               htmlType="submit"
               danger
+              loading={resetting}
               className="rounded-pill px-5"
             >
-              Reset &amp; Revoke Sessions
+              {resetMode === "manual" ? "Set Password & Sign Out" : "Send Reset Email"}
             </Button>
           </div>
         </Form>

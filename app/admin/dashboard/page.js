@@ -43,6 +43,8 @@ import {
 import { get, getFileUrl } from "@/services";
 import { useAuth } from "../../../context/AuthContext";
 import { useLiveNotifications } from "@/components/admin/NotificationCenter/liveEvents";
+import WelcomeDashboard from "@/components/admin/WelcomeDashboard";
+import { APPLICATION_MODULE_KEYS, canViewModule } from "@/lib/adminAccess";
 
 /**
  * ============================================================================
@@ -63,7 +65,11 @@ import { useLiveNotifications } from "@/components/admin/NotificationCenter/live
 
 export default function Dashboard() {
   const router = useRouter();
-  const { user } = useAuth();
+  const { user, hasRole } = useAuth();
+  const isAdministrator = hasRole("administrator");
+  // Staff without any client-application access get their own welcome dashboard
+  const hasApplicationAccess =
+    isAdministrator || APPLICATION_MODULE_KEYS.some((key) => canViewModule(user?.permissions || [], key));
 
   // State Management
   const [activeRange, setActiveRange] = useState("7D");
@@ -369,6 +375,22 @@ export default function Dashboard() {
     };
   }, [metrics]);
 
+  if (!hasApplicationAccess) {
+    return (
+      <WelcomeDashboard
+        user={user}
+        isAdministrator={isAdministrator}
+        greeting={greeting}
+        dateString={currentDateString}
+        modules={stats?.modules}
+        loading={loading}
+      />
+    );
+  }
+
+  // Team & Security figures are only sent to staff with users.view / audit.view
+  const showTeamCard = metrics.activeStaff !== null && metrics.activeStaff !== undefined;
+
   return (
     <div className="space-y-6 pb-12 animate-fade-in">
       {/* ─── ROW 1: EXECUTIVE HEADER & TIMEFRAME CONTROLS ─── */}
@@ -513,7 +535,7 @@ export default function Dashboard() {
       </div>
 
       {/* ─── ROW 3: 4-CARD EXECUTIVE METRIC STRIP ─── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className={`grid grid-cols-1 sm:grid-cols-2 ${showTeamCard ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-4`}>
         {/* Metric 1: Total Applications & Registrations */}
         <div className="bg-white dark:bg-zinc-900 p-5 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-[var(--brand-primary)]/40 transition-all group">
           <div className="flex items-center justify-between">
@@ -615,6 +637,7 @@ export default function Dashboard() {
         </div>
 
         {/* Metric 4: Team Members & Security Activity */}
+        {showTeamCard && (
         <div className="bg-white dark:bg-zinc-900 p-5 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-400/40 transition-all group">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
@@ -654,6 +677,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+        )}
       </div>
 
       {/* ─── ROW 3: PRACTICE APPLICATION LIFECYCLE PIPELINE ─── */}

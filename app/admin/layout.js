@@ -15,16 +15,20 @@ import { AuthProvider, useAuth } from "../../context/AuthContext";
 import Sidebar from "../../components/admin/Sidebar";
 import Header from "../../components/admin/Header";
 import Footer from "../../components/admin/Footer";
+import AccessDenied from "../../components/admin/AccessDenied";
+import ForcePasswordChange from "../../components/admin/ForcePasswordChange";
+import { canAccessAdminPath } from "../../lib/adminAccess";
 import "./admin.css";
 
 function AdminLayoutContent({ children }) {
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { user, loading } = useAuth();
+  const { user, loading, hasRole } = useAuth();
   const { isDark, getAdminThemeConfig } = useTheme();
 
-  const isLoginPage = pathname === "/admin/login";
+  // Pages that work without signing in: login and the emailed "set password" link
+  const isLoginPage = pathname === "/admin/login" || pathname === "/admin/set-password";
   const adminTheme = getAdminThemeConfig
     ? getAdminThemeConfig(isDark)
     : undefined;
@@ -76,6 +80,19 @@ function AdminLayoutContent({ children }) {
     return null; // Will redirect via useEffect
   }
 
+  // Password set by an administrator: nothing else is available until it's changed
+  if (user.mustChangePassword) {
+    return (
+      <ConfigProvider theme={adminTheme}>
+        <App className="min-h-full flex flex-col flex-1">
+          <div className="admin-portal-root">
+            <ForcePasswordChange />
+          </div>
+        </App>
+      </ConfigProvider>
+    );
+  }
+
   return (
     <ConfigProvider theme={adminTheme}>
       <App className="min-h-full flex flex-col flex-1">
@@ -88,9 +105,10 @@ function AdminLayoutContent({ children }) {
             {/* Top toolbar header */}
             <Header onOpenMobile={() => setMobileOpen(true)} />
 
-            {/* Dynamic page content container */}
+            {/* Dynamic page content container — pages the user has no permission
+                for (e.g. a typed URL) show "Access denied" instead (lib/adminAccess.js) */}
             <main className="flex-grow p-4 sm:p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
-              {children}
+              {canAccessAdminPath(user, hasRole("administrator"), pathname) ? children : <AccessDenied />}
             </main>
 
             {/* Standard copyright and credits footer */}

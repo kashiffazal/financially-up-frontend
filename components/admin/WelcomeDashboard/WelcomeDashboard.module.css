@@ -1,0 +1,281 @@
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-card, 16px);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.heroText {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.dot {
+  margin: 0 8px;
+  color: #cbd5e1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-card, 16px);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 18px;
+}
+
+.teal {
+  background: #ccfbf1;
+  color: #0d9488;
+}
+
+.sky {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.violet {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.muted {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.green {
+  color: #008043;
+}
+
+.blue {
+  color: #2563eb;
+}
+
+.amber {
+  color: #d97706;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listLabel {
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.listRow:last-child {
+  border-bottom: none;
+}
+
+.listRow:hover .listTitle {
+  color: #008043;
+}
+
+.listIcon {
+  color: #94a3b8;
+}
+
+.listTitle {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listDate {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.shortcut {
+  flex-direction: row;
+  align-items: center;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shortcut:hover {
+  border-color: rgba(0, 128, 67, 0.4);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.shortcutArrow {
+  margin-left: auto;
+  color: #94a3b8;
+}
+
+.empty {
+  align-items: center;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  color: #94a3b8;
+}
+
+@media (max-width: 640px) {
+  .listDate {
+    display: none;
+  }
+}
+
+:global(.dark) .hero,
+:global(.dark) .card {
+  border-color: #27272a;
+  background: #18181b;
+}
+
+:global(.dark) .heroTitle,
+:global(.dark) .cardTitle,
+:global(.dark) .statValue {
+  color: #f4f4f5;
+}
+
+:global(.dark) .heroText,
+:global(.dark) .muted,
+:global(.dark) .statLabel {
+  color: #a1a1aa;
+}
+
+:global(.dark) .stat {
+  background: #27272a;
+}
+
+:global(.dark) .cardIcon {
+  background: #27272a;
+  color: #d4d4d8;
+}
+
+:global(.dark) .teal {
+  background: rgba(13, 148, 136, 0.2);
+  color: #2dd4bf;
+}
+
+:global(.dark) .sky {
+  background: rgba(2, 132, 199, 0.2);
+  color: #38bdf8;
+}
+
+:global(.dark) .violet {
+  background: rgba(124, 58, 237, 0.2);
+  color: #a78bfa;
+}
+
+:global(.dark) .green {
+  color: #34d399;
+}
+
+:global(.dark) .listRow {
+  border-bottom-color: #27272a;
+  color: #e4e4e7;
+}

@@ -47,10 +47,11 @@ import {
 } from "@ant-design/icons";
 import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
+import { canAccessAdminPath } from "../../lib/adminAccess";
 
 export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }) {
   const { isDark, toggleTheme } = useTheme();
-  const { hasPermission, hasRole } = useAuth();
+  const { user, hasRole } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -88,7 +89,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Company Registrations & Details",
       icon: <BankOutlined />,
       href: "/admin/company-registration-new",
-      permission: "company.registration.view",
       subItems: [
         {
           key: "company-new",
@@ -118,7 +118,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Client Engagements & Onboarding",
       icon: <UserOutlined />,
       href: "/admin/individual-engagement-new",
-      permission: "individual.engagement.view",
       subItems: [
         {
           key: "indiv-new",
@@ -148,7 +147,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Tax, Business & Compliance Registrations",
       icon: <FileProtectOutlined />,
       href: "/admin/gst-registrations",
-      permission: "gst.registration.view",
       subItems: [
         {
           key: "gst",
@@ -194,7 +192,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Website Contact Enquiries",
       icon: <MessageOutlined />,
       href: "/admin/enquiries",
-      permission: "enquiries.view",
     },
     {
       key: "newsletter",
@@ -202,7 +199,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Newsletter Subscribers",
       icon: <NotificationOutlined />,
       href: "/admin/newsletter",
-      permission: "newsletter.view",
     },
     {
       key: "blog",
@@ -211,7 +207,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       subtitle: "Posts, categories & tags",
       icon: <ReadOutlined />,
       href: "/admin/blog",
-      permission: "blog.view",
       subItems: [
         { key: "blog-posts", label: "All Posts", href: "/admin/blog", icon: <ReadOutlined />, exact: true },
         { key: "blog-new", label: "Add New Post", href: "/admin/blog/new", icon: <EditOutlined /> },
@@ -225,7 +220,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Staff & User Management",
       icon: <TeamOutlined />,
       href: "/admin/users",
-      permission: "users.view",
     },
     {
       key: "roles",
@@ -233,7 +227,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Roles & Permissions Matrix",
       icon: <KeyOutlined />,
       href: "/admin/roles",
-      permission: "roles.view",
     },
     {
       key: "audit",
@@ -241,7 +234,6 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "Security & Compliance Logs",
       icon: <HistoryOutlined />,
       href: "/admin/audit-logs",
-      permission: "audit.view",
     },
     {
       key: "settings",
@@ -249,15 +241,20 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "System & Portal Settings",
       icon: <SettingOutlined />,
       href: "/admin/settings",
-      permission: "settings.view",
     },
   ];
 
-  // Filter items by RBAC permissions
-  const visibleItems = railNavItems.filter((item) => {
-    if (!item.permission || isSuperAdmin) return true;
-    return hasPermission(item.permission);
-  });
+  // Show only pages the user may open — the same rules that block typed URLs
+  // (lib/adminAccess.js). A group shows when any of its pages is allowed, and
+  // opens on the first allowed one.
+  const canOpen = (href) => canAccessAdminPath(user, isSuperAdmin, href);
+  const visibleItems = railNavItems
+    .map((item) => {
+      if (!item.subItems) return item;
+      const subItems = item.subItems.filter((sub) => canOpen(sub.href));
+      return { ...item, subItems, href: subItems.some((sub) => sub.href === item.href) ? item.href : subItems[0]?.href };
+    })
+    .filter((item) => (item.subItems ? item.subItems.length > 0 : canOpen(item.href)));
 
   // A sub-item is active on its page (and its child pages unless `exact`)
   const isSubItemActive = (sub) =>

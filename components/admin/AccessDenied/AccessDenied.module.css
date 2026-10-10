@@ -1,0 +1,32 @@
+.wrap {
+  display: flex;
+  min-height: 60vh;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-card, 16px);
+  background: #fff;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 32px;
+}
+
+:global(.dark) .wrap {
+  border-color: #27272a;
+  background: #18181b;
+}
+
+:global(.dark) .icon {
+  background: rgba(127, 29, 29, 0.3);
+  color: #f87171;
+}

@@ -18,13 +18,13 @@ import { useAuth } from "@/context/AuthContext";
 import { antdMsg } from "@/services";
 import ShareFormModal from "@/components/admin/ShareFormModal";
 import { MODULE_META } from "@/components/admin/GlobalSearch/searchConfig";
+import { canViewModule } from "@/lib/adminAccess";
 import styles from "./NewApplicationMenu.module.css";
 
 const FORM_GROUPS = [
   {
     key: "company",
     label: "Company & ASIC",
-    permission: "company.registration.view",
     forms: [
       {
         key: "new-company",
@@ -47,7 +47,6 @@ const FORM_GROUPS = [
   {
     key: "engagements",
     label: "Client Engagements",
-    permission: "individual.engagement.view",
     forms: [
       {
         key: "new-individual",
@@ -70,7 +69,6 @@ const FORM_GROUPS = [
   {
     key: "registrations",
     label: "Tax & Registrations",
-    permission: "gst.registration.view",
     forms: [
       {
         key: "gst",
@@ -128,14 +126,19 @@ const publicUrl = (path) =>
   typeof window !== "undefined" ? `${window.location.origin}${path}` : `https://financiallyup.com.au${path}`;
 
 export default function NewApplicationMenu() {
-  const { hasPermission, hasRole } = useAuth();
+  const { user, hasRole } = useAuth();
   const [open, setOpen] = useState(false);
   const [shareForm, setShareForm] = useState(null);
 
+  // Only forms of modules the user may view (lib/adminAccess.js); empty groups are hidden
   const groups = useMemo(() => {
     const isSuperAdmin = hasRole("administrator");
-    return FORM_GROUPS.filter((g) => isSuperAdmin || hasPermission(g.permission));
-  }, [hasPermission, hasRole]);
+    const permissions = user?.permissions || [];
+    return FORM_GROUPS.map((g) => ({
+      ...g,
+      forms: g.forms.filter((f) => isSuperAdmin || canViewModule(permissions, f.key)),
+    })).filter((g) => g.forms.length > 0);
+  }, [user, hasRole]);
 
   if (!groups.length) return null;
 

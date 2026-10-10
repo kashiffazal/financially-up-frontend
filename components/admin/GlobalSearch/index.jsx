@@ -28,6 +28,7 @@ import {
   ExclamationCircleOutlined,
   FileSearchOutlined,
 } from "@ant-design/icons";
+import { canAccessAdminPath } from "@/lib/adminAccess";
 import { useAuth } from "@/context/AuthContext";
 import useGlobalSearch from "./useGlobalSearch";
 import SearchResultItem from "./SearchResultItem";
@@ -50,7 +51,7 @@ const detectMac = () => /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navig
 // ============================================================================
 function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }) {
   const router = useRouter();
-  const { hasPermission, hasRole } = useAuth();
+  const { user, hasRole } = useAuth();
   const listboxId = useId();
   const containerRef = useRef(null);
   const isInline = variant === "inline";
@@ -68,8 +69,9 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   // --------------------------------------------------------------------------
   const quickLinks = useMemo(() => {
     const isSuperAdmin = hasRole("administrator");
-    return QUICK_LINKS.filter((l) => isSuperAdmin || !l.permission || hasPermission(l.permission));
-  }, [hasPermission, hasRole]);
+    // Same rules as the sidebar / page guard (lib/adminAccess.js)
+    return QUICK_LINKS.filter((l) => canAccessAdminPath(user, isSuperAdmin, l.href));
+  }, [user, hasRole]);
 
   const groups = useMemo(() => {
     const raw = status === "success" ? data?.groups || [] : [];

@@ -8,12 +8,29 @@ import {
   SafetyCertificateOutlined,
   LockOutlined,
   ApartmentOutlined,
-  CameraOutlined,
   DeleteOutlined,
+  ThunderboltOutlined,
 } from "@ant-design/icons";
 import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
 import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-component";
+import { useSettings } from "@/context/SettingsContext";
+import { departmentOptions as buildDepartmentOptions } from "@/lib/departments";
+import { PASSWORD_HINT, passwordRules, generateStrongPassword } from "@/lib/passwordPolicy";
+
+// How the new user gets their password (WordPress-style)
+const PASSWORD_MODES = [
+  {
+    value: "email",
+    title: "Email a \"Set password\" link",
+    desc: "Recommended. They choose their own password from a secure link (valid 48 hours).",
+  },
+  {
+    value: "manual",
+    title: "Set a password myself",
+    desc: "Share it with them securely. They must change it the first time they sign in.",
+  },
+];
 
 /**
  * ============================================================================
@@ -24,7 +41,9 @@ import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-c
  * 1. Centered in viewport (centered={true}) for vertical middle placement.
  * 2. Branded icon header with descriptive subtitle using brand tokens.
  * 3. Profile picture upload & interactive cropping with executive portrait card.
- * 4. Logical visual sections (Personal Details, Department, Credentials, Roles).
+ * 4. Logical visual sections (Personal Details, Department, Access, Roles).
+ *    Access: email a one-time "Set password" link (default), or set a temporary
+ *    password the user must change at first login. Departments come from Settings.
  * 5. Uses unified Form Field Helpers (`AntInput` from `@/services/antdFields`).
  * 6. Compact, balanced form layout without bloated vertical margins.
  */
@@ -32,6 +51,8 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
+  const { get } = useSettings();
+  const passwordMode = Form.useWatch("passwordMode", form) || "email";
 
   // Form submission handler
   const handleFinish = async (values) => {
@@ -39,12 +60,14 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
     try {
       const payload = {
         ...values,
+        password: values.passwordMode === "manual" ? values.password : undefined,
         avatar: avatarUrl || values.avatar || "",
       };
 
       const res = await HTTP("POST", "/users", payload);
       if (res && res.success) {
-        antdMsg.success("New user account created successfully.");
+        if (res.emailSent === false && values.passwordMode !== "manual") antdMsg.warning(res.message, 8);
+        else antdMsg.success(res.message || "New user account created successfully.");
         form.resetFields();
         setAvatarUrl("");
         if (typeof onSuccess === "function") {
@@ -65,14 +88,8 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
     value: r.id,
   }));
 
-  const departmentOptions = [
-    { label: "Taxation & Accounting", value: "Taxation & Accounting" },
-    { label: "Corporate Advisory", value: "Corporate Advisory" },
-    { label: "Audit & Assurance", value: "Audit & Assurance" },
-    { label: "Compliance & ASIC", value: "Compliance & ASIC" },
-    { label: "Bookkeeping & Payroll", value: "Bookkeeping & Payroll" },
-    { label: "Practice Administration", value: "Practice Administration" },
-  ];
+  // Managed by admins in Settings > Staff
+  const departmentOptions = buildDepartmentOptions(get("staff.departments"));
 
   return (
     <Modal
@@ -108,11 +125,11 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
         layout="vertical"
         onFinish={handleFinish}
         initialValues={{
-          password: "TempPassword!2026",
+          passwordMode: "email",
           status: "Active",
-          department: "Taxation & Accounting",
         }}
-        className="pt-3 max-h-[75vh] overflow-y-auto pr-1"
+        // Room for the scrollbar on the right and the buttons at the bottom
+        className="pt-3 pb-2 pr-4 max-h-[75vh] overflow-y-auto [scrollbar-gutter:stable] [&_.ant-form-item]:mb-4! [&_.ant-divider]:my-3!"
       >
         {/* Profile Picture Uploader Studio Card */}
         <div className="p-4 mb-4 rounded-card border border-[var(--brand-primary)]/25 bg-[var(--brand-primary-soft)]/40 dark:bg-[var(--brand-primary-soft)]/10 flex flex-col sm:flex-row items-center gap-4">
@@ -159,7 +176,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
         </div>
 
         {/* Section 1: Personal Details */}
-        <div className="mb-4">
+        <div className="mb-1">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-2.5">
             <IdcardOutlined className="text-brand-primary" />
             <span>1. Personal Information</span>
@@ -206,7 +223,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
         <Divider className="my-2 border-slate-100 dark:border-zinc-800" />
 
         {/* Section 2: Department & Employment */}
-        <div className="mb-4">
+        <div className="mb-1">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-2.5">
             <ApartmentOutlined className="text-brand-primary" />
             <span>2. Department &amp; Employment Profile</span>
@@ -235,38 +252,61 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
         <Divider className="my-2 border-slate-100 dark:border-zinc-800" />
 
         {/* Section 3: Credentials */}
-        <div className="mb-4">
+        <div className="mb-1">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-2.5">
             <LockOutlined className="text-brand-primary" />
-            <span>3. Initial Security Credentials</span>
+            <span>3. Account Access</span>
           </div>
 
-          <Alert
-            title="Password Security Policy"
-            description="The staff member will be sent an automated onboarding email and required to update this temporary password upon first login."
-            type="info"
-            showIcon
-            className="mb-3 rounded-lg text-xs"
+          <AntInput
+            type="radio"
+            designVariant="card"
+            name="passwordMode"
+            radioOptions={PASSWORD_MODES}
+            gridClassName="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full"
+            noRequired
           />
 
-          <AntInput
-            type="password"
-            name="password"
-            label="Temporary Access Password"
-            placeholder="Assign strong temporary password"
-            reqMsg="Temporary password is required"
-            rules={[
-              { required: true, message: "Temporary password is required" },
-              { min: 6, message: "Password must be at least 6 characters" },
-            ]}
-            className="rounded-lg"
-          />
+          {passwordMode === "manual" ? (
+            <div className="flex items-start gap-2">
+              <div className="min-w-0 flex-1">
+                <AntInput
+                  type="password"
+                  name="password"
+                  label="Temporary Password"
+                  placeholder="At least 10 characters"
+                  rules={passwordRules("Please enter a temporary password")}
+                  extra={PASSWORD_HINT}
+                  autoComplete="new-password"
+                />
+              </div>
+              <Button
+                size="large"
+                icon={<ThunderboltOutlined />}
+                className="mt-[30px]"
+                onClick={() => {
+                  form.setFieldValue("password", generateStrongPassword());
+                  form.validateFields(["password"]).catch(() => {});
+                }}
+              >
+                Generate
+              </Button>
+            </div>
+          ) : (
+            <Alert
+              type="info"
+              showIcon
+              title="We'll email them a secure link"
+              description="When you create the account, the staff member gets an email with a one-time link to choose their own password. Nobody else ever sees it."
+              className="rounded-lg text-xs"
+            />
+          )}
         </div>
 
         <Divider className="my-2 border-slate-100 dark:border-zinc-800" />
 
         {/* Section 4: Role Assignment */}
-        <div className="mb-4">
+        <div className="mb-1">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-2.5">
             <SafetyCertificateOutlined className="text-brand-primary" />
             <span>4. Role &amp; Permission Assignment</span>
@@ -285,7 +325,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
         </div>
 
         {/* Form Actions Footer */}
-        <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-100 dark:border-zinc-800">
+        <div className="flex items-center justify-end gap-3 pt-4 pb-3 border-t border-slate-100 dark:border-zinc-800">
           <Button
             onClick={() => {
               form.resetFields();

@@ -17,7 +17,8 @@
  * 4. Strict adherence to `@/services/antdFields` and Ant Design standards.
  */
 
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   Form,
   Button,
@@ -58,9 +59,25 @@ import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-c
 import { useAuth } from "../../../context/AuthContext";
 import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
+import { useSettings } from "@/context/SettingsContext";
+import { departmentOptions } from "@/lib/departments";
+import { PASSWORD_HINT, passwordRules } from "@/lib/passwordPolicy";
 
-export default function ProfilePage() {
+// Tabs that can be opened directly, e.g. /admin/profile?tab=security
+const PROFILE_TABS = ["profile", "security", "sessions", "permissions"];
+
+export default function ProfilePageWrapper() {
+  return (
+    <Suspense fallback={null}>
+      <ProfilePage />
+    </Suspense>
+  );
+}
+
+function ProfilePage() {
+  const searchParams = useSearchParams();
   const { user, updateProfile, changePassword } = useAuth();
+  const { get } = useSettings();
 
   // --------------------------------------------------------------------------
   // STATE DEFINITIONS
@@ -72,7 +89,9 @@ export default function ProfilePage() {
   const [loadingPassword, setLoadingPassword] = useState(false);
   const [sessions, setSessions] = useState([]);
   const [loadingSessions, setLoadingSessions] = useState(false);
-  const [activeTabKey, setActiveTabKey] = useState("profile");
+  const [activeTabKey, setActiveTabKey] = useState(() =>
+    PROFILE_TABS.includes(searchParams.get("tab")) ? searchParams.get("tab") : "profile"
+  );
   const [permissionSearchText, setPermissionSearchText] = useState("");
 
   // --------------------------------------------------------------------------
@@ -85,7 +104,7 @@ export default function ProfilePage() {
         lastName: user.lastName || "",
         email: user.email || "",
         phone: user.phone || "",
-        department: user.department || "",
+        department: user.department || undefined,
         jobTitle: user.jobTitle || "",
         bio: user.bio || "",
         avatar: user.avatar || "",
@@ -375,12 +394,13 @@ export default function ProfilePage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Same list as the Users forms (Settings > Staff) */}
                 <AntInput
-                  type="text"
+                  type="select"
                   name="department"
                   label="Practice Department"
-                  preIconAnt={<BankOutlined className="text-slate-400" />}
-                  placeholder="e.g. Taxation & Advisory"
+                  options={departmentOptions(get("staff.departments"), user?.department)}
+                  placeholder="Select your department"
                   noRequired
                   className="rounded-lg"
                 />
@@ -465,7 +485,7 @@ export default function ProfilePage() {
             <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-base mt-0.5 shrink-0" />
             <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
               <strong className="text-slate-800 dark:text-zinc-100">Practice Password Policy: </strong>
-              Passwords must be at least 6 characters in length. Updating your password will automatically terminate all other active login sessions on other devices for security.
+              Passwords must be at least 10 characters and include letters and numbers. Updating your password will automatically terminate all other active login sessions on other devices for security.
             </div>
           </div>
 
@@ -491,12 +511,9 @@ export default function ProfilePage() {
                 name="newPassword"
                 label="New Account Password"
                 preIconAnt={<LockOutlined className="text-slate-400" />}
-                placeholder="Enter new password (minimum 6 characters)"
-                reqMsg="Please enter your new password"
-                rules={[
-                  { required: true, message: "Please enter your new password" },
-                  { min: 6, message: "Password must be at least 6 characters" },
-                ]}
+                placeholder="Enter a new password"
+                rules={passwordRules("Please enter your new password")}
+                extra={PASSWORD_HINT}
                 className="rounded-lg"
               />
 

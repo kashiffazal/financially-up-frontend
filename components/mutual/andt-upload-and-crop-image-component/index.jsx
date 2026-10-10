@@ -33,6 +33,10 @@ import {
   ReloadOutlined,
 } from "@ant-design/icons";
 
+// Crop frame size in the editor (px) and the largest zoom allowed
+const VIEWPORT = 260;
+const MAX_ZOOM = 8;
+
 export default function UploadAndCropImage({
   value = "",
   defaultImageUrl = "",
@@ -53,6 +57,16 @@ export default function UploadAndCropImage({
   const [modalOpen, setModalOpen] = useState(false);
   const [rawImageSrc, setRawImageSrc] = useState(null);
   const [fileName, setFileName] = useState("avatar.jpg");
+
+  // Natural size of the chosen image (sets the editor size and the zoom range)
+  const [imgSize, setImgSize] = useState({ w: 1, h: 1 });
+  const imgAspect = imgSize.w / imgSize.h;
+  // Image size at 100% zoom: fills the crop frame (the same maths as the saved crop)
+  const baseW = imgAspect > 1 ? VIEWPORT * imgAspect : VIEWPORT;
+  const baseH = imgAspect > 1 ? VIEWPORT : VIEWPORT / imgAspect;
+  // Zoom out until the whole photo fits in the frame; zoom in up to 800%
+  const minZoom = Math.min(1, VIEWPORT / Math.max(baseW, baseH));
+  const clampZoom = (z) => Math.min(MAX_ZOOM, Math.max(minZoom, z));
 
   // Transform controls: Zoom (scale), Offset (pan), Rotation
   const [zoom, setZoom] = useState(1);
@@ -157,12 +171,11 @@ export default function UploadAndCropImage({
     canvas.width = outputSize;
     canvas.height = outputSize;
 
-    // Clear background
-    ctx.clearRect(0, 0, outputSize, outputSize);
+    // White behind any empty edges when zoomed out to fit the whole photo
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, outputSize, outputSize);
 
-    // Viewport box dimension in DOM
-    const viewportSize = 260;
-    const scaleRatio = outputSize / viewportSize;
+    const scaleRatio = outputSize / VIEWPORT;
 
     // Center canvas context
     ctx.translate(outputSize / 2, outputSize / 2);
@@ -170,17 +183,7 @@ export default function UploadAndCropImage({
     // Apply Rotation
     ctx.rotate((rotation * Math.PI) / 180);
 
-    // Calculate image dimensions scaled to fit
-    const imgAspect = img.naturalWidth / img.naturalHeight;
-    let baseW = viewportSize;
-    let baseH = viewportSize;
-
-    if (imgAspect > 1) {
-      baseW = viewportSize * imgAspect;
-    } else {
-      baseH = viewportSize / imgAspect;
-    }
-
+    // Same size the editor shows (baseW / baseH), so the result matches the preview
     const drawW = baseW * zoom * scaleRatio;
     const drawH = baseH * zoom * scaleRatio;
     const drawX = offset.x * scaleRatio - drawW / 2;
@@ -432,7 +435,7 @@ export default function UploadAndCropImage({
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleMouseUp}
                   style={{ width: "260px", height: "260px" }}
-                  className="relative overflow-hidden bg-slate-950 rounded-2xl shadow-inner cursor-grab active:cursor-grabbing select-none shrink-0 border border-slate-700/80"
+                  className="relative overflow-hidden bg-white rounded-2xl shadow-inner cursor-grab active:cursor-grabbing select-none shrink-0 border border-slate-700/80"
                 >
                   {/* Image to be transformed */}
                   <div
@@ -447,11 +450,9 @@ export default function UploadAndCropImage({
                       ref={imageRef}
                       src={rawImageSrc}
                       alt="Crop Source"
-                      className="max-w-none select-none object-contain pointer-events-none"
-                      style={{
-                        minWidth: "100%",
-                        minHeight: "100%",
-                      }}
+                      onLoad={(e) => setImgSize({ w: e.currentTarget.naturalWidth || 1, h: e.currentTarget.naturalHeight || 1 })}
+                      className="max-w-none select-none pointer-events-none"
+                      style={{ width: `${baseW}px`, height: `${baseH}px`, flexShrink: 0 }}
                     />
                   </div>
 
@@ -493,7 +494,7 @@ export default function UploadAndCropImage({
                           width: "260px",
                           height: "260px",
                         }}
-                        className="relative overflow-hidden bg-slate-950"
+                        className="relative overflow-hidden bg-white"
                       >
                         <div
                           style={{
@@ -505,8 +506,8 @@ export default function UploadAndCropImage({
                           <img
                             src={rawImageSrc}
                             alt="Mini Preview"
-                            className="max-w-none object-contain"
-                            style={{ minWidth: "100%", minHeight: "100%" }}
+                            className="max-w-none"
+                            style={{ width: `${baseW}px`, height: `${baseH}px`, flexShrink: 0 }}
                           />
                         </div>
                       </div>
@@ -536,20 +537,21 @@ export default function UploadAndCropImage({
                       <Button
                         size="small"
                         icon={<ZoomOutOutlined />}
-                        onClick={() => setZoom((prev) => Math.max(1, prev - 0.1))}
+                        onClick={() => setZoom((prev) => clampZoom(prev - 0.25))}
                       />
                       <Slider
-                        min={1}
-                        max={3}
+                        min={Number(minZoom.toFixed(2))}
+                        max={MAX_ZOOM}
                         step={0.05}
                         value={zoom}
                         onChange={setZoom}
+                        tooltip={{ formatter: (v) => `${Math.round(v * 100)}%` }}
                         className="flex-1 my-1"
                       />
                       <Button
                         size="small"
                         icon={<ZoomInOutlined />}
-                        onClick={() => setZoom((prev) => Math.min(3, prev + 0.1))}
+                        onClick={() => setZoom((prev) => clampZoom(prev + 0.25))}
                       />
                     </div>
                   </div>

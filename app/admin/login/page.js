@@ -10,7 +10,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { antdMsg } from "@/services";
+import { antdMsg, HTTP } from "@/services";
 import { SunOutlined, MoonOutlined } from "@ant-design/icons";
 import { useTheme } from "../../ThemeProvider";
 import { useAuth } from "../../../context/AuthContext";
@@ -52,13 +52,18 @@ export default function Login() {
   };
 
   // Handle Forgot Password submission
-  const handleForgotPassword = (values) => {
+  // Emails a one-time reset link (the reply is the same whether or not the email has an account)
+  const handleForgotPassword = async (values) => {
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const res = await HTTP("POST", "/auth/forgot-password", { email: values.email }, false, false);
+      if (res?.success) {
+        antdMsg.success(res.message, 8);
+        setIsForgotPassword(false);
+      }
+    } finally {
       setLoading(false);
-      antdMsg.success("Password reset instructions sent to " + values.email);
-      setIsForgotPassword(false);
-    }, 1200);
+    }
   };
 
   return (

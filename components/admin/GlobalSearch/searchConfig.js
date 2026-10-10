@@ -35,20 +35,20 @@ export const MODULE_META = {
 
 /**
  * "Jump to" shortcuts shown when the search box is focused but empty.
- * `permission` mirrors the Sidebar navigation gating.
+ * Shown only when the user may open the page (lib/adminAccess.js).
  */
 export const QUICK_LINKS = [
-  { key: "new-company", href: "/admin/company-registration-new", color: "#008043", permission: "company.registration.view" },
-  { key: "new-individual", href: "/admin/individual-engagement-new", color: "#10b981", permission: "individual.engagement.view" },
-  { key: "gst", href: "/admin/gst-registrations", color: "#f59e0b", permission: "gst.registration.view" },
-  { key: "medicare", href: "/admin/medicare", color: "#ef4444", permission: "gst.registration.view" },
-  { key: "trust", href: "/admin/trust-registrations", color: "#06b6d4", permission: "gst.registration.view" },
-  { key: "smsf", href: "/admin/smsf-registrations", color: "#8b5cf6", permission: "gst.registration.view" },
-  { key: "business-names", href: "/admin/business-name-registrations", color: "#ec4899", permission: "gst.registration.view" },
-  { key: "apply-tfn", href: "/admin/apply-tfn-abns", color: "#6366f1", permission: "gst.registration.view" },
-  { key: "entity-engagements", href: "/admin/entity-engagements", color: "#3b82f6", permission: "individual.engagement.view" },
-  { key: "changes-company", href: "/admin/changes-to-company-details", color: "#14b8a6", permission: "company.registration.view" },
-  { key: "blog", href: "/admin/blog", color: "#0d9488", permission: "blog.view" },
+  { key: "new-company", href: "/admin/company-registration-new", color: "#008043" },
+  { key: "new-individual", href: "/admin/individual-engagement-new", color: "#10b981" },
+  { key: "gst", href: "/admin/gst-registrations", color: "#f59e0b" },
+  { key: "medicare", href: "/admin/medicare", color: "#ef4444" },
+  { key: "trust", href: "/admin/trust-registrations", color: "#06b6d4" },
+  { key: "smsf", href: "/admin/smsf-registrations", color: "#8b5cf6" },
+  { key: "business-names", href: "/admin/business-name-registrations", color: "#ec4899" },
+  { key: "apply-tfn", href: "/admin/apply-tfn-abns", color: "#6366f1" },
+  { key: "entity-engagements", href: "/admin/entity-engagements", color: "#3b82f6" },
+  { key: "changes-company", href: "/admin/changes-to-company-details", color: "#14b8a6" },
+  { key: "blog", href: "/admin/blog", color: "#0d9488" },
 ];
 
 export const MIN_QUERY_LENGTH = 2;

@@ -12,7 +12,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Form, Button, Table, Popconfirm, Tooltip, Empty } from "antd";
+import { Form, Button, Table, Popconfirm, Tooltip, Empty, Modal } from "antd";
 import {
   FolderOutlined,
   FolderOpenOutlined,
@@ -42,6 +42,12 @@ const CONFIG = {
     update: blogApi.updateCategory,
     remove: blogApi.deleteCategory,
     deleteHint: "Posts keep their other categories, and any sub-categories move up one level.",
+    noun: "category",
+    // Shown in the delete dialog when posts use it
+    options: {
+      remove: { title: "Remove it from these posts", desc: "They keep their other categories. Posts left with none show as Uncategorised." },
+      replace: { title: "Move these posts to another category", desc: "Each post gets the category you choose instead." },
+    },
   },
   tag: {
     title: "Tags",
@@ -53,6 +59,11 @@ const CONFIG = {
     update: blogApi.updateTag,
     remove: blogApi.deleteTag,
     deleteHint: "The tag is removed from every post that uses it.",
+    noun: "tag",
+    options: {
+      remove: { title: "Remove it from these posts", desc: "The posts keep their other tags." },
+      replace: { title: "Replace it with another tag", desc: "Each post gets the tag you choose instead." },
+    },
   },
 };
 
@@ -109,13 +120,32 @@ export default function TaxonomyManager({ type = "category" }) {
     reload();
   };
 
-  const remove = async (row) => {
-    const res = await cfg.remove(row.id);
+  // Deleting one that posts use asks first: remove it from them, or replace it
+  const [deleting, setDeleting] = useState(null);
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [deleteForm] = Form.useForm();
+  const deleteMode = Form.useWatch("mode", deleteForm) || "remove";
+
+  const remove = async (row, replaceWith) => {
+    setDeleteBusy(true);
+    const res = await cfg.remove(row.id, replaceWith);
+    setDeleteBusy(false);
     if (!res?.success) return;
     antdMsg.success(res.message || `${cfg.singular} deleted.`);
     if (editing?.id === row.id) resetForm();
+    setDeleting(null);
     reload();
   };
+
+  const confirmDelete = ({ mode, replaceWith }) => {
+    if (!deleting) return;
+    remove(deleting, mode === "replace" ? replaceWith : undefined);
+  };
+
+  // Anything except the one being deleted (sub-categories shown indented)
+  const replacementOptions = rows
+    .filter((r) => r.id !== deleting?.id)
+    .map((r) => ({ value: r.id, label: `${"— ".repeat(r.depth || 0)}${r.name}` }));
 
   // Parent options: everything except the category itself and its own sub-categories
   const parentOptions = (() => {
@@ -194,17 +224,33 @@ export default function TaxonomyManager({ type = "category" }) {
           <Tooltip title="Edit">
             <Button type="text" size="small" icon={<EditOutlined />} onClick={() => startEdit(row)} />
           </Tooltip>
-          <Popconfirm
-            title={`Delete "${row.name}"?`}
-            description={cfg.deleteHint}
-            okText="Delete"
-            okButtonProps={{ danger: true }}
-            onConfirm={() => remove(row)}
-          >
+          {row.count ? (
+            // Used by posts: ask what to do with them
             <Tooltip title="Delete">
-              <Button type="text" size="small" danger icon={<DeleteOutlined />} />
+              <Button
+                type="text"
+                size="small"
+                danger
+                icon={<DeleteOutlined />}
+                onClick={() => {
+                  deleteForm.resetFields();
+                  setDeleting(row);
+                }}
+              />
             </Tooltip>
-          </Popconfirm>
+          ) : (
+            <Popconfirm
+              title={`Delete "${row.name}"?`}
+              description={isCategory ? "No posts use it. Any sub-categories move up one level." : "No posts use it."}
+              okText="Delete"
+              okButtonProps={{ danger: true }}
+              onConfirm={() => remove(row)}
+            >
+              <Tooltip title="Delete">
+                <Button type="text" size="small" danger icon={<DeleteOutlined />} />
+              </Tooltip>
+            </Popconfirm>
+          )}
         </span>
       ),
     },
@@ -329,6 +375,63 @@ export default function TaxonomyManager({ type = "category" }) {
           </div>
         </div>
       </div>
+
+      <Modal
+        open={Boolean(deleting)}
+        title={deleting ? `Delete "${deleting.name}"` : ""}
+        onCancel={() => !deleteBusy && setDeleting(null)}
+        footer={null}
+        destroyOnHidden
+        centered
+        width={520}
+      >
+        {deleting && (
+          <Form form={deleteForm} layout="vertical" requiredMark={false} initialValues={{ mode: "remove" }} onFinish={confirmDelete} className="pt-2">
+            <p className={styles.modalText}>
+              <strong>
+                {deleting.count} post{deleting.count === 1 ? "" : "s"}
+              </strong>{" "}
+              {deleting.count === 1 ? "uses" : "use"} this {cfg.noun}.{" "}
+              {isCategory && (
+                <Link href={`/admin/blog?category=${deleting.id}`} target="_blank">
+                  View posts
+                </Link>
+              )}{" "}
+              What should happen to {deleting.count === 1 ? "it" : "them"}?
+            </p>
+            <AntInput
+              type="radio"
+              designVariant="card"
+              name="mode"
+              radioOptions={[
+                { value: "remove", ...cfg.options.remove },
+                { value: "replace", ...cfg.options.replace },
+              ]}
+              gridClassName="grid grid-cols-1 gap-3 w-full"
+              noRequired
+            />
+            {deleteMode === "replace" && (
+              <AntInput
+                type="select"
+                name="replaceWith"
+                label={isCategory ? "New category" : "New tag"}
+                options={replacementOptions}
+                placeholder={isCategory ? "Choose a category" : "Choose a tag"}
+                reqMsg={isCategory ? "Choose a category" : "Choose a tag"}
+              />
+            )}
+            {isCategory && <p className={styles.modalHint}>Any sub-categories move up one level.</p>}
+            <div className={styles.modalFooter}>
+              <Button onClick={() => setDeleting(null)} disabled={deleteBusy}>
+                Cancel
+              </Button>
+              <Button type="primary" danger htmlType="submit" loading={deleteBusy}>
+                Delete {cfg.noun}
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Modal>
     </div>
   );
 }

@@ -40,12 +40,15 @@ import {
   EyeOutlined,
   InfoCircleOutlined,
   LockOutlined,
+  ApartmentOutlined,
 } from "@ant-design/icons";
 import PageTitle from "@/components/admin/PageTitle";
 import { PermissionGuard } from "@/components/admin/PermissionGuard";
 import { AntInput } from "@/services/antdFields";
 import { HTTP, antdMsg } from "@/services";
 import { useSettings } from "@/context/SettingsContext";
+import { parseDepartments } from "@/lib/departments";
+import DepartmentsManager from "@/components/admin/DepartmentsManager";
 
 /* Field icons mapping for contextual guidance */
 const FIELD_ICONS = {
@@ -82,6 +85,8 @@ export default function GlobalSettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [activeTabKey, setActiveTabKey] = useState("company");
+  // Live count for the Departments tab badge (the list saves on its own)
+  const [departmentCount, setDepartmentCount] = useState(null);
 
   // Watch form values for the live brand preview tab
   const formValues = Form.useWatch([], form) || {};
@@ -96,7 +101,8 @@ export default function GlobalSettingsPage() {
         setRows(res.data);
         form.setFieldsValue(
           res.data.reduce((values, row) => {
-            values[row.key] = row.value || "";
+            // "list" settings (e.g. Departments) are stored as JSON arrays
+            if (row.inputType !== "list") values[row.key] = row.value || "";
             return values;
           }, {})
         );
@@ -123,6 +129,8 @@ export default function GlobalSettingsPage() {
   const handleSave = async () => {
     try {
       const values = await form.validateFields();
+      // Departments are saved by their own tab, never by this button
+      delete values["staff.departments"];
       setSaving(true);
       const res = await HTTP("PUT", "/settings/manage", { settings: values });
       if (res && res.success) {
@@ -162,6 +170,7 @@ export default function GlobalSettingsPage() {
   const companyRows = useMemo(() => rows.filter((r) => r.group === "company"), [rows]);
   const emailRows = useMemo(() => rows.filter((r) => r.group === "email"), [rows]);
   const urlRows = useMemo(() => rows.filter((r) => r.group === "url"), [rows]);
+  const staffRows = useMemo(() => rows.filter((r) => r.group === "staff"), [rows]);
 
   // --------------------------------------------------------------------------
   // TAB ITEMS CONFIGURATION
@@ -394,6 +403,31 @@ export default function GlobalSettingsPage() {
               </div>
             </div>
           </div>
+        </div>
+      ),
+    },
+    {
+      key: "departments",
+      label: (
+        <span className="flex items-center gap-1.5 font-medium">
+          <ApartmentOutlined />
+          <span>Departments</span>
+          <span className="text-xs px-1.5 py-0.2 rounded-pill bg-violet-100/70 text-violet-800 dark:bg-violet-950 dark:text-violet-300 font-mono font-semibold">
+            {departmentCount ?? parseDepartments(staffRows[0]?.value).length}
+          </span>
+        </span>
+      ),
+      children: (
+        <div className="pt-2 space-y-4">
+          <div className="p-3.5 rounded-xl border border-violet-200/80 dark:border-violet-900/60 bg-violet-50/50 dark:bg-violet-950/20 flex items-start gap-3">
+            <InfoCircleOutlined className="text-violet-600 dark:text-violet-400 text-base mt-0.5" />
+            <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
+              <strong className="text-slate-800 dark:text-zinc-100">Staff Departments: </strong>
+              The choices in the Department dropdown when adding or editing a staff member and on each person&apos;s profile.
+              Renaming a department updates everyone in it; removing one asks where to move its staff.
+            </div>
+          </div>
+          <DepartmentsManager onCountChange={setDepartmentCount} />
         </div>
       ),
     },
