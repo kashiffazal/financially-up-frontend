@@ -1,0 +1,74 @@
+.panel {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.count {
+  display: inline-flex;
+  min-width: 26px;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e8f5ee;
+  color: #006b38;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.countZero {
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+.childRow > td {
+  background: #fcfcfd;
+}
+
+.editingRow > td {
+  background: #fffbeb !important;
+}
+
+:global(.dark) .panel {
+  background: #18181b;
+  border-color: #27272a;
+}
+
+:global(.dark) .count {
+  background: rgba(6, 78, 59, 0.35);
+  color: #6ee7b7;
+}
+
+:global(.dark) .countZero {
+  background: #27272a;
+  color: #71717a;
+}
+
+:global(.dark) .childRow > td {
+  background: #1c1c1f;
+}
+
+:global(.dark) .editingRow > td {
+  background: rgba(146, 64, 14, 0.18) !important;
+}
+
+/* Compact form: antd's default item spacing (24px + help text) is too airy here */
+.form :global(.ant-form-item) {
+  margin-bottom: 14px;
+}
+
+.form :global(.ant-form-item-label) {
+  padding-bottom: 4px;
+}
+
+.form :global(.ant-form-item-extra) {
+  min-height: 0;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.form :global(.ant-form-item-explain) {
+  min-height: 0;
+}

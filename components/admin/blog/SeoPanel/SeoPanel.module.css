@@ -1,0 +1,129 @@
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.fieldLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.hint {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+
+/* Google result preview: always rendered like Google (light) */
+.googleCard {
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.googleMobile {
+  max-width: 400px;
+}
+
+.favicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #e8f5ee;
+  color: #008043;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.googleTitle {
+  margin-top: 8px;
+  color: #1a0dab;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.googleMobile .googleTitle {
+  font-size: 18px;
+}
+
+.googleDesc {
+  margin-top: 4px;
+  color: #4d5156;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.checkOk {
+  border-color: #86efac;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.syncLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #008043;
+  cursor: pointer;
+}
+
+.syncLink:hover {
+  text-decoration: underline;
+}
+
+:global(.dark) .sectionLabel {
+  color: #a1a1aa;
+}
+
+:global(.dark) .fieldLabel {
+  color: #e4e4e7;
+}
+
+:global(.dark) .googleCard {
+  border-color: #3f3f46;
+}
+
+:global(.dark) .check {
+  border-color: #3f3f46;
+}
+
+:global(.dark) .checkOk {
+  border-color: #047857;
+  background: rgba(6, 78, 59, 0.3);
+  color: #6ee7b7;
+}
+
+:global(.dark) .syncLink {
+  color: #34d399;
+}

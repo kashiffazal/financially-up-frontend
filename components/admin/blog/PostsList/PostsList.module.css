@@ -1,0 +1,42 @@
+.thumb {
+  flex-shrink: 0;
+  width: 64px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+}
+
+.thumbEmpty {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  color: #94a3b8;
+}
+
+.star {
+  border: none;
+  background: none;
+  font-size: 17px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star:hover:not(:disabled) {
+  color: #f59e0b;
+  transform: scale(1.15);
+}
+
+.starOn {
+  color: #f59e0b;
+}
+
+:global(.dark) .thumb {
+  border-color: #3f3f46;
+}
+
+:global(.dark) .thumbEmpty {
+  background: #111113;
+}

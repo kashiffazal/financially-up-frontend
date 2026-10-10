@@ -103,7 +103,7 @@ export default function HowSoleTraderDiffersIndividual() {
               </p>
             </div>
             <div className="pt-4 border-t border-slate-200/80 dark:border-zinc-700">
-              <Link href="/services/individual-tax/individual-tax-return">
+              <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs sm:text-sm"

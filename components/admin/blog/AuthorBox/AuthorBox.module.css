@@ -1,0 +1,17 @@
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.hint {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+
+:global(.dark) .label {
+  color: #d4d4d8;
+}

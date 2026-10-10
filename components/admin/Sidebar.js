@@ -39,6 +39,11 @@ import {
   DownOutlined,
   CheckCircleFilled,
   MessageOutlined,
+  NotificationOutlined,
+  ReadOutlined,
+  EditOutlined,
+  FolderOutlined,
+  TagsOutlined,
 } from "@ant-design/icons";
 import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
@@ -192,6 +197,29 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       permission: "enquiries.view",
     },
     {
+      key: "newsletter",
+      label: "Newsletter",
+      fullTitle: "Newsletter Subscribers",
+      icon: <NotificationOutlined />,
+      href: "/admin/newsletter",
+      permission: "newsletter.view",
+    },
+    {
+      key: "blog",
+      label: "Blog",
+      fullTitle: "Website Blog",
+      subtitle: "Posts, categories & tags",
+      icon: <ReadOutlined />,
+      href: "/admin/blog",
+      permission: "blog.view",
+      subItems: [
+        { key: "blog-posts", label: "All Posts", href: "/admin/blog", icon: <ReadOutlined />, exact: true },
+        { key: "blog-new", label: "Add New Post", href: "/admin/blog/new", icon: <EditOutlined /> },
+        { key: "blog-categories", label: "Categories", href: "/admin/blog/categories", icon: <FolderOutlined /> },
+        { key: "blog-tags", label: "Tags", href: "/admin/blog/tags", icon: <TagsOutlined /> },
+      ],
+    },
+    {
       key: "users",
       label: "Users",
       fullTitle: "Staff & User Management",
@@ -231,6 +259,10 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
     return hasPermission(item.permission);
   });
 
+  // A sub-item is active on its page (and its child pages unless `exact`)
+  const isSubItemActive = (sub) =>
+    sub.exact ? pathname === sub.href : pathname === sub.href || pathname?.startsWith(`${sub.href}/`);
+
   // Determine if a rail item or any of its sub-items is currently active
   const checkIsItemActive = (item) => {
     if (pathname === item.href || pathname?.startsWith(`${item.href}/`)) {
@@ -238,7 +270,7 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
     }
     if (item.subItems) {
       return item.subItems.some(
-        (sub) => pathname === sub.href || pathname?.startsWith(`${sub.href}/`)
+        (sub) => isSubItemActive(sub)
       );
     }
     return false;
@@ -258,14 +290,14 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
             <span>{item.fullTitle}</span>
           </div>
           <div className="text-[11px] text-slate-400 dark:text-zinc-500 mt-0.5">
-            Select application module
+            {item.subtitle || "Select application module"}
           </div>
         </div>
 
         <div className="pt-1.5 space-y-0.5">
           {item.subItems.map((sub) => {
             const isSubActive =
-              pathname === sub.href || pathname?.startsWith(`${sub.href}/`);
+              isSubItemActive(sub);
             return (
               <Link
                 key={sub.key}
@@ -537,7 +569,7 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
                     <div className="py-1 px-1 bg-white dark:bg-zinc-900 border-t border-slate-100 dark:border-zinc-800 space-y-0.5">
                       {item.subItems.map((sub) => {
                         const isSubActive =
-                          pathname === sub.href || pathname?.startsWith(`${sub.href}/`);
+                          isSubItemActive(sub);
                         return (
                           <Link
                             key={sub.key}

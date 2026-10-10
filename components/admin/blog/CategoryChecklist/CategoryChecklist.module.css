@@ -1,0 +1,43 @@
+.list {
+  max-height: 260px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.addLink {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #008043;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.addLink:hover {
+  text-decoration: underline;
+}
+
+:global(.dark) .addLink {
+  color: #34d399;
+}
+
+/* Inline "Add New Category" form: even 12px gaps between the fields */
+.addForm :global(.ant-form-item) {
+  margin-bottom: 12px;
+}

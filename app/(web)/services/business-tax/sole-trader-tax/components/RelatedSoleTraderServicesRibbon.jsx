@@ -21,7 +21,7 @@ export default function RelatedSoleTraderServicesRibbon() {
         <div className="flex flex-wrap items-center justify-center gap-4">
           <span className="flex items-center gap-1.5">
             Salary &amp; personal deductions:
-            <Link href="/services/individual-tax/individual-tax-return">
+            <Link href="/services/individual-tax/individual-tax-returns">
               <Button
                 type="link"
                 className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"

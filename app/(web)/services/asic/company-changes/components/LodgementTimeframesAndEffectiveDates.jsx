@@ -22,9 +22,9 @@ export default function LodgementTimeframesAndEffectiveDates() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full">
           {/* Header */}
-          <div className="text-center mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag color="volcano" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Statutory Deadlines & Effective Dates
             </Tag>

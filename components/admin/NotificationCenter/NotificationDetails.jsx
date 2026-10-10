@@ -14,6 +14,8 @@ import {
   CustomerServiceOutlined,
   GlobalOutlined,
   DeleteOutlined,
+  NotificationOutlined,
+  CalendarOutlined,
 } from "@ant-design/icons";
 import { getFileUrl } from "@/services";
 import { statusTagColor } from "@/components/admin/GlobalSearch/searchConfig";
@@ -21,6 +23,7 @@ import styles from "./NotificationCenter.module.css";
 import { notificationVisual, TYPE_LABELS, formatDateTime, relativeTime } from "./notificationConfig";
 
 const SOURCE_LABELS = { contact_page: "Contact page", contact_modal: "Contact Us popup" };
+const NEWSLETTER_SOURCE_LABELS = { blog_listing: "Blog page", blog_article: "Blog article" };
 
 function InfoRow({ icon, label, children }) {
   if (!children) return null;
@@ -223,6 +226,32 @@ export default function NotificationDetails({ open, loading, error, detail, now,
           ) : (
             <Alert type="warning" showIcon title="This enquiry no longer exists" description="It was deleted after this notification was sent." />
           ))}
+
+        {/* Newsletter subscriber */}
+        {target?.kind === "subscriber" &&
+          (target.exists ? (
+            <Card title="Newsletter subscriber" accent={visual.color}>
+              <div className="flex items-start justify-between gap-3 py-2">
+                <p className="m-0 min-w-0 truncate text-[15px] font-semibold text-slate-900 dark:text-zinc-50">{target.subscriber.email}</p>
+                <Tag color={target.subscriber.status === "Subscribed" ? "success" : "default"} className="!m-0 shrink-0">
+                  {target.subscriber.status}
+                </Tag>
+              </div>
+              <div className="border-t border-slate-100 dark:border-zinc-800">
+                <InfoRow icon={<CalendarOutlined />} label="Subscribed">
+                  {target.subscriber.subscribedAt && formatDateTime(target.subscriber.subscribedAt)}
+                </InfoRow>
+                <InfoRow icon={<GlobalOutlined />} label="Signed up from">
+                  {NEWSLETTER_SOURCE_LABELS[target.subscriber.source] || "Website"}
+                </InfoRow>
+                <InfoRow icon={<NotificationOutlined />} label="Page">
+                  {target.subscriber.sourcePage}
+                </InfoRow>
+              </div>
+            </Card>
+          ) : (
+            <Alert type="warning" showIcon title="This subscriber no longer exists" />
+          ))}
       </div>
     );
   };
@@ -242,6 +271,17 @@ export default function NotificationDetails({ open, loading, error, detail, now,
           )}
           <Button type="primary" className="!bg-brand-primary" icon={<ArrowRightOutlined />} onClick={() => onNavigate(target.url)}>
             Open application
+          </Button>
+        </div>
+      );
+    } else if (target.kind === "subscriber") {
+      footer = (
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <Button icon={<MailOutlined />} href={`mailto:${target.subscriber.email}`}>
+            Email
+          </Button>
+          <Button type="primary" className="!bg-brand-primary" icon={<ArrowRightOutlined />} onClick={() => onNavigate(target.url)}>
+            Open in Newsletter
           </Button>
         </div>
       );

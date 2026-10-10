@@ -77,7 +77,7 @@ export default function PreparationVsPlanning() {
                   If you primarily need annual preparation and lodgement rather
                   than high-income planning support, see our{" "}
                   <Link
-                    href="/services/individual-tax/individual-tax-return"
+                    href="/services/individual-tax/individual-tax-returns"
                     className="font-bold text-brand-primary dark:text-emerald-400 hover:underline"
                   >
                     Individual Tax Return Services
@@ -88,7 +88,7 @@ export default function PreparationVsPlanning() {
             </div>
 
             <div>
-              <Link href="/services/individual-tax/individual-tax-return">
+              <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="default"
                   size="large"

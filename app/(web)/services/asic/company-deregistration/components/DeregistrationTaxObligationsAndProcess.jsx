@@ -29,7 +29,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subsection 1: Company deregistration and final tax obligations */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-10">
             <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Tax Position & ATO Alignment
@@ -54,7 +54,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
         </div>
 
         {/* Subsection 2: How does the ASIC deregistration process work? */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-10">
             <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Procedural Timelines & Milestones
@@ -98,7 +98,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
         </div>
 
         {/* Subsection 3: What if the company does not qualify for voluntary deregistration? */}
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full">
           <Alert
             type="warning"
             showIcon

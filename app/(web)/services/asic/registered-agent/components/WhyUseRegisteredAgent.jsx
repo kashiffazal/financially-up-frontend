@@ -44,8 +44,8 @@ export default function WhyUseRegisteredAgent() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subsection 1: Why use a registered agent for company administration? */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
-          <div className="text-center mb-10">
+        <div className="w-full mb-16 sm:mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Strategic Advantages
             </Tag>
@@ -86,8 +86,8 @@ export default function WhyUseRegisteredAgent() {
         </div>
 
         {/* Subsection 2: Company changes still need timely instructions */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
+        <div className="w-full">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag color="volcano" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Statutory Deadlines & Rules
             </Tag>

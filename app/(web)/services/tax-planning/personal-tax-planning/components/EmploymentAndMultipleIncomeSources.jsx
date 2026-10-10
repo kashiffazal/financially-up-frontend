@@ -124,7 +124,7 @@ export default function EmploymentAndMultipleIncomeSources() {
             </div>
 
             <div className="pt-4 border-t border-slate-200/80 dark:border-zinc-800">
-              <Link href="/services/individual-tax/individual-tax-return">
+              <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="primary"
                   size="large"

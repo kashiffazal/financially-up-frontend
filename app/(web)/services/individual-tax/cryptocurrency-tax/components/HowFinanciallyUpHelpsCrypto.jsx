@@ -117,7 +117,7 @@ export default function HowFinanciallyUpHelpsCrypto() {
             advice or planning. Advice scope and fees are confirmed separately
             before work begins. For non-crypto items, see our{" "}
             <Link
-              href="/services/individual-tax/individual-tax-return"
+              href="/services/individual-tax/individual-tax-returns"
               className="text-brand-primary dark:text-emerald-400 font-bold hover:underline"
             >
               Individual Tax Return service

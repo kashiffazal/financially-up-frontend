@@ -1,0 +1,86 @@
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.selectedBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 52px;
+  padding: 10px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.selectedChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px 3px 10px;
+  border-radius: 999px;
+  background: #e8f5ee;
+  color: #006b38;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.selectedChip button {
+  display: inline-flex;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0;
+}
+
+.chip {
+  padding: 4px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover:not(:disabled) {
+  border-color: #008043;
+  color: #008043;
+}
+
+.chipOn {
+  border-color: #008043;
+  background: #e8f5ee;
+  color: #006b38;
+  font-weight: 600;
+}
+
+:global(.dark) .label {
+  color: #d4d4d8;
+}
+
+:global(.dark) .selectedBox {
+  border-color: #3f3f46;
+  background: #111113;
+}
+
+:global(.dark) .selectedChip,
+:global(.dark) .chipOn {
+  background: rgba(6, 78, 59, 0.35);
+  color: #6ee7b7;
+  border-color: #047857;
+}
+
+:global(.dark) .chip:not(.chipOn) {
+  background: #18181b;
+  border-color: #3f3f46;
+  color: #d4d4d8;
+}

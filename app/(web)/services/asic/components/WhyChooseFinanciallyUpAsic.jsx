@@ -92,7 +92,7 @@ export default function WhyChooseFinanciallyUpAsic() {
         </div>
 
         {/* Document Paragraph 2 - Verbatim Feature Highlight */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/90 dark:bg-zinc-900/80 border border-slate-200 dark:border-zinc-800 mb-12 text-center max-w-4xl mx-auto">
+        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/90 dark:bg-zinc-900/80 border border-slate-200 dark:border-zinc-800 mb-12 text-center w-full">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 text-xs font-semibold mb-3">
             <AppstoreOutlined />
             <span>Our Professional Role</span>

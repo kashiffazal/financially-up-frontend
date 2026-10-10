@@ -129,7 +129,7 @@ export default function WhatPartnershipReturnReports() {
               </p>
             </div>
             <div className="shrink-0 w-full lg:w-auto pt-2 lg:pt-0">
-              <Link href="/services/individual-tax/individual-tax-return">
+              <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="default"
                   className="brand-btn-outline w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-xl"

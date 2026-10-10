@@ -1,7 +1,6 @@
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$zipPath = "financially-up-frontend\agent-data\new-content\10th Pillar Property Tax.docx"
-$resolved = (Resolve-Path $zipPath).Path
-$zip = [System.IO.Compression.ZipFile]::OpenRead($resolved)
+$docPath = "d:\xampp\htdocs\myProjects\nextjs\financially-up\financially-up-frontend\agent-data\new-content\10th Pillar Property Tax.docx"
+$zip = [System.IO.Compression.ZipFile]::OpenRead($docPath)
 $entry = $zip.GetEntry("word/document.xml")
 $stream = $entry.Open()
 $reader = New-Object System.IO.StreamReader($stream)
@@ -10,19 +9,22 @@ $reader.Close()
 $stream.Close()
 $zip.Dispose()
 
-$doc = [xml]$xmlText
-$nsManager = New-Object System.Xml.XmlNamespaceManager($doc.NameTable)
-$nsManager.AddNamespace("w", "http://schemas.openxmlformats.org/wordprocessingml/2006/main")
-$paragraphs = $doc.SelectNodes("//w:p", $nsManager)
+[xml]$xml = $xmlText
+$ns = New-Object System.Xml.XmlNamespaceManager($xml.NameTable)
+$ns.AddNamespace("w", "http://schemas.openxmlformats.org/wordprocessingml/2006/main")
 
+$paras = $xml.SelectNodes("//w:p", $ns)
 $sb = New-Object System.Text.StringBuilder
-foreach ($p in $paragraphs) {
-    $texts = $p.SelectNodes(".//w:t", $nsManager)
-    $line = ($texts | ForEach-Object { $_.InnerText }) -join ""
+foreach ($p in $paras) {
+    $tNodes = $p.SelectNodes(".//w:t", $ns)
+    $line = ""
+    foreach ($t in $tNodes) {
+        $line += $t.InnerText
+    }
     if ($line.Trim().Length -gt 0) {
         [void]$sb.AppendLine($line)
     }
 }
-$outputFile = "financially-up-frontend\agent-data\new-content\10th_Pillar_Property_Tax_extracted.txt"
-[System.IO.File]::WriteAllText($outputFile, $sb.ToString(), [System.Text.Encoding]::UTF8)
-Write-Host "Extracted paragraphs:" $paragraphs.Count "Saved to $outputFile"
+
+$sb.ToString() | Out-File -FilePath "d:\xampp\htdocs\myProjects\nextjs\financially-up\financially-up-frontend\agent-data\new-content\property_tax_extracted.txt" -Encoding utf8
+Write-Host "Extracted successfully to property_tax_extracted.txt"

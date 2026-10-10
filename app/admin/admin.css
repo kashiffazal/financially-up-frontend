@@ -93,3 +93,19 @@
 .ant-table-wrapper .ant-table-tbody > tr.live-new-row > td:first-child {
   box-shadow: inset 3px 0 0 var(--brand-primary);
 }
+
+/* Blog editor (TinyMCE): its menus and dialogs are attached to <body>,
+   so they need to sit above antd overlays and the sticky admin header. */
+.tox-tinymce-aux,
+.tox.tox-silver-sink {
+  z-index: 1300 !important;
+}
+
+/* antd's Alert resets its margin to 0, which cancels Tailwind spacing around it
+   (space-y-*, mb-*). Keep a gap below any Alert that has content after it.
+   Explicit "!mb-*" classes on an Alert still win. Modals render outside the
+   admin root, hence the second selector. */
+.admin-portal-root .ant-alert:not(:last-child),
+.ant-modal-root .ant-alert:not(:last-child) {
+  margin-bottom: 16px;
+}

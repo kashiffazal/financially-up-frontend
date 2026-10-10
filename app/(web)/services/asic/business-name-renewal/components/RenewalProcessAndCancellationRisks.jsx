@@ -25,7 +25,7 @@ export default function RenewalProcessAndCancellationRisks() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subsection 1: How does ASIC business name renewal work? */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-10">
             <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Portal Lodgement & Execution
@@ -76,7 +76,7 @@ export default function RenewalProcessAndCancellationRisks() {
         </div>
 
         {/* Subsection 2: What happens if a business name is not renewed on time? */}
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full">
           <div className="text-center mb-10">
             <Tag color="volcano" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Cancellation Risks & Statutory Windows

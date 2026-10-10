@@ -208,7 +208,7 @@ export default function MissingRecordsAndCatchUpProcess() {
               </Link>{" "}
               and{" "}
               <Link
-                href="/services/individual-tax/individual-tax-return"
+                href="/services/individual-tax/individual-tax-returns"
                 className="text-brand-primary dark:text-emerald-400 font-semibold hover:underline"
               >
                 Individual Tax Return service

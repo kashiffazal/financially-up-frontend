@@ -113,7 +113,7 @@ export default function BeneficiaryReportingAndTFN() {
             </div>
 
             <div className="pt-2">
-              <Link href="/services/individual-tax/individual-tax-return">
+              <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="default"
                   className="brand-btn-outline inline-flex items-center gap-2 text-xs sm:text-sm font-semibold rounded-xl"

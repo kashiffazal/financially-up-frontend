@@ -51,6 +51,7 @@ export const ENDPOINT_MODULE_KEYS = {
   "/business-name-registrations": "business-names",
   "/apply-tfn-abns": "apply-tfn",
   "/contact-enquiries": "enquiries",
+  "/newsletter-subscribers": "newsletter",
 };
 
 /** How long a newly arrived row stays highlighted. */

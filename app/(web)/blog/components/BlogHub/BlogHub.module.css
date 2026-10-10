@@ -1,0 +1,11 @@
+/* Shown in place of the featured image when a post has none */
+.noImage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00381e 0%, #005a30 55%, #008043 100%);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 44px;
+}

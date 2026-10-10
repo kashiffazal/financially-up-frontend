@@ -6,6 +6,7 @@ import {
   PauseCircleOutlined,
   SyncOutlined,
   MailOutlined,
+  NotificationOutlined,
   BellOutlined,
 } from "@ant-design/icons";
 import { MODULE_META, statusTagColor } from "@/components/admin/GlobalSearch/searchConfig";
@@ -22,6 +23,7 @@ export const TYPE_LABELS = {
   submission: "New submission",
   status_change: "Status update",
   contact_enquiry: "Website enquiry",
+  newsletter_subscriber: "Newsletter sign-up",
 };
 
 /** Icon for a status change, based on the new status. */
@@ -46,6 +48,7 @@ const TONE_COLORS = {
 /** { icon, color } for a notification's leading chip. */
 export const notificationVisual = (n) => {
   if (n.type === "contact_enquiry") return { icon: <MailOutlined />, color: n.color || "#0ea5e9" };
+  if (n.type === "newsletter_subscriber") return { icon: <NotificationOutlined />, color: n.color || "#8b5cf6" };
   if (n.type === "status_change") {
     return { icon: statusIcon(n.meta?.toStatus), color: TONE_COLORS[statusTagColor(n.meta?.toStatus)] || n.color };
   }

@@ -10,6 +10,7 @@ import {
   AuditOutlined,
   ShopOutlined,
   IdcardOutlined,
+  ReadOutlined,
 } from "@ant-design/icons";
 
 /**
@@ -29,6 +30,7 @@ export const MODULE_META = {
   smsf: { icon: <AuditOutlined />, label: "SMSF Registrations" },
   "business-names": { icon: <ShopOutlined />, label: "Business Name Registrations" },
   "apply-tfn": { icon: <IdcardOutlined />, label: "Apply TFN / ABNs" },
+  blog: { icon: <ReadOutlined />, label: "Blog Posts" },
 };
 
 /**
@@ -46,6 +48,7 @@ export const QUICK_LINKS = [
   { key: "apply-tfn", href: "/admin/apply-tfn-abns", color: "#6366f1", permission: "gst.registration.view" },
   { key: "entity-engagements", href: "/admin/entity-engagements", color: "#3b82f6", permission: "individual.engagement.view" },
   { key: "changes-company", href: "/admin/changes-to-company-details", color: "#14b8a6", permission: "company.registration.view" },
+  { key: "blog", href: "/admin/blog", color: "#0d9488", permission: "blog.view" },
 ];
 
 export const MIN_QUERY_LENGTH = 2;
@@ -60,6 +63,10 @@ export const statusTagColor = (status) => {
   const s = String(status || "").toLowerCase();
   if (!s) return "default";
   if (s.includes("draft")) return "default";
+  // Blog post statuses
+  if (s === "published") return "success";
+  if (s === "scheduled") return "processing";
+  if (s === "trash") return "error";
   if (s.includes("disapprove") || s.includes("decline") || s.includes("reject") || s.includes("escalate")) return "error";
   if (s.includes("condition")) return "orange";
   if (s.includes("approve") || s.includes("accept") || s.includes("complete") || s.includes("lodged")) return "success";

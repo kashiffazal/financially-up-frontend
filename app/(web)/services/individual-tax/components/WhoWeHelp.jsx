@@ -24,7 +24,7 @@ export default function WhoWeHelp() {
       title: "Multiple Income Sources",
       description:
         "employees and professionals with more than one source of income",
-      href: "/services/individual-tax/individual-tax-return",
+      href: "/services/individual-tax/individual-tax-returns",
       actionText: "Explore service",
     },
     {

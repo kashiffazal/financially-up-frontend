@@ -162,7 +162,7 @@ export default function WhatShouldBeReviewedBeforeJune30() {
               </Button>
             </Link>
             <span className="text-slate-500 hidden sm:inline">•</span>
-            <Link href="/services/individual-tax/individual-tax-return">
+            <Link href="/services/individual-tax/individual-tax-returns">
               <Button
                 type="link"
                 className="p-0 font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5 text-xs sm:text-sm h-auto"

@@ -61,8 +61,8 @@ export default function Form484ServiceProcessAndInformation() {
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subsection 1: How our ASIC Form 484 service works */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
-          <div className="text-center mb-10">
+        <div className="w-full mb-16 sm:mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Workflow & Execution
             </Tag>
@@ -108,8 +108,8 @@ export default function Form484ServiceProcessAndInformation() {
         </div>
 
         {/* Subsection 2: What information may be required? */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
+        <div className="w-full">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag color="blue" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Supporting Documentation
             </Tag>

@@ -1,0 +1,126 @@
+.card {
+  padding: 20px 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-card, 16px);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ecfdf5;
+  color: #008043;
+  font-size: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+/* Fields and download buttons on one bottom-aligned row (wraps on small screens) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 16px;
+}
+
+.form :global(.ant-form-item) {
+  margin-bottom: 0;
+}
+
+.form :global(.ant-form-item-label) {
+  padding-bottom: 6px;
+}
+
+.period {
+  flex: 0 0 auto;
+}
+
+.field {
+  flex: 0 0 170px;
+}
+
+.fieldSm {
+  flex: 0 0 110px;
+}
+
+/* Download buttons: pushed right, bottom-aligned with the fields */
+.actions {
+  margin-left: auto;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.hintWarn {
+  color: #d97706;
+}
+
+@media (max-width: 640px) {
+  .field,
+  .fieldSm {
+    flex: 1 1 100%;
+  }
+
+  .actions {
+    margin-left: 0;
+  }
+}
+
+:global(.dark) .card {
+  border-color: #27272a;
+  background: #18181b;
+}
+
+:global(.dark) .head {
+  border-bottom-color: #27272a;
+}
+
+:global(.dark) .icon {
+  background: rgba(6, 78, 59, 0.4);
+  color: #34d399;
+}
+
+:global(.dark) .title {
+  color: #f4f4f5;
+}
+
+:global(.dark) .subtitle,
+:global(.dark) .hint {
+  color: #a1a1aa;
+}
+
+:global(.dark) .hintWarn {
+  color: #fbbf24;
+}

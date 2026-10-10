@@ -1,0 +1,16 @@
+/* TinyMCE container: sits flush inside the "Article Content" card */
+.wrapper :global(.tox-tinymce) {
+  border: none;
+  border-radius: 0;
+}
+
+.wrapper :global(.tox .tox-editor-header) {
+  box-shadow: none;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+:global(.dark) .wrapper :global(.tox .tox-editor-header) {
+  border-bottom-color: #27272a;
+}
+
+/* (TinyMCE menus/dialogs z-index lives in app/admin/admin.css — they render outside this wrapper) */

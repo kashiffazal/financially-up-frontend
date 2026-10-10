@@ -55,8 +55,8 @@ export default function TaxAccountingImpactAndWhyChoose() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subsection 1: Company changes can affect tax and accounting records */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
-          <div className="text-center mb-10">
+        <div className="w-full mb-16 sm:mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Beyond the ASIC Register
             </Tag>
@@ -101,7 +101,7 @@ export default function TaxAccountingImpactAndWhyChoose() {
         </div>
 
         {/* Subsection 2: Why choose Financially Up? */}
-        <div className="max-w-5xl mx-auto rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+        <div className="w-full rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
               Integrated Experience & Accuracy

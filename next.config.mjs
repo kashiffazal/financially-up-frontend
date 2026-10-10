@@ -1,13 +1,31 @@
+// Blog images uploaded in the admin are served by the API server (/uploads/...)
+const apiUploadsPattern = (() => {
+  try {
+    const url = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api");
+    return { protocol: url.protocol.replace(":", ""), hostname: url.hostname, port: url.port, pathname: "/uploads/**" };
+  } catch {
+    return null;
+  }
+})();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  images: {
+    remotePatterns: [apiUploadsPattern, { protocol: "http", hostname: "localhost", port: "5000", pathname: "/uploads/**" }].filter(Boolean),
+  },
   // Hostinger's Next.js hosting runs the self-contained server in .next/standalone
   // (public/ and .next/static are copied into it by scripts/hostinger-build.mjs)
   output: "standalone",
   // 301 Redirects
   async redirects() {
     return [
+      {
+        source: "/services/individual-tax/individual-tax-return",
+        destination: "/services/individual-tax/individual-tax-returns",
+        permanent: true,
+      },
       {
         source: "/individual-tax-return",
         destination: "/individual-services/individual-tax-return",

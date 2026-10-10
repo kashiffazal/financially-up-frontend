@@ -99,7 +99,7 @@ export default function WhatIsVoluntaryDeregistrationAndCriteria() {
         </div>
 
         {/* Subsection 2: Who may use a company deregistration service? */}
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full">
           <div className="text-center mb-10">
             <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Eligibility & Alternative Pathways

@@ -22,6 +22,18 @@ import {
   PercentageOutlined,
   AuditOutlined,
   FileTextOutlined,
+  SyncOutlined,
+  CreditCardOutlined,
+  HomeOutlined,
+  CalculatorOutlined,
+  WalletOutlined,
+  DollarOutlined,
+  RiseOutlined,
+  StockOutlined,
+  FileProtectOutlined,
+  SolutionOutlined,
+  BookOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 
@@ -31,7 +43,7 @@ import { useCompany } from "@/context/SettingsContext";
 const ICON_MAP = {
   team: <TeamOutlined />,
   trophy: <TrophyOutlined />,
-  lineChart: <LineChartOutlined />,
+  linechart: <LineChartOutlined />,
   desktop: <DesktopOutlined />,
   send: <SendOutlined />,
   clock: <ClockCircleOutlined />,
@@ -41,13 +53,42 @@ const ICON_MAP = {
   percentage: <PercentageOutlined />,
   audit: <AuditOutlined />,
   file: <FileTextOutlined />,
+  filetext: <FileTextOutlined />,
+  sync: <SyncOutlined />,
+  creditcard: <CreditCardOutlined />,
+  card: <CreditCardOutlined />,
+  home: <HomeOutlined />,
+  property: <HomeOutlined />,
+  calculator: <CalculatorOutlined />,
+  wallet: <WalletOutlined />,
+  dollar: <DollarOutlined />,
+  money: <DollarOutlined />,
+  rise: <RiseOutlined />,
+  stock: <StockOutlined />,
+  shares: <RiseOutlined />,
+  fileprotect: <FileProtectOutlined />,
+  solution: <SolutionOutlined />,
+  book: <BookOutlined />,
+  user: <UserOutlined />,
+  check: <CheckCircleOutlined />,
 };
 
 const resolveIcon = (icon) => {
-  if (typeof icon === "string" && ICON_MAP[icon]) {
-    return ICON_MAP[icon];
+  if (React.isValidElement(icon)) {
+    return icon;
   }
-  return icon;
+  if (typeof icon === "string") {
+    const normalizedKey = icon.toLowerCase().replace(/[-_\s]/g, "");
+    if (ICON_MAP[normalizedKey]) {
+      return ICON_MAP[normalizedKey];
+    }
+    if (ICON_MAP[icon]) {
+      return ICON_MAP[icon];
+    }
+    // Safe fallback so raw string text is NEVER rendered inside the icon box
+    return <CheckCircleOutlined />;
+  }
+  return <CheckCircleOutlined />;
 };
 
 /**
@@ -67,7 +108,8 @@ const resolveIcon = (icon) => {
  * @param {Object} props
  * @param {string} props.title - Main H1 title
  * @param {string} props.subtitle - Hero subtitle
- * @param {string} props.description - Detailed service description
+ * @param {string|ReactNode} props.description - Detailed service description
+ * @param {string|ReactNode} props.bodyText - Detailed service description alias
  * @param {Object} props.parentService - { label: string, href: string }
  * @param {Array} props.breadcrumbs - [{ label: string, href?: string }]
  * @param {string} props.subPillarTag - e.g. "Pillar 1.1 • Personal Tax Practice"
@@ -84,6 +126,7 @@ export default function SubServiceHero({
   title = "Service Details",
   subtitle = "Professional Accounting & Advisory",
   description,
+  bodyText,
   parentService,
   breadcrumbs = [],
   subPillarTag = "Sub-Service",
@@ -109,6 +152,7 @@ export default function SubServiceHero({
 
   const lightBg = backgroundImageLight || backgroundImage || "/images/services/page-hero-light-bg.jpg";
   const darkBg = backgroundImageDark || backgroundImage || "/images/services/page-hero-bg.jpg";
+  const displayDescription = description || bodyText;
 
   // Default Quick Specs if not supplied
   const defaultQuickSpecs = [
@@ -256,10 +300,10 @@ export default function SubServiceHero({
                 </p>
               )}
 
-              {/* Description */}
-              {description && (
-                <div className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl font-normal mt-4">
-                  {description}
+              {/* Description / Body Text */}
+              {displayDescription && (
+                <div className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-normal mt-4">
+                  {displayDescription}
                 </div>
               )}
 
@@ -400,9 +444,19 @@ export default function SubServiceHero({
           </div>
         </div>
 
-        {/* Bottom Trust & Assurance Strip (4 Metrics) */}
+        {/* Bottom Trust & Assurance Strip (Full Width) */}
         {metrics.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-200/80 dark:border-white/10">
+          <div
+            className={`grid grid-cols-2 ${
+              metrics.length === 3
+                ? "sm:grid-cols-3"
+                : metrics.length === 2
+                ? "sm:grid-cols-2"
+                : metrics.length === 1
+                ? "sm:grid-cols-1"
+                : "md:grid-cols-4"
+            } gap-4 pt-6 border-t border-slate-200/80 dark:border-white/10 w-full`}
+          >
             {metrics.map((metric, idx) => (
               <div
                 key={idx}

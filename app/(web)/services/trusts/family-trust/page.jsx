@@ -172,9 +172,10 @@ export default function FamilyTrustPage() {
           href: "/book-an-appointment",
         }}
         metrics={[
-          { label: "Trust Experience", value: "10+ Yrs" },
-          { label: "Australia-Wide", value: "100% Online" },
-          { label: "ATO Compliance", value: "Guaranteed" },
+          { value: "10+ Years", label: "Trust Experience" },
+          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: "CPA & IPA", label: "Qualified Specialists" },
+          { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
       />
 

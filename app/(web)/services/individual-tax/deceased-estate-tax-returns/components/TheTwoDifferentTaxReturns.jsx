@@ -111,7 +111,7 @@ export default function TheTwoDifferentTaxReturns() {
               <span className="text-2xs text-slate-500 dark:text-zinc-400">
                 General return preparation:
               </span>
-              <Link href="/services/individual-tax/individual-tax-return">
+              <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="link"
                   className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto text-xs"

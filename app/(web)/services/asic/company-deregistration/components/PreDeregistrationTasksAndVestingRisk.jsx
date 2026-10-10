@@ -65,9 +65,9 @@ export default function PreDeregistrationTasksAndVestingRisk() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-950 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div className="w-full mb-16 sm:mb-20">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
               Pre-Closure Due Diligence
             </Tag>
@@ -80,7 +80,7 @@ export default function PreDeregistrationTasksAndVestingRisk() {
           </div>
 
           {/* 7 Tasks Grid */}
-          <div className="space-y-4 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
             {tasks.map((task, idx) => (
               <div
                 key={idx}

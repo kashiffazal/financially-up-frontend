@@ -18,7 +18,7 @@ export default function IndividualTaxServicesGrid() {
       title: "Individual tax returns",
       description:
         "Preparation and lodgement of individual income tax returns, including salary and wages, eligible work-related expenses, interest, dividends and other relevant income.",
-      href: "/services/individual-tax/individual-tax-return",
+      href: "/services/individual-tax/individual-tax-returns",
       icon: "file-text",
       tag: "Pillar 1.1",
     },

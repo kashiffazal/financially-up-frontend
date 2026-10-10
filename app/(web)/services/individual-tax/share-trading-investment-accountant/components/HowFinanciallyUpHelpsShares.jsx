@@ -105,7 +105,7 @@ export default function HowFinanciallyUpHelpsShares() {
               Tax-return preparation, calculation work and tax advice are not always the same service. Advice before selling investments, changing how you trade or dealing with complex transactions is scoped separately where required.
             </p>
             <Link
-              href="/services/individual-tax/individual-tax-return"
+              href="/services/individual-tax/individual-tax-returns"
               className="text-brand-primary dark:text-emerald-400 font-bold hover:underline inline-flex items-center gap-1 shrink-0"
             >
               Standard Tax Return Service <ArrowRightOutlined className="text-xs" />

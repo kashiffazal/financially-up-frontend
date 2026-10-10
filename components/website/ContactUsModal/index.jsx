@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Modal, Form, Input, Select, Button } from "antd";
+import { Modal, Form, Button } from "antd";
 import { antdMsg, HTTP } from "@/services";
-import { auPhoneRule, formatAuPhone, isAuPhone } from "@/lib/auPhone";
+import { AntInput } from "@/services/antdFields";
 
 const CONTACT_METHOD_LABELS = { email: "Email", phone: "Phone Call", whatsapp: "WhatsApp / SMS" };
+const CONTACT_METHOD_OPTIONS = Object.entries(CONTACT_METHOD_LABELS).map(([value, label]) => ({ value, label }));
 import {
   SendOutlined,
   MailOutlined,
@@ -107,128 +108,65 @@ export default function ContactUsModal({ open, onClose }) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <Form.Item
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
-                  First Name *
-                </span>
-              }
+            <AntInput
               name="firstName"
-              rules={[{ required: true, message: "First name is required" }]}
-              className="mb-0"
-            >
-              <Input
-                size="large"
-                placeholder="John"
-                className="rounded-xl text-sm"
-              />
-            </Form.Item>
-
-            <Form.Item
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
-                  Last Name *
-                </span>
-              }
+              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">First Name *</span>}
+              placeholder="John"
+              reqMsg="First name is required"
+              containerClassName="mb-0"
+            />
+            <AntInput
               name="lastName"
-              rules={[{ required: true, message: "Last name is required" }]}
-              className="mb-0"
-            >
-              <Input
-                size="large"
-                placeholder="Doe"
-                className="rounded-xl text-sm"
-              />
-            </Form.Item>
+              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Last Name *</span>}
+              placeholder="Doe"
+              reqMsg="Last name is required"
+              containerClassName="mb-0"
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <Form.Item
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
-                  Email Address *
-                </span>
-              }
+            <AntInput
+              type="email"
               name="email"
-              rules={[
-                { required: true, message: "Email is required" },
-                { type: "email", message: "Valid email required" },
-              ]}
-              className="mb-0"
-            >
-              <Input
-                size="large"
-                prefix={<MailOutlined className="text-slate-400 text-xs" />}
-                placeholder="john@example.com"
-                className="rounded-xl text-sm"
-              />
-            </Form.Item>
-
-            <Form.Item
-              label={
-                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
-                  Phone Number
-                </span>
-              }
+              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Email Address *</span>}
+              placeholder="john@example.com"
+              preIconAnt={<MailOutlined className="text-slate-400 text-xs" />}
+              reqMsg="Email is required"
+              emailErrorMsg="Valid email required"
+              containerClassName="mb-0"
+            />
+            {/* Australian number, validated while typing and tidied on blur by AntInput */}
+            <AntInput
+              type="phone"
               name="phone"
-              className="mb-0"
-              rules={[auPhoneRule()]}
-            >
-              <Input
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel"
-                maxLength={20}
-                size="large"
-                prefix={<PhoneOutlined className="text-slate-400 text-xs" />}
-                placeholder="0400 000 000"
-                className="rounded-xl text-sm"
-                onBlur={(e) => {
-                  // Tidy a valid number into the standard format, e.g. "+61412345678" -> "0412 345 678"
-                  if (isAuPhone(e.target.value)) form.setFieldValue("phone", formatAuPhone(e.target.value));
-                }}
-              />
-            </Form.Item>
+              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Phone Number</span>}
+              placeholder="0400 000 000"
+              preIconAnt={<PhoneOutlined className="text-slate-400 text-xs" />}
+              noRequired
+              containerClassName="mb-0"
+            />
           </div>
 
-          <Form.Item
-            label={
-              <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
-                How Would You Like Us To Contact? *
-              </span>
-            }
+          <AntInput
+            type="select"
             name="contactMethod"
-            rules={[
-              { required: true, message: "Please select a contact method" },
-            ]}
-            className="mb-0"
-          >
-            <Select
-              size="large"
-              placeholder="Select preferred contact method"
-              className="rounded-xl text-sm"
-            >
-              <Select.Option value="email">Email</Select.Option>
-              <Select.Option value="phone">Phone Call</Select.Option>
-              <Select.Option value="whatsapp">WhatsApp / SMS</Select.Option>
-            </Select>
-          </Form.Item>
+            label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">How Would You Like Us To Contact? *</span>}
+            placeholder="Select preferred contact method"
+            options={CONTACT_METHOD_OPTIONS}
+            filter={false}
+            reqMsg="Please select a contact method"
+            containerClassName="mb-0"
+          />
 
-          <Form.Item
-            label={
-              <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
-                Anything Else? (Optional)
-              </span>
-            }
+          <AntInput
+            type="textarea"
             name="notes"
-            className="mb-0"
-          >
-            <Input.TextArea
-              rows={3}
-              placeholder="Tell us about your tax, accounting, or business enquiry..."
-              className="rounded-xl text-sm"
-            />
-          </Form.Item>
+            label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Anything Else? (Optional)</span>}
+            placeholder="Tell us about your tax, accounting, or business enquiry..."
+            minRows={3}
+            noRequired
+            containerClassName="mb-0"
+          />
 
           <div className="pt-3">
             <Button

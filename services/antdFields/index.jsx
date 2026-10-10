@@ -249,6 +249,11 @@ function extractTextFromLabel(lbl) {
   return "";
 }
 
+/** Field types that default to the large (40px) size. */
+const TEXT_SIZED_TYPES = new Set([
+  "text", "email", "password", "number", "inputNumber", "select", "datepicker", "timepicker", "textarea", "phone", "mobile", "url", "tel", "search",
+]);
+
 export const AntInput = ({
   // Essentials
   type = "text",
@@ -318,9 +323,10 @@ export const AntInput = ({
   minRows = 4,
   maxRows,
   // Antd Essentials
-  size = "default",
+  size, // default: "large" for text-type fields (one look across every form), "default" otherwise
   formProps,
   help = undefined,
+  extra = undefined, // hint under the field (unlike `help`, validation errors still show)
   feedback,
   addonBefore = false,
   addonAfter = false,
@@ -394,6 +400,10 @@ export const AntInput = ({
     feedback = feedback !== true ? undefined : feedback;
   }
 
+  // Every text-type field is "large" (40px) unless a size is passed, so all
+  // forms share the engagement-form field style. Radios / checkboxes / switches keep "default".
+  const fieldSize = size || (TEXT_SIZED_TYPES.has(type) ? "large" : "default");
+
   // Build field rules dynamically
   const fieldRules = rules || [
     validator ? { validator } : { required: !noRequired, message: reqMsg },
@@ -410,13 +420,14 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <InputNumber
           style={{ width: "100%", ...style }}
           className={className}
-          size={size}
+          size={fieldSize}
           formatter={(val) =>
             numberPrefixPostfix(numPreFix, numPostFix, val).formatter
           }
@@ -455,13 +466,14 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <InputNumber
           style={{ width: "100%", ...style }}
           className={className}
-          size={size}
+          size={fieldSize}
           formatter={(val) => {
             let str = val ? String(val).replace(/[A-Za-z!@#$%^&*()]/g, "") : "";
             if (comma) {
@@ -508,13 +520,14 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <Input
           style={style}
           className={className}
-          size={size}
+          size={fieldSize}
           prefix={
             preIconLine ? (
               <i className={preIconLine} style={{ color: preIconColorLine }} />
@@ -572,13 +585,14 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <Select
           style={style}
           className={className}
-          size={size}
+          size={fieldSize}
           allowClear={true}
           onChange={(e) => {
             onChange && onChange(e);
@@ -623,11 +637,12 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <DatePicker
-          size={size}
+          size={fieldSize}
           className={className}
           style={{ width: "100%", ...style }}
           onChange={(date, dateString) => {
@@ -667,12 +682,13 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <TimePicker
           use12Hours
-          size={size}
+          size={fieldSize}
           className={className}
           style={{ width: "100%", ...style }}
           onChange={(time, timeString) => {
@@ -702,6 +718,7 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
@@ -711,7 +728,7 @@ export const AntInput = ({
             onChange={onChange}
             onBlur={onBlur}
             disabled={disabled}
-            size={size}
+            size={fieldSize}
             gridClassName={gridClassName}
             cardClassName={cardClassName}
             cardStyle={cardStyle}
@@ -725,7 +742,7 @@ export const AntInput = ({
               onBlur && onBlur(e.target.value);
             }}
             disabled={loading || disabled}
-            size={size}
+            size={fieldSize}
           >
             {radioOptions.map((item, i) => (
               <Radio
@@ -749,7 +766,7 @@ export const AntInput = ({
             disabled={loading || disabled}
             optionType={optionType}
             options={radioOptions}
-            size={size}
+            size={fieldSize}
           />
         )}
       </Form.Item>
@@ -768,6 +785,7 @@ export const AntInput = ({
           validateStatus={loading ? "validating" : validateKeyword}
           hasFeedback={loading ? true : feedback}
           help={help}
+          extra={extra}
           style={containerStyle}
           className={containerClassName}
         >
@@ -834,6 +852,7 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
@@ -866,6 +885,7 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
@@ -873,7 +893,7 @@ export const AntInput = ({
           style={style}
           rows={rows || minRows}
           className={className}
-          size={size}
+          size={fieldSize}
           placeholder={
             placeholder ||
             (extractTextFromLabel(label)
@@ -917,7 +937,7 @@ export const AntInput = ({
             onChange && onChange(checked);
           }}
           disabled={loading || disabled}
-          size={size}
+          size={fieldSize}
         />
       </Form.Item>
     );
@@ -934,13 +954,14 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
         <Input.Password
           style={style}
           className={className}
-          size={size}
+          size={fieldSize}
           prefix={
             preIconLine ? (
               <i className={preIconLine} style={{ color: preIconColorLine }} />
@@ -991,6 +1012,7 @@ export const AntInput = ({
         validateStatus={loading ? "validating" : validateKeyword}
         hasFeedback={loading ? true : feedback}
         help={help}
+        extra={extra}
         style={containerStyle}
         className={containerClassName}
       >
@@ -999,7 +1021,7 @@ export const AntInput = ({
           inputMode="tel"
           style={style}
           className={className}
-          size={size}
+          size={fieldSize}
           prefix={
             preIconLine ? (
               <i className={preIconLine} style={{ color: preIconColorLine }} />
@@ -1036,13 +1058,14 @@ export const AntInput = ({
       validateStatus={loading ? "validating" : validateKeyword}
       hasFeedback={loading ? true : feedback}
       help={help}
+      extra={extra}
       style={containerStyle}
       className={containerClassName}
     >
       <Input
         style={style}
         className={className}
-        size={size}
+        size={fieldSize}
         {...(addonBefore ? { addonBefore } : {})}
         {...(addonAfter ? { addonAfter } : {})}
         prefix={
@@ -1131,6 +1154,7 @@ export const AntFileUpload = ({
       valuePropName="fileList"
       getValueFromEvent={normFile}
       help={help}
+      extra={extra}
       style={containerStyle}
       className={containerClassName}
     >

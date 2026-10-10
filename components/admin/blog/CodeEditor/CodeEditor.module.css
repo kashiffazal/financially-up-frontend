@@ -1,0 +1,30 @@
+.wrap {
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.wrap :global(.cm-editor) {
+  outline: none;
+}
+
+.wrap :global(.cm-scroller) {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height: 1.6;
+}
+
+.wrap :global(.cm-content) {
+  padding: 12px 0;
+}
+
+.bordered {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+}
+
+.bordered:focus-within {
+  border-color: #008043;
+}
+
+:global(.dark) .bordered {
+  border-color: #3f3f46;
+}

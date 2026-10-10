@@ -12,6 +12,14 @@
 
 ---
 
+## 📏 Field Size & Hints
+
+- Text-type fields (`text`, `email`, `password`, `number`, `inputNumber`, `select`, `datepicker`, `timepicker`, `textarea`, `phone`, `mobile`) default to `size="large"` (40px), so every form in the app shares the same field style. Pass `size` to override it.
+- Radios, checkboxes and switches keep the default size.
+- `extra="..."` shows a hint under the field. Unlike `help`, validation errors still appear.
+
+---
+
 ## 🚀 Quick Usage Examples
 
 ### 1. Standard Text & Password Inputs

@@ -32,7 +32,7 @@ export default function HighIncomeRelatedServiceRibbon() {
           <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">
             •
           </span>
-          <Link href="/services/individual-tax/individual-tax-return">
+          <Link href="/services/individual-tax/individual-tax-returns">
             <Button
               type="link"
               className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1 h-auto"
