@@ -9,6 +9,7 @@ import {
   ArrowRightOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsFbt Component
@@ -48,11 +49,11 @@ export default function HowFinanciallyUpHelpsFbt() {
           </Tag>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can assist employers with FBT reviews, calculations,
+            <CompanyName /> can assist employers with FBT reviews, calculations,
             return preparation and related payroll reporting where required. We
             can help identify the information needed, review the treatment of
             benefits and prepare the compliance work based on the available

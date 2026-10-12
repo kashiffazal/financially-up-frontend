@@ -11,6 +11,7 @@ import {
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsSmsf Component
@@ -45,14 +46,14 @@ export default function HowFinanciallyUpHelpsSmsf() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60 mb-4">
             <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400 text-xs sm:text-sm" />
             <span className="text-xs font-semibold text-teal-800 dark:text-teal-300 tracking-wide uppercase">
-              How Financially Up Can Help
+              How <CompanyName /> Can Help
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Financially Up can provide ongoing SMSF accounting and tax support,
+            <CompanyName /> can provide ongoing SMSF accounting and tax support,
             including year-end reconciliations, annual financial statements,
             SMSF tax reporting, member-account information and audit
             preparation. Where records are incomplete, we can identify what is

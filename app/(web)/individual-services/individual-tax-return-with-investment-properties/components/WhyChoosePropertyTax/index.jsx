@@ -9,6 +9,7 @@ import {
   SolutionOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function WhyChoosePropertyTax() {
   const points = [
@@ -47,11 +48,11 @@ export default function WhyChoosePropertyTax() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
           <Tag color="green" className="brand-section-tag">
-            Why Choose Financially Up
+            Why Choose <CompanyName />
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
-            Why Choose Financially Up for Your Individual Tax Returns with
+            Why Choose <CompanyName /> for Your Individual Tax Returns with
             Investment Properties?
           </h2>
 

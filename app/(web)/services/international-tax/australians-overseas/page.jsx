@@ -6,11 +6,17 @@ import ExpatHelpAndDiscussionPreparation from "./components/ExpatHelpAndDiscussi
 import RelatedAustraliansOverseasRibbon from "./components/RelatedAustraliansOverseasRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Australian Expat Tax Accountant | Financially Up",
   description:
     "Living overseas with Australian income or assets? Get help reviewing tax residency, return obligations, rental income, property sales and Australian CGT.",
@@ -24,18 +30,19 @@ export const metadata = {
     "expat tax advice australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/australians-overseas/",
+    canonical: `${SITE_URL}/services/international-tax/australians-overseas/`,
   },
   openGraph: {
     title: "Australian Expat Tax Accountant | Financially Up",
     description:
       "Living overseas with Australian income or assets? Get help reviewing tax residency, return obligations, rental income, property sales and Australian CGT.",
-    url: "https://financiallyup.com.au/services/international-tax/australians-overseas/",
+    url: `${SITE_URL}/services/international-tax/australians-overseas/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -114,10 +121,7 @@ export default function AustraliansOverseasPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -129,7 +133,7 @@ export default function AustraliansOverseasPage() {
               Living overseas does not automatically end your Australian tax obligations. Your Australian tax residency, continuing income and assets determine whether an Australian return is needed and what it should include. An Australian citizen can be a foreign resident for tax purposes; someone living abroad can also remain an Australian tax resident.
             </span>
             <span className="block mt-2">
-              Financially Up helps Australians abroad clarify their status and organize their Australian tax affairs. As an Australian expat tax accountant, we review the facts of your move, income and property before advising on the scope of return preparation.
+              <CompanyName /> helps Australians abroad clarify their status and organize their Australian tax affairs. As an Australian expat tax accountant, we review the facts of your move, income and property before advising on the scope of return preparation.
             </span>
           </span>
         }
@@ -150,7 +154,7 @@ export default function AustraliansOverseasPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -183,8 +187,8 @@ export default function AustraliansOverseasPage() {
       {/* 6. Pre-Footer Call to Action Banner (Verbatim from Client Document) */}
       <CallToActionBanner
         tag="Clarify what Australia still requires"
-        title="Book an Appointment with Financially Up"
-        subtitle="Book an Appointment with Financially Up to review your move, continuing Australian income and assets, and the appropriate Australian expat tax work for your circumstances."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to review your move, continuing Australian income and assets, and the appropriate Australian expat tax work for your circumstances."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

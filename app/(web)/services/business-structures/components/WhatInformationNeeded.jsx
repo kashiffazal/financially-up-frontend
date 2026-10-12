@@ -18,6 +18,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatInformationNeeded Component
@@ -166,7 +167,7 @@ export default function WhatInformationNeeded() {
               Ready to discuss what information applies to your proposed entity?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1 font-normal">
-              Book an appointment with Financially Up to review your documents
+              Book an appointment with <CompanyName /> to review your documents
               and establish your entity cleanly.
             </p>
           </div>

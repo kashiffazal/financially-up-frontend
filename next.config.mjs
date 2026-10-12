@@ -1,3 +1,15 @@
+// Domains come only from the environment (hPanel on each Hostinger account,
+// .env.local when developing). A build without them would link to the wrong site,
+// so it stops here with a clear message.
+if (process.argv.includes("build")) {
+  const missing = ["NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_API_URL"].filter((key) => !/^https?:\/\//.test(process.env[key] || ""));
+  if (missing.length) {
+    throw new Error(
+      `Missing ${missing.join(" and ")} (full https:// address). Set it in hPanel > Environment variables (or .env.local) and build again.`
+    );
+  }
+}
+
 // Blog images uploaded in the admin are served by the API server (/uploads/...)
 const apiUploadsPattern = (() => {
   try {

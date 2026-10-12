@@ -11,6 +11,7 @@ import {
   WarningOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ApplyingBeforeTradingAndGstDistinction Component
@@ -32,7 +33,7 @@ export default function ApplyingBeforeTradingAndGstDistinction() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           {/* Card 1: Can you apply for an ABN before trading starts? */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 flex items-center justify-center">
                 <RocketOutlined className="text-lg" />
@@ -80,7 +81,7 @@ export default function ApplyingBeforeTradingAndGstDistinction() {
           </div>
 
           {/* Card 2: ABN registration is not the same as GST registration */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center">
                 <SwapOutlined className="text-lg" />
@@ -94,7 +95,7 @@ export default function ApplyingBeforeTradingAndGstDistinction() {
                 An ABN identifies the business or entity, while GST is a
                 separate tax registration. Depending on turnover and activities,
                 a business may be required or choose to register for GST.
-                Financially Up can help identify whether a separate GST review
+                <CompanyName /> can help identify whether a separate GST review
                 is needed after the ABN has been established.
               </p>
 

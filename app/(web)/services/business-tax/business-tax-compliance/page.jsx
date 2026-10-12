@@ -9,11 +9,17 @@ import HowFinanciallyUpHelpsCompliance from "./components/HowFinanciallyUpHelpsC
 import RelatedTaxComplianceRibbon from "./components/RelatedTaxComplianceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Tax Compliance Services for Business | Financially Up",
   description:
     "Tax compliance services for Australian businesses, including returns, BAS/GST, PAYG and record reviews. Practical support to keep obligations organized.",
@@ -27,18 +33,19 @@ export const metadata = {
     "tax return lodgment Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/business-tax-compliance/",
+    canonical: `${SITE_URL}/services/business-tax/business-tax-compliance/`,
   },
   openGraph: {
     title: "Tax Compliance Services for Business | Financially Up",
     description:
       "Tax compliance services for Australian businesses, including returns, BAS/GST, PAYG and record reviews. Practical support to keep obligations organized.",
-    url: "https://financiallyup.com.au/services/business-tax/business-tax-compliance/",
+    url: `${SITE_URL}/services/business-tax/business-tax-compliance/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -135,10 +142,7 @@ export default function BusinessTaxCompliancePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -150,7 +154,7 @@ export default function BusinessTaxCompliancePage() {
               Tax compliance services help a business meet the tax reporting and lodgment obligations that apply to its structure, registrations and activities. Depending on the business, this can include income tax returns, GST and BAS reporting, PAYG obligations, record keeping and follow-up on ATO correspondence.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides business tax compliance support for companies, trusts, partnerships and sole traders across Australia. We focus on accurate preparation, clear information requirements and coordinated compliance work rather than treating each lodgment in isolation.
+              <CompanyName legal /> provides business tax compliance support for companies, trusts, partnerships and sole traders across Australia. We focus on accurate preparation, clear information requirements and coordinated compliance work rather than treating each lodgment in isolation.
             </span>
           </span>
         }
@@ -198,7 +202,7 @@ export default function BusinessTaxCompliancePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Compliance Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -238,7 +242,7 @@ export default function BusinessTaxCompliancePage() {
       {/* 10. Pre-Footer Call To Action Banner */}
       <CallToActionBanner
         title="Book an Appointment"
-        description="For practical tax compliance services, book an appointment with Financially Up to discuss your current obligations, records, upcoming lodgments and any compliance issues that need review."
+        description={<BrandText text={"For practical tax compliance services, book an appointment with Financially Up to discuss your current obligations, records, upcoming lodgments and any compliance issues that need review."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnLink="/book-an-appointment"
       />

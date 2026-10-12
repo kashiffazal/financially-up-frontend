@@ -106,7 +106,7 @@ export default function OverdueVsUnlodgedExplanation() {
         {/* Non-Lodgment Advice vs Amendments Callouts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Card 1: Non-Lodgment Advice */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold text-xs uppercase tracking-wider mb-3">
                 <CheckCircleOutlined /> Not Everyone Must Lodge Every Year
@@ -126,7 +126,7 @@ export default function OverdueVsUnlodgedExplanation() {
           </div>
 
           {/* Card 2: Amendments Are Different */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200/80 dark:border-blue-800/50 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200/80 dark:border-blue-800/50 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 text-blue-800 dark:text-blue-300 font-bold text-xs uppercase tracking-wider mb-3">
                 <FileTextOutlined /> Already Lodged Returns
@@ -157,7 +157,7 @@ export default function OverdueVsUnlodgedExplanation() {
         </div>
 
         {/* Section 2: What If Several Years Are Outstanding? */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80">
+        <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80">
           <div className="max-w-3xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Multi-Year Resolution

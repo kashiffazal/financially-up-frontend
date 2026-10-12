@@ -12,6 +12,7 @@ import {
   AuditOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsTrustTax Component
@@ -78,7 +79,7 @@ export default function HowFinanciallyUpHelpsTrustTax() {
             Professional Deliverables
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             We provide structured accounting, reconciliation, and tax lodgement

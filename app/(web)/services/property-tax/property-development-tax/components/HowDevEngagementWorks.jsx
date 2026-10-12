@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowDevEngagementWorks Component
@@ -127,7 +128,7 @@ export default function HowDevEngagementWorks() {
               Where the project raises contract, ownership, valuation, finance
               or financial-product questions, separate legal, valuation or
               appropriately authorized financial advice may be required.
-              Financially Up’s role is limited to the accounting and tax
+              <CompanyName />’s role is limited to the accounting and tax
               services agreed with the client.
             </p>
           </div>

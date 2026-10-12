@@ -76,7 +76,7 @@ export default function ChoosingOrChangingStructure() {
         </div>
 
         {/* Verbatim Paragraph 3 & Service Cards */}
-        <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl max-w-5xl mx-auto">
+        <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-lg p-8 sm:p-10 shadow-xl max-w-5xl mx-auto">
           <div className="max-w-3xl mb-8">
             <h3 className="text-xl sm:text-2xl font-bold mb-3">
               Ongoing Reporting &amp; Compliance Obligations

@@ -10,12 +10,18 @@ import WhyChooseFinanciallyUpValuation from "./components/WhyChooseFinanciallyUp
 import ValuationsRelatedServicesRibbon from "./components/ValuationsRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 5 (5- Business Valuations)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Valuation Services | Financially Up",
   description:
     "Need to understand what a business may be worth? Financially Up reviews financial performance, assets and valuation assumptions for informed decisions.",
@@ -31,18 +37,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/business-valuations/",
+      `${SITE_URL}/services/business-advisory/business-valuations/`,
   },
   openGraph: {
     title: "Business Valuation Services | Financially Up",
     description:
       "Need to understand what a business may be worth? Financially Up reviews financial performance, assets and valuation assumptions for informed decisions.",
-    url: "https://financiallyup.com.au/services/business-advisory/business-valuations/",
+    url: `${SITE_URL}/services/business-advisory/business-valuations/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -129,10 +136,7 @@ export default function BusinessValuationsSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -148,7 +152,7 @@ export default function BusinessValuationsSubpage() {
               still be difficult to sell at the price its owner expects.
             </span>
             <span className="block mt-2">
-              Financially Up provides business valuation services within an
+              <CompanyName /> provides business valuation services within an
               agreed scope to help owners and prospective buyers understand the
               numbers and assumptions behind a value. We begin by clarifying the
               purpose. A preliminary commercial estimate for planning differs
@@ -178,7 +182,7 @@ export default function BusinessValuationsSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Commercial Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -221,7 +225,7 @@ export default function BusinessValuationsSubpage() {
       <CallToActionBanner
         tag="Start with the Purpose of the Valuation"
         title="Book an Appointment"
-        subtitle="Bring recent financial information and explain the decision the valuation must support. Financially Up can identify the appropriate scope, records and next steps."
+        subtitle={<BrandText text={"Bring recent financial information and explain the decision the valuation must support. Financially Up can identify the appropriate scope, records and next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Business Advisory Services"

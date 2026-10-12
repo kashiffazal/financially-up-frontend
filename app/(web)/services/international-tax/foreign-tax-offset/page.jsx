@@ -6,11 +6,17 @@ import FitoRecordsAndHowWeHelp from "./components/FitoRecordsAndHowWeHelp";
 import RelatedFitoRibbon from "./components/RelatedFitoRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Foreign Income Tax Offset Accountant | Financially Up",
   description:
     "Paid tax overseas? Financially Up reviews the related income, payment evidence, currency conversion and foreign income tax offset limit for your return.",
@@ -24,18 +30,19 @@ export const metadata = {
     "double tax agreement offset sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/foreign-tax-offset/",
+    canonical: `${SITE_URL}/services/international-tax/foreign-tax-offset/`,
   },
   openGraph: {
     title: "Foreign Income Tax Offset Accountant | Financially Up",
     description:
       "Paid tax overseas? Financially Up reviews the related income, payment evidence, currency conversion and foreign income tax offset limit for your return.",
-    url: "https://financiallyup.com.au/services/international-tax/foreign-tax-offset/",
+    url: `${SITE_URL}/services/international-tax/foreign-tax-offset/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -123,10 +130,7 @@ export default function ForeignTaxOffsetPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -138,7 +142,7 @@ export default function ForeignTaxOffsetPage() {
               A foreign income tax offset, often called FITO, may reduce Australian income tax where qualifying foreign income tax was paid on income or gains included in Australian assessable income. It can help relieve double taxation, but the amount available depends on the income, the foreign tax, the Australian calculation and any applicable limit. Paying tax overseas does not create an automatic refund of the same amount.
             </span>
             <span className="block mt-2">
-              Financially Up connects foreign income and foreign tax documents to the Australian return. As a foreign income tax offset accountant, we check what the payment relates to before calculating a claim.
+              <CompanyName /> connects foreign income and foreign tax documents to the Australian return. As a foreign income tax offset accountant, we check what the payment relates to before calculating a claim.
             </span>
           </span>
         }
@@ -159,7 +163,7 @@ export default function ForeignTaxOffsetPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -192,8 +196,8 @@ export default function ForeignTaxOffsetPage() {
       {/* 6. Pre-Footer Call to Action Banner (Verbatim from Client Document) */}
       <CallToActionBanner
         tag="Check the income and foreign tax together"
-        title="Book an Appointment with Financially Up"
-        subtitle="Book an Appointment with Financially Up to discuss your foreign income, tax documents and whether a foreign income tax offset can be supported in your Australian return."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss your foreign income, tax documents and whether a foreign income tax offset can be supported in your Australian return."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

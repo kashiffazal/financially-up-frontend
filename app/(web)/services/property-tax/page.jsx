@@ -11,11 +11,16 @@ import HowEngagementWorksProperty from "./components/HowEngagementWorksProperty"
 import WhyChooseFinanciallyUpProperty from "./components/WhyChooseFinanciallyUpProperty";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 10th Pillar Property Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Property Tax Accountant Australia | Financially Up",
   description:
     "Property tax accountant support for investors and developers across Australia. Get help with rental income, CGT, GST, records and property tax compliance.",
@@ -32,18 +37,19 @@ export const metadata = {
     "rental property tax deductions",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/property-tax/",
+    canonical: `${SITE_URL}/services/property-tax/`,
   },
   openGraph: {
     title: "Property Tax Accountant Australia | Financially Up",
     description:
       "Property tax accountant support for investors and developers across Australia. Get help with rental income, CGT, GST, records and property tax compliance.",
-    url: "https://financiallyup.com.au/services/property-tax/",
+    url: `${SITE_URL}/services/property-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Property Tax
@@ -152,7 +158,7 @@ const propertyFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up advise on the best property to buy?",
+    label: <BrandText text={"Can Financially Up advise on the best property to buy?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Tax and accounting consequences can be explained within scope, but choosing a particular
@@ -215,10 +221,7 @@ export default function PropertyTaxMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -236,7 +239,7 @@ export default function PropertyTaxMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up supports property investors, landlords, developers and business owners with property-related accounting and tax work across Australia. The scope can include rental property reporting, capital gains tax calculations, GST and development issues, entity accounting and coordination with separately scoped tax planning where required.
+            <CompanyName /> supports property investors, landlords, developers and business owners with property-related accounting and tax work across Australia. The scope can include rental property reporting, capital gains tax calculations, GST and development issues, entity accounting and coordination with separately scoped tax planning where required.
           </p>
         }
         scopeNotice={
@@ -306,7 +309,7 @@ export default function PropertyTaxMainPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an appointment with Financially Up to discuss your property circumstances, records and the appropriate accounting or tax service scope."
+        subtitle={<BrandText text={"Book an appointment with Financially Up to discuss your property circumstances, records and the appropriate accounting or tax service scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

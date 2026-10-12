@@ -12,6 +12,7 @@ import {
   SafetyCertificateOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SpecificChangesBreakdown Component
@@ -49,7 +50,7 @@ export default function SpecificChangesBreakdown() {
         {/* 3 Detailed Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 1. Changing directors or company secretaries */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div className="rounded-lg p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
             <div>
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-5">
                 <UserSwitchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
@@ -66,9 +67,9 @@ export default function SpecificChangesBreakdown() {
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
                 The company’s constitution or rules may also govern how an
-                appointment or cessation is made. Financially Up can assist with
-                the ASIC administration, but legal questions about the validity
-                of a corporate decision may require legal advice.
+                appointment or cessation is made. <CompanyName /> can assist
+                with the ASIC administration, but legal questions about the
+                validity of a corporate decision may require legal advice.
               </p>
             </div>
 
@@ -87,7 +88,7 @@ export default function SpecificChangesBreakdown() {
           </div>
 
           {/* 2. Changing addresses and contact details */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div className="rounded-lg p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
             <div>
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-5">
                 <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />
@@ -125,7 +126,7 @@ export default function SpecificChangesBreakdown() {
           </div>
 
           {/* 3. Share and member changes need more than a filing */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div className="rounded-lg p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center mb-5">
                 <PieChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />

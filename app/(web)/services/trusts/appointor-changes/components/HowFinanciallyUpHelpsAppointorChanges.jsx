@@ -11,6 +11,7 @@ import {
   FileDoneOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsAppointorChanges Component
@@ -64,10 +65,10 @@ export default function HowFinanciallyUpHelpsAppointorChanges() {
             Professional Deliverables
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can review the trust deed from an accounting and tax
+            <CompanyName /> can review the trust deed from an accounting and tax
             perspective, understand the proposed succession or control change,
             check the trust&apos;s tax history, identify trust loss or election
             issues that may need analysis, and coordinate updates to accounting

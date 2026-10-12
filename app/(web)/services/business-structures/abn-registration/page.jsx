@@ -9,23 +9,28 @@ import DecisionsBeforeAbnAndInformationNeeded from "./components/DecisionsBefore
 import ApplyingBeforeTradingAndGstDistinction from "./components/ApplyingBeforeTradingAndGstDistinction";
 import AbnByEntityAndCommonIssues from "./components/AbnByEntityAndCommonIssues";
 import WhyChooseFinanciallyUpAbn from "./components/WhyChooseFinanciallyUpAbn";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "ABN Registration Australia | Financially Up",
   description:
     "ABN registration support for businesses and eligible entities. Get help with ABN applications, entity details and related Australian tax registrations.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/abn-registration/",
+    canonical: `${SITE_URL}/services/business-structures/abn-registration/`,
   },
   openGraph: {
     title: "ABN Registration Australia | Financially Up",
     description:
       "ABN registration support for businesses and eligible entities. Get help with ABN applications, entity details and related Australian tax registrations.",
-    url: "https://financiallyup.com.au/services/business-structures/abn-registration/",
+    url: `${SITE_URL}/services/business-structures/abn-registration/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -56,9 +61,9 @@ const abnFaqs = [
       "GST registration is linked to the entity's ABN, so the ABN is a core part of the registration process. Whether GST registration is required or appropriate depends on the entity's circumstances and activities.",
   },
   {
-    question: "Can Financially Up help if my ABN application has questions or needs review?",
+    question: <BrandText text={"Can Financially Up help if my ABN application has questions or needs review?"} />,
     answer:
-      "Yes. Financially Up can review the information available, help identify what may be missing and assist with the next steps within the appropriate accounting and tax scope.",
+      <BrandText text={"Yes. Financially Up can review the information available, help identify what may be missing and assist with the next steps within the appropriate accounting and tax scope."} />,
   },
 ];
 
@@ -72,7 +77,7 @@ export default function AbnRegistrationPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -83,10 +88,7 @@ export default function AbnRegistrationPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -99,7 +101,7 @@ export default function AbnRegistrationPage() {
           badgeText="Australian Business Register"
           title="ABN Registration"
           description={[
-            "An Australian Business Number (ABN) is a unique 11-digit identifier used by businesses and other eligible entities in their dealings with government and the community. Financially Up provides an ABN registration service for people who want help confirming the correct entity, preparing the application information and coordinating related tax registrations.",
+            <BrandText key="brand-0" text={"An Australian Business Number (ABN) is a unique 11-digit identifier used by businesses and other eligible entities in their dealings with government and the community. Financially Up provides an ABN registration service for people who want help confirming the correct entity, preparing the application information and coordinating related tax registrations."} />,
             "Not everyone is entitled to an ABN. Entitlement depends on the entity and the activities being carried on or started. Applying for an ABN should therefore begin with the business structure and the nature of the activity, not simply with an online form.",
           ]}
           ctaText="Book an Appointment"
@@ -135,7 +137,7 @@ export default function AbnRegistrationPage() {
         {/* Section 7: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you need to apply for an ABN or want help confirming that the right entity is being registered, book an appointment with Financially Up. We can review the setup, the ABN application information and any related accounting or tax registrations that may be relevant."
+          description={<BrandText text={"If you need to apply for an ABN or want help confirming that the right entity is being registered, book an appointment with Financially Up. We can review the setup, the ABN application information and any related accounting or tax registrations that may be relevant."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

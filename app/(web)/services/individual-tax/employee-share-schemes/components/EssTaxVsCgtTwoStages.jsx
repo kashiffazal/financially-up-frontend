@@ -43,7 +43,7 @@ export default function EssTaxVsCgtTwoStages() {
         {/* 2-Stage Process Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Stage 1: ESS Discount */}
-          <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs uppercase tracking-wider font-extrabold text-brand-primary dark:text-emerald-400 font-mono">
@@ -73,7 +73,7 @@ export default function EssTaxVsCgtTwoStages() {
           </div>
 
           {/* Stage 2: CGT Disposal */}
-          <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs uppercase tracking-wider font-extrabold text-blue-600 dark:text-blue-400 font-mono">
@@ -106,7 +106,7 @@ export default function EssTaxVsCgtTwoStages() {
         {/* Cost Base Reset & 30-Day Rule Deep Dive */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Card 1: Cost Base Reset Rules */}
-          <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <h4 className="text-base font-bold text-slate-900 dark:text-white mb-3">
               Cost Base and Acquisition Time Resets
             </h4>
@@ -128,7 +128,7 @@ export default function EssTaxVsCgtTwoStages() {
           </div>
 
           {/* Card 2: Special 30-Day Rule */}
-          <div className="bg-amber-50/60 dark:bg-amber-950/20 rounded-3xl p-7 border border-amber-200/80 dark:border-amber-800/40 shadow-xs flex flex-col justify-between">
+          <div className="bg-amber-50/60 dark:bg-amber-950/20 rounded-lg p-7 border border-amber-200/80 dark:border-amber-800/40 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 font-bold text-amber-900 dark:text-amber-200 text-sm mb-2">
                 <ClockCircleOutlined />

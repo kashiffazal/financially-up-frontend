@@ -10,13 +10,18 @@ import WhatInformationNeeded from "./components/WhatInformationNeeded";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document:
  * '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx' (Page 1)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Tax Planning Services Australia | Financially Up",
   description:
     "Practical tax planning services for Australian individuals and businesses, covering timing, structure, obligations, records and year-end decisions.",
@@ -34,18 +39,19 @@ export const metadata = {
     "high income tax planning",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/`,
   },
   openGraph: {
     title: "Tax Planning Services Australia | Financially Up",
     description:
       "Practical tax planning services for Australian individuals and businesses, covering timing, structure, obligations, records and year-end decisions.",
-    url: "https://financiallyup.com.au/services/tax-planning/",
+    url: `${SITE_URL}/services/tax-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Tax Planning Hub
@@ -171,7 +177,7 @@ const taxPlanningFaqs = [
     label: "Do I need a tax planning accountant or a financial adviser?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It depends on the question. Financially Up can provide tax and
+        It depends on the question. <CompanyName /> can provide tax and
         accounting support within scope. Investment product recommendations,
         personal financial advice or legal advice may require a separately
         qualified professional.
@@ -243,10 +249,7 @@ export default function TaxPlanningMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -260,7 +263,7 @@ export default function TaxPlanningMainPage() {
         description={
           <p className="m-0">
             Tax planning is about considering the tax consequences of decisions
-            before they are locked in. Financially Up provides tax planning
+            before they are locked in. <CompanyName /> provides tax planning
             services for Australian individuals and businesses that want a
             clearer view of upcoming tax obligations, legitimate planning
             opportunities and the records needed to support their position.
@@ -278,7 +281,7 @@ export default function TaxPlanningMainPage() {
         }
         scopeNotice={
           <p className="m-0">
-            Talk with Financially Up about your current tax position, upcoming
+            Talk with <CompanyName /> about your current tax position, upcoming
             transactions, business or personal circumstances, available records
             and the areas that may need planning before year end.
           </p>
@@ -342,7 +345,7 @@ export default function TaxPlanningMainPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Discuss your business or personal tax position, upcoming decisions and the records available. Financially Up can identify the appropriate tax planning scope and next steps."
+        subtitle={<BrandText text={"Discuss your business or personal tax position, upcoming decisions and the records available. Financially Up can identify the appropriate tax planning scope and next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

@@ -21,7 +21,7 @@ export default function CurrencyConversionAndPriorResidency() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1: Currency Conversion */}
-          <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-11 h-11 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl mb-5">
                 <TransactionOutlined />
@@ -51,7 +51,7 @@ export default function CurrencyConversionAndPriorResidency() {
           </div>
 
           {/* Card 2: Property Predates Australian Residency */}
-          <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-11 h-11 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl mb-5">
                 <HistoryOutlined />
@@ -87,7 +87,7 @@ export default function CurrencyConversionAndPriorResidency() {
           </div>
 
           {/* Card 3: Tax Already Paid Overseas */}
-          <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-11 h-11 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl mb-5">
                 <SafetyCertificateOutlined />

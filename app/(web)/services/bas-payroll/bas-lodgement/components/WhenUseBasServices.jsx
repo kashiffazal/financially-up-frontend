@@ -100,7 +100,7 @@ export default function WhenUseBasServices() {
         </div>
 
         {/* Part 2: What does a BAS commonly report? */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-2 text-brand-primary dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
               <AuditOutlined />

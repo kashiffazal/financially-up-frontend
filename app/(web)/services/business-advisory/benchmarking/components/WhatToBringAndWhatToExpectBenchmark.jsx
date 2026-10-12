@@ -12,6 +12,7 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatToBringAndWhatToExpectBenchmark Component
@@ -99,7 +100,7 @@ export default function WhatToBringAndWhatToExpectBenchmark() {
         {/* Narrative Box: 10+ Years Experience & Ethical Benchmarking */}
         <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 mb-12 text-center max-w-4xl mx-auto">
           <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
-            Financially Up Pty Ltd offers online and in-person appointments to
+            <CompanyName legal /> offers online and in-person appointments to
             clients across Australia. Our team includes CPA and IPA members and
             has more than 10 years of experience. We aim to explain both what
             the data suggests and where a comparison cannot support a firm

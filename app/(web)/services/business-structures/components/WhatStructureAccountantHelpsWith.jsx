@@ -13,6 +13,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatStructureAccountantHelpsWith Component
@@ -145,7 +146,7 @@ export default function WhatStructureAccountantHelpsWith() {
                 qualified legal adviser.
               </p>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can assist with the accounting and tax side of
+                <CompanyName /> can assist with the accounting and tax side of
                 setup, including entity registrations, tax registrations,
                 record-keeping foundations and the way the chosen structure
                 connects with future tax returns and compliance. If you are

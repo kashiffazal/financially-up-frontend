@@ -8,6 +8,7 @@ import {
   CalculatorOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhatBusinessAdvisoryCanFocusOn Component
@@ -49,7 +50,7 @@ export default function WhatBusinessAdvisoryCanFocusOn() {
       tag: "Pillar Focus 3",
       title: "Budgeting, forecasting and scenario planning",
       description:
-        "A budget sets out what the business plans to earn and spend, while a forecast uses current information and trends to estimate what is likely to happen. Business.gov.au distinguishes between a budget as the plan and a forecast as the updated view of what is likely to happen. Financially Up can help build assumptions, test scenarios, compare actual results with the plan and refresh forecasts as conditions change.",
+        <BrandText text={"A budget sets out what the business plans to earn and spend, while a forecast uses current information and trends to estimate what is likely to happen. Business.gov.au distinguishes between a budget as the plan and a forecast as the updated view of what is likely to happen. Financially Up can help build assumptions, test scenarios, compare actual results with the plan and refresh forecasts as conditions change."} />,
     },
     {
       icon: (

@@ -6,6 +6,7 @@ import { Button } from "antd";
 import { ArrowRightOutlined, BankOutlined } from "@ant-design/icons";
 import ServicesGrid from "@/components/website/ServicesGrid";
 import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhoWeHelp Component
@@ -120,7 +121,7 @@ export default function WhoWeHelp() {
         <EntityRoutingBanner
           className="mt-12"
           tag="Corporate & Entity Practice Routing"
-          description="If your enquiry concerns a company, trust, partnership, SMSF, broader financial advice or broader business accounting, we will direct you to the relevant Financially Up service."
+          description={<BrandText text={"If your enquiry concerns a company, trust, partnership, SMSF, broader financial advice or broader business accounting, we will direct you to the relevant Financially Up service."} />}
           buttons={[
             {
               label: "Business Tax",

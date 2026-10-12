@@ -7,6 +7,7 @@ import {
   ArrowRightOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * RepresentationDuringReviewsAuditsDisputes Component
@@ -29,7 +30,7 @@ export default function RepresentationDuringReviewsAuditsDisputes() {
             <p>
               If the ATO is reviewing or auditing an issue, representation can
               help keep requests, deadlines, records and responses organized.
-              Financially Up can assist with accounting and tax information,
+              <CompanyName /> can assist with accounting and tax information,
               review the factual background, prepare supporting schedules within
               scope and communicate with the ATO as authorized. Our ATO audit
               service covers audit-specific support in more detail.

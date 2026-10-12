@@ -10,11 +10,15 @@ import WhyChooseFinanciallyUpAppSupport from "./components/WhyChooseFinanciallyU
 import RelatedServiceRibbon from "./components/RelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of 15th Pillar R&D Tax Incentive.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "R&D Tax Incentive Application Support Australia | Financially Up",
   description:
     "R&D Tax Incentive application support for registration, records and claim preparation. Organize activity evidence, costs and deadlines with Financially Up.",
@@ -28,18 +32,19 @@ export const metadata = {
     "R&D tax schedule ATO",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/rd-tax-incentive/application-support/",
+    canonical: `${SITE_URL}/services/rd-tax-incentive/application-support/`,
   },
   openGraph: {
     title: "R&D Tax Incentive Application Support Australia | Financially Up",
     description:
       "R&D Tax Incentive application support for registration, records and claim preparation. Organize activity evidence, costs and deadlines with Financially Up.",
-    url: "https://financiallyup.com.au/services/rd-tax-incentive/application-support/",
+    url: `${SITE_URL}/services/rd-tax-incentive/application-support/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -133,10 +138,7 @@ export default function RdTaxApplicationSupportPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -168,7 +170,7 @@ export default function RdTaxApplicationSupportPage() {
         highlights={[
           "Two-Stage Portal & ATO Lodgement Support",
           "Contemporaneous Evidence & Apportionment",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-2" text={"Registered Tax Agent #26234055"} />,
         ]}
         primaryCta={{
           label: "Book an Appointment",
@@ -176,7 +178,7 @@ export default function RdTaxApplicationSupportPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "R&D Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

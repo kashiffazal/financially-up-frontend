@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   CalendarOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * DeregistrationTaxObligationsAndProcess Component
@@ -42,7 +43,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               The company&apos;s tax position needs separate attention from the
               ASIC application. Depending on its history, the company may still
@@ -54,7 +55,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
               as automatically resolved by deregistration.
             </p>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can assist with the accounting and tax work within
+              <CompanyName /> can assist with the accounting and tax work within
               scope. Our{" "}
               <Link
                 href="/services/business-tax"
@@ -83,7 +84,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               Where the criteria are satisfied, an application for voluntary
               deregistration is lodged with ASIC using the applicable process.
@@ -133,7 +134,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
             icon={
               <ExclamationCircleOutlined className="text-lg text-amber-600 dark:text-amber-400" />
             }
-            className="rounded-3xl border border-amber-200/80 dark:border-amber-800/60 bg-amber-50/70 dark:bg-amber-950/30 p-6 sm:p-8"
+            className="rounded-lg border border-amber-200/80 dark:border-amber-800/60 bg-amber-50/70 dark:bg-amber-950/30 p-6 sm:p-8"
             title={
               <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white block mb-2">
                 What if the company does not qualify for voluntary
@@ -151,7 +152,7 @@ export default function DeregistrationTaxObligationsAndProcess() {
                   advice promptly.
                 </p>
                 <p className="m-0 text-slate-600 dark:text-zinc-400">
-                  Financially Up can assist with accounting information and tax
+                  <CompanyName /> can assist with accounting information and tax
                   matters, but formal liquidation and legal advice are
                   separately scoped specialist services.
                 </p>

@@ -54,7 +54,7 @@ export default function RentalIncomeAndDeductionsReview() {
         {/* 2-Column Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-12">
           {/* Left Column: What rental income needs to be identified */}
-          <div className="lg:col-span-5 p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
+          <div className="lg:col-span-5 p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
             <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl mb-4">
               <FileTextOutlined />
             </div>
@@ -79,7 +79,7 @@ export default function RentalIncomeAndDeductionsReview() {
           </div>
 
           {/* Right Column: Which expenses need closer review */}
-          <div className="lg:col-span-7 p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
+          <div className="lg:col-span-7 p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
             <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl mb-4">
               <CalculatorOutlined />
             </div>

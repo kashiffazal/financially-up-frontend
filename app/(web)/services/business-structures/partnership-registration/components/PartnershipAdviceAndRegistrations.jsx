@@ -22,7 +22,7 @@ export default function PartnershipAdviceAndRegistrations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           {/* Card 1: Partnership structure advice before you register */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <SafetyCertificateOutlined className="text-lg" />
@@ -79,7 +79,7 @@ export default function PartnershipAdviceAndRegistrations() {
           </div>
 
           {/* Card 2: ABN, TFN and other registrations */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <IdcardOutlined className="text-lg" />

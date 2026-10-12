@@ -12,6 +12,7 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatToBringFirstMeetingSuccession Component
@@ -104,7 +105,7 @@ export default function WhatToBringFirstMeetingSuccession() {
         {/* Narrative Box: 10+ Years Experience & Legal Collaboration */}
         <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 mb-12 text-center max-w-4xl mx-auto">
           <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
-            Financially Up Pty Ltd has more than 10 years of experience and a
+            <CompanyName legal /> has more than 10 years of experience and a
             team including CPA and IPA members. We provide online and in-person
             appointment options across Australia. We keep the accounting work
             grounded in the owner&apos;s objectives and acknowledge when a

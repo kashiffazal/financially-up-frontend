@@ -13,6 +13,7 @@ import {
   ArrowRightOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsMonthly Component
@@ -80,7 +81,7 @@ export default function HowFinanciallyUpHelpsMonthly() {
             Monthly Deliverables
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help each month
+            How <CompanyName /> can help each month
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             We operate as your reliable virtual bookkeeping team, delivering

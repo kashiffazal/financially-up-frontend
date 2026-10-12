@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsOverdue Component
@@ -65,7 +66,7 @@ export default function HowFinanciallyUpHelpsOverdue() {
             Our Client Process
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up helps
+            How <CompanyName /> helps
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             As your overdue tax return accountant, we first clarify the years

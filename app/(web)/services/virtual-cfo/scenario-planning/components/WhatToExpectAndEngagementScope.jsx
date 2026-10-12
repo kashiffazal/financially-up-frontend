@@ -12,6 +12,7 @@ import {
   FileDoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatToExpectAndEngagementScope Component
@@ -29,7 +30,7 @@ export default function WhatToExpectAndEngagementScope() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: `TPB Agent #${company.tpbNumber || "26234055"}`,
+      subtitle: `TPB Agent #${company.taxAgentNumber}`,
       desc: "More than a decade of advisory rigor helping clients manage commercial uncertainty.",
     },
     {
@@ -104,7 +105,7 @@ export default function WhatToExpectAndEngagementScope() {
                   with an appropriately qualified professional.
                 </p>
                 <p>
-                  {company.legalName || "Financially Up Pty Ltd"} offers
+                  {company.legalName} offers
                   Australia-wide service with online and in-person appointments.
                   Our team includes CPA and IPA members and has more than 10
                   years of experience. We explain where conclusions depend
@@ -146,7 +147,7 @@ export default function WhatToExpectAndEngagementScope() {
               Prepare for More Than One Commercial Outcome
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 m-0">
-              Book a consultation with Financially Up to model your risks and
+              Book a consultation with <CompanyName /> to model your risks and
               responses.
             </p>
           </div>

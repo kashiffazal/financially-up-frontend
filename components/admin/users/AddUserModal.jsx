@@ -14,7 +14,7 @@ import {
 import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
 import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-component";
-import { useSettings } from "@/context/SettingsContext";
+import { useSettings, useBrandText } from "@/context/SettingsContext";
 import { departmentOptions as buildDepartmentOptions } from "@/lib/departments";
 import {
   PASSWORD_HINT,
@@ -57,6 +57,7 @@ export default function AddUserModal({
   onSuccess,
   roles = [],
 }) {
+  const brand = useBrandText();
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -220,7 +221,7 @@ export default function AddUserModal({
               type="email"
               name="email"
               label="Official Work Email"
-              placeholder="s.jenkins@financiallyup.com.au"
+              placeholder={brand("s.jenkins@financiallyup.com.au")}
               reqMsg="Valid work email is required"
               emailErrorMsg="Please enter a valid email address"
               className="rounded-lg"

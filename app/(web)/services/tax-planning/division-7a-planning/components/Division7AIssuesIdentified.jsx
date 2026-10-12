@@ -7,6 +7,7 @@ import {
   StopOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * Division7AIssuesIdentified Component
@@ -73,7 +74,7 @@ export default function Division7AIssuesIdentified() {
               </h3>
               <p>
                 The Commissioner has limited discretions in some circumstances,
-                but relief is not automatic and Financially Up does not promise
+                but relief is not automatic and <CompanyName /> does not promise
                 that penalties, interest or deemed dividends can be removed.
                 Some arrangements may also require legal advice, particularly
                 where documents, trust law, loan enforceability or contractual

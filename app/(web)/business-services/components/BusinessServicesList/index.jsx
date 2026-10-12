@@ -15,6 +15,7 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 import styles from "./BusinessServicesList.module.css";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function BusinessServicesList() {
   const services = [
@@ -27,7 +28,7 @@ export default function BusinessServicesList() {
       icon: <UserOutlined className="text-brand-primary text-xl" />,
       title: "Sole Trader Tax Returns",
       description:
-        "At Financially Up, we specialize in providing expert assistance with sole trader tax returns across a wide range of industries. Our knowledgeable team of tax professionals understands the specific tax obligations and regulations applicable to different types of sole trader businesses. Whether you're a freelancer, IT service provider, security services provider, taxi driver, truck driver, ride-share service provider, delivery driver, or any other type of sole trader, we have the expertise to simplify your tax compliance.",
+        <BrandText text={"At Financially Up, we specialize in providing expert assistance with sole trader tax returns across a wide range of industries. Our knowledgeable team of tax professionals understands the specific tax obligations and regulations applicable to different types of sole trader businesses. Whether you're a freelancer, IT service provider, security services provider, taxi driver, truck driver, ride-share service provider, delivery driver, or any other type of sole trader, we have the expertise to simplify your tax compliance."} />,
       highlights: [
         "Industry-specific expense claim optimization",
         "Motor vehicle logbook & home office deduction rules",
@@ -52,7 +53,7 @@ export default function BusinessServicesList() {
       ),
       title: "Trust Tax Returns",
       description:
-        "At Financially Up, we specialize in providing expert assistance with trust tax returns for a wide range of trust types. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with different trust structures, including fixed trusts, unit trusts, testamentary trusts, discretionary trusts (family trusts), hybrid trusts, charitable trusts, superannuation trusts, and bare trusts.",
+        <BrandText text={"At Financially Up, we specialize in providing expert assistance with trust tax returns for a wide range of trust types. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with different trust structures, including fixed trusts, unit trusts, testamentary trusts, discretionary trusts (family trusts), hybrid trusts, charitable trusts, superannuation trusts, and bare trusts."} />,
       highlights: [
         "Family & discretionary trust distribution prep",
         "Section 100A & 99B compliance risk review",
@@ -75,7 +76,7 @@ export default function BusinessServicesList() {
       icon: <TeamOutlined className="text-brand-primary text-xl" />,
       title: "Partnership Tax Returns",
       description:
-        "At Financially Up, we specialize in providing expert assistance with partnership tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with partnerships. Whether you have a general partnership, limited partnership, or limited liability partnership, we have the expertise to simplify your tax compliance.",
+        <BrandText text={"At Financially Up, we specialize in providing expert assistance with partnership tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with partnerships. Whether you have a general partnership, limited partnership, or limited liability partnership, we have the expertise to simplify your tax compliance."} />,
       highlights: [
         "Partnership agreement profit distribution split",
         "Partner salary & capital contribution tracking",
@@ -98,7 +99,7 @@ export default function BusinessServicesList() {
       icon: <BankOutlined className="text-brand-primary text-xl" />,
       title: "Company Tax Returns",
       description:
-        "At Financially Up, we specialize in providing expert assistance with company tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with companies. Whether you have a small business, a medium-sized enterprise, or a large corporation, we have the expertise to simplify your tax compliance.",
+        <BrandText text={"At Financially Up, we specialize in providing expert assistance with company tax returns. Our experienced team of tax professionals understands the unique tax obligations and complexities associated with companies. Whether you have a small business, a medium-sized enterprise, or a large corporation, we have the expertise to simplify your tax compliance."} />,
       highlights: [
         "25% small business corporate tax rate optimization",
         "Dividend franking account & credit reporting",
@@ -121,7 +122,7 @@ export default function BusinessServicesList() {
       icon: <FileProtectOutlined className="text-brand-primary text-xl" />,
       title: "BAS/GST Lodgement",
       description:
-        "At Financially Up, we specialize in providing expert assistance with Business Activity Statement (BAS) lodgement and Goods and Services Tax (GST) compliance for all types of entities. Our experienced team of tax professionals understands the unique obligations and complexities associated with BAS and GST.",
+        <BrandText text={"At Financially Up, we specialize in providing expert assistance with Business Activity Statement (BAS) lodgement and Goods and Services Tax (GST) compliance for all types of entities. Our experienced team of tax professionals understands the unique obligations and complexities associated with BAS and GST."} />,
       highlights: [
         "Quarterly & monthly BAS lodgement with 4-week extension",
         "PAYG withholding & PAYG instalment calculation",

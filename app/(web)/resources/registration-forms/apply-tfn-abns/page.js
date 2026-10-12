@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import ApplyTfnAbnForm from "@/components/admin/forms/apply-tfn-abns";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Apply TFN & ABN Registration - Financially Up",
   description:
     "Quick and compliant Tax File Number (TFN) and Australian Business Number (ABN) applications for individuals and businesses.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function ApplyTfnAbnsPage() {
   return (

@@ -12,8 +12,13 @@ import OwnershipAndTaxReportingGearing from "./components/OwnershipAndTaxReporti
 import NegativeGearingRuleChanges2027 from "./components/NegativeGearingRuleChanges2027";
 import HowFinanciallyUpHelpsGearing from "./components/HowFinanciallyUpHelpsGearing";
 import RelatedPropertyNegativeGearingRibbon from "./components/RelatedPropertyNegativeGearingRibbon";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+
+const baseMetadata = {
   title: "Negative Gearing Accountant Australia | Financially Up",
   description:
     "Negative gearing accountant support for property investors. Review rental losses, interest, deductions, records and tax reporting with Financially Up.",
@@ -28,6 +33,7 @@ export const metadata = {
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function NegativeGearingPage() {
   const breadcrumbs = [
@@ -79,7 +85,7 @@ export default function NegativeGearingPage() {
         provider: {
           "@type": "AccountingService",
           name: "Financially Up",
-          url: "https://financiallyup.com.au",
+          url: `${SITE_URL}`,
         },
         description:
           "Professional negative gearing accounting for Australian property investors. Accurately assess rental tax losses, deductible interest, capital works, and statutory compliance.",
@@ -102,16 +108,13 @@ export default function NegativeGearingPage() {
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* Hero Section */}
       <SubServiceHero
         title="Negative Gearing Accountant for Property Investors"
         subtitle="Review Rental Losses, Deductible Expenses, Loan Tracing & Tax Reporting"
-        description="A negative gearing accountant helps property investors work out whether a rental property has produced a deductible tax loss and how that result should be reported. Negative gearing is not a separate tax concession. It describes a situation where deductible rental expenses exceed rental income, creating a net rental loss that may be available to offset other assessable income, depending on the facts. Financially Up can help review rental income, interest and other property expenses, ownership, private use and the records supporting the tax treatment. The aim is to report the property correctly rather than assume every cash shortfall is automatically deductible."
+        description={<BrandText text={"A negative gearing accountant helps property investors work out whether a rental property has produced a deductible tax loss and how that result should be reported. Negative gearing is not a separate tax concession. It describes a situation where deductible rental expenses exceed rental income, creating a net rental loss that may be available to offset other assessable income, depending on the facts. Financially Up can help review rental income, interest and other property expenses, ownership, private use and the records supporting the tax treatment. The aim is to report the property correctly rather than assume every cash shortfall is automatically deductible."} />}
         parentService={{
           label: "Property Tax Hub",
           href: "/services/property-tax",
@@ -129,7 +132,7 @@ export default function NegativeGearingPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -162,7 +165,7 @@ export default function NegativeGearingPage() {
       <CallToActionBanner
         tag="Discuss Your Rental Property"
         title="Discuss Your Property Transaction"
-        subtitle="If you want help checking a rental loss, interest deductions or the tax treatment of property expenses, book an appointment with Financially Up. We can review the records, explain the reporting position and identify whether separate tax planning or specialist advice is required."
+        subtitle={<BrandText text={"If you want help checking a rental loss, interest deductions or the tax treatment of property expenses, book an appointment with Financially Up. We can review the records, explain the reporting position and identify whether separate tax planning or specialist advice is required."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

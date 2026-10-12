@@ -48,7 +48,7 @@ export default function SmsfPropertyRulesAndRestrictions() {
         {/* 2 Column Comparison: Residential vs Business Real Property */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Residential Property Rules Card */}
-          <div className="bg-rose-50/40 dark:bg-rose-950/20 rounded-3xl p-7 sm:p-8 border border-rose-200/80 dark:border-rose-900/40 flex flex-col justify-between">
+          <div className="bg-rose-50/40 dark:bg-rose-950/20 rounded-lg p-7 sm:p-8 border border-rose-200/80 dark:border-rose-900/40 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-rose-100 dark:bg-rose-950 border border-rose-200 dark:border-rose-800 flex items-center justify-center mb-6">
                 <StopOutlined className="text-2xl text-rose-600 dark:text-rose-400" />
@@ -93,7 +93,7 @@ export default function SmsfPropertyRulesAndRestrictions() {
           </div>
 
           {/* Business Real Property Rules Card */}
-          <div className="bg-emerald-50/40 dark:bg-emerald-950/20 rounded-3xl p-7 sm:p-8 border border-emerald-200/80 dark:border-emerald-900/40 flex flex-col justify-between">
+          <div className="bg-emerald-50/40 dark:bg-emerald-950/20 rounded-lg p-7 sm:p-8 border border-emerald-200/80 dark:border-emerald-900/40 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center mb-6">
                 <ShopOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
@@ -140,7 +140,7 @@ export default function SmsfPropertyRulesAndRestrictions() {
         </div>
 
         {/* 10 August 2026 LRBA Rule Change Callout */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center shrink-0">
               <CalendarOutlined className="text-2xl text-purple-600 dark:text-purple-400" />

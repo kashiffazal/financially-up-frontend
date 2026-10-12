@@ -10,11 +10,16 @@ import HowFinanciallyUpHelpsTrusts from "./components/HowFinanciallyUpHelpsTrust
 import RelatedTrustServicesRibbon from "./components/RelatedTrustServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust Tax Return Australia | Financially Up",
   description:
     "Trust tax return preparation, accounting and lodgment support for discretionary trusts, family trusts and business trusts across Australia.",
@@ -28,18 +33,19 @@ export const metadata = {
     "lodge trust tax return",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/trust-tax-returns/",
+    canonical: `${SITE_URL}/services/business-tax/trust-tax-returns/`,
   },
   openGraph: {
     title: "Trust Tax Return Australia | Financially Up",
     description:
       "Trust tax return preparation, accounting and lodgment support for discretionary trusts, family trusts and business trusts across Australia.",
-    url: "https://financiallyup.com.au/services/business-tax/trust-tax-returns/",
+    url: `${SITE_URL}/services/business-tax/trust-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -96,7 +102,7 @@ const trustTaxFaqs = [
     label: "Can you prepare beneficiary information as well as the trust return?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can prepare the trust return and relevant distribution reporting from the information available. Beneficiaries may also need separate tax-return assistance depending on their own circumstances.
+        <CompanyName /> can prepare the trust return and relevant distribution reporting from the information available. Beneficiaries may also need separate tax-return assistance depending on their own circumstances.
       </p>
     ),
   },
@@ -127,10 +133,7 @@ export default function TrustTaxReturnsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -190,7 +193,7 @@ export default function TrustTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}

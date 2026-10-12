@@ -12,6 +12,7 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * TaxAccountingImpactAndWhyChoose Component
@@ -74,7 +75,7 @@ export default function TaxAccountingImpactAndWhyChoose() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               An ASIC update does not automatically update the company’s
               accounting, payroll, ATO or contractual records. Depending on the
@@ -105,8 +106,8 @@ export default function TaxAccountingImpactAndWhyChoose() {
             </div>
 
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal pt-2 border-t border-slate-100 dark:border-zinc-800">
-              Financially Up can coordinate the accounting and tax aspects where
-              they fall within scope. For ongoing corporate administration
+              <CompanyName /> can coordinate the accounting and tax aspects
+              where they fall within scope. For ongoing corporate administration
               beyond a single update, our{" "}
               <Link
                 href="/services/asic"
@@ -120,16 +121,16 @@ export default function TaxAccountingImpactAndWhyChoose() {
         </div>
 
         {/* Subsection 2: Why choose Financially Up? */}
-        <div className="w-full rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+        <div className="w-full rounded-lg p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
               Integrated Experience & Accuracy
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-4">
-              Financially Up has more than 10 years of experience and a
+              <CompanyName /> has more than 10 years of experience and a
               professional team including CPA and IPA members. We are a
               registered tax agent and support clients Australia-wide through
               online and in-person appointments.

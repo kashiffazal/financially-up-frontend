@@ -7,6 +7,7 @@ import {
   CheckCircleFilled,
   FolderOpenOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatInformationToPrepare Component
@@ -117,7 +118,7 @@ export default function WhatInformationToPrepare() {
           <FolderOpenOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
             <strong>Don’t worry if some records are incomplete:</strong>{" "}
-            Financially Up will review the records you currently have, identify
+            <CompanyName /> will review the records you currently have, identify
             any information gaps, and advise you on what is required before
             finalising your tax planning strategy.
           </p>

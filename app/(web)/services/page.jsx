@@ -6,11 +6,18 @@ import WhyFinanciallyUpSection from "./components/WhyFinanciallyUpSection";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
 import { SERVICES_LIST } from "./components/ServicesData";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { getSettings } from "@/lib/getSettings";
+import { brandText } from "@/lib/brand";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  */
-export const metadata = {
+const baseMetadata = {
   title: "All Accounting, Tax & Advisory Services Australia | Financially Up",
   description:
     "Explore Financially Up's complete suite of 15 accounting, tax, advisory, and corporate compliance services across Australia. 100% online & in-person CPA expertise.",
@@ -33,18 +40,19 @@ export const metadata = {
     "R&D tax incentive",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/",
+    canonical: `${SITE_URL}/services/`,
   },
   openGraph: {
     title: "All Accounting, Tax & Advisory Services Australia | Financially Up",
     description:
       "Explore Financially Up's complete suite of 15 accounting, tax, advisory, and corporate compliance services across Australia. 100% online & in-person CPA expertise.",
-    url: "https://financiallyup.com.au/services/",
+    url: `${SITE_URL}/services/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * 8 Core Frequently Asked Questions for Master Services Hub
@@ -66,7 +74,7 @@ const servicesFaqs = [
   },
   {
     key: "2",
-    label: "How does an online consultation with Financially Up work?",
+    label: <BrandText text={"How does an online consultation with Financially Up work?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         You can book an appointment directly through our online booking tool.
@@ -109,10 +117,10 @@ const servicesFaqs = [
   },
   {
     key: "5",
-    label: "Are Financially Up accountants registered with the ATO and ASIC?",
+    label: <BrandText text={"Are Financially Up accountants registered with the ATO and ASIC?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up Pty Ltd is a registered Tax Agent with the Tax
+        Yes. <CompanyName legal /> is a registered Tax Agent with the Tax
         Practitioners Board (TPB) and an ASIC Registered Agent. All our
         accountants hold professional qualifications with CPA Australia or CA
         ANZ, adhering strictly to professional ethical standards and Australian
@@ -168,7 +176,8 @@ const servicesFaqs = [
  * Master Hub presenting all 15 services pillars with interactive filters,
  * persona pathway guidance, process roadmap, value pillars, and FAQs.
  */
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const settings = await getSettings();
   // Schema.org Structured Data
   const jsonLd = {
     "@context": "https://schema.org",
@@ -176,11 +185,11 @@ export default function ServicesPage() {
     name: "Financially Up - All Accounting, Tax & Advisory Services Australia",
     description:
       "Complete practice directory of 15 registered accounting, tax, advisory, and corporate compliance services across Australia.",
-    url: "https://financiallyup.com.au/services/",
+    url: `${SITE_URL}/services/`,
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     mainEntity: {
       "@type": "ItemList",
@@ -189,7 +198,7 @@ export default function ServicesPage() {
         position: index + 1,
         name: service.title,
         description: service.description,
-        url: `https://financiallyup.com.au${service.href}`,
+        url: `${SITE_URL}${service.href}`,
       })),
     },
   };
@@ -197,10 +206,7 @@ export default function ServicesPage() {
   return (
     <main className="w-full">
       {/* Schema.org JSON-LD Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* 1. Master Hero & Interactive 15-Pillar Services Directory */}
       <ServicesPageContent />
@@ -220,7 +226,7 @@ export default function ServicesPage() {
         title="Frequently Asked Questions"
         subtitle="Common questions about our complete suite of accounting, taxation, and advisory services."
         image="/images/services/faq.webp"
-        imageAlt="Financially Up Accounting Services Frequently Asked Questions"
+        imageAlt={brandText("Financially Up Accounting Services Frequently Asked Questions", settings)}
         items={servicesFaqs}
         defaultActiveKey="1"
         showSideColumn={false}

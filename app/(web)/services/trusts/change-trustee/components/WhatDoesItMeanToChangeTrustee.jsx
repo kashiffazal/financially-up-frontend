@@ -8,6 +8,7 @@ import {
   ReconciliationOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatDoesItMeanToChangeTrustee Component
@@ -101,7 +102,7 @@ export default function WhatDoesItMeanToChangeTrustee() {
               The appointment and retirement process is governed by the trust
               deed and relevant law. A trustee change deed or other legal
               documentation may be required, depending on the trust and
-              circumstances. Financially Up can assist with the accounting and
+              circumstances. <CompanyName /> can assist with the accounting and
               tax consequences and coordinate implementation information, while
               legal drafting or advice about the validity of the appointment may
               require a lawyer.

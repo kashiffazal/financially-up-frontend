@@ -9,11 +9,16 @@ import HowFinanciallyUpHelpsCgt from "./components/HowFinanciallyUpHelpsCgt";
 import RelatedSmallBusinessCgtRibbon from "./components/RelatedSmallBusinessCgtRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 12 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Small Business CGT Advice Australia | Financially Up",
   description:
     "Small business CGT advice for business sales and active assets. Assess eligibility for CGT concessions, records and tax-return treatment.",
@@ -28,18 +33,19 @@ export const metadata = {
     "active asset test ATO",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/small-business-cgt/",
+    canonical: `${SITE_URL}/services/business-tax/small-business-cgt/`,
   },
   openGraph: {
     title: "Small Business CGT Advice Australia | Financially Up",
     description:
       "Small business CGT advice for business sales and active assets. Assess eligibility for CGT concessions, records and tax-return treatment.",
-    url: "https://financiallyup.com.au/services/business-tax/small-business-cgt/",
+    url: `${SITE_URL}/services/business-tax/small-business-cgt/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -127,10 +133,7 @@ export default function SmallBusinessCgtPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -142,7 +145,7 @@ export default function SmallBusinessCgtPage() {
               Selling a business, business asset or ownership interest can create a capital gain, but eligible small businesses may have access to specific CGT concessions. The rules are detailed and eligibility depends on the entity, asset, ownership structure, turnover or net assets, active-asset history and the particular concession being considered.
             </span>
             <span className="block mt-2">
-              Financially Up provides small business CGT advice for business owners who want to understand the tax position before or after a transaction. The work can include reviewing the proposed sale, testing relevant conditions, modelling available concessions and preparing the tax-return calculations where the transaction proceeds.
+              <CompanyName /> provides small business CGT advice for business owners who want to understand the tax position before or after a transaction. The work can include reviewing the proposed sale, testing relevant conditions, modelling available concessions and preparing the tax-return calculations where the transaction proceeds.
             </span>
           </span>
         }
@@ -190,7 +193,7 @@ export default function SmallBusinessCgtPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Advisory Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}

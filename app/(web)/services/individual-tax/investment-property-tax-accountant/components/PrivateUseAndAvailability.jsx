@@ -70,7 +70,7 @@ export default function PrivateUseAndAvailability() {
           {situations.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-col justify-between rounded-3xl p-7 sm:p-8 border ${item.bgBorder} ${item.accentBg} shadow-xs hover:shadow-lg transition-all duration-300`}
+              className={`flex flex-col justify-between rounded-lg p-7 sm:p-8 border ${item.bgBorder} ${item.accentBg} shadow-xs hover:shadow-lg transition-all duration-300`}
             >
               <div>
                 <div className="flex items-center justify-between mb-5">

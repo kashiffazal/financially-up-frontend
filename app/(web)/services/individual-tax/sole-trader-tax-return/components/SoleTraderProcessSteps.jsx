@@ -14,6 +14,8 @@ import {
   GlobalOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * SoleTraderProcessSteps Component
@@ -24,7 +26,7 @@ import { useCompany } from "@/context/SettingsContext";
  */
 export default function SoleTraderProcessSteps() {
   const company = useCompany();
-  const phoneDisplay = company?.phone || "1300 328 316";
+  const phoneDisplay = company?.phone;
 
   const steps = [
     {
@@ -56,8 +58,13 @@ export default function SoleTraderProcessSteps() {
     {
       number: "04",
       title: "4. Review and Prepare",
-      description:
-        "Financially Up reviews the information, prepares your return and raises questions where clarification is required.",
+      description: (
+        <BrandText
+          text={
+            "Financially Up reviews the information, prepares your return and raises questions where clarification is required."
+          }
+        />
+      ),
       icon: (
         <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
       ),
@@ -88,7 +95,7 @@ export default function SoleTraderProcessSteps() {
             Online Sole Trader Tax Return Process
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up assists sole traders Australia-wide. Book online or
+            <CompanyName /> assists sole traders Australia-wide. Book online or
             arrange a time by phone, then meet online through an appointment
             arranged in Outlook Calendar or in person by arrangement.
           </p>
@@ -99,7 +106,7 @@ export default function SoleTraderProcessSteps() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">

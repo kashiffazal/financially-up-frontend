@@ -8,6 +8,7 @@ import {
   FolderOpenOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsStructureAdvice Component
@@ -40,14 +41,14 @@ export default function HowFinanciallyUpHelpsStructureAdvice() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Card 1: What Financially Up can help with */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
                   <SafetyCertificateOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                  What Financially Up can help with
+                  What <CompanyName /> can help with
                 </h3>
               </div>
 
@@ -90,7 +91,7 @@ export default function HowFinanciallyUpHelpsStructureAdvice() {
           </div>
 
           {/* Card 2: Information that helps us assess the options */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 flex items-center justify-center">

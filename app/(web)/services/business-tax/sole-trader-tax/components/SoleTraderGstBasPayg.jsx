@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SoleTraderGstBasPayg Component
@@ -96,7 +97,7 @@ export default function SoleTraderGstBasPayg() {
               Tailored to Your Exact Business Requirements
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can help identify which accounting and tax
+              <CompanyName /> can help identify which accounting and tax
               compliance work is relevant to your business, rather than treating
               every sole trader as having the same obligations.
             </p>

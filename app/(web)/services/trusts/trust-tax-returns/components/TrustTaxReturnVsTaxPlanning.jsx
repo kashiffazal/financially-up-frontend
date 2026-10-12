@@ -8,6 +8,7 @@ import {
   CompassOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * TrustTaxReturnVsTaxPlanning Component
@@ -38,7 +39,7 @@ export default function TrustTaxReturnVsTaxPlanning() {
             entitlements and tax information that need to be disclosed. Tax
             planning is different. It considers future or pre-year-end decisions
             before they are implemented. If planning or specialist advice is
-            needed, Financially Up can scope that separately rather than
+            needed, <CompanyName /> can scope that separately rather than
             treating it as automatically included in annual return preparation.
           </p>
         </div>

@@ -9,23 +9,28 @@ import PayrollTaxRulesAndWages from "./components/PayrollTaxRulesAndWages";
 import PayrollTaxReturnsAndDistinctions from "./components/PayrollTaxReturnsAndDistinctions";
 import PayrollTaxRisksAndHelp from "./components/PayrollTaxRisksAndHelp";
 import WhyChooseFinanciallyUpPayrollTax from "./components/WhyChooseFinanciallyUpPayrollTax";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Payroll Tax Services & Compliance | Financially Up",
   description:
     "Payroll tax services for Australian employers, including registration, wage reviews, returns and compliance support across state and territory requirements.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/payroll-tax/",
+    canonical: `${SITE_URL}/services/bas-payroll/payroll-tax/`,
   },
   openGraph: {
     title: "Payroll Tax Services & Compliance | Financially Up",
     description:
       "Payroll tax services for Australian employers, including registration, wage reviews, returns and compliance support across state and territory requirements.",
-    url: "https://financiallyup.com.au/services/bas-payroll/payroll-tax/",
+    url: `${SITE_URL}/services/bas-payroll/payroll-tax/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -56,7 +61,7 @@ const payrollTaxFaqs = [
       "Not necessarily. Thresholds, rates and other rules can change and differ by state or territory. Current revenue-office guidance should be checked for the relevant financial year.",
   },
   {
-    question: "Can Financially Up lodge payroll tax returns in every state?",
+    question: <BrandText text={"Can Financially Up lodge payroll tax returns in every state?"} />,
     answer:
       "We provide Australia-wide accounting and tax support and can assist with payroll tax review and compliance work across jurisdictions within the agreed engagement scope. The applicable registration and lodgement process is determined by the relevant state or territory revenue office.",
   },
@@ -72,7 +77,7 @@ export default function PayrollTaxPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -83,10 +88,7 @@ export default function PayrollTaxPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -100,7 +102,7 @@ export default function PayrollTaxPage() {
           title="Payroll Tax Services for Australian Employers"
           description={[
             "Payroll tax is a state and territory tax on wages paid by employers once the relevant jurisdictional threshold and rules are met. Unlike PAYG withholding, it is not administered by the ATO. Thresholds, rates, return requirements and some definitions vary between jurisdictions, so businesses with a growing wage bill or employees in more than one state should review their position carefully.",
-            "Financially Up provides payroll tax services to help employers assess registration requirements, review taxable wage categories, prepare payroll tax returns and reconcile payroll data to the figures reported to state or territory revenue offices. The service is designed for business owners and finance teams that want practical support without treating payroll tax as a simple extension of ordinary payroll processing.",
+            <BrandText key="brand-1" text={"Financially Up provides payroll tax services to help employers assess registration requirements, review taxable wage categories, prepare payroll tax returns and reconcile payroll data to the figures reported to state or territory revenue offices. The service is designed for business owners and finance teams that want practical support without treating payroll tax as a simple extension of ordinary payroll processing."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"
@@ -135,7 +137,7 @@ export default function PayrollTaxPage() {
         {/* Section 7: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If your wage bill is growing, you operate across states or you need help with payroll tax registration or returns, book an appointment with Financially Up to review the position and next steps."
+          description={<BrandText text={"If your wage bill is growing, you operate across states or you need help with payroll tax registration or returns, book an appointment with Financially Up to review the position and next steps."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

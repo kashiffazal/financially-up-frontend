@@ -64,7 +64,7 @@ export default function ComplexEssSituationsAndRecords() {
         {/* 2-Column Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Left Column: Complex Matters */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -113,7 +113,7 @@ export default function ComplexEssSituationsAndRecords() {
           </div>
 
           {/* Right Column: Records to Keep */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">

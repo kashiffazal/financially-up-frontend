@@ -6,11 +6,17 @@ import ForeignRentalRecordsAndHelp from "./components/ForeignRentalRecordsAndHel
 import RelatedForeignRentalRibbon from "./components/RelatedForeignRentalRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Foreign Rental Property Tax Australia | Financially Up",
   description:
     "Own rental property overseas? Financially Up reviews foreign rent, expenses, ownership, currency conversion and foreign tax for your Australian return.",
@@ -23,18 +29,19 @@ export const metadata = {
     "overseas property tax return sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/foreign-rental-income/",
+    canonical: `${SITE_URL}/services/international-tax/foreign-rental-income/`,
   },
   openGraph: {
     title: "Foreign Rental Property Tax Australia | Financially Up",
     description:
       "Own rental property overseas? Financially Up reviews foreign rent, expenses, ownership, currency conversion and foreign tax for your Australian return.",
-    url: "https://financiallyup.com.au/services/international-tax/foreign-rental-income/",
+    url: `${SITE_URL}/services/international-tax/foreign-rental-income/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -122,10 +129,7 @@ export default function ForeignRentalIncomePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -137,7 +141,7 @@ export default function ForeignRentalIncomePage() {
               If you are an Australian tax resident and own a property overseas, the rental income generally needs to be considered in your Australian tax return. The property may also be taxed where it is located. Reporting it correctly requires a review of residency, ownership, rent, expenses, currency conversion and any foreign tax paid.
             </span>
             <span className="block mt-2">
-              Financially Up helps owners make sense of foreign rental property tax in Australia. We review the underlying records and explain which facts affect the Australian calculation.
+              <CompanyName /> helps owners make sense of foreign rental property tax in Australia. We review the underlying records and explain which facts affect the Australian calculation.
             </span>
           </span>
         }
@@ -158,7 +162,7 @@ export default function ForeignRentalIncomePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -191,8 +195,8 @@ export default function ForeignRentalIncomePage() {
       {/* 6. Pre-Footer Call to Action Banner (Verbatim from Client Document) */}
       <CallToActionBanner
         tag="Report your overseas property accurately"
-        title="Book an Appointment with Financially Up"
-        subtitle="Book an Appointment with Financially Up to review the property, your residency, the records available and the Australian return work required."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to review the property, your residency, the records available and the Australian return work required."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

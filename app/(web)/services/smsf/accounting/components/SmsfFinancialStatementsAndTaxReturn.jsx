@@ -9,6 +9,7 @@ import {
   SafetyCertificateOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SmsfFinancialStatementsAndTaxReturn Component
@@ -115,7 +116,7 @@ export default function SmsfFinancialStatementsAndTaxReturn() {
                 Tax treatment can vary according to the fund&apos;s income,
                 expenses, investment transactions and member circumstances. Some
                 expenses may be deductible, some may require apportionment, and
-                capital costs may not be immediately deductible. Financially Up
+                capital costs may not be immediately deductible. <CompanyName />
                 can prepare the tax reporting based on the fund&apos;s records
                 and the applicable rules rather than treating every outgoing in
                 the same way.

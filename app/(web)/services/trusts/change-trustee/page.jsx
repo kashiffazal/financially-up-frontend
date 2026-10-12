@@ -12,11 +12,16 @@ import WhyChooseFinanciallyUpTrusteeChange from "./components/WhyChooseFinancial
 import RelatedChangeTrusteeRibbon from "./components/RelatedChangeTrusteeRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Change Trustee Australia | Financially Up",
   description:
     "Change a trustee with accounting and tax support from Financially Up. Review trust records, asset ownership, registrations and tax implications before the change.",
@@ -29,18 +34,19 @@ export const metadata = {
     "trust asset title transfer",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/change-trustee/",
+    canonical: `${SITE_URL}/services/trusts/change-trustee/`,
   },
   openGraph: {
     title: "Change Trustee Australia | Financially Up",
     description:
       "Change a trustee with accounting and tax support from Financially Up. Review trust records, asset ownership, registrations and tax implications before the change.",
-    url: "https://financiallyup.com.au/services/trusts/change-trustee/",
+    url: `${SITE_URL}/services/trusts/change-trustee/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -125,10 +131,7 @@ export default function ChangeTrusteePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -173,7 +176,7 @@ export default function ChangeTrusteePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -220,7 +223,7 @@ export default function ChangeTrusteePage() {
       {/* 12. Call to Action Banner */}
       <CallToActionBanner
         title="Planning to Change the Trustee of Your Trust?"
-        subtitle="If you are planning to change the trustee of a trust, book an appointment with Financially Up to review the trust records, tax position, affected registrations and the practical steps that should be coordinated around the change."
+        subtitle={<BrandText text={"If you are planning to change the trustee of a trust, book an appointment with Financially Up to review the trust records, tax position, affected registrations and the practical steps that should be coordinated around the change."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnHref="/book-an-appointment"
         secondaryBtnText="Explore All Trust Services"

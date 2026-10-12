@@ -10,8 +10,13 @@ import ExceedingSixYearsAndRestartingClock from "./components/ExceedingSixYearsA
 import ValuationRoleAndSaleWithinSixYears from "./components/ValuationRoleAndSaleWithinSixYears";
 import WhatFinanciallyUpReviewsSixYearRule from "./components/WhatFinanciallyUpReviewsSixYearRule";
 import RelatedSixYearRuleRibbon from "./components/RelatedSixYearRuleRibbon";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+
+const baseMetadata = {
   title: "6 Year Rule Accountant | CGT on Former Home | Financially Up",
   description:
     "6 year rule accountant support for former homes rented after moving out. Review eligibility, overlapping residences, valuations and CGT before selling.",
@@ -26,6 +31,7 @@ export const metadata = {
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function SixYearRulePage() {
   const breadcrumbs = [
@@ -77,7 +83,7 @@ export default function SixYearRulePage() {
         provider: {
           "@type": "AccountingService",
           name: "Financially Up",
-          url: "https://financiallyup.com.au",
+          url: `${SITE_URL}`,
         },
         description:
           "Specialised Section 118-145 six-year rule capital gains tax advice. Retain your main residence exemption on former homes rented out across Australia.",
@@ -100,16 +106,13 @@ export default function SixYearRulePage() {
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* Hero Section */}
       <SubServiceHero
         title="6 Year Rule Accountant for Former Homes"
         subtitle="Main Residence Absence Concession, Overlapping Residences & CGT Exemptions"
-        description="A 6 year rule accountant helps determine whether a former home can continue to be treated as your main residence for capital gains tax after you move out and rent it. Under the CGT absence rule, a former home can generally continue to be treated as your main residence for up to six years while it is used to produce income, provided the relevant conditions are met. The rule is optional and interacts with other main-residence choices. Financially Up can review the dates you lived in the property, rental periods, other homes, change-of-use valuations and sale timing so the exemption is applied to the facts rather than assumed."
+        description={<BrandText text={"A 6 year rule accountant helps determine whether a former home can continue to be treated as your main residence for capital gains tax after you move out and rent it. Under the CGT absence rule, a former home can generally continue to be treated as your main residence for up to six years while it is used to produce income, provided the relevant conditions are met. The rule is optional and interacts with other main-residence choices. Financially Up can review the dates you lived in the property, rental periods, other homes, change-of-use valuations and sale timing so the exemption is applied to the facts rather than assumed."} />}
         parentService={{
           label: "Property Tax Hub",
           href: "/services/property-tax",
@@ -127,7 +130,7 @@ export default function SixYearRulePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -158,7 +161,7 @@ export default function SixYearRulePage() {
       <CallToActionBanner
         tag="Planning to Sell Your Former Home?"
         title="Discuss Your Property Transaction"
-        subtitle="If you moved out of a home, rented it and are considering a sale, book an appointment with Financially Up. We can review the six-year rule, overlapping main-residence choices, relevant valuations and the CGT calculation before the return is prepared."
+        subtitle={<BrandText text={"If you moved out of a home, rented it and are considering a sale, book an appointment with Financially Up. We can review the six-year rule, overlapping main-residence choices, relevant valuations and the CGT calculation before the return is prepared."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

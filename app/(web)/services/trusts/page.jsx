@@ -10,11 +10,16 @@ import HowFinanciallyUpHelpsTrusts from "./components/HowFinanciallyUpHelpsTrust
 import WhyChooseFinanciallyUpTrusts from "./components/WhyChooseFinanciallyUpTrusts";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust Accountant & Trust Accounting Services | Financially Up",
   description:
     "Need a trust accountant? Financially Up supports trust accounting, tax returns, distributions and compliance for trusts across Australia.",
@@ -31,18 +36,19 @@ export const metadata = {
     "discretionary trust tax return",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/",
+    canonical: `${SITE_URL}/services/trusts/`,
   },
   openGraph: {
     title: "Trust Accountant & Trust Accounting Services | Financially Up",
     description:
       "Need a trust accountant? Financially Up supports trust accounting, tax returns, distributions and compliance for trusts across Australia.",
-    url: "https://financiallyup.com.au/services/trusts/",
+    url: `${SITE_URL}/services/trusts/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Trust Accounting
@@ -141,7 +147,7 @@ const trustFaqs = [
   },
   {
     key: "3",
-    label: "Can Financially Up prepare trust distribution resolutions?",
+    label: <BrandText text={"Can Financially Up prepare trust distribution resolutions?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         We can assist with the accounting and tax information relevant to distribution decisions and
@@ -229,10 +235,7 @@ export default function TrustMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship ServiceHero with Exact H1 & Verbatim Lead Text */}
       <ServiceHero
@@ -254,7 +257,7 @@ export default function TrustMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up provides trust accounting services for trustees, family groups, business
+            <CompanyName /> provides trust accounting services for trustees, family groups, business
             owners and investors across Australia. Our work can include trust accounts, tax-return
             preparation, distribution-related accounting, beneficiary reporting and coordination of
             related tax matters. The exact scope depends on the trust deed, the trust&apos;s

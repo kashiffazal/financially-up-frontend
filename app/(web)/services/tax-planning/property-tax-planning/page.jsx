@@ -11,12 +11,18 @@ import HowFinanciallyUpHelpsProperty from "./components/HowFinanciallyUpHelpsPro
 import RelatedPropertyTaxRibbon from "./components/RelatedPropertyTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Property Tax Planning for Investors | Financially Up",
   description:
     "Property tax planning for investors covering ownership, rental income, deductions, CGT, financing and record keeping before key decisions.",
@@ -30,18 +36,19 @@ export const metadata = {
     "negative gearing tax planning",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/property-tax-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/property-tax-planning/`,
   },
   openGraph: {
     title: "Property Tax Planning for Investors | Financially Up",
     description:
       "Property tax planning for investors covering ownership, rental income, deductions, CGT, financing and record keeping before key decisions.",
-    url: "https://financiallyup.com.au/services/tax-planning/property-tax-planning/",
+    url: `${SITE_URL}/services/tax-planning/property-tax-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -98,7 +105,7 @@ const propertyTaxPlanningFaqs = [
     label: "Does property tax planning include a CGT calculation when I sell?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A planning review can identify likely CGT issues. A detailed calculation can be scoped separately and supported through Financially Up’s Capital Gains Tax service where required.
+        A planning review can identify likely CGT issues. A detailed calculation can be scoped separately and supported through <CompanyName />’s Capital Gains Tax service where required.
       </p>
     ),
   },
@@ -129,10 +136,7 @@ export default function PropertyTaxPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -144,7 +148,7 @@ export default function PropertyTaxPlanningPage() {
               Property tax planning is the process of considering tax consequences before key property decisions are made. For investors, that can include how a property will be owned, how borrowing is used, what records should be kept, the treatment of rental income and expenses, and the potential tax impact of a future sale.
             </span>
             <span className="block mt-2">
-              Financially Up helps property investors review these issues in the Australian tax context. The service is different from simply preparing a rental schedule after year end: it focuses on decisions, timing and documentation before or during the investment period where practical.
+              <CompanyName /> helps property investors review these issues in the Australian tax context. The service is different from simply preparing a rental schedule after year end: it focuses on decisions, timing and documentation before or during the investment period where practical.
             </span>
           </span>
         }
@@ -165,7 +169,7 @@ export default function PropertyTaxPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -199,7 +203,7 @@ export default function PropertyTaxPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about property tax planning, loan interest deductibility, renovations, and CGT timing with Financially Up."
+        subtitle={<BrandText text={"Common questions about property tax planning, loan interest deductibility, renovations, and CGT timing with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Property Tax Planning Frequently Asked Questions"
         items={propertyTaxPlanningFaqs}
@@ -211,7 +215,7 @@ export default function PropertyTaxPlanningPage() {
       <CallToActionBanner
         tag="Property Tax Advisory"
         title="Book an Appointment"
-        subtitle="Discuss your circumstances with Financially Up and clarify the relevant tax and accounting issues, what information is needed and whether further planning or specialist advice should be separately scoped."
+        subtitle={<BrandText text={"Discuss your circumstances with Financially Up and clarify the relevant tax and accounting issues, what information is needed and whether further planning or specialist advice should be separately scoped."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

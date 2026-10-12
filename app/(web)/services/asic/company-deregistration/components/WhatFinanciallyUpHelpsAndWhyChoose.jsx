@@ -14,6 +14,7 @@ import {
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinanciallyUpHelpsAndWhyChoose Component
@@ -63,10 +64,10 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
               Closure Scope & Compliance
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              What Financially Up can help with
+              What <CompanyName /> can help with
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can review the company&apos;s accounting records
+              <CompanyName /> can review the company&apos;s accounting records
               and ASIC status, identify outstanding bookkeeping or tax work,
               help assess whether the published voluntary deregistration
               criteria appear to be met, assist with final compliance tasks
@@ -78,7 +79,7 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
           </div>
 
           {/* Subsection 2: Information and records to prepare */}
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
               Information and records to prepare
             </h3>
@@ -106,16 +107,16 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
         </div>
 
         {/* Subsection 3: Why choose Financially Up? */}
-        <div className="w-full rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+        <div className="w-full rounded-lg p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
               Integrated Closure Support
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up is a registered tax agent with more than 10 years
+              <CompanyName /> is a registered tax agent with more than 10 years
               of experience. Our team includes CPA and IPA professionals and
               supports clients Australia-wide through online and in-person
               appointments. For company closure matters, we combine the ASIC

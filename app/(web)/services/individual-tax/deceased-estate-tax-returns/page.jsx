@@ -7,11 +7,17 @@ import HowFinanciallyUpHelpsDeceasedEstates from "./components/HowFinanciallyUpH
 import DeceasedEstateRelatedServiceRibbon from "./components/DeceasedEstateRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 13)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Deceased Estate Tax Return Accountant | Financially Up",
   description:
     "Need help with a deceased estate tax return? Financially Up assists executors with final returns, estate income and ATO obligations.",
@@ -27,18 +33,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/deceased-estate-tax-returns/",
+      `${SITE_URL}/services/individual-tax/deceased-estate-tax-returns/`,
   },
   openGraph: {
     title: "Deceased Estate Tax Return Accountant | Financially Up",
     description:
       "Need help with a deceased estate tax return? Financially Up assists executors with final returns, estate income and ATO obligations.",
-    url: "https://financiallyup.com.au/services/individual-tax/deceased-estate-tax-returns/",
+    url: `${SITE_URL}/services/individual-tax/deceased-estate-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -229,10 +236,7 @@ export default function DeceasedEstateTaxReturnsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-950 transition-colors">
       {/* FAQ Schema Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* Hero Section */}
       <SubServiceHero
@@ -244,7 +248,7 @@ export default function DeceasedEstateTaxReturnsPage() {
             Neither return is automatically required in every case. The person
             managing the estate should review the deceased person&apos;s
             lodgment history, income before death and any income received or
-            derived by the estate afterwards. Financially Up Pty Ltd assists
+            derived by the estate afterwards. <CompanyName legal /> assists
             executors, administrators and legal personal representatives with
             understanding the relevant tax-return requirements, gathering
             records and preparing returns where required.
@@ -270,7 +274,7 @@ export default function DeceasedEstateTaxReturnsPage() {
           "Final Individual Return (1 July to Date of Death)",
           "Deceased Estate Trust Return & Dedicated TFN",
           "Inherited Asset CGT & Cost Base Reset Rules",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={deceasedEstateQuickSpecs}
         primaryCta={{
@@ -279,7 +283,7 @@ export default function DeceasedEstateTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Estate Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -304,7 +308,7 @@ export default function DeceasedEstateTaxReturnsPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about deceased estate returns, executor legal authority, final individual returns and inherited assets with Financially Up."
+        subtitle={<BrandText text={"Common questions about deceased estate returns, executor legal authority, final individual returns and inherited assets with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Deceased Estate Tax Return Services Frequently Asked Questions"
         items={deceasedEstateFaqs}
@@ -316,7 +320,7 @@ export default function DeceasedEstateTaxReturnsPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Managing tax matters after a death can involve different returns, representatives and record requirements. Book an Appointment with Financially Up to discuss the deceased person's tax history, the estate's income and assets, your authority to act and the documents available."
+        subtitle={<BrandText text={"Managing tax matters after a death can involve different returns, representatives and record requirements. Book an Appointment with Financially Up to discuss the deceased person's tax history, the estate's income and assets, your authority to act and the documents available."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

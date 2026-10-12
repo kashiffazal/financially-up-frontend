@@ -13,6 +13,7 @@ import {
   FileDoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatToBringAndPracticalCycle Component
@@ -30,7 +31,7 @@ export default function WhatToBringAndPracticalCycle() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: `TPB Agent #${company.tpbNumber || "26234055"}`,
+      subtitle: `TPB Agent #${company.taxAgentNumber}`,
       desc: "Providing objective, reliable governance reporting for Australian corporate boards.",
     },
     {
@@ -106,7 +107,7 @@ export default function WhatToBringAndPracticalCycle() {
                   present an estimate as a final result.
                 </p>
                 <p>
-                  {company.legalName || "Financially Up Pty Ltd"} has more than
+                  {company.legalName} has more than
                   10 years of experience and a team including CPA and IPA
                   members. We provide online and in-person appointments across
                   Australia. Our focus is clear, timely financial information
@@ -152,7 +153,7 @@ export default function WhatToBringAndPracticalCycle() {
               Give Directors Information They Can Use
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 m-0">
-              Speak with Financially Up to design a tailored board reporting
+              Speak with <CompanyName /> to design a tailored board reporting
               calendar.
             </p>
           </div>

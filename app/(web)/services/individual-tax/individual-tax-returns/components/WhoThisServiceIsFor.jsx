@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhoThisServiceIsFor Component
@@ -118,7 +119,7 @@ export default function WhoThisServiceIsFor() {
                 straightforward returns who want a personal tax return
                 accountant to prepare the return and answer their questions. If
                 your matter requires detailed advice about property, capital
-                gains or outstanding lodgements, Financially Up can connect the
+                gains or outstanding lodgements, <CompanyName /> can connect the
                 return work with the relevant specialist tax service.
               </p>
             </div>
@@ -144,7 +145,7 @@ export default function WhoThisServiceIsFor() {
         {/* Connected Specialist Tax Services Strip */}
         <div className="rounded-lg bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800/80 p-6 sm:p-8">
           <div className="text-xs font-extrabold uppercase tracking-wider text-slate-400 dark:text-zinc-500 mb-4 text-center sm:text-left">
-            Connected Specialist Practices at Financially Up:
+            Connected Specialist Practices at <CompanyName />:
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {specialistLinks.map((spec, i) => (

@@ -75,7 +75,7 @@ export default function WhatIsASoleTraderTaxReturn() {
           {principles.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-xl hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-xl hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">

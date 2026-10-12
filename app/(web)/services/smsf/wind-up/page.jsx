@@ -8,11 +8,17 @@ import CorporateTrusteeDeregistrationAndRecords from "./components/CorporateTrus
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Wind Up & Closure Services | Financially Up",
   description:
     "SMSF wind up support covering final accounts, member benefits, audit, tax lodgement and ATO closure steps so the fund can be properly finalized.",
@@ -26,18 +32,19 @@ export const metadata = {
     "SMSF SuperStream rollover",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/wind-up/",
+    canonical: `${SITE_URL}/services/smsf/wind-up/`,
   },
   openGraph: {
     title: "SMSF Wind Up & Closure Services | Financially Up",
     description:
       "SMSF wind up support covering final accounts, member benefits, audit, tax lodgement and ATO closure steps so the fund can be properly finalized.",
-    url: "https://financiallyup.com.au/services/smsf/wind-up/",
+    url: `${SITE_URL}/services/smsf/wind-up/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -212,10 +219,7 @@ export default function SmsfWindUpSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -224,7 +228,7 @@ export default function SmsfWindUpSubpage() {
         subtitle="An SMSF wind up is the formal process of ending a self-managed super fund after its members’ benefits, assets, liabilities, accounting, audit and reporting obligations have been dealt with. Closing a bank account or deciding to stop using the fund is not enough on its own."
         bodyText={
           <span>
-            Financially Up can assist trustees with the accounting, tax and
+            <CompanyName /> can assist trustees with the accounting, tax and
             administration work involved in an SMSF closure, including final
             accounts, coordination of the final audit and preparation of the
             final SMSF annual return. Decisions about where member benefits
@@ -259,7 +263,7 @@ export default function SmsfWindUpSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "SMSF & Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -296,7 +300,7 @@ export default function SmsfWindUpSubpage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="SMSF Wind Up & Closure Support"
-        subtitle="If you are ready to close an SMSF or want to understand what must be completed first, book an appointment with Financially Up to review the fund and plan the wind-up process."
+        subtitle={<BrandText text={"If you are ready to close an SMSF or want to understand what must be completed first, book an appointment with Financially Up to review the fund and plan the wind-up process."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore SMSF Services"

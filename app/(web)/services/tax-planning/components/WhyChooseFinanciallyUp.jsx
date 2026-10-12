@@ -14,6 +14,8 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUp Component
@@ -29,7 +31,7 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
  */
 export default function WhyChooseFinanciallyUp() {
   const company = useCompany();
-  const legalName = company?.legalName || "Financially Up Pty Ltd";
+  const legalName = company?.legalName;
 
   const firmCredentials = [
     {
@@ -69,7 +71,7 @@ export default function WhyChooseFinanciallyUp() {
         <CompassOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
       ),
       title: "Identify Decision or Concern",
-      desc: "Financially Up starts by identifying the decision or tax concern that needs attention.",
+      desc: <BrandText text={"Financially Up starts by identifying the decision or tax concern that needs attention."} />,
     },
     {
       step: "02",
@@ -110,11 +112,11 @@ export default function WhyChooseFinanciallyUp() {
               <AuditOutlined className="mr-1" /> Advisory Approach
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              How Financially Up Approaches Tax Planning
+              How <CompanyName /> Approaches Tax Planning
             </h2>
             {/* Document Paragraph 1 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-              Financially Up starts by identifying the decision or tax concern
+              <CompanyName /> starts by identifying the decision or tax concern
               that needs attention. We review the relevant facts and records,
               clarify which issues fall within tax planning and explain the
               practical tax implications in plain language. Where advice is
@@ -178,7 +180,7 @@ export default function WhyChooseFinanciallyUp() {
               <TeamOutlined className="mr-1" /> Firm Credentials
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why Choose Financially Up?
+              Why Choose <CompanyName />?
             </h2>
             {/* Document Paragraph 1 - Verbatim with Dynamic Company Name */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
@@ -216,7 +218,7 @@ export default function WhyChooseFinanciallyUp() {
           <AdvisoryReassuranceBanner
             tag="Advisory Clarity"
             title="Discuss Your Tax Planning Position"
-            description="Discuss your business or personal tax position, upcoming decisions and the records available. Financially Up can identify the appropriate tax planning scope and next steps."
+            description={<BrandText text={"Discuss your business or personal tax position, upcoming decisions and the records available. Financially Up can identify the appropriate tax planning scope and next steps."} />}
             primaryButton={{
               text: "Book an Appointment",
               href: "/book-an-appointment",

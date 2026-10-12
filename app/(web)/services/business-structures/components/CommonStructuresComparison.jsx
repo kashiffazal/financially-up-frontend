@@ -3,6 +3,7 @@
 import React from "react";
 import ProfileCardsGrid from "@/components/website/ProfileCardsGrid";
 import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * CommonStructuresComparison Component
@@ -49,7 +50,7 @@ export default function CommonStructuresComparison() {
       tag: "Corporate Entity",
       title: "Company",
       description:
-        "A company is a separate legal entity registered with ASIC. It has its own legal and tax obligations, and company money is not simply the personal money of its shareholders or directors. Establishing a company also creates ongoing corporate administration responsibilities. If a company is the intended structure, Financially Up can assist with company registration and coordinate the accounting registrations needed after incorporation.",
+        <BrandText text={"A company is a separate legal entity registered with ASIC. It has its own legal and tax obligations, and company money is not simply the personal money of its shareholders or directors. Establishing a company also creates ongoing corporate administration responsibilities. If a company is the intended structure, Financially Up can assist with company registration and coordinate the accounting registrations needed after incorporation."} />,
       href: "/services/business-structures/company-registration",
       actionText: "Company registration",
     },
@@ -59,7 +60,7 @@ export default function CommonStructuresComparison() {
       tag: "Trust Structure",
       title: "Trust",
       description:
-        "A trust is an arrangement under which a trustee holds and manages property or business activities for beneficiaries in accordance with the trust deed and applicable law. Trusts can be more complex to establish and administer. Legal documentation, including the trust deed, should be prepared or reviewed by an appropriately qualified legal adviser where required. Financially Up can assist with the related accounting, tax and registration steps once the structure is appropriately established.",
+        <BrandText text={"A trust is an arrangement under which a trustee holds and manages property or business activities for beneficiaries in accordance with the trust deed and applicable law. Trusts can be more complex to establish and administer. Legal documentation, including the trust deed, should be prepared or reviewed by an appropriately qualified legal adviser where required. Financially Up can assist with the related accounting, tax and registration steps once the structure is appropriately established."} />,
       href: "/services/business-structures/corporate-trustee",
       actionText: "Corporate trustee setup",
     },

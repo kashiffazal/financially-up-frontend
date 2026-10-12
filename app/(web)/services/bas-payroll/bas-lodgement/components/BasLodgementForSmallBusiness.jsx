@@ -10,6 +10,7 @@ import {
   SyncOutlined,
   SolutionOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BasLodgementForSmallBusiness Component
@@ -55,13 +56,13 @@ export default function BasLodgementForSmallBusiness() {
               That does not mean every BAS requires complex tax advice.
               Straightforward preparation and lodgement can remain a defined
               compliance service. Where a transaction raises a separate GST
-              interpretation, restructuring or tax-advice issue, Financially Up
+              interpretation, restructuring or tax-advice issue, <CompanyName />
               can identify that and scope the additional work separately.
             </p>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
               <div className="flex items-center gap-3 text-brand-primary dark:text-emerald-400">
                 <FileDoneOutlined className="text-2xl" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -86,10 +87,10 @@ export default function BasLodgementForSmallBusiness() {
               Registered Agent Support
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-              How Financially Up can help
+              How <CompanyName /> can help
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up provides BAS preparation and lodgement support
+              <CompanyName /> provides BAS preparation and lodgement support
               within the firm&apos;s registered tax-agent scope. Depending on
               your records and obligations, we can assist with BAS preparation,
               review, lodgement and related ATO correspondence.

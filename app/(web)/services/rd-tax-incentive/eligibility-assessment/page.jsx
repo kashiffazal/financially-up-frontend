@@ -9,11 +9,17 @@ import WhyChooseFinanciallyUpRdEligibility from "./components/WhyChooseFinancial
 import RelatedServiceRibbon from "./components/RelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of 15th Pillar R&D Tax Incentive.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "R&D Tax Incentive Eligibility Assessment | Financially Up",
   description:
     "Check whether your company and R&D activities may qualify. Financially Up reviews the entity, experiments, supporting work, records and proposed expenditure.",
@@ -27,18 +33,19 @@ export const metadata = {
     "contemporaneous R&D records",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/rd-tax-incentive/eligibility-assessment/",
+    canonical: `${SITE_URL}/services/rd-tax-incentive/eligibility-assessment/`,
   },
   openGraph: {
     title: "R&D Tax Incentive Eligibility Assessment | Financially Up",
     description:
       "Check whether your company and R&D activities may qualify. Financially Up reviews the entity, experiments, supporting work, records and proposed expenditure.",
-    url: "https://financiallyup.com.au/services/rd-tax-incentive/eligibility-assessment/",
+    url: `${SITE_URL}/services/rd-tax-incentive/eligibility-assessment/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -121,10 +128,7 @@ export default function RdTaxEligibilityAssessmentPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function RdTaxEligibilityAssessmentPage() {
               review before registration or a tax claim.
             </span>
             <span className="block mt-2">
-              Financially Up can help you organise the facts and assess the tax and accounting aspects
+              <CompanyName /> can help you organise the facts and assess the tax and accounting aspects
               within an agreed scope. We may involve or recommend appropriately qualified technical
               expertise where the science or technology requires it. Book an Appointment to describe the
               project, its uncertain outcome and the records created so far.
@@ -156,7 +160,7 @@ export default function RdTaxEligibilityAssessmentPage() {
         highlights={[
           "Core vs Supporting Activity Review",
           "Entity Structure & Risk-Bearing Checks",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-2" text={"Registered Tax Agent #26234055"} />,
         ]}
         primaryCta={{
           label: "Book an Appointment",
@@ -164,7 +168,7 @@ export default function RdTaxEligibilityAssessmentPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "R&D Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -204,7 +208,7 @@ export default function RdTaxEligibilityAssessmentPage() {
       <CallToActionBanner
         tag="Check the project before preparing a claim"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss the company, experimental work and records and agree the scope for an R&D tax incentive eligibility assessment."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss the company, experimental work and records and agree the scope for an R&D tax incentive eligibility assessment."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore R&D Tax Incentive"

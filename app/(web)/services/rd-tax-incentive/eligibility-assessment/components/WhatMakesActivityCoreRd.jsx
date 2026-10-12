@@ -62,7 +62,7 @@ export default function WhatMakesActivityCoreRd() {
         </div>
 
         {/* Lead Verbatim Definition Card */}
-        <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
             <ExperimentOutlined />
             <span>Legislative Core Activity Definition</span>

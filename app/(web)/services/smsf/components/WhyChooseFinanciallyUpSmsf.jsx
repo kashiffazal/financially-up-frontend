@@ -10,6 +10,8 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpSmsf Component
@@ -75,11 +77,11 @@ export default function WhyChooseFinanciallyUpSmsf() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why choose Financially Up?
+            Why choose <CompanyName />?
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up"} is a registered tax agent
+            {company?.legalName} is a registered tax agent
             with more than 10 years of experience across accounting, taxation,
             bookkeeping and business advisory work. Our team includes CPA and
             IPA members, and we support clients Australia-wide through online
@@ -116,7 +118,7 @@ export default function WhyChooseFinanciallyUpSmsf() {
           tag="SMSF Consultation & Review"
           tagIcon="safety"
           title="Discuss Your SMSF Records with Qualified Accountants"
-          description="Whether you have an established fund needing annual accounts or are preparing to establish an SMSF, book an appointment with Financially Up."
+          description={<BrandText text={"Whether you have an established fund needing annual accounts or are preparing to establish an SMSF, book an appointment with Financially Up."} />}
           primaryButton={{
             text: "Book an Appointment",
             href: "/book-an-appointment",

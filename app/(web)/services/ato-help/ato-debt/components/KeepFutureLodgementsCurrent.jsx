@@ -10,6 +10,7 @@ import {
   LineChartOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * KeepFutureLodgementsCurrent Component
@@ -135,7 +136,7 @@ export default function KeepFutureLodgementsCurrent() {
                 arrangement should tell the same story.
               </p>
               <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-700 text-xs text-slate-600 dark:text-zinc-300">
-                <strong>Our Holistic Approach:</strong> Financially Up does not
+                <strong>Our Holistic Approach:</strong> <CompanyName /> does not
                 just broker an agreement with the ATO; we restructure your
                 accounting and cash-flow routines so you never slide into debt
                 again.

@@ -14,6 +14,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SetupAndRegistrations Component
@@ -169,7 +170,7 @@ export default function SetupAndRegistrations() {
                 Assistance with the ABN Registration Process
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                If an ABN is required, Financially Up can help with the ABN
+                If an ABN is required, <CompanyName /> can help with the ABN
                 registration process and the information needed for the
                 application. Not everyone is entitled to an ABN; entitlement
                 depends on matters such as carrying on or starting an

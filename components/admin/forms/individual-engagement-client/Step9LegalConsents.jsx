@@ -26,6 +26,8 @@ import {
 import { useCompany } from "@/context/SettingsContext";
 import { useSettings } from "@/context/SettingsContext";
 import { applyCompanyVars } from "@/lib/applyCompanyVars";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step9LegalConsents({ form }) {
   // Company details inside the legal text come from the global settings store
@@ -295,7 +297,7 @@ export default function Step9LegalConsents({ form }) {
           <AntInput
             type="checkbox"
             name="consentScheduleTerms"
-            text="I have opened, read and agree to the Engagement Schedule and Financially Up Terms and Conditions."
+            text={<BrandText text={"I have opened, read and agree to the Engagement Schedule and Financially Up Terms and Conditions."} />}
             className="text-sm font-bold text-slate-900 dark:text-zinc-100"
             onChange={handleTermsCheckboxChange}
             validator={(_, v) => {
@@ -351,7 +353,7 @@ export default function Step9LegalConsents({ form }) {
             name="techBlendedTeam"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs leading-relaxed block">
-                I authorise Financially Up to use approved third-party software,
+                I authorise <CompanyName /> to use approved third-party software,
                 professional service providers and appropriately authorised and
                 supervised onshore and offshore personnel to perform
                 administrative, data-processing, bookkeeping and tax preparation
@@ -598,7 +600,7 @@ export default function Step9LegalConsents({ form }) {
           <AntInput
             type="checkbox"
             name="declarationPendingReview"
-            text="I understand that Financially Up does not guarantee taxation audit immunity by the ATO and that my engagement remains Pending Review until accepted in writing by Financially Up."
+            text={<BrandText text={"I understand that Financially Up does not guarantee taxation audit immunity by the ATO and that my engagement remains Pending Review until accepted in writing by Financially Up."} />}
             className="text-sm font-bold text-slate-900 dark:text-zinc-100"
             validator={(_, v) =>
               v
@@ -693,7 +695,7 @@ export default function Step9LegalConsents({ form }) {
           <div className="border-b-2 border-brand-primary pb-4 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-black text-brand-primary tracking-tight m-0">
-                FINANCIALLY UP PTY LTD
+                <CompanyName legal upper />
               </h1>
               <p className="text-xs text-slate-500 m-0">
                 ABN {company.abn} | Registered Tax Agent #
@@ -777,7 +779,7 @@ export default function Step9LegalConsents({ form }) {
           <div className="border-b-2 border-brand-primary pb-4 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-black text-brand-primary tracking-tight m-0">
-                FINANCIALLY UP PTY LTD
+                <CompanyName legal upper />
               </h1>
               <p className="text-xs text-slate-500 m-0">
                 Privacy Collection Notice (APP 5 Compliance)
@@ -842,7 +844,7 @@ export default function Step9LegalConsents({ form }) {
           <div className="border-b-2 border-brand-primary pb-4 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-black text-brand-primary tracking-tight m-0">
-                FINANCIALLY UP PTY LTD
+                <CompanyName legal upper />
               </h1>
               <p className="text-xs text-slate-500 m-0">
                 Australian Privacy Principles Privacy Policy
@@ -1010,7 +1012,7 @@ export default function Step9LegalConsents({ form }) {
           <div className="border-b-2 border-brand-primary pb-4 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-black text-brand-primary tracking-tight m-0">
-                FINANCIALLY UP PTY LTD
+                <CompanyName legal upper />
               </h1>
               <p className="text-xs text-slate-500 m-0">
                 Technology, Outsourcing and Overseas Processing Notice

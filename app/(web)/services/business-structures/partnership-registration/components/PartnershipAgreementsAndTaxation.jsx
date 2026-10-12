@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PartnershipAgreementsAndTaxation Component
@@ -22,7 +23,7 @@ export default function PartnershipAgreementsAndTaxation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           {/* Card 1: Do you need a partnership agreement? */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center">
                 <FileTextOutlined className="text-lg" />
@@ -44,7 +45,7 @@ export default function PartnershipAgreementsAndTaxation() {
               <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700 flex items-start gap-2.5 text-xs text-slate-600 dark:text-zinc-300">
                 <InfoCircleOutlined className="text-sm text-blue-600 shrink-0 mt-0.5" />
                 <span>
-                  Financially Up can help explain the accounting and tax issues
+                  <CompanyName /> can help explain the accounting and tax issues
                   that should be considered when those arrangements are being
                   discussed. Drafting or advising on the legal effect of a
                   partnership agreement should be handled by an appropriately
@@ -63,7 +64,7 @@ export default function PartnershipAgreementsAndTaxation() {
           </div>
 
           {/* Card 2: How is partnership income taxed? */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
                 <DollarOutlined className="text-lg" />

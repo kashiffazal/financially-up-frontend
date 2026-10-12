@@ -78,7 +78,7 @@ export default function HowCapitalGainIsCalculated() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -112,7 +112,7 @@ export default function HowCapitalGainIsCalculated() {
         </p>
 
         {/* Understanding the Cost Base Deep Dive */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-slate-100 dark:border-zinc-800">
             <div>
               <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">

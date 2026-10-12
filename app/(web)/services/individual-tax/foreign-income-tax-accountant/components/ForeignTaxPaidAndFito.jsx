@@ -44,7 +44,7 @@ export default function ForeignTaxPaidAndFito() {
         {/* 2-Column High Impact Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Card 1: Foreign Income Tax Offset (FITO) */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -87,7 +87,7 @@ export default function ForeignTaxPaidAndFito() {
           </div>
 
           {/* Card 2: Double Tax Agreements (DTAs) */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">

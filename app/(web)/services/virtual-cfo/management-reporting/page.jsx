@@ -11,11 +11,16 @@ import WhyChooseFinanciallyUpReporting from "./components/WhyChooseFinanciallyUp
 import RelatedServiceRibbonReporting from "./components/RelatedServiceRibbonReporting";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 2)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Management Reporting Services | Financially Up",
   description:
     "Management reporting services that turn accounting data into useful monthly insights, KPIs, variance analysis and clearer business performance information.",
@@ -28,18 +33,19 @@ export const metadata = {
     "budget vs actual reporting",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/management-reporting/",
+    canonical: `${SITE_URL}/services/virtual-cfo/management-reporting/`,
   },
   openGraph: {
     title: "Management Reporting Services | Financially Up",
     description:
       "Management reporting services that turn accounting data into useful monthly insights, KPIs, variance analysis and clearer business performance information.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/management-reporting/",
+    url: `${SITE_URL}/services/virtual-cfo/management-reporting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -109,10 +115,7 @@ export default function ManagementReportingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -124,7 +127,7 @@ export default function ManagementReportingPage() {
               Management reporting services turn accounting data into regular, decision-focused reports for business owners and managers. Instead of waiting until year end to understand performance, management reports can show how revenue, margins, costs, cash flow and other key measures are tracking throughout the year.
             </span>
             <span className="block mt-2">
-              Financially Up can prepare or improve monthly management reporting so the information is consistent, understandable and relevant to the way the business is run. The service is designed for internal management use and is different from statutory financial reporting, tax-return preparation or an audit.
+              <CompanyName /> can prepare or improve monthly management reporting so the information is consistent, understandable and relevant to the way the business is run. The service is designed for internal management use and is different from statutory financial reporting, tax-return preparation or an audit.
             </span>
             <span className="block mt-2">
               If your accounting system produces plenty of data but not enough useful insight, an initial discussion can help define the reports and KPIs that matter to your business.
@@ -194,7 +197,7 @@ export default function ManagementReportingPage() {
       <CallToActionBanner
         tag="Turn Accounting Data into Decision-Ready Insight"
         title="Book an Appointment"
-        subtitle="For clearer monthly management reporting, speak with Financially Up about the reports and KPIs your business needs."
+        subtitle={<BrandText text={"For clearer monthly management reporting, speak with Financially Up about the reports and KPIs your business needs."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Virtual CFO Services"

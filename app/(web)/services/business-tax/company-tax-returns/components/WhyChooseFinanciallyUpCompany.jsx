@@ -12,6 +12,8 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpCompany Component
@@ -27,7 +29,7 @@ export default function WhyChooseFinanciallyUpCompany() {
         <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: "Financially Up is a registered tax agent (TPB #26234055), granting access to extended ATO lodgement dates and direct portal representation.",
+      desc: <BrandText text={"Financially Up is a registered tax agent (TPB #26234055), granting access to extended ATO lodgement dates and direct portal representation."} />,
     },
     {
       icon: (
@@ -64,10 +66,10 @@ export default function WhyChooseFinanciallyUpCompany() {
             Practitioner Credentials
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why Choose Financially Up
+            Why Choose <CompanyName />
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of
+            <CompanyName /> is a registered tax agent with more than 10 years of
             experience providing accounting and tax services. The team includes
             CPA and IPA members and supports clients Australia-wide through
             online meetings, phone appointments and in-person appointments where

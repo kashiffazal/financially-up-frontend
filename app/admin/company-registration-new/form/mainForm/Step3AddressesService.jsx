@@ -13,10 +13,14 @@ import { AntInput } from "@/services/antdFields";
 import AddressAutocomplete from "@/components/mutual/AddressAutocomplete";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import AddressServiceTermsTrigger from "./AddressServiceTermsTrigger";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import { useBrandText } from "@/context/SettingsContext";
 
 const AUSTRALIAN_STATES = ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"];
 
 export default function Step3AddressesService({ form }) {
+  const brand = useBrandText();
   /* Fills a group of address fields from a selected lookup result */
   const applyAddressParts = (prefix) => (parts) => {
     form.setFieldsValue({
@@ -65,7 +69,7 @@ export default function Step3AddressesService({ form }) {
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
           Physical registered office address, principal place of business, and
-          optional Financially Up address facility (Schedule C).
+          optional <CompanyName /> address facility (Schedule C).
         </p>
 
         <div className="mt-3 pt-2 border-t border-slate-100 dark:border-zinc-800/80">
@@ -213,7 +217,7 @@ export default function Step3AddressesService({ form }) {
                   Occupier Legal Name *
                 </span>
               }
-              placeholder="e.g. Financially Up Pty Ltd or Landlord Name"
+              placeholder={brand("e.g. Financially Up Pty Ltd or Landlord Name")}
               reqMsg="Occupier name is required"
               size="large"
               className="rounded-lg"
@@ -376,7 +380,7 @@ export default function Step3AddressesService({ form }) {
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
               <SafetyCertificateOutlined className="text-brand-primary text-sm" />{" "}
-              Financially Up Address Facility Request (Schedule C)
+              <CompanyName /> Address Facility Request (Schedule C)
             </h3>
           </div>
         </div>
@@ -387,14 +391,14 @@ export default function Step3AddressesService({ form }) {
             name="provideRegisteredOfficeAddress"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200">
-                Will Financially Up provide the Registered Office address?
+                Will <CompanyName /> provide the Registered Office address?
               </span>
             }
             reqMsg="Please select address service preference"
             radioOptions={[
               {
                 value: "Yes",
-                label: "Yes (Use Financially Up Registered Office)",
+                label: <BrandText text={"Yes (Use Financially Up Registered Office)"} />,
               },
               { value: "No", label: "No (Using own address)" },
             ]}
@@ -406,12 +410,12 @@ export default function Step3AddressesService({ form }) {
             name="providePrincipalPlaceAddress"
             label={
               <span className="font-bold text-slate-800 dark:text-zinc-200">
-                Will Financially Up provide the Principal Place of Business?
+                Will <CompanyName /> provide the Principal Place of Business?
               </span>
             }
             reqMsg="Please select PPOB preference"
             radioOptions={[
-              { value: "Yes", label: "Yes (Use Financially Up PPOB)" },
+              { value: "Yes", label: <BrandText text={"Yes (Use Financially Up PPOB)"} /> },
               { value: "No", label: "No (Own operating premises)" },
             ]}
             containerClassName="!mb-0"
@@ -428,7 +432,7 @@ export default function Step3AddressesService({ form }) {
                   Commercial Justification for Address Service *
                 </span>
               }
-              placeholder="Explain why the company is utilizing Financially Up address facilities rather than commercial physical lease."
+              placeholder={brand("Explain why the company is utilizing Financially Up address facilities rather than commercial physical lease.")}
               reqMsg="Commercial reason is required"
               rows={2}
               className="rounded-lg"

@@ -13,6 +13,8 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsCgt Component
@@ -30,7 +32,7 @@ export default function HowFinanciallyUpHelpsCgt() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: "TPB Registered Agent #26234055",
+      subtitle: <BrandText text={"TPB Registered Agent #26234055"} />,
     },
     {
       icon: (
@@ -60,7 +62,7 @@ export default function HowFinanciallyUpHelpsCgt() {
             Property CGT Specialists
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
 
@@ -74,7 +76,7 @@ export default function HowFinanciallyUpHelpsCgt() {
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              As your property capital gains tax accountant, Financially Up can
+              As your property capital gains tax accountant, <CompanyName /> can
               review the available evidence, calculate the gain or loss, assess
               potentially relevant exemptions and discounts, and prepare the
               tax-return reporting. Pre-sale advice, complex residency analysis,
@@ -137,12 +139,12 @@ export default function HowFinanciallyUpHelpsCgt() {
           <div className="text-center lg:text-left">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Review Your Property Sale with{" "}
-              {company?.legalName || "Financially Up"}
+              {company?.legalName}
             </h3>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl font-normal">
               Bring your contracts, ownership and use history, prior rental
-              schedules and major expense records. Financially Up can identify
+              schedules and major expense records. <CompanyName /> can identify
               gaps, prepare a supported calculation and explain the reporting
               steps.
             </p>

@@ -13,6 +13,7 @@ import {
   FileSearchOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatIndividualTaxReturnIncludes Component
@@ -159,7 +160,7 @@ export default function WhatIndividualTaxReturnIncludes() {
           <p className="text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed font-normal">
             <strong>Important Regulatory Notice:</strong> The treatment of any
             item depends on your circumstances, supporting records and
-            Australian tax law. Financially Up does not promise a particular
+            Australian tax law. <CompanyName /> does not promise a particular
             refund, deduction or tax saving.
           </p>
         </div>

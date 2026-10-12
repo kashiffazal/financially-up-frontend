@@ -12,6 +12,7 @@ import {
   ToolOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsCompliance Component
@@ -63,11 +64,11 @@ export default function HowFinanciallyUpHelpsCompliance() {
             </Tag>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              How Financially Up can help
+              How <CompanyName /> can help
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can provide payroll compliance services that
+              <CompanyName /> can provide payroll compliance services that
               connect payroll processing with bookkeeping, accounting and tax
               reporting. This is particularly useful where a business wants
               payroll figures to reconcile cleanly into its accounts rather than

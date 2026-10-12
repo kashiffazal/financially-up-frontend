@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import BusinessNameRegistrationForm from "@/components/admin/forms/business-name-registrations";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Business Name Registration - Financially Up",
   description:
     "Register your Australian business name across all states and territories directly with ASIC.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function BusinessNameRegistrationPage() {
   return (

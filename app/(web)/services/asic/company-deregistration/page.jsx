@@ -7,11 +7,16 @@ import WhatFinanciallyUpHelpsAndWhyChoose from "./components/WhatFinanciallyUpHe
 import CompanyDeregistrationRelatedRibbon from "./components/CompanyDeregistrationRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 / Pillar 7.4)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Company Deregistration Australia | Financially Up",
   description:
     "Company deregistration support for eligible Australian companies. Review ASIC criteria, final obligations, records and the steps required before closing a company.",
@@ -26,18 +31,19 @@ export const metadata = {
     "solvent company closure",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/company-deregistration/",
+    canonical: `${SITE_URL}/services/asic/company-deregistration/`,
   },
   openGraph: {
     title: "Company Deregistration Australia | Financially Up",
     description:
       "Company deregistration support for eligible Australian companies. Review ASIC criteria, final obligations, records and the steps required before closing a company.",
-    url: "https://financiallyup.com.au/services/asic/company-deregistration/",
+    url: `${SITE_URL}/services/asic/company-deregistration/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -116,10 +122,7 @@ export default function CompanyDeregistrationPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function CompanyDeregistrationPage() {
               Closing a company with ASIC involves more than lodging a single form. If a company is no longer operating, voluntary company deregistration can be a practical way to bring the entity to an end without continuing to incur annual review fees, accounting costs and corporate compliance obligations.
             </span>
             <span className="block mt-2">
-              Financially Up assists company directors and business owners with the steps required before deregistering a company. We review whether the company appears to meet ASIC’s deregistration criteria, help identify outstanding tax, accounting or administrative matters, and guide the process so the company is closed with its records in order.
+              <CompanyName /> assists company directors and business owners with the steps required before deregistering a company. We review whether the company appears to meet ASIC’s deregistration criteria, help identify outstanding tax, accounting or administrative matters, and guide the process so the company is closed with its records in order.
             </span>
           </span>
         }
@@ -186,7 +189,7 @@ export default function CompanyDeregistrationPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your company has stopped trading and you want to close it properly, book an appointment with Financially Up to review eligibility, outstanding obligations and the practical steps before deregistration."
+        subtitle={<BrandText text={"If your company has stopped trading and you want to close it properly, book an appointment with Financially Up to review eligibility, outstanding obligations and the practical steps before deregistration."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/app/ThemeProvider";
 import { PASSWORD_HINT, passwordRules } from "@/lib/passwordPolicy";
 import styles from "./ForcePasswordChange.module.css";
+import { useBrandText } from "@/context/SettingsContext";
 
 /**
  * Shown by the admin layout instead of the portal when an administrator set this
@@ -16,6 +17,7 @@ import styles from "./ForcePasswordChange.module.css";
  * request until the password is changed (PASSWORD_CHANGE_REQUIRED).
  */
 export default function ForcePasswordChange() {
+  const brand = useBrandText();
   const { user, changePassword, refreshUser, logout } = useAuth();
   const { isDark } = useTheme();
   const [form] = Form.useForm();
@@ -37,7 +39,7 @@ export default function ForcePasswordChange() {
   return (
     <div className={styles.page}>
       <div className={styles.card}>
-        <Image src={isDark ? "/images/logo-w.png" : "/images/logo.png"} alt="Financially Up" width={170} height={40} className={styles.logo} priority />
+        <Image src={isDark ? "/images/logo-w.png" : "/images/logo.png"} alt={brand("Financially Up")} width={170} height={40} className={styles.logo} priority />
         <div className={styles.icon}>
           <SafetyCertificateOutlined />
         </div>

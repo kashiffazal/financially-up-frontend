@@ -10,6 +10,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import styles from "./IndividualServicesWhyUs.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function IndividualServicesWhyUs() {
   const benefits = [
@@ -38,7 +39,7 @@ export default function IndividualServicesWhyUs() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           <Tag color="green" className="brand-section-tag">
-            Why Choose Financially Up
+            Why Choose <CompanyName />
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">

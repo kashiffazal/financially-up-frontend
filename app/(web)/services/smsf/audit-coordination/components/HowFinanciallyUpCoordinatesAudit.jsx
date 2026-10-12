@@ -9,6 +9,7 @@ import {
   SafetyCertificateOutlined,
   FileSearchOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpCoordinatesAudit Component
@@ -49,7 +50,7 @@ export default function HowFinanciallyUpCoordinatesAudit() {
             Liaison & Coordination Process
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up coordinates the SMSF annual audit
+            How <CompanyName /> coordinates the SMSF annual audit
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             A practical SMSF audit service starts before the auditor receives
@@ -98,7 +99,7 @@ export default function HowFinanciallyUpCoordinatesAudit() {
             <span className="font-bold text-slate-900 dark:text-white">
               Strict Independence Requirement:
             </span>{" "}
-            Financially Up prepares the accounts and coordinates the audit
+            <CompanyName /> prepares the accounts and coordinates the audit
             process. The statutory financial and compliance audit must be
             carried out independently by an ASIC-approved SMSF auditor who
             satisfies APES 110 independence standards.

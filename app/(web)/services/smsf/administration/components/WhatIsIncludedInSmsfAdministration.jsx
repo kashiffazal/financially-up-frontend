@@ -9,6 +9,7 @@ import {
   SafetyCertificateOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatIsIncludedInSmsfAdministration Component
@@ -128,7 +129,7 @@ export default function WhatIsIncludedInSmsfAdministration() {
         <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start sm:items-center gap-4 shadow-xs">
           <SafetyCertificateOutlined className="text-2xl text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5 sm:mt-0" />
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-            Financially Up can scope administration and our SMSF accounting
+            <CompanyName /> can scope administration and our SMSF accounting
             service together where appropriate. We can prepare and coordinate
             the information needed for audit, but the audit itself must be
             completed by an independent approved SMSF auditor.

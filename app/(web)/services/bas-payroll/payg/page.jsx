@@ -9,23 +9,28 @@ import PaygReportingAndDistinctions from "./components/PaygReportingAndDistincti
 import PaygComplianceScopeAndIssues from "./components/PaygComplianceScopeAndIssues";
 import HowFinanciallyUpHelpsPayg from "./components/HowFinanciallyUpHelpsPayg";
 import WhyChooseFinanciallyUpPayg from "./components/WhyChooseFinanciallyUpPayg";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "PAYG Withholding Services & Registration | Financially Up",
   description:
     "PAYG withholding services for employers, including registration, reporting and reconciliations. Get practical PAYG withholding compliance support Australia-wide.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/payg/",
+    canonical: `${SITE_URL}/services/bas-payroll/payg/`,
   },
   openGraph: {
     title: "PAYG Withholding Services & Registration | Financially Up",
     description:
       "PAYG withholding services for employers, including registration, reporting and reconciliations. Get practical PAYG withholding compliance support Australia-wide.",
-    url: "https://financiallyup.com.au/services/bas-payroll/payg/",
+    url: `${SITE_URL}/services/bas-payroll/payg/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -51,7 +56,7 @@ const paygFaqs = [
       "STP reports payroll information to the ATO, but employers also have activity statement obligations for PAYG withholding. The payroll, STP and activity statement figures should be reconciled rather than treated as unrelated reports.",
   },
   {
-    question: "Can Financially Up fix old PAYG withholding errors?",
+    question: <BrandText text={"Can Financially Up fix old PAYG withholding errors?"} />,
     answer:
       "We can review historical payroll and activity statement records and identify the correction steps that appear appropriate. The work may involve payroll amendments, STP corrections, activity statement revisions or bookkeeping adjustments depending on the source of the error.",
   },
@@ -72,7 +77,7 @@ export default function PaygWithholdingPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -83,10 +88,7 @@ export default function PaygWithholdingPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -99,7 +101,7 @@ export default function PaygWithholdingPage() {
           badgeText="Employer Withholding Compliance"
           title="PAYG Withholding Services for Employers"
           description={[
-            "PAYG withholding is the system under which businesses withhold amounts from certain payments and remit those amounts to the ATO. For most employers, it is a core payroll compliance obligation alongside Single Touch Payroll reporting, superannuation and record keeping. Financially Up provides PAYG withholding services for businesses that need help with registration, payroll reconciliations, activity statement reporting and ongoing compliance.",
+            <BrandText key="brand-0" text={"PAYG withholding is the system under which businesses withhold amounts from certain payments and remit those amounts to the ATO. For most employers, it is a core payroll compliance obligation alongside Single Touch Payroll reporting, superannuation and record keeping. Financially Up provides PAYG withholding services for businesses that need help with registration, payroll reconciliations, activity statement reporting and ongoing compliance."} />,
             "A PAYG withholding accountant can help make sure the amounts calculated through payroll are reflected correctly in the figures reported to the ATO. This is especially useful when a business is hiring for the first time, changing payroll systems, correcting historical payroll, or dealing with discrepancies between STP reports and activity statements.",
           ]}
           ctaText="Book an Appointment"
@@ -135,7 +137,7 @@ export default function PaygWithholdingPage() {
         {/* Section 7: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="Need help registering for PAYG withholding, reconciling payroll or preparing activity statement figures? Book an appointment with Financially Up to discuss the issue and appropriate scope."
+          description={<BrandText text={"Need help registering for PAYG withholding, reconciling payroll or preparing activity statement figures? Book an appointment with Financially Up to discuss the issue and appropriate scope."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

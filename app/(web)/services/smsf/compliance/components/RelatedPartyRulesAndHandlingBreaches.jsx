@@ -10,6 +10,7 @@ import {
   SafetyCertificateOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * RelatedPartyRulesAndHandlingBreaches Component
@@ -48,7 +49,7 @@ export default function RelatedPartyRulesAndHandlingBreaches() {
         {/* 2 Feature Cards: Related Party Rules & Breach Response */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Related-Party Rules & In-House Assets */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/40 flex items-center justify-center mb-6">
                 <StopOutlined className="text-2xl text-rose-600 dark:text-rose-400" />
@@ -112,7 +113,7 @@ export default function RelatedPartyRulesAndHandlingBreaches() {
           </div>
 
           {/* Card 2: What if a compliance issue has already occurred? */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/40 flex items-center justify-center mb-6">
                 <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
@@ -130,7 +131,7 @@ export default function RelatedPartyRulesAndHandlingBreaches() {
                 or direct engagement with the ATO.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can help review the accounting and tax position,
+                <CompanyName /> can help review the accounting and tax position,
                 reconstruct records where possible and coordinate the compliance
                 work within scope. Where the issue requires legal advice,
                 regulated financial product advice or specialist superannuation

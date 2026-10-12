@@ -11,8 +11,12 @@ import AccurateRecordsBeforeBas from "./components/AccurateRecordsBeforeBas";
 import RecordsToHaveReadyBas from "./components/RecordsToHaveReadyBas";
 import BasLodgementForSmallBusiness from "./components/BasLodgementForSmallBusiness";
 import WhyChooseFinanciallyUpBas from "./components/WhyChooseFinanciallyUpBas";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "BAS Lodgement Service Australia | Financially Up",
   description:
     "Professional BAS lodgement service for Australian businesses. Get help preparing activity statements, reviewing GST figures and lodging with the ATO.",
@@ -26,16 +30,17 @@ export const metadata = {
     "business activity statement lodgement",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/bas-lodgement/",
+    canonical: `${SITE_URL}/services/bas-payroll/bas-lodgement/`,
   },
   openGraph: {
     title: "BAS Lodgement Service Australia | Financially Up",
     description:
       "Professional BAS lodgement service for Australian businesses. Get help preparing activity statements, reviewing GST figures and lodging with the ATO.",
-    url: "https://financiallyup.com.au/services/bas-payroll/bas-lodgement/",
+    url: `${SITE_URL}/services/bas-payroll/bas-lodgement/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -49,7 +54,7 @@ export default function BasLodgementPage() {
     {
       question: "Can an accountant lodge my BAS?",
       answer:
-        "Yes. A registered tax agent or BAS agent can assist with preparing and lodging BAS information within their authorized scope. Financially Up can help through its registered tax-agent services.",
+        <BrandText text={"Yes. A registered tax agent or BAS agent can assist with preparing and lodging BAS information within their authorized scope. Financially Up can help through its registered tax-agent services."} />,
     },
     {
       question: "What if I have missed more than one BAS?",
@@ -59,7 +64,7 @@ export default function BasLodgementPage() {
     {
       question: "Can you lodge a BAS if my bookkeeping is incomplete?",
       answer:
-        "Incomplete records normally need to be corrected or completed first. Financially Up can identify what is missing and, where appropriate, scope catch-up bookkeeping before the BAS is prepared.",
+        <BrandText text={"Incomplete records normally need to be corrected or completed first. Financially Up can identify what is missing and, where appropriate, scope catch-up bookkeeping before the BAS is prepared."} />,
     },
     {
       question: "Can I claim GST on every business expense?",
@@ -89,10 +94,7 @@ export default function BasLodgementPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-zinc-900">
         {/* Hero Section */}
@@ -105,9 +107,9 @@ export default function BasLodgementPage() {
           badge="BAS Lodgement Service"
           title="BAS Lodgement Service for Australian Businesses"
           subtitle="Prepare, review and lodge accurate activity statements with the ATO backed by registered tax agent oversight."
-          description={`A BAS lodgement service helps a business prepare, review and lodge the activity statement information required by the ATO. Financially Up works with business owners who want their BAS prepared from reliable records, with GST and other relevant activity-statement figures checked before lodgement.
+          description={<BrandText text={`A BAS lodgement service helps a business prepare, review and lodge the activity statement information required by the ATO. Financially Up works with business owners who want their BAS prepared from reliable records, with GST and other relevant activity-statement figures checked before lodgement.
 
-This page is specifically about BAS preparation and lodgement. It is not a replacement for ongoing bookkeeping, payroll processing or broader tax planning, although those services can be coordinated where the BAS work identifies a separate need.`}
+This page is specifically about BAS preparation and lodgement. It is not a replacement for ongoing bookkeeping, payroll processing or broader tax planning, although those services can be coordinated where the BAS work identifies a separate need.`} />}
           appointmentNote="Book an appointment to discuss your reporting cycle, current records and any BAS that needs to be prepared or brought up to date."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"

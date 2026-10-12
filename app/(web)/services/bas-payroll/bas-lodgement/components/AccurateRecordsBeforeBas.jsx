@@ -9,6 +9,7 @@ import {
   ThunderboltOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * AccurateRecordsBeforeBas Component
@@ -42,8 +43,7 @@ export default function AccurateRecordsBeforeBas() {
           </p>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Where the records themselves need ongoing attention, Financially
-            Up&apos;s Bookkeeping services can be scoped separately. If you are
+            Where the records themselves need ongoing attention, <CompanyName />&apos;s Bookkeeping services can be scoped separately. If you are
             not yet registered for GST and need help assessing or completing
             registration, see our GST Registration service.
           </p>
@@ -52,7 +52,7 @@ export default function AccurateRecordsBeforeBas() {
         {/* Two Supporting Action Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Card 1: Bookkeeping Services */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <FileProtectOutlined className="text-2xl" />
@@ -81,7 +81,7 @@ export default function AccurateRecordsBeforeBas() {
           </div>
 
           {/* Card 2: GST Registration */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <ThunderboltOutlined className="text-2xl" />

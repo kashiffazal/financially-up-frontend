@@ -73,7 +73,7 @@ export default function TaxableCryptoTransactions() {
           {disposalEvents.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -103,7 +103,7 @@ export default function TaxableCryptoTransactions() {
         {/* Swaps & Wallet-to-Wallet Deep Dive */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Card 1: Crypto Swaps */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <SwapOutlined className="text-xl text-blue-500" />
@@ -133,7 +133,7 @@ export default function TaxableCryptoTransactions() {
           </div>
 
           {/* Card 2: Wallet Transfers */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <WalletOutlined className="text-xl text-emerald-500" />

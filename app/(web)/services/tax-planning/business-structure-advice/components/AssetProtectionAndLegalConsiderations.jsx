@@ -8,6 +8,7 @@ import {
   CheckCircleOutlined,
   StopOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * AssetProtectionAndLegalConsiderations Component
@@ -64,7 +65,7 @@ export default function AssetProtectionAndLegalConsiderations() {
           <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <p>
-              Financially Up can explain tax and accounting implications, but
+              <CompanyName /> can explain tax and accounting implications, but
               legal advice should be obtained for shareholder agreements,
               partnership agreements, trust deeds, asset-protection strategies,
               contracts and other legal rights or obligations.
@@ -82,7 +83,7 @@ export default function AssetProtectionAndLegalConsiderations() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Financially Up Accounting Scope
+                  <CompanyName /> Accounting Scope
                 </h3>
                 <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                   Tax, Accounting &amp; Compliance Modeling

@@ -9,6 +9,7 @@ import {
   CheckCircleOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PlanningBeforeYearEnd Component
@@ -63,7 +64,7 @@ export default function PlanningBeforeYearEnd() {
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
             Income tax planning should therefore focus on real transactions and
             current evidence, not on creating expenses solely for a deduction.
-            Financially Up can review the expected position and explain which
+            <CompanyName /> can review the expected position and explain which
             matters may need action, documentation or separate advice.
           </p>
         </div>

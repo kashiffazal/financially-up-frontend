@@ -9,11 +9,17 @@ import WhyChooseFinanciallyUpSoleTrader from "./components/WhyChooseFinanciallyU
 import SoleTraderRelatedServiceRibbon from "./components/SoleTraderRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Sole Trader Tax Return Australia | Financially Up",
   description:
     "Sole trader tax return preparation for Australians, including deductions, PAYG, GST and BAS support. Book an appointment with Financially Up.",
@@ -29,18 +35,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/sole-trader-tax-return/",
+      `${SITE_URL}/services/individual-tax/sole-trader-tax-return/`,
   },
   openGraph: {
     title: "Sole Trader Tax Return Australia | Financially Up",
     description:
       "Sole trader tax return preparation for Australians, including deductions, PAYG, GST and BAS support. Book an appointment with Financially Up.",
-    url: "https://financiallyup.com.au/services/individual-tax/sole-trader-tax-return/",
+    url: `${SITE_URL}/services/individual-tax/sole-trader-tax-return/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -85,7 +92,7 @@ const soleTraderQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -190,10 +197,7 @@ export default function SoleTraderTaxReturnPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -209,7 +213,7 @@ export default function SoleTraderTaxReturnPage() {
               tax rules applying to your circumstances.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides sole trader tax return preparation
+              <CompanyName legal /> provides sole trader tax return preparation
               for tradies, contractors, freelancers, consultants and
               service-based business owners across Australia. We review the
               information provided, prepare the return and explain the outcome
@@ -234,7 +238,7 @@ export default function SoleTraderTaxReturnPage() {
         highlights={[
           "Tradie, Freelancer & Contractor Returns",
           "PAYG Instalments, GST & PSI Guidance",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-2" text={"Registered Tax Agent #26242127"} />,
           "100% Online Australia-Wide & In-Person",
         ]}
         quickSpecs={soleTraderQuickSpecs}
@@ -244,7 +248,7 @@ export default function SoleTraderTaxReturnPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Sole Trader Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -275,7 +279,7 @@ export default function SoleTraderTaxReturnPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about sole trader tax returns, business deductions, GST registration, PAYG instalments and PSI rules with Financially Up."
+        subtitle={<BrandText text={"Common questions about sole trader tax returns, business deductions, GST registration, PAYG instalments and PSI rules with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Sole Trader Tax Return Frequently Asked Questions"
         items={soleTraderFaqs}

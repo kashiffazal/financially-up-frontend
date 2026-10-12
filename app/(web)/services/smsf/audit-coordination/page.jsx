@@ -8,11 +8,17 @@ import WhyChooseFinanciallyUpAuditCoord from "./components/WhyChooseFinanciallyU
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Audit Preparation & Coordination | Financially Up",
   description:
     "SMSF audit coordination for annual compliance. Prepare records, liaise with an independent auditor and resolve audit queries before lodging your SMSF return.",
@@ -26,18 +32,19 @@ export const metadata = {
     "ASIC registered SMSF auditor",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/audit-coordination/",
+    canonical: `${SITE_URL}/services/smsf/audit-coordination/`,
   },
   openGraph: {
     title: "SMSF Audit Preparation & Coordination | Financially Up",
     description:
       "SMSF audit coordination for annual compliance. Prepare records, liaise with an independent auditor and resolve audit queries before lodging your SMSF return.",
-    url: "https://financiallyup.com.au/services/smsf/audit-coordination/",
+    url: `${SITE_URL}/services/smsf/audit-coordination/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -97,10 +104,10 @@ const smsfAuditQuickSpecs = [
 const smsfAuditFaqs = [
   {
     key: "1",
-    label: "Does Financially Up perform the independent SMSF audit?",
+    label: <BrandText text={"Does Financially Up perform the independent SMSF audit?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Under this service, Financially Up prepares the accounts and
+        No. Under this service, <CompanyName /> prepares the accounts and
         coordinates the audit process. The statutory audit is completed by an
         approved SMSF auditor who satisfies the applicable independence
         requirements.
@@ -193,10 +200,7 @@ export default function SmsfAuditCoordinationSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -205,11 +209,10 @@ export default function SmsfAuditCoordinationSubpage() {
         subtitle="Every self-managed super fund must have an annual financial and compliance audit completed by an approved SMSF auditor before the fund lodges its SMSF annual return. SMSF audit coordination is the work of getting the fund records, financial statements and supporting evidence ready, responding to audit queries and keeping the accounting, audit and lodgement process moving in the right order."
         bodyText={
           <span>
-            Financially Up can prepare the accounting records and audit file,
+            <CompanyName /> can prepare the accounting records and audit file,
             coordinate with an independent approved SMSF auditor and assist
             trustees with accounting or tax matters raised during the process.
-            The statutory audit is not included as work performed by Financially
-            Up under this service; it must be completed by an appropriately
+            The statutory audit is not included as work performed by <CompanyName /> under this service; it must be completed by an appropriately
             registered auditor who satisfies the independence requirements.
             <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
@@ -240,7 +243,7 @@ export default function SmsfAuditCoordinationSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Audit Coordination Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -277,7 +280,7 @@ export default function SmsfAuditCoordinationSubpage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="SMSF Audit Preparation & Coordination"
-        subtitle="Need help preparing for your SMSF annual audit? Book an appointment with Financially Up to review the accounts, audit records and next steps."
+        subtitle={<BrandText text={"Need help preparing for your SMSF annual audit? Book an appointment with Financially Up to review the accounts, audit records and next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore SMSF Services"

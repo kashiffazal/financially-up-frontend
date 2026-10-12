@@ -42,7 +42,7 @@ export default function IasVsBasDifference() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Card 1: IAS Scope */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-5">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-5">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center">
                 <FileTextOutlined className="text-lg" />
@@ -73,7 +73,7 @@ export default function IasVsBasDifference() {
           </div>
 
           {/* Card 2: BAS Scope */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-5">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-5">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 flex items-center justify-center">
                 <AppstoreOutlined className="text-lg" />

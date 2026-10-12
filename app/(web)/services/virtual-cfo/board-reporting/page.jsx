@@ -9,11 +9,16 @@ import WhatToBringAndPracticalCycle from "./components/WhatToBringAndPracticalCy
 import RelatedServiceRibbonBoard from "./components/RelatedServiceRibbonBoard";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 5)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Board Reporting Services for Directors | Financially Up",
   description:
     "Give directors clearer financial information. Financially Up prepares tailored board packs with results, cash flow, variances and decision-focused commentary.",
@@ -26,18 +31,19 @@ export const metadata = {
     "governance financial packs",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/board-reporting/",
+    canonical: `${SITE_URL}/services/virtual-cfo/board-reporting/`,
   },
   openGraph: {
     title: "Board Reporting Services for Directors | Financially Up",
     description:
       "Give directors clearer financial information. Financially Up prepares tailored board packs with results, cash flow, variances and decision-focused commentary.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/board-reporting/",
+    url: `${SITE_URL}/services/virtual-cfo/board-reporting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -116,10 +122,7 @@ export default function BoardReportingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function BoardReportingPage() {
               Board reporting services organize financial results, cash information, forecasts and commentary so directors can discuss the business's position and decisions. A useful board pack draws attention to material changes, the reasons management understands and the questions that remain open. It should make the figures easier to challenge and use, not bury directors in pages of unexplained data.
             </span>
             <span className="block mt-2">
-              Financially Up supports companies and organizations that need a consistent financial reporting rhythm for directors or an advisory board. We agree what decisions the pack must support and what reliable information can be produced.
+              <CompanyName /> supports companies and organizations that need a consistent financial reporting rhythm for directors or an advisory board. We agree what decisions the pack must support and what reliable information can be produced.
             </span>
             <span className="block mt-2">
               Book an Appointment to discuss your current reporting process and the board's information needs.
@@ -195,7 +198,7 @@ export default function BoardReportingPage() {
       <CallToActionBanner
         tag="Give Directors Information They Can Use"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss your board's questions, current records and a practical scope for board reporting services."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss your board's questions, current records and a practical scope for board reporting services."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Virtual CFO Services"

@@ -1,10 +1,12 @@
 import React from "react";
 import AboutContent from "./AboutContent";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  */
-export const metadata = {
+const baseMetadata = {
   title:
     "About Us | CPA Accountants & Registered Tax Agents Australia | Financially Up",
   description:
@@ -18,19 +20,20 @@ export const metadata = {
     "business advisory Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/about/",
+    canonical: `${SITE_URL}/about/`,
   },
   openGraph: {
     title:
       "About Us | CPA Accountants & Registered Tax Agents Australia | Financially Up",
     description:
       "Learn about Financially Up Pty Ltd - Australia's premier online accounting firm. Dedicated CPA qualified accountants and registered tax agents delivering stress-free compliance nationwide.",
-    url: "https://financiallyup.com.au/about/",
+    url: `${SITE_URL}/about/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * About Page Route (/about)

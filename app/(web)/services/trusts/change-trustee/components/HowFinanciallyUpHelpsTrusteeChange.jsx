@@ -11,6 +11,7 @@ import {
   FileDoneOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsTrusteeChange Component
@@ -57,10 +58,10 @@ export default function HowFinanciallyUpHelpsTrusteeChange() {
             Service Capabilities
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help with a trustee change
+            How <CompanyName /> can help with a trustee change
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can review the trust accounting and tax position,
+            <CompanyName /> can review the trust accounting and tax position,
             identify records and registrations affected by the change, help
             coordinate updates within our scope and ensure the tax records
             continue to reflect the trust correctly. If the trustee change forms

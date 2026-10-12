@@ -8,6 +8,7 @@ import {
   FileSyncOutlined,
   FileDoneOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * RecordsAndAccessNeededReporting Component
@@ -66,10 +67,10 @@ export default function RecordsAndAccessNeededReporting() {
               Advisory Implementation
             </Tag>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-              What Financially Up can help with
+              What <CompanyName /> can help with
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-              Financially Up can review your current reporting process, identify
+              <CompanyName /> can review your current reporting process, identify
               useful reports and KPIs, establish a monthly format and prepare
               recurring management reports. We can also connect reporting with
               bookkeeping, budgets, forecasts and broader virtual CFO support

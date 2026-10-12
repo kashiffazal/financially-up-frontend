@@ -49,11 +49,15 @@ import {
 import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
 import { canAccessAdminPath } from "../../lib/adminAccess";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function Sidebar({
   mobileOpen = false,
   setMobileOpen = () => {},
 }) {
+  const brand = useBrandText();
   const { isDark, toggleTheme } = useTheme();
   const { user, hasRole } = useAuth();
   const pathname = usePathname();
@@ -489,11 +493,11 @@ export default function Sidebar({
           <Link
             href="/admin/dashboard"
             className="flex items-center justify-center w-11 h-11 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all p-1 group rounded-lg"
-            title="Financially Up Admin Portal"
+            title={<BrandText text={"Financially Up Admin Portal"} />}
           >
             <Image
               src="/images/icon.ico"
-              alt="Financially Up Mark"
+              alt={brand("Financially Up Mark")}
               width={28}
               height={28}
               priority
@@ -549,7 +553,7 @@ export default function Sidebar({
               className="object-contain"
             />
             <span className="font-bold text-sm text-slate-900 dark:text-zinc-100">
-              Financially Up
+              <CompanyName />
             </span>
           </div>
         }

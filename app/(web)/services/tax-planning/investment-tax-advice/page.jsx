@@ -11,12 +11,18 @@ import HowFinanciallyUpHelpsInvestment from "./components/HowFinanciallyUpHelpsI
 import RelatedInvestmentTaxRibbon from "./components/RelatedInvestmentTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 12)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Investment Tax Advice for Investors | Financially Up",
   description:
     "Understand the tax impact of shares, funds, property and investment disposals with practical investment tax advice from Financially Up.",
@@ -31,18 +37,19 @@ export const metadata = {
     "Australian investor tax accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/investment-tax-advice/",
+    canonical: `${SITE_URL}/services/tax-planning/investment-tax-advice/`,
   },
   openGraph: {
     title: "Investment Tax Advice for Investors | Financially Up",
     description:
       "Understand the tax impact of shares, funds, property and investment disposals with practical investment tax advice from Financially Up.",
-    url: "https://financiallyup.com.au/services/tax-planning/investment-tax-advice/",
+    url: `${SITE_URL}/services/tax-planning/investment-tax-advice/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -69,7 +76,7 @@ const investmentTaxAdviceFaqs = [
   },
   {
     key: "2",
-    label: "Can Financially Up tell me which shares or fund to buy?",
+    label: <BrandText text={"Can Financially Up tell me which shares or fund to buy?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         This service is tax advice, not a recommendation to buy, sell or hold a particular financial product. Specific financial product advice may require an appropriately authorized financial adviser.
@@ -130,10 +137,7 @@ export default function InvestmentTaxAdvicePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -145,7 +149,7 @@ export default function InvestmentTaxAdvicePage() {
               Investment tax advice focuses on the tax consequences of earning, holding, restructuring or disposing of investments. It can help investors understand how income, capital gains, losses, ownership and record keeping may affect their Australian tax position before a decision is finalized.
             </span>
             <span className="block mt-2">
-              Financially Up provides tax advice for investors dealing with shares, managed funds, ETFs, interest income, rental property and other investment-related tax matters. We can explain tax consequences and planning considerations, but we do not present tax advice as a recommendation to buy, sell or hold a particular financial product.
+              <CompanyName /> provides tax advice for investors dealing with shares, managed funds, ETFs, interest income, rental property and other investment-related tax matters. We can explain tax consequences and planning considerations, but we do not present tax advice as a recommendation to buy, sell or hold a particular financial product.
             </span>
           </span>
         }
@@ -166,7 +170,7 @@ export default function InvestmentTaxAdvicePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Investment Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -200,7 +204,7 @@ export default function InvestmentTaxAdvicePage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about investment tax advice, financial product boundaries, franking credits, capital losses, and timing with Financially Up."
+        subtitle={<BrandText text={"Common questions about investment tax advice, financial product boundaries, franking credits, capital losses, and timing with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Investment Tax Advice Frequently Asked Questions"
         items={investmentTaxAdviceFaqs}
@@ -212,7 +216,7 @@ export default function InvestmentTaxAdvicePage() {
       <CallToActionBanner
         tag="Investment Tax Advisory"
         title="Book an Appointment"
-        subtitle="Discuss your investments, proposed transactions, capital gains or losses, income, ownership and records with Financially Up and identify the tax issues that should be reviewed."
+        subtitle={<BrandText text={"Discuss your investments, proposed transactions, capital gains or losses, income, ownership and records with Financially Up and identify the tax issues that should be reviewed."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

@@ -50,7 +50,7 @@ export default function WhoCanBeEligible() {
         </div>
 
         {/* Verbatim Explanatory Lead Paragraph */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-10">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-10">
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
             The claimant must be an eligible R&amp;D entity, and the activities
             and expenditure must satisfy separate conditions. Broadly, an

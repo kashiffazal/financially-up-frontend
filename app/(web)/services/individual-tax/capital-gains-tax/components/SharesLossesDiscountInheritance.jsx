@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * SharesLossesDiscountInheritance Component
@@ -27,8 +28,13 @@ export default function SharesLossesDiscountInheritance() {
       badge: "Equity & Funds",
       title: "CGT on Shares and Other Investments",
       text: "CGT can also apply when you dispose of shares, exchange traded funds, managed fund units or other investment assets. Investment-platform and annual tax reports can assist, but they may still need review where there are multiple parcels, brokerage costs, reinvestments, corporate actions, carried-forward losses or managed-fund capital gain distributions.",
-      subText:
-        "Financially Up's Individual Tax Return service can assist with reporting investment-related CGT as part of a tax return where that work is within the agreed scope.",
+      subText: (
+        <BrandText
+          text={
+            "Financially Up's Individual Tax Return service can assist with reporting investment-related CGT as part of a tax return where that work is within the agreed scope."
+          }
+        />
+      ),
       theme:
         "border-emerald-200/80 dark:border-emerald-800/40 bg-emerald-50/30 dark:bg-emerald-950/20",
     },
@@ -96,7 +102,7 @@ export default function SharesLossesDiscountInheritance() {
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between rounded-3xl p-7 sm:p-8 border ${card.theme} shadow-xs hover:shadow-lg transition-all duration-300`}
+              className={`flex flex-col justify-between rounded-lg p-7 sm:p-8 border ${card.theme} shadow-xs hover:shadow-lg transition-all duration-300`}
             >
               <div>
                 <div className="flex items-center justify-between mb-5">

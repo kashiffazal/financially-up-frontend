@@ -12,6 +12,7 @@ import {
   SlidersOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BudgetVsForecastAndScenarioSupport Component
@@ -155,7 +156,7 @@ export default function BudgetVsForecastAndScenarioSupport() {
             <div className="space-y-4 text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
               <p>
                 A forecast becomes more useful when it is used to test decisions
-                rather than simply record numbers. Financially Up can model
+                rather than simply record numbers. <CompanyName /> can model
                 different assumptions, such as slower customer collections, a
                 change in sales, a new employee, a major purchase or revised
                 supplier terms. Scenario analysis can show how sensitive the

@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpCompany from "./components/WhyChooseFinanciallyUpCo
 import RelatedBusinessServicesRibbon from "./components/RelatedBusinessServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Company Tax Return Accountant | Financially Up",
   description:
     "Company tax return preparation, year-end accounts, tax adjustments, loss reviews and compliance support for Pty Ltd companies Australia-wide.",
@@ -28,18 +34,19 @@ export const metadata = {
     "lodge company tax return",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/company-tax-returns/",
+    canonical: `${SITE_URL}/services/business-tax/company-tax-returns/`,
   },
   openGraph: {
     title: "Company Tax Return Accountant | Financially Up",
     description:
       "Company tax return preparation, year-end accounts, tax adjustments, loss reviews and compliance support for Pty Ltd companies Australia-wide.",
-    url: "https://financiallyup.com.au/services/business-tax/company-tax-returns/",
+    url: `${SITE_URL}/services/business-tax/company-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business service hierarchy
@@ -87,7 +94,7 @@ const companyTaxFaqs = [
     label: "Can you prepare the company accounts as well as the return?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up can provide company accounting and financial statement preparation where required, as well as company tax return services. The required form and purpose of the statements will be agreed as part of the engagement.
+        Yes. <CompanyName /> can provide company accounting and financial statement preparation where required, as well as company tax return services. The required form and purpose of the statements will be agreed as part of the engagement.
       </p>
     ),
   },
@@ -127,10 +134,7 @@ export default function CompanyTaxReturnsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -142,7 +146,7 @@ export default function CompanyTaxReturnsPage() {
               A company tax return reports a company’s income, deductions and taxable position to the Australian Taxation Office. Because a company is a separate taxpayer, its return is not simply an extension of the director’s individual tax return. Accurate company tax work usually starts with reliable accounts and a clear understanding of transactions that affect both the financial statements and the tax calculation.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd prepares company tax returns for Australian companies, including small and medium-sized Pty Ltd businesses. We can review the company’s accounting records, prepare year-end financial statements where required, make relevant tax adjustments and prepare the return for lodgment.
+              <CompanyName legal /> prepares company tax returns for Australian companies, including small and medium-sized Pty Ltd businesses. We can review the company’s accounting records, prepare year-end financial statements where required, make relevant tax adjustments and prepare the return for lodgment.
             </span>
           </span>
         }
@@ -190,7 +194,7 @@ export default function CompanyTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Corporate Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -224,7 +228,7 @@ export default function CompanyTaxReturnsPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about company tax return preparation, Pty Ltd lodgement obligations, tax rates, and year-end accounts with Financially Up."
+        subtitle={<BrandText text={"Common questions about company tax return preparation, Pty Ltd lodgement obligations, tax rates, and year-end accounts with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Company Tax Return Frequently Asked Questions"
         items={companyTaxFaqs}

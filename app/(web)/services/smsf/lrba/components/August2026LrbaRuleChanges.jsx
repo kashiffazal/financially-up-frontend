@@ -51,7 +51,7 @@ export default function August2026LrbaRuleChanges() {
         {/* 2-Column Rules Breakdown: New Rules vs Grandfathering */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Card 1: New Borrowings from 10 August 2026 */}
-          <div className="bg-rose-50/40 dark:bg-rose-950/20 rounded-3xl p-7 sm:p-8 border border-rose-200/80 dark:border-rose-900/40 flex flex-col justify-between">
+          <div className="bg-rose-50/40 dark:bg-rose-950/20 rounded-lg p-7 sm:p-8 border border-rose-200/80 dark:border-rose-900/40 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-rose-100 dark:bg-rose-950 border border-rose-200 dark:border-rose-800 flex items-center justify-center mb-6">
                 <StopOutlined className="text-2xl text-rose-600 dark:text-rose-400" />
@@ -94,7 +94,7 @@ export default function August2026LrbaRuleChanges() {
           </div>
 
           {/* Card 2: Grandfathering & Transitional Treatment */}
-          <div className="bg-emerald-50/40 dark:bg-emerald-950/20 rounded-3xl p-7 sm:p-8 border border-emerald-200/80 dark:border-emerald-900/40 flex flex-col justify-between">
+          <div className="bg-emerald-50/40 dark:bg-emerald-950/20 rounded-lg p-7 sm:p-8 border border-emerald-200/80 dark:border-emerald-900/40 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center mb-6">
                 <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />

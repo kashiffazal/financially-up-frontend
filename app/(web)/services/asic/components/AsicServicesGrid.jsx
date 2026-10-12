@@ -2,6 +2,7 @@
 
 import React from "react";
 import ServicesGrid from "@/components/website/ServicesGrid";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * AsicServicesGrid Component
@@ -23,7 +24,7 @@ export default function AsicServicesGrid() {
       tag: "Pillar 7.1",
       title: "ASIC Registered Agent Service",
       description:
-        "Appoint Financially Up as your ASIC registered agent for centralised corporate correspondence, agent portal lodgements, and timely annual review alerts.",
+        <BrandText text={"Appoint Financially Up as your ASIC registered agent for centralised corporate correspondence, agent portal lodgements, and timely annual review alerts."} />,
       href: "/services/asic/registered-agent",
       actionText: "Registered agent",
     },

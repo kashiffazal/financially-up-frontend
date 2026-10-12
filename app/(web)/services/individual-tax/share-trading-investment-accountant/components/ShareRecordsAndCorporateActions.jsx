@@ -61,7 +61,7 @@ export default function ShareRecordsAndCorporateActions() {
         {/* 2-Column Structured Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Left Column: Required Records */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -110,7 +110,7 @@ export default function ShareRecordsAndCorporateActions() {
           </div>
 
           {/* Right Column: Corporate Actions */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400">

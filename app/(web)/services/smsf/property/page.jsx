@@ -8,11 +8,17 @@ import PropertyRecordsChecklistAndSupport from "./components/PropertyRecordsChec
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Property Accountant & Accounting | Financially Up",
   description:
     "SMSF property accountant support for accounting, tax reporting, valuations and compliance. Practical help for SMSF property trustees Australia-wide.",
@@ -26,18 +32,19 @@ export const metadata = {
     "superannuation property accounting",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/property/",
+    canonical: `${SITE_URL}/services/smsf/property/`,
   },
   openGraph: {
     title: "SMSF Property Accountant & Accounting | Financially Up",
     description:
       "SMSF property accountant support for accounting, tax reporting, valuations and compliance. Practical help for SMSF property trustees Australia-wide.",
-    url: "https://financiallyup.com.au/services/smsf/property/",
+    url: `${SITE_URL}/services/smsf/property/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -133,10 +140,10 @@ const smsfPropertyFaqs = [
   },
   {
     key: "4",
-    label: "Does Financially Up perform the SMSF audit?",
+    label: <BrandText text={"Does Financially Up perform the SMSF audit?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can prepare the accounting records and audit file. The
+        <CompanyName /> can prepare the accounting records and audit file. The
         annual audit must be completed independently by an approved SMSF auditor
         who meets the applicable independence requirements.
       </p>
@@ -195,10 +202,7 @@ export default function SmsfPropertySubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -207,7 +211,7 @@ export default function SmsfPropertySubpage() {
         subtitle="Property held through a self-managed super fund brings together property records, superannuation rules, tax reporting, annual valuation and audit requirements. An SMSF property accountant helps trustees record the property correctly and prepare reliable information for the fund's financial statements, independent audit and SMSF annual return."
         bodyText={
           <span>
-            Financially Up Pty Ltd provides SMSF property accounting, tax-return
+            <CompanyName legal /> provides SMSF property accounting, tax-return
             preparation and compliance support Australia-wide. We prepare
             year-end schedules and identify matters requiring separately scoped
             tax, legal, lending or financial product advice. We do not recommend
@@ -243,7 +247,7 @@ export default function SmsfPropertySubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

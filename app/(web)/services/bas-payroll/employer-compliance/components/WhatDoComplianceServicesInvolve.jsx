@@ -13,6 +13,7 @@ import {
   FileSearchOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatDoComplianceServicesInvolve Component
@@ -109,7 +110,7 @@ export default function WhatDoComplianceServicesInvolve() {
             </p>
 
             <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal italic">
-              Financially Up can review the accounting and payroll data that
+              <CompanyName /> can review the accounting and payroll data that
               supports these obligations. Where an issue depends on award
               interpretation, employment contracts or another
               workplace-relations question, legal or specialist workplace advice
@@ -118,7 +119,7 @@ export default function WhatDoComplianceServicesInvolve() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
               <div className="flex items-center gap-3 text-brand-primary dark:text-emerald-400">
                 <CheckCircleOutlined className="text-2xl" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">

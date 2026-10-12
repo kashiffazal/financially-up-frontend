@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * UnderstandingValuationScope Component
@@ -50,7 +51,7 @@ export default function UnderstandingValuationScope() {
                 <span>Commercial Planning Analysis</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                As a business valuation accountant, Financially Up can analyze
+                As a business valuation accountant, <CompanyName /> can analyze
                 the available financial information, explain assumptions and
                 produce an agreed valuation analysis for commercial planning. We
                 will state its purpose, basis, information relied on and

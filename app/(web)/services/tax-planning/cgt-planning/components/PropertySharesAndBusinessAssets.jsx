@@ -93,7 +93,7 @@ export default function PropertySharesAndBusinessAssets() {
           {assetClasses.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">

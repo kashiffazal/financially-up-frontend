@@ -8,11 +8,17 @@ import TrusteeResponsibilityAndWhyChoose from "./components/TrusteeResponsibilit
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Administration Services | Financially Up",
   description:
     "SMSF administration services for records, transaction processing, annual compliance coordination and audit preparation. Practical support for trustees Australia-wide.",
@@ -26,18 +32,19 @@ export const metadata = {
     "self managed super fund administration",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/administration/",
+    canonical: `${SITE_URL}/services/smsf/administration/`,
   },
   openGraph: {
     title: "SMSF Administration Services | Financially Up",
     description:
       "SMSF administration services for records, transaction processing, annual compliance coordination and audit preparation. Practical support for trustees Australia-wide.",
-    url: "https://financiallyup.com.au/services/smsf/administration/",
+    url: `${SITE_URL}/services/smsf/administration/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -111,7 +118,7 @@ const smsfAdministrationFaqs = [
     label: "Can the same firm prepare the accounts and audit the SMSF?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The audit must be independent. Financially Up can prepare the accounts
+        The audit must be independent. <CompanyName /> can prepare the accounts
         and audit file, but an approved SMSF auditor who satisfies the
         applicable independence requirements must perform the audit.
       </p>
@@ -131,7 +138,7 @@ const smsfAdministrationFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up take over overdue or incomplete SMSF records?",
+    label: <BrandText text={"Can Financially Up take over overdue or incomplete SMSF records?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Yes, subject to a review of the available records and the work required.
@@ -213,10 +220,7 @@ export default function SmsfAdministrationSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -225,7 +229,7 @@ export default function SmsfAdministrationSubpage() {
         subtitle="SMSF administration is the ongoing record keeping and compliance coordination that keeps a self-managed super fund organized between year-end deadlines. It supports accurate transaction records, current member information, timely document collection and a clearer path to the annual accounts, independent audit and SMSF annual return."
         bodyText={
           <span>
-            Financially Up Pty Ltd provides ongoing and catch-up SMSF
+            <CompanyName legal /> provides ongoing and catch-up SMSF
             administration services for trustees Australia-wide. Trustees remain
             legally responsible for the fund and continue to make its investment
             and benefit-payment decisions. Our role is to maintain the
@@ -260,7 +264,7 @@ export default function SmsfAdministrationSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Admin Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

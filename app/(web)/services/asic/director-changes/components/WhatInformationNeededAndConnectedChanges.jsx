@@ -64,7 +64,7 @@ export default function WhatInformationNeededAndConnectedChanges() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Left Card: New Appointment */}
-            <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
@@ -94,7 +94,7 @@ export default function WhatInformationNeededAndConnectedChanges() {
             </div>
 
             {/* Right Card: Cessation / Resignation */}
-            <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center">
@@ -126,7 +126,7 @@ export default function WhatInformationNeededAndConnectedChanges() {
         </div>
 
         {/* Subsection 2: Director changes often connect with other company changes */}
-        <div className="w-full rounded-3xl p-6 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="w-full rounded-lg p-6 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex items-center gap-2.5 mb-3">
             <SwapOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
             <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white m-0">

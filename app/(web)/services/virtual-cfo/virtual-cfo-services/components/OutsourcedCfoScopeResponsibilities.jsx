@@ -8,6 +8,7 @@ import {
   StopOutlined,
   ClusterOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * OutsourcedCfoScopeResponsibilities Component
@@ -43,13 +44,13 @@ export default function OutsourcedCfoScopeResponsibilities() {
                 color="green"
                 className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
               >
-                Financially Up Advisory Scope
+                <CompanyName /> Advisory Scope
               </Tag>
               <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-                What Financially Up can help with
+                What <CompanyName /> can help with
               </h2>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                Financially Up can help design a practical outsourced finance
+                <CompanyName /> can help design a practical outsourced finance
                 function around the information the business actually uses. That
                 may include agreeing reporting deadlines, identifying key
                 measures, preparing or reviewing forecasts, improving report

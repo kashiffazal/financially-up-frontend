@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "antd";
 import styles from "./HowItWorksSection.module.css";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function HowItWorksSection() {
   const steps = [
@@ -11,7 +12,7 @@ export default function HowItWorksSection() {
       number: "STEP 01",
       title: "Book a Consultation",
       description:
-        "Schedule a complimentary consultation with a Financially Up tax expert.",
+        <BrandText text={"Schedule a complimentary consultation with a Financially Up tax expert."} />,
     },
     {
       number: "STEP 02",

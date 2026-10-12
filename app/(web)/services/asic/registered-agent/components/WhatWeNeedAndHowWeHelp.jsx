@@ -15,6 +15,7 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatWeNeedAndHowWeHelp Component
@@ -129,16 +130,16 @@ export default function WhatWeNeedAndHowWeHelp() {
         </div>
 
         {/* Subsection 2: How Financially Up can help */}
-        <div className="w-full rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+        <div className="w-full rounded-lg p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
               Integrated Corporate Support
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-              How Financially Up can help
+              How <CompanyName /> can help
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-4">
-              Financially Up can manage the practical registered-agent workflow
+              <CompanyName /> can manage the practical registered-agent workflow
               and help keep ASIC administration connected with broader company
               accounting. If a company is newly being established, our company
               registration service covers the setup stage. Once the company
@@ -146,7 +147,7 @@ export default function WhatWeNeedAndHowWeHelp() {
               administration.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-emerald-200 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up has more than 10 years of experience, a
+              <CompanyName /> has more than 10 years of experience, a
               professional team including CPA and IPA members, and registered
               tax agent status. We provide Australia-wide support with online
               and in-person appointment options.

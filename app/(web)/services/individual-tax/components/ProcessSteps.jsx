@@ -2,6 +2,7 @@
 
 import React from "react";
 import WhyChooseSection from "@/components/website/WhyChooseSection";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * ProcessSteps Component
@@ -31,7 +32,7 @@ export default function ProcessSteps() {
       step: "03",
       badge: "Step 03",
       title: "Provide your records",
-      desc: "You provide the relevant documents through the approved Financially Up document channel. We review the records and let you know if anything further is needed.",
+      desc: <BrandText text={"You provide the relevant documents through the approved Financially Up document channel. We review the records and let you know if anything further is needed."} />,
       icon: "upload",
     },
     {

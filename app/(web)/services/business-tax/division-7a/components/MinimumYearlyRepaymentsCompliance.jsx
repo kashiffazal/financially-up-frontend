@@ -10,6 +10,7 @@ import {
   SyncOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * MinimumYearlyRepaymentsCompliance Component
@@ -104,7 +105,7 @@ export default function MinimumYearlyRepaymentsCompliance() {
               Anti-avoidance rules may disregard some repayment arrangements
               (such as circular borrowing from the company shortly before
               year-end to pay off a prior loan), so the surrounding transactions
-              must also be considered. Financially Up reviews the complete
+              must also be considered. <CompanyName /> reviews the complete
               payment trail.
             </p>
           </div>

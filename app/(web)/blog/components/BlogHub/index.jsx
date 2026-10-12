@@ -27,6 +27,7 @@ import PageHero from "@/components/website/PageHero";
 import { resolveBlogImage, isExternalImage } from "@/lib/blog";
 import NewsletterSignup from "../NewsletterSignup";
 import styles from "./BlogHub.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 const POSTS_PER_PAGE = 6;
 const POPULAR_TAG_LIMIT = 12;
@@ -425,7 +426,7 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
                 WEEKLY DISPATCH
               </span>
               <h4 className="text-base font-black uppercase text-slate-900 dark:text-zinc-50 leading-tight">
-                JOIN THE FINANCIALLY UP NEWSLETTER
+                JOIN THE <CompanyName upper /> NEWSLETTER
               </h4>
               <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                 Get tax tips, ATO compliance reminders, and structuring guides

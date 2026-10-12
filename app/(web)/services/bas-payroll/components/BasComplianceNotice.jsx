@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BasComplianceNotice Component
@@ -129,7 +130,7 @@ export default function BasComplianceNotice() {
           <div className="max-w-4xl mx-auto space-y-4">
             {/* Document Paragraph 2 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0">
-              Financially Up can assist across these connected areas, but the
+              <CompanyName /> can assist across these connected areas, but the
               scope depends on what your business actually needs. Ongoing
               bookkeeping, payroll processing, BAS preparation and broader tax
               advice can be scoped separately so responsibilities are clear.

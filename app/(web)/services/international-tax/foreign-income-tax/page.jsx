@@ -9,11 +9,17 @@ import HowFinanciallyUpHelpsForeignIncome from "./components/HowFinanciallyUpHel
 import RelatedInternationalTaxRibbon from "./components/RelatedInternationalTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Foreign Income Tax Australia | Foreign Income Accountant",
   description:
     "Get help reporting overseas income, converting foreign amounts, reviewing foreign tax offsets and preparing an Australian return with foreign income.",
@@ -27,18 +33,19 @@ export const metadata = {
     "expat foreign income australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/foreign-income-tax/",
+    canonical: `${SITE_URL}/services/international-tax/foreign-income-tax/`,
   },
   openGraph: {
     title: "Foreign Income Tax Australia | Foreign Income Accountant",
     description:
       "Get help reporting overseas income, converting foreign amounts, reviewing foreign tax offsets and preparing an Australian return with foreign income.",
-    url: "https://financiallyup.com.au/services/international-tax/foreign-income-tax/",
+    url: `${SITE_URL}/services/international-tax/foreign-income-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -110,7 +117,7 @@ const foreignIncomeFaqs = [
   },
   {
     key: "7",
-    label: "Can Financially Up amend a tax return where foreign income was left out?",
+    label: <BrandText text={"Can Financially Up amend a tax return where foreign income was left out?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Where appropriate and within the applicable amendment rules, we can assist with reviewing an Australian tax return and preparing an amendment where foreign income or foreign tax information was omitted or incorrectly reported.
@@ -144,10 +151,7 @@ export default function ForeignIncomeTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -159,7 +163,7 @@ export default function ForeignIncomeTaxPage() {
               If you are an Australian resident for tax purposes and receive income from overseas, that income may need to be included in your Australian tax return even when the money remains overseas or foreign tax has already been paid.
             </span>
             <span className="block mt-2">
-              Foreign income tax Australia rules can apply to overseas employment, investments, rental properties, pensions, businesses and other foreign-source amounts. Financially Up assists individuals with understanding and reporting foreign income for Australian tax purposes, including the treatment of foreign tax already paid.
+              Foreign income tax Australia rules can apply to overseas employment, investments, rental properties, pensions, businesses and other foreign-source amounts. <CompanyName /> assists individuals with understanding and reporting foreign income for Australian tax purposes, including the treatment of foreign tax already paid.
             </span>
           </span>
         }
@@ -180,7 +184,7 @@ export default function ForeignIncomeTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -222,8 +226,8 @@ export default function ForeignIncomeTaxPage() {
       {/* 9. Pre-Footer Call to Action Banner (Verbatim from Client Document) */}
       <CallToActionBanner
         tag="Get Help With Foreign Income Tax in Australia"
-        title="Book an Appointment with Financially Up"
-        subtitle="Foreign income should be reviewed together with your residency status, overseas tax paid and supporting documentation. Book an Appointment with Financially Up to discuss your overseas income and determine what information and Australian tax work may be required."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"Foreign income should be reviewed together with your residency status, overseas tax paid and supporting documentation. Book an Appointment with Financially Up to discuss your overseas income and determine what information and Australian tax work may be required."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

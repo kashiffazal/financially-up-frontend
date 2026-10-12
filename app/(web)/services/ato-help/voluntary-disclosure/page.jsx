@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpDisclosure from "./components/WhyChooseFinanciallyU
 import RelatedVoluntaryDisclosureRibbon from "./components/RelatedVoluntaryDisclosureRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Voluntary Disclosure Accountant | Financially Up",
   description:
     "Found an error in tax information previously given to the ATO? Financially Up can help review the facts and prepare an appropriate voluntary disclosure.",
@@ -29,18 +35,19 @@ export const metadata = {
     "unprompted voluntary disclosure",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/voluntary-disclosure/",
+    canonical: `${SITE_URL}/services/ato-help/voluntary-disclosure/`,
   },
   openGraph: {
     title: "ATO Voluntary Disclosure Accountant | Financially Up",
     description:
       "Found an error in tax information previously given to the ATO? Financially Up can help review the facts and prepare an appropriate voluntary disclosure.",
-    url: "https://financiallyup.com.au/services/ato-help/voluntary-disclosure/",
+    url: `${SITE_URL}/services/ato-help/voluntary-disclosure/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function VoluntaryDisclosurePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function VoluntaryDisclosurePage() {
               If you discover that information previously given to the ATO was wrong or incomplete, the next step is to establish what needs correcting and how to tell the ATO. The method depends on the tax, the document and whether a review or audit has begun. Acting promptly can affect the treatment of administrative penalties, but it does not erase tax that should have been paid.
             </span>
             <span className="block mt-2">
-              Financially Up helps individuals and businesses review tax errors, reconstruct the relevant figures and prepare an appropriate correction or voluntary disclosure. Book an Appointment with the return, statement or ATO correspondence concerned.
+              <CompanyName /> helps individuals and businesses review tax errors, reconstruct the relevant figures and prepare an appropriate correction or voluntary disclosure. Book an Appointment with the return, statement or ATO correspondence concerned.
             </span>
           </span>
         }
@@ -145,7 +149,7 @@ export default function VoluntaryDisclosurePage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.5 • Voluntary Disclosure Practice"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Shortfall Penalty Concession Advice",
           "Pre-Audit & Examination Disclosures",
         ]}
@@ -155,7 +159,7 @@ export default function VoluntaryDisclosurePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -197,7 +201,7 @@ export default function VoluntaryDisclosurePage() {
       <CallToActionBanner
         tag="Address Reporting Errors"
         title="Address the Error with Clear Records"
-        subtitle="Bring the original lodgment, the records that revealed the issue and any ATO correspondence. Financially Up can help determine the correction pathway and prepare the supporting information."
+        subtitle={<BrandText text={"Bring the original lodgment, the records that revealed the issue and any ATO correspondence. Financially Up can help determine the correction pathway and prepare the supporting information."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ATO Help Hub"

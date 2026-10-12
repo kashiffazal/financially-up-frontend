@@ -68,7 +68,7 @@ export default function HowSuperServiceWorksAndScope() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between"
+              className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">

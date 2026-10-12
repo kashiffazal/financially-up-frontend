@@ -45,8 +45,11 @@ import {
 import { useTheme } from "./ThemeProvider";
 import WebsiteHeader from "../components/website/Header";
 import WebsiteFooter from "../components/website/Footer";
+import { useBrandText } from "@/context/SettingsContext";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function NotFound() {
+  const brand = useBrandText();
   const router = useRouter();
   const pathname = usePathname();
   const { isDark, getWebThemeConfig, getAdminThemeConfig } = useTheme();
@@ -182,17 +185,17 @@ export default function NotFound() {
                 <span>
                   Need assistance? Contact{" "}
                   <a
-                    href="mailto:info@financiallyup.com.au"
+                    href={brand("mailto:info@financiallyup.com.au")}
                     className="text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] hover:underline font-medium"
                   >
-                    info@financiallyup.com.au
+                    {brand("info@financiallyup.com.au")}
                   </a>{" "}
                   or call{" "}
                   <a
-                    href="tel:1300328316"
+                    href={brand("tel:1300328316")}
                     className="text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] hover:underline font-medium"
                   >
-                    1300 328 316
+                    <BrandText text={"1300 328 316"} />
                   </a>
                 </span>
               </div>
@@ -349,24 +352,24 @@ export default function NotFound() {
               <div className="flex items-center gap-2 text-center sm:text-left">
                 <EnvironmentOutlined className="text-[var(--brand-primary)] text-base shrink-0" />
                 <span>
-                  <strong>Head Office:</strong> Level 5, 100 Walker St, North
-                  Sydney NSW 2060, Australia
+                  <strong>Head Office:</strong>{" "}
+                  {brand("Level 5, 100 Walker St, North Sydney NSW 2060, Australia")}
                 </span>
               </div>
               <div className="flex items-center gap-5 shrink-0">
                 <a
-                  href="tel:1300328316"
+                  href={brand("tel:1300328316")}
                   className="flex items-center gap-1.5 text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] font-semibold hover:underline"
                 >
                   <PhoneOutlined />
-                  <span>1300 328 316</span>
+                  <span><BrandText text={"1300 328 316"} /></span>
                 </a>
                 <a
-                  href="mailto:info@financiallyup.com.au"
+                  href={brand("mailto:info@financiallyup.com.au")}
                   className="flex items-center gap-1.5 text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] font-semibold hover:underline"
                 >
                   <MailOutlined />
-                  <span>info@financiallyup.com.au</span>
+                  <span>{brand("info@financiallyup.com.au")}</span>
                 </a>
               </div>
             </div>

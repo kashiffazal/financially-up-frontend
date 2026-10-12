@@ -13,6 +13,7 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsCgt Component
@@ -63,7 +64,7 @@ export default function HowFinanciallyUpHelpsCgt() {
             Expert Advisory & Tax Calculations
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Our small business CGT work can include calculating the underlying
@@ -129,7 +130,7 @@ export default function HowFinanciallyUpHelpsCgt() {
         </div>
 
         {/* Section 2: Why Choose Financially Up? */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
+        <div className="p-8 sm:p-12 rounded-lg bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
           <div className="max-w-3xl mb-8">
             <Tag
               color="cyan"
@@ -138,10 +139,10 @@ export default function HowFinanciallyUpHelpsCgt() {
               Client Trust & Qualifications
             </Tag>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company?.legalName || "Financially Up"} is a registered tax agent
+              {company?.legalName} is a registered tax agent
               with 10+ years of experience. Our professional team includes CPA
               and IPA members and provides tax, accounting, bookkeeping and
               business advisory support Australia-wide, with online and

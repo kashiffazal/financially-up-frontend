@@ -7,11 +7,17 @@ import HowFinanciallyUpHelpsEss from "./components/HowFinanciallyUpHelpsEss";
 import EssRelatedServiceRibbon from "./components/EssRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 10)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Employee Share Scheme Tax Accountant | Financially Up",
   description:
     "Get help with employee share scheme tax, ESS statements, deferred taxing points, employee shares and CGT. Australia-wide appointments.",
@@ -27,18 +33,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/employee-share-schemes/",
+      `${SITE_URL}/services/individual-tax/employee-share-schemes/`,
   },
   openGraph: {
     title: "Employee Share Scheme Tax Accountant | Financially Up",
     description:
       "Get help with employee share scheme tax, ESS statements, deferred taxing points, employee shares and CGT. Australia-wide appointments.",
-    url: "https://financiallyup.com.au/services/individual-tax/employee-share-schemes/",
+    url: `${SITE_URL}/services/individual-tax/employee-share-schemes/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -89,7 +96,7 @@ const essQuickSpecs = [
     icon: "safety",
     label: "Professional Advice",
     value:
-      "Registered Tax Agent #26242127 lodgement with clear, transparent fee scopes",
+      <BrandText text={"Registered Tax Agent #26242127 lodgement with clear, transparent fee scopes"} />,
   },
 ];
 
@@ -251,10 +258,7 @@ export default function EmployeeShareSchemesPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-950 transition-colors">
       {/* FAQ Schema Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* Hero Section */}
       <SubServiceHero
@@ -263,7 +267,7 @@ export default function EmployeeShareSchemesPage() {
         subtitle="If you receive shares, rights, options or other interests through your employer, the tax treatment can differ from an ordinary share investment. Employee share scheme tax may involve an assessable discount, an upfront or deferred taxing point, an employer ESS statement and a later capital gains tax calculation when the interest is disposed of."
         bodyText={
           <span>
-            Financially Up Pty Ltd assists Australian employees with reviewing
+            <CompanyName legal /> assists Australian employees with reviewing
             ESS information and preparing individual tax returns involving
             employee shares. We can identify required records, distinguish ESS
             income from later CGT and explain when separately scoped advice may
@@ -299,7 +303,7 @@ export default function EmployeeShareSchemesPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "ESS & Equity Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -324,7 +328,7 @@ export default function EmployeeShareSchemesPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about employee share schemes, ESS statements, deferred taxing points, options, RSUs and CGT with Financially Up."
+        subtitle={<BrandText text={"Common questions about employee share schemes, ESS statements, deferred taxing points, options, RSUs and CGT with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Employee Share Scheme Tax Accountant Frequently Asked Questions"
         items={essFaqs}
@@ -336,7 +340,7 @@ export default function EmployeeShareSchemesPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an Appointment to discuss your ESS statement, scheme documents, taxing-point information, employee share disposals and available records. Financially Up will outline the information required, the proposed service scope and the next steps for your Australian tax return."
+        subtitle={<BrandText text={"Book an Appointment to discuss your ESS statement, scheme documents, taxing-point information, employee share disposals and available records. Financially Up will outline the information required, the proposed service scope and the next steps for your Australian tax return."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

@@ -46,7 +46,7 @@ export default function PenaltiesInterestAndAtoNotices() {
         {/* 3 Pillars of Statutory Consequences */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Card 1: FTL Penalties & GIC */}
-          <div className="p-7 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400 mb-5">
                 <DollarCircleOutlined className="text-xl" />
@@ -72,7 +72,7 @@ export default function PenaltiesInterestAndAtoNotices() {
           </div>
 
           {/* Card 2: Default Assessments & ATO Notices */}
-          <div className="p-7 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 flex items-center justify-center text-rose-600 dark:text-rose-400 mb-5">
                 <FileExclamationOutlined className="text-xl" />
@@ -98,7 +98,7 @@ export default function PenaltiesInterestAndAtoNotices() {
           </div>
 
           {/* Card 3: ATO Payment Plans & Separate Scopes */}
-          <div className="p-7 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-5">
                 <CalendarOutlined className="text-xl" />

@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinanciallyUpDoesWithYou Component
@@ -66,7 +67,7 @@ export default function WhatFinanciallyUpDoesWithYou() {
             Advisory Partnership &amp; Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            What Financially Up Can Do with You
+            What <CompanyName /> Can Do with You
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Our profit improvement services can include a review of financial

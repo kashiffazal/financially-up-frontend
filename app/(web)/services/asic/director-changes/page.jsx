@@ -7,11 +7,16 @@ import HowFinanciallyUpHelpsDirectorsAndWhyChoose from "./components/HowFinancia
 import DirectorChangesRelatedRibbon from "./components/DirectorChangesRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 / Pillar 7.5)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Change Director ASIC | Director Changes | Financially Up",
   description:
     "Change director details with ASIC correctly and on time. Financially Up assists with director appointments, cessations, records and related company updates.",
@@ -26,18 +31,19 @@ export const metadata = {
     "ASIC officeholder updates",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/director-changes/",
+    canonical: `${SITE_URL}/services/asic/director-changes/`,
   },
   openGraph: {
     title: "Change Director ASIC | Director Changes | Financially Up",
     description:
       "Change director details with ASIC correctly and on time. Financially Up assists with director appointments, cessations, records and related company updates.",
-    url: "https://financiallyup.com.au/services/asic/director-changes/",
+    url: `${SITE_URL}/services/asic/director-changes/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -82,10 +88,10 @@ const directorChangesFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up remove a director if there is a shareholder dispute?",
+    label: <BrandText text={"Can Financially Up remove a director if there is a shareholder dispute?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can assist with routine ASIC administration where the company has validly made the change. A contested removal or dispute about governance, resolutions or director rights may require legal advice before any ASIC update is lodged.
+        <CompanyName /> can assist with routine ASIC administration where the company has validly made the change. A contested removal or dispute about governance, resolutions or director rights may require legal advice before any ASIC update is lodged.
       </p>
     ),
   },
@@ -116,10 +122,7 @@ export default function DirectorChangesPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function DirectorChangesPage() {
               When a company appoints a director, a director resigns or retires, or an officeholder change needs to be recorded, the company must update ASIC correctly and within the required timeframe. A director-change service helps make sure the corporate records, effective dates and ASIC notification are handled consistently.
             </span>
             <span className="block mt-2">
-              Financially Up can assist with routine director appointments and cessations where the company has made the required decision and supporting records are available. This service focuses on company administration and ASIC updates. It does not replace legal advice about disputed removals, director duties, shareholder conflicts or the validity of corporate resolutions.
+              <CompanyName /> can assist with routine director appointments and cessations where the company has made the required decision and supporting records are available. This service focuses on company administration and ASIC updates. It does not replace legal advice about disputed removals, director duties, shareholder conflicts or the validity of corporate resolutions.
             </span>
           </span>
         }
@@ -186,7 +189,7 @@ export default function DirectorChangesPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your company needs to appoint, cease or update a director, book an appointment with Financially Up to review the change, supporting records and ASIC notification requirements."
+        subtitle={<BrandText text={"If your company needs to appoint, cease or update a director, book an appointment with Financially Up to review the change, supporting records and ASIC notification requirements."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

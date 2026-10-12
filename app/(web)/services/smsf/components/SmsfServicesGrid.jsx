@@ -2,6 +2,7 @@
 
 import React from "react";
 import ServicesGrid from "@/components/website/ServicesGrid";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * SmsfServicesGrid Component
@@ -114,7 +115,7 @@ export default function SmsfServicesGrid() {
       sectionId="smsf-services-overview"
       tag="Service Portfolio"
       title="Our SMSF Accounting Services"
-      subtitle="Financially Up assists Australian trustees across all stages of a self-managed super fund-from establishment and annual accounting to property, audit, compliance, and wind-up."
+      subtitle={<BrandText text={"Financially Up assists Australian trustees across all stages of a self-managed super fund-from establishment and annual accounting to property, audit, compliance, and wind-up."} />}
       services={services}
       columns={3}
       className="py-16 md:py-24 bg-white dark:bg-zinc-950 border-t border-b border-slate-200/80 dark:border-zinc-800 transition-colors"

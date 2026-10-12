@@ -96,7 +96,7 @@ export default function WhenToSeekAdvice() {
         </div>
 
         {/* Feature Split: Document Paragraph 2 Highlight & Trigger Scenarios */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-14">
+        <div className="p-8 sm:p-10 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-14">
           <div className="max-w-4xl mx-auto text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 text-xs font-semibold mb-3">
               <CheckCircleFilled /> Proactive Advice Triggers

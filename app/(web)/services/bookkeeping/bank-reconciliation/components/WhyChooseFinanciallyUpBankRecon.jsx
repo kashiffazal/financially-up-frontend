@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpBankRecon Component
@@ -24,40 +25,52 @@ export default function WhyChooseFinanciallyUpBankRecon() {
   const highlights = [
     {
       title: "Registered Tax Agent & 10+ Years Experience",
-      description: "Our senior team includes CPA and IPA members delivering verified, professional accounting and bookkeeping standards.",
+      description:
+        "Our senior team includes CPA and IPA members delivering verified, professional accounting and bookkeeping standards.",
     },
     {
       title: "Clear Exceptions & Zero Guesswork",
-      description: "Where a transaction needs tax advice, management approval or further evidence, it is treated as a separate issue rather than being assumed.",
+      description:
+        "Where a transaction needs tax advice, management approval or further evidence, it is treated as a separate issue rather than being assumed.",
     },
     {
       title: "Flexible Delivery Across Australia",
-      description: "Services delivered seamlessly online via cloud accounting, with in-person appointments available where preferred.",
+      description:
+        "Services delivered seamlessly online via cloud accounting, with in-person appointments available where preferred.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="gold" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="gold"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <TrophyOutlined className="mr-1.5" />
               Trusted Partner
             </Tag>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company.legalName || "Financially Up Pty Ltd"} supports businesses across Australia with bookkeeping, accounting, taxation and business advisory services. We are a registered tax agent with more than 10 years of experience, and our team includes CPA and IPA members. Services can be delivered online, with in-person appointments available where preferred.
+              {company.legalName} supports
+              businesses across Australia with bookkeeping, accounting, taxation
+              and business advisory services. We are a registered tax agent with
+              more than 10 years of experience, and our team includes CPA and
+              IPA members. Services can be delivered online, with in-person
+              appointments available where preferred.
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Our bank reconciliation service focuses on accurate records and clear exceptions. Where a transaction needs tax advice, management approval or further evidence, it is treated as a separate issue rather than being assumed.
+              Our bank reconciliation service focuses on accurate records and
+              clear exceptions. Where a transaction needs tax advice, management
+              approval or further evidence, it is treated as a separate issue
+              rather than being assumed.
             </p>
 
             <div className="pt-4 space-y-4">
@@ -80,19 +93,26 @@ export default function WhyChooseFinanciallyUpBankRecon() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-6">
+            <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-6">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                 Work With Qualified Accountants
               </h3>
-              
+
               <div className="space-y-4 text-sm text-slate-600 dark:text-zinc-300">
                 <div className="flex items-start gap-3">
                   <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
-                  <span>ABN: <strong className="text-slate-900 dark:text-white">{company.abn || "84 659 717 263"}</strong></span>
+                  <span>
+                    ABN:{" "}
+                    <strong className="text-slate-900 dark:text-white">
+                      {company.abn}
+                    </strong>
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <EnvironmentOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
-                  <span>{company.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}</span>
+                  <span>
+                    {company.address}
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <PhoneOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
@@ -100,16 +120,16 @@ export default function WhyChooseFinanciallyUpBankRecon() {
                     href={`tel:${company.phone?.replace(/\s/g, "") || "1300328316"}`}
                     className="hover:text-brand-primary dark:hover:text-emerald-400 font-medium transition-colors"
                   >
-                    {company.phone || "1300 328 316"}
+                    {company.phone}
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
                   <MailOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
                   <a
-                    href={`mailto:${company.email || "info@financiallyup.com.au"}`}
+                    href={`mailto:${company.email}`}
                     className="hover:text-brand-primary dark:hover:text-emerald-400 font-medium transition-colors"
                   >
-                    {company.email || "info@financiallyup.com.au"}
+                    {company.email}
                   </a>
                 </div>
               </div>
@@ -122,9 +142,7 @@ export default function WhyChooseFinanciallyUpBankRecon() {
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

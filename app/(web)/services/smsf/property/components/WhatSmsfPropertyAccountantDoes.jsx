@@ -9,6 +9,7 @@ import {
   SafetyCertificateOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatSmsfPropertyAccountantDoes Component
@@ -105,7 +106,7 @@ export default function WhatSmsfPropertyAccountantDoes() {
             <span className="font-bold text-slate-900 dark:text-white">
               Strict Advisory Boundaries:
             </span>{" "}
-            Financially Up Pty Ltd provides accounting, tax reporting, and
+            <CompanyName legal /> provides accounting, tax reporting, and
             compliance support for property held within superannuation. We do
             not provide credit assistance, mortgage broking, conveyancing, or
             financial product advice recommending the acquisition or disposal of

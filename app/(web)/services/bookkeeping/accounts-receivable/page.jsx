@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpAR from "./components/WhyChooseFinanciallyUpAR";
 import RelatedBookkeepingRibbon from "../components/RelatedBookkeepingRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7 of Bookkeeping)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Accounts Receivable Services Australia | Financially Up",
   description:
     "Outsource accounts receivable with invoicing, debtor tracking and payment follow-up support for Australian businesses. Book an appointment.",
@@ -29,18 +35,19 @@ export const metadata = {
     "debtor ledger reconciliation",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/accounts-receivable/",
+    canonical: `${SITE_URL}/services/bookkeeping/accounts-receivable/`,
   },
   openGraph: {
     title: "Accounts Receivable Services Australia | Financially Up",
     description:
       "Outsource accounts receivable with invoicing, debtor tracking and payment follow-up support for Australian businesses. Book an appointment.",
-    url: "https://financiallyup.com.au/services/bookkeeping/accounts-receivable/",
+    url: `${SITE_URL}/services/bookkeeping/accounts-receivable/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Bookkeeping service hierarchy
@@ -128,10 +135,7 @@ export default function AccountsReceivablePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function AccountsReceivablePage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Keeping on top of customer invoices and outstanding balances is essential for reliable cash flow, but accounts receivable can become time-consuming as a business grows. Financially Up provides accounts receivable services that help businesses maintain accurate customer records, issue and track invoices, monitor overdue balances and keep receivables organized.
+              Keeping on top of customer invoices and outstanding balances is essential for reliable cash flow, but accounts receivable can become time-consuming as a business grows. <CompanyName /> provides accounts receivable services that help businesses maintain accurate customer records, issue and track invoices, monitor overdue balances and keep receivables organized.
             </span>
             <span className="block mt-2">
               Our service is suited to business owners who want consistent accounts receivable support without managing every administrative step internally. The scope can be adjusted around your existing systems, approval processes and customer relationships.
@@ -164,7 +168,7 @@ export default function AccountsReceivablePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Bookkeeping Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -195,7 +199,7 @@ export default function AccountsReceivablePage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about outsourced accounts receivable, payment allocation, debtor follow-ups and ledger clean-up with Financially Up."
+        subtitle={<BrandText text={"Common questions about outsourced accounts receivable, payment allocation, debtor follow-ups and ledger clean-up with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Accounts Receivable Frequently Asked Questions"
         items={accountsReceivableFaqs}
@@ -207,7 +211,7 @@ export default function AccountsReceivablePage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If customer invoicing and debtor follow-up are taking too much time or your receivables ledger needs more structure, Financially Up can help. Book an appointment to discuss your current process, software, outstanding balances and the accounts receivable support that would suit your business."
+        subtitle={<BrandText text={"If customer invoicing and debtor follow-up are taking too much time or your receivables ledger needs more structure, Financially Up can help. Book an appointment to discuss your current process, software, outstanding balances and the accounts receivable support that would suit your business."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore All Bookkeeping Services"

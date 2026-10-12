@@ -30,7 +30,7 @@ export default function OverlappingResidencesAndStrategicChoice() {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 sm:p-12 shadow-xl mb-12">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg p-8 sm:p-12 shadow-xl mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 px-3.5 py-1 rounded-full text-xs font-semibold mb-6 border border-emerald-400/30">

@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PaygReportingAndDistinctions Component
@@ -42,7 +43,7 @@ export default function PaygReportingAndDistinctions() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Card 1: PAYG withholding and payroll reporting */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <SyncOutlined className="text-lg" />
@@ -90,7 +91,7 @@ export default function PaygReportingAndDistinctions() {
           </div>
 
           {/* Card 2: PAYG withholding vs PAYG instalments */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                 <SwapOutlined className="text-lg" />
@@ -134,7 +135,7 @@ export default function PaygReportingAndDistinctions() {
           </div>
 
           {/* Card 3: Activity statements and PAYG withholding */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <FileTextOutlined className="text-lg" />
@@ -154,7 +155,7 @@ export default function PaygReportingAndDistinctions() {
               </p>
 
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can coordinate PAYG withholding figures with BAS
+                <CompanyName /> can coordinate PAYG withholding figures with BAS
                 lodgement where relevant. Our{" "}
                 <Link
                   href="/services/bas-payroll/bas-lodgement"

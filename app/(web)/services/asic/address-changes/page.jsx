@@ -6,11 +6,16 @@ import WhyAccurateAddressesMatterAndHowWeHelp from "./components/WhyAccurateAddr
 import AddressChangesRelatedRibbon from "./components/AddressChangesRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8 / Pillar 7.7)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Change Company Address ASIC | Financially Up",
   description:
     "Need to change a company address with ASIC? Financially Up can help update registered office and principal place of business details correctly.",
@@ -24,18 +29,19 @@ export const metadata = {
     "statutory address change 28 days",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/address-changes/",
+    canonical: `${SITE_URL}/services/asic/address-changes/`,
   },
   openGraph: {
     title: "Change Company Address ASIC | Financially Up",
     description:
       "Need to change a company address with ASIC? Financially Up can help update registered office and principal place of business details correctly.",
-    url: "https://financiallyup.com.au/services/asic/address-changes/",
+    url: `${SITE_URL}/services/asic/address-changes/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -114,10 +120,7 @@ export default function AddressChangesPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -126,7 +129,7 @@ export default function AddressChangesPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              When a company moves, changes accountants or stops using a previous address, its ASIC records may need to be updated promptly. An ASIC company-address notification can involve the registered office, principal place of business, contact address or more than one address at the same time. Financially Up can help identify which company details have changed and prepare the relevant ASIC update.
+              When a company moves, changes accountants or stops using a previous address, its ASIC records may need to be updated promptly. An ASIC company-address notification can involve the registered office, principal place of business, contact address or more than one address at the same time. <CompanyName /> can help identify which company details have changed and prepare the relevant ASIC update.
             </span>
             <span className="block mt-2">
               The registered office and principal place of business serve different purposes, so changing one does not automatically mean the other should change. Getting the distinction right helps ensure ASIC notices reach the correct place and the public company record remains accurate.
@@ -181,7 +184,7 @@ export default function AddressChangesPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Need to change your registered office or another company address with ASIC? Book an appointment with Financially Up to review the current record and the update required."
+        subtitle={<BrandText text={"Need to change your registered office or another company address with ASIC? Book an appointment with Financially Up to review the current record and the update required."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

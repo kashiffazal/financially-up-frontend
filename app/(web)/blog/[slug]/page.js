@@ -4,6 +4,7 @@ import BlogArticle from "../components/BlogArticle";
 import { getBlogPost } from "@/lib/blogFetch";
 import { getSettings } from "@/lib/getSettings";
 import { buildBlogSchema, resolveBlogImage, siteBaseUrl } from "@/lib/blog";
+import { brandText } from "@/lib/brand";
 
 /**
  * /blog/[slug] - single article, from the database (managed at /admin/blog).
@@ -13,10 +14,10 @@ import { buildBlogSchema, resolveBlogImage, siteBaseUrl } from "@/lib/blog";
 
 const siteInfo = (settings) => {
   const url = siteBaseUrl(settings["url.website"]);
-  const logo = settings["company.logoUrl"] || "";
+  const logo = settings["company.logoUrl"];
   return {
     url,
-    name: settings["company.name"] || "Financially Up",
+    name: settings["company.name"],
     logo: logo ? (/^https?:/.test(logo) ? logo : `${url}${logo}`) : "",
   };
 };
@@ -30,7 +31,7 @@ const absoluteImage = (src, site) => {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const { post } = await getBlogPost(slug);
-  if (!post) return { title: "Article not found | Financially Up" };
+  if (!post) return { title: brandText("Article not found | Financially Up", await getSettings()) };
 
   const site = siteInfo(await getSettings());
   const title = post.seo.metaTitle || `${post.title} | ${site.name}`;

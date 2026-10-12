@@ -9,6 +9,7 @@ import {
   CheckCircleFilled,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function SoleTraderOverview() {
   const highlights = [
@@ -33,7 +34,7 @@ export default function SoleTraderOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance
+              At <CompanyName />, we specialize in providing expert assistance
               with sole trader tax returns across a wide range of industries.
               Our knowledgeable team of tax professionals understands the
               specific tax obligations and regulations applicable to different

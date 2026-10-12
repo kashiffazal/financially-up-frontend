@@ -21,6 +21,7 @@ import {
   CheckCircleFilled,
 } from "@ant-design/icons";
 import styles from "./ContactUsModal.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function ContactUsModal({ open, onClose }) {
   const [form] = Form.useForm();
@@ -92,7 +93,7 @@ export default function ContactUsModal({ open, onClose }) {
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">
-            Contact Financially Up
+            Contact <CompanyName />
           </h3>
           <p className="text-xs sm:text-sm text-emerald-100 font-normal max-w-lg leading-relaxed">
             Fill in your details below. Our CPA tax accountants will review your

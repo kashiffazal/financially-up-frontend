@@ -95,7 +95,7 @@ export default function WhatGrantConsultantDoes() {
         </div>
 
         {/* Verbatim Lead Paragraph Card */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12 space-y-4">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
             <TrophyOutlined />
             <span>Practical Assessment &amp; Competitive Merit Principles</span>

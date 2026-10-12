@@ -35,7 +35,7 @@ export default function FitoCalculationAndOffsetLimit() {
         {/* 2-Column Split: The $1,000 Threshold vs The Statutory FITO Limit */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Card 1: $1,000 De Minimis Method */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl">
@@ -63,7 +63,7 @@ export default function FitoCalculationAndOffsetLimit() {
           </div>
 
           {/* Card 2: The Statutory FITO Limit Calculation */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl">
@@ -94,7 +94,7 @@ export default function FitoCalculationAndOffsetLimit() {
         </div>
 
         {/* Warning Callout: Non-refundable & No carry forward */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 flex items-start gap-4">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 flex items-start gap-4">
           <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
           <div className="space-y-2">
             <h4 className="text-base font-bold text-slate-900 dark:text-white">

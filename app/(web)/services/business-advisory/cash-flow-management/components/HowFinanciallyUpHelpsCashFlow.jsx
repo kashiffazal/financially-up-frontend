@@ -16,6 +16,7 @@ import {
   SyncOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsCashFlow Component
@@ -96,7 +97,7 @@ export default function HowFinanciallyUpHelpsCashFlow() {
             Advisory Partnership &amp; Credentials
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
 
@@ -110,7 +111,7 @@ export default function HowFinanciallyUpHelpsCashFlow() {
                 <span>Practical Forward Cash Clarity</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Financially Up can build or review a forecast, test assumptions,
+                <CompanyName /> can build or review a forecast, test assumptions,
                 identify pressure points and establish a process for comparing
                 actual cash movements with expectations. The focus is practical:
                 understand when cash should move, what obligations need funding
@@ -130,7 +131,7 @@ export default function HowFinanciallyUpHelpsCashFlow() {
                 <span>Professional Accounting &amp; Advisory Standing</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Financially Up is a registered tax agent with more than 10 years
+                <CompanyName /> is a registered tax agent with more than 10 years
                 of experience. Our team includes CPA and IPA professionals, and
                 we work with clients Australia-wide through online and in-person
                 appointments.

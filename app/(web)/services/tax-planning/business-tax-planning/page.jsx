@@ -11,12 +11,18 @@ import HowFinanciallyUpHelps from "./components/HowFinanciallyUpHelps";
 import RelatedTaxPlanningRibbon from "./components/RelatedTaxPlanningRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Tax Planning Australia | Financially Up",
   description:
     "Business tax planning for Australian owners, covering income, deductions, cash flow, structures, obligations and practical year-end tax decisions.",
@@ -31,18 +37,19 @@ export const metadata = {
     "Division 7A tax planning",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/business-tax-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/business-tax-planning/`,
   },
   openGraph: {
     title: "Business Tax Planning Australia | Financially Up",
     description:
       "Business tax planning for Australian owners, covering income, deductions, cash flow, structures, obligations and practical year-end tax decisions.",
-    url: "https://financiallyup.com.au/services/tax-planning/business-tax-planning/",
+    url: `${SITE_URL}/services/tax-planning/business-tax-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -130,10 +137,7 @@ export default function BusinessTaxPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -142,7 +146,7 @@ export default function BusinessTaxPlanningPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Business tax planning helps owners understand the tax consequences of business decisions before they are finalised. Financially Up provides business tax planning for companies, trusts, partnerships and sole traders that want a clearer view of expected tax obligations, cash-flow requirements and legitimate planning opportunities.
+              Business tax planning helps owners understand the tax consequences of business decisions before they are finalised. <CompanyName /> provides business tax planning for companies, trusts, partnerships and sole traders that want a clearer view of expected tax obligations, cash-flow requirements and legitimate planning opportunities.
             </span>
             <span className="block mt-2">
               The service is forward-looking. Rather than waiting until the business tax return is prepared, planning reviews the current year, expected results and upcoming decisions so that tax consequences can be considered in time. The appropriate strategy depends on your entity structure, business activity, ownership, timing and other facts.
@@ -157,7 +161,7 @@ export default function BusinessTaxPlanningPage() {
         subPillarTag="Pillar 3.1 • Business Advisory Practice"
         highlights={[
           "Forward-Looking Tax Modeling",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-1" text={"Registered Tax Agent #26234055"} />,
           "Virtual Consultations Australia-Wide",
         ]}
         primaryCta={{
@@ -166,7 +170,7 @@ export default function BusinessTaxPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Business Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -200,7 +204,7 @@ export default function BusinessTaxPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about business tax planning, pre-30 June reviews, BAS integration, and strategic timing with Financially Up."
+        subtitle={<BrandText text={"Common questions about business tax planning, pre-30 June reviews, BAS integration, and strategic timing with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Business Tax Planning Frequently Asked Questions"
         items={businessTaxPlanningFaqs}

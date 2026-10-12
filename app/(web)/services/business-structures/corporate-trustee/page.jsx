@@ -9,23 +9,28 @@ import WhoConsidersAndSetupSteps from "./components/WhoConsidersAndSetupSteps";
 import KeyConsiderationsCorporateTrustee from "./components/KeyConsiderationsCorporateTrustee";
 import HowFinanciallyUpHelpsCorporateTrustee from "./components/HowFinanciallyUpHelpsCorporateTrustee";
 import WhyChooseFinanciallyUpCorporateTrustee from "./components/WhyChooseFinanciallyUpCorporateTrustee";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Corporate Trustee Setup Australia | Financially Up",
   description:
     "Corporate trustee setup Australia for trusts, including company registration, tax registrations and accounting setup with clear professional scope.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/corporate-trustee/",
+    canonical: `${SITE_URL}/services/business-structures/corporate-trustee/`,
   },
   openGraph: {
     title: "Corporate Trustee Setup Australia | Financially Up",
     description:
       "Corporate trustee setup Australia for trusts, including company registration, tax registrations and accounting setup with clear professional scope.",
-    url: "https://financiallyup.com.au/services/business-structures/corporate-trustee/",
+    url: `${SITE_URL}/services/business-structures/corporate-trustee/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -46,7 +51,7 @@ const corporateTrusteeFaqs = [
       "Not merely because it acts as trustee. The trust may need or be entitled to an ABN for its enterprise, with the trustee registering in its trustee capacity. The company may need a separate ABN only if its own activities require one. The correct registration position should be checked for the actual arrangement.",
   },
   {
-    question: "Can Financially Up prepare the trust deed?",
+    question: <BrandText text={"Can Financially Up prepare the trust deed?"} />,
     answer:
       "Our stated service scope covers accounting, tax, registration and advisory matters. A trust deed is a legal document, so preparation or legal interpretation may require an appropriately qualified legal adviser. We can coordinate the accounting and tax setup with the legal documents.",
   },
@@ -62,7 +67,7 @@ export default function CorporateTrusteePage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -73,10 +78,7 @@ export default function CorporateTrusteePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -90,7 +92,7 @@ export default function CorporateTrusteePage() {
           title="Corporate Trustee Setup Australia"
           description={[
             "A corporate trustee setup involves establishing a company to act as trustee of a trust and then making sure the company, trust registrations and accounting records are set up consistently. For business owners and family groups, the important point is that the company and the trust arrangement are not the same thing: the company is a separate legal entity acting as trustee, while the trust is a legal relationship governed by the trust deed and applicable law.",
-            "Financially Up can assist with the accounting, tax-registration and company-registration aspects of a corporate trustee structure. Where a trust deed, asset-protection advice or other legal documentation is required, an appropriately qualified legal adviser may also be needed. This separation of roles helps ensure the structure is established for the right reasons rather than simply registering a company and assuming the rest is automatic.",
+            <BrandText key="brand-1" text={"Financially Up can assist with the accounting, tax-registration and company-registration aspects of a corporate trustee structure. Where a trust deed, asset-protection advice or other legal documentation is required, an appropriately qualified legal adviser may also be needed. This separation of roles helps ensure the structure is established for the right reasons rather than simply registering a company and assuming the rest is automatic."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"
@@ -125,7 +127,7 @@ export default function CorporateTrusteePage() {
         {/* Section 7: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you want to set up a corporate trustee or review an existing trustee arrangement, book an appointment with Financially Up to discuss the proposed structure, registrations, accounting setup and the appropriate professional scope."
+          description={<BrandText text={"If you want to set up a corporate trustee or review an existing trustee arrangement, book an appointment with Financially Up to discuss the proposed structure, registrations, accounting setup and the appropriate professional scope."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

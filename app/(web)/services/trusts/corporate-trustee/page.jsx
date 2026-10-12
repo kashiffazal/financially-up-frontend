@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpCorporateTrustee from "./components/WhyChooseFinanc
 import RelatedCorporateTrusteeRibbon from "./components/RelatedCorporateTrusteeRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Corporate Trustee Accountant Australia | Financially Up",
   description:
     "Accounting and tax support where a company acts as trustee. Keep trust and company records aligned, manage compliance and understand trustee-company obligations.",
@@ -28,18 +34,19 @@ export const metadata = {
     "trustee company tax return",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/corporate-trustee/",
+    canonical: `${SITE_URL}/services/trusts/corporate-trustee/`,
   },
   openGraph: {
     title: "Corporate Trustee Accountant Australia | Financially Up",
     description:
       "Accounting and tax support where a company acts as trustee. Keep trust and company records aligned, manage compliance and understand trustee-company obligations.",
-    url: "https://financiallyup.com.au/services/trusts/corporate-trustee/",
+    url: `${SITE_URL}/services/trusts/corporate-trustee/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -87,10 +94,10 @@ const corporateTrusteeFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up set up a company as trustee?",
+    label: <BrandText text={"Can Financially Up set up a company as trustee?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can assist with company registration and accounting/tax implementation within scope. Legal
+        <CompanyName /> can assist with company registration and accounting/tax implementation within scope. Legal
         documents that appoint the company as trustee or amend the trust deed may require a lawyer.
       </p>
     ),
@@ -122,10 +129,7 @@ export default function CorporateTrusteePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function CorporateTrusteePage() {
               consistent is important for accounting, tax and ASIC compliance.
             </span>
             <span className="block mt-2">
-              Financially Up provides corporate trustee accounting services for existing family trusts, unit trusts and
+              <CompanyName /> provides corporate trustee accounting services for existing family trusts, unit trusts and
               other trust arrangements. We can assist with trust accounting, company records, tax registrations, annual
               compliance coordination and the practical administration needed when a company acts as trustee. Legal
               advice about trustee powers, deed amendments or disputes is separately scoped.
@@ -164,7 +168,7 @@ export default function CorporateTrusteePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

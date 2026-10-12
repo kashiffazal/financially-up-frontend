@@ -75,7 +75,7 @@ export default function HowFinanciallyUpHelpsCrypto() {
             How a Cryptocurrency Tax Accountant Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} provides crypto tax
+            {company?.legalName} provides crypto tax
             services to individuals Australia-wide. Depending on the agreed
             scope, assistance may include:
           </p>
@@ -86,7 +86,7 @@ export default function HowFinanciallyUpHelpsCrypto() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 flex items-center justify-center text-xl mb-4">
@@ -108,7 +108,7 @@ export default function HowFinanciallyUpHelpsCrypto() {
         </div>
 
         {/* Scope Confirmation Note */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="max-w-2xl text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
             <span className="font-bold text-slate-900 dark:text-white block mb-1">
               Advisory Scoping Note:
@@ -150,7 +150,7 @@ export default function HowFinanciallyUpHelpsCrypto() {
             •
           </span>
           <span>
-            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+            Registered Tax Agent #{company?.taxAgentNumber}
           </span>
         </div>
       </div>

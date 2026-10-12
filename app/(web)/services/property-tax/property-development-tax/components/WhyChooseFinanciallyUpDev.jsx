@@ -13,6 +13,8 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpDev Component
@@ -30,7 +32,7 @@ export default function WhyChooseFinanciallyUpDev() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: "TPB Registered Agent #26234055",
+      subtitle: <BrandText text={"TPB Registered Agent #26234055"} />,
     },
     {
       icon: (
@@ -60,7 +62,7 @@ export default function WhyChooseFinanciallyUpDev() {
             Development Tax Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
 
@@ -74,7 +76,7 @@ export default function WhyChooseFinanciallyUpDev() {
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up can assist with project accounting setup,
+              <CompanyName /> can assist with project accounting setup,
               transaction coding, GST and BAS review, year-end accounts,
               tax-return preparation and property-development tax issues within
               the agreed scope. We can also identify matters that need
@@ -90,7 +92,7 @@ export default function WhyChooseFinanciallyUpDev() {
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up is a registered tax agent with more than 10 years
+              <CompanyName /> is a registered tax agent with more than 10 years
               of experience. Our team includes CPA and IPA professionals, and we
               work with clients Australia-wide through online appointments as
               well as in-person appointments.
@@ -125,7 +127,7 @@ export default function WhyChooseFinanciallyUpDev() {
           <div className="text-center lg:text-left">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Speak with a Development Tax Accountant at{" "}
-              {company?.legalName || "Financially Up"}
+              {company?.legalName}
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl font-normal">
               Ensure your property development accounting, GST margin scheme

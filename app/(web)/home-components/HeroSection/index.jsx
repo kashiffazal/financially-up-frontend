@@ -15,8 +15,11 @@ import {
   BankOutlined,
 } from "@ant-design/icons";
 import styles from "./HeroSection.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function HeroSection() {
+  const brand = useBrandText();
   const floatingTags = [
     {
       label: "Investments",
@@ -90,7 +93,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 max-w-xl leading-relaxed">
-              At Financially Up, we illuminate the path, aligning your personal
+              At <CompanyName />, we illuminate the path, aligning your personal
               and business tax journey with financial prosperity, and saving you
               $$$$.
             </p>
@@ -130,7 +133,7 @@ export default function HeroSection() {
 
               <Image
                 src="/images/home/hero.png"
-                alt="Australian Tax Specialist - Financially Up"
+                alt={brand("Australian Tax Specialist - Financially Up")}
                 width={480}
                 height={480}
                 className="w-full h-auto object-contain drop-shadow-xl relative z-0"

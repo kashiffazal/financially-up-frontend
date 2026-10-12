@@ -9,11 +9,17 @@ import HowFinanciallyUpHelpsPartnerships from "./components/HowFinanciallyUpHelp
 import RelatedPartnershipServicesRibbon from "./components/RelatedPartnershipServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Partnership Tax Return Australia | Financially Up",
   description:
     "Partnership tax return and accounting support, including income, deductions, partner profit shares and lodgment for Australian businesses.",
@@ -27,18 +33,19 @@ export const metadata = {
     "lodge partnership tax return",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/partnership-tax-returns/",
+    canonical: `${SITE_URL}/services/business-tax/partnership-tax-returns/`,
   },
   openGraph: {
     title: "Partnership Tax Return Australia | Financially Up",
     description:
       "Partnership tax return and accounting support, including income, deductions, partner profit shares and lodgment for Australian businesses.",
-    url: "https://financiallyup.com.au/services/business-tax/partnership-tax-returns/",
+    url: `${SITE_URL}/services/business-tax/partnership-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -126,10 +133,7 @@ export default function PartnershipTaxReturnsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -141,7 +145,7 @@ export default function PartnershipTaxReturnsPage() {
               A partnership tax return reports the partnership’s business income, deductions and tax information for the year, including how relevant income or losses are allocated to the partners. The partnership itself generally does not pay income tax on its net income; instead, each partner reports their share in their own tax return, subject to the applicable tax rules.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides partnership tax return preparation and partnership accounting services for businesses across Australia. We help organize the partnership’s records, prepare the annual return, reconcile partner information and identify matters that may need separate tax advice before lodgment.
+              <CompanyName legal /> provides partnership tax return preparation and partnership accounting services for businesses across Australia. We help organize the partnership’s records, prepare the annual return, reconcile partner information and identify matters that may need separate tax advice before lodgment.
             </span>
           </span>
         }
@@ -189,7 +193,7 @@ export default function PartnershipTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Partnership Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -229,7 +233,7 @@ export default function PartnershipTaxReturnsPage() {
       {/* 10. Pre-Footer Call To Action Banner */}
       <CallToActionBanner
         title="Book an Appointment"
-        description="If you need an accountant for a partnership business, Financially Up can help you organize the accounting information, prepare the partnership tax return and understand what needs to happen next."
+        description={<BrandText text={"If you need an accountant for a partnership business, Financially Up can help you organize the accounting information, prepare the partnership tax return and understand what needs to happen next."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnLink="/book-an-appointment"
       />

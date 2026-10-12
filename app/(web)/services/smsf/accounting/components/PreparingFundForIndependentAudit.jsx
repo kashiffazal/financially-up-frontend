@@ -9,6 +9,7 @@ import {
   SolutionOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PreparingFundForIndependentAudit Component
@@ -74,7 +75,7 @@ export default function PreparingFundForIndependentAudit() {
         </div>
 
         {/* 7 Audit File Deliverables */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-10">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-10">
           <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-200 dark:border-zinc-800">
             <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center shrink-0">
               <SolutionOutlined className="text-xl text-purple-600 dark:text-purple-400" />
@@ -84,7 +85,7 @@ export default function PreparingFundForIndependentAudit() {
                 Comprehensive Audit Workpaper File
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
-                Financially Up prepares a complete, verified pack for your
+                <CompanyName /> prepares a complete, verified pack for your
                 ASIC-registered approved SMSF auditor.
               </p>
             </div>

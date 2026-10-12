@@ -13,6 +13,7 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatAtoHelpIncludes Component
@@ -66,7 +67,7 @@ export default function WhatAtoHelpIncludes() {
               {/* Exact Verbatim Paragraph 2 from Document */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
                 A registered tax agent can act for a client&apos;s tax affairs
-                when properly appointed. This may allow Financially Up to access
+                when properly appointed. This may allow <CompanyName /> to access
                 relevant tax-account information, lodge documents within the
                 agreed scope and discuss the matter with the ATO. Certain
                 entities with an ABN must first complete the ATO&apos;s

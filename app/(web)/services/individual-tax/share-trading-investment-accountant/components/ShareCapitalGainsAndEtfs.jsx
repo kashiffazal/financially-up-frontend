@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ShareCapitalGainsAndEtfs Component
@@ -57,7 +58,7 @@ export default function ShareCapitalGainsAndEtfs() {
         {/* 2-Column Equal Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Left Column: Capital Gains & Losses from Shares */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -116,7 +117,7 @@ export default function ShareCapitalGainsAndEtfs() {
           </div>
 
           {/* Right Column: ETFs & Managed Funds */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
@@ -161,7 +162,7 @@ export default function ShareCapitalGainsAndEtfs() {
                     Cash vs Taxable Income:
                   </span>
                   The amounts reported for tax may differ from the cash
-                  received. Financially Up can review the relevant statement
+                  received. <CompanyName /> can review the relevant statement
                   components, including investments held through multiple funds
                   or platforms.
                 </div>

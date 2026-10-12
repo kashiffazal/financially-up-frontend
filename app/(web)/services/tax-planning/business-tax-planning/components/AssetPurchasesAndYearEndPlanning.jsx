@@ -10,6 +10,7 @@ import {
   InfoCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * AssetPurchasesAndYearEndPlanning Component
@@ -122,7 +123,7 @@ export default function AssetPurchasesAndYearEndPlanning() {
         <div className="rounded-lg bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
           <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-200 leading-relaxed font-normal">
-            <strong>Advisory Scope Note:</strong> Financially Up provides
+            <strong>Advisory Scope Note:</strong> <CompanyName /> provides
             registered tax agent advisory. Where commercial valuations, formal
             legal conveyance documents, or Australian Financial Services (AFS)
             product advice are required, those services are scoped separately

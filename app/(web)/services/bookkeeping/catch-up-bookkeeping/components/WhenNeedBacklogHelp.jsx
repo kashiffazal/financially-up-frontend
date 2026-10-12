@@ -15,6 +15,7 @@ import {
   SafetyCertificateOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhenNeedBacklogHelp Component
@@ -168,7 +169,7 @@ export default function WhenNeedBacklogHelp() {
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 leading-relaxed font-medium">
             <strong>Evidence-Based Remediation:</strong> An overdue bookkeeping
             service should focus first on establishing what is missing and what
-            can be supported by evidence. Financially Up does not encourage
+            can be supported by evidence. <CompanyName /> does not encourage
             estimates where records should be available; gaps are identified so
             the client can provide further documentation or decide how they
             should be handled.

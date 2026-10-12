@@ -12,6 +12,7 @@ import {
   FileProtectOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BankReconciliationAndGstRecords Component
@@ -130,7 +131,7 @@ export default function BankReconciliationAndGstRecords() {
                   correct GST treatment. Where a transaction&apos;s GST
                   treatment is unclear, it should be reviewed rather than
                   guessed. Where BAS preparation and lodgement are needed, these
-                  can be coordinated with Financially Up&apos;s BAS and GST
+                  can be coordinated with <CompanyName />&apos;s BAS and GST
                   lodgement service.
                 </p>
               </div>

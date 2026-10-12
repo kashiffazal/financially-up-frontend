@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * PropertyInvestingVsDevelopment Component
@@ -140,7 +141,7 @@ export default function PropertyInvestingVsDevelopment() {
           tag="Property Tax Characterisation Advisory"
           tagIcon="safety"
           title="Determine Your Property Tax Character Before You Transact"
-          description="Avoid surprise ATO audits, reclassification of capital gains as ordinary income, and uncollected GST liabilities. Book an appointment with Financially Up to review your project."
+          description={<BrandText text={"Avoid surprise ATO audits, reclassification of capital gains as ordinary income, and uncollected GST liabilities. Book an appointment with Financially Up to review your project."} />}
           primaryButton={{
             text: "Book Property Consultation",
             href: "/services/property-tax/property-development-tax",

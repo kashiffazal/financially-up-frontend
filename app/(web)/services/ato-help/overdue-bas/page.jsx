@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpOverdueBas from "./components/WhyChooseFinanciallyU
 import RelatedOverdueBasRibbon from "./components/RelatedOverdueBasRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 11 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Overdue BAS Accountant | Catch Up BAS | Financially Up",
   description:
     "Overdue BAS accountant support to reconstruct records, prepare late activity statements, catch up lodgments and address related ATO debt or penalty issues.",
@@ -29,18 +35,19 @@ export const metadata = {
     "ATO overdue BAS penalty",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/overdue-bas/",
+    canonical: `${SITE_URL}/services/ato-help/overdue-bas/`,
   },
   openGraph: {
     title: "Overdue BAS Accountant | Catch Up BAS | Financially Up",
     description:
       "Overdue BAS accountant support to reconstruct records, prepare late activity statements, catch up lodgments and address related ATO debt or penalty issues.",
-    url: "https://financiallyup.com.au/services/ato-help/overdue-bas/",
+    url: `${SITE_URL}/services/ato-help/overdue-bas/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -110,10 +117,7 @@ export default function OverdueBasPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -125,7 +129,7 @@ export default function OverdueBasPage() {
               An overdue BAS accountant can help bring unlodged business activity statements up to date when bookkeeping is behind, records are incomplete, multiple periods are outstanding or ATO notices have started arriving. The priority is usually to establish exactly which activity statements are overdue, reconstruct reliable figures, lodge accurate statements and then address any resulting tax debt or penalties separately.
             </span>
             <span className="block mt-2">
-              Financially Up provides BAS catch up support for businesses that need to move from an overdue position back to current compliance. We can review the ATO lodgment history, organize or repair the underlying bookkeeping where required, prepare outstanding activity statements and coordinate related ATO communication within the agreed scope.
+              <CompanyName /> provides BAS catch up support for businesses that need to move from an overdue position back to current compliance. We can review the ATO lodgment history, organize or repair the underlying bookkeeping where required, prepare outstanding activity statements and coordinate related ATO communication within the agreed scope.
             </span>
           </span>
         }
@@ -136,7 +140,7 @@ export default function OverdueBasPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.10 • Activity Statement Catch-Up Practice"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Forensic Bookkeeping & GST Reconstruction",
           "Sequential Multi-Period Backlog Lodgement",
         ]}
@@ -146,7 +150,7 @@ export default function OverdueBasPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -188,7 +192,7 @@ export default function OverdueBasPage() {
       <CallToActionBanner
         tag="Restore Compliance"
         title="Bring Your BAS Lodgments Up to Date"
-        subtitle="If you have overdue or unlodged BAS, Book an Appointment with Financially Up to review the backlog, bookkeeping records, ATO status and the most practical path back to current lodgment compliance."
+        subtitle={<BrandText text={"If you have overdue or unlodged BAS, Book an Appointment with Financially Up to review the backlog, bookkeeping records, ATO status and the most practical path back to current lodgment compliance."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ATO Help Hub"

@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * TaxAndLegalIssuesSuccession Component
@@ -119,7 +120,7 @@ export default function TaxAndLegalIssuesSuccession() {
                 Coordinated Multidisciplinary Advisory
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-                As a registered tax agent, Financially Up can review tax
+                As a registered tax agent, <CompanyName /> can review tax
                 implications within an agreed scope and coordinate accounting
                 information. A solicitor may be needed for sale documents,
                 shareholder arrangements, wills, trusts or estate planning.

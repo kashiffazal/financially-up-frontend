@@ -15,9 +15,11 @@ import {
 } from "@ant-design/icons";
 import { useTheme } from "../../../app/ThemeProvider";
 import styles from "./Footer.module.css";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function WebsiteFooter() {
+  const brand = useBrandText();
   const { isDark } = useTheme();
   const company = useCompany();
 
@@ -61,7 +63,7 @@ export default function WebsiteFooter() {
               <Link href="/" className="inline-block">
                 <Image
                   src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-                  alt="Financially Up - Accounting | Taxation | Advisory"
+                  alt={brand("Financially Up - Accounting | Taxation | Advisory")}
                   width={200}
                   height={50}
                   priority
@@ -71,7 +73,7 @@ export default function WebsiteFooter() {
 
               {/* Company Description */}
               <p className="text-[13px] leading-relaxed text-slate-600 dark:text-slate-300/90 max-w-md">
-                Financially Up is Australia’s premier online accounting &amp;
+                <CompanyName /> is Australia’s premier online accounting &amp;
                 taxation platform - connecting individuals, sole traders, and
                 businesses with registered tax agents for stress-free
                 lodgements.
@@ -218,7 +220,7 @@ export default function WebsiteFooter() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-slate-600 dark:text-slate-400">
           {/* Left: Copyright */}
           <p>
-            © {new Date().getFullYear()} Financially Up. All rights reserved.
+            © {new Date().getFullYear()} <CompanyName />. All rights reserved.
           </p>
 
           {/* Right: Back to Top & Developed by Innotech Cloud */}

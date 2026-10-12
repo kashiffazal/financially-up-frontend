@@ -12,6 +12,7 @@ import {
   DollarOutlined,
 } from "@ant-design/icons";
 import styles from "./SeamlessTaxExperienceSection.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function SeamlessTaxExperienceSection() {
   const highlights = [
@@ -54,7 +55,7 @@ export default function SeamlessTaxExperienceSection() {
             {/* Narrative Body Paragraphs */}
             <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               <p>
-                At Financially Up, we believe lodging your tax return shouldn’t
+                At <CompanyName />, we believe lodging your tax return shouldn’t
                 be a tedious, paperwork-heavy chore. We have modernised
                 Australian tax accounting by combining high-touch human
                 expertise from certified CPAs with an effortless 100% online

@@ -35,7 +35,8 @@ import {
   BookOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * Icon Resolver Map for Server Component Safe Key Passing
@@ -139,7 +140,7 @@ export default function SubServiceHero({
   primaryCta = { label: "Book an Appointment", href: "/book-an-appointment" },
   metrics = [
     { value: "10+ Years", label: "Australian Tax Experience" },
-    { value: "TPB #26234055", label: "Registered Tax Agent" },
+    { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
     { value: "CPA & IPA", label: "Qualified Specialists" },
     { value: "Australia-Wide", label: "Virtual & In-Person Support" },
   ],
@@ -148,6 +149,7 @@ export default function SubServiceHero({
   backgroundImageDark = "/images/services/page-hero-bg.jpg",
   backgroundAlt = "Financially Up Accounting & Advisory",
 }) {
+  const brand = useBrandText();
   const company = useCompany();
 
   const lightBg =
@@ -194,7 +196,7 @@ export default function SubServiceHero({
       <div className="absolute inset-0 z-0 pointer-events-none dark:hidden">
         <Image
           src={lightBg}
-          alt={backgroundAlt}
+          alt={brand(backgroundAlt)}
           fill
           priority
           className="object-cover object-center opacity-80"
@@ -205,7 +207,7 @@ export default function SubServiceHero({
       <div className="absolute inset-0 z-0 pointer-events-none hidden dark:block">
         <Image
           src={darkBg}
-          alt={backgroundAlt}
+          alt={brand(backgroundAlt)}
           fill
           priority
           className="object-cover object-center opacity-30"
@@ -324,7 +326,7 @@ export default function SubServiceHero({
                       className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white/90 dark:bg-white/[0.06] border border-slate-200/90 dark:border-white/10 text-slate-800 dark:text-emerald-100 shadow-2xs dark:shadow-none"
                     >
                       <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs" />
-                      <span>{highlight}</span>
+                      <span>{typeof highlight === "string" ? brand(highlight) : highlight}</span>
                     </span>
                   ))}
                 </div>

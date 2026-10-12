@@ -8,11 +8,17 @@ import HowFinanciallyUpHelpsResidency from "./components/HowFinanciallyUpHelpsRe
 import RelatedTaxResidencyRibbon from "./components/RelatedTaxResidencyRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Tax Residency Advice Australia | Tax Residency Accountant",
   description:
     "Get Australian tax residency advice when arriving, leaving or living across countries. Understand how your facts affect income and CGT reporting.",
@@ -26,18 +32,19 @@ export const metadata = {
     "dual residency tax treaty australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/tax-residency/",
+    canonical: `${SITE_URL}/services/international-tax/tax-residency/`,
   },
   openGraph: {
     title: "Tax Residency Advice Australia | Tax Residency Accountant",
     description:
       "Get Australian tax residency advice when arriving, leaving or living across countries. Understand how your facts affect income and CGT reporting.",
-    url: "https://financiallyup.com.au/services/international-tax/tax-residency/",
+    url: `${SITE_URL}/services/international-tax/tax-residency/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -109,7 +116,7 @@ const taxResidencyFaqs = [
   },
   {
     key: "7",
-    label: "Can Financially Up give me a written residency assessment?",
+    label: <BrandText text={"Can Financially Up give me a written residency assessment?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         The exact form and scope of advice depends on the engagement and complexity of your circumstances. During the initial discussion, we can establish what information is available and whether a formal review or other specialist advice is appropriate.
@@ -143,10 +150,7 @@ export default function TaxResidencyPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -161,7 +165,7 @@ export default function TaxResidencyPage() {
               Tax residency advice Australia is particularly important if you are moving to Australia, leaving Australia, working overseas, returning after living abroad or maintaining significant connections with more than one country.
             </span>
             <span className="block mt-2">
-              Financially Up can review the relevant facts and help you understand your Australian tax-residency position and related tax-reporting requirements.
+              <CompanyName /> can review the relevant facts and help you understand your Australian tax-residency position and related tax-reporting requirements.
             </span>
           </span>
         }
@@ -182,7 +186,7 @@ export default function TaxResidencyPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -222,7 +226,7 @@ export default function TaxResidencyPage() {
       <CallToActionBanner
         tag="Clarify Your Australian Tax Residency"
         title="Book a Tax Residency Consultation"
-        subtitle="Australian tax residency can affect your worldwide income, capital gains and tax-return obligations. It should be established from your actual circumstances rather than assumed from your passport, visa or number of travel days. Book an Appointment with Financially Up for a tax residency consultation and review of the relevant Australian tax issues."
+        subtitle={<BrandText text={"Australian tax residency can affect your worldwide income, capital gains and tax-return obligations. It should be established from your actual circumstances rather than assumed from your passport, visa or number of travel days. Book an Appointment with Financially Up for a tax residency consultation and review of the relevant Australian tax issues."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

@@ -10,11 +10,16 @@ import WhyChooseFinanciallyUpFamilyTrust from "./components/WhyChooseFinancially
 import RelatedFamilyTrustRibbon from "./components/RelatedFamilyTrustRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Family Trust Accountant & Tax Services | Financially Up",
   description:
     "Family trust accountant support for accounting, tax returns, distributions and compliance. Financially Up assists family trusts across Australia.",
@@ -30,18 +35,19 @@ export const metadata = {
     "Division 7A trust entitlements",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/family-trust/",
+    canonical: `${SITE_URL}/services/trusts/family-trust/`,
   },
   openGraph: {
     title: "Family Trust Accountant & Tax Services | Financially Up",
     description:
       "Family trust accountant support for accounting, tax returns, distributions and compliance. Financially Up assists family trusts across Australia.",
-    url: "https://financiallyup.com.au/services/trusts/family-trust/",
+    url: `${SITE_URL}/services/trusts/family-trust/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -127,10 +133,7 @@ export default function FamilyTrustPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -145,7 +148,7 @@ export default function FamilyTrustPage() {
               deed and current tax rules.
             </span>
             <span className="block mt-2">
-              Financially Up provides family trust accounting services for trustees and family groups across Australia.
+              <CompanyName /> provides family trust accounting services for trustees and family groups across Australia.
               We can assist with annual accounts, family trust tax return preparation, beneficiary distribution
               information, record keeping and related tax compliance. Family trust tax advice or planning can also be
               scoped where a decision needs to be considered before year-end or before a transaction occurs.
@@ -173,7 +176,7 @@ export default function FamilyTrustPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

@@ -13,6 +13,7 @@ import {
   StopOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowWeHelpAndEngagementScopeThreeWay Component
@@ -30,7 +31,7 @@ export default function HowWeHelpAndEngagementScopeThreeWay() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: `TPB Agent #${company.tpbNumber || "26234055"}`,
+      subtitle: `TPB Agent #${company.taxAgentNumber}`,
       desc: "More than a decade of experience building integrated three-statement financial forecasts.",
     },
     {
@@ -65,7 +66,7 @@ export default function HowWeHelpAndEngagementScopeThreeWay() {
                 Advisory Service
               </Tag>
               <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-                How Financially Up can help
+                How <CompanyName /> can help
               </h2>
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
@@ -111,7 +112,7 @@ export default function HowWeHelpAndEngagementScopeThreeWay() {
                   verified information.
                 </p>
                 <p>
-                  {company.legalName || "Financially Up Pty Ltd"} has more than
+                  {company.legalName} has more than
                   10 years of experience, with a team including CPA and IPA
                   members. We offer online and in-person appointments across
                   Australia. We aim to leave decision makers with a forecast

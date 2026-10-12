@@ -2,6 +2,8 @@
 
 import React from "react";
 import WhyChooseSection from "@/components/website/WhyChooseSection";
+import BrandText from "@/components/mutual/BrandText";
+import { useBrandText } from "@/context/SettingsContext";
 
 /**
  * WhyChooseCompany Component
@@ -11,6 +13,7 @@ import WhyChooseSection from "@/components/website/WhyChooseSection";
  * Utilizes the mutual reusable WhyChooseSection component from `@/components/website/WhyChooseSection`.
  */
 export default function WhyChooseCompany() {
+  const brand = useBrandText();
   const whyChoosePoints = [
     {
       step: "01",
@@ -44,8 +47,8 @@ export default function WhyChooseCompany() {
 
   return (
     <WhyChooseSection
-      tag="The Financially Up Advantage"
-      title="Why Choose Financially Up for Your Company Tax Returns?"
+      tag={brand("The Financially Up Advantage")}
+      title={<BrandText text={"Why Choose Financially Up for Your Company Tax Returns?"} />}
       subtitle="Proactive corporate taxation solutions built specifically for small to medium PTY LTD companies in Australia."
       items={whyChoosePoints}
       columns={4}

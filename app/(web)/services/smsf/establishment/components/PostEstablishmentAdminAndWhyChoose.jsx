@@ -13,6 +13,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PostEstablishmentAdminAndWhyChoose Component
@@ -40,7 +41,7 @@ export default function PostEstablishmentAdminAndWhyChoose() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `${company.legalName || "Financially Up Pty Ltd"} (TPB #${company.tpbNumber || "26242127"}) brings more than 10 years of professional superannuation and tax expertise.`,
+      desc: `${company.legalName} (TPB #${company.taxAgentNumber}) brings more than 10 years of professional superannuation and tax expertise.`,
     },
     {
       icon: (
@@ -83,7 +84,7 @@ export default function PostEstablishmentAdminAndWhyChoose() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {postSetupTasks.map((task, idx) => (
                 <div
@@ -124,10 +125,10 @@ export default function PostEstablishmentAdminAndWhyChoose() {
               Professional Expertise
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up is a registered tax agent with more than 10 years
+              <CompanyName /> is a registered tax agent with more than 10 years
               of experience and a team that includes CPA and IPA members. We
               provide Australia-wide support through online and in-person
               appointments. Our role in SMSF establishment is to make the
@@ -159,7 +160,7 @@ export default function PostEstablishmentAdminAndWhyChoose() {
           </div>
 
           {/* Call to Action Bar */}
-          <div className="p-8 rounded-3xl bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="p-8 rounded-lg bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-white mb-1">
                 Planning to set up an Australian SMSF?

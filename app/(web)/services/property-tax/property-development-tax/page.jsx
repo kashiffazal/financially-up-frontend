@@ -13,11 +13,17 @@ import WhyChooseFinanciallyUpDev from "./components/WhyChooseFinanciallyUpDev";
 import RelatedPropertyDevRibbon from "./components/RelatedPropertyDevRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of 10th Pillar Property Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Property Development Accountant Australia | Financially Up",
   description:
     "Property development accountant support for project tax, GST, entity accounting, development costs, property sales and reporting across Australia.",
@@ -31,18 +37,19 @@ export const metadata = {
     "developer entity structure",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/property-tax/property-development-tax/",
+    canonical: `${SITE_URL}/services/property-tax/property-development-tax/`,
   },
   openGraph: {
     title: "Property Development Accountant Australia | Financially Up",
     description:
       "Property development accountant support for project tax, GST, entity accounting, development costs, property sales and reporting across Australia.",
-    url: "https://financiallyup.com.au/services/property-tax/property-development-tax/",
+    url: `${SITE_URL}/services/property-tax/property-development-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -90,7 +97,7 @@ const propertyDevFaqs = [
     label: "When should I involve a property development accountant?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Ideally before the entity, purchase contract, finance and GST position are locked in. Early review can make the accounting and compliance process clearer, although Financially Up can also assist with existing projects where records need to be brought up to date.
+        Ideally before the entity, purchase contract, finance and GST position are locked in. Early review can make the accounting and compliance process clearer, although <CompanyName /> can also assist with existing projects where records need to be brought up to date.
       </p>
     ),
   },
@@ -121,10 +128,7 @@ export default function PropertyDevelopmentTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -136,7 +140,7 @@ export default function PropertyDevelopmentTaxPage() {
               Property development can create tax issues that are very different from simply holding an investment property. A property development accountant helps determine how the project should be accounted for, whether profits are on revenue or capital account, how GST applies, how development costs are recorded and what needs to be reported through the relevant entity and BAS cycle.
             </span>
             <span className="block mt-2">
-              Financially Up supports property developers, builders, investors undertaking development projects and business owners using companies, trusts or other entities for property activities. The tax treatment depends on the facts, so the accounting should be set up around the commercial purpose and transaction flow from the beginning.
+              <CompanyName /> supports property developers, builders, investors undertaking development projects and business owners using companies, trusts or other entities for property activities. The tax treatment depends on the facts, so the accounting should be set up around the commercial purpose and transaction flow from the beginning.
             </span>
           </span>
         }
@@ -157,7 +161,7 @@ export default function PropertyDevelopmentTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -209,7 +213,7 @@ export default function PropertyDevelopmentTaxPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an appointment with Financially Up to discuss your property circumstances, records and the appropriate accounting or tax service scope."
+        subtitle={<BrandText text={"Book an appointment with Financially Up to discuss your property circumstances, records and the appropriate accounting or tax service scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

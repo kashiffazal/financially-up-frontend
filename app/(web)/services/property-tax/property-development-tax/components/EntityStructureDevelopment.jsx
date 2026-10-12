@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * EntityStructureDevelopment Component
@@ -92,7 +93,7 @@ export default function EntityStructureDevelopment() {
               </div>
               {/* Verbatim text from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Financially Up can explain tax and accounting implications
+                <CompanyName /> can explain tax and accounting implications
                 within scope. If the project requires broader Business Structure
                 Advice or legal structuring, that work should be dealt with
                 before contracts and ownership arrangements are finalized.

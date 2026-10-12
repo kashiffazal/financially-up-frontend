@@ -12,6 +12,7 @@ import {
   ScheduleOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsTrusts Component
@@ -52,7 +53,7 @@ export default function HowFinanciallyUpHelpsTrusts() {
 
           {/* Exact H2 Heading from Document */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
 
           {/* Exact Verbatim Paragraph 1 from Document */}

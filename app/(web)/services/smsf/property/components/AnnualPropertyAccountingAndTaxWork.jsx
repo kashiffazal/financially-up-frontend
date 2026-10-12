@@ -105,7 +105,7 @@ export default function AnnualPropertyAccountingAndTaxWork() {
         </div>
 
         {/* Valuation Methodology Banner */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
             <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
               <LineChartOutlined className="text-3xl text-emerald-600 dark:text-emerald-400" />

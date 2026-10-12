@@ -11,11 +11,16 @@ import WhatInformationNeeded from "./components/WhatInformationNeeded";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 4th Pillar Bookkeeping.docx - Page 1)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Bookkeeping Services Australia | Financially Up",
   description:
     "Professional bookkeeping services for Australian businesses. Keep records organised, reconciled and ready for reporting, BAS and tax work.",
@@ -34,18 +39,19 @@ export const metadata = {
     "outsourced bookkeeping Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/",
+    canonical: `${SITE_URL}/services/bookkeeping/`,
   },
   openGraph: {
     title: "Bookkeeping Services Australia | Financially Up",
     description:
       "Professional bookkeeping services for Australian businesses. Keep records organised, reconciled and ready for reporting, BAS and tax work.",
-    url: "https://financiallyup.com.au/services/bookkeeping/",
+    url: `${SITE_URL}/services/bookkeeping/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Bookkeeping Hub
@@ -169,7 +175,7 @@ const bookkeepingFaqs = [
     label: "Can bookkeeping be done remotely?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up provides online bookkeeping Australia-wide. The process can
+        Yes. <CompanyName /> provides online bookkeeping Australia-wide. The process can
         use cloud accounting software and electronic document sharing, depending on your
         systems and service scope.
       </p>
@@ -237,10 +243,7 @@ export default function BookkeepingMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -253,7 +256,7 @@ export default function BookkeepingMainPage() {
         titleHighlight="for Australian Businesses"
         description={
           <p className="m-0">
-            Reliable bookkeeping gives a business a clear, current record of what has happened financially. Financially Up provides bookkeeping services for business owners who want their transactions organised, bank accounts reconciled and records maintained in a way that supports day-to-day decisions, BAS preparation and year-end accounting.
+            Reliable bookkeeping gives a business a clear, current record of what has happened financially. <CompanyName /> provides bookkeeping services for business owners who want their transactions organised, bank accounts reconciled and records maintained in a way that supports day-to-day decisions, BAS preparation and year-end accounting.
           </p>
         }
         subDescription={
@@ -327,8 +330,8 @@ export default function BookkeepingMainPage() {
       {/* 12. Pre-Footer Call to Action Banner (Dark Brand Accent) */}
       <CallToActionBanner
         tag="Book an Appointment"
-        title="Book an Appointment with Financially Up"
-        subtitle="If your business needs organised records, regular reconciliations or a more reliable bookkeeping process, book an appointment with Financially Up. We can discuss your current bookkeeping, software, transaction volume and reporting needs, then confirm an appropriate service scope."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"If your business needs organised records, regular reconciliations or a more reliable bookkeeping process, book an appointment with Financially Up. We can discuss your current bookkeeping, software, transaction volume and reporting needs, then confirm an appropriate service scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpAP from "./components/WhyChooseFinanciallyUpAP";
 import RelatedBookkeepingRibbon from "../components/RelatedBookkeepingRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 of Bookkeeping)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Accounts Payable Services Australia | Financially Up",
   description:
     "Outsource accounts payable support with Financially Up. Improve bill processing, supplier records, reconciliations and payment-workflow visibility.",
@@ -29,18 +35,19 @@ export const metadata = {
     "cloud bill approval",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/accounts-payable/",
+    canonical: `${SITE_URL}/services/bookkeeping/accounts-payable/`,
   },
   openGraph: {
     title: "Accounts Payable Services Australia | Financially Up",
     description:
       "Outsource accounts payable support with Financially Up. Improve bill processing, supplier records, reconciliations and payment-workflow visibility.",
-    url: "https://financiallyup.com.au/services/bookkeeping/accounts-payable/",
+    url: `${SITE_URL}/services/bookkeeping/accounts-payable/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Bookkeeping service hierarchy
@@ -79,7 +86,7 @@ const accountsPayableFaqs = [
     label: "Can you approve or pay supplier bills for us?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Payment responsibilities depend on the agreed service and access controls. Financially Up does not assume unrestricted payment authority. Client approval and banking controls should be clearly defined.
+        Payment responsibilities depend on the agreed service and access controls. <CompanyName /> does not assume unrestricted payment authority. Client approval and banking controls should be clearly defined.
       </p>
     ),
   },
@@ -128,10 +135,7 @@ export default function AccountsPayablePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function AccountsPayablePage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Accounts payable is the process of recording, reviewing and managing amounts a business owes to suppliers. Financially Up provides accounts payable services for businesses that want a more consistent way to process supplier bills, maintain payable records and keep upcoming obligations visible in their bookkeeping system.
+              Accounts payable is the process of recording, reviewing and managing amounts a business owes to suppliers. <CompanyName /> provides accounts payable services for businesses that want a more consistent way to process supplier bills, maintain payable records and keep upcoming obligations visible in their bookkeeping system.
             </span>
             <span className="block mt-2">
               For a growing business, accounts payable can become difficult to manage when invoices arrive through different channels, approvals are unclear or supplier balances no longer match the accounting records. Outsourced accounts payable can create a defined workflow while allowing business owners and managers to retain appropriate approval and payment controls.
@@ -164,7 +168,7 @@ export default function AccountsPayablePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Bookkeeping Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -195,7 +199,7 @@ export default function AccountsPayablePage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about outsourced accounts payable, internal approval controls, Xero integrations and BAS support with Financially Up."
+        subtitle={<BrandText text={"Common questions about outsourced accounts payable, internal approval controls, Xero integrations and BAS support with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Accounts Payable Frequently Asked Questions"
         items={accountsPayableFaqs}
@@ -207,7 +211,7 @@ export default function AccountsPayablePage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss your current supplier-bill process, approval responsibilities, software and transaction volume. We can then define an accounts payable services scope that supports consistent processing while keeping appropriate client controls in place."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss your current supplier-bill process, approval responsibilities, software and transaction volume. We can then define an accounts payable services scope that supports consistent processing while keeping appropriate client controls in place."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore All Bookkeeping Services"

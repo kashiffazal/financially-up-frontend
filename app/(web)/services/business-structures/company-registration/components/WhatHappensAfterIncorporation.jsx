@@ -11,6 +11,7 @@ import {
   ExclamationCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatHappensAfterIncorporation Component
@@ -41,7 +42,7 @@ export default function WhatHappensAfterIncorporation() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           {/* Card 1: What happens after company incorporation? */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <FileDoneOutlined className="text-lg" />
@@ -55,7 +56,7 @@ export default function WhatHappensAfterIncorporation() {
                 After company incorporation, the business may need additional
                 registrations before or as it starts operating. A company
                 registered with ASIC is entitled to an ABN, but the ABN is a
-                separate identifier and application process. Financially Up can
+                separate identifier and application process. <CompanyName /> can
                 assist with ABN registration and review whether other
                 registrations, such as GST or PAYG withholding, are relevant to
                 the company&apos;s activities.
@@ -90,7 +91,7 @@ export default function WhatHappensAfterIncorporation() {
           </div>
 
           {/* Card 2: Company registration and tax compliance are separate services */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <DollarOutlined className="text-lg" />
@@ -104,7 +105,7 @@ export default function WhatHappensAfterIncorporation() {
                 Company registration establishes the legal entity. It does not
                 complete the company&apos;s ongoing tax obligations. A company
                 generally has separate accounting and tax reporting
-                responsibilities after it begins operating. Financially Up can
+                responsibilities after it begins operating. <CompanyName /> can
                 assist with the registration stage and, where separately scoped,
                 ongoing bookkeeping, tax compliance and company tax return
                 preparation.

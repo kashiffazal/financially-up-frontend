@@ -9,12 +9,16 @@ import WhatToBringAndWhatToExpectBenchmark from "./components/WhatToBringAndWhat
 import BenchmarkingRelatedServicesRibbon from "./components/BenchmarkingRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 9 (9- Benchmarking)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Benchmarking Services | Financially Up",
   description:
     "Compare business performance with context. Financially Up helps select suitable benchmarks, explain differences and identify questions worth investigating.",
@@ -30,18 +34,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/benchmarking/",
+      `${SITE_URL}/services/business-advisory/benchmarking/`,
   },
   openGraph: {
     title: "Business Benchmarking Services | Financially Up",
     description:
       "Compare business performance with context. Financially Up helps select suitable benchmarks, explain differences and identify questions worth investigating.",
-    url: "https://financiallyup.com.au/services/business-advisory/benchmarking/",
+    url: `${SITE_URL}/services/business-advisory/benchmarking/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -117,7 +122,7 @@ const jsonLd = {
       provider: {
         "@type": "AccountingService",
         name: "Financially Up",
-        url: "https://financiallyup.com.au",
+        url: `${SITE_URL}`,
         telephone: "+61-1300-328-316",
         address: {
           "@type": "PostalAddress",
@@ -183,10 +188,7 @@ export default function BenchmarkingPage() {
   return (
     <>
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* SubServiceHero Component */}
       <SubServiceHero
@@ -194,7 +196,7 @@ export default function BenchmarkingPage() {
         subtitle="Business Benchmarking Services"
         description={[
           "Business benchmarking services compare selected results with earlier performance, your plans or suitable external reference points. The comparison can reveal where to ask better questions about costs, margins, productivity or cash. A benchmark is a starting point for investigation, not a grade or a prediction of what your business should earn.",
-          "Financially Up helps owners choose relevant measures, check that figures are comparable and interpret differences in light of their business model. Book an Appointment to discuss what you want to compare and why.",
+          <BrandText key="brand-1" text={"Financially Up helps owners choose relevant measures, check that figures are comparable and interpret differences in light of their business model. Book an Appointment to discuss what you want to compare and why."} />,
         ]}
         parentService={{
           label: "Business Advisory Hub",

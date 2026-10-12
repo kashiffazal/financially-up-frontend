@@ -10,6 +10,8 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * BookkeepingCompliance Component
@@ -116,7 +118,7 @@ export default function BookkeepingCompliance() {
                 the same as BAS preparation or lodgement. Work that requires
                 determining GST treatment or preparing or lodging a BAS should
                 be included in separately scoped compliance work. Where
-                required, Financially Up can coordinate bookkeeping with our BAS
+                required, <CompanyName /> can coordinate bookkeeping with our BAS
                 and GST lodgement service.
               </p>
             </div>
@@ -128,7 +130,7 @@ export default function BookkeepingCompliance() {
           tag="Coordinated Compliance"
           tagIcon="safety"
           title="Coordinated Bookkeeping, BAS & GST Lodgement"
-          description="Accurate bookkeeping makes activity statement preparation seamless. Where required, Financially Up can coordinate your bookkeeping process with our registered tax agents for separately scoped BAS and GST lodgement."
+          description={<BrandText text={"Accurate bookkeeping makes activity statement preparation seamless. Where required, Financially Up can coordinate your bookkeeping process with our registered tax agents for separately scoped BAS and GST lodgement."} />}
           primaryButtonText="Book an Appointment"
           primaryButtonHref="/book-an-appointment"
           secondaryButtonText="Call"

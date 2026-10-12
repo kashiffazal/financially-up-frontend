@@ -11,6 +11,7 @@ import {
 import { EXACT_PRIVACY_COLLECTION_NOTICE_TEXT } from "./legalDocumentsText";
 import { useSettings } from "@/context/SettingsContext";
 import { applyCompanyVars } from "@/lib/applyCompanyVars";
+import { SITE_HOST } from "@/lib/companyDefaults";
 
 /**
  * Privacy Collection Notice Content per Field Category
@@ -118,7 +119,7 @@ export const FULL_PRIVACY_COLLECTION_NOTICE_TEXT = {
     },
     {
       title: "6. Access, correction and complaints",
-      text: "Our Privacy Policy contains information about how you can access and correct your personal information or lodge a privacy complaint. View the full Privacy Policy at www.financiallyup.com.au/privacy.",
+      text: `Our Privacy Policy contains information about how you can access and correct your personal information or lodge a privacy complaint. View the full Privacy Policy at ${SITE_HOST}/privacy.`,
     },
   ],
 };

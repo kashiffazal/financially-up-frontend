@@ -14,6 +14,8 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * KeyAnnualSmsfTasks Component
@@ -179,7 +181,7 @@ export default function KeyAnnualSmsfTasks() {
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 m-0 leading-relaxed">
               Superannuation law mandates that trustees must appoint an approved
               SMSF auditor at least 45 days before the annual return is due.
-              Financially Up assists with timely audit workpaper packaging to
+              <CompanyName /> assists with timely audit workpaper packaging to
               ensure seamless handover to the independent auditor.
             </p>
           </div>
@@ -190,7 +192,7 @@ export default function KeyAnnualSmsfTasks() {
           tag="Annual Audit Coordination"
           tagIcon="safety"
           title="Seamless Independent SMSF Audit Handover"
-          description="Financially Up prepares complete, audit-ready workpapers and coordinates directly with accredited independent SMSF auditors, ensuring all transactions and asset valuations are fully documented."
+          description={<BrandText text={"Financially Up prepares complete, audit-ready workpapers and coordinates directly with accredited independent SMSF auditors, ensuring all transactions and asset valuations are fully documented."} />}
           primaryButton={{
             text: "Coordinate My SMSF Audit",
             href: "/services/smsf/audit-coordination",

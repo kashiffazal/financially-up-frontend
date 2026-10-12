@@ -10,23 +10,28 @@ import SoleTraderPartnershipCompanyTrustComparison from "./components/SoleTrader
 import TaxAndCommercialBalanceWhenToReview from "./components/TaxAndCommercialBalanceWhenToReview";
 import HowFinanciallyUpHelpsStructureAdvice from "./components/HowFinanciallyUpHelpsStructureAdvice";
 import WhyChooseFinanciallyUpStructureAdvice from "./components/WhyChooseFinanciallyUpStructureAdvice";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Business Structure Advice Australia | Financially Up",
   description:
     "Business structure advice for sole traders, partnerships, companies and trusts. Review tax, ownership, compliance and practical setup considerations.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/business-structure-advice/",
+    canonical: `${SITE_URL}/services/business-structures/business-structure-advice/`,
   },
   openGraph: {
     title: "Business Structure Advice Australia | Financially Up",
     description:
       "Business structure advice for sole traders, partnerships, companies and trusts. Review tax, ownership, compliance and practical setup considerations.",
-    url: "https://financiallyup.com.au/services/business-structures/business-structure-advice/",
+    url: `${SITE_URL}/services/business-structures/business-structure-advice/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -59,7 +64,7 @@ const structureAdviceFaqs = [
   {
     question: "Is this the same as registering a company or partnership?",
     answer:
-      "No. Structure advice is the decision and review stage. Registration is the implementation stage after the appropriate entity has been chosen. Financially Up can assist with both where they fall within the agreed service scope.",
+      <BrandText text={"No. Structure advice is the decision and review stage. Registration is the implementation stage after the appropriate entity has been chosen. Financially Up can assist with both where they fall within the agreed service scope."} />,
   },
 ];
 
@@ -73,7 +78,7 @@ export default function BusinessStructureAdvicePage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -84,10 +89,7 @@ export default function BusinessStructureAdvicePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -101,7 +103,7 @@ export default function BusinessStructureAdvicePage() {
           title="Business Structure Advice for Australian Businesses"
           description={[
             "Business structure advice helps you understand which legal and operating structure may suit the way your business is owned, run and expected to grow. The decision can affect tax, personal liability, ownership, administration, registrations, profit distribution and the work needed to remain compliant.",
-            "Financially Up provides accountant-led business structure advice for people starting a business and for existing owners reviewing whether their current setup still makes sense. We compare the accounting, tax and practical implications of common structures without assuming that one option is automatically better.",
+            <BrandText key="brand-1" text={"Financially Up provides accountant-led business structure advice for people starting a business and for existing owners reviewing whether their current setup still makes sense. We compare the accounting, tax and practical implications of common structures without assuming that one option is automatically better."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"
@@ -139,7 +141,7 @@ export default function BusinessStructureAdvicePage() {
         {/* Section 8: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you are starting a business or questioning whether your current setup still fits, book an appointment with Financially Up. We can review your circumstances, explain the relevant business structure considerations and identify the appropriate accounting, registration or specialist next steps."
+          description={<BrandText text={"If you are starting a business or questioning whether your current setup still fits, book an appointment with Financially Up. We can review your circumstances, explain the relevant business structure considerations and identify the appropriate accounting, registration or specialist next steps."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

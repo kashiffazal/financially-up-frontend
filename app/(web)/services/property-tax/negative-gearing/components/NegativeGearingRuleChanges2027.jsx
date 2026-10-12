@@ -31,7 +31,7 @@ export default function NegativeGearingRuleChanges2027() {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-800 mb-12">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white rounded-lg p-8 sm:p-12 shadow-xl border border-slate-800 mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div>
               <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 px-3.5 py-1 rounded-full text-xs font-semibold mb-6 border border-amber-400/30">

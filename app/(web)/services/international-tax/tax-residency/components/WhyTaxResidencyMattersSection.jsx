@@ -138,7 +138,7 @@ export default function WhyTaxResidencyMattersSection() {
         </div>
 
         {/* Section: Australian Tax Residency and Worldwide Income */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
+        <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
           <div className="max-w-3xl mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
               Australian Tax Residency and Worldwide Income

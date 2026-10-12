@@ -44,7 +44,7 @@ export default function WhatIsDeceasedEstateTaxReturn() {
         {/* 2 Core Principles Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Card 1: No Australian Inheritance Tax */}
-          <div className="p-7 sm:p-9 rounded-3xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col justify-between">
+          <div className="p-7 sm:p-9 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -74,7 +74,7 @@ export default function WhatIsDeceasedEstateTaxReturn() {
           </div>
 
           {/* Card 2: Lodgment Criteria */}
-          <div className="p-7 sm:p-9 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 sm:p-9 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-500">
@@ -104,7 +104,7 @@ export default function WhatIsDeceasedEstateTaxReturn() {
         </div>
 
         {/* Introductory Reassurance Banner */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/70 dark:border-zinc-700/70 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/70 dark:border-zinc-700/70 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="max-w-2xl">
             <span className="font-bold text-slate-900 dark:text-white block text-sm sm:text-base mb-1">
               Executor Guidance:

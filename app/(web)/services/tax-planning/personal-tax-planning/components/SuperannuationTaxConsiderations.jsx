@@ -8,6 +8,7 @@ import {
   CheckCircleOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SuperannuationTaxConsiderations Component
@@ -67,7 +68,7 @@ export default function SuperannuationTaxConsiderations() {
             need to be considered.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Financially Up can consider the tax implications within our tax
+            <CompanyName /> can consider the tax implications within our tax
             scope. Advice about which super fund, investment option or financial
             product is suitable is personal financial advice and may require a
             licensed financial adviser.
@@ -100,7 +101,7 @@ export default function SuperannuationTaxConsiderations() {
         <div className="rounded-lg bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
           <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-200 leading-relaxed font-normal">
-            <strong>Financial Advice Regulatory Notice:</strong> Financially Up
+            <strong>Financial Advice Regulatory Notice:</strong> <CompanyName />
             advises strictly on the tax consequences and deductibility of
             superannuation contributions under Australian tax law. We do not
             provide Australian Financial Services (AFS) product advice or

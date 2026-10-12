@@ -10,12 +10,18 @@ import HowFinanciallyUpHelpsBudgeting from "./components/HowFinanciallyUpHelpsBu
 import BudgetingRelatedServicesRibbon from "./components/BudgetingRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 3 (3- Budgeting & Forecasting)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Budgeting Services for Small Business | Financially Up",
   description:
     "Budgeting services for small business, including forecasts, scenario planning and budget-versus-actual reviews to support clearer financial decisions.",
@@ -32,18 +38,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/budgeting-forecasting/",
+      `${SITE_URL}/services/business-advisory/budgeting-forecasting/`,
   },
   openGraph: {
     title: "Budgeting Services for Small Business | Financially Up",
     description:
       "Budgeting services for small business, including forecasts, scenario planning and budget-versus-actual reviews to support clearer financial decisions.",
-    url: "https://financiallyup.com.au/services/business-advisory/budgeting-forecasting/",
+    url: `${SITE_URL}/services/business-advisory/budgeting-forecasting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -131,10 +138,7 @@ export default function BudgetingForecastingSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -150,7 +154,7 @@ export default function BudgetingForecastingSubpage() {
               change.
             </span>
             <span className="block mt-2">
-              Financially Up provides business budgeting services and financial
+              <CompanyName /> provides business budgeting services and financial
               forecasting services for owners who want more structure around
               planning, performance monitoring and decision-making. The work can
               support annual planning, growth decisions, cost control, cash
@@ -180,7 +184,7 @@ export default function BudgetingForecastingSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Commercial Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -223,7 +227,7 @@ export default function BudgetingForecastingSubpage() {
       <CallToActionBanner
         tag="Plan Your Financial Future"
         title="Book an Appointment"
-        subtitle="If you want a clearer financial plan and a practical way to update it as the business changes, book an appointment with Financially Up to discuss budgeting and forecasting services."
+        subtitle={<BrandText text={"If you want a clearer financial plan and a practical way to update it as the business changes, book an appointment with Financially Up to discuss budgeting and forecasting services."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Business Advisory Services"

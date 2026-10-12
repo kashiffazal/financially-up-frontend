@@ -9,11 +9,16 @@ import WhatToExpectAndEngagementScope from "./components/WhatToExpectAndEngageme
 import RelatedServiceRibbonScenario from "./components/RelatedServiceRibbonScenario";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 4)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Financial Scenario Planning Services | Financially Up",
   description:
     "Explore what different business outcomes could mean for profit and cash. Financially Up helps test assumptions, risks and practical responses before you decide.",
@@ -26,18 +31,19 @@ export const metadata = {
     "downside cash forecast",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/scenario-planning/",
+    canonical: `${SITE_URL}/services/virtual-cfo/scenario-planning/`,
   },
   openGraph: {
     title: "Financial Scenario Planning Services | Financially Up",
     description:
       "Explore what different business outcomes could mean for profit and cash. Financially Up helps test assumptions, risks and practical responses before you decide.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/scenario-planning/",
+    url: `${SITE_URL}/services/virtual-cfo/scenario-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -116,10 +122,7 @@ export default function ScenarioPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function ScenarioPlanningPage() {
               Financial scenario planning services compare possible business outcomes and show what each could mean for profit, cash and commitments. The aim is to prepare for uncertainty: what happens if a major customer pays late, input costs rise or sales grow faster than capacity? A clear scenario helps you choose a response before pressure forces a rushed decision.
             </span>
             <span className="block mt-2">
-              Financially Up works with owners and managers facing decisions where a single forecast hides important risks. We define a practical set of assumptions, model their effects and discuss actions you could take if conditions change.
+              <CompanyName /> works with owners and managers facing decisions where a single forecast hides important risks. We define a practical set of assumptions, model their effects and discuss actions you could take if conditions change.
             </span>
             <span className="block mt-2">
               Book an Appointment to explain the decision and the uncertainties you want to test.
@@ -195,7 +198,7 @@ export default function ScenarioPlanningPage() {
       <CallToActionBanner
         tag="Prepare for More Than One Outcome"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss your key uncertainty, the information available and a scenario planning scope that helps you decide what to do next."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss your key uncertainty, the information available and a scenario planning scope that helps you decide what to do next."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Virtual CFO Services"

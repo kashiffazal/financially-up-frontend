@@ -12,6 +12,8 @@ import {
   FileSearchOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhatTaxPlanningInvolves Component
@@ -143,14 +145,14 @@ export default function WhatTaxPlanningInvolves() {
               </blockquote>
 
               <p className="mt-5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                Every planning scenario reviewed by Financially Up adheres
+                Every planning scenario reviewed by <CompanyName /> adheres
                 strictly to Australian taxation legislation, Tax Practitioners
                 Board (TPB) requirements, and verifiable record substantiation.
               </p>
             </div>
 
             <div className="mt-6 pt-5 border-t border-teal-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Tax Agent Services • TPB Regulated (#26234055)
+              Tax Agent Services • TPB Regulated (#<BrandText text={"26234055"} />)
             </div>
           </div>
         </div>

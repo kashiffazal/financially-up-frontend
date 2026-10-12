@@ -4,6 +4,8 @@ import React from "react";
 import { Tag } from "antd";
 import { SafetyCertificateOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step4ComplianceSign() {
   return (
@@ -77,7 +79,7 @@ export default function Step4ComplianceSign() {
         <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
           I confirm that all members will act as trustees (or directors of the
           corporate trustee) and understand SIS Act superannuation compliance
-          obligations. I authorise Financially Up to establish the SMSF trust
+          obligations. I authorise <CompanyName /> to establish the SMSF trust
           deed, apply for fund ABN/TFN, and register the fund with the ATO.
         </p>
 
@@ -93,7 +95,7 @@ export default function Step4ComplianceSign() {
           radioOptions={[
             {
               value: "Yes",
-              label: "I Agree & Authorise Financially Up to register the SMSF",
+              label: <BrandText text={"I Agree & Authorise Financially Up to register the SMSF"} />,
             },
           ]}
           containerClassName="!mb-0"

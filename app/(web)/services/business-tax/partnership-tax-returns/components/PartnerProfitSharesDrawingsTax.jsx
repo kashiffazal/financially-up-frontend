@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PartnerProfitSharesDrawingsTax Component
@@ -101,7 +102,7 @@ export default function PartnerProfitSharesDrawingsTax() {
               Routine Return Preparation &amp; Separately Scoped Advice
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can prepare the return and accounting information,
+              <CompanyName /> can prepare the return and accounting information,
               while more detailed tax advice can be separately scoped where the
               circumstances require it.
             </p>

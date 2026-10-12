@@ -32,12 +32,16 @@ import {
   ReadOutlined,
 } from "@ant-design/icons";
 import { resolveBlogImage, isExternalImage } from "@/lib/blog";
+import { SITE_URL } from "@/lib/companyDefaults";
 import NewsletterSignup from "../NewsletterSignup";
 import styles from "./BlogArticle.module.css";
+import BrandText from "@/components/mutual/BrandText";
+import { useBrandText } from "@/context/SettingsContext";
 
-const SHARE_BASE = "https://financiallyup.com.au/blog/";
+const SHARE_BASE = `${SITE_URL}/blog/`;
 
 export default function BlogArticle({ post, recentPosts = [] }) {
+  const brand = useBrandText();
   const [copied, setCopied] = useState(false);
 
   const heroImage = resolveBlogImage(post.image);
@@ -255,8 +259,8 @@ export default function BlogArticle({ post, recentPosts = [] }) {
                   Book 1-on-1 Consultation <ArrowRightOutlined className="text-xs" />
                 </Button>
               </Link>
-              <a href="tel:1300328316" className="flex items-center justify-center gap-2 text-xs font-bold text-emerald-100 hover:text-white pt-1 !no-underline">
-                <PhoneOutlined /> Call 1300 328 316
+              <a href={brand("tel:1300328316")} className="flex items-center justify-center gap-2 text-xs font-bold text-emerald-100 hover:text-white pt-1 !no-underline">
+                <PhoneOutlined /> Call <BrandText text={"1300 328 316"} />
               </a>
             </div>
 

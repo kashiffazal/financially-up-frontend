@@ -16,6 +16,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsCgt Component
@@ -76,10 +77,10 @@ export default function HowFinanciallyUpHelpsCgt() {
             Professional Practice &amp; Records
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} provides capital
+            {company?.legalName} provides capital
             gains tax assistance to Australian individuals. The appropriate
             service depends on the transaction, records, complexity and the type
             of assistance required.
@@ -91,7 +92,7 @@ export default function HowFinanciallyUpHelpsCgt() {
           {services.map((svc, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-xl mb-4">
@@ -112,7 +113,7 @@ export default function HowFinanciallyUpHelpsCgt() {
           ))}
 
           {/* Scope Clarification Card */}
-          <div className="bg-emerald-50/60 dark:bg-emerald-950/20 rounded-3xl p-6 sm:p-7 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs flex flex-col justify-between">
+          <div className="bg-emerald-50/60 dark:bg-emerald-950/20 rounded-lg p-6 sm:p-7 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs flex flex-col justify-between">
             <div>
               <span className="text-2xs uppercase tracking-wider font-bold text-emerald-800 dark:text-emerald-300 block mb-2">
                 Scope Confirmation
@@ -141,7 +142,7 @@ export default function HowFinanciallyUpHelpsCgt() {
         </div>
 
         {/* Records to Keep Deep Dive */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="max-w-3xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Substantiation Standard
@@ -197,7 +198,7 @@ export default function HowFinanciallyUpHelpsCgt() {
             •
           </span>
           <span>
-            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+            Registered Tax Agent #{company?.taxAgentNumber}
           </span>
         </div>
       </div>

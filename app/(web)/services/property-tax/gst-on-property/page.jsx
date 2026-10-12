@@ -11,11 +11,17 @@ import WhatFinanciallyUpReviewsGst from "./components/WhatFinanciallyUpReviewsGs
 import RelatedPropertyGstRibbon from "./components/RelatedPropertyGstRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 of 10th Pillar Property Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "GST on Property in Australia | Financially Up",
   description:
     "Buying, selling or developing property? Financially Up can review GST treatment, credits, the margin scheme and settlement obligations before you proceed.",
@@ -29,18 +35,19 @@ export const metadata = {
     "vacant land GST",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/property-tax/gst-on-property/",
+    canonical: `${SITE_URL}/services/property-tax/gst-on-property/`,
   },
   openGraph: {
     title: "GST on Property in Australia | Financially Up",
     description:
       "Buying, selling or developing property? Financially Up can review GST treatment, credits, the margin scheme and settlement obligations before you proceed.",
-    url: "https://financiallyup.com.au/services/property-tax/gst-on-property/",
+    url: `${SITE_URL}/services/property-tax/gst-on-property/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function GstOnPropertyPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function GstOnPropertyPage() {
               GST on property in Australia depends on the property's character, how it is used, the nature of the transaction and whether the seller is carrying on an enterprise. An established home, new dwelling, commercial property and vacant development land can each receive different treatment.
             </span>
             <span className="block mt-2">
-              Financially Up provides property GST advice for owners, investors and developers. Book an Appointment before contract terms, project budgets or a change in use are finalized.
+              <CompanyName /> provides property GST advice for owners, investors and developers. Book an Appointment before contract terms, project budgets or a change in use are finalized.
             </span>
           </span>
         }
@@ -155,7 +159,7 @@ export default function GstOnPropertyPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -201,7 +205,7 @@ export default function GstOnPropertyPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Discuss Your Property Transaction"
-        subtitle="Bring the proposed contract, acquisition documents, ownership structure and a summary of how the property has been or will be used. Financially Up can identify the GST questions, review the available information and explain what should be resolved before you proceed."
+        subtitle={<BrandText text={"Bring the proposed contract, acquisition documents, ownership structure and a summary of how the property has been or will be used. Financially Up can identify the GST questions, review the available information and explain what should be resolved before you proceed."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

@@ -16,6 +16,7 @@ import {
   BarChartOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsBudgeting Component
@@ -96,7 +97,7 @@ export default function HowFinanciallyUpHelpsBudgeting() {
             Advisory Partnership &amp; Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
 
@@ -110,7 +111,7 @@ export default function HowFinanciallyUpHelpsBudgeting() {
                 <span>Structured Financial Planning</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Financially Up can help build annual budgets, rolling forecasts,
+                <CompanyName /> can help build annual budgets, rolling forecasts,
                 scenario models and budget-versus-actual reporting. We work with
                 the business owner to identify key assumptions, connect the
                 model to available accounting data and make the output useful
@@ -174,10 +175,10 @@ export default function HowFinanciallyUpHelpsBudgeting() {
             Accreditation &amp; Expertise
           </Tag>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Why Choose Financially Up?
+            Why Choose <CompanyName />?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of
+            <CompanyName /> is a registered tax agent with more than 10 years of
             experience across accounting, taxation, bookkeeping and business
             advisory. Our team includes CPA and IPA professionals, and we
             support businesses across Australia through online and in-person

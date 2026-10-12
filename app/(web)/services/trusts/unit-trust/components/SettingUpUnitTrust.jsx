@@ -13,6 +13,7 @@ import {
   DollarCircleOutlined,
   SlidersOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SettingUpUnitTrust Component
@@ -108,7 +109,7 @@ export default function SettingUpUnitTrust() {
               Accounting Framework & Registration Coordination
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can assist with registrations and establish the
+              <CompanyName /> can assist with registrations and establish the
               accounting framework once the legal structure has been settled.
               The deed and legal rights should be prepared or reviewed by an
               appropriately qualified legal adviser.

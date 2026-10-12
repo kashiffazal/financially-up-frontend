@@ -11,12 +11,18 @@ import HowFinanciallyUpHelpsStructure from "./components/HowFinanciallyUpHelpsSt
 import RelatedBusinessStructureRibbon from "./components/RelatedBusinessStructureRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Structure Advice Australia | Financially Up",
   description:
     "Business structure advice for sole traders, partnerships, companies and trusts, with practical tax and compliance considerations.",
@@ -30,18 +36,19 @@ export const metadata = {
     "business tax planning Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/business-structure-advice/",
+    canonical: `${SITE_URL}/services/tax-planning/business-structure-advice/`,
   },
   openGraph: {
     title: "Business Structure Advice Australia | Financially Up",
     description:
       "Business structure advice for sole traders, partnerships, companies and trusts, with practical tax and compliance considerations.",
-    url: "https://financiallyup.com.au/services/tax-planning/business-structure-advice/",
+    url: `${SITE_URL}/services/tax-planning/business-structure-advice/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -98,7 +105,7 @@ const businessStructureAdviceFaqs = [
     label: "Does business structure advice include legal advice?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Financially Up can provide tax and accounting guidance within scope. Legal documents, asset-protection advice and legal rights or obligations may require a lawyer.
+        No. <CompanyName /> can provide tax and accounting guidance within scope. Legal documents, asset-protection advice and legal rights or obligations may require a lawyer.
       </p>
     ),
   },
@@ -129,10 +136,7 @@ export default function BusinessStructureAdvicePage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -144,7 +148,7 @@ export default function BusinessStructureAdvicePage() {
               Business structure advice helps you compare the tax, accounting, compliance and practical implications of operating as a sole trader, partnership, company or trust. The right structure depends on the business, owners, growth plans, risk profile and how profits and assets are expected to be managed.
             </span>
             <span className="block mt-2">
-              Financially Up provides business structure advice from an accounting and tax perspective for new businesses and existing owners considering a change. We do not treat one structure as universally better, and legal or regulated financial advice is separately obtained where required.
+              <CompanyName /> provides business structure advice from an accounting and tax perspective for new businesses and existing owners considering a change. We do not treat one structure as universally better, and legal or regulated financial advice is separately obtained where required.
             </span>
           </span>
         }
@@ -165,7 +169,7 @@ export default function BusinessStructureAdvicePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Australian Advisory Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -199,7 +203,7 @@ export default function BusinessStructureAdvicePage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about entity selection, sole trader vs company comparison, restructuring timing, and legal boundaries with Financially Up."
+        subtitle={<BrandText text={"Common questions about entity selection, sole trader vs company comparison, restructuring timing, and legal boundaries with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Business Structure Advice Frequently Asked Questions"
         items={businessStructureAdviceFaqs}
@@ -211,7 +215,7 @@ export default function BusinessStructureAdvicePage() {
       <CallToActionBanner
         tag="Business Structure Advisory"
         title="Book an Appointment"
-        subtitle="Discuss your circumstances with Financially Up and clarify the relevant tax and accounting issues, what information is needed and whether further planning or specialist advice should be separately scoped."
+        subtitle={<BrandText text={"Discuss your circumstances with Financially Up and clarify the relevant tax and accounting issues, what information is needed and whether further planning or specialist advice should be separately scoped."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

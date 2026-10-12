@@ -10,11 +10,16 @@ import HowFinanciallyUpApproachesAdvisory from "./components/HowFinanciallyUpApp
 import WhyChooseFinanciallyUpAdvisory from "./components/WhyChooseFinanciallyUpAdvisory";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 12th Pillar Business Advisory.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Advisor & Advisory Services | Financially Up",
   description:
     "Work with a business advisor to improve financial visibility, planning and decision-making. Financially Up supports businesses across Australia.",
@@ -32,18 +37,19 @@ export const metadata = {
     "succession planning",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-advisory/",
+    canonical: `${SITE_URL}/services/business-advisory/`,
   },
   openGraph: {
     title: "Business Advisor & Advisory Services | Financially Up",
     description:
       "Work with a business advisor to improve financial visibility, planning and decision-making. Financially Up supports businesses across Australia.",
-    url: "https://financiallyup.com.au/services/business-advisory/",
+    url: `${SITE_URL}/services/business-advisory/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Business Advisory
@@ -208,10 +214,7 @@ export default function BusinessAdvisoryMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -224,7 +227,7 @@ export default function BusinessAdvisoryMainPage() {
         titleHighlight="Business Advisory Services"
         description={
           <p className="m-0">
-            A business advisor helps you turn financial information into practical decisions about cash flow, profitability, growth, costs and business performance. Financially Up provides business advisory services for owners who want clearer numbers, stronger planning and a more structured way to make decisions.
+            A business advisor helps you turn financial information into practical decisions about cash flow, profitability, growth, costs and business performance. <CompanyName /> provides business advisory services for owners who want clearer numbers, stronger planning and a more structured way to make decisions.
           </p>
         }
         subDescription={
@@ -296,7 +299,7 @@ export default function BusinessAdvisoryMainPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Clearer Numbers for Confident Business Decisions"
-        subtitle="If you want clearer financial information and a more structured approach to business decisions, book an appointment with Financially Up to discuss the right advisory scope for your business."
+        subtitle={<BrandText text={"If you want clearer financial information and a more structured approach to business decisions, book an appointment with Financially Up to discuss the right advisory scope for your business."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

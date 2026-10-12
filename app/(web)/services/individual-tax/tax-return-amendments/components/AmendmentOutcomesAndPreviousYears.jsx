@@ -80,7 +80,7 @@ export default function AmendmentOutcomesAndPreviousYears() {
 
           {/* Shortfall Interest Charge & Voluntary Disclosure Callouts */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
+            <div className="p-6 sm:p-7 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
               <span className="font-bold text-slate-900 dark:text-white block mb-1">
                 Debt Offsetting &amp; Shortfall Interest Charge (SIC):
               </span>
@@ -92,7 +92,7 @@ export default function AmendmentOutcomesAndPreviousYears() {
               taxpayer&apos;s conduct.
             </div>
 
-            <div className="p-6 sm:p-7 rounded-3xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
+            <div className="p-6 sm:p-7 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Voluntary Correction vs Audit Findings:
               </span>
@@ -106,7 +106,7 @@ export default function AmendmentOutcomesAndPreviousYears() {
         </div>
 
         {/* Section 5: Can You Amend Previous Years */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80">
+        <div className="p-8 sm:p-12 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <Tag
               color="green"

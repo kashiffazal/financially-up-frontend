@@ -8,6 +8,7 @@ import {
   ClusterOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatRepresentativeAccountantCanDo Component
@@ -59,7 +60,7 @@ export default function WhatRepresentativeAccountantCanDo() {
               An ATO representative accountant can translate the tax issue into
               a practical action list, identify what information the ATO is
               asking for and help present relevant records clearly. Where the
-              matter is within our scope, Financially Up can communicate with
+              matter is within our scope, <CompanyName /> can communicate with
               the ATO through the appropriate registered-agent channels, check
               account and lodgment information, and follow up on agreed
               requests.

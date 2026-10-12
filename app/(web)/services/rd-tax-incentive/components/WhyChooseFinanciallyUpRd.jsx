@@ -10,6 +10,8 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpRd Component
@@ -32,7 +34,7 @@ export default function WhyChooseFinanciallyUpRd() {
       ),
       title: "Registered Tax Agent",
       description:
-        "As a registered tax agent, Financially Up can review the tax and accounting aspects of an R&D tax incentive claim and assist with a company tax return within an agreed engagement.",
+        <BrandText text={"As a registered tax agent, Financially Up can review the tax and accounting aspects of an R&D tax incentive claim and assist with a company tax return within an agreed engagement."} />,
     },
     {
       icon: (
@@ -70,11 +72,11 @@ export default function WhyChooseFinanciallyUpRd() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why Choose Financially Up?
+            Why Choose <CompanyName />?
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up Pty Ltd"} has more than 10
+            {company?.legalName} has more than 10
             years of experience and a team including CPA and IPA members. We
             discuss the specific work needed without guaranteeing eligibility,
             registration, an offset amount or ATO acceptance.
@@ -108,7 +110,7 @@ export default function WhyChooseFinanciallyUpRd() {
           tag="R&D Tax Incentive Consultation"
           tagIcon="safety"
           title="Discuss Your Project Before the Deadline"
-          description="Book an Appointment with Financially Up to review the project, records and registration timing and agree the appropriate scope for R&D tax incentive assistance."
+          description={<BrandText text={"Book an Appointment with Financially Up to review the project, records and registration timing and agree the appropriate scope for R&D tax incentive assistance."} />}
           primaryButton={{
             text: "Book an Appointment",
             href: "/book-an-appointment",

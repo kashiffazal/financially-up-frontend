@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpCleanup from "./components/WhyChooseFinanciallyUpCl
 import RelatedBookkeepingRibbon from "../components/RelatedBookkeepingRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of Bookkeeping)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Bookkeeping Cleanup Services Australia | Financially Up",
   description:
     "Clean up inaccurate or messy books with Financially Up. We review reconciliations, coding and historical records to improve bookkeeping reliability.",
@@ -29,18 +35,19 @@ export const metadata = {
     "suspense account cleanup",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/bookkeeping-clean-up/",
+    canonical: `${SITE_URL}/services/bookkeeping/bookkeeping-clean-up/`,
   },
   openGraph: {
     title: "Bookkeeping Cleanup Services Australia | Financially Up",
     description:
       "Clean up inaccurate or messy books with Financially Up. We review reconciliations, coding and historical records to improve bookkeeping reliability.",
-    url: "https://financiallyup.com.au/services/bookkeeping/bookkeeping-clean-up/",
+    url: `${SITE_URL}/services/bookkeeping/bookkeeping-clean-up/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Bookkeeping service hierarchy
@@ -79,7 +86,7 @@ const bookkeepingCleanupFaqs = [
     label: "Do you provide Xero bookkeeping cleanup?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes, Financially Up can review Xero bookkeeping issues within the agreed scope, including reconciliations, coding and historical transaction problems.
+        Yes, <CompanyName /> can review Xero bookkeeping issues within the agreed scope, including reconciliations, coding and historical transaction problems.
       </p>
     ),
   },
@@ -128,10 +135,7 @@ export default function BookkeepingCleanupPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function BookkeepingCleanupPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Bookkeeping can be technically up to date and still be unreliable. Duplicated transactions, unreconciled bank accounts, old suspense balances, inconsistent coding and incorrect opening figures can all make reports difficult to trust. Financially Up provides bookkeeping cleanup services to review and correct bookkeeping records so the file is more accurate, organized and usable.
+              Bookkeeping can be technically up to date and still be unreliable. Duplicated transactions, unreconciled bank accounts, old suspense balances, inconsistent coding and incorrect opening figures can all make reports difficult to trust. <CompanyName /> provides bookkeeping cleanup services to review and correct bookkeeping records so the file is more accurate, organized and usable.
             </span>
             <span className="block mt-2">
               Bookkeeping clean up is different from simply catching up missing months. It focuses on the quality of records already in the accounting system. For some businesses, the issue is limited to a few accounts. For others, a historical bookkeeping cleanup may be needed before year-end accounts, BAS work, tax returns or management reporting can be prepared efficiently.
@@ -164,7 +168,7 @@ export default function BookkeepingCleanupPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Bookkeeping Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -195,7 +199,7 @@ export default function BookkeepingCleanupPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about messy ledger repairs, suspense account clean-ups, prior period corrections and accounting review with Financially Up."
+        subtitle={<BrandText text={"Common questions about messy ledger repairs, suspense account clean-ups, prior period corrections and accounting review with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Bookkeeping Cleanup Frequently Asked Questions"
         items={bookkeepingCleanupFaqs}
@@ -207,7 +211,7 @@ export default function BookkeepingCleanupPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your accounting file is difficult to reconcile or the reports do not look reliable, Book an Appointment with Financially Up. We can discuss the known issues, affected periods, available source records and the appropriate scope for bookkeeping cleanup services."
+        subtitle={<BrandText text={"If your accounting file is difficult to reconcile or the reports do not look reliable, Book an Appointment with Financially Up. We can discuss the known issues, affected periods, available source records and the appropriate scope for bookkeeping cleanup services."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore All Bookkeeping Services"

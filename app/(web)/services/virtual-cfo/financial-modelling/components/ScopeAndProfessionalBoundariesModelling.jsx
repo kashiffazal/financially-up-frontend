@@ -29,7 +29,7 @@ export default function ScopeAndProfessionalBoundariesModelling() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: `TPB Agent #${company.tpbNumber || "26234055"}`,
+      subtitle: `TPB Agent #${company.taxAgentNumber}`,
       desc: "More than a decade of proven rigor building financial models for growing Australian businesses.",
     },
     {
@@ -75,7 +75,7 @@ export default function ScopeAndProfessionalBoundariesModelling() {
               commercial outcome.
             </p>
             <p>
-              {company.legalName || "Financially Up Pty Ltd"} has more than 10
+              {company.legalName} has more than 10
               years of experience and a team including CPA and IPA members. We
               offer online and in-person appointments across Australia. We aim
               to make the model understandable to the people using it, including

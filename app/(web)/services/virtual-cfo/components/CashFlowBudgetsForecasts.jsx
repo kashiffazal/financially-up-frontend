@@ -12,6 +12,7 @@ import {
   SyncOutlined,
   RiseOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * CashFlowBudgetsForecasts Component
@@ -142,7 +143,7 @@ export default function CashFlowBudgetsForecasts() {
               </h3>
               {/* Exact Verbatim Paragraph 2 from Document */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-                Financially Up can help build and maintain cash flow forecasts
+                <CompanyName /> can help build and maintain cash flow forecasts
                 using assumptions that management can understand and update.
                 Budgets can then be compared with actual results to identify
                 where sales, gross margin, overheads or timing have moved away

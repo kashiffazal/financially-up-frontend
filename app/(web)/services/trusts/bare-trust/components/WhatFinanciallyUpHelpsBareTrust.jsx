@@ -12,6 +12,7 @@ import {
   PlusCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinanciallyUpHelpsBareTrust Component
@@ -71,7 +72,7 @@ export default function WhatFinanciallyUpHelpsBareTrust() {
             Service Capabilities
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            What Financially Up can help with
+            What <CompanyName /> can help with
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             We provide structured accounting, tax reconciliation, and statutory
@@ -113,7 +114,7 @@ export default function WhatFinanciallyUpHelpsBareTrust() {
                 Establishing a New Bare Trust
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                If a new bare trust is being established, Financially Up can
+                If a new bare trust is being established, <CompanyName /> can
                 assist with the accounting, tax-registration and practical
                 implementation aspects once the proposed arrangement is
                 understood. Legal drafting of a trust deed or advice on legal

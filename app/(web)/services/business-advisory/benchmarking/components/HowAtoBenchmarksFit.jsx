@@ -9,6 +9,7 @@ import {
   FileProtectOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowAtoBenchmarksFit Component
@@ -101,7 +102,7 @@ export default function HowAtoBenchmarksFit() {
               Registered Tax Agent Verification
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal m-0">
-              As registered tax agents, Financially Up helps business owners
+              As registered tax agents, <CompanyName /> helps business owners
               audit their reporting against ATO industry ratio bands while
               ensuring every variance is underpinned by rigorous commercial
               evidence, reconciliations, and documented operating conditions.

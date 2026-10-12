@@ -31,8 +31,11 @@ import {
   EnvironmentOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
+import { useBrandText } from "@/context/SettingsContext";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function AdminNotFound() {
+  const brand = useBrandText();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -158,18 +161,18 @@ export default function AdminNotFound() {
           </span>
           <div className="flex items-center gap-4">
             <a
-              href="mailto:info@financiallyup.com.au"
+              href={brand("mailto:info@financiallyup.com.au")}
               className="text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] hover:underline font-medium flex items-center gap-1"
             >
               <MailOutlined />
-              <span>info@financiallyup.com.au</span>
+              <span>{brand("info@financiallyup.com.au")}</span>
             </a>
             <a
-              href="tel:1300328316"
+              href={brand("tel:1300328316")}
               className="text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] hover:underline font-medium flex items-center gap-1"
             >
               <PhoneOutlined />
-              <span>1300 328 316</span>
+              <span><BrandText text={"1300 328 316"} /></span>
             </a>
           </div>
         </div>

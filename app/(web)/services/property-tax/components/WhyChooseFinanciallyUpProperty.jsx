@@ -10,6 +10,8 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpProperty Component
@@ -33,7 +35,7 @@ export default function WhyChooseFinanciallyUpProperty() {
       ),
       title: "Registered Tax Agent",
       description:
-        "Financially Up is officially registered with the Tax Practitioners Board (TPB #26234055), legally authorised to lodge property returns, development BAS, and represent clients before the ATO.",
+        <BrandText text={"Financially Up is officially registered with the Tax Practitioners Board (TPB #26234055), legally authorised to lodge property returns, development BAS, and represent clients before the ATO."} />,
     },
     {
       icon: (
@@ -71,11 +73,11 @@ export default function WhyChooseFinanciallyUpProperty() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up can review the property activity, identify the
+            <CompanyName /> can review the property activity, identify the
             relevant accounting and tax issues, prepare or reconcile records,
             assist with returns and reporting within scope, and explain where
             further planning or specialist legal or financial advice may be
@@ -117,7 +119,7 @@ export default function WhyChooseFinanciallyUpProperty() {
           tag="Property Tax Consultation"
           tagIcon="safety"
           title={`Partner with Qualified Australian Property Tax Accountants`}
-          description="Whether you own a single rental property, manage an extensive investment portfolio, or are undertaking a property development project, book an appointment with Financially Up."
+          description={<BrandText text={"Whether you own a single rental property, manage an extensive investment portfolio, or are undertaking a property development project, book an appointment with Financially Up."} />}
           primaryButton={{
             text: "Book an Appointment",
             href: "/book-an-appointment",

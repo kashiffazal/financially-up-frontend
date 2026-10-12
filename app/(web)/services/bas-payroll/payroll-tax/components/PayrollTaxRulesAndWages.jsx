@@ -10,6 +10,7 @@ import {
   WarningOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PayrollTaxRulesAndWages Component
@@ -49,7 +50,7 @@ export default function PayrollTaxRulesAndWages() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-12">
           {/* Card 1: Payroll tax registration */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                 <SafetyCertificateOutlined className="text-lg" />
@@ -86,7 +87,7 @@ export default function PayrollTaxRulesAndWages() {
           </div>
 
           {/* Card 2: What counts as wages for payroll tax? */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <DollarOutlined className="text-lg" />
@@ -129,7 +130,7 @@ export default function PayrollTaxRulesAndWages() {
           </div>
 
           {/* Card 3: Contractors and payroll tax */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
                 <TeamOutlined className="text-lg" />
@@ -149,7 +150,7 @@ export default function PayrollTaxRulesAndWages() {
               </p>
 
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can help identify contractor payments that
+                <CompanyName /> can help identify contractor payments that
                 warrant closer payroll tax review. Where the arrangement raises
                 employment law or legal classification questions, separate legal
                 advice may also be appropriate.

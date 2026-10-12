@@ -63,7 +63,7 @@ export default function DividendsAndFrankingCredits() {
           {dividendTypes.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -93,7 +93,7 @@ export default function DividendsAndFrankingCredits() {
         {/* Taxation Mechanics & Pre-fill Verification Deep Dive */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Card 1: Tax Offset & Grossing Up */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <PercentageOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
@@ -123,7 +123,7 @@ export default function DividendsAndFrankingCredits() {
           </div>
 
           {/* Card 2: Pre-Fill Verification */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <AuditOutlined className="text-xl text-blue-500" />

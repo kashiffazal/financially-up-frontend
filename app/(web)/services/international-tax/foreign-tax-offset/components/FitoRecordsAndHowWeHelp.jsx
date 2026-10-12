@@ -13,6 +13,7 @@ import {
   MailOutlined,
   TranslationOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * FitoRecordsAndHowWeHelp Component
@@ -77,12 +78,12 @@ export default function FitoRecordsAndHowWeHelp() {
 
           {/* Right Column: How Financially Up can help & Company Credentials */}
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm relative overflow-hidden">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm relative overflow-hidden">
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-6">
                 <AuditOutlined />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                How Financially Up Can Help
+                How <CompanyName /> Can Help
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
                 We identify the Australian assessable income, match the foreign
@@ -121,7 +122,7 @@ export default function FitoRecordsAndHowWeHelp() {
                 addresses the wider return and planning questions.
               </p>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                {company.legalName || "Financially Up Pty Ltd"} is a registered
+                {company.legalName} is a registered
                 tax agent with more than 10 years of experience and a team
                 including CPA and IPA members. We provide online and in-person
                 appointments across Australia and show how the foreign tax
@@ -135,7 +136,7 @@ export default function FitoRecordsAndHowWeHelp() {
                   <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />
                   <span>
                     Registered Tax Agent:{" "}
-                    <strong>TPB #{company.abn || "26234055"}</strong>
+                    <strong>TPB #{company.abn}</strong>
                   </span>
                 </div>
                 {company.phone && (

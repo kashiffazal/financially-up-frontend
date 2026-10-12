@@ -13,6 +13,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsDebt Component
@@ -99,7 +100,7 @@ export default function HowFinanciallyUpHelpsDebt() {
             Our Service Deliverables
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help with ATO debt
+            How <CompanyName /> can help with ATO debt
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             We provide structured, tax-agent-led assistance to help you regain

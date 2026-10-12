@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpBareTrust from "./components/WhyChooseFinanciallyUp
 import RelatedBareTrustRibbon from "./components/RelatedBareTrustRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Bare Trust Accountant Australia | Financially Up",
   description:
     "Bare trust accounting and tax support for property and other assets. Understand records, tax treatment, registrations and the role of the beneficiary.",
@@ -28,18 +34,19 @@ export const metadata = {
     "holding trust accounting",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/bare-trust/",
+    canonical: `${SITE_URL}/services/trusts/bare-trust/`,
   },
   openGraph: {
     title: "Bare Trust Accountant Australia | Financially Up",
     description:
       "Bare trust accounting and tax support for property and other assets. Understand records, tax treatment, registrations and the role of the beneficiary.",
-    url: "https://financiallyup.com.au/services/trusts/bare-trust/",
+    url: `${SITE_URL}/services/trusts/bare-trust/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -91,10 +98,10 @@ const bareTrustFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up prepare a bare trust deed?",
+    label: <BrandText text={"Can Financially Up prepare a bare trust deed?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can assist with accounting, tax and implementation matters within scope. Drafting or
+        <CompanyName /> can assist with accounting, tax and implementation matters within scope. Drafting or
         interpreting legal trust documents may require an appropriately qualified lawyer.
       </p>
     ),
@@ -126,10 +133,7 @@ export default function BareTrustPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -144,7 +148,7 @@ export default function BareTrustPage() {
               ownership consequences can still be significant.
             </span>
             <span className="block mt-2">
-              Financially Up assists clients with the accounting and tax aspects of bare trust arrangements, including
+              <CompanyName /> assists clients with the accounting and tax aspects of bare trust arrangements, including
               property-related bare trusts, transaction records and the interaction between the trustee and
               beneficiary. The right treatment depends on the deed or arrangement, the asset, who carries on any
               enterprise, and the beneficiary&apos;s circumstances. Legal documentation and advice about creating or
@@ -169,7 +173,7 @@ export default function BareTrustPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

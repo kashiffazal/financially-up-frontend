@@ -9,12 +9,18 @@ import HowFinanciallyUpHelpsTrustPlanning from "./components/HowFinanciallyUpHel
 import RelatedTrustPlanningRibbon from "./components/RelatedTrustPlanningRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 10)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust Distribution Tax Advice & Planning | Financially Up",
   description:
     "Plan trust distributions with clear tax advice on beneficiaries, resolutions, streaming and records. Australia-wide support from Financially Up.",
@@ -28,18 +34,19 @@ export const metadata = {
     "trust tax accountant Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/trust-distribution-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/trust-distribution-planning/`,
   },
   openGraph: {
     title: "Trust Distribution Tax Advice & Planning | Financially Up",
     description:
       "Plan trust distributions with clear tax advice on beneficiaries, resolutions, streaming and records. Australia-wide support from Financially Up.",
-    url: "https://financiallyup.com.au/services/tax-planning/trust-distribution-planning/",
+    url: `${SITE_URL}/services/tax-planning/trust-distribution-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -127,10 +134,7 @@ export default function TrustDistributionPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -142,7 +146,7 @@ export default function TrustDistributionPlanningPage() {
               Trust distribution tax advice helps trustees plan and document how trust income may be distributed, while considering the trust deed, beneficiary circumstances and current tax rules. The aim is to make informed decisions before entitlements are created, rather than trying to reconstruct the position after year-end.
             </span>
             <span className="block mt-2">
-              Financially Up assists trustees, family groups and business owners with trust distribution planning, including review of trust income, proposed beneficiaries, distribution resolutions, capital gains and franked distributions where relevant. This service is separate from preparing the annual trust tax return, although the two processes need to align.
+              <CompanyName /> assists trustees, family groups and business owners with trust distribution planning, including review of trust income, proposed beneficiaries, distribution resolutions, capital gains and franked distributions where relevant. This service is separate from preparing the annual trust tax return, although the two processes need to align.
             </span>
           </span>
         }
@@ -163,7 +167,7 @@ export default function TrustDistributionPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Tax Planning Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -191,7 +195,7 @@ export default function TrustDistributionPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about trust distribution timing, cash payment vs present entitlement, streaming rules, and deed requirements with Financially Up."
+        subtitle={<BrandText text={"Common questions about trust distribution timing, cash payment vs present entitlement, streaming rules, and deed requirements with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Trust Distribution Planning Frequently Asked Questions"
         items={trustDistributionPlanningFaqs}
@@ -203,7 +207,7 @@ export default function TrustDistributionPlanningPage() {
       <CallToActionBanner
         tag="Trust Distribution Advisory"
         title="Book an Appointment"
-        subtitle="Discuss the trust deed, expected income, proposed beneficiaries, distribution timing and documentation with Financially Up before the relevant decisions are finalized."
+        subtitle={<BrandText text={"Discuss the trust deed, expected income, proposed beneficiaries, distribution timing and documentation with Financially Up before the relevant decisions are finalized."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

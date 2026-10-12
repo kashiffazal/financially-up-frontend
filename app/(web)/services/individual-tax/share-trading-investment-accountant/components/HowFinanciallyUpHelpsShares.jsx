@@ -15,6 +15,7 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsShares Component
@@ -68,18 +69,18 @@ export default function HowFinanciallyUpHelpsShares() {
             Professional Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
-            agent, registration number {company?.taxAgentNumber || "26242127"}.
+            {company?.legalName} is a registered tax
+            agent, registration number {company?.taxAgentNumber}.
             We provide share and investment tax services to clients
             Australia-wide.
           </p>
         </div>
 
         {/* 7 Services Grid */}
-        <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs mb-12">
+        <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs mb-12">
           <div className="max-w-2xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Practice Capabilities
@@ -136,7 +137,7 @@ export default function HowFinanciallyUpHelpsShares() {
             •
           </span>
           <span>
-            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+            Registered Tax Agent #{company?.taxAgentNumber}
           </span>
         </div>
       </div>

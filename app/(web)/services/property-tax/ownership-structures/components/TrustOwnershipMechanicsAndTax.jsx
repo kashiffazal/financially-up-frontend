@@ -8,6 +8,8 @@ import {
   CloseCircleOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * TrustOwnershipMechanicsAndTax Component
@@ -108,10 +110,10 @@ export default function TrustOwnershipMechanicsAndTax() {
           type="info"
           showIcon
           icon={<FileTextOutlined className="text-blue-600 text-xl" />}
-          title="Trust Structure Modelling by Financially Up"
+          title={<BrandText text={"Trust Structure Modelling by Financially Up"} />}
           description={
             <div className="text-slate-700 text-sm sm:text-base leading-relaxed mt-1">
-              As property trust structure accountants, Financially Up models
+              As property trust structure accountants, <CompanyName /> models
               your expected income, cash flow, debt servicing, and state land
               tax thresholds to verify whether a trust makes mathematical and
               commercial sense for your specific acquisition.

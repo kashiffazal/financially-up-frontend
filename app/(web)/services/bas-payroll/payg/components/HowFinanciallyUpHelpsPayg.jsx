@@ -9,6 +9,7 @@ import {
   FileDoneOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsPayg Component
@@ -38,7 +39,7 @@ export default function HowFinanciallyUpHelpsPayg() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Card 1: What information may be needed? */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
@@ -79,19 +80,19 @@ export default function HowFinanciallyUpHelpsPayg() {
           </div>
 
           {/* Card 2: How Financially Up can help */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <FileDoneOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                  How Financially Up can help
+                  How <CompanyName /> can help
                 </h3>
               </div>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can provide PAYG withholding compliance services
+                <CompanyName /> can provide PAYG withholding compliance services
                 as a defined part of your payroll and activity statement
                 process. We can help with registration, review of reporting
                 cycles, reconciliation of withholding balances and preparation

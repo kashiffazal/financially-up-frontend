@@ -11,6 +11,7 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ReliableFinancialInformation Component
@@ -130,7 +131,7 @@ export default function ReliableFinancialInformation() {
 
               {/* Exact paragraph 2 from document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed mb-6">
-                Financially Up can review your existing reports and identify
+                <CompanyName /> can review your existing reports and identify
                 where the information is strong enough for advisory work and
                 where additional accounting or bookkeeping is needed. Our
                 business financial statements service can also support

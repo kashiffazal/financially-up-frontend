@@ -10,12 +10,18 @@ import HowFinanciallyUpHelpsCashFlow from "./components/HowFinanciallyUpHelpsCas
 import CashFlowRelatedServicesRibbon from "./components/CashFlowRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 2 (2- Cash Flow Management)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Cash Flow Forecasting & Management Services | Financially Up",
   description:
     "Cash flow forecasting for Australian businesses. Understand upcoming cash needs, test scenarios and plan for payments with Financially Up.",
@@ -32,18 +38,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/cash-flow-management/",
+      `${SITE_URL}/services/business-advisory/cash-flow-management/`,
   },
   openGraph: {
     title: "Cash Flow Forecasting & Management Services | Financially Up",
     description:
       "Cash flow forecasting for Australian businesses. Understand upcoming cash needs, test scenarios and plan for payments with Financially Up.",
-    url: "https://financiallyup.com.au/services/business-advisory/cash-flow-management/",
+    url: `${SITE_URL}/services/business-advisory/cash-flow-management/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -97,7 +104,7 @@ const cashFlowFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up help if my cash flow forecast shows a shortfall?",
+    label: <BrandText text={"Can Financially Up help if my cash flow forecast shows a shortfall?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         We can help analyze the drivers, update assumptions and model practical
@@ -134,10 +141,7 @@ export default function CashFlowManagementSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -152,7 +156,7 @@ export default function CashFlowManagementSubpage() {
               pressure before the bank balance becomes the only warning signal.
             </span>
             <span className="block mt-2">
-              Financially Up provides cash flow forecasting and cash flow
+              <CompanyName /> provides cash flow forecasting and cash flow
               management services for businesses that need better visibility
               over customer receipts, supplier payments, wages, tax obligations,
               finance commitments and planned spending. The goal is to create a
@@ -183,7 +187,7 @@ export default function CashFlowManagementSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Commercial Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -226,7 +230,7 @@ export default function CashFlowManagementSubpage() {
       <CallToActionBanner
         tag="Take Control of Your Cash"
         title="Book an Appointment"
-        subtitle="If you need better visibility over upcoming cash requirements, book an appointment with Financially Up to discuss cash flow forecasting and the information needed to get started."
+        subtitle={<BrandText text={"If you need better visibility over upcoming cash requirements, book an appointment with Financially Up to discuss cash flow forecasting and the information needed to get started."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Business Advisory Services"

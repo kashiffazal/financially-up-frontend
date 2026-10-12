@@ -9,6 +9,7 @@ import {
   InfoCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * AuditVsPracticalReviewAndInfo Component
@@ -29,7 +30,7 @@ export default function AuditVsPracticalReviewAndInfo() {
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Part 1: Audit vs Practical Review */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 mb-16">
+        <div className="p-8 sm:p-12 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-4 space-y-4">
               <div className="w-12 h-12 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 flex items-center justify-center">
@@ -43,8 +44,7 @@ export default function AuditVsPracticalReviewAndInfo() {
             <div className="lg:col-span-8 space-y-4">
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 Businesses sometimes search for payroll audit services when what
-                they need is a detailed payroll compliance review. Financially
-                Up can examine payroll records, reconciliations and reporting
+                they need is a detailed payroll compliance review. <CompanyName /> can examine payroll records, reconciliations and reporting
                 processes within an agreed accounting and tax scope.
               </p>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
@@ -86,7 +86,7 @@ export default function AuditVsPracticalReviewAndInfo() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs space-y-4">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs space-y-4">
               <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
                 Typical Documentation Checklist:
               </h3>

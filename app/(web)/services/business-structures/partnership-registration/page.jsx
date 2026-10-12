@@ -9,23 +9,28 @@ import PartnershipAdviceAndRegistrations from "./components/PartnershipAdviceAnd
 import PartnershipAgreementsAndTaxation from "./components/PartnershipAgreementsAndTaxation";
 import AccountingSetupForPartnershipAndScope from "./components/AccountingSetupForPartnershipAndScope";
 import WhyChooseFinanciallyUpPartnership from "./components/WhyChooseFinanciallyUpPartnership";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Partnership Setup Australia | Financially Up",
   description:
     "Partnership setup support covering ABN, TFN, business name, tax registrations and accounting considerations for Australian business partners.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/partnership-registration/",
+    canonical: `${SITE_URL}/services/business-structures/partnership-registration/`,
   },
   openGraph: {
     title: "Partnership Setup Australia | Financially Up",
     description:
       "Partnership setup support covering ABN, TFN, business name, tax registrations and accounting considerations for Australian business partners.",
-    url: "https://financiallyup.com.au/services/business-structures/partnership-registration/",
+    url: `${SITE_URL}/services/business-structures/partnership-registration/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -72,7 +77,7 @@ export default function PartnershipRegistrationPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -83,10 +88,7 @@ export default function PartnershipRegistrationPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -100,7 +102,7 @@ export default function PartnershipRegistrationPage() {
           title="Partnership Setup Australia"
           description={[
             "A partnership setup in Australia usually involves two or more people or entities carrying on a business together and sharing income or losses. The practical setup commonly includes agreeing how the business will operate, obtaining the partnership's registrations, setting up accounting records and understanding the tax and legal responsibilities of the partners.",
-            "Financially Up can help business partners establish the accounting and tax side of a partnership correctly from the start. This may include reviewing the proposed structure, assisting with ABN and tax registrations, arranging a business name where needed and setting up the records required for ongoing accounting and compliance.",
+            <BrandText key="brand-1" text={"Financially Up can help business partners establish the accounting and tax side of a partnership correctly from the start. This may include reviewing the proposed structure, assisting with ABN and tax registrations, arranging a business name where needed and setting up the records required for ongoing accounting and compliance."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"
@@ -135,7 +137,7 @@ export default function PartnershipRegistrationPage() {
         {/* Section 7: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you are planning a partnership setup in Australia, book an appointment with Financially Up. We can review the proposed structure, confirm the relevant tax and registration steps and help establish the accounting framework for the new business."
+          description={<BrandText text={"If you are planning a partnership setup in Australia, book an appointment with Financially Up. We can review the proposed structure, confirm the relevant tax and registration steps and help establish the accounting framework for the new business."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

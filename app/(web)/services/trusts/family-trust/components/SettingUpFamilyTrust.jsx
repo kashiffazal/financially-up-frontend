@@ -13,6 +13,7 @@ import {
   TeamOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SettingUpFamilyTrust Component
@@ -104,10 +105,10 @@ export default function SettingUpFamilyTrust() {
           <div className="space-y-4 max-w-4xl">
             <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <CheckCircleOutlined className="text-brand-emerald" />
-              How Financially Up Assists with New Family Trusts
+              How <CompanyName /> Assists with New Family Trusts
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can explain the accounting and tax implications of
+              <CompanyName /> can explain the accounting and tax implications of
               using a family trust, assist with registrations and coordinate the
               accounting setup once the structure has been legally established.
               We do not present a family trust as universally preferable to a

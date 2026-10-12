@@ -15,6 +15,7 @@ import {
   FundOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhoNeedsTrustServices Component
@@ -106,7 +107,7 @@ export default function WhoNeedsTrustServices() {
 
           {/* Exact Verbatim Paragraph 2 from Document */}
           <p className="mt-3 text-sm sm:text-base text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Financially Up can support a range of private trust arrangements.
+            <CompanyName /> can support a range of private trust arrangements.
             Two common examples are family or discretionary trusts and unit
             trusts. Each has different practical considerations, so the
             accounting approach should reflect the actual deed and transactions

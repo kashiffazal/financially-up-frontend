@@ -2,6 +2,7 @@
 
 import React from "react";
 import ServicesGrid from "@/components/website/ServicesGrid";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * RdTaxServicesGrid Component
@@ -40,7 +41,7 @@ export default function RdTaxServicesGrid() {
       tag: "Pillar 15.3",
       title: "Government Grants Support",
       description:
-        "Government grant support for Australian businesses. Assess eligibility, organize evidence and prepare a clear, compliant application with Financially Up.",
+        <BrandText text={"Government grant support for Australian businesses. Assess eligibility, organize evidence and prepare a clear, compliant application with Financially Up."} />,
       href: "/services/rd-tax-incentive/government-grants",
       actionText: "Grant support",
     },

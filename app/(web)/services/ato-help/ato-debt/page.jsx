@@ -12,11 +12,16 @@ import WhyChooseFinanciallyUpDebt from "./components/WhyChooseFinanciallyUpDebt"
 import RelatedAtoDebtRibbon from "./components/RelatedAtoDebtRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Debt Help Australia | Financially Up",
   description:
     "ATO debt help for individuals and businesses. Review tax debts, lodgements, payment options and ATO correspondence with a registered tax agent.",
@@ -32,18 +37,19 @@ export const metadata = {
     "overdue tax debt Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/ato-debt/",
+    canonical: `${SITE_URL}/services/ato-help/ato-debt/`,
   },
   openGraph: {
     title: "ATO Debt Help Australia | Financially Up",
     description:
       "ATO debt help for individuals and businesses. Review tax debts, lodgements, payment options and ATO correspondence with a registered tax agent.",
-    url: "https://financiallyup.com.au/services/ato-help/ato-debt/",
+    url: `${SITE_URL}/services/ato-help/ato-debt/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -122,10 +128,7 @@ export default function AtoDebtHelpPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -137,7 +140,7 @@ export default function AtoDebtHelpPage() {
               ATO debt help is for individuals and businesses that owe tax and need to understand the balance, bring lodgements up to date and work out a realistic way to deal with the debt. A tax debt does not disappear because it is difficult to pay. Delay can increase interest and the risk of recovery action.
             </span>
             <span className="block mt-2">
-              Financially Up can review the debt, identify whether outstanding returns or activity statements contribute to the balance, and assist with ATO communication and payment-plan administration where appropriate. Payment arrangements are subject to ATO acceptance and the taxpayer’s circumstances; no particular arrangement or outcome can be guaranteed.
+              <CompanyName /> can review the debt, identify whether outstanding returns or activity statements contribute to the balance, and assist with ATO communication and payment-plan administration where appropriate. Payment arrangements are subject to ATO acceptance and the taxpayer’s circumstances; no particular arrangement or outcome can be guaranteed.
             </span>
           </span>
         }
@@ -148,7 +151,7 @@ export default function AtoDebtHelpPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.1 • Debt Resolution Practice"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "ATO Payment Plans up to $200k & Above",
           "DPN & Garnishee Notice Escalation Support",
         ]}
@@ -158,7 +161,7 @@ export default function AtoDebtHelpPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

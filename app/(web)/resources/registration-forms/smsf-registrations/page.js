@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import SMSFRegistrationsForm from "@/components/admin/forms/smsf-registrations";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Registration Form - Financially Up",
   description:
     "Register an ATO-compliant Self-Managed Superannuation Fund with corporate trusteeship.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function SMSFRegistrationsPage() {
   return (

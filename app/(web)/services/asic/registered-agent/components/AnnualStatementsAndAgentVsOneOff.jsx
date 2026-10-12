@@ -41,7 +41,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
             </h2>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-6">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               ASIC issues an annual statement to registered companies. Where a
               registered agent is appointed, ASIC places the registered agent
@@ -122,7 +122,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {/* Left Card: Ongoing Registered Agent */}
-            <div className="rounded-3xl p-7 sm:p-9 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/90 dark:via-zinc-900 dark:to-zinc-950 border-2 border-emerald-500/30 dark:border-emerald-500/30 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div className="rounded-lg p-7 sm:p-9 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/90 dark:via-zinc-900 dark:to-zinc-950 border-2 border-emerald-500/30 dark:border-emerald-500/30 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
@@ -176,7 +176,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
             </div>
 
             {/* Right Card: One-Off ASIC Lodgements / Company Changes */}
-            <div className="rounded-3xl p-7 sm:p-9 bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+            <div className="rounded-lg p-7 sm:p-9 bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300">

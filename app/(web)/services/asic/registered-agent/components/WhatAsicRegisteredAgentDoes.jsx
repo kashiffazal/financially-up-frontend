@@ -13,6 +13,7 @@ import {
   ArrowRightOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatAsicRegisteredAgentDoes Component
@@ -139,10 +140,10 @@ export default function WhatAsicRegisteredAgentDoes() {
                 Initial Discussion
               </span>
               <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 leading-snug">
-                Appoint Financially Up as Your ASIC Agent
+                Appoint <CompanyName /> as Your ASIC Agent
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed mb-6 font-normal">
-                If you are considering appointing Financially Up as your ASIC
+                If you are considering appointing <CompanyName /> as your ASIC
                 agent for company administration, an initial discussion can
                 confirm the company details, current ASIC position and the scope
                 of ongoing support required.

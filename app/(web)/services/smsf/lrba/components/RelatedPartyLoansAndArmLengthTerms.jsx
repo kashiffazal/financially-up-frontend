@@ -51,7 +51,7 @@ export default function RelatedPartyLoansAndArmLengthTerms() {
         {/* 2 Critical Cards: PCG 2016/5 vs NALI Tax Risk */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Card 1: PCG 2016/5 Safe Harbor Parameters */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/40 flex items-center justify-center mb-6">
                 <PercentageOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
@@ -102,7 +102,7 @@ export default function RelatedPartyLoansAndArmLengthTerms() {
           </div>
 
           {/* Card 2: NALI Tax Risk & Legal Drafting */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center mb-6">
                 <FileProtectOutlined className="text-2xl text-purple-600 dark:text-purple-400" />

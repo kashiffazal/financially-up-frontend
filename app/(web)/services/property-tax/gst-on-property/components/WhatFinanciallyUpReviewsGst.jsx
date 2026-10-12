@@ -14,6 +14,8 @@ import {
   FileSearchOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhatFinanciallyUpReviewsGst Component
@@ -41,7 +43,7 @@ export default function WhatFinanciallyUpReviewsGst() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: "TPB Registered Agent #26234055",
+      subtitle: <BrandText text={"TPB Registered Agent #26234055"} />,
     },
     {
       icon: (
@@ -71,7 +73,7 @@ export default function WhatFinanciallyUpReviewsGst() {
             Advisory Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            What Financially Up Reviews
+            What <CompanyName /> Reviews
           </h2>
           {/* Verbatim Paragraph 1 */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
@@ -170,13 +172,13 @@ export default function WhatFinanciallyUpReviewsGst() {
           <div className="text-center lg:text-left">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Discuss Your Property Transaction with{" "}
-              {company?.legalName || "Financially Up"}
+              {company?.legalName}
             </h3>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl font-normal">
               Bring the proposed contract, acquisition documents, ownership
               structure and a summary of how the property has been or will be
-              used. Financially Up can identify the GST questions, review the
+              used. <CompanyName /> can identify the GST questions, review the
               available information and explain what should be resolved before
               you proceed.
             </p>

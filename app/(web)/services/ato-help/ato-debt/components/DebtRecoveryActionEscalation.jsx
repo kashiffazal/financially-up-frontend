@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * DebtRecoveryActionEscalation Component
@@ -126,7 +127,7 @@ export default function DebtRecoveryActionEscalation() {
                 Our Professional Scope & Boundaries:
               </h4>
               <p className="text-xs sm:text-sm md:text-base text-slate-700 dark:text-zinc-300 leading-relaxed">
-                Financially Up can assist with tax records, lodgements and ATO
+                <CompanyName /> can assist with tax records, lodgements and ATO
                 communication within scope. Legal proceedings, insolvency
                 advice, director liability strategy or challenges to enforcement
                 may require an appropriately qualified lawyer or insolvency

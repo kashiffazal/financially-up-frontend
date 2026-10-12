@@ -7,6 +7,7 @@ import {
   SolutionOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsGst Component
@@ -36,11 +37,11 @@ export default function HowFinanciallyUpHelpsGst() {
           </Tag>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can provide GST registration services Australia-wide
+            <CompanyName /> can provide GST registration services Australia-wide
             for businesses that need help with registration and the compliance
             steps that follow. The service can include reviewing the available
             facts, assisting with the registration process and helping configure

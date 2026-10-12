@@ -31,6 +31,7 @@ import {
   collectFileFields,
   isRealFile,
 } from "@/lib/draftFileStore";
+import CompanyName from "@/components/mutual/CompanyName";
 
 const DRAFT_STORAGE_KEY = "FINANCIALLY_UP_INDIVIDUAL_ENGAGEMENT_DRAFT";
 
@@ -292,7 +293,7 @@ export default function IndividualEngagementClientForm() {
                     Application Submitted Successfully
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
-                    Thank you for choosing Financially Up. Your Individual
+                    Thank you for choosing <CompanyName />. Your Individual
                     Client Engagement Notice has been securely logged.
                   </p>
                 </div>

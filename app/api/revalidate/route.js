@@ -1,12 +1,15 @@
 /**
- * POST /api/revalidate - called by the backend after blog changes so the website
- * shows them immediately (otherwise cached blog data refreshes within 60s).
+ * POST /api/revalidate - called by the backend so the website shows changes
+ * immediately:
+ *   - "blog"      after blog changes (otherwise cached blog data refreshes within 60s)
+ *   - "settings"  after Settings > Company Details changes: every page shows the
+ *                 company details, so the whole site's page cache is refreshed
  *
  * Header:  x-revalidate-secret: <REVALIDATE_SECRET>   (same value in backend + frontend env)
  * Body:    { "tags": ["blog"] }
  */
 
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 const ALLOWED_TAGS = new Set(["blog", "settings"]);
@@ -31,5 +34,6 @@ export async function POST(request) {
   const refreshed = tags.filter((t) => ALLOWED_TAGS.has(t));
   // Webhook from another server: expire immediately so the next visitor gets fresh content
   refreshed.forEach((tag) => revalidateTag(tag, { expire: 0 }));
+  if (refreshed.includes("settings")) revalidatePath("/", "layout");
   return NextResponse.json({ success: true, revalidated: refreshed });
 }

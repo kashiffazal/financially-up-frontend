@@ -53,7 +53,7 @@ export default function TrusteeRecordRetentionRules() {
         {/* 2 Retention Horizon Cards: 5 Years vs 10+ Years */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Card 1: 5-Year Accounting Records */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/40 flex items-center justify-center mb-6">
                 <ClockCircleOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
@@ -95,7 +95,7 @@ export default function TrusteeRecordRetentionRules() {
           </div>
 
           {/* Card 2: 10-Year Governance & Life-of-Asset Records */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center mb-6">
                 <FolderOpenOutlined className="text-2xl text-purple-600 dark:text-purple-400" />

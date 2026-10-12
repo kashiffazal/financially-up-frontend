@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpXero from "./components/WhyChooseFinanciallyUpXero"
 import RelatedBookkeepingRibbon from "../components/RelatedBookkeepingRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of Bookkeeping)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Xero Bookkeeping Services Australia | Financially Up",
   description:
     "Xero bookkeeping services for Australian businesses, including reconciliations, coding, clean-up and ongoing support for accurate cloud-based records.",
@@ -29,18 +35,19 @@ export const metadata = {
     "Xero file cleanup",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/xero-bookkeeping/",
+    canonical: `${SITE_URL}/services/bookkeeping/xero-bookkeeping/`,
   },
   openGraph: {
     title: "Xero Bookkeeping Services Australia | Financially Up",
     description:
       "Xero bookkeeping services for Australian businesses, including reconciliations, coding, clean-up and ongoing support for accurate cloud-based records.",
-    url: "https://financiallyup.com.au/services/bookkeeping/xero-bookkeeping/",
+    url: `${SITE_URL}/services/bookkeeping/xero-bookkeeping/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Bookkeeping service hierarchy
@@ -94,7 +101,7 @@ const xeroBookkeepingFaqs = [
   },
   {
     key: "5",
-    label: "Can Financially Up provide outsourced Xero bookkeeping?",
+    label: <BrandText text={"Can Financially Up provide outsourced Xero bookkeeping?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Yes. Ongoing Xero bookkeeping can be provided remotely for businesses across Australia, with the exact frequency and tasks agreed according to your needs.
@@ -128,10 +135,7 @@ export default function XeroBookkeepingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function XeroBookkeepingPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Xero bookkeeping services help businesses keep day-to-day financial records organised inside Xero so the file can be used confidently for reporting, BAS preparation and year-end accounting. Financially Up supports businesses that already use Xero, are moving to a more structured bookkeeping process, or need help cleaning up an existing file.
+              Xero bookkeeping services help businesses keep day-to-day financial records organised inside Xero so the file can be used confidently for reporting, BAS preparation and year-end accounting. <CompanyName /> supports businesses that already use Xero, are moving to a more structured bookkeeping process, or need help cleaning up an existing file.
             </span>
             <span className="block mt-2">
               Our work is focused on bookkeeping and accounting support. The right setup, workflow and reporting frequency depends on the business, its transaction volume and the records it needs to maintain.
@@ -164,7 +168,7 @@ export default function XeroBookkeepingPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Bookkeeping Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -195,7 +199,7 @@ export default function XeroBookkeepingPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about Xero bookkeeping, file clean-up, bank reconciliations and outsourced workflows with Financially Up."
+        subtitle={<BrandText text={"Common questions about Xero bookkeeping, file clean-up, bank reconciliations and outsourced workflows with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Xero Bookkeeping Frequently Asked Questions"
         items={xeroBookkeepingFaqs}
@@ -207,7 +211,7 @@ export default function XeroBookkeepingPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you need help maintaining, cleaning up or outsourcing your Xero bookkeeping, book an appointment with Financially Up. We can review how the file is being used, identify the main bookkeeping issues and discuss an appropriate ongoing scope."
+        subtitle={<BrandText text={"If you need help maintaining, cleaning up or outsourcing your Xero bookkeeping, book an appointment with Financially Up. We can review how the file is being used, identify the main bookkeeping issues and discuss an appropriate ongoing scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore All Bookkeeping Services"

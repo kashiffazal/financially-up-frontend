@@ -8,11 +8,17 @@ import WhyChooseFinanciallyUpSmsfAcc from "./components/WhyChooseFinanciallyUpSm
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Accounting & Annual Accounts | Financially Up",
   description:
     "SMSF accounting for annual accounts, financial statements, tax reporting and audit preparation. Get practical support from Financially Up Australia-wide.",
@@ -27,18 +33,19 @@ export const metadata = {
     "SMSF tax agent",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/accounting/",
+    canonical: `${SITE_URL}/services/smsf/accounting/`,
   },
   openGraph: {
     title: "SMSF Accounting & Annual Accounts | Financially Up",
     description:
       "SMSF accounting for annual accounts, financial statements, tax reporting and audit preparation. Get practical support from Financially Up Australia-wide.",
-    url: "https://financiallyup.com.au/services/smsf/accounting/",
+    url: `${SITE_URL}/services/smsf/accounting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back to the SMSF Hub
@@ -88,7 +95,7 @@ const smsfAccountingQuickSpecs = [
     icon: "safety",
     label: "Professional Scope",
     value:
-      "Registered Tax Agent #26242127 lodgement with independent audit file preparation",
+      <BrandText text={"Registered Tax Agent #26242127 lodgement with independent audit file preparation"} />,
   },
 ];
 
@@ -193,10 +200,7 @@ export default function SmsfAccountingSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -205,7 +209,7 @@ export default function SmsfAccountingSubpage() {
         subtitle="SMSF accounting turns the fund's bank, investment and member activity into the annual financial statements and tax information needed for compliance. Accurate records also give trustees and the independent auditor a clear view of the fund's financial position at year end."
         bodyText={
           <span>
-            Financially Up provides SMSF accounting support for established
+            <CompanyName /> provides SMSF accounting support for established
             funds that need annual accounts preparation, reconciliations, member
             reporting and SMSF tax accounting. This page focuses on the
             accounting work itself. For broader SMSF support, see our SMSF
@@ -240,7 +244,7 @@ export default function SmsfAccountingSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "SMSF Accounting Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -277,7 +281,7 @@ export default function SmsfAccountingSubpage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="SMSF Accounting & Annual Accounts"
-        subtitle="For SMSF accounting, annual financial statements, tax reporting and audit preparation, book an appointment with Financially Up to discuss the fund's records and year-end requirements."
+        subtitle={<BrandText text={"For SMSF accounting, annual financial statements, tax reporting and audit preparation, book an appointment with Financially Up to discuss the fund's records and year-end requirements."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore SMSF Services"

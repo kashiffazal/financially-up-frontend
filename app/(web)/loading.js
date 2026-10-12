@@ -29,7 +29,7 @@ export default function Loading() {
           <div className="relative w-12 h-12 rounded-full bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center shadow-xl shadow-brand-primary/10">
             <Image
               src="/images/icon.ico"
-              alt="Financially Up Loading"
+              alt="Loading"
               width={32}
               height={32}
               className="w-7 h-7 object-contain animate-pulse"

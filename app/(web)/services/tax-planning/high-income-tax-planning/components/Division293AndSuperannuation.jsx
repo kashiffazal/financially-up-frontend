@@ -8,6 +8,7 @@ import {
   CheckCircleOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * Division293AndSuperannuation Component
@@ -98,8 +99,7 @@ export default function Division293AndSuperannuation() {
         <div className="rounded-lg bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
           <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-200 leading-relaxed font-normal">
-            <strong>Financial Advice Regulatory Boundary:</strong> Financially
-            Up advises strictly on the Australian taxation consequences,
+            <strong>Financial Advice Regulatory Boundary:</strong> <CompanyName /> advises strictly on the Australian taxation consequences,
             deductibility, and Division 293 liabilities associated with
             superannuation contributions. Product recommendations, investment
             choice, or super fund selections require licensed financial advice

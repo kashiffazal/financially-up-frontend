@@ -9,6 +9,7 @@ import {
   FileSearchOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * CommonSmsfAccountingIssuesAndRecords Component
@@ -107,7 +108,7 @@ export default function CommonSmsfAccountingIssuesAndRecords() {
         </div>
 
         {/* Records to Provide Section */}
-        <div className="bg-slate-50 dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800">
+        <div className="bg-slate-50 dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800">
           <div className="max-w-3xl mb-8">
             <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center mb-3">
               <FolderOpenOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
@@ -138,7 +139,7 @@ export default function CommonSmsfAccountingIssuesAndRecords() {
           </div>
 
           <div className="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-            Where Financially Up has access to an existing accounting file, we
+            Where <CompanyName /> has access to an existing accounting file, we
             can identify gaps during the year-end review. For new clients,
             prior-year financial statements and the previous SMSF annual return
             can also help establish opening balances and accounting history.

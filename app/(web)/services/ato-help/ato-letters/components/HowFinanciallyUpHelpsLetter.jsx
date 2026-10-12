@@ -9,6 +9,7 @@ import {
   CommentOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsLetter Component
@@ -70,7 +71,7 @@ export default function HowFinanciallyUpHelpsLetter() {
             Professional Assistance
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            How Financially Up helps
+            How <CompanyName /> helps
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
             Bring every page of the letter, attachments, earlier related

@@ -14,6 +14,7 @@ import {
   ArrowRightOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpSupportsXero Component
@@ -88,7 +89,7 @@ export default function HowFinanciallyUpSupportsXero() {
             Our Service Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help with Xero bookkeeping
+            How <CompanyName /> can help with Xero bookkeeping
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             We work collaboratively with your team to maintain clean, accurate,

@@ -13,6 +13,7 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsShareholderLoans Component
@@ -63,7 +64,7 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
             Expert Accounting & Tax Advisory
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Our shareholder loan accountant service can include reviewing the
@@ -137,7 +138,7 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
         </div>
 
         {/* Section 2: Why Choose Financially Up? */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
+        <div className="p-8 sm:p-12 rounded-lg bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
           <div className="max-w-3xl mb-8">
             <Tag
               color="cyan"
@@ -146,10 +147,10 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
               Client Trust & Qualifications
             </Tag>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company?.legalName || "Financially Up Pty Ltd"} is an Australian
+              {company?.legalName} is an Australian
               accounting, tax, bookkeeping and business advisory firm. We are a
               registered tax agent with 10+ years of experience, and our
               professional team includes CPA and IPA members. We support clients

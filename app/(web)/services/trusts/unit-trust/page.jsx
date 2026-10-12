@@ -11,11 +11,17 @@ import HowFinanciallyUpHelpsUnitTrust from "./components/HowFinanciallyUpHelpsUn
 import RelatedUnitTrustRibbon from "./components/RelatedUnitTrustRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Unit Trust Accountant & Tax Services | Financially Up",
   description:
     "Unit trust accountant support for accounts, tax returns, distributions and compliance. Financially Up assists private unit trusts across Australia.",
@@ -30,18 +36,19 @@ export const metadata = {
     "unit trust setup accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/unit-trust/",
+    canonical: `${SITE_URL}/services/trusts/unit-trust/`,
   },
   openGraph: {
     title: "Unit Trust Accountant & Tax Services | Financially Up",
     description:
       "Unit trust accountant support for accounts, tax returns, distributions and compliance. Financially Up assists private unit trusts across Australia.",
-    url: "https://financiallyup.com.au/services/trusts/unit-trust/",
+    url: `${SITE_URL}/services/trusts/unit-trust/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -92,7 +99,7 @@ const unitTrustFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up help with unit trust setup?",
+    label: <BrandText text={"Can Financially Up help with unit trust setup?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         We can assist with the accounting and tax aspects of setup and relevant registrations. Legal drafting of the
@@ -127,10 +134,7 @@ export default function UnitTrustPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -145,7 +149,7 @@ export default function UnitTrustPage() {
               distributions and tax reporting aligned.
             </span>
             <span className="block mt-2">
-              Financially Up provides unit trust accounting services for private investment and business structures
+              <CompanyName /> provides unit trust accounting services for private investment and business structures
               across Australia. We can assist with annual accounts, unit trust tax return preparation, distribution
               reporting, reconciliations and compliance-related accounting. Unit trust tax advice can be separately
               scoped where a transaction, ownership change or more complex tax issue needs analysis.
@@ -174,7 +178,7 @@ export default function UnitTrustPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

@@ -7,6 +7,7 @@ import {
   CloseCircleOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HomeFirstRuleAndPreOccupancyRental Component
@@ -87,7 +88,7 @@ export default function HomeFirstRuleAndPreOccupancyRental() {
           title="Segregating Ownership Periods"
           description={
             <div className="text-slate-700 text-sm sm:text-base leading-relaxed mt-1">
-              Financially Up conducts precise timeline audits to clearly
+              <CompanyName /> conducts precise timeline audits to clearly
               separate the taxable investment period prior to initial occupancy
               from any subsequent legitimate absence period under the 6-year
               rule.

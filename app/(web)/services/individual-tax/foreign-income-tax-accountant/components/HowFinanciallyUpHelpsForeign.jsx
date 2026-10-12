@@ -16,6 +16,7 @@ import {
   StockOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsForeign Component
@@ -76,14 +77,14 @@ export default function HowFinanciallyUpHelpsForeign() {
             How a Foreign Income Tax Accountant Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} provides Australian
+            {company?.legalName} provides Australian
             tax services to clients Australia-wide. Depending on the agreed
             scope, our foreign-income assistance may include:
           </p>
         </div>
 
         {/* 7 Services Grid */}
-        <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs mb-12">
+        <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs mb-12">
           <div className="max-w-2xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Practice Capabilities
@@ -115,10 +116,10 @@ export default function HowFinanciallyUpHelpsForeign() {
               Tax-return preparation and document review are distinct from tax
               planning or detailed advice. The scope and fees for additional
               advice are confirmed separately before that work begins.
-              Financially Up advises on Australian tax matters within the agreed
-              scope; advice on another country&apos;s law may require a suitably
-              qualified adviser in that jurisdiction. For broader cross-border
-              matters, see our International Tax service.
+              <CompanyName /> advises on Australian tax matters within the
+              agreed scope; advice on another country&apos;s law may require a
+              suitably qualified adviser in that jurisdiction. For broader
+              cross-border matters, see our International Tax service.
             </p>
             <Link
               href="/services"
@@ -143,7 +144,7 @@ export default function HowFinanciallyUpHelpsForeign() {
             •
           </span>
           <span>
-            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+            Registered Tax Agent #{company?.taxAgentNumber}
           </span>
         </div>
       </div>

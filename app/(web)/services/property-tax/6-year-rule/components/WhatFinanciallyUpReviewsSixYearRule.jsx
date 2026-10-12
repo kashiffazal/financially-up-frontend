@@ -58,7 +58,7 @@ export default function WhatFinanciallyUpReviewsSixYearRule() {
             Professional Guidance
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
-            How {company?.legalName || "Financially Up"} Can Help
+            How {company?.legalName} Can Help
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
             The six-year rule is a fact-sensitive CGT provision. Our approach is
@@ -114,16 +114,16 @@ export default function WhatFinanciallyUpReviewsSixYearRule() {
         </div>
 
         {/* Why Choose Financially Up */}
-        <div className="bg-emerald-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-emerald-900">
+        <div className="bg-emerald-950 text-white rounded-lg p-8 sm:p-12 shadow-xl border border-emerald-900">
           <div className="max-w-3xl mx-auto text-center mb-10">
             <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest bg-emerald-900/60 px-3.5 py-1 rounded-full border border-emerald-700/50">
               Registered Tax Agent
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">
-              Why Choose {company?.legalName || "Financially Up"}?
+              Why Choose {company?.legalName}?
             </h3>
             <p className="text-emerald-200 text-sm sm:text-base mt-3 leading-relaxed">
-              {company?.legalName || "Financially Up"} is a registered tax agent
+              {company?.legalName} is a registered tax agent
               with more than 10 years of experience across Australian taxation
               and property accounting. Our team includes CPA and IPA
               professionals supporting clients Australia-wide.

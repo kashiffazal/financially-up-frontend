@@ -13,6 +13,7 @@ import {
   MailOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ExpatHelpAndDiscussionPreparation Component
@@ -99,12 +100,12 @@ export default function ExpatHelpAndDiscussionPreparation() {
 
           {/* Right Column: How Financially Up Helps & Credentials */}
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm relative overflow-hidden">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm relative overflow-hidden">
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-6">
                 <AuditOutlined />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                How Financially Up Helps Australians Abroad
+                How <CompanyName /> Helps Australians Abroad
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
                 We review your residency history, identify Australian and
@@ -125,7 +126,7 @@ export default function ExpatHelpAndDiscussionPreparation() {
                 needed and the relevant timing rather than guessing an amount.
               </p>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                {company.legalName || "Financially Up Pty Ltd"} is a registered
+                {company.legalName} is a registered
                 tax agent with more than 10 years of experience and a team
                 including CPA and IPA members. We work with clients across
                 Australia and overseas through online appointments, with
@@ -140,7 +141,7 @@ export default function ExpatHelpAndDiscussionPreparation() {
                   <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />
                   <span>
                     Registered Tax Agent:{" "}
-                    <strong>TPB #{company.abn || "26234055"}</strong>
+                    <strong>TPB #{company.abn}</strong>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">

@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpRestructure from "./components/WhyChooseFinancially
 import RelatedTrustRestructuringRibbon from "./components/RelatedTrustRestructuringRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust Restructuring Accountant Australia | Financially Up",
   description:
     "Trust restructuring accountant support for deed, trustee, control and tax changes. Review implications before changing an existing trust arrangement.",
@@ -28,18 +34,19 @@ export const metadata = {
     "unit trust restructure",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/trust-restructuring/",
+    canonical: `${SITE_URL}/services/trusts/trust-restructuring/`,
   },
   openGraph: {
     title: "Trust Restructuring Accountant Australia | Financially Up",
     description:
       "Trust restructuring accountant support for deed, trustee, control and tax changes. Review implications before changing an existing trust arrangement.",
-    url: "https://financiallyup.com.au/services/trusts/trust-restructuring/",
+    url: `${SITE_URL}/services/trusts/trust-restructuring/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -68,10 +75,10 @@ const trustRestructuringFaqs = [
   },
   {
     key: "2",
-    label: "Can Financially Up prepare the deed to restructure a trust?",
+    label: <BrandText text={"Can Financially Up prepare the deed to restructure a trust?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can assist with the accounting and tax implications of a trust restructure. Drafting or
+        <CompanyName /> can assist with the accounting and tax implications of a trust restructure. Drafting or
         confirming the legal validity of trust deeds is legal work and may require an appropriately qualified legal
         adviser.
       </p>
@@ -126,10 +133,7 @@ export default function TrustRestructuringPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -174,7 +178,7 @@ export default function TrustRestructuringPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -215,7 +219,7 @@ export default function TrustRestructuringPage() {
       {/* 10. Call to Action Banner */}
       <CallToActionBanner
         title="Planning Changes to Your Trust Structure?"
-        subtitle="If your trust arrangement needs to change, book an appointment with Financially Up to discuss the existing structure, the proposed outcome and the tax and accounting issues that should be reviewed before implementation."
+        subtitle={<BrandText text={"If your trust arrangement needs to change, book an appointment with Financially Up to discuss the existing structure, the proposed outcome and the tax and accounting issues that should be reviewed before implementation."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnHref="/book-an-appointment"
         secondaryBtnText="Explore All Trust Services"

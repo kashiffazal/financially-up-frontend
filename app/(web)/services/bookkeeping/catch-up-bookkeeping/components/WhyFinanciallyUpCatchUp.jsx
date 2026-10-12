@@ -14,6 +14,7 @@ import {
   TrophyOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyFinanciallyUpCatchUp Component
@@ -31,7 +32,7 @@ export default function WhyFinanciallyUpCatchUp() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `TPB Registration #${company.taxAgentNumber || "26234055"} with formal regulatory accountability.`,
+      desc: `TPB Registration #${company.taxAgentNumber} with formal regulatory accountability.`,
     },
     {
       icon: (
@@ -68,10 +69,10 @@ export default function WhyFinanciallyUpCatchUp() {
             Credentials &amp; Context
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why Financially Up
+            Why <CompanyName />
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up Pty Ltd"} provides accounting,
+            {company.legalName} provides accounting,
             taxation, bookkeeping and business advisory services Australia-wide.
             We are a registered tax agent with more than 10 years of experience,
             and our team includes CPA and IPA members. This broader accounting

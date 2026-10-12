@@ -7,6 +7,7 @@ import {
   CheckCircleOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsGrants Component
@@ -38,7 +39,7 @@ export default function HowFinanciallyUpHelpsGrants() {
             Structured Assistance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Our government grant application services provide structured support

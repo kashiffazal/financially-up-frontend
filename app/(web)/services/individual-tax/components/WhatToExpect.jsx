@@ -129,7 +129,7 @@ export default function WhatToExpect() {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight m-0">
-                {company.legalName || "Financially Up Pty Ltd"} - Registered
+                {company.legalName} - Registered
                 Australian Tax Practice
               </h3>
 
@@ -137,7 +137,7 @@ export default function WhatToExpect() {
                 <span>
                   ABN:{" "}
                   <strong className="text-slate-900 dark:text-zinc-100">
-                    {company.abn || "84 659 717 263"}
+                    {company.abn}
                   </strong>
                 </span>
                 <span className="text-slate-300 dark:text-zinc-700">•</span>

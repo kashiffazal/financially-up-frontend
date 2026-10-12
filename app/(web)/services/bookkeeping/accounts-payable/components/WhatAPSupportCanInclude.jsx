@@ -16,6 +16,7 @@ import {
   SafetyCertificateOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatAPSupportCanInclude Component
@@ -150,8 +151,7 @@ export default function WhatAPSupportCanInclude() {
         <div className="p-6 sm:p-7 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3 sm:gap-4">
           <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            <strong>Client Authority &amp; Fund Controls:</strong> Financially
-            Up does not assume unrestricted authority over client funds.
+            <strong>Client Authority &amp; Fund Controls:</strong> <CompanyName /> does not assume unrestricted authority over client funds.
             Payment-file preparation, payment workflows or banking-related steps
             must be expressly agreed and remain subject to the client&apos;s
             authorization and controls. The client should independently verify

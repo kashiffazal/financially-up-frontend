@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button, Tag } from "antd";
 import { ArrowRightOutlined, CheckCircleFilled } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function IndividualTaxReturnOverview() {
   return (
@@ -22,7 +23,7 @@ export default function IndividualTaxReturnOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, our experienced team of tax professionals is
+              At <CompanyName />, our experienced team of tax professionals is
               dedicated to providing expert assistance with your individual tax
               returns. We ensure accurate and efficient compliance with the
               guidelines set forth by the Australian Taxation Office (ATO).

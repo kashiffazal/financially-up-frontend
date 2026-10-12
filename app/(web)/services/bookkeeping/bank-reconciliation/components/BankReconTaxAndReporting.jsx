@@ -9,6 +9,7 @@ import {
   ArrowRightOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BankReconTaxAndReporting Component
@@ -43,7 +44,7 @@ export default function BankReconTaxAndReporting() {
               </p>
 
               <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can maintain bookkeeping records and identify
+                <CompanyName /> can maintain bookkeeping records and identify
                 items that need clarification. BAS preparation, lodgement,
                 tax-return work and tax advice can be handled within a
                 separately agreed scope where required.

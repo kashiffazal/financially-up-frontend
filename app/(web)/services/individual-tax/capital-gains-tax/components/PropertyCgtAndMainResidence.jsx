@@ -43,7 +43,7 @@ export default function PropertyCgtAndMainResidence() {
         {/* 2 Equal Columns Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Left Column: Capital Gains Tax on Property */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -99,7 +99,7 @@ export default function PropertyCgtAndMainResidence() {
           </div>
 
           {/* Right Column: Main Residence & Former Home CGT */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">

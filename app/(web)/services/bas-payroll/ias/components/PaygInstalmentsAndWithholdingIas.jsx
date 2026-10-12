@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   FileDoneOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PaygInstalmentsAndWithholdingIas Component
@@ -41,7 +42,7 @@ export default function PaygInstalmentsAndWithholdingIas() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* PAYG instalments and your IAS */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
                 <DollarOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
@@ -65,7 +66,7 @@ export default function PaygInstalmentsAndWithholdingIas() {
                 it may be possible to vary a PAYG instalment. A variation should
                 be based on a reasonable estimate, not simply a desire to reduce
                 the current payment. General interest charge may apply if varied
-                instalments are too low. Financially Up can help review the
+                instalments are too low. <CompanyName /> can help review the
                 numbers before a variation is considered, with any broader tax
                 planning or advice scoped separately where required.
               </p>
@@ -81,7 +82,7 @@ export default function PaygInstalmentsAndWithholdingIas() {
           </div>
 
           {/* PAYG withholding on an IAS */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
                 <TeamOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />

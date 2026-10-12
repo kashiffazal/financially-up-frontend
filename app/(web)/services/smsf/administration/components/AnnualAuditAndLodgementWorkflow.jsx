@@ -108,7 +108,7 @@ export default function AnnualAuditAndLodgementWorkflow() {
         </div>
 
         {/* Complex Assets Section & Cross Links */}
-        <div className="bg-slate-50 dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 w-full">
+        <div className="bg-slate-50 dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 w-full">
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
             Property, LRBAs and other complex investments
           </h3>

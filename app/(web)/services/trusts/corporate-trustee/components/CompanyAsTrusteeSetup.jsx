@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * CompanyAsTrusteeSetup Component
@@ -103,7 +104,7 @@ export default function CompanyAsTrusteeSetup() {
                 Implementation Scope & Ongoing Obligations
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can assist with company registration and
+                <CompanyName /> can assist with company registration and
                 accounting/tax implementation within scope. The legal
                 appointment of a trustee, drafting or amending the trust deed,
                 and advice about trustee powers may require a lawyer. After

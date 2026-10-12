@@ -10,6 +10,8 @@ import {
   IdcardOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpAto Component
@@ -33,7 +35,7 @@ export default function WhyChooseFinanciallyUpAto() {
       ),
       title: "Registered Tax Agent",
       description:
-        "Officially registered with the Tax Practitioners Board (TPB #26234055), authorized to represent taxpayers and manage formal ATO correspondence.",
+        <BrandText text={"Officially registered with the Tax Practitioners Board (TPB #26234055), authorized to represent taxpayers and manage formal ATO correspondence."} />,
     },
     {
       icon: (
@@ -75,12 +77,12 @@ export default function WhyChooseFinanciallyUpAto() {
 
           {/* Exact H2 Heading from Document */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why choose Financially Up?
+            Why choose <CompanyName />?
           </h2>
 
           {/* Exact Verbatim Paragraph from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up"} is a registered tax agent
+            {company?.legalName} is a registered tax agent
             with more than 10 years of experience across taxation, accounting,
             bookkeeping and business advisory work. Our team includes CPA and
             IPA professionals, and we assist clients Australia-wide through
@@ -124,10 +126,9 @@ export default function WhyChooseFinanciallyUpAto() {
                 Direct Tax Agent Communication & ATO Resolution
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 font-normal mt-1">
-                {company?.legalName || "Financially Up Pty Ltd"} • ABN:{" "}
-                {company?.abn || "84 659 717 263"} • Head Office:{" "}
-                {company?.address ||
-                  "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                {company?.legalName} • ABN:{" "}
+                {company?.abn} • Head Office:{" "}
+                {company?.address}
               </p>
             </div>
           </div>
@@ -138,7 +139,7 @@ export default function WhyChooseFinanciallyUpAto() {
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:text-teal-600 dark:hover:text-teal-400 text-sm font-semibold shadow-2xs hover:shadow-xs transition-all"
             >
               <PhoneOutlined />
-              <span>{company?.phone || "1300 328 316"}</span>
+              <span>{company?.phone}</span>
             </a>
           </div>
         </div>

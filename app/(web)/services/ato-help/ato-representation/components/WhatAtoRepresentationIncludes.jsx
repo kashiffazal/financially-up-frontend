@@ -7,6 +7,7 @@ import {
   BranchesOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatAtoRepresentationIncludes Component
@@ -65,7 +66,7 @@ export default function WhatAtoRepresentationIncludes() {
               requests and coordinating supporting records.
             </p>
             <p>
-              Financially Up's role depends on the matter and the authority you
+              <CompanyName />'s role depends on the matter and the authority you
               provide. A representation engagement does not automatically
               include preparing every overdue return, objection, audit response
               or specialist tax opinion. If additional work is required, that

@@ -78,7 +78,7 @@ export default function ComplexCgtSituations() {
           {complexScenarios.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-4 p-5 sm:p-6 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs hover:shadow-md transition-all"
+              className="flex items-start gap-4 p-5 sm:p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs hover:shadow-md transition-all"
             >
               <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-700 flex items-center justify-center shrink-0 border border-slate-200 dark:border-zinc-600 text-lg shadow-2xs">
                 {item.icon}
@@ -91,7 +91,7 @@ export default function ComplexCgtSituations() {
         </div>
 
         {/* Advisory Strip */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-zinc-800/90 dark:via-zinc-850 dark:to-zinc-800/90 border border-emerald-200/80 dark:border-emerald-800/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-zinc-800/90 dark:via-zinc-850 dark:to-zinc-800/90 border border-emerald-200/80 dark:border-emerald-800/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-1 text-center md:text-left">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               Planning to Sell an Asset in the Current Financial Year?

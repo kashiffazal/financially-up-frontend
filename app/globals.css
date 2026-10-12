@@ -169,7 +169,8 @@ body:has(.web-portal-root) {
   --radius-2xl: var(--radius-2xl);
   --radius-3xl: var(--radius-3xl); */
   --radius: var(--radius-md);
-  --radius-full: var(--radius-pill);
+  /* No --radius-full override: rounded-full must stay a true circle at any size
+     (avatars, the photo crop frame). Pill shapes use .rounded-pill. */
 
   /* Contextual Dynamic Semantic Radius Tokens */
   --radius-btn: var(--radius-btn);

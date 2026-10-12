@@ -5,6 +5,8 @@ import { Tag } from "antd";
 import { SafetyCertificateOutlined, CalendarOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import SignatureCanvas from "@/components/mutual/SignatureCanvas";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step12DeclarationSignatures({ form }) {
   return (
@@ -61,7 +63,7 @@ export default function Step12DeclarationSignatures({ form }) {
             </span>
           </div>
           <p className="text-xs text-slate-600 dark:text-zinc-400 leading-normal">
-            I/we authorise Financially Up to use this information to assess
+            I/we authorise <CompanyName /> to use this information to assess
             AML/CTF risk, complete CDD, verify identity information, conduct
             PEP/sanctions/adverse media screening, and prepare/lodge company
             registration documentation.
@@ -69,7 +71,7 @@ export default function Step12DeclarationSignatures({ form }) {
           <AntInput
             type="checkbox"
             name="declaration2"
-            text="I authorise Financially Up to assess AML/CTF risk, complete CDD, and prepare/lodge company registration documentation. *"
+            text={<BrandText text={"I authorise Financially Up to assess AML/CTF risk, complete CDD, and prepare/lodge company registration documentation. *"} />}
             reqMsg="You must accept Declaration 2"
             containerClassName="!mb-0"
           />
@@ -125,14 +127,14 @@ export default function Step12DeclarationSignatures({ form }) {
             </span>
           </div>
           <p className="text-xs text-slate-600 dark:text-zinc-400 leading-normal">
-            I/we understand Financially Up may request further information,
+            I/we understand <CompanyName /> may request further information,
             decline, suspend or exit the matter, or make reports to AUSTRAC if
             required by law.
           </p>
           <AntInput
             type="checkbox"
             name="declaration5"
-            text="I understand Financially Up may request further information, decline/suspend the matter, or report to AUSTRAC if required by law. *"
+            text={<BrandText text={"I understand Financially Up may request further information, decline/suspend the matter, or report to AUSTRAC if required by law. *"} />}
             reqMsg="You must accept Declaration 5"
             containerClassName="!mb-0"
           />
@@ -146,7 +148,7 @@ export default function Step12DeclarationSignatures({ form }) {
             </span>
           </div>
           <p className="text-xs text-slate-600 dark:text-zinc-400 leading-normal">
-            I/we understand Financially Up cannot provide legal advice unless
+            I/we understand <CompanyName /> cannot provide legal advice unless
             separately agreed and may recommend independent legal advice for
             constitutions, shareholder agreements, nominee arrangements, trusts
             or complex structures.
@@ -154,7 +156,7 @@ export default function Step12DeclarationSignatures({ form }) {
           <AntInput
             type="checkbox"
             name="declaration6"
-            text="I understand Financially Up cannot provide legal advice and may recommend independent legal advice for complex structures. *"
+            text={<BrandText text={"I understand Financially Up cannot provide legal advice and may recommend independent legal advice for complex structures. *"} />}
             reqMsg="You must accept Declaration 6"
             containerClassName="!mb-0"
           />

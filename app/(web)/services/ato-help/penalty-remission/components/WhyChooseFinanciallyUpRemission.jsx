@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpRemission Component
@@ -30,7 +31,7 @@ export default function WhyChooseFinanciallyUpRemission() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      description: `Officially registered with the Tax Practitioners Board (TPB #${company?.tpb || "26234055"}), authorized to prepare formal remission submissions directly to the ATO.`,
+      description: `Officially registered with the Tax Practitioners Board (TPB #${company?.taxAgentNumber}), authorized to prepare formal remission submissions directly to the ATO.`,
     },
     {
       icon: (
@@ -53,7 +54,7 @@ export default function WhyChooseFinanciallyUpRemission() {
         <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
       ),
       title: "Australia-Wide Delivery",
-      description: `Supporting clients across Australia via secure digital meetings, with head office consultations at ${company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060"}.`,
+      description: `Supporting clients across Australia via secure digital meetings, with head office consultations at ${company?.address}.`,
     },
   ];
 
@@ -70,11 +71,11 @@ export default function WhyChooseFinanciallyUpRemission() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why choose {company?.legalName || company?.name || "Financially Up"}
+            Why choose {company.legalName}
             ?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of
+            <CompanyName /> is a registered tax agent with more than 10 years of
             experience. Our team includes CPA and IPA members and supports
             clients Australia-wide through online and in-person appointments. We
             focus on the actual notice, relevant chronology and available
@@ -119,16 +120,16 @@ export default function WhyChooseFinanciallyUpRemission() {
                 Received an ATO Penalty Notice?
               </p>
               <p className="text-sm sm:text-base font-bold text-white">
-                Call {company?.phone || "1300 328 316"} for a Professional
+                Call {company?.phone} for a Professional
                 Notice Assessment
               </p>
             </div>
           </div>
           <a
-            href={`tel:${(company?.phone || "1300 328 316").replace(/\s/g, "")}`}
+            href={`tel:${(company?.phone).replace(/\s/g, "")}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm transition-colors shrink-0"
           >
-            Call {company?.phone || "1300 328 316"}
+            Call {company?.phone}
           </a>
         </div>
       </div>

@@ -66,7 +66,7 @@ export default function WhatApplicationSupportIncludes() {
         </div>
 
         {/* Verbatim Document Copy Card */}
-        <div className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 rounded-lg p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
             Support can include application planning, activity descriptions,
             record review and coordination of the expenditure schedule with

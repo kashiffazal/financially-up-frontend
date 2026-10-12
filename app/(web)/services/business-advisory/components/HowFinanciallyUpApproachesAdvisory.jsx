@@ -10,6 +10,7 @@ import {
   SafetyCertificateOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpApproachesAdvisory Component
@@ -77,10 +78,10 @@ export default function HowFinanciallyUpApproachesAdvisory() {
             Engagement Framework
           </Tag>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            How Financially Up approaches business advisory
+            How <CompanyName /> approaches business advisory
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up begins by understanding the business, the owner’s
+            <CompanyName /> begins by understanding the business, the owner’s
             objectives and the immediate decision or problem. We then review the
             available financial information, identify the key drivers and agree
             on a practical scope. Depending on the engagement, this may involve

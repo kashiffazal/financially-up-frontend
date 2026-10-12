@@ -8,11 +8,17 @@ import WhyChooseFinanciallyUpHighIncome from "./components/WhyChooseFinanciallyU
 import HighIncomeRelatedServiceRibbon from "./components/HighIncomeRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3)
  */
-export const metadata = {
+const baseMetadata = {
   title: "High Income Tax Accountant Australia | Financially Up",
   description:
     "Tax return preparation and planning support for high-income professionals and executives Australia-wide. Book an appointment with Financially Up.",
@@ -28,18 +34,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/high-income-professionals/",
+      `${SITE_URL}/services/individual-tax/high-income-professionals/`,
   },
   openGraph: {
     title: "High Income Tax Accountant Australia | Financially Up",
     description:
       "Tax return preparation and planning support for high-income professionals and executives Australia-wide. Book an appointment with Financially Up.",
-    url: "https://financiallyup.com.au/services/individual-tax/high-income-professionals/",
+    url: `${SITE_URL}/services/individual-tax/high-income-professionals/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -84,7 +91,7 @@ const highIncomeQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -192,10 +199,7 @@ export default function HighIncomeProfessionalsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -212,7 +216,7 @@ export default function HighIncomeProfessionalsPage() {
               all affect what must be reviewed and reported.
             </span>
             <span className="block mt-2">
-              If you need a high income tax accountant, Financially Up Pty Ltd
+              If you need a high income tax accountant, <CompanyName legal />
               supports professionals, executives and other individuals across
               Australia with complex tax affairs. We prepare individual tax
               returns and consider whether proactive tax planning is relevant to
@@ -238,7 +242,7 @@ export default function HighIncomeProfessionalsPage() {
         highlights={[
           "Executive Remuneration & ESS Analysis",
           "Pre-Year-End Proactive Tax Planning",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-2" text={"Registered Tax Agent #26242127"} />,
           "100% Online Australia-Wide & In-Person",
         ]}
         quickSpecs={highIncomeQuickSpecs}
@@ -248,7 +252,7 @@ export default function HighIncomeProfessionalsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Executive Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -276,7 +280,7 @@ export default function HighIncomeProfessionalsPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about high-income tax returns, executive remuneration, ESS statements, tax planning and lodgement with Financially Up."
+        subtitle={<BrandText text={"Common questions about high-income tax returns, executive remuneration, ESS statements, tax planning and lodgement with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="High Income Tax Accountant Frequently Asked Questions"
         items={highIncomeFaqs}

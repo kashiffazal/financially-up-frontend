@@ -13,6 +13,8 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpRental Component
@@ -30,7 +32,7 @@ export default function WhyChooseFinanciallyUpRental() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: "TPB Registered Agent #26234055",
+      subtitle: <BrandText text={"TPB Registered Agent #26234055"} />,
     },
     {
       icon: (
@@ -60,7 +62,7 @@ export default function WhyChooseFinanciallyUpRental() {
             Trusted Property Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
 
@@ -74,7 +76,7 @@ export default function WhyChooseFinanciallyUpRental() {
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up can prepare and review rental property tax
+              <CompanyName /> can prepare and review rental property tax
               reporting, reconcile records where information is incomplete,
               classify expenses, identify amounts that require capital treatment
               and coordinate related CGT or planning work where separately
@@ -90,7 +92,7 @@ export default function WhyChooseFinanciallyUpRental() {
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up is a registered tax agent with more than 10 years
+              <CompanyName /> is a registered tax agent with more than 10 years
               of experience. Our team includes CPA and IPA professionals, with
               Australia-wide online support and in-person appointment options.
             </p>
@@ -124,7 +126,7 @@ export default function WhyChooseFinanciallyUpRental() {
           <div className="text-center lg:text-left">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Speak with a Property Tax Accountant at{" "}
-              {company?.legalName || "Financially Up"}
+              {company?.legalName}
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl font-normal">
               Get your rental property tax return prepared with accuracy,

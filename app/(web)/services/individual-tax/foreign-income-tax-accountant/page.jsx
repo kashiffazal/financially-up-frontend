@@ -7,11 +7,17 @@ import HowFinanciallyUpHelpsForeign from "./components/HowFinanciallyUpHelpsFore
 import ForeignRelatedServiceRibbon from "./components/ForeignRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Foreign Income Tax Accountant in Australia | Financially Up",
   description:
     "Foreign income tax accountant for Australians with overseas income, foreign tax paid, rental property, investments and tax return needs.",
@@ -27,18 +33,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/foreign-income-tax-accountant/",
+      `${SITE_URL}/services/individual-tax/foreign-income-tax-accountant/`,
   },
   openGraph: {
     title: "Foreign Income Tax Accountant in Australia | Financially Up",
     description:
       "Foreign income tax accountant for Australians with overseas income, foreign tax paid, rental property, investments and tax return needs.",
-    url: "https://financiallyup.com.au/services/individual-tax/foreign-income-tax-accountant/",
+    url: `${SITE_URL}/services/individual-tax/foreign-income-tax-accountant/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -83,7 +90,7 @@ const foreignQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -201,10 +208,7 @@ export default function ForeignIncomeTaxAccountantPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -219,7 +223,7 @@ export default function ForeignIncomeTaxAccountantPage() {
               already paid may all require review under Australian rules.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides foreign income tax accountant
+              <CompanyName legal /> provides foreign income tax accountant
               services for Australian individuals who need help determining what
               to report and how to prepare their Australian return. We assist
               clients Australia-wide with foreign-income tax return preparation,
@@ -249,7 +253,7 @@ export default function ForeignIncomeTaxAccountantPage() {
           "Worldwide Income & Tax Residency Audits",
           "Foreign Income Tax Offsets (FITO & $1k Cap)",
           "DTA Double Tax Agreement Treaty Scoping",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={foreignQuickSpecs}
         primaryCta={{
@@ -258,7 +262,7 @@ export default function ForeignIncomeTaxAccountantPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Foreign Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -283,7 +287,7 @@ export default function ForeignIncomeTaxAccountantPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about declaring overseas income, foreign tax offsets, currency conversions and tax treaties with Financially Up."
+        subtitle={<BrandText text={"Common questions about declaring overseas income, foreign tax offsets, currency conversions and tax treaties with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Foreign Income Tax Accountant Frequently Asked Questions"
         items={foreignFaqs}
@@ -295,7 +299,7 @@ export default function ForeignIncomeTaxAccountantPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an appointment to discuss your residency circumstances, overseas income, foreign tax documents and available records. Financially Up will explain the information required, the proposed service scope and the next steps for preparing your Australian tax return."
+        subtitle={<BrandText text={"Book an appointment to discuss your residency circumstances, overseas income, foreign tax documents and available records. Financially Up will explain the information required, the proposed service scope and the next steps for preparing your Australian tax return."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

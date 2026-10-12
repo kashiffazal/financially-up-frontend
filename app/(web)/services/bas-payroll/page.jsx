@@ -10,13 +10,17 @@ import WhatInformationNeeded from "./components/WhatInformationNeeded";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document:
  * '5th Pillar BAS, GST & Payroll.docx' (Page 1 - Verbatim)
  */
-export const metadata = {
+const baseMetadata = {
   title: "BAS Lodgement & GST Services Australia | Financially Up",
   description:
     "BAS lodgement, GST and payroll support for Australian businesses. Financially Up helps with activity statements, GST records and compliance.",
@@ -33,18 +37,19 @@ export const metadata = {
     "business activity statement",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/",
+    canonical: `${SITE_URL}/services/bas-payroll/`,
   },
   openGraph: {
     title: "BAS Lodgement & GST Services Australia | Financially Up",
     description:
       "BAS lodgement, GST and payroll support for Australian businesses. Financially Up helps with activity statements, GST records and compliance.",
-    url: "https://financiallyup.com.au/services/bas-payroll/",
+    url: `${SITE_URL}/services/bas-payroll/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for BAS & Payroll
@@ -250,10 +255,7 @@ export default function BasPayrollMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -266,7 +268,7 @@ export default function BasPayrollMainPage() {
         titleHighlight=""
         description={
           <p className="m-0">
-            Financially Up provides practical BAS lodgement, GST and payroll
+            <CompanyName /> provides practical BAS lodgement, GST and payroll
             support for businesses that want their activity-statement reporting,
             GST records and related compliance kept organized. The service is
             suited to sole traders, companies, trusts and partnerships that need

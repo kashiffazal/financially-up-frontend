@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsDisclosure Component
@@ -68,10 +69,10 @@ export default function HowFinanciallyUpHelpsDisclosure() {
             Our Client Services
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            As your ATO voluntary disclosure accountant, Financially Up can
+            As your ATO voluntary disclosure accountant, <CompanyName /> can
             review the original reporting, reconstruct the corrected position,
             assess the appropriate lodgment or disclosure pathway and prepare
             supporting calculations. We can communicate with the ATO within the

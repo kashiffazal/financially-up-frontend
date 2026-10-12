@@ -23,7 +23,7 @@ import { useCompany } from "@/context/SettingsContext";
  */
 export default function CompanyTaxProcessSteps() {
   const company = useCompany();
-  const phoneDisplay = company?.phone || "1300 328 316";
+  const phoneDisplay = company?.phone;
 
   const steps = [
     {

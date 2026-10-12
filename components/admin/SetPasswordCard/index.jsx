@@ -10,6 +10,7 @@ import { AntInput } from "@/services/antdFields";
 import { useTheme } from "@/app/ThemeProvider";
 import { PASSWORD_HINT, passwordRules } from "@/lib/passwordPolicy";
 import styles from "./SetPasswordCard.module.css";
+import { useBrandText } from "@/context/SettingsContext";
 
 /**
  * Public page opened from the "Set your password" / "Reset your password"
@@ -19,6 +20,7 @@ import styles from "./SetPasswordCard.module.css";
  * @param {string} token - from the URL
  */
 export default function SetPasswordCard({ token }) {
+  const brand = useBrandText();
   const { isDark } = useTheme();
   const [form] = Form.useForm();
   const [state, setState] = useState({ status: "checking", info: null, message: "" });
@@ -59,7 +61,7 @@ export default function SetPasswordCard({ token }) {
       <div className={styles.card}>
         <Image
           src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-          alt="Financially Up"
+          alt={brand("Financially Up")}
           width={170}
           height={40}
           className={styles.logo}

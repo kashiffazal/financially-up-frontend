@@ -8,6 +8,7 @@ import {
   FileSearchOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * FindingRightGovernmentGrant Component
@@ -44,7 +45,7 @@ export default function FindingRightGovernmentGrant() {
 
         {/* 2 Main Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-teal-600 dark:text-teal-400">
@@ -85,7 +86,7 @@ export default function FindingRightGovernmentGrant() {
             </div>
           </div>
 
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-emerald-600 dark:text-emerald-400">
@@ -119,7 +120,7 @@ export default function FindingRightGovernmentGrant() {
               <p className="text-xs text-emerald-900 dark:text-emerald-200 leading-relaxed font-normal">
                 <strong>Public Access Transparency:</strong> Official grant
                 information is available free through government websites.
-                Financially Up does not sell access to government grant
+                <CompanyName /> does not sell access to government grant
                 information; our professional service relates to assessment,
                 accounting and application support.
               </p>
@@ -131,9 +132,10 @@ export default function FindingRightGovernmentGrant() {
         <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center gap-4">
           <InfoCircleOutlined className="text-xl text-slate-400 shrink-0" />
           <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up does not sell access to government grant information.
-            Our professional service relates to assessment, accounting and
-            application support where a business chooses to engage us.
+            <CompanyName /> does not sell access to government grant
+            information. Our professional service relates to assessment,
+            accounting and application support where a business chooses to
+            engage us.
           </p>
         </div>
       </div>

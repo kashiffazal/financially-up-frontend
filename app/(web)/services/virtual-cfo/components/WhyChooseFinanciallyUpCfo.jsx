@@ -8,8 +8,9 @@ import {
   CalendarOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpCfo Component
@@ -24,6 +25,7 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
  * Background: Clean White.
  */
 export default function WhyChooseFinanciallyUpCfo() {
+  const brand = useBrandText();
   const company = useCompany();
 
   /**
@@ -75,12 +77,12 @@ export default function WhyChooseFinanciallyUpCfo() {
 
           {/* Exact H2 Heading from Document */}
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why choose Financially Up?
+            Why choose <CompanyName />?
           </h2>
 
           {/* Exact Verbatim Paragraph from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of
+            <CompanyName /> is a registered tax agent with more than 10 years of
             experience across accounting, taxation, bookkeeping and business
             advisory work. Our team includes CPA and IPA professionals, and we
             support clients Australia-wide through online and in-person
@@ -125,10 +127,10 @@ export default function WhyChooseFinanciallyUpCfo() {
           secondaryButton={{
             text: company?.phone
               ? `Call ${company.phone}`
-              : "Call 1300 328 316",
+              : brand("Call 1300 328 316"),
             href: company?.phone
               ? `tel:${company.phone.replace(/\s/g, "")}`
-              : "tel:1300328316",
+              : brand("tel:1300328316"),
           }}
         />
       </div>

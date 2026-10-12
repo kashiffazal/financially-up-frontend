@@ -14,6 +14,7 @@ import {
   FolderOpenOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatBookkeepingIncludes Component
@@ -111,7 +112,7 @@ export default function WhatBookkeepingIncludes() {
             </h3>
             {/* Document Paragraph 2 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-              Depending on the agreed scope, Financially Up can assist with
+              Depending on the agreed scope, <CompanyName /> can assist with
               transaction processing, bank and credit-card reconciliations,
               review of income and expense coding, supplier and customer
               records, bookkeeping clean-up and preparation of records for

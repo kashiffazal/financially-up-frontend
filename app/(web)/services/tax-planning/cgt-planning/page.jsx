@@ -10,12 +10,17 @@ import HowFinanciallyUpHelpsCgt from "./components/HowFinanciallyUpHelpsCgt";
 import RelatedCgtPlanningRibbon from "./components/RelatedCgtPlanningRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Capital Gains Tax Advice & CGT Planning | Financially Up",
   description:
     "Get capital gains tax advice before selling property, shares or business assets. Financially Up provides practical CGT planning across Australia.",
@@ -29,18 +34,19 @@ export const metadata = {
     "carried forward capital losses",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/cgt-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/cgt-planning/`,
   },
   openGraph: {
     title: "Capital Gains Tax Advice & CGT Planning | Financially Up",
     description:
       "Get capital gains tax advice before selling property, shares or business assets. Financially Up provides practical CGT planning across Australia.",
-    url: "https://financiallyup.com.au/services/tax-planning/cgt-planning/",
+    url: `${SITE_URL}/services/tax-planning/cgt-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -128,10 +134,7 @@ export default function CgtPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -164,7 +167,7 @@ export default function CgtPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "CGT Advisory Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -195,7 +198,7 @@ export default function CgtPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about CGT event timing, 50% discount conditions, capital losses, and planning advice with Financially Up."
+        subtitle={<BrandText text={"Common questions about CGT event timing, 50% discount conditions, capital losses, and planning advice with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="CGT Planning Frequently Asked Questions"
         items={cgtPlanningFaqs}
@@ -207,7 +210,7 @@ export default function CgtPlanningPage() {
       <CallToActionBanner
         tag="Capital Gains Tax Advisory"
         title="Book an Appointment"
-        subtitle="Discuss a proposed property, share, investment or business-asset transaction with Financially Up and identify the CGT issues that should be reviewed before you proceed."
+        subtitle={<BrandText text={"Discuss a proposed property, share, investment or business-asset transaction with Financially Up and identify the CGT issues that should be reviewed before you proceed."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

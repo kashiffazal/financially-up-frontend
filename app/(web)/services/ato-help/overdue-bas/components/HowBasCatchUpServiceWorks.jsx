@@ -9,6 +9,7 @@ import {
   CloudUploadOutlined,
   BankOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowBasCatchUpServiceWorks Component
@@ -81,7 +82,7 @@ export default function HowBasCatchUpServiceWorks() {
           <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
             A catch-up engagement is normally handled in stages so the figures
             remain traceable and later periods are not built on incorrect
-            opening balances. Financially Up may first review the ATO activity
+            opening balances. <CompanyName /> may first review the ATO activity
             statement history, accounting file, bank reconciliations and payroll
             records. We then identify the missing work and prepare the overdue
             periods in sequence.

@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpRepresentation from "./components/WhyChooseFinancia
 import RelatedAtoRepresentationRibbon from "./components/RelatedAtoRepresentationRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 10 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Representation Services Australia | Financially Up",
   description:
     "ATO representation services for individuals and businesses needing a registered tax agent to communicate with the ATO and manage complex ATO tax matters.",
@@ -28,18 +34,19 @@ export const metadata = {
     "ATO authority to act",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/ato-representation/",
+    canonical: `${SITE_URL}/services/ato-help/ato-representation/`,
   },
   openGraph: {
     title: "ATO Representation Services Australia | Financially Up",
     description:
       "ATO representation services for individuals and businesses needing a registered tax agent to communicate with the ATO and manage complex ATO tax matters.",
-    url: "https://financiallyup.com.au/services/ato-help/ato-representation/",
+    url: `${SITE_URL}/services/ato-help/ato-representation/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -66,7 +73,7 @@ const representationFaqs = [
   },
   {
     key: "2",
-    label: "Can Financially Up represent me if I already have another accountant?",
+    label: <BrandText text={"Can Financially Up represent me if I already have another accountant?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         It depends on the matter and the existing agent relationships. A client can change registered agents, and in some circumstances representation may be limited to a particular obligation. The current authorizations should be reviewed before changes are made so access is not disrupted unnecessarily.
@@ -118,10 +125,7 @@ export default function AtoRepresentationPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -133,7 +137,7 @@ export default function AtoRepresentationPage() {
               ATO representation services allow an authorized registered tax agent to deal with the Australian Taxation Office on your behalf for agreed tax matters. This can be useful when an ATO issue is taking time, the correspondence is technical, multiple lodgments or accounts are involved, or you want a professional to coordinate the next steps and communicate consistently with the ATO.
             </span>
             <span className="block mt-2">
-              Financially Up can assist individuals, sole traders, companies, trusts and other business clients with ATO tax agent representation within the scope of our engagement. We can review the issue, identify the records or lodgments that need attention, communicate with the ATO where authorized, and help keep the matter moving. Complex litigation, formal legal representation and matters outside registered tax-agent scope may require a lawyer or another specialist.
+              <CompanyName /> can assist individuals, sole traders, companies, trusts and other business clients with ATO tax agent representation within the scope of our engagement. We can review the issue, identify the records or lodgments that need attention, communicate with the ATO where authorized, and help keep the matter moving. Complex litigation, formal legal representation and matters outside registered tax-agent scope may require a lawyer or another specialist.
             </span>
           </span>
         }
@@ -144,7 +148,7 @@ export default function AtoRepresentationPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.9 • Statutory Tax Agent Representation"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Client-to-Agent Linking Portal Support",
           "Direct Registered-Agent Communication Channels",
         ]}
@@ -154,7 +158,7 @@ export default function AtoRepresentationPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

@@ -13,6 +13,7 @@ import {
   DashboardOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatToBringAndDashboardScope Component
@@ -30,7 +31,7 @@ export default function WhatToBringAndDashboardScope() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: `TPB Agent #${company.tpbNumber || "26234055"}`,
+      subtitle: `TPB Agent #${company.taxAgentNumber}`,
       desc: "More than 10 years of experience ensuring financial dashboards reflect clean accounting records.",
     },
     {
@@ -106,7 +107,7 @@ export default function WhatToBringAndDashboardScope() {
                   use.
                 </p>
                 <p>
-                  {company.legalName || "Financially Up Pty Ltd"} has more than
+                  {company.legalName} has more than
                   10 years of experience and a team including CPA and IPA
                   members. We provide online and in-person appointments to
                   businesses across Australia. Our aim is a dashboard that makes
@@ -148,7 +149,7 @@ export default function WhatToBringAndDashboardScope() {
               Make Your Numbers Easier to Use
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 m-0">
-              Speak with Financially Up to design a tailored finance dashboard
+              Speak with <CompanyName /> to design a tailored finance dashboard
               today.
             </p>
           </div>

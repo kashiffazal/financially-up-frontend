@@ -12,6 +12,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * RecordKeepingSupportingInfo Component
@@ -147,7 +148,7 @@ export default function RecordKeepingSupportingInfo() {
                 </h4>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Financially Up can identify the records needed for the work
+                <CompanyName /> can identify the records needed for the work
                 being prepared. We do not recommend guessing figures where
                 source information is unavailable; missing information should be
                 addressed using appropriate records and a supportable method.

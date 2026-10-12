@@ -10,6 +10,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PropertyCapitalGainsAndTiming Component
@@ -79,7 +80,7 @@ export default function PropertyCapitalGainsAndTiming() {
             Because CGT can depend on the property’s history, keeping purchase
             documents, improvement costs, sale records and records of periods of
             private or income-producing use is important. Detailed CGT
-            calculations are covered more fully in Financially Up’s Capital
+            calculations are covered more fully in <CompanyName />’s Capital
             Gains Tax service.
           </p>
         </div>

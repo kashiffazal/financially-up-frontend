@@ -17,6 +17,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * CommonSignsBooksNeedCleanup Component
@@ -174,7 +175,7 @@ export default function CommonSignsBooksNeedCleanup() {
             </div>
             <div className="mt-6 pt-4 border-t border-white/20 flex flex-wrap items-center justify-between gap-4">
               <span className="text-xs text-emerald-100">
-                Registered Tax Agent #26234055 • CPA &amp; IPA Qualified
+                Registered Tax Agent #<BrandText text={"26234055"} /> • CPA &amp; IPA Qualified
               </span>
               <Link href="/book-an-appointment">
                 <Button

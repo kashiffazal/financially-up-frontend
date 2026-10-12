@@ -13,6 +13,7 @@ import {
   ToolOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatVirtualCfoDoesNotReplace Component
@@ -99,7 +100,7 @@ export default function WhatVirtualCfoDoesNotReplace() {
             A virtual CFO service is not automatically the same as bookkeeping,
             tax return preparation, audit, legal advice or regulated financial
             product advice. Those functions can interact, but they have
-            different purposes and professional boundaries. Financially Up can
+            different purposes and professional boundaries. <CompanyName /> can
             coordinate accounting, tax, bookkeeping and business advisory work
             within scope. Where legal advice or regulated financial product
             advice is required, an appropriately qualified or authorised

@@ -7,6 +7,7 @@ import {
   CheckCircleOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsApplication Component
@@ -38,10 +39,10 @@ export default function HowFinanciallyUpHelpsApplication() {
             Engagement Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Within an agreed scope, Financially Up provides end-to-end guidance
+            Within an agreed scope, <CompanyName /> provides end-to-end guidance
             from initial readiness checks to ATO return lodgement.
           </p>
         </div>

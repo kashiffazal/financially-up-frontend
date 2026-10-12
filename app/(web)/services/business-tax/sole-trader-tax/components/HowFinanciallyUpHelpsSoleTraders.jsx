@@ -15,7 +15,8 @@ import {
   ArrowRightOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsSoleTraders Component
@@ -25,6 +26,7 @@ import { useCompany } from "@/context/SettingsContext";
  * Dynamic company contact integration via useCompany().
  */
 export default function HowFinanciallyUpHelpsSoleTraders() {
+  const brand = useBrandText();
   const company = useCompany();
 
   const serviceCapabilities = [
@@ -64,7 +66,7 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
         <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `Financially Up is a registered tax agent (TPB #${company?.tpbNumber || "26234055"}), providing authorized ATO representation and lodgment program extensions.`,
+      desc: brand(`Financially Up is a registered tax agent (TPB #${company?.taxAgentNumber}), providing authorized ATO representation and lodgment program extensions.`),
     },
     {
       icon: (
@@ -101,7 +103,7 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
             Professional Assistance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Our sole trader accounting services can include reviewing business
@@ -153,10 +155,10 @@ export default function HowFinanciallyUpHelpsSoleTraders() {
             Practitioner Credentials
           </Tag>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why Choose Financially Up?
+            Why Choose <CompanyName />?
           </h3>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of
+            <CompanyName /> is a registered tax agent with more than 10 years of
             experience. Our professional accounting and tax team includes CPA
             and IPA members. We support sole traders Australia-wide through
             online appointments, with in-person meetings also available where

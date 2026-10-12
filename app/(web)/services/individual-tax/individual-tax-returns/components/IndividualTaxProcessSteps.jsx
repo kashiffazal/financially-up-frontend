@@ -12,7 +12,8 @@ import {
   ArrowRightOutlined,
   PhoneOutlined,
 } from "@ant-design/icons";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * IndividualTaxProcessSteps Component
@@ -23,14 +24,15 @@ import { useCompany } from "@/context/SettingsContext";
  * Always utilizes Ant Design Button components for interactive actions.
  */
 export default function IndividualTaxProcessSteps() {
+  const brand = useBrandText();
   const company = useCompany();
-  const phoneDisplay = company?.phone || "1300 328 316";
+  const phoneDisplay = company?.phone;
 
   const processSteps = [
     {
       step: "1",
       title: "Book an Appointment",
-      description: `Book online through the Financially Up website or arrange an appointment by calling ${phoneDisplay}. Online meetings are conducted using an Outlook Calendar online meeting link. In-person appointments are also available by arrangement.`,
+      description: brand(`Book online through the Financially Up website or arrange an appointment by calling ${phoneDisplay}. Online meetings are conducted using an Outlook Calendar online meeting link. In-person appointments are also available by arrangement.`),
       icon: (
         <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
@@ -48,7 +50,7 @@ export default function IndividualTaxProcessSteps() {
       step: "3",
       title: "Provide Your Documents",
       description:
-        "Financially Up will advise which records are needed and how to provide them. If information is incomplete or unclear, we will let you know what else is required before the return can be finalized.",
+        <BrandText text={"Financially Up will advise which records are needed and how to provide them. If information is incomplete or unclear, we will let you know what else is required before the return can be finalized."} />,
       icon: (
         <CloudUploadOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />
       ),
@@ -66,7 +68,7 @@ export default function IndividualTaxProcessSteps() {
       step: "5",
       title: "Approve Lodgement",
       description:
-        "Once the return is complete, you approve it before lodgement with the ATO. Any additional tax advice or broader financial advice is provided only within the services Financially Up is legally authorized to provide and may require a separate scope.",
+        <BrandText text={"Once the return is complete, you approve it before lodgement with the ATO. Any additional tax advice or broader financial advice is provided only within the services Financially Up is legally authorized to provide and may require a separate scope."} />,
       icon: (
         <CheckCircleOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),

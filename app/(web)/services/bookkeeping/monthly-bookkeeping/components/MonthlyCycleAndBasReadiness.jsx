@@ -12,6 +12,7 @@ import {
   CheckCircleOutlined,
   SlidersOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * MonthlyCycleAndBasReadiness Component
@@ -129,8 +130,7 @@ export default function MonthlyCycleAndBasReadiness() {
                   but it is separate from BAS preparation and lodgement. Work
                   that requires determining GST treatment or preparing or
                   lodging a BAS should be included in separately scoped
-                  compliance work. If you need BAS support as well, Financially
-                  Up can coordinate the bookkeeping process with its BAS and GST
+                  compliance work. If you need BAS support as well, <CompanyName /> can coordinate the bookkeeping process with its BAS and GST
                   lodgement service.
                 </p>
               </div>

@@ -92,7 +92,7 @@ export default function IasLodgementProcess() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex flex-col justify-between"
+              className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">

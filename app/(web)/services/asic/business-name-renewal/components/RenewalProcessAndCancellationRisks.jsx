@@ -38,7 +38,7 @@ export default function RenewalProcessAndCancellationRisks() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               ASIC provides a direct business name renewal process and also
               allows renewal through ASIC Connect. Once the renewal is
@@ -99,7 +99,7 @@ export default function RenewalProcessAndCancellationRisks() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               If the renewal is not completed, ASIC may begin the process of
               cancelling the business name. ASIC states that the most common

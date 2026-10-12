@@ -6,11 +6,17 @@ import NewMigrantsChecklistAndMeeting from "./components/NewMigrantsChecklistAnd
 import RelatedNewMigrantsRibbon from "./components/RelatedNewMigrantsRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Tax Accountant for New Migrants Australia | Financially Up",
   description:
     "New to Australia? Financially Up reviews tax residency, overseas income, part-year rules and the records needed for your first Australian tax return.",
@@ -24,18 +30,19 @@ export const metadata = {
     "migrant tax advice sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/new-migrants-tax/",
+    canonical: `${SITE_URL}/services/international-tax/new-migrants-tax/`,
   },
   openGraph: {
     title: "Tax Accountant for New Migrants Australia | Financially Up",
     description:
       "New to Australia? Financially Up reviews tax residency, overseas income, part-year rules and the records needed for your first Australian tax return.",
-    url: "https://financiallyup.com.au/services/international-tax/new-migrants-tax/",
+    url: `${SITE_URL}/services/international-tax/new-migrants-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -89,7 +96,7 @@ const newMigrantsFaqs = [
   },
   {
     key: "5",
-    label: "Can Financially Up prepare my first Australian tax return",
+    label: <BrandText text={"Can Financially Up prepare my first Australian tax return"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Yes, within an agreed engagement. We first check residency, income sources and records so the return reflects your circumstances and any separate advice needs are identified.
@@ -123,10 +130,7 @@ export default function NewMigrantsTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -138,7 +142,7 @@ export default function NewMigrantsTaxPage() {
               Moving to Australia can change which income needs to be reported and how your first tax return is prepared. Your visa, arrival date and tax residency are related but separate questions. Income earned overseas, investments, a property left abroad and tax already paid in another country may all need review before you lodge.
             </span>
             <span className="block mt-2">
-              Financially Up helps new arrivals understand their Australian tax position and prepare an accurate return within an agreed scope. As a tax accountant for new migrants in Australia, we start with your circumstances rather than assuming everyone who arrives has the same obligations.
+              <CompanyName /> helps new arrivals understand their Australian tax position and prepare an accurate return within an agreed scope. As a tax accountant for new migrants in Australia, we start with your circumstances rather than assuming everyone who arrives has the same obligations.
             </span>
           </span>
         }
@@ -159,7 +163,7 @@ export default function NewMigrantsTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -192,8 +196,8 @@ export default function NewMigrantsTaxPage() {
       {/* 6. Pre-Footer Call to Action Banner (Verbatim from Client Document) */}
       <CallToActionBanner
         tag="Get clarity on your first Australian tax year"
-        title="Book an Appointment with Financially Up"
-        subtitle="Book an Appointment with Financially Up to discuss your arrival timeline, Australian and overseas income, and the tax advice or return preparation you need."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss your arrival timeline, Australian and overseas income, and the tax advice or return preparation you need."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

@@ -14,6 +14,7 @@ import {
   SyncOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinanciallyUpMaintainsAndReconstruction Component
@@ -60,7 +61,7 @@ export default function WhatFinanciallyUpMaintainsAndReconstruction() {
               Maintenance Scope & Assembly
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              What Financially Up can help maintain
+              What <CompanyName /> can help maintain
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               The exact scope depends on the company&apos;s structure, history
@@ -72,7 +73,7 @@ export default function WhatFinanciallyUpMaintainsAndReconstruction() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
               {maintenanceItems.map((item, idx) => (
                 <div
@@ -88,7 +89,7 @@ export default function WhatFinanciallyUpMaintainsAndReconstruction() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal pt-4 mt-6 border-t border-slate-100 dark:border-zinc-800 m-0">
-              Financially Up can help with the accounting and
+              <CompanyName /> can help with the accounting and
               company-administration aspects of these records. We do not replace
               legal advice on the validity of historical transactions,
               shareholder rights, disputes, constitutional interpretation or
@@ -100,7 +101,7 @@ export default function WhatFinanciallyUpMaintainsAndReconstruction() {
           {/* Subsections 2 & 3: Reconstructed & Ongoing Management side-by-side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Subsection 2: Can an incomplete corporate register be reconstructed? */}
-            <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-4 flex flex-col justify-between">
+            <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-4 flex flex-col justify-between">
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
                   Can an incomplete corporate register be reconstructed?
@@ -123,7 +124,7 @@ export default function WhatFinanciallyUpMaintainsAndReconstruction() {
             </div>
 
             {/* Subsection 3: Ongoing company register management service */}
-            <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-4 flex flex-col justify-between">
+            <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-4 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2.5 mb-2">
                   <SyncOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
@@ -155,16 +156,16 @@ export default function WhatFinanciallyUpMaintainsAndReconstruction() {
         </div>
 
         {/* Subsection 4: Why choose Financially Up */}
-        <div className="w-full rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+        <div className="w-full rounded-lg p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
               Reliable Internal Records
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Why choose Financially Up
+              Why choose <CompanyName />
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up supports company owners with accounting, tax and
+              <CompanyName /> supports company owners with accounting, tax and
               corporate administration. We are a registered tax agent with more
               than 10 years of experience, and our team includes CPA and IPA
               members. We provide Australia-wide support through online

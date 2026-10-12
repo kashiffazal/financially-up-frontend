@@ -8,11 +8,17 @@ import ComplianceReviewDocumentsAndWhyChoose from "./components/ComplianceReview
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Compliance Services Australia | Financially Up",
   description:
     "SMSF compliance support for trustees covering records, investment rules, annual obligations and issues identified before accounting, audit and lodgement.",
@@ -26,18 +32,19 @@ export const metadata = {
     "superannuation compliance Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/compliance/",
+    canonical: `${SITE_URL}/services/smsf/compliance/`,
   },
   openGraph: {
     title: "SMSF Compliance Services Australia | Financially Up",
     description:
       "SMSF compliance support for trustees covering records, investment rules, annual obligations and issues identified before accounting, audit and lodgement.",
-    url: "https://financiallyup.com.au/services/smsf/compliance/",
+    url: `${SITE_URL}/services/smsf/compliance/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -117,7 +124,7 @@ const smsfComplianceFaqs = [
   },
   {
     key: "3",
-    label: "Can Financially Up do an SMSF compliance review before year-end?",
+    label: <BrandText text={"Can Financially Up do an SMSF compliance review before year-end?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Yes. A review can be useful when trustees are planning a transaction,
@@ -190,10 +197,7 @@ export default function SmsfComplianceSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -202,7 +206,7 @@ export default function SmsfComplianceSubpage() {
         subtitle="SMSF compliance means operating the fund in accordance with its trust deed, superannuation law and the reporting obligations that apply to self-managed super funds. Trustees are responsible for the fund’s decisions, even when accountants, administrators or advisers assist with the work."
         bodyText={
           <span>
-            Financially Up provides SMSF compliance support by reviewing
+            <CompanyName /> provides SMSF compliance support by reviewing
             accounting records, identifying transactions or documentation that
             may need attention, helping trustees prepare for annual accounting
             and audit, and coordinating tax and reporting work within our scope.
@@ -237,7 +241,7 @@ export default function SmsfComplianceSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Compliance Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -274,7 +278,7 @@ export default function SmsfComplianceSubpage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="SMSF Compliance Review"
-        subtitle="If you want to check your SMSF’s accounting and compliance position before audit or lodgement, book an appointment with Financially Up to discuss the fund and the records available."
+        subtitle={<BrandText text={"If you want to check your SMSF’s accounting and compliance position before audit or lodgement, book an appointment with Financially Up to discuss the fund and the records available."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore SMSF Services"

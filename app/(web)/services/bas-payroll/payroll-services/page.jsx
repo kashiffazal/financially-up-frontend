@@ -11,8 +11,12 @@ import PayrollObligationsAndPaydaySuper from "./components/PayrollObligationsAnd
 import PracticalPayrollManagementProcess from "./components/PracticalPayrollManagementProcess";
 import InformationNeededPayroll from "./components/InformationNeededPayroll";
 import WhyChooseFinanciallyUpPayroll from "./components/WhyChooseFinanciallyUpPayroll";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Payroll Services Australia | Payroll Processing & Support",
   description:
     "Payroll services for Australian businesses, including payroll processing, records, STP coordination and employer reporting support. Book an appointment.",
@@ -26,16 +30,17 @@ export const metadata = {
     "payroll accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/payroll-services/",
+    canonical: `${SITE_URL}/services/bas-payroll/payroll-services/`,
   },
   openGraph: {
     title: "Payroll Services Australia | Payroll Processing & Support",
     description:
       "Payroll services for Australian businesses, including payroll processing, records, STP coordination and employer reporting support. Book an appointment.",
-    url: "https://financiallyup.com.au/services/bas-payroll/payroll-services/",
+    url: `${SITE_URL}/services/bas-payroll/payroll-services/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -89,10 +94,7 @@ export default function PayrollServicesPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-zinc-900">
         {/* Hero Section */}
@@ -105,7 +107,7 @@ export default function PayrollServicesPage() {
           badge="Payroll Services"
           title="Payroll Services for Australian Businesses"
           subtitle="Pay employees accurately, keep records organized, and meet recurring employer compliance obligations."
-          description={`Reliable payroll services help businesses pay employees accurately, keep payroll records organized and meet recurring employer reporting obligations. Financially Up supports businesses that want payroll processed consistently without having to manage every calculation, reconciliation and reporting step internally.`}
+          description={<BrandText text={`Reliable payroll services help businesses pay employees accurately, keep payroll records organized and meet recurring employer reporting obligations. Financially Up supports businesses that want payroll processed consistently without having to manage every calculation, reconciliation and reporting step internally.`} />}
           appointmentNote="Need help reviewing your payroll setup, pay cycle or reporting process? Book an Appointment."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"

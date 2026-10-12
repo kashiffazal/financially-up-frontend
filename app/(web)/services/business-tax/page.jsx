@@ -9,11 +9,15 @@ import WhatToHaveReady from "./components/WhatToHaveReady";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 2nd pillar Business Tax Final Pages.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Tax Accountant | Financially Up",
   description:
     "Business tax accountant helping with tax returns, year-end accounts, compliance and practical accounting support for businesses Australia-wide.",
@@ -30,18 +34,19 @@ export const metadata = {
     "year end accounting Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/",
+    canonical: `${SITE_URL}/services/business-tax/`,
   },
   openGraph: {
     title: "Business Tax Accountant | Financially Up",
     description:
       "Business tax accountant helping with tax returns, year-end accounts, compliance and practical accounting support for businesses Australia-wide.",
-    url: "https://financiallyup.com.au/services/business-tax/",
+    url: `${SITE_URL}/services/business-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Business Tax
@@ -134,7 +139,7 @@ const businessTaxFaqs = [
     label: "Can you help with both business tax and accounting?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up provides business accounting services as well as
+        Yes. <CompanyName /> provides business accounting services as well as
         taxation, bookkeeping and business advisory services. The exact scope
         can be agreed based on your structure, records and obligations.
       </p>
@@ -236,10 +241,7 @@ export default function BusinessTaxMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -255,7 +257,7 @@ export default function BusinessTaxMainPage() {
             Running a business means managing more than an annual tax return.
             Your tax position is shaped by your business structure, income,
             expenses, GST, payroll, record keeping, year-end accounts and the
-            decisions you make throughout the year. Financially Up Pty Ltd
+            decisions you make throughout the year. <CompanyName legal />
             provides business tax and accounting support for businesses that
             want their compliance handled properly and their numbers explained
             clearly.

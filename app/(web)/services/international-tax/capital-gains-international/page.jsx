@@ -6,11 +6,17 @@ import DoubleTaxOnGainsAndRecords from "./components/DoubleTaxOnGainsAndRecords"
 import RelatedInternationalCgtRibbon from "./components/RelatedInternationalCgtRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Capital Gains Tax on Foreign Property Australia | Financially Up",
   description:
     "Get help with Australian CGT on overseas property or shares, including residency changes, cost base, currency conversion, records and foreign tax paid.",
@@ -24,18 +30,19 @@ export const metadata = {
     "cgt foreign property sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/capital-gains-international/",
+    canonical: `${SITE_URL}/services/international-tax/capital-gains-international/`,
   },
   openGraph: {
     title: "Capital Gains Tax on Foreign Property Australia | Financially Up",
     description:
       "Get help with Australian CGT on overseas property or shares, including residency changes, cost base, currency conversion, records and foreign tax paid.",
-    url: "https://financiallyup.com.au/services/international-tax/capital-gains-international/",
+    url: `${SITE_URL}/services/international-tax/capital-gains-international/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -114,10 +121,7 @@ export default function CapitalGainsInternationalPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -129,7 +133,7 @@ export default function CapitalGainsInternationalPage() {
               Capital gains tax on foreign property in Australia depends first on your tax residency when a relevant CGT event occurs. An Australian tax resident may need to report a gain or loss on an overseas property, foreign shares or another asset even if the sale proceeds stay abroad. A foreign resident is generally taxed in Australia on gains from taxable Australian property, subject to the applicable rules.
             </span>
             <span className="block mt-2">
-              Financially Up helps individuals work through the Australian CGT calculation where an asset, owner or residency history crosses borders. We review dates, ownership, supporting costs and foreign tax before preparing a return or providing advice within an agreed scope.
+              <CompanyName /> helps individuals work through the Australian CGT calculation where an asset, owner or residency history crosses borders. We review dates, ownership, supporting costs and foreign tax before preparing a return or providing advice within an agreed scope.
             </span>
           </span>
         }
@@ -150,7 +154,7 @@ export default function CapitalGainsInternationalPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -183,8 +187,8 @@ export default function CapitalGainsInternationalPage() {
       {/* 6. Pre-Footer Call to Action Banner (Verbatim from Client Document) */}
       <CallToActionBanner
         tag="Review the residency timeline before calculating the gain"
-        title="Book an Appointment with Financially Up"
-        subtitle="Book an Appointment with Financially Up to discuss the asset, your residency history, sale documents and the Australian CGT work required."
+        title={<BrandText text={"Book an Appointment with Financially Up"} />}
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss the asset, your residency history, sale documents and the Australian CGT work required."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore International Tax Hub"

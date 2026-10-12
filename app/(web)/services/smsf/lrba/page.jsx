@@ -8,11 +8,17 @@ import AnnualLrbaComplianceAndRecords from "./components/AnnualLrbaComplianceAnd
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF LRBA Accountant & Compliance Support | Financially Up",
   description:
     "SMSF LRBA accountant support for borrowing records, property accounting, annual compliance and related-party loan review. Australia-wide SMSF assistance.",
@@ -26,18 +32,19 @@ export const metadata = {
     "PCG 2016/5 SMSF safe harbor",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/lrba/",
+    canonical: `${SITE_URL}/services/smsf/lrba/`,
   },
   openGraph: {
     title: "SMSF LRBA Accountant & Compliance Support | Financially Up",
     description:
       "SMSF LRBA accountant support for borrowing records, property accounting, annual compliance and related-party loan review. Australia-wide SMSF assistance.",
-    url: "https://financiallyup.com.au/services/smsf/lrba/",
+    url: `${SITE_URL}/services/smsf/lrba/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -144,10 +151,10 @@ const smsfLrbaFaqs = [
   },
   {
     key: "5",
-    label: "Does Financially Up arrange SMSF loans?",
+    label: <BrandText text={"Does Financially Up arrange SMSF loans?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Financially Up provides accounting, tax and compliance support. Loan
+        No. <CompanyName /> provides accounting, tax and compliance support. Loan
         approval, credit assistance, legal documentation and financial product
         advice are separate services requiring the relevant authorized or
         qualified professional.
@@ -215,10 +222,7 @@ export default function SmsfLrbaSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -227,7 +231,7 @@ export default function SmsfLrbaSubpage() {
         subtitle="An SMSF is generally prohibited from borrowing, but a limited recourse borrowing arrangement can provide an exception where the statutory conditions are met. An SMSF LRBA accountant records the asset, holding arrangement, borrowing, repayments, income and expenses consistently and prepares the information required for the fund's annual accounts, audit and SMSF annual return."
         bodyText={
           <span>
-            Financially Up Pty Ltd provides accounting, tax and compliance
+            <CompanyName legal /> provides accounting, tax and compliance
             support for existing and proposed LRBAs. We do not provide loan
             approval, credit assistance, legal documents or financial product
             advice about whether borrowing suits your retirement strategy. Those
@@ -263,7 +267,7 @@ export default function SmsfLrbaSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Borrowing Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

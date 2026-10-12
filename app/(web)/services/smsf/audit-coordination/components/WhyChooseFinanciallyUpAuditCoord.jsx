@@ -11,6 +11,7 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpAuditCoord Component
@@ -28,7 +29,7 @@ export default function WhyChooseFinanciallyUpAuditCoord() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `${company.legalName || "Financially Up Pty Ltd"} is a registered tax agent (TPB #${company.tpbNumber || "26242127"}) with more than 10 years of experience across accounting, taxation and business advisory services.`,
+      desc: `${company.legalName} is a registered tax agent (TPB #${company.taxAgentNumber}) with more than 10 years of experience across accounting, taxation and business advisory services.`,
     },
     {
       icon: (
@@ -57,10 +58,10 @@ export default function WhyChooseFinanciallyUpAuditCoord() {
             Professional Credentials
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why choose Financially Up for SMSF audit coordination?
+            Why choose <CompanyName /> for SMSF audit coordination?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of
+            <CompanyName /> is a registered tax agent with more than 10 years of
             experience across accounting, taxation and business advisory
             services. Our team includes CPA and IPA members, and we support
             clients Australia-wide through online and in-person appointments.
@@ -93,13 +94,13 @@ export default function WhyChooseFinanciallyUpAuditCoord() {
         </div>
 
         {/* Call to Action Bar */}
-        <div className="p-8 rounded-3xl bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-8 rounded-lg bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
               Need help preparing for your SMSF annual audit?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 dark:text-zinc-400 max-w-xl font-normal">
-              Book an appointment with Financially Up to review the accounts,
+              Book an appointment with <CompanyName /> to review the accounts,
               audit records and next steps.
             </p>
           </div>

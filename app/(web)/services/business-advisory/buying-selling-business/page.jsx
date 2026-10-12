@@ -10,12 +10,16 @@ import WhyChooseFinanciallyUpTransactions from "./components/WhyChooseFinanciall
 import TransactionRelatedServicesRibbon from "./components/TransactionRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 6 (6- Buying and Selling a Business)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Sale Advisor | Buying and Selling a Business",
   description:
     "Buying or selling a business? Financially Up reviews financial records, transaction structure and tax considerations before you commit to a transaction.",
@@ -31,18 +35,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/buying-selling-business/",
+      `${SITE_URL}/services/business-advisory/buying-selling-business/`,
   },
   openGraph: {
     title: "Business Sale Advisor | Buying and Selling a Business",
     description:
       "Buying or selling a business? Financially Up reviews financial records, transaction structure and tax considerations before you commit to a transaction.",
-    url: "https://financiallyup.com.au/services/business-advisory/buying-selling-business/",
+    url: `${SITE_URL}/services/business-advisory/buying-selling-business/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -92,7 +97,7 @@ const transactionFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up negotiate the sale or draft the agreement?",
+    label: <BrandText text={"Can Financially Up negotiate the sale or draft the agreement?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         We provide accounting, tax and financial analysis within the agreed
@@ -118,7 +123,7 @@ const jsonLd = {
       provider: {
         "@type": "AccountingService",
         name: "Financially Up",
-        url: "https://financiallyup.com.au",
+        url: `${SITE_URL}`,
         telephone: "+61-1300-328-316",
         address: {
           "@type": "PostalAddress",
@@ -184,10 +189,7 @@ export default function BuyingSellingBusinessPage() {
   return (
     <>
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* SubServiceHero Component */}
       <SubServiceHero
@@ -195,7 +197,7 @@ export default function BuyingSellingBusinessPage() {
         subtitle="Buying & Selling a Business"
         description={[
           "Buying or selling a business involves more than agreeing on a price. Financial records must support the claims made about performance, the contract must identify what changes hands, and both sides need to understand tax, funding and transition obligations. Key decisions often become difficult to change once terms are signed.",
-          "Financially Up provides accounting and tax support for business acquisitions and sales. As a business sale advisor, we help sellers prepare reliable figures and help buyers examine the financial information presented to them. We work alongside lawyers, brokers, lenders and other specialists where their services are required. Book an Appointment before accepting or making a binding offer.",
+          <BrandText key="brand-1" text={"Financially Up provides accounting and tax support for business acquisitions and sales. As a business sale advisor, we help sellers prepare reliable figures and help buyers examine the financial information presented to them. We work alongside lawyers, brokers, lenders and other specialists where their services are required. Book an Appointment before accepting or making a binding offer."} />,
         ]}
         parentService={{
           label: "Business Advisory Hub",
@@ -250,7 +252,7 @@ export default function BuyingSellingBusinessPage() {
       {/* Section 10: Call to Action Banner */}
       <CallToActionBanner
         title="Discuss the deal before committing"
-        description="The earlier we see the records and proposed terms, the more useful the review can be. Financially Up can help you identify financial and tax questions to resolve before the transaction progresses. Book an Appointment."
+        description={<BrandText text={"The earlier we see the records and proposed terms, the more useful the review can be. Financially Up can help you identify financial and tax questions to resolve before the transaction progresses. Book an Appointment."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
       />

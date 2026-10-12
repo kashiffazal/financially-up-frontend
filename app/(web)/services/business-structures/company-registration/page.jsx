@@ -10,23 +10,28 @@ import PtyLtdCompanyAndNameDifferences from "./components/PtyLtdCompanyAndNameDi
 import WhatHappensAfterIncorporation from "./components/WhatHappensAfterIncorporation";
 import CommonCompanySetupIssues from "./components/CommonCompanySetupIssues";
 import WhyChooseFinanciallyUpCompanyReg from "./components/WhyChooseFinanciallyUpCompanyReg";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Company Registration Australia | Financially Up",
   description:
     "Company registration Australia support for Pty Ltd setup, ASIC registration, director details, shares, ABN and related accounting registrations.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/company-registration/",
+    canonical: `${SITE_URL}/services/business-structures/company-registration/`,
   },
   openGraph: {
     title: "Company Registration Australia | Financially Up",
     description:
       "Company registration Australia support for Pty Ltd setup, ASIC registration, director details, shares, ABN and related accounting registrations.",
-    url: "https://financiallyup.com.au/services/business-structures/company-registration/",
+    url: `${SITE_URL}/services/business-structures/company-registration/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -73,7 +78,7 @@ export default function CompanyRegistrationPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -84,10 +89,7 @@ export default function CompanyRegistrationPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -100,7 +102,7 @@ export default function CompanyRegistrationPage() {
           badgeText="ASIC Incorporation Services"
           title="Company Registration Australia"
           description={[
-            "Company registration in Australia creates a separate legal entity that is registered on the Australian companies register managed by ASIC. For business owners who have decided that a company structure is appropriate, Financially Up can assist with the practical setup process and the accounting and tax registrations that follow.",
+            <BrandText key="brand-0" text={"Company registration in Australia creates a separate legal entity that is registered on the Australian companies register managed by ASIC. For business owners who have decided that a company structure is appropriate, Financially Up can assist with the practical setup process and the accounting and tax registrations that follow."} />,
             "Registering a company is more than choosing a name. The application needs accurate details about the proposed company, addresses, directors, shareholders and share structure. Directors also have legal obligations once appointed, so the structure should be understood before registration is completed.",
           ]}
           ctaText="Book an Appointment"
@@ -139,7 +141,7 @@ export default function CompanyRegistrationPage() {
         {/* Section 8: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you are ready to register a company or want help making sure the proposed company details and related registrations are organised correctly, book an appointment with Financially Up. We can discuss the setup, the information required and the ongoing accounting or tax services that may be relevant."
+          description={<BrandText text={"If you are ready to register a company or want help making sure the proposed company details and related registrations are organised correctly, book an appointment with Financially Up. We can discuss the setup, the information required and the ongoing accounting or tax services that may be relevant."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

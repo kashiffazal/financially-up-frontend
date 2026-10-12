@@ -12,12 +12,18 @@ import HowFinanciallyUpHelpsPersonal from "./components/HowFinanciallyUpHelpsPer
 import RelatedPersonalTaxRibbon from "./components/RelatedPersonalTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Personal Tax Planning Australia | Financially Up",
   description:
     "Personal tax planning for Australians with salary, investments, property or changing income. Understand tax implications before key financial decisions.",
@@ -32,18 +38,19 @@ export const metadata = {
     "capital gains tax planning individual",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/personal-tax-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/personal-tax-planning/`,
   },
   openGraph: {
     title: "Personal Tax Planning Australia | Financially Up",
     description:
       "Personal tax planning for Australians with salary, investments, property or changing income. Understand tax implications before key financial decisions.",
-    url: "https://financiallyup.com.au/services/tax-planning/personal-tax-planning/",
+    url: `${SITE_URL}/services/tax-planning/personal-tax-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -100,7 +107,7 @@ const personalTaxPlanningFaqs = [
     label: "Can personal tax planning guarantee tax savings?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Tax planning can identify legitimate considerations, but the final tax outcome depends on the facts and tax law. Financially Up does not guarantee a particular tax saving, refund or result.
+        No. Tax planning can identify legitimate considerations, but the final tax outcome depends on the facts and tax law. <CompanyName /> does not guarantee a particular tax saving, refund or result.
       </p>
     ),
   },
@@ -140,10 +147,7 @@ export default function PersonalTaxPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -152,7 +156,7 @@ export default function PersonalTaxPlanningPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Personal tax planning helps individuals understand the tax implications of income, investments and major financial decisions before the relevant events have passed. Financially Up provides personal tax planning for Australians with employment income, investments, rental property, capital gains or other circumstances that benefit from forward-looking tax advice.
+              Personal tax planning helps individuals understand the tax implications of income, investments and major financial decisions before the relevant events have passed. <CompanyName /> provides personal tax planning for Australians with employment income, investments, rental property, capital gains or other circumstances that benefit from forward-looking tax advice.
             </span>
             <span className="block mt-2">
               The key distinction is timing. Tax return preparation reports what has already happened. Personal tax planning services consider what may happen next, what records or elections may be required, and how current tax rules apply before a transaction or financial year is complete.
@@ -167,7 +171,7 @@ export default function PersonalTaxPlanningPage() {
         subPillarTag="Pillar 3.2 • Personal Advisory Practice"
         highlights={[
           "Forward-Looking Personal Tax Modeling",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-1" text={"Registered Tax Agent #26234055"} />,
           "Virtual Consultations Australia-Wide",
         ]}
         primaryCta={{
@@ -176,7 +180,7 @@ export default function PersonalTaxPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Personal Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -213,7 +217,7 @@ export default function PersonalTaxPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about personal tax planning, pre-30 June timing, investment considerations, and advice scope with Financially Up."
+        subtitle={<BrandText text={"Common questions about personal tax planning, pre-30 June timing, investment considerations, and advice scope with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Personal Tax Planning Frequently Asked Questions"
         items={personalTaxPlanningFaqs}
@@ -225,7 +229,7 @@ export default function PersonalTaxPlanningPage() {
       <CallToActionBanner
         tag="Proactive Planning"
         title="Book an Appointment"
-        subtitle="Discuss your expected income, investments, property or upcoming transactions with Financially Up. We can identify the relevant tax questions, the records needed and whether tax-return preparation, specialist tax advice or another professional service should be scoped separately."
+        subtitle={<BrandText text={"Discuss your expected income, investments, property or upcoming transactions with Financially Up. We can identify the relevant tax questions, the records needed and whether tax-return preparation, specialist tax advice or another professional service should be scoped separately."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

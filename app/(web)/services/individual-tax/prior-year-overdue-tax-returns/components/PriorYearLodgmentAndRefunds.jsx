@@ -11,6 +11,7 @@ import {
   AuditOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * PriorYearLodgmentAndRefunds Component
@@ -43,7 +44,7 @@ export default function PriorYearLodgmentAndRefunds() {
 
         {/* 2 Key Realities Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
-          {/* Card 1: Registered Tax Agent Portal Lodgment */}
+          {/* Card 1: Registered Tax rounded-lgl Lodgment */}
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
@@ -90,12 +91,13 @@ export default function PriorYearLodgmentAndRefunds() {
             </div>
             <div className="mt-6 pt-5 border-t border-slate-100 dark:border-zinc-800">
               <span className="text-2xs font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">
-                Agent Status: TPB Registered Tax Agent #26242127
+                Agent Status: TPB Registered Tax Agent #
+                <BrandText text={"26242127"} />
               </span>
             </div>
           </div>
 
-          {/* Card 2: Lodging Late Does Not Automatically Mean Owing Tax */}
+          {/* Card 2: Lodging Late Dorounded-lgmatically Mean Owing Tax */}
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">

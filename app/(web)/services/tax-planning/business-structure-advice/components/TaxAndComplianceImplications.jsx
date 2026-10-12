@@ -104,7 +104,7 @@ export default function TaxAndComplianceImplications() {
         </div>
 
         {/* Verbatim Note & Service Cross-Links */}
-        <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl mb-12">
+        <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-lg p-8 sm:p-10 shadow-xl mb-12">
           <div className="max-w-3xl mb-8">
             <h3 className="text-xl sm:text-2xl font-bold mb-3">
               Ongoing Lodgment &amp; Compliance Integration

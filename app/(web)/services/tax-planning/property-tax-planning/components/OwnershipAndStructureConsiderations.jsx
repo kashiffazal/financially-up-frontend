@@ -10,6 +10,7 @@ import {
   SafetyCertificateOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * OwnershipAndStructureConsiderations Component
@@ -77,7 +78,7 @@ export default function OwnershipAndStructureConsiderations() {
             legal and administrative outcomes.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Financially Up can provide tax and accounting input on ownership
+            <CompanyName /> can provide tax and accounting input on ownership
             options, but property title, asset-protection, estate-planning and
             legal consequences should be considered with an appropriately
             qualified legal adviser before a structure is established or
@@ -112,7 +113,7 @@ export default function OwnershipAndStructureConsiderations() {
           <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-200 leading-relaxed font-normal">
             <strong>Legal &amp; Title Consultation Required:</strong> While
-            Financially Up evaluates the Australian taxation outcomes of
+            <CompanyName /> evaluates the Australian taxation outcomes of
             property structures, transferring property title, amending deeds, or
             formalising trust establishments requires qualified legal
             representation to avoid unintended stamp duty or adverse asset

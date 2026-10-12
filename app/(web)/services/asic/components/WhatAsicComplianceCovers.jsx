@@ -14,6 +14,7 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatAsicComplianceCovers Component
@@ -143,7 +144,7 @@ export default function WhatAsicComplianceCovers() {
             {/* Document Concluding Paragraph - Verbatim */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0">
               For companies that want an ongoing point of contact for ASIC
-              administration, Financially Up can also assist with an ASIC
+              administration, <CompanyName /> can also assist with an ASIC
               registered agent service. Company directors remain responsible for
               their legal duties even where an agent or accountant assists with
               administration.

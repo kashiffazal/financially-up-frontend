@@ -8,6 +8,7 @@ import {
   ShopOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ResidentialVsBusinessRealProperty Component
@@ -126,7 +127,7 @@ export default function ResidentialVsBusinessRealProperty() {
               Mixed-use premises (e.g. ground-floor retail shop with an upstairs
               residential apartment) or live-work units require detailed
               analysis against the statutory business-use test before contracts
-              are executed. Financially Up assists trustees in evaluating title
+              are executed. <CompanyName /> assists trustees in evaluating title
               and zoning records.
             </div>
           }

@@ -13,6 +13,7 @@ import {
   SafetyCertificateOutlined,
   SlidersOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFamilyTrustAccountantHelps Component
@@ -102,7 +103,7 @@ export default function WhatFamilyTrustAccountantHelps() {
         {/* Lead Subtitle */}
         <div className="max-w-3xl mx-auto mb-8 text-center">
           <p className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
-            Depending on the trust, Financially Up can help with:
+            Depending on the trust, <CompanyName /> can help with:
           </p>
         </div>
 

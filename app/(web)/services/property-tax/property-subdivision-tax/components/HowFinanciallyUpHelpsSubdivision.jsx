@@ -13,6 +13,8 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsSubdivision Component
@@ -30,7 +32,7 @@ export default function HowFinanciallyUpHelpsSubdivision() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: "TPB Registered Agent #26234055",
+      subtitle: <BrandText text={"TPB Registered Agent #26234055"} />,
     },
     {
       icon: (
@@ -60,7 +62,7 @@ export default function HowFinanciallyUpHelpsSubdivision() {
             Subdivision Tax Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
 
@@ -74,7 +76,7 @@ export default function HowFinanciallyUpHelpsSubdivision() {
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up can review the proposed activities, likely
+              <CompanyName /> can review the proposed activities, likely
               income-tax character, CGT cost allocation, GST position and
               records required for each lot. We can also assist with
               calculations and tax reporting after a sale. Advice before work or
@@ -138,7 +140,7 @@ export default function HowFinanciallyUpHelpsSubdivision() {
           <div className="text-center lg:text-left">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Discuss Your Subdivision Plans with{" "}
-              {company?.legalName || "Financially Up"}
+              {company?.legalName}
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl font-normal">
               Bring your purchase documents, ownership history, proposed plans,

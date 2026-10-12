@@ -11,6 +11,8 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhatIsAPartnershipTaxReturn Component
@@ -33,7 +35,7 @@ export default function WhatIsAPartnershipTaxReturn() {
         <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Organized Annual Returns",
-      desc: "Financially Up Pty Ltd provides partnership tax return preparation and partnership accounting services for businesses across Australia, helping organize records and prepare compliant annual returns.",
+      desc: <BrandText text={"Financially Up Pty Ltd provides partnership tax return preparation and partnership accounting services for businesses across Australia, helping organize records and prepare compliant annual returns."} />,
     },
     {
       icon: (
@@ -84,7 +86,7 @@ export default function WhatIsAPartnershipTaxReturn() {
               </p>
               <div className="h-px bg-slate-200 dark:bg-zinc-700 my-2" />
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up Pty Ltd provides partnership tax return
+                <CompanyName legal /> provides partnership tax return
                 preparation and partnership accounting services for businesses
                 across Australia. We help organize the partnership’s records,
                 prepare the annual return, reconcile partner information and

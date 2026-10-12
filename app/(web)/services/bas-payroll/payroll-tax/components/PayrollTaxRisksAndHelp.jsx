@@ -10,6 +10,7 @@ import {
   AuditOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PayrollTaxRisksAndHelp Component
@@ -80,7 +81,7 @@ export default function PayrollTaxRisksAndHelp() {
         {/* Part 2: Information Needed & How Financially Up Helps */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Records needed */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
@@ -126,19 +127,19 @@ export default function PayrollTaxRisksAndHelp() {
           </div>
 
           {/* How Financially Up can help */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <AuditOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                  How Financially Up can help
+                  How <CompanyName /> can help
                 </h3>
               </div>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can provide payroll tax compliance support from
+                <CompanyName /> can provide payroll tax compliance support from
                 initial threshold review through to return preparation and
                 annual reconciliation. We can also help a business understand
                 which wage categories or transactions need further investigation

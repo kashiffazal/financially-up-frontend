@@ -12,6 +12,7 @@ import {
 } from "@ant-design/icons";
 import ContactUsModal from "@/components/website/ContactUsModal";
 import styles from "./FaqSection.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * FaqSection Component
@@ -57,7 +58,7 @@ export default function FaqSection({
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
           Identifying eligible deductions is crucial for minimizing your taxable
-          income and maximizing your tax savings. Our team at Financially Up
+          income and maximizing your tax savings. Our team at <CompanyName />
           will diligently explore all potential deductions applicable to your
           situation. From commonly claimed deductions to often overlooked ones,
           we leave no stone unturned in helping you claim every deduction you're
@@ -71,7 +72,7 @@ export default function FaqSection({
       children: (
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
           Identifying eligible deductions is crucial for minimizing your taxable
-          income and maximizing your tax savings. Our team at Financially Up
+          income and maximizing your tax savings. Our team at <CompanyName />
           will diligently explore all potential deductions applicable to your
           situation. From commonly claimed deductions to often overlooked ones,
           we leave no stone unturned in helping you claim every deduction you're

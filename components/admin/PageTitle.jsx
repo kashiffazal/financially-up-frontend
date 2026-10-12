@@ -11,6 +11,8 @@ import {
 } from "@ant-design/icons";
 import ShareFormModal from "./ShareFormModal";
 import { antdMsg } from "@/services";
+import { useBrandText } from "@/context/SettingsContext";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * ============================================================================
@@ -51,6 +53,7 @@ export default function PageTitle({
   extraActions = null,
   rightExtra = null,
 }) {
+  const brand = useBrandText();
   // --------------------------------------------------------------------------
   // STATE: SHARE MODAL & COPY FEEDBACK
   // --------------------------------------------------------------------------
@@ -64,7 +67,7 @@ export default function PageTitle({
       const cleanPath = formPath.startsWith("/") ? formPath : `/${formPath}`;
       return `${window.location.origin}${cleanPath}`;
     }
-    return `https://financiallyup.com.au${formPath}`;
+    return brand(`${SITE_URL}${formPath}`);
   }, [formPath]);
 
   // Handler: Copy full URL to clipboard

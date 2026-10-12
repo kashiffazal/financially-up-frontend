@@ -9,6 +9,7 @@ import {
   CalendarOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * MembersEligibilityAndTrustDeed Component
@@ -44,7 +45,7 @@ export default function MembersEligibilityAndTrustDeed() {
         {/* 2-Column Content: Trustee Declaration & Trust Deed */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: 21-Day Trustee Declaration */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center mb-6">
                 <TeamOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
@@ -90,7 +91,7 @@ export default function MembersEligibilityAndTrustDeed() {
           </div>
 
           {/* Card 2: Trust Deed and Legal Establishment */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/40 flex items-center justify-center mb-6">
                 <FileProtectOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
@@ -106,9 +107,9 @@ export default function MembersEligibilityAndTrustDeed() {
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 Trust deed preparation is a legal-document matter, so
-                Financially Up may coordinate with an appropriate legal document
-                provider or legal adviser rather than presenting accounting
-                assistance as legal advice.
+                <CompanyName /> may coordinate with an appropriate legal
+                document provider or legal adviser rather than presenting
+                accounting assistance as legal advice.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-2 text-xs text-blue-700 dark:text-blue-400 font-medium">

@@ -15,6 +15,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatRecordsCompanyProvides Component
@@ -141,7 +142,7 @@ export default function WhatRecordsCompanyProvides() {
                 What if Your Company Accounts Are Incomplete?
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Where the accounts are incomplete, Financially Up can first
+                Where the accounts are incomplete, <CompanyName /> can first
                 identify what needs to be reconciled or corrected before the Pty
                 Ltd tax return is prepared.
               </p>

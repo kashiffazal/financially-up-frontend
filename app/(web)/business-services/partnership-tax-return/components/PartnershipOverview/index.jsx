@@ -9,6 +9,7 @@ import {
   CheckCircleFilled,
   TeamOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function PartnershipOverview() {
   const highlights = [
@@ -33,7 +34,7 @@ export default function PartnershipOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance
+              At <CompanyName />, we specialize in providing expert assistance
               with partnership tax returns. Our experienced team of tax
               professionals understands the unique tax obligations and
               complexities associated with partnerships. Whether you have a

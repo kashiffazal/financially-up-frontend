@@ -10,6 +10,7 @@ import {
   ExclamationCircleOutlined,
   SolutionOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsAto Component
@@ -91,7 +92,7 @@ export default function HowFinanciallyUpHelpsAto() {
 
           {/* Exact H2 Heading from Document */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can assist with ATO matters
+            How <CompanyName /> can assist with ATO matters
           </h2>
 
           {/* Exact Verbatim Introductory Paragraph from Document */}

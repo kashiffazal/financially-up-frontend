@@ -14,6 +14,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatInformationNeeded Component
@@ -145,7 +146,7 @@ export default function WhatInformationNeeded() {
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
                 Don&apos;t worry if some documents are incomplete or need
-                updating. Financially Up can review your available records and
+                updating. <CompanyName /> can review your available records and
                 identify the specific scope needed.
               </p>
             </div>

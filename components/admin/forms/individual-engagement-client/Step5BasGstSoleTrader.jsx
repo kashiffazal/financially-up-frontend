@@ -4,6 +4,7 @@ import React from "react";
 import { Form, Alert, Tag } from "antd";
 import { BankOutlined, AuditOutlined, FormOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import BrandText from "@/components/mutual/BrandText";
 
 const FREQUENCY_OPTIONS = [
   { value: "Quarterly", label: "Quarterly (Most Common)" },
@@ -16,7 +17,7 @@ const BAS_SCOPE_OPTIONS = [
   { value: "Review GST", label: "Review GST Reconciliations" },
   { value: "Reconcile", label: "Reconcile Accounts" },
   { value: "Correct Records", label: "Bookkeeping & Cleanup" },
-  { value: "Lodge Only", label: "Client Prepares, Financially Up Lodges" },
+  { value: "Lodge Only", label: <BrandText text={"Client Prepares, Financially Up Lodges"} /> },
 ];
 
 export default function Step5BasGstSoleTrader({ form, formData }) {

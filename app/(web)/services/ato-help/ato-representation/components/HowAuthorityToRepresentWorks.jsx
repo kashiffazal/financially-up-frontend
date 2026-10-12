@@ -8,6 +8,8 @@ import {
   AuditOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowAuthorityToRepresentWorks Component
@@ -28,7 +30,7 @@ export default function HowAuthorityToRepresentWorks() {
     {
       title: "Individuals & Sole Traders",
       description:
-        "The ATO has also announced an expansion of client-to-agent linking for individuals and sole traders using an agent-initiated process. Because the applicable steps depend on the client type and rollout arrangements, Financially Up will confirm the current authorization process when the engagement is established.",
+        <BrandText text={"The ATO has also announced an expansion of client-to-agent linking for individuals and sole traders using an agent-initiated process. Because the applicable steps depend on the client type and rollout arrangements, Financially Up will confirm the current authorization process when the engagement is established."} />,
       icon: (
         <UserOutlined className="text-xl text-blue-600 dark:text-blue-400" />
       ),
@@ -94,7 +96,7 @@ export default function HowAuthorityToRepresentWorks() {
             <strong className="text-slate-900 dark:text-white font-semibold">
               Step-by-step linking guidance:
             </strong>{" "}
-            Financially Up provides clear walkthrough guides for Online services
+            <CompanyName /> provides clear walkthrough guides for Online services
             for business to ensure your agent nomination is lodged smoothly and
             accurately without disruption to your existing tax accounts.
           </p>

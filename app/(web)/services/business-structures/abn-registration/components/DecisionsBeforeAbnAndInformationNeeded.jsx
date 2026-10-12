@@ -83,7 +83,7 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
 
           {/* Part 2: What information may be needed to apply for an ABN? */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+            <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                   <FolderOpenOutlined className="text-xl" />

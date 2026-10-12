@@ -10,11 +10,16 @@ import HowFinanciallyUpHelpsSmsf from "./components/HowFinanciallyUpHelpsSmsf";
 import WhyChooseFinanciallyUpSmsf from "./components/WhyChooseFinanciallyUpSmsf";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Accountant & Accounting Services | Financially Up",
   description:
     "SMSF accountant support for annual accounts, tax, compliance and trustee administration. Practical Australia-wide assistance from Financially Up.",
@@ -31,18 +36,19 @@ export const metadata = {
     "SMSF administration Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/",
+    canonical: `${SITE_URL}/services/smsf/`,
   },
   openGraph: {
     title: "SMSF Accountant & Accounting Services | Financially Up",
     description:
       "SMSF accountant support for annual accounts, tax, compliance and trustee administration. Practical Australia-wide assistance from Financially Up.",
-    url: "https://financiallyup.com.au/services/smsf/",
+    url: `${SITE_URL}/services/smsf/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for SMSF Accounting Hub
@@ -145,7 +151,7 @@ const smsfFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up tell me what investments my SMSF should buy?",
+    label: <BrandText text={"Can Financially Up tell me what investments my SMSF should buy?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Accounting and tax support is different from regulated financial product advice. If you need recommendations about particular investments or whether an SMSF is suitable for you, an appropriately authorized financial adviser may be required.
@@ -206,10 +212,7 @@ export default function SmsfMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -227,7 +230,7 @@ export default function SmsfMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up provides SMSF accounting services for trustees who want practical support with annual accounts, the SMSF annual return and ongoing administration. We can also assist with SMSF setup and establishment and dedicated SMSF accounting where the fund needs a more focused service.
+            <CompanyName /> provides SMSF accounting services for trustees who want practical support with annual accounts, the SMSF annual return and ongoing administration. We can also assist with SMSF setup and establishment and dedicated SMSF accounting where the fund needs a more focused service.
           </p>
         }
         scopeNotice={
@@ -294,7 +297,7 @@ export default function SmsfMainPage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="Need an SMSF Accountant?"
-        subtitle="If you need an SMSF accountant for annual accounts, tax reporting, audit preparation or ongoing accounting support, book an appointment with Financially Up to discuss your fund and the records available."
+        subtitle={<BrandText text={"If you need an SMSF accountant for annual accounts, tax reporting, audit preparation or ongoing accounting support, book an appointment with Financially Up to discuss your fund and the records available."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

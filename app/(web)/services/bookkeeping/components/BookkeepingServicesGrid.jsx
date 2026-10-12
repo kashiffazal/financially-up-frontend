@@ -2,6 +2,7 @@
 
 import React from "react";
 import ServicesGrid from "@/components/website/ServicesGrid";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * BookkeepingServicesGrid Component
@@ -45,7 +46,7 @@ export default function BookkeepingServicesGrid() {
       tag: "Pillar 4.3",
       title: "Catch Up Bookkeeping Services",
       description:
-        "Behind on your books? Financially Up provides catch up bookkeeping to reconcile records, clear backlogs and restore reliable business accounts.",
+        <BrandText text={"Behind on your books? Financially Up provides catch up bookkeeping to reconcile records, clear backlogs and restore reliable business accounts."} />,
       href: "/services/bookkeeping/catch-up-bookkeeping",
       actionText: "Catch Up Services",
     },
@@ -55,7 +56,7 @@ export default function BookkeepingServicesGrid() {
       tag: "Pillar 4.4",
       title: "Bookkeeping Cleanup Services",
       description:
-        "Clean up inaccurate or messy books with Financially Up. We review reconciliations, coding and historical records to improve bookkeeping reliability.",
+        <BrandText text={"Clean up inaccurate or messy books with Financially Up. We review reconciliations, coding and historical records to improve bookkeeping reliability."} />,
       href: "/services/bookkeeping/bookkeeping-clean-up",
       actionText: "Bookkeeping Cleanup",
     },
@@ -65,7 +66,7 @@ export default function BookkeepingServicesGrid() {
       tag: "Pillar 4.5",
       title: "Accounts Payable Services",
       description:
-        "Outsource accounts payable support with Financially Up. Improve bill processing, supplier records, reconciliations and payment-workflow visibility.",
+        <BrandText text={"Outsource accounts payable support with Financially Up. Improve bill processing, supplier records, reconciliations and payment-workflow visibility."} />,
       href: "/services/bookkeeping/accounts-payable",
       actionText: "Accounts Payable",
     },

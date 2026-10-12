@@ -140,7 +140,7 @@ export default function WhatShouldBeReviewedBeforeJune30() {
         </div>
 
         {/* Verbatim Post-EOFY Compliance Note with Quick Links */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-lg p-8 sm:p-10 shadow-xl">
           <div className="flex items-start gap-4 mb-6">
             <InfoCircleOutlined className="text-2xl text-emerald-400 mt-1 shrink-0" />
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">

@@ -14,6 +14,7 @@ import {
   ArrowRightOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatUnitTrustAccountantHelps Component
@@ -107,7 +108,7 @@ export default function WhatUnitTrustAccountantHelps() {
             What can a unit trust accountant help with?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can help trustees and unit holders keep the annual
+            <CompanyName /> can help trustees and unit holders keep the annual
             accounting and tax position organised. Depending on the trust, the
             work may include:
           </p>

@@ -13,8 +13,11 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 import styles from "./IndividualServicesList.module.css";
+import BrandText from "@/components/mutual/BrandText";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function IndividualServicesList() {
+  const brand = useBrandText();
   const services = [
     {
       id: "individual-tax-return",
@@ -25,7 +28,7 @@ export default function IndividualServicesList() {
       icon: <UserOutlined className="text-brand-primary text-xl" />,
       title: "Individual Tax Return",
       description:
-        "At Financially Up, our experienced team of tax professionals is dedicated to providing expert assistance with your individual tax returns. We ensure accurate and efficient compliance with the guidelines set forth by the Australian Taxation Office (ATO).",
+        <BrandText text={"At Financially Up, our experienced team of tax professionals is dedicated to providing expert assistance with your individual tax returns. We ensure accurate and efficient compliance with the guidelines set forth by the Australian Taxation Office (ATO)."} />,
       highlights: [
         "Salary, wages & Centrelink lodgements",
         "Work-from-home, vehicle & tool deductions",
@@ -33,7 +36,7 @@ export default function IndividualServicesList() {
         "Senior CPA tax agent review & sign-off",
       ],
       image: "/images/services/individual-tax-return.webp",
-      imageAlt: "Individual Tax Return Specialist - Financially Up",
+      imageAlt: brand("Individual Tax Return Specialist - Financially Up"),
       href: "/individual-services/individual-tax-return",
       ctaText: "Read More",
       reverseLayout: false,
@@ -49,7 +52,7 @@ export default function IndividualServicesList() {
       icon: <HomeOutlined className="text-brand-primary text-xl" />,
       title: "Individual Tax Return + Investment Property",
       description:
-        "At Financially Up, our team of tax professionals specializes in individual tax returns involving investment properties. We understand the unique tax considerations and deductions applicable to rental property owners.",
+        <BrandText text={"At Financially Up, our team of tax professionals specializes in individual tax returns involving investment properties. We understand the unique tax considerations and deductions applicable to rental property owners."} />,
       highlights: [
         "Residential & commercial rental income schedules",
         "Mortgage interest & council rates deductions",
@@ -57,7 +60,7 @@ export default function IndividualServicesList() {
         "Capital Gains Tax (CGT) advice on sales",
       ],
       image: "/images/services/investment-property.webp",
-      imageAlt: "Investment Property Tax Return Specialist - Financially Up",
+      imageAlt: brand("Investment Property Tax Return Specialist - Financially Up"),
       href: "/individual-services/individual-tax-return-with-investment-properties",
       ctaText: "Read More",
       reverseLayout: true,

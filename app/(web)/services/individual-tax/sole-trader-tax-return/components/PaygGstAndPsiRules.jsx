@@ -11,6 +11,7 @@ import {
   DollarOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PaygGstAndPsiRules Component
@@ -43,7 +44,7 @@ export default function PaygGstAndPsiRules() {
         {/* 3 Pillar Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Card 1: PAYG Instalments */}
-          <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
+          <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl">
@@ -86,7 +87,7 @@ export default function PaygGstAndPsiRules() {
           </div>
 
           {/* Card 2: GST BAS and the Annual Tax Return */}
-          <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
+          <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl">
@@ -121,8 +122,8 @@ export default function PaygGstAndPsiRules() {
               <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-300">
                 <p className="font-normal mb-2">
                   If you are registered for GST, the records used for both
-                  lodgements should be consistent. Financially Up can review the
-                  connection and provide separate BAS and GST Services where
+                  lodgements should be consistent. <CompanyName /> can review
+                  the connection and provide separate BAS and GST Services where
                   required.
                 </p>
                 <Link href="/services/bas-gst-payroll">
@@ -145,7 +146,7 @@ export default function PaygGstAndPsiRules() {
           </div>
 
           {/* Card 3: Personal Services Income (PSI) */}
-          <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
+          <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">

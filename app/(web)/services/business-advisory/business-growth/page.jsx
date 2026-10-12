@@ -10,12 +10,18 @@ import WhyChooseFinanciallyUpGrowth from "./components/WhyChooseFinanciallyUpGro
 import GrowthRelatedServicesRibbon from "./components/GrowthRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 4 (4- Business Growth)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Growth Consultant Australia | Financially Up",
   description:
     "Ready to grow your business? Financially Up helps review margins, cash flow and capacity, then build a practical growth plan grounded in your numbers.",
@@ -32,18 +38,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/business-growth/",
+      `${SITE_URL}/services/business-advisory/business-growth/`,
   },
   openGraph: {
     title: "Business Growth Consultant Australia | Financially Up",
     description:
       "Ready to grow your business? Financially Up helps review margins, cash flow and capacity, then build a practical growth plan grounded in your numbers.",
-    url: "https://financiallyup.com.au/services/business-advisory/business-growth/",
+    url: `${SITE_URL}/services/business-advisory/business-growth/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -128,10 +135,7 @@ export default function BusinessGrowthSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -147,7 +151,7 @@ export default function BusinessGrowthSubpage() {
               support next.
             </span>
             <span className="block mt-2">
-              Financially Up works with owners who want to expand with clearer
+              <CompanyName /> works with owners who want to expand with clearer
               financial information. As your business growth consultant, we
               review performance, test the assumptions behind a proposed move
               and help turn priorities into measurable actions.
@@ -175,7 +179,7 @@ export default function BusinessGrowthSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Commercial Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -218,7 +222,7 @@ export default function BusinessGrowthSubpage() {
       <CallToActionBanner
         tag="Plan the Next Move with Your Numbers"
         title="Book an Appointment"
-        subtitle="Bring the opportunity and your recent results to Financially Up. We can help assess the financial position, test the plan and agree practical measures for the next stage."
+        subtitle={<BrandText text={"Bring the opportunity and your recent results to Financially Up. We can help assess the financial position, test the plan and agree practical measures for the next stage."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Business Advisory Services"

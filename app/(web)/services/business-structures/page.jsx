@@ -10,11 +10,16 @@ import WhatInformationNeeded from "./components/WhatInformationNeeded";
 import WhyChooseFinanciallyUp from "./components/WhyChooseFinanciallyUp";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 6th Pillar Business Structures.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Structure Accountant Australia | Financially Up",
   description:
     "Business structure accountant support for Australian businesses, covering setup, registrations, tax implications and ongoing accounting obligations.",
@@ -31,18 +36,19 @@ export const metadata = {
     "discretionary trust accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/",
+    canonical: `${SITE_URL}/services/business-structures/`,
   },
   openGraph: {
     title: "Business Structure Accountant Australia | Financially Up",
     description:
       "Business structure accountant support for Australian businesses, covering setup, registrations, tax implications and ongoing accounting obligations.",
-    url: "https://financiallyup.com.au/services/business-structures/",
+    url: `${SITE_URL}/services/business-structures/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Business Structures
@@ -152,10 +158,10 @@ const businessStructuresFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up register the business after the structure is chosen?",
+    label: <BrandText text={"Can Financially Up register the business after the structure is chosen?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can assist with relevant accounting and tax registrations, including company
+        <CompanyName /> can assist with relevant accounting and tax registrations, including company
         and ABN registration where appropriate. The exact scope depends on the structure and any
         legal documentation required.
       </p>
@@ -166,7 +172,7 @@ const businessStructuresFaqs = [
     label: "Does business structure advice include legal advice?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Financially Up can explain accounting and tax implications. Where legal advice,
+        No. <CompanyName /> can explain accounting and tax implications. Where legal advice,
         agreements, trust deeds or other legal documents are required, an appropriately qualified
         legal adviser may also be needed.
       </p>
@@ -234,10 +240,7 @@ export default function BusinessStructuresMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -250,12 +253,12 @@ export default function BusinessStructuresMainPage() {
         titleHighlight="Australia"
         description={
           <p className="m-0">
-            Choosing or setting up a business structure affects how your business is registered, how income is reported, who is responsible for obligations and what administration is required. Financially Up provides business structure services for owners who want practical accounting and tax support when starting a business, establishing an entity or coordinating the registrations that follow.
+            Choosing or setting up a business structure affects how your business is registered, how income is reported, who is responsible for obligations and what administration is required. <CompanyName /> provides business structure services for owners who want practical accounting and tax support when starting a business, establishing an entity or coordinating the registrations that follow.
           </p>
         }
         subDescription={
           <p className="m-0">
-            The right structure depends on your activities, ownership, commercial plans, tax position and legal circumstances. A sole trader, partnership, company and trust each operate differently. Financially Up can help you understand the accounting and tax implications, organise the relevant registrations and identify when separate legal or specialist advice should be considered.
+            The right structure depends on your activities, ownership, commercial plans, tax position and legal circumstances. A sole trader, partnership, company and trust each operate differently. <CompanyName /> can help you understand the accounting and tax implications, organise the relevant registrations and identify when separate legal or specialist advice should be considered.
           </p>
         }
         scopeNotice={
@@ -322,7 +325,7 @@ export default function BusinessStructuresMainPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you are starting a business, setting up a new entity or reviewing whether your current structure still fits your needs, book an appointment with Financially Up. We can discuss the structure, registrations and accounting or tax work that may be relevant before you proceed."
+        subtitle={<BrandText text={"If you are starting a business, setting up a new entity or reviewing whether your current structure still fits your needs, book an appointment with Financially Up. We can discuss the structure, registrations and accounting or tax work that may be relevant before you proceed."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

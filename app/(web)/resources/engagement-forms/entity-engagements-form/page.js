@@ -3,11 +3,13 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import EntityEngagementForm from "@/components/admin/forms/entity-engagement";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Entity Engagement Form - Financially Up",
   description: "Company, Trust, Partnership & SMSF Engagement Onboarding Form.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function EntityEngagementsFormPage() {
   return (

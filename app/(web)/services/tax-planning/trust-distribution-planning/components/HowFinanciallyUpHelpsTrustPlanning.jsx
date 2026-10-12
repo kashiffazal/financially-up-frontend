@@ -12,6 +12,8 @@ import {
   GlobalOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsTrustPlanning Component
@@ -26,7 +28,13 @@ export default function HowFinanciallyUpHelpsTrustPlanning() {
   const keyStrengths = [
     {
       title: "Deed Review & Tax-Effect Modeling",
-      desc: "Financially Up can review the trust deed for the tax and accounting context, together with the available financial information and proposed distribution approach, identify tax issues that require attention, and help the trustee understand what documentation is needed.",
+      desc: (
+        <BrandText
+          text={
+            "Financially Up can review the trust deed for the tax and accounting context, together with the available financial information and proposed distribution approach, identify tax issues that require attention, and help the trustee understand what documentation is needed."
+          }
+        />
+      ),
     },
     {
       title: "Modular Scoped Services",
@@ -34,7 +42,13 @@ export default function HowFinanciallyUpHelpsTrustPlanning() {
     },
     {
       title: "Clear Legal Boundaries",
-      desc: "Where a matter involves legal interpretation of the deed, trustee powers, beneficiary rights or other trust-law issues, legal advice may also be required. Financially Up does not treat tax planning as a substitute for legal advice.",
+      desc: (
+        <BrandText
+          text={
+            "Where a matter involves legal interpretation of the deed, trustee powers, beneficiary rights or other trust-law issues, legal advice may also be required. Financially Up does not treat tax planning as a substitute for legal advice."
+          }
+        />
+      ),
     },
   ];
 
@@ -47,10 +61,9 @@ export default function HowFinanciallyUpHelpsTrustPlanning() {
             Advisory Standards &amp; Experience
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
-
         {/* How We Help Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-6xl mx-auto">
           {keyStrengths.map((item, idx) => (
@@ -72,19 +85,18 @@ export default function HowFinanciallyUpHelpsTrustPlanning() {
             </div>
           ))}
         </div>
-
-        {/* Why Choose Financially Up Verbatim Block */}
+        {/* Why Choose Financially Up Verbatim Block */}rounded-lg
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 rounded-3xl p-8 sm:p-12 text-white shadow-xl max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-2xl space-y-4">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                Registered Tax Agent • TPB #26234055
+                Registered Tax Agent • TPB #<BrandText text={"26234055"} />
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Why Choose Financially Up?
+                Why Choose <CompanyName />?
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Financially Up Pty Ltd is a registered tax agent with more than
+                <CompanyName legal /> is a registered tax agent with more than
                 10 years of experience. Our professional accounting and tax team
                 includes CPA and IPA members, with Australia-wide support
                 through online appointments and in-person meetings where

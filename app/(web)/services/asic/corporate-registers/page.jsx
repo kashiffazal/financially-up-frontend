@@ -6,11 +6,16 @@ import WhatFinanciallyUpMaintainsAndReconstruction from "./components/WhatFinanc
 import CorporateRegistersRelatedRibbon from "./components/CorporateRegistersRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 10 / Pillar 7.9)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Company Registers Australia & Corporate Record Maintenance | Financially Up",
   description:
     "Financially Up helps maintain company registers, shareholder records, resolutions and corporate records so company information stays organized and consistent.",
@@ -25,18 +30,19 @@ export const metadata = {
     "beneficial ownership register",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/corporate-registers/",
+    canonical: `${SITE_URL}/services/asic/corporate-registers/`,
   },
   openGraph: {
     title: "Company Registers Australia & Corporate Record Maintenance | Financially Up",
     description:
       "Financially Up helps maintain company registers, shareholder records, resolutions and corporate records so company information stays organized and consistent.",
-    url: "https://financiallyup.com.au/services/asic/corporate-registers/",
+    url: `${SITE_URL}/services/asic/corporate-registers/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -84,7 +90,7 @@ const corporateRegistersFaqs = [
     label: "What if our share register does not match ASIC?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The reason for the mismatch should be investigated before making changes. It may reflect an unlodged share change, an internal record-keeping error or an older transaction that needs supporting evidence. Financially Up can help review the available information and identify the next steps.
+        The reason for the mismatch should be investigated before making changes. It may reflect an unlodged share change, an internal record-keeping error or an older transaction that needs supporting evidence. <CompanyName /> can help review the available information and identify the next steps.
       </p>
     ),
   },
@@ -115,10 +121,7 @@ export default function CorporateRegistersPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -127,7 +130,7 @@ export default function CorporateRegistersPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Company registers are the internal records that document key information about a company, its members and important corporate decisions. Keeping them current is separate from updating ASIC. A company can have accurate information on the public ASIC register but still have incomplete internal records - or the reverse. Financially Up can help maintain and organize company records so the internal register and ASIC information are consistent.
+              Company registers are the internal records that document key information about a company, its members and important corporate decisions. Keeping them current is separate from updating ASIC. A company can have accurate information on the public ASIC register but still have incomplete internal records - or the reverse. <CompanyName /> can help maintain and organize company records so the internal register and ASIC information are consistent.
             </span>
             <span className="block mt-2">
               A company register service can be particularly useful for Australian owner-managed companies, family groups, growing businesses and companies that have changed accountants or advisers and discovered gaps in older records. The aim is not to create documents that never existed, but to organize the evidence available, identify inconsistencies and keep future records in a more reliable form.
@@ -182,7 +185,7 @@ export default function CorporateRegistersPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your company register is incomplete, outdated or inconsistent with ASIC, book an appointment with Financially Up to discuss a company register maintenance or reconstruction service."
+        subtitle={<BrandText text={"If your company register is incomplete, outdated or inconsistent with ASIC, book an appointment with Financially Up to discuss a company register maintenance or reconstruction service."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

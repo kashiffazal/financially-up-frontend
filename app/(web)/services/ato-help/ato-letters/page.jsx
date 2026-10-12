@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpLetter from "./components/WhyChooseFinanciallyUpLet
 import RelatedAtoLettersRibbon from "./components/RelatedAtoLettersRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Help Responding to an ATO Letter | Financially Up",
   description:
     "Unsure what an ATO letter requires? Financially Up can identify the notice, check its deadline and help you take the appropriate next step.",
@@ -29,18 +35,19 @@ export const metadata = {
     "ATO demand for payment",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/ato-letters/",
+    canonical: `${SITE_URL}/services/ato-help/ato-letters/`,
   },
   openGraph: {
     title: "Help Responding to an ATO Letter | Financially Up",
     description:
       "Unsure what an ATO letter requires? Financially Up can identify the notice, check its deadline and help you take the appropriate next step.",
-    url: "https://financiallyup.com.au/services/ato-help/ato-letters/",
+    url: `${SITE_URL}/services/ato-help/ato-letters/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function AtoLettersPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function AtoLettersPage() {
               An ATO letter may be routine, request information, advise of a debt or record a decision with a formal deadline. The first task is to identify exactly what the communication says. A reminder about an overdue return, a demand for payment and a review request require different responses.
             </span>
             <span className="block mt-2">
-              Financially Up helps individuals and business owners understand genuine ATO correspondence and decide what to do next. Provide the complete notice, including all pages and attachments, so we can check the entity, issue, period, tax account and deadline.
+              <CompanyName /> helps individuals and business owners understand genuine ATO correspondence and decide what to do next. Provide the complete notice, including all pages and attachments, so we can check the entity, issue, period, tax account and deadline.
             </span>
           </span>
         }
@@ -145,7 +149,7 @@ export default function AtoLettersPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.8 • ATO Correspondence & Notice Resolution"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Urgent Notice Triage & Scam Verification",
           "Strict Statutory Deadline Preservation",
         ]}
@@ -155,7 +159,7 @@ export default function AtoLettersPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -197,7 +201,7 @@ export default function AtoLettersPage() {
       <CallToActionBanner
         tag="Correspondence Evaluation"
         title="Unsure What an ATO Letter Requires?"
-        subtitle="Provide the complete correspondence, including every attachment and earlier related notices. Financially Up can help identify the issue, deadline and appropriate next step."
+        subtitle={<BrandText text={"Provide the complete correspondence, including every attachment and earlier related notices. Financially Up can help identify the issue, deadline and appropriate next step."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ATO Help Hub"

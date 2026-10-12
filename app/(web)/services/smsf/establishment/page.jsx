@@ -8,11 +8,17 @@ import PostEstablishmentAdminAndWhyChoose from "./components/PostEstablishmentAd
 import RelatedSmsfRibbon from "../components/RelatedSmsfRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of 9th Pillar SMSF.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "SMSF Setup & Establishment Services | Financially Up",
   description:
     "SMSF setup support covering trustee structure, deed coordination, ABN/TFN registration and establishment steps. Practical assistance from Financially Up.",
@@ -27,18 +33,19 @@ export const metadata = {
     "SMSF bank account setup",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/smsf/establishment/",
+    canonical: `${SITE_URL}/services/smsf/establishment/`,
   },
   openGraph: {
     title: "SMSF Setup & Establishment Services | Financially Up",
     description:
       "SMSF setup support covering trustee structure, deed coordination, ABN/TFN registration and establishment steps. Practical assistance from Financially Up.",
-    url: "https://financiallyup.com.au/services/smsf/establishment/",
+    url: `${SITE_URL}/services/smsf/establishment/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the SMSF hierarchy
@@ -129,7 +136,7 @@ const smsfEstablishmentFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up advise whether an SMSF is right for me?",
+    label: <BrandText text={"Can Financially Up advise whether an SMSF is right for me?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         We can explain the accounting, tax and administration implications of
@@ -192,10 +199,7 @@ export default function SmsfEstablishmentSubpage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -204,7 +208,7 @@ export default function SmsfEstablishmentSubpage() {
         subtitle="SMSF setup is the legal and administrative process of establishing a self-managed super fund, appointing its trustees, putting the governing documents in place and registering the fund so it can operate. The sequence matters because a fund should be properly established before contributions, rollovers and investments are handled through it."
         bodyText={
           <span>
-            Financially Up can assist with the accounting and registration side
+            <CompanyName /> can assist with the accounting and registration side
             of SMSF establishment and coordinate the practical setup steps.
             Deciding whether an SMSF is suitable for you can involve regulated
             financial product advice, which is separate from accounting and tax
@@ -240,7 +244,7 @@ export default function SmsfEstablishmentSubpage() {
         }}
         metrics={[
           { value: "10+ Years", label: "SMSF Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -277,7 +281,7 @@ export default function SmsfEstablishmentSubpage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="Explore SMSF Setup"
-        subtitle="If you are ready to explore SMSF setup, book an appointment with Financially Up to discuss the proposed members, trustee structure, registration requirements, establishment records and the ongoing accounting process."
+        subtitle={<BrandText text={"If you are ready to explore SMSF setup, book an appointment with Financially Up to discuss the proposed members, trustee structure, registration requirements, establishment records and the ongoing accounting process."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore SMSF Services"

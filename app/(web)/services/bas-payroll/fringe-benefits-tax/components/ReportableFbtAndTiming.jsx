@@ -10,6 +10,7 @@ import {
   CalendarOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ReportableFbtAndTiming Component
@@ -22,7 +23,7 @@ export default function ReportableFbtAndTiming() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Card 1: Reportable Fringe Benefits and Payroll */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <SendOutlined className="text-2xl" />
@@ -63,7 +64,7 @@ export default function ReportableFbtAndTiming() {
           </div>
 
           {/* Card 2: FBT Timing and Lodgement */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <CalendarOutlined className="text-2xl" />
@@ -90,7 +91,7 @@ export default function ReportableFbtAndTiming() {
                 </div>
                 <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                   While self-preparer deadlines typically fall around 21 May,
-                  lodging via a registered tax agent like Financially Up
+                  lodging via a registered tax agent like <CompanyName />
                   generally provides extended electronic lodgement dates into
                   late June.
                 </p>

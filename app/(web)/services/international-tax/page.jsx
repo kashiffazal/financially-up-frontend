@@ -11,11 +11,16 @@ import HowFinanciallyUpHelpsInternational from "./components/HowFinanciallyUpHel
 import WhyChooseFinanciallyUpInternational from "./components/WhyChooseFinanciallyUpInternational";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 14th Pillar International Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "International Tax Accountant Australia | Financially Up",
   description:
     "Get help with Australian and overseas tax matters, including foreign income, tax residency, tax offsets and cross-border reporting obligations.",
@@ -32,18 +37,19 @@ export const metadata = {
     "double tax agreement Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/international-tax/",
+    canonical: `${SITE_URL}/services/international-tax/`,
   },
   openGraph: {
     title: "International Tax Accountant Australia | Financially Up",
     description:
       "Get help with Australian and overseas tax matters, including foreign income, tax residency, tax offsets and cross-border reporting obligations.",
-    url: "https://financiallyup.com.au/services/international-tax/",
+    url: `${SITE_URL}/services/international-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for International Tax
@@ -163,7 +169,7 @@ const internationalFaqs = [
   },
   {
     key: "5",
-    label: "Can Financially Up prepare tax returns involving foreign income?",
+    label: <BrandText text={"Can Financially Up prepare tax returns involving foreign income?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Yes. We can assist with Australian tax-return matters involving foreign income where the work
@@ -264,10 +270,7 @@ export default function InternationalTaxMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship ServiceHero with exact H1 and paragraphs from document */}
       <ServiceHero
@@ -285,7 +288,7 @@ export default function InternationalTaxMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up provides international tax assistance for individuals, expatriates, investors and businesses dealing with Australian and overseas tax issues. We help identify the relevant Australian tax implications, organise information for tax reporting and address cross-border matters in a practical and structured way.
+            <CompanyName /> provides international tax assistance for individuals, expatriates, investors and businesses dealing with Australian and overseas tax issues. We help identify the relevant Australian tax implications, organise information for tax reporting and address cross-border matters in a practical and structured way.
           </p>
         }
         scopeNotice={
@@ -356,7 +359,7 @@ export default function InternationalTaxMainPage() {
         tag="Ready When You Are"
         title="Discuss Your International Tax Position"
         subtitle="Cross-border tax issues are easier to manage when residency, foreign income and overseas tax information are considered together rather than after a problem arises."
-        bodyText="Book an Appointment with Financially Up to discuss your circumstances, identify the Australian tax issues involved and determine the appropriate scope of assistance."
+        bodyText={<BrandText text={"Book an Appointment with Financially Up to discuss your circumstances, identify the Australian tax issues involved and determine the appropriate scope of assistance."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

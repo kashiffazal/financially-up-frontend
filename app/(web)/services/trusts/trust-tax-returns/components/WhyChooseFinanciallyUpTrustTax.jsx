@@ -13,6 +13,8 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpTrustTax Component
@@ -30,7 +32,7 @@ export default function WhyChooseFinanciallyUpTrustTax() {
       icon: (
         <SafetyCertificateOutlined className="text-xl text-brand-emerald" />
       ),
-      title: "Registered Tax Agent #26234055",
+      title: <BrandText text={"Registered Tax Agent #26234055"} />,
       desc: "Licensed under the Tax Practitioners Board with extended lodgement program deadlines and direct ATO portal access.",
     },
     {
@@ -68,10 +70,10 @@ export default function WhyChooseFinanciallyUpTrustTax() {
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why choose Financially Up?
+            Why choose <CompanyName />?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up"} is a registered tax agent
+            {company.legalName} is a registered tax agent
             with more than 10 years of experience across accounting and
             taxation. Our team includes CPA and IPA professionals and supports
             clients Australia-wide through online and in-person appointments. We

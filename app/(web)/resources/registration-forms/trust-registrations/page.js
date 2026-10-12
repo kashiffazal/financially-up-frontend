@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import TrustRegistrationsForm from "@/components/admin/forms/trust-registrations";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Trust Registration Form - Financially Up",
   description:
     "Establish Family, Discretionary, or Unit Trusts with customized trust deeds, ABN & TFN.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function TrustRegistrationsPage() {
   return (

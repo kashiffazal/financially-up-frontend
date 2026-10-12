@@ -10,11 +10,16 @@ import WhatInformationNeededCfo from "./components/WhatInformationNeededCfo";
 import WhyChooseFinanciallyUpCfo from "./components/WhyChooseFinanciallyUpCfo";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 13th Pillar Virtual CFO.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Virtual CFO Services Australia | Financially Up",
   description:
     "Virtual CFO support for growing Australian businesses. Get clearer reporting, cash flow visibility, forecasting and commercially focused finance support.",
@@ -31,18 +36,19 @@ export const metadata = {
     "fractional CFO Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/",
+    canonical: `${SITE_URL}/services/virtual-cfo/`,
   },
   openGraph: {
     title: "Virtual CFO Services Australia | Financially Up",
     description:
       "Virtual CFO support for growing Australian businesses. Get clearer reporting, cash flow visibility, forecasting and commercially focused finance support.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/",
+    url: `${SITE_URL}/services/virtual-cfo/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Virtual CFO
@@ -133,7 +139,7 @@ const cfoFaqs = [
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         Yes. In many businesses the role works best when bookkeeping, tax compliance and management
-        reporting are coordinated but remain clearly defined. Financially Up can work with existing
+        reporting are coordinated but remain clearly defined. <CompanyName /> can work with existing
         systems and advisers where appropriate.
       </p>
     ),
@@ -227,10 +233,7 @@ export default function VirtualCfoMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship ServiceHero with Exact H1 & Verbatim Lead Text */}
       <ServiceHero
@@ -248,7 +251,7 @@ export default function VirtualCfoMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up provides virtual CFO support for businesses that have moved beyond basic compliance but do not yet need, or do not want, a permanent in-house CFO. The service can sit alongside your accountant, bookkeeper and internal team, with the scope adjusted to the decisions and reporting rhythm your business actually needs.
+            <CompanyName /> provides virtual CFO support for businesses that have moved beyond basic compliance but do not yet need, or do not want, a permanent in-house CFO. The service can sit alongside your accountant, bookkeeper and internal team, with the scope adjusted to the decisions and reporting rhythm your business actually needs.
           </p>
         }
         scopeNotice={
@@ -315,7 +318,7 @@ export default function VirtualCfoMainPage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="Stronger Financial Visibility for Your Business"
-        subtitle="If your business needs stronger financial visibility without employing a full-time CFO, speak with Financially Up about a practical virtual CFO scope."
+        subtitle={<BrandText text={"If your business needs stronger financial visibility without employing a full-time CFO, speak with Financially Up about a practical virtual CFO scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

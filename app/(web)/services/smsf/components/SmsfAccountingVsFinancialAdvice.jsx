@@ -11,6 +11,7 @@ import {
   InfoCircleOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SmsfAccountingVsFinancialAdvice Component
@@ -85,7 +86,7 @@ export default function SmsfAccountingVsFinancialAdvice() {
                       Accounting & Tax Practice
                     </span>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white m-0">
-                      Financially Up Scope
+                      <CompanyName /> Scope
                     </h3>
                   </div>
                 </div>

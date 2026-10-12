@@ -14,11 +14,17 @@ import WhyChooseFinanciallyUpRental from "./components/WhyChooseFinanciallyUpRen
 import RelatedPropertyTaxRibbon from "./components/RelatedPropertyTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of 10th Pillar Property Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Investment Property Tax Australia | Financially Up",
   description:
     "Investment property tax support for rental income, deductions, interest, repairs, depreciation and tax return reporting for property investors across Australia.",
@@ -32,18 +38,19 @@ export const metadata = {
     "landlord tax return Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/property-tax/investment-property-tax/",
+    canonical: `${SITE_URL}/services/property-tax/investment-property-tax/`,
   },
   openGraph: {
     title: "Investment Property Tax Australia | Financially Up",
     description:
       "Investment property tax support for rental income, deductions, interest, repairs, depreciation and tax return reporting for property investors across Australia.",
-    url: "https://financiallyup.com.au/services/property-tax/investment-property-tax/",
+    url: `${SITE_URL}/services/property-tax/investment-property-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -122,10 +129,7 @@ export default function InvestmentPropertyTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -137,7 +141,7 @@ export default function InvestmentPropertyTaxPage() {
               Investment property tax is the annual tax treatment of rental income, property expenses and related records, together with the tax consequences that arise when the property is refinanced, improved or eventually sold. The main challenge is not simply collecting receipts; it is classifying each amount correctly and matching deductions to the property, ownership and period of income-producing use.
             </span>
             <span className="block mt-2">
-              Financially Up assists property investors with rental property tax return preparation and related accounting. We can review rental statements, interest, repairs, capital works, depreciating assets and ownership details, and identify issues that need separate CGT or tax-planning work.
+              <CompanyName /> assists property investors with rental property tax return preparation and related accounting. We can review rental statements, interest, repairs, capital works, depreciating assets and ownership details, and identify issues that need separate CGT or tax-planning work.
             </span>
           </span>
         }
@@ -158,7 +162,7 @@ export default function InvestmentPropertyTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -201,7 +205,7 @@ export default function InvestmentPropertyTaxPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about rental property tax return preparation, deductible expenses, interest tracing, and record keeping with Financially Up."
+        subtitle={<BrandText text={"Common questions about rental property tax return preparation, deductible expenses, interest tracing, and record keeping with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Investment Property Tax Frequently Asked Questions"
         items={investmentPropertyFaqs}
@@ -213,7 +217,7 @@ export default function InvestmentPropertyTaxPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an appointment with Financially Up to discuss your property circumstances, records and the appropriate accounting or tax service scope."
+        subtitle={<BrandText text={"Book an appointment with Financially Up to discuss your property circumstances, records and the appropriate accounting or tax service scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

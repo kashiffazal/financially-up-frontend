@@ -14,6 +14,7 @@ import {
   BankOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpPayrollTax Component
@@ -26,7 +27,7 @@ export default function WhyChooseFinanciallyUpPayrollTax() {
   const highlights = [
     {
       title: "Registered Tax Agent",
-      desc: `${company.legalName || "Financially Up Pty Ltd"} brings over a decade of verified taxation, accounting, and payroll-related compliance experience.`,
+      desc: `${company.legalName} brings over a decade of verified taxation, accounting, and payroll-related compliance experience.`,
       icon: (
         <SafetyCertificateOutlined className="text-purple-600 dark:text-purple-400 text-xl" />
       ),
@@ -68,11 +69,11 @@ export default function WhyChooseFinanciallyUpPayrollTax() {
             </Tag>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up Pty Ltd is a registered tax agent with more than 10
+              <CompanyName legal /> is a registered tax agent with more than 10
               years of experience supporting businesses with tax, accounting and
               payroll-related compliance. Our team includes CPA and IPA members.
               We support clients Australia-wide through online and in-person

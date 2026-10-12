@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   HistoryOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * CessationOfEmploymentAndEssStatements Component
@@ -42,7 +43,7 @@ export default function CessationOfEmploymentAndEssStatements() {
         {/* 2-Column Split Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Card 1: What happens if employment ends? */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400">
@@ -89,7 +90,7 @@ export default function CessationOfEmploymentAndEssStatements() {
           </div>
 
           {/* Card 2: ESS Statements & Pre-fill */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
@@ -118,7 +119,7 @@ export default function CessationOfEmploymentAndEssStatements() {
                   The employer statement may not contain everything needed for a
                   later disposal calculation. Keep the underlying plan,
                   acquisition, vesting, exercise, restriction and sale records.
-                  Financially Up can assist with ESS-related return preparation
+                  <CompanyName /> can assist with ESS-related return preparation
                   and identify missing information.
                 </p>
               </div>

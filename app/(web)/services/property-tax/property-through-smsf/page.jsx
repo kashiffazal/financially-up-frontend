@@ -10,8 +10,13 @@ import SmsfPropertyTaxAndNaliRisks from "./components/SmsfPropertyTaxAndNaliRisk
 import RecordsAndAuditorRequirementsSmsf from "./components/RecordsAndAuditorRequirementsSmsf";
 import HowFinanciallyUpHelpsSmsfTrustees from "./components/HowFinanciallyUpHelpsSmsfTrustees";
 import RelatedPropertySmsfRibbon from "./components/RelatedPropertySmsfRibbon";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+
+const baseMetadata = {
   title: "Property Through SMSF Accountant | Financially Up",
   description:
     "Considering property through an SMSF? Review tax reporting, related-party rules and current borrowing restrictions with Financially Up before committing.",
@@ -26,6 +31,7 @@ export const metadata = {
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function PropertyThroughSmsfPage() {
   const breadcrumbs = [
@@ -58,7 +64,7 @@ export default function PropertyThroughSmsfPage() {
       key: "4",
       title: "Does an accountant recommend that I buy property through my SMSF?",
       content:
-        "Financially Up can explain the tax, accounting and reporting implications. Whether an SMSF or a particular property is an appropriate investment may involve financial product advice from an appropriately authorized adviser.",
+        <BrandText text={"Financially Up can explain the tax, accounting and reporting implications. Whether an SMSF or a particular property is an appropriate investment may involve financial product advice from an appropriately authorized adviser."} />,
     },
   ];
 
@@ -71,7 +77,7 @@ export default function PropertyThroughSmsfPage() {
         provider: {
           "@type": "AccountingService",
           name: "Financially Up",
-          url: "https://financiallyup.com.au",
+          url: `${SITE_URL}`,
         },
         description:
           "Specialised SMSF property tax, compliance, and accounting services in Australia. Advise on Business Real Property, LRBA regulations, and annual audit coordination.",
@@ -94,16 +100,13 @@ export default function PropertyThroughSmsfPage() {
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* Hero Section */}
       <SubServiceHero
         title="Property Through SMSF Accountant"
         subtitle="Superannuation Compliance, Sole Purpose Test, LRBAs & Tax Reporting"
-        description="An SMSF can hold property where the fund's deed and superannuation rules permit it. The purchase, ownership and any borrowing must be arranged for the fund's retirement purpose. Errors in the contract, ownership documents or related-party dealings can create compliance and tax problems that may be difficult to correct after settlement. Financially Up provides SMSF property tax and accounting support to trustees considering an acquisition or managing property already held by their fund. We can identify reporting and compliance questions and work alongside your legal adviser, lender, auditor and appropriately authorized financial adviser."
+        description={<BrandText text={"An SMSF can hold property where the fund's deed and superannuation rules permit it. The purchase, ownership and any borrowing must be arranged for the fund's retirement purpose. Errors in the contract, ownership documents or related-party dealings can create compliance and tax problems that may be difficult to correct after settlement. Financially Up provides SMSF property tax and accounting support to trustees considering an acquisition or managing property already held by their fund. We can identify reporting and compliance questions and work alongside your legal adviser, lender, auditor and appropriately authorized financial adviser."} />}
         parentService={{
           label: "Property Tax Hub",
           href: "/services/property-tax",
@@ -121,7 +124,7 @@ export default function PropertyThroughSmsfPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -152,7 +155,7 @@ export default function PropertyThroughSmsfPage() {
       <CallToActionBanner
         tag="SMSF Trustee Consultation"
         title="Discuss Your Property Transaction"
-        subtitle="Tax, superannuation, legal and financing rules interact at the start of an SMSF property transaction. Book an Appointment with Financially Up to review the available documents and identify the next steps with your legal, audit and financial advisers."
+        subtitle={<BrandText text={"Tax, superannuation, legal and financing rules interact at the start of an SMSF property transaction. Book an Appointment with Financially Up to review the available documents and identify the next steps with your legal, audit and financial advisers."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

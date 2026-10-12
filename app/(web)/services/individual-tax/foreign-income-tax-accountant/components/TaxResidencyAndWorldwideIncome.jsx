@@ -68,7 +68,7 @@ export default function TaxResidencyAndWorldwideIncome() {
           {residentCategories.map((cat, idx) => (
             <div
               key={idx}
-              className={`rounded-3xl p-7 border ${cat.theme} shadow-xs hover:shadow-md transition-all flex flex-col justify-between`}
+              className={`rounded-lg p-7 border ${cat.theme} shadow-xs hover:shadow-md transition-all flex flex-col justify-between`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -96,7 +96,7 @@ export default function TaxResidencyAndWorldwideIncome() {
         </div>
 
         {/* Foreign Income Types Detail */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/70 dark:border-zinc-700/70 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-12">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/70 dark:border-zinc-700/70 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-12">
           <p className="m-0">
             Foreign income can include employment income, dividends, interest,
             pensions, annuities, rental income, business income and gains from
@@ -107,7 +107,7 @@ export default function TaxResidencyAndWorldwideIncome() {
         </div>
 
         {/* Why Tax Residency Matters Deep Dive */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="max-w-3xl mb-6">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Statutory Criteria

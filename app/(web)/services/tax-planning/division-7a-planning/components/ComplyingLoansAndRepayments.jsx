@@ -103,7 +103,7 @@ export default function ComplyingLoansAndRepayments() {
         </div>
 
         {/* Verbatim Service Cross-Links Box */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-lg p-8 sm:p-10 shadow-xl">
           <div className="mb-6">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Corporate Returns &amp; Business Tax Compliance Integration

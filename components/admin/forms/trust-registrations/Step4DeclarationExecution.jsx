@@ -4,6 +4,8 @@ import React from "react";
 import { Tag } from "antd";
 import { SafetyCertificateOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step4DeclarationExecution() {
   return (
@@ -38,7 +40,7 @@ export default function Step4DeclarationExecution() {
 
         <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
           I confirm that all provided details are true and correct. I authorise
-          Financially Up to prepare our tailored Trust Deed, coordinate Settlor
+          <CompanyName /> to prepare our tailored Trust Deed, coordinate Settlor
           execution, and lodge Trust ABN, TFN, and GST applications directly
           with the Australian Taxation Office (ATO).
         </p>
@@ -56,7 +58,7 @@ export default function Step4DeclarationExecution() {
             {
               value: "Yes",
               label:
-                "I Agree & Authorise Financially Up to establish the Trust",
+                <BrandText text={"I Agree & Authorise Financially Up to establish the Trust"} />,
             },
           ]}
           containerClassName="!mb-0"

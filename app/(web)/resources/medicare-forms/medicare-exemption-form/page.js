@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import MedicareExemptionForm from "@/components/admin/forms/medicare";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Medicare Levy Exemption Application - Financially Up",
   description:
     "Apply for Medicare Levy Exemption certificate, reduction claims, and tax offsets with registered ATO tax agents.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function MedicareExemptionFormPage() {
   return (

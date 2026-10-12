@@ -11,8 +11,12 @@ import StpSetupAndBasCoordination from "./components/StpSetupAndBasCoordination"
 import PaydaySuperAndCommonStpIssues from "./components/PaydaySuperAndCommonStpIssues";
 import RecordsNeededAndHowFinanciallyUpHelps from "./components/RecordsNeededAndHowFinanciallyUpHelps";
 import WhyChooseFinanciallyUpStp from "./components/WhyChooseFinanciallyUpStp";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Single Touch Payroll Services | STP Reporting Support",
   description:
     "Single Touch Payroll services for employers needing STP setup, pay-event reporting, corrections and year-end finalization support. Book an appointment.",
@@ -26,16 +30,17 @@ export const metadata = {
     "STP payroll accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/stp/",
+    canonical: `${SITE_URL}/services/bas-payroll/stp/`,
   },
   openGraph: {
     title: "Single Touch Payroll Services | STP Reporting Support",
     description:
       "Single Touch Payroll services for employers needing STP setup, pay-event reporting, corrections and year-end finalization support. Book an appointment.",
-    url: "https://financiallyup.com.au/services/bas-payroll/stp/",
+    url: `${SITE_URL}/services/bas-payroll/stp/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -62,7 +67,7 @@ export default function SingleTouchPayrollPage() {
         "It is the year-end declaration that tells the ATO the payroll information for the financial year is complete. It allows employees’ income statements to be marked tax ready once finalized.",
     },
     {
-      question: "Can Financially Up help correct STP errors?",
+      question: <BrandText text={"Can Financially Up help correct STP errors?"} />,
       answer:
         "Yes, we can review payroll and STP information and help prepare corrections within our accounting and tax scope. The appropriate correction depends on the type of error and the payroll system used.",
     },
@@ -89,10 +94,7 @@ export default function SingleTouchPayrollPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-zinc-900">
         {/* Hero Section */}
@@ -105,7 +107,7 @@ export default function SingleTouchPayrollPage() {
           badge="Single Touch Payroll Services"
           title="Single Touch Payroll Services for Employers"
           subtitle="Manage ATO pay-event reporting, STP Phase 2 compliance, corrections, and year-end finalization declarations."
-          description={`Single Touch Payroll services help employers manage the payroll information that must be reported to the ATO through STP-enabled software. Financially Up can assist with STP setup, routine reporting, corrections and year-end finalization as part of an agreed payroll or compliance service.`}
+          description={<BrandText text={`Single Touch Payroll services help employers manage the payroll information that must be reported to the ATO through STP-enabled software. Financially Up can assist with STP setup, routine reporting, corrections and year-end finalization as part of an agreed payroll or compliance service.`} />}
           appointmentNote="Need help with STP setup, reporting or a payroll reporting issue? Book an Appointment."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"

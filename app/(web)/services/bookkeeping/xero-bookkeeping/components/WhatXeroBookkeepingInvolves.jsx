@@ -13,6 +13,7 @@ import {
   FolderOpenOutlined,
   CalculatorOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatXeroBookkeepingInvolves Component
@@ -94,7 +95,7 @@ export default function WhatXeroBookkeepingInvolves() {
             as practical.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Depending on scope, Financially Up can assist with bank
+            Depending on scope, <CompanyName /> can assist with bank
             reconciliation, transaction coding, review of account balances,
             bookkeeping clean-up, source-document organisation and preparation
             of the Xero file for BAS, tax or financial reporting work.

@@ -4,6 +4,7 @@ import ThemeProvider from "./ThemeProvider";
 import { SettingsProvider } from "../context/SettingsContext";
 import { getSettings } from "../lib/getSettings";
 import "./globals.css";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
 // Geist fonts are bundled with the project (app/fonts, SIL Open Font License)
 // instead of `next/font/google`. Google fonts are downloaded during `next build`
@@ -23,7 +24,7 @@ const geistMono = localFont({
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
 });
 
-export const metadata = {
+const baseMetadata = {
   title: "Financially Up - ERP & Admin Portal",
   description: "Secure Admin Accounts and Taxation ERP System",
   // Global search engine crawler blocking (noindex & nofollow)
@@ -41,6 +42,7 @@ export const metadata = {
     },
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default async function RootLayout({ children }) {
   // Global variables (company identity, contact emails, URLs) shared by the

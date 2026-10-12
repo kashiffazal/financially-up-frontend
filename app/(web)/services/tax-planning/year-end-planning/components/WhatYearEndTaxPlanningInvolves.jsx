@@ -7,6 +7,7 @@ import {
   FileSearchOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatYearEndTaxPlanningInvolves Component
@@ -83,7 +84,7 @@ export default function WhatYearEndTaxPlanningInvolves() {
             prepared.
           </p>
           <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            Financially Up can provide year-end tax planning for individuals and
+            <CompanyName /> can provide year-end tax planning for individuals and
             businesses. Where a matter requires financial product advice or an
             investment recommendation, an appropriately authorized financial
             adviser may be needed. Legal advice may require an appropriately

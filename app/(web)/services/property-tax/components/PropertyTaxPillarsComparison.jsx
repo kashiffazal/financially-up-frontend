@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * PropertyTaxPillarsComparison Component
@@ -73,7 +74,7 @@ export default function PropertyTaxPillarsComparison() {
       title: "Property tax planning versus tax compliance",
       paragraphs: [
         "Property tax planning is proactive work undertaken before or around a transaction, while annual compliance is about correctly recording and reporting what has already occurred. Planning may include reviewing ownership, financing, timing and expected tax consequences before a purchase, sale, refinance or development decision is locked in.",
-        "Where proactive planning is needed, our Property Tax Planning service is separately scoped. Financially Up does not treat tax planning as automatically included in routine tax return preparation or bookkeeping.",
+        <BrandText key="brand-1" text={"Where proactive planning is needed, our Property Tax Planning service is separately scoped. Financially Up does not treat tax planning as automatically included in routine tax return preparation or bookkeeping."} />,
       ],
       highlights: [
         "Pre-transaction ownership structure reviews",

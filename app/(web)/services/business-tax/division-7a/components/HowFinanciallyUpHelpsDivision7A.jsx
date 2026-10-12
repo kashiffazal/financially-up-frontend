@@ -14,6 +14,7 @@ import {
   GlobalOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsDivision7A Component
@@ -64,10 +65,10 @@ export default function HowFinanciallyUpHelpsDivision7A() {
             Expert Advisory & Compliance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up"} can assist with Division 7A
+            {company?.legalName} can assist with Division 7A
             reviews, loan-account reconciliations, minimum yearly repayment
             information, company tax-return preparation and identifying
             transactions that require further analysis.
@@ -143,7 +144,7 @@ export default function HowFinanciallyUpHelpsDivision7A() {
         </div>
 
         {/* Section 2: Why Choose Financially Up? */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
+        <div className="p-8 sm:p-12 rounded-lg bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
           <div className="max-w-3xl mb-8">
             <Tag
               color="cyan"
@@ -152,10 +153,10 @@ export default function HowFinanciallyUpHelpsDivision7A() {
               Client Trust & Qualifications
             </Tag>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why Choose Financially Up?
+              Why Choose <CompanyName />?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company?.legalName || "Financially Up"} is a registered tax agent
+              {company?.legalName} is a registered tax agent
               with more than 10 years of experience in accounting and taxation.
               Our professional team includes CPA and IPA members. We support
               clients Australia-wide through online appointments, with in-person

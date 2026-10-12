@@ -39,7 +39,7 @@ export default function RemovingDirectorAnd28DayPeriod() {
             </h2>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               A director may resign by giving written notice to the company,
               subject to the law and the company&apos;s circumstances. In a
@@ -81,7 +81,7 @@ export default function RemovingDirectorAnd28DayPeriod() {
             </h2>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               ASIC requires many officeholder changes to be notified within 28
               days. Late notification can result in a late fee. For director

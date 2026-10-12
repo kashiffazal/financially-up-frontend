@@ -9,11 +9,16 @@ import HowFinanciallyUpHelpsConsolidation from "./components/HowFinanciallyUpHel
 import RelatedTaxConsolidationRibbon from "./components/RelatedTaxConsolidationRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 13 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Tax Consolidation Services Australia | Financially Up",
   description:
     "Tax consolidation services for eligible corporate groups. Get help assessing formation, tax attributes, joining or leaving entities and ongoing compliance.",
@@ -27,18 +32,19 @@ export const metadata = {
     "corporate tax consolidation Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/tax-consolidation/",
+    canonical: `${SITE_URL}/services/business-tax/tax-consolidation/`,
   },
   openGraph: {
     title: "Tax Consolidation Services Australia | Financially Up",
     description:
       "Tax consolidation services for eligible corporate groups. Get help assessing formation, tax attributes, joining or leaving entities and ongoing compliance.",
-    url: "https://financiallyup.com.au/services/business-tax/tax-consolidation/",
+    url: `${SITE_URL}/services/business-tax/tax-consolidation/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -126,10 +132,7 @@ export default function TaxConsolidationPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -141,7 +144,7 @@ export default function TaxConsolidationPage() {
               Income tax consolidation allows an eligible wholly owned group to be treated as a single entity for income tax purposes, with the head company responsible for the group&apos;s income-tax position. It can simplify some intra-group tax outcomes, but formation, joining and leaving calculations can be technically demanding.
             </span>
             <span className="block mt-2">
-              Financially Up provides tax consolidation services for corporate groups that need help assessing whether consolidation is appropriate, preparing formation information, reviewing tax attributes and managing ongoing consolidated-group compliance. The service is distinct from ordinary company tax-return preparation because consolidation changes how the group is treated for income tax purposes.
+              <CompanyName /> provides tax consolidation services for corporate groups that need help assessing whether consolidation is appropriate, preparing formation information, reviewing tax attributes and managing ongoing consolidated-group compliance. The service is distinct from ordinary company tax-return preparation because consolidation changes how the group is treated for income tax purposes.
             </span>
           </span>
         }
@@ -189,7 +192,7 @@ export default function TaxConsolidationPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Corporate Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}

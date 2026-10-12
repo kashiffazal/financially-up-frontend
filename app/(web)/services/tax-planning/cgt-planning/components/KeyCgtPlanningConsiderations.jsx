@@ -68,7 +68,7 @@ export default function KeyCgtPlanningConsiderations() {
           {cards.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
@@ -86,7 +86,7 @@ export default function KeyCgtPlanningConsiderations() {
         </div>
 
         {/* Verbatim Service Integration Notice */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-lg p-8 sm:p-10 shadow-xl">
           <div className="mb-6">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
               Comprehensive Post-Sale Compliance &amp; Rental Property Tax

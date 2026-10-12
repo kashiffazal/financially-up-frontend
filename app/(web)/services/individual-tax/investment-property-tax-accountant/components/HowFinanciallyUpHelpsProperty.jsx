@@ -15,6 +15,8 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsProperty Component
@@ -61,8 +63,13 @@ export default function HowFinanciallyUpHelpsProperty() {
         <SearchOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
       ),
       title: "Information Review",
-      description:
-        "Financially Up reviews the property’s ownership, rental period, income, expenses, loan use and significant changes.",
+      description: (
+        <BrandText
+          text={
+            "Financially Up reviews the property’s ownership, rental period, income, expenses, loan use and significant changes."
+          }
+        />
+      ),
     },
     {
       num: "04",
@@ -96,17 +103,17 @@ export default function HowFinanciallyUpHelpsProperty() {
             Professional Practice &amp; Process
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
-            agent, registration number {company?.taxAgentNumber || "26242127"}.
+            {company?.legalName} is a registered tax
+            agent, registration number {company?.taxAgentNumber}.
             We provide rental property tax assistance to clients Australia-wide.
           </p>
         </div>
 
         {/* Services Included Grid */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-16">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-16">
           <div className="max-w-3xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Scope of Service
@@ -206,7 +213,7 @@ export default function HowFinanciallyUpHelpsProperty() {
               •
             </span>
             <span>
-              Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+              Registered Tax Agent #{company?.taxAgentNumber}
             </span>
           </div>
         </div>

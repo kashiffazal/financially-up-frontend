@@ -11,6 +11,7 @@ import {
   CalendarOutlined,
   IdcardOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * TheTwoDifferentTaxReturns Component
@@ -60,7 +61,7 @@ export default function TheTwoDifferentTaxReturns() {
 
         {/* 2 Column Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
-          {/* Card 1: Final Tax Return for the Deceased Person */}
+          {/* Card 1: Final Tax Returrounded-lgeceased Person */}
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
@@ -124,7 +125,7 @@ export default function TheTwoDifferentTaxReturns() {
             </div>
           </div>
 
-          {/* Card 2: Tax Return for the Deceased Estate */}
+          {/* Card 2: Tax Return for rounded-lgd Estate */}
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
@@ -179,7 +180,8 @@ export default function TheTwoDifferentTaxReturns() {
 
             <div className="mt-6 pt-5 border-t border-slate-100 dark:border-zinc-800">
               <span className="text-2xs font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">
-                Trust Tax Return Lodgment via TPB Tax Agent #26242127
+                Trust Tax Return Lodgment via TPB Tax Agent #
+                <BrandText text={"26242127"} />
               </span>
             </div>
           </div>

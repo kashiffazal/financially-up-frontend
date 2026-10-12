@@ -12,11 +12,16 @@ import WhyChooseFinanciallyUpDistributions from "./components/WhyChooseFinancial
 import RelatedDistributionPlanningRibbon from "./components/RelatedDistributionPlanningRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 11 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust Distribution Planning Australia | Financially Up",
   description:
     "Trust distribution planning for trustees and family trusts. Review beneficiary entitlements, resolutions, tax issues and year-end records before 30 June.",
@@ -30,18 +35,19 @@ export const metadata = {
     "trustee resolution tax",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/distribution-planning/",
+    canonical: `${SITE_URL}/services/trusts/distribution-planning/`,
   },
   openGraph: {
     title: "Trust Distribution Planning Australia | Financially Up",
     description:
       "Trust distribution planning for trustees and family trusts. Review beneficiary entitlements, resolutions, tax issues and year-end records before 30 June.",
-    url: "https://financiallyup.com.au/services/trusts/distribution-planning/",
+    url: `${SITE_URL}/services/trusts/distribution-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -139,10 +145,7 @@ export default function TrustDistributionPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -157,7 +160,7 @@ export default function TrustDistributionPlanningPage() {
               presently entitled to trust income and how the trust&apos;s taxable income is ultimately assessed.
             </span>
             <span className="block mt-2">
-              Financially Up can assist trustees with the accounting and tax work needed to support an informed
+              <CompanyName /> can assist trustees with the accounting and tax work needed to support an informed
               distribution decision, including reviewing estimated trust results, beneficiary tax information,
               prior-year positions and related tax issues. The trustee must still act under the trust deed and
               applicable law, and legal advice may be required where the deed, trustee powers or beneficiary rights are
@@ -182,7 +185,7 @@ export default function TrustDistributionPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

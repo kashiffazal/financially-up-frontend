@@ -13,6 +13,7 @@ import {
   BankOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * TrustAccountingTaxDistributions Component
@@ -91,7 +92,7 @@ export default function TrustAccountingTaxDistributions() {
             before the end of the income year to establish beneficiary
             entitlements. The trust deed can impose its own requirements, and
             different rules can apply to capital gains and franked
-            distributions. Financially Up can prepare the accounting and tax
+            distributions. <CompanyName /> can prepare the accounting and tax
             information needed for the trust&apos;s annual compliance and can
             separately scope tax advice where distribution planning or a more
             complex tax issue needs to be considered.

@@ -9,6 +9,8 @@ import {
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step3DocumentsSign() {
   return (
@@ -87,7 +89,7 @@ export default function Step3DocumentsSign() {
 
         <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
           I confirm that I am authorised to act on behalf of the entity. I
-          appoint Financially Up as our registered Tax Agent to access ATO
+          appoint <CompanyName /> as our registered Tax Agent to access ATO
           portal records, prepare and lodge tax returns, BAS, and corporate
           compliance filings under the Tax Agent Services Act 2009.
         </p>
@@ -106,7 +108,7 @@ export default function Step3DocumentsSign() {
             {
               value: "Yes",
               label:
-                "I Agree & Authorise Financially Up as our Registered Tax Agent",
+                <BrandText text={"I Agree & Authorise Financially Up as our Registered Tax Agent"} />,
             },
           ]}
           containerClassName="!mb-0"

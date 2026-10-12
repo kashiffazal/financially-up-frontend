@@ -133,7 +133,7 @@ export default function WhenDoesCompanyChangeDirector() {
         </div>
 
         {/* Action Callout */}
-        <div className="w-full rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="w-full rounded-lg p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl">
             <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1">
               Adding or removing a director?

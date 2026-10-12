@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import { Button } from "antd";
 import styles from "./GoogleReviewsSection.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function GoogleReviewsSection() {
   return (
@@ -65,7 +66,7 @@ export default function GoogleReviewsSection() {
 
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 font-normal">
                   Over 190+ verified Australians share their experience with
-                  Financially Up tax services.
+                  <CompanyName /> tax services.
                 </p>
               </div>
             </div>

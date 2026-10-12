@@ -10,11 +10,17 @@ import HowFinanciallyUpHelpsSubdivision from "./components/HowFinanciallyUpHelps
 import RelatedPropertySubdivisionRibbon from "./components/RelatedPropertySubdivisionRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of 10th Pillar Property Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Property Subdivision Tax Advice | Financially Up",
   description:
     "Subdividing land? Understand the potential CGT, income tax and GST consequences before you sell. Discuss your property plans with Financially Up.",
@@ -28,18 +34,19 @@ export const metadata = {
     "cost base allocation subdivision",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/property-tax/property-subdivision-tax/",
+    canonical: `${SITE_URL}/services/property-tax/property-subdivision-tax/`,
   },
   openGraph: {
     title: "Property Subdivision Tax Advice | Financially Up",
     description:
       "Subdividing land? Understand the potential CGT, income tax and GST consequences before you sell. Discuss your property plans with Financially Up.",
-    url: "https://financiallyup.com.au/services/property-tax/property-subdivision-tax/",
+    url: `${SITE_URL}/services/property-tax/property-subdivision-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -118,10 +125,7 @@ export default function PropertySubdivisionTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -133,7 +137,7 @@ export default function PropertySubdivisionTaxPage() {
               Subdividing land can change how a later sale is taxed. The outcome depends on why you acquired the property, what you intend to do, the scale and commercial character of the work, and whether the activities amount to an enterprise. A sale may involve capital gains tax (CGT), ordinary income tax, GST or more than one set of rules.
             </span>
             <span className="block mt-2">
-              Financially Up can review the property subdivision tax issues before substantial work begins or a sale contract is prepared. Book an Appointment to discuss the ownership history, proposed lots, development work, expected sales and available records.
+              <CompanyName /> can review the property subdivision tax issues before substantial work begins or a sale contract is prepared. Book an Appointment to discuss the ownership history, proposed lots, development work, expected sales and available records.
             </span>
           </span>
         }
@@ -154,7 +158,7 @@ export default function PropertySubdivisionTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -197,7 +201,7 @@ export default function PropertySubdivisionTaxPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Discuss Your Subdivision Plans"
-        subtitle="Bring your purchase documents, ownership history, proposed plans, estimated costs and intended sale arrangements. Financially Up can identify the tax issues, explain the information required and outline the next steps."
+        subtitle={<BrandText text={"Bring your purchase documents, ownership history, proposed plans, estimated costs and intended sale arrangements. Financially Up can identify the tax issues, explain the information required and outline the next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

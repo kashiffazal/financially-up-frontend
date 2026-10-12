@@ -9,6 +9,8 @@ import {
   PhoneOutlined,
   CustomerServiceOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
+import { useBrandText } from "@/context/SettingsContext";
 
 /**
  * 7 Registration Forms Data Definition
@@ -377,6 +379,7 @@ function RegistrationCard({ form }) {
  * 2-Column Featured Advisory Card (Fills Row 3)
  */
 function FeaturedAdvisoryCard() {
+  const brand = useBrandText();
   return (
     <div className="md:col-span-2 lg:col-span-2 relative flex flex-col justify-between p-8 sm:p-9 rounded-lg bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
       {/* Subtle Background Glow Circles */}
@@ -439,13 +442,13 @@ function FeaturedAdvisoryCard() {
         </Link>
 
         <a
-          href="tel:1300328316"
+          href={brand("tel:1300328316")}
           className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-100 hover:text-white transition-colors !no-underline"
         >
           <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-white text-xs">
             <PhoneOutlined />
           </div>
-          <span>Call 1300 328 316</span>
+          <span>Call <BrandText text={"1300 328 316"} /></span>
         </a>
       </div>
     </div>

@@ -8,6 +8,7 @@ import {
   FileProtectOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * KeyTaxIssuesBeforeRestructure Component
@@ -116,7 +117,7 @@ export default function KeyTaxIssuesBeforeRestructure() {
               If the restructure involves moving assets between entities or
               creating materially different beneficial interests, transaction
               taxes and state or territory duties may also need specialist
-              review. Financially Up can address tax and accounting matters
+              review. <CompanyName /> can address tax and accounting matters
               within scope, while legal documents and duty advice may require an
               appropriately qualified legal adviser or other specialist.
             </p>

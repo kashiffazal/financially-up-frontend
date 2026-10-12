@@ -9,11 +9,16 @@ import ScopeAndProfessionalBoundariesModelling from "./components/ScopeAndProfes
 import RelatedServiceRibbonModelling from "./components/RelatedServiceRibbonModelling";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 3)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Financial Modelling Services for Business | Financially Up",
   description:
     "Build a financial model around your business decisions. Financially Up connects forecasts, cash flow and assumptions so you can plan with clearer numbers.",
@@ -26,18 +31,19 @@ export const metadata = {
     "investment decision modelling",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/financial-modelling/",
+    canonical: `${SITE_URL}/services/virtual-cfo/financial-modelling/`,
   },
   openGraph: {
     title: "Financial Modelling Services for Business | Financially Up",
     description:
       "Build a financial model around your business decisions. Financially Up connects forecasts, cash flow and assumptions so you can plan with clearer numbers.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/financial-modelling/",
+    url: `${SITE_URL}/services/virtual-cfo/financial-modelling/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -116,10 +122,7 @@ export default function FinancialModellingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function FinancialModellingPage() {
               Financial modelling services turn assumptions about sales, costs, investment and payment timing into connected forecasts. A useful model helps you understand what a decision could mean for profit, cash and financial position. It does not predict the future with certainty; it makes the assumptions behind a plan visible and testable.
             </span>
             <span className="block mt-2">
-              Financially Up helps business owners and management teams develop models for decisions such as expansion, staffing, investment or funding. We establish the question first, then build a model at a level your records and the decision can support.
+              <CompanyName /> helps business owners and management teams develop models for decisions such as expansion, staffing, investment or funding. We establish the question first, then build a model at a level your records and the decision can support.
             </span>
             <span className="block mt-2">
               Book an Appointment to discuss your proposed decision and the information available.
@@ -195,7 +198,7 @@ export default function FinancialModellingPage() {
       <CallToActionBanner
         tag="Test the Decision Before Committing"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss the decision, the records available and the type of financial modelling services that would help you assess it."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss the decision, the records available and the type of financial modelling services that would help you assess it."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Virtual CFO Services"

@@ -9,6 +9,7 @@ import {
   CheckCircleOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * KeyConsiderationsCorporateTrustee Component
@@ -20,7 +21,13 @@ export default function KeyConsiderationsCorporateTrustee() {
     {
       num: "1",
       title: "The trust deed and trustee powers",
-      desc: "The trust deed is a core legal document. It sets out how the trust operates, who can benefit, how the trustee can exercise powers and how changes to the trustee may be handled. Financially Up can consider the accounting and tax implications of the proposed structure, but legal drafting or interpretation may require a lawyer.",
+      desc: (
+        <BrandText
+          text={
+            "The trust deed is a core legal document. It sets out how the trust operates, who can benefit, how the trustee can exercise powers and how changes to the trustee may be handled. Financially Up can consider the accounting and tax implications of the proposed structure, but legal drafting or interpretation may require a lawyer."
+          }
+        />
+      ),
       icon: (
         <FileTextOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />
       ),
@@ -68,7 +75,7 @@ export default function KeyConsiderationsCorporateTrustee() {
           {considerations.map((item, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between"
+              className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between"
             >
               <div className="space-y-5">
                 <div className="flex items-center justify-between">

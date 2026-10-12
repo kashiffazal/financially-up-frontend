@@ -28,8 +28,10 @@ import { useAuth } from "../../context/AuthContext";
 import GlobalSearch from "./GlobalSearch";
 import NewApplicationMenu from "./NewApplicationMenu";
 import NotificationCenter from "./NotificationCenter";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function Header({ onOpenMobile }) {
+  const brand = useBrandText();
   const { isDark, toggleTheme } = useTheme();
   const { user, logout } = useAuth();
   const router = useRouter();
@@ -94,12 +96,12 @@ export default function Header({ onOpenMobile }) {
         {/* Brand Logo (desktop) */}
         <Link
           href="/admin/dashboard"
-          aria-label="Financially Up dashboard"
+          aria-label={brand("Financially Up dashboard")}
           className="hidden lg:flex shrink-0 items-center pr-3 mr-1 border-r border-slate-200 dark:border-zinc-800"
         >
           <Image
             src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-            alt="Financially Up"
+            alt={brand("Financially Up")}
             width={163}
             height={30}
             priority

@@ -127,7 +127,7 @@ export default function WhatHappensAfterRegistration() {
         </div>
 
         {/* Part 2: GST registration and business structure changes */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="max-w-3xl space-y-4">
             <div className="flex items-center gap-2 text-brand-primary dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
               <ApartmentOutlined />

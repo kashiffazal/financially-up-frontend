@@ -9,6 +9,7 @@ import {
   CheckCircleOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * AbnByEntityAndCommonIssues Component
@@ -90,7 +91,7 @@ export default function AbnByEntityAndCommonIssues() {
         {/* Part 2: Common Issues & How Financially Up Helps */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Common issues */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 flex items-center justify-center">
@@ -137,19 +138,19 @@ export default function AbnByEntityAndCommonIssues() {
           </div>
 
           {/* How Financially Up can help */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
                   <SafetyCertificateOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                  How Financially Up can help with ABN registration
+                  How <CompanyName /> can help with ABN registration
                 </h3>
               </div>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can help review the entity details, gather the
+                <CompanyName /> can help review the entity details, gather the
                 information required for the application and assist with the ABN
                 registration process. We can also identify related accounting
                 and tax setup matters that may need separate attention.

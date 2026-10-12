@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpGrants from "./components/WhyChooseFinanciallyUpGra
 import RelatedServiceRibbon from "./components/RelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of 15th Pillar R&D Tax Incentive.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Government Grant Consultant Australia | Grant Application Support",
   description:
     "Government grant support for Australian businesses. Assess eligibility, organize evidence and prepare a clear, compliant application with Financially Up.",
@@ -28,18 +34,19 @@ export const metadata = {
     "commercialisation grant Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/rd-tax-incentive/government-grants/",
+    canonical: `${SITE_URL}/services/rd-tax-incentive/government-grants/`,
   },
   openGraph: {
     title: "Government Grant Consultant Australia | Grant Application Support",
     description:
       "Government grant support for Australian businesses. Assess eligibility, organize evidence and prepare a clear, compliant application with Financially Up.",
-    url: "https://financiallyup.com.au/services/rd-tax-incentive/government-grants/",
+    url: `${SITE_URL}/services/rd-tax-incentive/government-grants/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -122,10 +129,7 @@ export default function GovernmentGrantsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -142,7 +146,7 @@ export default function GovernmentGrantsPage() {
               information and prepare an application that addresses the published criteria clearly and accurately.
             </span>
             <span className="block mt-2">
-              Financially Up supports businesses with grant-readiness, application preparation and
+              <CompanyName /> supports businesses with grant-readiness, application preparation and
               required financial information. We help you understand current guidelines, present the
               project coherently and identify issues before submission.
             </span>
@@ -157,7 +161,7 @@ export default function GovernmentGrantsPage() {
         highlights={[
           "Guideline & Merit Criteria Alignment",
           "Project Budget & Ledger Reconciliation",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-2" text={"Registered Tax Agent #26234055"} />,
         ]}
         primaryCta={{
           label: "Book an Appointment",
@@ -165,7 +169,7 @@ export default function GovernmentGrantsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Professional Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -208,7 +212,7 @@ export default function GovernmentGrantsPage() {
       <CallToActionBanner
         tag="Discuss Your Government Grant Application"
         title="Book an Appointment"
-        subtitle="If you have identified an opportunity or want to assess whether your business is ready to apply, Financially Up can help you review the requirements, organize supporting information and define the appropriate application-support scope."
+        subtitle={<BrandText text={"If you have identified an opportunity or want to assess whether your business is ready to apply, Financially Up can help you review the requirements, organize supporting information and define the appropriate application-support scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore R&D Tax Incentive"

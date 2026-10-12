@@ -16,8 +16,11 @@ import { useTheme } from "../../ThemeProvider";
 import { useAuth } from "../../../context/AuthContext";
 import LoginForm from "./LoginForm";
 import ForgotPasswordForm from "./ForgotPasswordForm";
+import CompanyName from "@/components/mutual/CompanyName";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function Login() {
+  const brand = useBrandText();
   const { isDark, toggleTheme } = useTheme();
   const { login } = useAuth();
   const [isForgotPassword, setIsForgotPassword] = useState(false);
@@ -75,7 +78,7 @@ export default function Login() {
           <div className="flex items-center gap-2">
             <Image
               src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-              alt="Financially Up Logo"
+              alt={brand("Financially Up Logo")}
               width={160}
               height={44}
               priority
@@ -124,7 +127,7 @@ export default function Login() {
             <p className="text-center text-sm text-slate-500 dark:text-zinc-400">
               Need access or lost permissions?{" "}
               <a
-                href="mailto:admin@financiallyup.com.au"
+                href={brand("mailto:admin@financiallyup.com.au")}
                 className="font-semibold text-[#008043] hover:text-[#006635] transition-colors"
               >
                 Contact your practice administrator
@@ -150,7 +153,7 @@ export default function Login() {
 
         {/* Footer legal copyrights */}
         <div className="w-full text-left text-xs text-slate-400 dark:text-zinc-500 pt-6 border-t border-slate-100 dark:border-zinc-800">
-          © 2026 Financially Up Pty Ltd - Accounting · Taxation · Advisory
+          © 2026 <CompanyName legal /> - Accounting · Taxation · Advisory
         </div>
       </div>
 

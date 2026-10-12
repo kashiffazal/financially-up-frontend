@@ -93,7 +93,7 @@ export default function WhatIsIasLodgement() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
               <div className="flex items-center gap-3 text-brand-primary dark:text-emerald-400">
                 <CalendarOutlined className="text-2xl" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">

@@ -8,6 +8,7 @@ import {
   CheckCircleOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatSmsfComplianceInvolves Component
@@ -96,7 +97,7 @@ export default function WhatSmsfComplianceInvolves() {
             <span className="font-bold text-slate-900 dark:text-white">
               Trustee Legal Responsibility:
             </span>{" "}
-            Financially Up provides SMSF compliance support by reviewing
+            <CompanyName /> provides SMSF compliance support by reviewing
             accounting records, identifying transactions or documentation that
             may need attention, helping trustees prepare for annual accounting
             and audit, and coordinating tax and reporting work within our scope.

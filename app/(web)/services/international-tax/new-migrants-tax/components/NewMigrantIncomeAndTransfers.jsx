@@ -80,7 +80,7 @@ export default function NewMigrantIncomeAndTransfers() {
         </div>
 
         {/* Retaining Offshore Property & Double Tax Relief Callout */}
-        <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl">

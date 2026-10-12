@@ -8,11 +8,17 @@ import HowFinanciallyUpHelpsCrypto from "./components/HowFinanciallyUpHelpsCrypt
 import CryptoRelatedServiceRibbon from "./components/CryptoRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Cryptocurrency Tax Accountant Australia-Wide | Financially Up",
   description:
     "Get help with crypto transactions, capital gains, staking, airdrops and tax returns from a cryptocurrency tax accountant serving Australia-wide.",
@@ -28,18 +34,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/cryptocurrency-tax/",
+      `${SITE_URL}/services/individual-tax/cryptocurrency-tax/`,
   },
   openGraph: {
     title: "Cryptocurrency Tax Accountant Australia-Wide | Financially Up",
     description:
       "Get help with crypto transactions, capital gains, staking, airdrops and tax returns from a cryptocurrency tax accountant serving Australia-wide.",
-    url: "https://financiallyup.com.au/services/individual-tax/cryptocurrency-tax/",
+    url: `${SITE_URL}/services/individual-tax/cryptocurrency-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -84,7 +91,7 @@ const cryptoQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -212,10 +219,7 @@ export default function CryptocurrencyTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -226,7 +230,7 @@ export default function CryptocurrencyTaxPage() {
             <span className="block">
               Cryptocurrency tax can become difficult when activity spans
               exchanges and wallets or includes swaps, staking, airdrops and
-              missing records. Financially Up Pty Ltd assists Australian
+              missing records. <CompanyName legal /> assists Australian
               individuals with reviewing and reporting crypto and digital-asset
               activity.
             </span>
@@ -258,7 +262,7 @@ export default function CryptocurrencyTaxPage() {
           "Exchange & On-Chain Wallet Reconciliation",
           "Swaps, Staking, Airdrops & DeFi Tax",
           "50% CGT Discount & Loss Offsets",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={cryptoQuickSpecs}
         primaryCta={{
@@ -267,7 +271,7 @@ export default function CryptocurrencyTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Crypto Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -295,7 +299,7 @@ export default function CryptocurrencyTaxPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about crypto capital gains, swaps, wallet transfers, staking rewards, airdrops and records with Financially Up."
+        subtitle={<BrandText text={"Common questions about crypto capital gains, swaps, wallet transfers, staking rewards, airdrops and records with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Cryptocurrency Tax Accountant Frequently Asked Questions"
         items={cryptoFaqs}
@@ -307,7 +311,7 @@ export default function CryptocurrencyTaxPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Book an Appointment with a cryptocurrency tax accountant to discuss your crypto activity, available records and the work required for your tax return. Financially Up will outline the next steps and confirm the service scope before proceeding."
+        subtitle={<BrandText text={"Book an Appointment with a cryptocurrency tax accountant to discuss your crypto activity, available records and the work required for your tax return. Financially Up will outline the next steps and confirm the service scope before proceeding."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

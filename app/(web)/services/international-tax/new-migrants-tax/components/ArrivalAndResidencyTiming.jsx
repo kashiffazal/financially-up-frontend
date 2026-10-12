@@ -53,7 +53,7 @@ export default function ArrivalAndResidencyTiming() {
         {/* 2 Column Card Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           {/* Left Column: Mid-Year Changes & Evidence */}
-          <div className="lg:col-span-7 p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-7 p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl">
@@ -86,7 +86,7 @@ export default function ArrivalAndResidencyTiming() {
           </div>
 
           {/* Right Column: How Residency Changes What You Report */}
-          <div className="lg:col-span-5 p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-5 p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">

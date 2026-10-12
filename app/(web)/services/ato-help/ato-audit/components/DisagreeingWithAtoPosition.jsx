@@ -11,6 +11,7 @@ import {
   SafetyCertificateOutlined,
   RightCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * DisagreeingWithAtoPosition Component
@@ -117,7 +118,7 @@ export default function DisagreeingWithAtoPosition() {
                 Our Tax Accounting Scope vs Specialized Legal Representation:
               </h4>
               <p className="text-xs sm:text-sm md:text-base text-slate-700 dark:text-zinc-300 leading-relaxed">
-                Financially Up can help explain tax and accounting issues and
+                <CompanyName /> can help explain tax and accounting issues and
                 assist with objection-related tax work within scope. Litigation,
                 complex statutory interpretation, privilege questions or formal
                 legal representation may require an appropriately qualified tax

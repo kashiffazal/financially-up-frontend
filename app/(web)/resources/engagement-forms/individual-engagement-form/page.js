@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "../../../../../components/website/FormPageHeader";
 import FormPreFooter from "../../../../../components/website/FormPreFooter";
 import IndividualEngagementClientForm from "../../../../../components/admin/forms/individual-engagement-client";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Individual Client Engagement Form - Financially Up",
   description:
     "Complete your individual client engagement onboarding form online with Financially Up Tax Agents.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function IndividualEngagementFormPage() {
   return (

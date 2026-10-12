@@ -9,6 +9,8 @@ import {
   CheckCircleFilled,
 } from "@ant-design/icons";
 import styles from "./TestimonialsSection.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function TestimonialsSection() {
   const carouselRef = useRef(null);
@@ -19,7 +21,7 @@ export default function TestimonialsSection() {
       role: "Small Business Owner, Sydney",
       stars: 5,
       quote:
-        "Financially Up simplified a difficult tax season. Their support and process were exceptional from start to finish, and I saved more than expected.",
+        <BrandText text={"Financially Up simplified a difficult tax season. Their support and process were exceptional from start to finish, and I saved more than expected."} />,
       initials: "AR",
       avatarBg: "bg-emerald-600",
     },
@@ -67,7 +69,7 @@ export default function TestimonialsSection() {
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 font-normal">
               Real feedback from Australian individuals and business owners
-              trusting Financially Up.
+              trusting <CompanyName />.
             </p>
           </div>
 

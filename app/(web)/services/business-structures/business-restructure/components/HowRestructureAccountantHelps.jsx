@@ -12,6 +12,7 @@ import {
   TeamOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowRestructureAccountantHelps Component
@@ -72,7 +73,7 @@ export default function HowRestructureAccountantHelps() {
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             A business restructure accountant helps connect the proposed
             commercial change with its tax and accounting consequences. Within
-            the agreed accounting and tax scope, Financially Up may assist with:
+            the agreed accounting and tax scope, <CompanyName /> may assist with:
           </p>
         </div>
 

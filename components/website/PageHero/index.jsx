@@ -26,7 +26,7 @@ export default function PageHero({
       <div className="absolute inset-0 z-0">
         <Image
           src={bgImage}
-          alt={title || "Australian Accounting Services"}
+          alt={typeof title === "string" && title ? title : "Australian Accounting Services"}
           fill
           priority
           className="object-cover object-center pointer-events-none"

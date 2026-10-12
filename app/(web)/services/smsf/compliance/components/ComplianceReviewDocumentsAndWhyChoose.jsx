@@ -14,6 +14,7 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ComplianceReviewDocumentsAndWhyChoose Component
@@ -43,7 +44,7 @@ export default function ComplianceReviewDocumentsAndWhyChoose() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `${company.legalName || "Financially Up Pty Ltd"} is a registered tax agent (TPB #${company.tpbNumber || "26242127"}) with more than 10 years of experience across accounting and superannuation compliance.`,
+      desc: `${company.legalName} is a registered tax agent (TPB #${company.taxAgentNumber}) with more than 10 years of experience across accounting and superannuation compliance.`,
     },
     {
       icon: (
@@ -65,7 +66,7 @@ export default function ComplianceReviewDocumentsAndWhyChoose() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section: Annual Compliance Obligations */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16 w-full">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16 w-full">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
             Annual SMSF compliance obligations
           </h2>
@@ -122,7 +123,7 @@ export default function ComplianceReviewDocumentsAndWhyChoose() {
         </div>
 
         {/* Section: Documents that Help with a Compliance Review */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16 w-full">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16 w-full">
           <div className="max-w-3xl mb-8">
             <div className="w-10 h-10 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/40 flex items-center justify-center mb-3">
               <FolderOpenOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
@@ -159,10 +160,10 @@ export default function ComplianceReviewDocumentsAndWhyChoose() {
               Credentials & Advisory Boundaries
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up is a registered tax agent with more than 10 years
+              <CompanyName /> is a registered tax agent with more than 10 years
               of experience. Our team includes CPA and IPA members and supports
               clients Australia-wide through online and in-person appointments.
               Our SMSF compliance support is designed to make the fund’s
@@ -193,7 +194,7 @@ export default function ComplianceReviewDocumentsAndWhyChoose() {
           </div>
 
           {/* Action Bar */}
-          <div className="p-8 rounded-3xl bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="p-8 rounded-lg bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-white mb-1">
                 Want to check your SMSF’s compliance position?

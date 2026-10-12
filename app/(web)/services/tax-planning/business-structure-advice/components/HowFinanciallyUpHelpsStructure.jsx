@@ -13,6 +13,8 @@ import {
   GlobalOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsStructure Component
@@ -27,7 +29,13 @@ export default function HowFinanciallyUpHelpsStructure() {
   const keyStrengths = [
     {
       title: "Comparative Tax & Accounting Modeling",
-      desc: "Financially Up can compare structures from a tax and accounting perspective, explain ongoing reporting and compliance requirements, identify information needed before a decision and assist with tax registrations and accounting work within the agreed scope.",
+      desc: (
+        <BrandText
+          text={
+            "Financially Up can compare structures from a tax and accounting perspective, explain ongoing reporting and compliance requirements, identify information needed before a decision and assist with tax registrations and accounting work within the agreed scope."
+          }
+        />
+      ),
     },
     {
       title: "Pre-Restructure Tax Analysis",
@@ -56,10 +64,9 @@ export default function HowFinanciallyUpHelpsStructure() {
             Advisory Standards &amp; Experience
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
-
         {/* How We Help Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {keyStrengths.map((item, idx) => (
@@ -81,19 +88,18 @@ export default function HowFinanciallyUpHelpsStructure() {
             </div>
           ))}
         </div>
-
-        {/* Why Choose Financially Up Verbatim Block */}
+        {/* Why Choose Financially Up Verbatim Block */}rounded-lg
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 rounded-3xl p-8 sm:p-12 text-white shadow-xl max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-2xl space-y-4">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                Registered Tax Agent • TPB #26234055
+                Registered Tax Agent • TPB #<BrandText text={"26234055"} />
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Why Choose Financially Up?
+                Why Choose <CompanyName />?
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Financially Up Pty Ltd is a registered tax agent with more than
+                <CompanyName legal /> is a registered tax agent with more than
                 10 years of experience. Our professional team includes CPA and
                 IPA members and supports businesses Australia-wide, with online
                 and in-person appointments available. We provide tax,

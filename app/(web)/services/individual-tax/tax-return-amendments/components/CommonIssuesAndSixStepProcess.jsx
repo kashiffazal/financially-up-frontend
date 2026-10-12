@@ -76,7 +76,7 @@ export default function CommonIssuesAndSixStepProcess() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8">
             {/* Practical Errors */}
-            <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
                   <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -102,7 +102,7 @@ export default function CommonIssuesAndSixStepProcess() {
             </div>
 
             {/* Complex Amendments & CGT */}
-            <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
                   <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">

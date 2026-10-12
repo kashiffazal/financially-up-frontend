@@ -13,6 +13,7 @@ import {
   DollarOutlined,
   ClockCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * DynamicForecastingAndVarianceAnalysis Component
@@ -129,7 +130,7 @@ export default function DynamicForecastingAndVarianceAnalysis() {
               need explanation.
             </p>
             <p className="mt-3 text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Financially Up can help structure budget-versus-actual reviews
+              <CompanyName /> can help structure budget-versus-actual reviews
               around the key drivers of the business. This may include revenue,
               gross margin, labour costs, overheads, debtor collections, cash
               and selected operational measures. The aim is to make management

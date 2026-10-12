@@ -10,6 +10,8 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsDistributions Component
@@ -26,7 +28,7 @@ export default function HowFinanciallyUpHelpsDistributions() {
         <CalculatorOutlined className="text-xl text-teal-600 dark:text-teal-400" />
       ),
       title: "Prepare & Review Management Figures",
-      desc: "Financially Up can prepare or review management figures and estimate the trust's year-end position before 30 June.",
+      desc: <BrandText text={"Financially Up can prepare or review management figures and estimate the trust's year-end position before 30 June."} />,
     },
     {
       icon: (
@@ -56,10 +58,10 @@ export default function HowFinanciallyUpHelpsDistributions() {
             Professional Assistance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can prepare or review management figures, estimate
+            <CompanyName /> can prepare or review management figures, estimate
             the trust&apos;s year-end position, identify tax issues affecting
             potential distributions, coordinate the accounting information for
             the trustee&apos;s resolution, and ensure the final distribution

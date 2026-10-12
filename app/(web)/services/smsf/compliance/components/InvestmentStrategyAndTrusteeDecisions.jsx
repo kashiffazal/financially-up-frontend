@@ -89,7 +89,7 @@ export default function InvestmentStrategyAndTrusteeDecisions() {
         </div>
 
         {/* Major Asset Allocation Change Callout */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs w-full flex items-start gap-4">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs w-full flex items-start gap-4">
           <FileTextOutlined className="text-2xl text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
             <span className="font-bold text-slate-900 dark:text-white">

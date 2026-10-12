@@ -68,18 +68,18 @@ export default function WhyChooseFinanciallyUpGrants() {
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why Choose{" "}
-            {company?.tradingName || company?.legalName || "Financially Up"}?
+            {company.name}?
           </h2>
         </div>
 
         {/* Verbatim Document Text Card */}
-        <div className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 rounded-lg p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
             <CheckCircleOutlined />
             <span>Integrated Tax, Accounting &amp; Advisory Practice</span>
           </div>
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
+            {company?.legalName} is a registered tax
             agent providing taxation, accounting, bookkeeping and business
             advisory services. Our team includes CPA and IPA members and brings
             more than 10 years of experience across accounting and taxation

@@ -11,12 +11,18 @@ import HowFinanciallyUpHelpsHighIncome from "./components/HowFinanciallyUpHelpsH
 import RelatedHighIncomeTaxRibbon from "./components/RelatedHighIncomeTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "High Income Tax Planning Australia | Financially Up",
   description:
     "High income tax planning for executives and professionals. Review income, investments, CGT, deductions and year-end tax considerations.",
@@ -31,18 +37,19 @@ export const metadata = {
     "cgt planning for high income earners",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/high-income-tax-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/high-income-tax-planning/`,
   },
   openGraph: {
     title: "High Income Tax Planning Australia | Financially Up",
     description:
       "High income tax planning for executives and professionals. Review income, investments, CGT, deductions and year-end tax considerations.",
-    url: "https://financiallyup.com.au/services/tax-planning/high-income-tax-planning/",
+    url: `${SITE_URL}/services/tax-planning/high-income-tax-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -90,7 +97,7 @@ const highIncomeTaxPlanningFaqs = [
     label: "Does tax planning include my tax return?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Not automatically. Planning is forward-looking, while a tax return reports completed transactions and income for the year. Financially Up can scope tax-return preparation separately.
+        Not automatically. Planning is forward-looking, while a tax return reports completed transactions and income for the year. <CompanyName /> can scope tax-return preparation separately.
       </p>
     ),
   },
@@ -99,7 +106,7 @@ const highIncomeTaxPlanningFaqs = [
     label: "Can you advise on investments or super products?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can address tax consequences within its tax and accounting scope. Product recommendations or regulated financial advice may require an appropriately authorized financial adviser.
+        <CompanyName /> can address tax consequences within its tax and accounting scope. Product recommendations or regulated financial advice may require an appropriately authorized financial adviser.
       </p>
     ),
   },
@@ -130,10 +137,7 @@ export default function HighIncomeTaxPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -145,7 +149,7 @@ export default function HighIncomeTaxPlanningPage() {
               Higher income often comes with more moving parts: salary and bonuses, investments, employee shares, rental property, capital gains, multiple income sources or significant changes during the year. High income tax planning is a proactive review of those circumstances before key decisions or year end, so the likely tax consequences, record requirements and timing issues are understood in advance.
             </span>
             <span className="block mt-2">
-              Financially Up provides tax planning support for executives, professionals, investors and other individuals with higher or more complex taxable income. The aim is not to promise a lower tax bill. It is to identify legitimate planning considerations, understand upcoming obligations and reduce avoidable surprises when the tax return is prepared.
+              <CompanyName /> provides tax planning support for executives, professionals, investors and other individuals with higher or more complex taxable income. The aim is not to promise a lower tax bill. It is to identify legitimate planning considerations, understand upcoming obligations and reduce avoidable surprises when the tax return is prepared.
             </span>
           </span>
         }
@@ -166,7 +170,7 @@ export default function HighIncomeTaxPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Executive Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -200,7 +204,7 @@ export default function HighIncomeTaxPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about high-income tax planning, pre-30 June reviews, Division 293, and advice scope with Financially Up."
+        subtitle={<BrandText text={"Common questions about high-income tax planning, pre-30 June reviews, Division 293, and advice scope with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="High Income Tax Planning Frequently Asked Questions"
         items={highIncomeTaxPlanningFaqs}
@@ -212,7 +216,7 @@ export default function HighIncomeTaxPlanningPage() {
       <CallToActionBanner
         tag="Executive Tax Advisory"
         title="Book an Appointment"
-        subtitle="Discuss your circumstances with Financially Up and clarify the relevant tax and accounting issues, what information is needed and whether further planning or specialist advice should be separately scoped."
+        subtitle={<BrandText text={"Discuss your circumstances with Financially Up and clarify the relevant tax and accounting issues, what information is needed and whether further planning or specialist advice should be separately scoped."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

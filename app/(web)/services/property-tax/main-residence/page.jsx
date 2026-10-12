@@ -10,8 +10,13 @@ import BuyingBeforeSellingAndPartialUse from "./components/BuyingBeforeSellingAn
 import RentedBeforeMovingInAndResidency from "./components/RentedBeforeMovingInAndResidency";
 import WhatFinanciallyUpReviewsMainResidence from "./components/WhatFinanciallyUpReviewsMainResidence";
 import RelatedMainResidenceRibbon from "./components/RelatedMainResidenceRibbon";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+
+const baseMetadata = {
   title: "Main Residence Exemption Accountant | Financially Up",
   description:
     "Main residence exemption accountant support for home sales, former homes and partial CGT exemptions. Review occupancy, rental use and records before sale.",
@@ -26,6 +31,7 @@ export const metadata = {
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function MainResidencePage() {
   const breadcrumbs = [
@@ -77,7 +83,7 @@ export default function MainResidencePage() {
         provider: {
           "@type": "AccountingService",
           name: "Financially Up",
-          url: "https://financiallyup.com.au",
+          url: `${SITE_URL}`,
         },
         description:
           "Expert main residence exemption accounting for Australian homeowners and property investors. Navigate full and partial CGT exemptions, Section 118-192 valuations, and change of use rules.",
@@ -100,16 +106,13 @@ export default function MainResidencePage() {
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* Hero Section */}
       <SubServiceHero
         title="Main Residence Exemption Accountant"
         subtitle="Review Occupancy, Rental Use, Section 118-192 Valuations & Partial CGT"
-        description="A main residence exemption accountant helps determine whether the sale of a home is fully or partly exempt from capital gains tax and what records are needed to support the position. A home can be fully exempt in straightforward cases, but rental use, business use, delayed occupancy, multiple homes, absences and changes of use can create a partial CGT outcome. Financially Up can review the ownership and occupancy timeline, income-producing use, sale contract date and relevant property records so the CGT treatment is based on the actual facts. This page focuses on the main residence exemption and partial exemption issues, rather than general rental-property deductions."
+        description={<BrandText text={"A main residence exemption accountant helps determine whether the sale of a home is fully or partly exempt from capital gains tax and what records are needed to support the position. A home can be fully exempt in straightforward cases, but rental use, business use, delayed occupancy, multiple homes, absences and changes of use can create a partial CGT outcome. Financially Up can review the ownership and occupancy timeline, income-producing use, sale contract date and relevant property records so the CGT treatment is based on the actual facts. This page focuses on the main residence exemption and partial exemption issues, rather than general rental-property deductions."} />}
         parentService={{
           label: "Property Tax Hub",
           href: "/services/property-tax",
@@ -127,7 +130,7 @@ export default function MainResidencePage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -158,7 +161,7 @@ export default function MainResidencePage() {
       <CallToActionBanner
         tag="Selling Your Home?"
         title="Discuss Your Property Transaction"
-        subtitle="If you are selling a home, a former home or a property that has changed between private and rental use, book an appointment with Financially Up. We can review the timeline and records, identify whether the exemption is full or partial and prepare the CGT reporting within scope."
+        subtitle={<BrandText text={"If you are selling a home, a former home or a property that has changed between private and rental use, book an appointment with Financially Up. We can review the timeline and records, identify whether the exemption is full or partial and prepare the CGT reporting within scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

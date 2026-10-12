@@ -54,7 +54,7 @@ export default function CurrencyAndSpecialRules() {
         {/* 2-Column Split: Top Level */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Card 1: Currency Conversion */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
                 <TransactionOutlined />
@@ -83,7 +83,7 @@ export default function CurrencyAndSpecialRules() {
           </div>
 
           {/* Card 2: Does Transferring Foreign Money Create Tax? */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-5">
                 <QuestionCircleOutlined />
@@ -119,7 +119,7 @@ export default function CurrencyAndSpecialRules() {
         {/* 3-Column Split: Lower Level Special Rules */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 3: Temporary Residents */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-lg mb-4">
                 <IdcardOutlined />
@@ -148,7 +148,7 @@ export default function CurrencyAndSpecialRules() {
           </div>
 
           {/* Card 4: Foreign Residents */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/50 flex items-center justify-center text-purple-600 dark:text-purple-400 text-lg mb-4">
                 <GlobalOutlined />
@@ -175,7 +175,7 @@ export default function CurrencyAndSpecialRules() {
           </div>
 
           {/* Card 5: Tax Treaties */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-lg mb-4">
                 <BookOutlined />

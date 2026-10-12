@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpReview from "./components/WhyChooseFinanciallyUpRev
 import RelatedAtoReviewsRibbon from "./components/RelatedAtoReviewsRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 8 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Review Help and Response | Financially Up",
   description:
     "Received notice of an ATO review? Financially Up can help identify the issues, assemble records and prepare a clear, timely response within scope.",
@@ -29,18 +35,19 @@ export const metadata = {
     "BAS review help",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/ato-reviews/",
+    canonical: `${SITE_URL}/services/ato-help/ato-reviews/`,
   },
   openGraph: {
     title: "ATO Review Help and Response | Financially Up",
     description:
       "Received notice of an ATO review? Financially Up can help identify the issues, assemble records and prepare a clear, timely response within scope.",
-    url: "https://financiallyup.com.au/services/ato-help/ato-reviews/",
+    url: `${SITE_URL}/services/ato-help/ato-reviews/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function AtoReviewsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function AtoReviewsPage() {
               An ATO review means the Australian Taxation Office is examining particular information, transactions or tax risks to decide whether its concerns can be resolved or further action is needed. A review is not necessarily an audit and does not, by itself, mean that a return is wrong. The immediate tasks are to read the notice, define the scope and record the response date.
             </span>
             <span className="block mt-2">
-              Financially Up provides ATO review help for individuals and businesses. We can examine the relevant lodgements and records, clarify the questions raised, prepare reconciliations and factual explanations, and communicate with the ATO within the agreed scope.
+              <CompanyName /> provides ATO review help for individuals and businesses. We can examine the relevant lodgements and records, clarify the questions raised, prepare reconciliations and factual explanations, and communicate with the ATO within the agreed scope.
             </span>
           </span>
         }
@@ -145,7 +149,7 @@ export default function AtoReviewsPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.7 • ATO Review & Examination Support"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Evidence Mapping & Reconciliation Schedules",
           "Direct Case Officer Communication Within Scope",
         ]}
@@ -155,7 +159,7 @@ export default function AtoReviewsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -197,7 +201,7 @@ export default function AtoReviewsPage() {
       <CallToActionBanner
         tag="Review Notice Evaluation"
         title="Received an ATO Review Notice?"
-        subtitle="Bring the full notice, every attachment and the records relating to its questions. Financially Up can help you prepare a timely, supportable response."
+        subtitle={<BrandText text={"Bring the full notice, every attachment and the records relating to its questions. Financially Up can help you prepare a timely, supportable response."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ATO Help Hub"

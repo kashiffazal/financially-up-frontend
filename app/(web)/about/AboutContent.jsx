@@ -22,6 +22,7 @@ import {
 import { useCompany } from "@/context/SettingsContext";
 import PageHero from "@/components/website/PageHero";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * AboutContent Component
@@ -133,7 +134,7 @@ export default function AboutContent() {
       {/* 1. Global Page Title Hero Component */}
       <PageHero
         breadcrumbs={breadcrumbs}
-        badgeTag="About Financially Up"
+        badgeTag={<BrandText text={"About Financially Up"} />}
         title="Empowering Australians With Trusted, Modern Accounting"
         subtitle="Registered tax agents and qualified CPA advisors delivering proactive, 100% online tax and advisory services nationwide."
       />
@@ -210,7 +211,7 @@ export default function AboutContent() {
 
           {/* Right Column: Visual Trust & Credentials Showcase */}
           <div className="lg:col-span-5">
-            <div className="relative p-8 rounded-3xl bg-gradient-to-br from-emerald-950 via-[#012413] to-slate-950 text-white shadow-2xl border border-emerald-800/40 overflow-hidden">
+            <div className="relative p-8 rounded-lg bg-gradient-to-br from-emerald-950 via-[#012413] to-slate-950 text-white shadow-2xl border border-emerald-800/40 overflow-hidden">
               {/* Decorative Glow Orbs */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-400/10 rounded-full blur-3xl pointer-events-none" />
@@ -349,7 +350,7 @@ export default function AboutContent() {
 
       {/* 4. Milestone Stats & Performance Numbers */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-gradient-to-r from-emerald-900 via-brand-primary to-emerald-800 p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+        <div className="rounded-lg bg-gradient-to-r from-emerald-900 via-brand-primary to-emerald-800 p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/15">

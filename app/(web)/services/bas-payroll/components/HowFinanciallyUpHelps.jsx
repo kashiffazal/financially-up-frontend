@@ -10,6 +10,7 @@ import {
   AuditOutlined,
   ToolOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelps Component
@@ -97,7 +98,7 @@ export default function HowFinanciallyUpHelps() {
             <ToolOutlined className="mr-1" /> Practical Support Workflow
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
             Our registered tax agent team takes the friction out of activity

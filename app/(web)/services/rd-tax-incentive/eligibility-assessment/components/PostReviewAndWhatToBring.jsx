@@ -83,7 +83,7 @@ export default function PostReviewAndWhatToBring() {
           </h2>
         </div>
 
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-16 space-y-6">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-16 space-y-6">
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
             We discuss the entity, activities, expenditure and evidence
             separately. You receive an explanation of issues to resolve and the

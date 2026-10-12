@@ -8,6 +8,8 @@ import {
   CheckCircleTwoTone,
   StopOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowToCheckGenuineAtoMessage Component
@@ -38,7 +40,7 @@ export default function HowToCheckGenuineAtoMessage() {
     {
       title: "Report Suspicious Activity Promptly",
       description:
-        "Financially Up can help confirm genuine tax issues, but suspected impersonation or compromised TFNs should also be lodged with the ATO’s official Client Identity Support Centre.",
+        <BrandText text={"Financially Up can help confirm genuine tax issues, but suspected impersonation or compromised TFNs should also be lodged with the ATO’s official Client Identity Support Centre."} />,
       icon: <StopOutlined className="text-xl text-amber-500" />,
     },
   ];
@@ -71,7 +73,7 @@ export default function HowToCheckGenuineAtoMessage() {
               advises people not to engage if unsure.
             </p>
             <p>
-              Financially Up can help identify the tax issue shown in genuine
+              <CompanyName /> can help identify the tax issue shown in genuine
               correspondence, but suspected impersonation, identity compromise
               or unauthorized account activity should also be reported promptly
               through the ATO’s official security channels.

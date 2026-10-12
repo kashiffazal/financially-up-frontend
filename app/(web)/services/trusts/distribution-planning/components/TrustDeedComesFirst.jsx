@@ -8,6 +8,8 @@ import {
   BookOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * TrustDeedComesFirst Component
@@ -38,7 +40,7 @@ export default function TrustDeedComesFirst() {
         <BookOutlined className="text-xl text-blue-600 dark:text-blue-400" />
       ),
       title: "Accounting & Tax Review from Deed",
-      desc: "Financially Up can work from the deed and relevant accounting records to identify tax and administration issues, supporting informed decision-making before deadlines.",
+      desc: <BrandText text={"Financially Up can work from the deed and relevant accounting records to identify tax and administration issues, supporting informed decision-making before deadlines."} />,
     },
   ];
 
@@ -98,7 +100,7 @@ export default function TrustDeedComesFirst() {
               Deed Records & Legal Adviser Coordination
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can work from the deed and relevant accounting
+              <CompanyName /> can work from the deed and relevant accounting
               records to identify tax and administration issues, but legal
               interpretation or amendment of the deed may require an
               appropriately qualified legal adviser.

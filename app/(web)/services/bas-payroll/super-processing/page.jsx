@@ -9,23 +9,28 @@ import WhoBenefitsAndCapabilitiesSuper from "./components/WhoBenefitsAndCapabili
 import SuperComplianceAndRecordsNeeded from "./components/SuperComplianceAndRecordsNeeded";
 import HowSuperServiceWorksAndScope from "./components/HowSuperServiceWorksAndScope";
 import WhyChooseFinanciallyUpSuper from "./components/WhyChooseFinanciallyUpSuper";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Superannuation Processing Services | Financially Up",
   description:
     "Superannuation processing services for employers, including contribution workflows, payroll reconciliation and Payday Super support. Australia-wide assistance.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/super-processing/",
+    canonical: `${SITE_URL}/services/bas-payroll/super-processing/`,
   },
   openGraph: {
     title: "Superannuation Processing Services | Financially Up",
     description:
       "Superannuation processing services for employers, including contribution workflows, payroll reconciliation and Payday Super support. Australia-wide assistance.",
-    url: "https://financiallyup.com.au/services/bas-payroll/super-processing/",
+    url: `${SITE_URL}/services/bas-payroll/super-processing/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -46,7 +51,7 @@ const superProcessingFaqs = [
       "From 1 July 2026, ATO guidance generally requires super guarantee contributions to be received by the employee’s super fund within seven business days of payday. Different or extended timeframes can apply in specified circumstances, so the exact rule should be checked for the situation.",
   },
   {
-    question: "Can Financially Up choose a super fund for my employees?",
+    question: <BrandText text={"Can Financially Up choose a super fund for my employees?"} />,
     answer:
       "No. Our super processing service focuses on employer-side contribution administration, payroll and accounting records. Advice about which financial product or super fund an employee should choose is a different type of service and may require appropriately authorized financial advice.",
   },
@@ -58,7 +63,7 @@ const superProcessingFaqs = [
   {
     question: "Can super processing be combined with payroll services?",
     answer:
-      "Yes. Many employers benefit from coordinating super contribution processing with payroll because the calculation and payment cycle now occurs around payday. Financially Up can scope payroll and super administration together where that suits the business.",
+      <BrandText text={"Yes. Many employers benefit from coordinating super contribution processing with payroll because the calculation and payment cycle now occurs around payday. Financially Up can scope payroll and super administration together where that suits the business."} />,
   },
 ];
 
@@ -72,7 +77,7 @@ export default function SuperProcessingPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -83,10 +88,7 @@ export default function SuperProcessingPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -100,7 +102,7 @@ export default function SuperProcessingPage() {
           title="Superannuation Processing Services for Employers"
           description={[
             "Superannuation processing services help employers calculate, prepare, reconcile and manage employee super contributions as part of the payroll cycle. From 1 July 2026, Payday Super has made the timing of contribution processing more closely connected to each pay run, increasing the need for accurate payroll data and reliable payment workflows.",
-            "Financially Up supports businesses that want an organized super contribution process without treating super as an isolated task. We can help connect payroll records, contribution data, payment information and accounting reconciliations so that employers have a clearer view of what has been calculated, paid and recorded.",
+            <BrandText key="brand-1" text={"Financially Up supports businesses that want an organized super contribution process without treating super as an isolated task. We can help connect payroll records, contribution data, payment information and accounting reconciliations so that employers have a clearer view of what has been calculated, paid and recorded."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"

@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   LockOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * PracticalAPWorkflowAndInternalControls Component
@@ -117,7 +118,7 @@ export default function PracticalAPWorkflowAndInternalControls() {
               dual authorization or other controls may be appropriate.
             </p>
             <p>
-              Financially Up can work within the bookkeeping process you
+              <CompanyName /> can work within the bookkeeping process you
               establish, but decisions about banking authority, fraud controls,
               procurement policy and legal responsibilities remain matters for
               the business. Where specialist legal, technology or

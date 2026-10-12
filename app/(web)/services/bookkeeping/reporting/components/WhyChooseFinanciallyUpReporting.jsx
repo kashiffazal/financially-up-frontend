@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpReporting Component
@@ -24,40 +25,53 @@ export default function WhyChooseFinanciallyUpReporting() {
   const highlights = [
     {
       title: "Grounded in Bookkeeping Reality",
-      description: "Our approach to management reporting is grounded in reconciled bookkeeping data, ensuring that decisions are driven by verifiable figures.",
+      description:
+        "Our approach to management reporting is grounded in reconciled bookkeeping data, ensuring that decisions are driven by verifiable figures.",
     },
     {
       title: "Clarity Across Advisory, Tax & Compliance",
-      description: "We focus on making information understandable while maintaining a clear distinction between internal reporting, tax returns, and statutory statements.",
+      description:
+        "We focus on making information understandable while maintaining a clear distinction between internal reporting, tax returns, and statutory statements.",
     },
     {
       title: "Qualified CPA & IPA Leadership",
-      description: "Over 10 years of experience as registered tax agents and certified accounting professionals advising businesses nationwide.",
+      description:
+        "Over 10 years of experience as registered tax agents and certified accounting professionals advising businesses nationwide.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="gold" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="gold"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <TrophyOutlined className="mr-1.5" />
               Trusted Advisors
             </Tag>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company.legalName || "Financially Up Pty Ltd"} provides bookkeeping, accounting, taxation and business advisory services across Australia. We are a registered tax agent with more than 10 years of experience, and our team includes CPA and IPA members. Online appointments are available, with in-person meetings available where preferred.
+              {company.legalName} provides
+              bookkeeping, accounting, taxation and business advisory services
+              across Australia. We are a registered tax agent with more than 10
+              years of experience, and our team includes CPA and IPA members.
+              Online appointments are available, with in-person meetings
+              available where preferred.
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Our approach to management reporting is grounded in the bookkeeping data. We focus on making the information understandable and useful while keeping the distinction clear between internal reporting, tax compliance, formal financial statements and separately scoped advisory work.
+              Our approach to management reporting is grounded in the
+              bookkeeping data. We focus on making the information
+              understandable and useful while keeping the distinction clear
+              between internal reporting, tax compliance, formal financial
+              statements and separately scoped advisory work.
             </p>
 
             <div className="pt-4 space-y-4">
@@ -80,19 +94,26 @@ export default function WhyChooseFinanciallyUpReporting() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-6">
+            <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-6">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                 Expert Accounting Partnership
               </h3>
-              
+
               <div className="space-y-4 text-sm text-slate-600 dark:text-zinc-300">
                 <div className="flex items-start gap-3">
                   <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
-                  <span>ABN: <strong className="text-slate-900 dark:text-white">{company.abn || "84 659 717 263"}</strong></span>
+                  <span>
+                    ABN:{" "}
+                    <strong className="text-slate-900 dark:text-white">
+                      {company.abn}
+                    </strong>
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <EnvironmentOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
-                  <span>{company.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}</span>
+                  <span>
+                    {company.address}
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <PhoneOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
@@ -100,16 +121,16 @@ export default function WhyChooseFinanciallyUpReporting() {
                     href={`tel:${company.phone?.replace(/\s/g, "") || "1300328316"}`}
                     className="hover:text-brand-primary dark:hover:text-emerald-400 font-medium transition-colors"
                   >
-                    {company.phone || "1300 328 316"}
+                    {company.phone}
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
                   <MailOutlined className="text-brand-primary dark:text-emerald-400 text-lg shrink-0 mt-0.5" />
                   <a
-                    href={`mailto:${company.email || "info@financiallyup.com.au"}`}
+                    href={`mailto:${company.email}`}
                     className="hover:text-brand-primary dark:hover:text-emerald-400 font-medium transition-colors"
                   >
-                    {company.email || "info@financiallyup.com.au"}
+                    {company.email}
                   </a>
                 </div>
               </div>
@@ -122,9 +143,7 @@ export default function WhyChooseFinanciallyUpReporting() {
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

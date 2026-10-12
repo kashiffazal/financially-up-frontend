@@ -8,11 +8,17 @@ import HowFinanciallyUpHelpsFinancialStatements from "./components/HowFinanciall
 import RelatedFinancialStatementsRibbon from "./components/RelatedFinancialStatementsRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Financial Statement Preparation for Business | Financially Up",
   description:
     "Financial statement preparation for Australian businesses, including profit and loss, balance sheet and reporting support for tax and management needs.",
@@ -26,18 +32,19 @@ export const metadata = {
     "business financial reports",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/business-financial-statements/",
+    canonical: `${SITE_URL}/services/business-tax/business-financial-statements/`,
   },
   openGraph: {
     title: "Financial Statement Preparation for Business | Financially Up",
     description:
       "Financial statement preparation for Australian businesses, including profit and loss, balance sheet and reporting support for tax and management needs.",
-    url: "https://financiallyup.com.au/services/business-tax/business-financial-statements/",
+    url: `${SITE_URL}/services/business-tax/business-financial-statements/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -125,10 +132,7 @@ export default function BusinessFinancialStatementsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function BusinessFinancialStatementsPage() {
               Financial statement preparation turns your business records into structured reports that show financial performance and position. Depending on the purpose, this may include a profit and loss statement, balance sheet and supporting schedules used for tax preparation, management review, finance applications or other business needs.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides financial reporting services for businesses across Australia. We work from your accounting records to prepare clear year-end or periodic reports, identify reconciliation issues and help ensure the figures are suitable for the agreed reporting purpose.
+              <CompanyName legal /> provides financial reporting services for businesses across Australia. We work from your accounting records to prepare clear year-end or periodic reports, identify reconciliation issues and help ensure the figures are suitable for the agreed reporting purpose.
             </span>
           </span>
         }
@@ -188,7 +192,7 @@ export default function BusinessFinancialStatementsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Reporting Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -225,7 +229,7 @@ export default function BusinessFinancialStatementsPage() {
       {/* 9. Pre-Footer Call To Action Banner */}
       <CallToActionBanner
         title="Book an Appointment"
-        description="If you need financial statements prepared for tax, management, finance or another business purpose, book an appointment with Financially Up to discuss the reporting purpose, available records and appropriate scope."
+        description={<BrandText text={"If you need financial statements prepared for tax, management, finance or another business purpose, book an appointment with Financially Up to discuss the reporting purpose, available records and appropriate scope."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnLink="/book-an-appointment"
       />

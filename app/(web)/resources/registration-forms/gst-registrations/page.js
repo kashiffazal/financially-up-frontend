@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import GSTRegistrationsForm from "@/components/admin/forms/gst-registrations";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "GST Registration Form - Financially Up",
   description:
     "Register your Australian business entity for Goods & Services Tax (GST) directly with the ATO.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function GSTRegistrationsPage() {
   return (

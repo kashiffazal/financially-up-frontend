@@ -10,11 +10,17 @@ import HowFinanciallyUpHelpsProperty from "./components/HowFinanciallyUpHelpsPro
 import PropertyRelatedServiceRibbon from "./components/PropertyRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Investment Property Tax Accountant Australia | Financially Up",
   description:
     "Investment property tax accountant for Australian property investors. Get help with rental income, deductions, CGT and tax returns.",
@@ -30,18 +36,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/investment-property-tax-accountant/",
+      `${SITE_URL}/services/individual-tax/investment-property-tax-accountant/`,
   },
   openGraph: {
     title: "Investment Property Tax Accountant Australia | Financially Up",
     description:
       "Investment property tax accountant for Australian property investors. Get help with rental income, deductions, CGT and tax returns.",
-    url: "https://financiallyup.com.au/services/individual-tax/investment-property-tax-accountant/",
+    url: `${SITE_URL}/services/individual-tax/investment-property-tax-accountant/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -86,7 +93,7 @@ const propertyQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -220,10 +227,7 @@ export default function InvestmentPropertyTaxAccountantPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -238,7 +242,7 @@ export default function InvestmentPropertyTaxAccountantPage() {
               can all affect how amounts are reported.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides investment property tax assistance
+              <CompanyName legal /> provides investment property tax assistance
               to residential property investors across Australia, including
               first-time landlords, joint owners and investors with one or
               multiple properties. We review the relevant records, prepare the
@@ -266,7 +270,7 @@ export default function InvestmentPropertyTaxAccountantPage() {
           "Rental Schedules & Joint Ownership",
           "Loan Interest & Redraw Apportionment",
           "Division 40 & 43 Depreciation Verification",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={propertyQuickSpecs}
         primaryCta={{
@@ -275,7 +279,7 @@ export default function InvestmentPropertyTaxAccountantPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -309,7 +313,7 @@ export default function InvestmentPropertyTaxAccountantPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about rental income, property deductions, loan interest, depreciation and CGT with Financially Up."
+        subtitle={<BrandText text={"Common questions about rental income, property deductions, loan interest, depreciation and CGT with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Investment Property Tax Frequently Asked Questions"
         items={propertyFaqs}
@@ -321,7 +325,7 @@ export default function InvestmentPropertyTaxAccountantPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Rental income, loan use, private use, ownership changes, capital expenditure and CGT can all affect your investment property tax position. Book an appointment with Financially Up Pty Ltd to discuss your property and records. We will identify the areas requiring review, explain the relevant service scope and outline the next steps."
+        subtitle={<BrandText text={"Rental income, loan use, private use, ownership changes, capital expenditure and CGT can all affect your investment property tax position. Book an appointment with Financially Up Pty Ltd to discuss your property and records. We will identify the areas requiring review, explain the relevant service scope and outline the next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

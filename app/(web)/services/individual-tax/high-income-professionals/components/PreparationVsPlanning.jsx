@@ -11,6 +11,8 @@ import {
   SafetyCertificateOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+
 
 /**
  * PreparationVsPlanning Component
@@ -46,7 +48,7 @@ export default function PreparationVsPlanning() {
         {/* 2 Comparative Pillar Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Individual tax return preparation */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all">
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div className="w-14 h-14 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl">
@@ -103,7 +105,7 @@ export default function PreparationVsPlanning() {
           </div>
 
           {/* Card 2: Proactive tax planning */}
-          <div className="flex flex-col justify-between bg-gradient-to-br from-slate-900 via-zinc-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-10 border border-emerald-800/40 shadow-lg relative overflow-hidden">
+          <div className="flex flex-col justify-between bg-gradient-to-br from-slate-900 via-zinc-900 to-emerald-950 text-white rounded-lg p-8 sm:p-10 border border-emerald-800/40 shadow-lg relative overflow-hidden">
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-6">
                 <div className="w-14 h-14 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl">
@@ -133,15 +135,14 @@ export default function PreparationVsPlanning() {
                 scope and fees are confirmed separately before that work
                 proceeds. Any tax strategies for high income earners must
                 operate within the law and be supported by the relevant facts.
-                Financially Up does not guarantee a particular deduction, refund
-                or tax saving.
+                <CompanyName /> does not guarantee a particular deduction,
+                refund or tax saving.
               </p>
 
               <div className="p-3.5 rounded-lg bg-white/10 backdrop-blur-xs border border-white/10 text-xs text-zinc-300 mb-6 flex items-start gap-2.5">
                 <InfoCircleOutlined className="text-amber-400 text-sm mt-0.5 shrink-0" />
                 <p className="font-normal">
-                  Where a matter involves broader financial advice, Financially
-                  Up only provides advice within its authorized service scope.
+                  Where a matter involves broader financial advice, <CompanyName /> only provides advice within its authorized service scope.
                 </p>
               </div>
             </div>

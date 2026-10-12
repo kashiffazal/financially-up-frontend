@@ -8,11 +8,16 @@ import PreDecisionAdvice from "./components/PreDecisionAdvice";
 import WhatToExpect from "./components/WhatToExpect";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Individual Tax Accountant Australia | Financially Up",
   description:
     "Need an individual tax accountant in Australia? Financially Up Pty Ltd assists with individual tax services, investments, property, CGT, foreign income and more.",
@@ -30,18 +35,19 @@ export const metadata = {
     "online tax accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/",
+    canonical: `${SITE_URL}/services/individual-tax/`,
   },
   openGraph: {
     title: "Individual Tax Accountant Australia | Financially Up",
     description:
       "Need an individual tax accountant in Australia? Financially Up Pty Ltd assists with individual tax services, investments, property, CGT, foreign income and more.",
-    url: "https://financiallyup.com.au/services/individual-tax/",
+    url: `${SITE_URL}/services/individual-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for Individual Tax
@@ -143,10 +149,10 @@ const individualTaxFaqs = [
   },
   {
     key: "3",
-    label: "Can Financially Up prepare my tax return online?",
+    label: <BrandText text={"Can Financially Up prepare my tax return online?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up assists clients across Australia online. You can
+        Yes. <CompanyName /> assists clients across Australia online. You can
         book through the website or arrange an appointment by phone. Online
         meetings are conducted through Outlook Calendar online meeting links,
         and in-person appointments are available if you prefer to meet face to
@@ -172,7 +178,7 @@ const individualTaxFaqs = [
       "Do you handle investment property, foreign income and crypto assets?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. These matters form part of Financially Up’s individual tax service
+        Yes. These matters form part of <CompanyName />’s individual tax service
         offering. The scope and fee will depend on the number and complexity of
         the transactions, the quality of the records and whether separate advice
         is required.
@@ -181,10 +187,10 @@ const individualTaxFaqs = [
   },
   {
     key: "6",
-    label: "Can Financially Up help with broader financial advice?",
+    label: <BrandText text={"Can Financially Up help with broader financial advice?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up provides broader financial advice in addition to
+        Yes. <CompanyName /> provides broader financial advice in addition to
         tax-related advice. The scope of any advice will be confirmed before
         work begins, including whether the matter should be handled as a
         separate engagement.
@@ -314,10 +320,7 @@ export default function IndividualTaxMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -333,7 +336,7 @@ export default function IndividualTaxMainPage() {
             Your tax return can become more difficult when you have investments,
             rental property, capital gains, foreign income, employee shares,
             crypto assets, several income sources or sole trader income.{" "}
-            Financially Up Pty Ltd helps individuals understand their
+            <CompanyName legal /> helps individuals understand their
             obligations, prepare accurate tax returns and obtain tax advice that
             reflects their circumstances.
           </p>
@@ -404,10 +407,10 @@ export default function IndividualTaxMainPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Speak with an individual tax accountant"
-        subtitle="If you need help with an individual tax return or a more complex personal tax matter, book an appointment with Financially Up. We will discuss your circumstances, identify the appropriate service and explain the next step."
+        subtitle={<BrandText text={"If you need help with an individual tax return or a more complex personal tax matter, book an appointment with Financially Up. We will discuss your circumstances, identify the appropriate service and explain the next step."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
-        secondaryButtonText="Contact Financially Up"
+        secondaryButtonText={<BrandText text={"Contact Financially Up"} />}
         secondaryButtonHref="/contact-us"
       />
     </main>

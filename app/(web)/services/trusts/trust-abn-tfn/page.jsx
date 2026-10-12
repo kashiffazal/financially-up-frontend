@@ -10,11 +10,16 @@ import WhyChooseFinanciallyUpRegistrations from "./components/WhyChooseFinancial
 import RelatedTrustAbnRibbon from "./components/RelatedTrustAbnRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 10 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust ABN Registration & TFN Application | Financially Up",
   description:
     "Trust ABN registration and TFN application support for Australian trusts. Get help checking eligibility, details and registration requirements.",
@@ -28,18 +33,19 @@ export const metadata = {
     "trust tax agent registrations",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/trust-abn-tfn/",
+    canonical: `${SITE_URL}/services/trusts/trust-abn-tfn/`,
   },
   openGraph: {
     title: "Trust ABN Registration & TFN Application | Financially Up",
     description:
       "Trust ABN registration and TFN application support for Australian trusts. Get help checking eligibility, details and registration requirements.",
-    url: "https://financiallyup.com.au/services/trusts/trust-abn-tfn/",
+    url: `${SITE_URL}/services/trusts/trust-abn-tfn/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -123,10 +129,7 @@ export default function TrustAbnTfnPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -142,7 +145,7 @@ export default function TrustAbnTfnPage() {
               application is lodged.
             </span>
             <span className="block mt-2">
-              Financially Up can assist with trust ABN and TFN applications, including reviewing the trust structure,
+              <CompanyName /> can assist with trust ABN and TFN applications, including reviewing the trust structure,
               gathering registration information and helping determine which registrations are relevant. This service
               deals with tax and business registrations after the trust has been established. It does not replace
               legal advice on drafting or varying a trust deed.
@@ -166,7 +169,7 @@ export default function TrustAbnTfnPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

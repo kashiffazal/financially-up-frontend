@@ -10,6 +10,7 @@ import {
   CopyOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatToCheckBeforeRenewing Component
@@ -123,7 +124,7 @@ export default function WhatToCheckBeforeRenewing() {
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 mt-1 font-normal">
                 If the holder or ownership arrangement has changed, a simple
                 renewal may not correct that issue. The transaction required
-                depends on what has actually changed. Financially Up can help
+                depends on what has actually changed. <CompanyName /> can help
                 identify the administrative position and, where relevant,
                 coordinate it with business structure or accounting work.
               </p>

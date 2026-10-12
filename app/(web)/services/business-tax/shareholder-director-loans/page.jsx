@@ -8,11 +8,16 @@ import HowFinanciallyUpHelpsShareholderLoans from "./components/HowFinanciallyUp
 import RelatedShareholderLoanRibbon from "./components/RelatedShareholderLoanRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 10 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Shareholder and Director Loan Tax | Financially Up",
   description:
     "Get help with shareholder and director loan tax, Division 7A risks, records and repayments from Financially Up. Australia-wide support.",
@@ -26,18 +31,19 @@ export const metadata = {
     "shareholder lending money to company",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/shareholder-director-loans/",
+    canonical: `${SITE_URL}/services/business-tax/shareholder-director-loans/`,
   },
   openGraph: {
     title: "Shareholder and Director Loan Tax | Financially Up",
     description:
       "Get help with shareholder and director loan tax, Division 7A risks, records and repayments from Financially Up. Australia-wide support.",
-    url: "https://financiallyup.com.au/services/business-tax/shareholder-director-loans/",
+    url: `${SITE_URL}/services/business-tax/shareholder-director-loans/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -125,10 +131,7 @@ export default function ShareholderDirectorLoansPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +143,7 @@ export default function ShareholderDirectorLoansPage() {
               Money moving between a private company and its shareholders or directors is not automatically a simple loan. The tax treatment depends on who provided the funds, how the transaction is documented, whether repayments are made, and whether Division 7A or other rules apply.
             </span>
             <span className="block mt-2">
-              Financially Up helps business owners review shareholder loan tax issues, reconcile loan accounts and understand what needs to be addressed before the company tax return is finalized. This page focuses on loans and drawings between private companies and people connected with them, rather than ordinary commercial borrowing from banks or unrelated lenders.
+              <CompanyName /> helps business owners review shareholder loan tax issues, reconcile loan accounts and understand what needs to be addressed before the company tax return is finalized. This page focuses on loans and drawings between private companies and people connected with them, rather than ordinary commercial borrowing from banks or unrelated lenders.
             </span>
             <span className="block mt-2 font-medium text-slate-700 dark:text-zinc-200">
               The main purpose of this service is to establish and reconcile what the loan account contains. Detailed Division 7A tax analysis remains within the separately scoped Division 7A service.
@@ -191,7 +194,7 @@ export default function ShareholderDirectorLoansPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Corporate Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}

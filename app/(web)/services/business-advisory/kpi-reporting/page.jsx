@@ -10,12 +10,16 @@ import WhyChooseFinanciallyUpKpi from "./components/WhyChooseFinanciallyUpKpi";
 import KpiRelatedServicesRibbon from "./components/KpiRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 7 (7- KPI Reporting)
  */
-export const metadata = {
+const baseMetadata = {
   title: "KPI Reporting Services for Business | Financially Up",
   description:
     "Turn business figures into useful decisions. Financially Up helps define relevant KPIs, build clear reports and review what the results mean for your business.",
@@ -31,18 +35,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/kpi-reporting/",
+      `${SITE_URL}/services/business-advisory/kpi-reporting/`,
   },
   openGraph: {
     title: "KPI Reporting Services for Business | Financially Up",
     description:
       "Turn business figures into useful decisions. Financially Up helps define relevant KPIs, build clear reports and review what the results mean for your business.",
-    url: "https://financiallyup.com.au/services/business-advisory/kpi-reporting/",
+    url: `${SITE_URL}/services/business-advisory/kpi-reporting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -119,7 +124,7 @@ const jsonLd = {
       provider: {
         "@type": "AccountingService",
         name: "Financially Up",
-        url: "https://financiallyup.com.au",
+        url: `${SITE_URL}`,
         telephone: "+61-1300-328-316",
         address: {
           "@type": "PostalAddress",
@@ -185,10 +190,7 @@ export default function KpiReportingPage() {
   return (
     <>
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* SubServiceHero Component */}
       <SubServiceHero
@@ -196,7 +198,7 @@ export default function KpiReportingPage() {
         subtitle="KPI Reporting Services"
         description={[
           "KPI reporting services turn selected business data into measures you can review and act on. A useful report shows whether the business is progressing towards its goals, where results have changed and which questions need attention. It should help you decide what to investigate, rather than leave you with another spreadsheet to file away.",
-          "Financially Up helps owners and managers choose measures that suit their business, establish a reliable reporting process and discuss what the numbers mean. Book an Appointment to talk through your current reports, decisions and available data.",
+          <BrandText key="brand-1" text={"Financially Up helps owners and managers choose measures that suit their business, establish a reliable reporting process and discuss what the numbers mean. Book an Appointment to talk through your current reports, decisions and available data."} />,
         ]}
         parentService={{
           label: "Business Advisory Hub",
@@ -251,7 +253,7 @@ export default function KpiReportingPage() {
       {/* Section 10: Call to Action Banner */}
       <CallToActionBanner
         title="Make your reports useful"
-        description="Book an Appointment with Financially Up to review what you currently measure, which decisions the information needs to support and what a practical KPI reporting scope would involve."
+        description={<BrandText text={"Book an Appointment with Financially Up to review what you currently measure, which decisions the information needs to support and what a practical KPI reporting scope would involve."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
       />

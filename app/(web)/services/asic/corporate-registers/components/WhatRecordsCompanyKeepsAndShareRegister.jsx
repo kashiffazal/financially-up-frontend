@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatRecordsCompanyKeepsAndShareRegister Component
@@ -65,7 +66,7 @@ export default function WhatRecordsCompanyKeepsAndShareRegister() {
 
         {/* Subsection: What is included in a share register? */}
         <div className="w-full mb-16">
-          <div className="p-7 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="p-7 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
                 <SolutionOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
@@ -113,14 +114,14 @@ export default function WhatRecordsCompanyKeepsAndShareRegister() {
         </div>
 
         {/* Action Callout */}
-        <div className="w-full rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="w-full rounded-lg p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl">
             <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1">
               Company records scattered or outdated?
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed m-0 font-normal">
               If your company records are scattered, outdated or difficult to
-              reconcile with ASIC, Financially Up can review the available
+              reconcile with ASIC, <CompanyName /> can review the available
               material and scope the corporate register work required.
             </p>
           </div>

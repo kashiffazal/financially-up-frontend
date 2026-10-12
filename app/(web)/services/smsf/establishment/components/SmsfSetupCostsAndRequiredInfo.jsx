@@ -76,7 +76,7 @@ export default function SmsfSetupCostsAndRequiredInfo() {
         </div>
 
         {/* Tax Deductibility Callout */}
-        <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800">
+        <div className="mb-14 p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
             <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/40 flex items-center justify-center shrink-0">
               <DollarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
@@ -98,7 +98,7 @@ export default function SmsfSetupCostsAndRequiredInfo() {
         </div>
 
         {/* Required Information Checklist Section */}
-        <div className="bg-gradient-to-br from-slate-50 to-emerald-50/30 dark:from-zinc-900 dark:to-emerald-950/20 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800">
+        <div className="bg-gradient-to-br from-slate-50 to-emerald-50/30 dark:from-zinc-900 dark:to-emerald-950/20 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800">
           <div className="max-w-3xl mb-8">
             <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center mb-3">
               <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />

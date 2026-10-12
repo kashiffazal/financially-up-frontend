@@ -12,7 +12,9 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import PageHero from "@/components/website/PageHero";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
+import BrandText from "@/components/mutual/BrandText";
+
 
 /**
  * 2 Engagement Forms Data Definition
@@ -87,6 +89,7 @@ function EngagementCard({ form }) {
  * 1-Column Featured Onboarding Advisory Card (Placed in Column 3)
  */
 function FeaturedOnboardingCard() {
+  const brand = useBrandText();
   return (
     <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-lg bg-gradient-to-br from-[#008043] via-[#006e39] to-[#004d28] dark:from-emerald-950 dark:to-zinc-900 text-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
       {/* Subtle Glow Circle */}
@@ -139,10 +142,10 @@ function FeaturedOnboardingCard() {
         </Link>
 
         <a
-          href="tel:1300328316"
+          href={brand("tel:1300328316")}
           className="text-xs font-bold text-emerald-100 hover:text-white flex items-center gap-1 !no-underline"
         >
-          <PhoneOutlined className="text-xs" /> 1300 328 316
+          <PhoneOutlined className="text-xs" /> <BrandText text={"1300 328 316"} />
         </a>
       </div>
     </div>
@@ -166,7 +169,7 @@ export default function EngagementFormsHubPage() {
         breadcrumbs={breadcrumbs}
         badgeTag="ATO Registered Tax Agent Services"
         title="Client Engagement Forms"
-        subtitle="Initiate and authorize your professional accounting, tax return, and advisory engagements online with Financially Up Registered Tax Agents."
+        subtitle={<BrandText text={"Initiate and authorize your professional accounting, tax return, and advisory engagements online with Financially Up Registered Tax Agents."} />}
       />
 
       {/* 2. Main 3-Column Grid in Single Row */}

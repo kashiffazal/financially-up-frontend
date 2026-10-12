@@ -10,8 +10,13 @@ import CompanyOwnershipCommercialDevelopment from "./components/CompanyOwnership
 import StateTaxesAndTransferCostRisks from "./components/StateTaxesAndTransferCostRisks";
 import WhatWeReviewBeforeCommitment from "./components/WhatWeReviewBeforeCommitment";
 import RelatedOwnershipStructuresRibbon from "./components/RelatedOwnershipStructuresRibbon";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+
+const baseMetadata = {
   title: "Property Ownership Structure Accountant | Financially Up",
   description:
     "Compare tax and accounting implications of owning property personally, jointly, through a trust or company. Discuss your plans with Financially Up.",
@@ -26,6 +31,7 @@ export const metadata = {
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function OwnershipStructuresPage() {
   const breadcrumbs = [
@@ -71,7 +77,7 @@ export default function OwnershipStructuresPage() {
         provider: {
           "@type": "AccountingService",
           name: "Financially Up",
-          url: "https://financiallyup.com.au",
+          url: `${SITE_URL}`,
         },
         description:
           "Strategic property ownership structure tax advice for Australian property acquisitions. Compare individual, trust, company, and joint ownership options.",
@@ -94,16 +100,13 @@ export default function OwnershipStructuresPage() {
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* Hero Section */}
       <SubServiceHero
         title="Property Ownership Structure Accountant"
         subtitle="Individual, Joint, Trust & Company Tax Comparison"
-        description="Who owns a property affects how its income, expenses and eventual sale are reported. Choosing a name for the contract without reviewing the broader structure can leave costly issues to resolve later. The right approach depends on the property's purpose, the other owners, financing, tax position and plans for holding or selling it. Financially Up provides property ownership tax advice to people acquiring an investment property, business premises or development site. We review the tax and accounting implications of proposed ownership arrangements so you can make an informed decision alongside your solicitor, lender and, where appropriate, an authorized financial adviser."
+        description={<BrandText text={"Who owns a property affects how its income, expenses and eventual sale are reported. Choosing a name for the contract without reviewing the broader structure can leave costly issues to resolve later. The right approach depends on the property's purpose, the other owners, financing, tax position and plans for holding or selling it. Financially Up provides property ownership tax advice to people acquiring an investment property, business premises or development site. We review the tax and accounting implications of proposed ownership arrangements so you can make an informed decision alongside your solicitor, lender and, where appropriate, an authorized financial adviser."} />}
         parentService={{
           label: "Property Tax Hub",
           href: "/services/property-tax",
@@ -121,7 +124,7 @@ export default function OwnershipStructuresPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -152,7 +155,7 @@ export default function OwnershipStructuresPage() {
       <CallToActionBanner
         tag="Pre-Contract Advisory"
         title="Discuss Your Property Transaction"
-        subtitle="A property ownership structure accountant can help identify the tax trade-offs while there is still time to make a considered choice. Book an Appointment with Financially Up and bring the proposed purchase, ownership and finance details."
+        subtitle={<BrandText text={"A property ownership structure accountant can help identify the tax trade-offs while there is still time to make a considered choice. Book an Appointment with Financially Up and bring the proposed purchase, ownership and finance details."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

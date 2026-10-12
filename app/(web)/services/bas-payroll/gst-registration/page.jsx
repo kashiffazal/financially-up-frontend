@@ -11,8 +11,12 @@ import InformationNeededGstSetup from "./components/InformationNeededGstSetup";
 import CommonGstRegistrationIssues from "./components/CommonGstRegistrationIssues";
 import HowFinanciallyUpHelpsGst from "./components/HowFinanciallyUpHelpsGst";
 import WhyChooseFinanciallyUpGst from "./components/WhyChooseFinanciallyUpGst";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "GST Registration Service Australia | Financially Up",
   description:
     "GST registration service for Australian businesses. Get help assessing registration requirements, setting up GST and understanding BAS obligations.",
@@ -27,16 +31,17 @@ export const metadata = {
     "fuel tax credit registration",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/gst-registration/",
+    canonical: `${SITE_URL}/services/bas-payroll/gst-registration/`,
   },
   openGraph: {
     title: "GST Registration Service Australia | Financially Up",
     description:
       "GST registration service for Australian businesses. Get help assessing registration requirements, setting up GST and understanding BAS obligations.",
-    url: "https://financiallyup.com.au/services/bas-payroll/gst-registration/",
+    url: `${SITE_URL}/services/bas-payroll/gst-registration/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -90,10 +95,7 @@ export default function GstRegistrationPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-zinc-900">
         {/* Hero Section */}
@@ -106,9 +108,9 @@ export default function GstRegistrationPage() {
           badge="GST Registration Service"
           title="GST Registration Service for Australian Businesses"
           subtitle="Determine compulsory or voluntary GST status, complete registrations accurately, and establish your BAS workflow."
-          description={`A GST registration service helps a business determine whether it needs to register for GST, complete the registration correctly and understand the reporting obligations that follow. Financially Up assists businesses that are approaching the GST threshold, starting a new enterprise, changing structure or voluntarily considering GST registration.
+          description={<BrandText text={`A GST registration service helps a business determine whether it needs to register for GST, complete the registration correctly and understand the reporting obligations that follow. Financially Up assists businesses that are approaching the GST threshold, starting a new enterprise, changing structure or voluntarily considering GST registration.
 
-For most businesses and enterprises, GST registration is generally required when the $75,000 GST turnover test is met. The test considers current and projected GST turnover rather than accounting profit or cash receipts. Different rules apply to some organisations and activities, including non-profit bodies, taxi, limousine and ride-sourcing services, and businesses claiming fuel tax credits. Registration can also be voluntary in some circumstances.`}
+For most businesses and enterprises, GST registration is generally required when the $75,000 GST turnover test is met. The test considers current and projected GST turnover rather than accounting profit or cash receipts. Different rules apply to some organisations and activities, including non-profit bodies, taxi, limousine and ride-sourcing services, and businesses claiming fuel tax credits. Registration can also be voluntary in some circumstances.`} />}
           appointmentNote="If you are unsure whether registration is required or what happens after registration, book an appointment to review your circumstances before making assumptions."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"

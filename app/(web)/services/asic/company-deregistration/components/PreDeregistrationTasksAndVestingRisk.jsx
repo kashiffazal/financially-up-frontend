@@ -121,7 +121,7 @@ export default function PreDeregistrationTasksAndVestingRisk() {
           </div>
 
           {/* Subsection 2: Why should company assets be dealt with before deregistration? */}
-          <div className="bg-amber-50/70 dark:bg-amber-950/20 rounded-3xl p-6 sm:p-10 border border-amber-200/80 dark:border-amber-900/40 shadow-xs space-y-4">
+          <div className="bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-10 border border-amber-200/80 dark:border-amber-900/40 shadow-xs space-y-4">
             <div className="flex items-center gap-2.5 mb-2">
               <WarningOutlined className="text-amber-600 dark:text-amber-400 text-xl" />
               <h3 className="text-lg sm:text-xl font-extrabold text-amber-950 dark:text-amber-200 m-0">

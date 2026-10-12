@@ -9,6 +9,7 @@ import {
   CheckCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatIsInvolvedInSettingUpSmsf Component
@@ -64,7 +65,7 @@ export default function WhatIsInvolvedInSettingUpSmsf() {
         {/* Comparison Cards: Individual vs Corporate */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Individual Trustees Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/40 flex items-center justify-center mb-6">
                 <UserOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
@@ -106,7 +107,7 @@ export default function WhatIsInvolvedInSettingUpSmsf() {
           </div>
 
           {/* Corporate Trustee Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center mb-6">
                 <BankOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
@@ -158,7 +159,7 @@ export default function WhatIsInvolvedInSettingUpSmsf() {
               Mandatory Director ID Requirement:
             </span>{" "}
             Each proposed director must personally apply for a director ID
-            before the fund is registered. Financially Up can explain the
+            before the fund is registered. <CompanyName /> can explain the
             accounting and registration implications, but legal advice may be
             required for company or trust-deed matters outside our scope.
           </div>

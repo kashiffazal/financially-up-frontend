@@ -8,6 +8,7 @@ import {
   FileProtectOutlined,
   QuestionCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HomeFirstUsedToProduceIncomeRule Component
@@ -32,7 +33,7 @@ export default function HomeFirstUsedToProduceIncomeRule() {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-emerald-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl mb-12">
+        <div className="bg-gradient-to-br from-emerald-900 to-slate-900 text-white rounded-lg p-8 sm:p-12 shadow-xl mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 px-3.5 py-1 rounded-full text-xs font-semibold mb-6 border border-emerald-400/30">
@@ -117,7 +118,7 @@ export default function HomeFirstUsedToProduceIncomeRule() {
             <div className="text-slate-700 text-sm leading-relaxed mt-1">
               Attempting to reconstruct a retrospective property valuation many
               years later when the asset is finally sold can lead to ATO
-              disputes and suboptimal cost base adjustments. Financially Up
+              disputes and suboptimal cost base adjustments. <CompanyName />
               advises obtaining a formal valuation when the tenant first moves
               in.
             </div>

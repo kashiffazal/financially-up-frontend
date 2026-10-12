@@ -7,6 +7,8 @@ import {
   SafetyCertificateOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhatInvestmentTaxAdviceCovers Component
@@ -39,7 +41,7 @@ export default function WhatInvestmentTaxAdviceCovers() {
       ),
       title: "Strict Tax Scope",
       description:
-        "Financially Up’s service is limited to tax advice and does not include recommendations to buy, sell or hold specific financial products.",
+        <BrandText text={"Financially Up’s service is limited to tax advice and does not include recommendations to buy, sell or hold specific financial products."} />,
     },
     {
       icon: (
@@ -76,7 +78,7 @@ export default function WhatInvestmentTaxAdviceCovers() {
           <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
             Tax is only one factor in an investment decision. A lower-tax
             outcome is not automatically a better financial decision.
-            Financially Up’s service is limited to tax advice and does not
+            <CompanyName />’s service is limited to tax advice and does not
             include recommendations to buy, sell or hold specific financial
             products. Where financial product advice is needed, an appropriately
             authorised financial adviser may be required.

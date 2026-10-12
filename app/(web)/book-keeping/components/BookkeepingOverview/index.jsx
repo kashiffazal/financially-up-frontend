@@ -9,6 +9,7 @@ import {
   CheckCircleFilled,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function BookkeepingOverview() {
   const highlights = [
@@ -35,7 +36,7 @@ export default function BookkeepingOverview() {
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               Managing the financial aspects of your business can be a daunting
               and time-consuming task. That's where the expertise of a
-              professional bookkeeper comes in. At Financially Up, we offer
+              professional bookkeeper comes in. At <CompanyName />, we offer
               comprehensive bookkeeping services that go beyond mere number
               crunching.
             </p>

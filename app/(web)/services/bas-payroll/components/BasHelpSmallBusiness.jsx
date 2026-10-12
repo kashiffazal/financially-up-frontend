@@ -11,6 +11,7 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BasHelpSmallBusiness Component
@@ -83,7 +84,7 @@ export default function BasHelpSmallBusiness() {
               </h3>
               {/* Document Paragraph 2 Part A - Verbatim */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed mb-6">
-                Financially Up can review the bookkeeping, identify items that
+                <CompanyName /> can review the bookkeeping, identify items that
                 need clarification, prepare the relevant BAS information and
                 assist with lodgement.
               </p>

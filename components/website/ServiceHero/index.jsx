@@ -238,7 +238,7 @@ export default function ServiceHero({
   backgroundAlt = "Australian Corporate Accounting & Tax Advisory",
 }) {
   const company = useCompany();
-  const phoneDisplay = phone || company?.phone || "1300 328 316";
+  const phoneDisplay = phone || company.phone;
   const phoneHref = `tel:${phoneDisplay.replace(/\s+/g, "")}`;
 
   return (

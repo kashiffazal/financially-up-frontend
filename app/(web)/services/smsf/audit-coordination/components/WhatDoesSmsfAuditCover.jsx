@@ -9,6 +9,7 @@ import {
   FileProtectOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatDoesSmsfAuditCover Component
@@ -44,17 +45,17 @@ export default function WhatDoesSmsfAuditCover() {
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             The trustees remain responsible for operating the fund correctly and
             for providing the information the auditor needs. The auditor&apos;s
-            role is independent assurance. Financially Up&apos;s role in SMSF
-            audit preparation is to help ensure the accounting file and
-            supporting records are organized, consistent and ready for that
-            independent review.
+            role is independent assurance. <CompanyName />
+            &apos;s role in SMSF audit preparation is to help ensure the
+            accounting file and supporting records are organized, consistent and
+            ready for that independent review.
           </p>
         </div>
 
         {/* 2 Cards: Part A Financial vs Part B Compliance */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Part A Financial Audit */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/40 flex items-center justify-center mb-6">
                 <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
@@ -97,7 +98,7 @@ export default function WhatDoesSmsfAuditCover() {
           </div>
 
           {/* Card 2: Part B Compliance Audit */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center mb-6">
                 <FileProtectOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
@@ -140,7 +141,7 @@ export default function WhatDoesSmsfAuditCover() {
         </div>
 
         {/* When to Appoint Auditor Banner */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
             <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/40 flex items-center justify-center shrink-0">
               <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />

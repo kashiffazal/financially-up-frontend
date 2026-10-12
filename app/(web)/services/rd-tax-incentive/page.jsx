@@ -10,11 +10,16 @@ import WhatInformationNeededRd from "./components/WhatInformationNeededRd";
 import WhyChooseFinanciallyUpRd from "./components/WhyChooseFinanciallyUpRd";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 15th Pillar R&D Tax Incentive.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "R&D Tax Incentive Australia | Financially Up",
   description:
     "Understand R&D activity eligibility, records, registration deadlines and the company tax claim. Discuss your Australian R&D project with Financially Up.",
@@ -31,18 +36,19 @@ export const metadata = {
     "overseas finding R&D",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/rd-tax-incentive/",
+    canonical: `${SITE_URL}/services/rd-tax-incentive/`,
   },
   openGraph: {
     title: "R&D Tax Incentive Australia | Financially Up",
     description:
       "Understand R&D activity eligibility, records, registration deadlines and the company tax claim. Discuss your Australian R&D project with Financially Up.",
-    url: "https://financiallyup.com.au/services/rd-tax-incentive/",
+    url: `${SITE_URL}/services/rd-tax-incentive/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for R&D Tax Incentive
@@ -223,10 +229,7 @@ export default function RdTaxIncentiveMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship ServiceHero with Exact H1 & Verbatim Lead Text */}
       <ServiceHero
@@ -248,7 +251,7 @@ export default function RdTaxIncentiveMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up helps businesses understand the financial and tax work involved and
+            <CompanyName /> helps businesses understand the financial and tax work involved and
             coordinate an appropriate review of their projects and records. Book an Appointment to
             discuss the company, the work undertaken and where you are in the application process. We
             can agree which eligibility and claim preparation services are needed before you commit
@@ -258,7 +261,7 @@ export default function RdTaxIncentiveMainPage() {
         scopeNotice={
           <p className="m-0">
             Discuss your Australian R&amp;D project, contemporaneous records, and statutory deadlines
-            with Financially Up.
+            with <CompanyName />.
           </p>
         }
         primaryButton={{
@@ -320,7 +323,7 @@ export default function RdTaxIncentiveMainPage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="Discuss your project before the deadline"
-        subtitle="Book an Appointment with Financially Up to review the project, records and registration timing and agree the appropriate scope for R&D tax incentive assistance."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to review the project, records and registration timing and agree the appropriate scope for R&D tax incentive assistance."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

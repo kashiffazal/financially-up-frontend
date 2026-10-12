@@ -102,7 +102,7 @@ export default function WhenNeedGstRegistration() {
         </div>
 
         {/* Part 2: Voluntary GST registration */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+        <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
           <div className="max-w-3xl space-y-4">
             <div className="flex items-center gap-2 text-brand-primary dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
               <CheckCircleOutlined />

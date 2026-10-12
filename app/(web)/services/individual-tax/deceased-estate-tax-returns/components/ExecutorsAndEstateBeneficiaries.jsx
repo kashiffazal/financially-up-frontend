@@ -11,6 +11,7 @@ import {
   AuditOutlined,
   FileDoneOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ExecutorsAndEstateBeneficiaries Component
@@ -61,7 +62,7 @@ export default function ExecutorsAndEstateBeneficiaries() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* 7 Representative Steps */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-9 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
                   <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -98,7 +99,7 @@ export default function ExecutorsAndEstateBeneficiaries() {
             </div>
 
             {/* Authority Verification Callout */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-9 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
                   <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
@@ -119,9 +120,9 @@ export default function ExecutorsAndEstateBeneficiaries() {
                     <span className="font-bold text-slate-900 dark:text-white block mb-1">
                       Professional Practice Rule:
                     </span>
-                    Financially Up may need to confirm the representative&apos;s
-                    authority before accessing ATO information or preparing
-                    returns.
+                    <CompanyName /> may need to confirm the
+                    representative&apos;s authority before accessing ATO
+                    information or preparing returns.
                   </div>
                   <p>
                     Under Tax Practitioners Board (TPB) and ATO data security
@@ -148,7 +149,7 @@ export default function ExecutorsAndEstateBeneficiaries() {
         </div>
 
         {/* Section 4: Estate Income and Beneficiaries */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80">
+        <div className="p-8 sm:p-12 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80">
           <div className="max-w-3xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Distribution &amp; Entitlement Dynamics

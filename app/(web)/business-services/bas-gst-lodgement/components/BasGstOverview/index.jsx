@@ -9,6 +9,7 @@ import {
   CheckCircleFilled,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function BasGstOverview() {
   const highlights = [
@@ -33,7 +34,7 @@ export default function BasGstOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, we specialize in providing expert assistance
+              At <CompanyName />, we specialize in providing expert assistance
               with Business Activity Statement (BAS) lodgment and Goods and
               Services Tax (GST) compliance for all types of entities. Our
               experienced team of tax professionals understands the unique

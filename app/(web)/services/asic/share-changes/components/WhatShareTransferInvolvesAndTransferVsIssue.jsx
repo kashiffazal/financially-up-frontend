@@ -13,6 +13,8 @@ import {
   SafetyCertificateOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+
 
 /**
  * WhatShareTransferInvolvesAndTransferVsIssue Component
@@ -87,7 +89,7 @@ export default function WhatShareTransferInvolvesAndTransferVsIssue() {
             details, date of the change, shares held and relevant beneficial
             ownership status. Depending on the company&apos;s constitution,
             shareholders agreement and circumstances, approvals or other legal
-            documents may also be required. Financially Up does not provide
+            documents may also be required. <CompanyName /> does not provide
             legal advice as part of routine ASIC administration, so an
             appropriately qualified legal adviser may be needed where the legal
             effect of a transfer is in question.
@@ -116,7 +118,7 @@ export default function WhatShareTransferInvolvesAndTransferVsIssue() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* Transfer Card */}
-            <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
@@ -139,7 +141,7 @@ export default function WhatShareTransferInvolvesAndTransferVsIssue() {
             </div>
 
             {/* Issue Card */}
-            <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center">
@@ -201,14 +203,13 @@ export default function WhatShareTransferInvolvesAndTransferVsIssue() {
         </div>
 
         {/* Action Callout */}
-        <div className="w-full rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="w-full rounded-lg p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl">
             <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1">
               Discuss your proposed share change
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed m-0 font-normal">
-              Discuss the proposed or completed share change with Financially
-              Up. We can review the company details, identify the ASIC and
+              Discuss the proposed or completed share change with <CompanyName />. We can review the company details, identify the ASIC and
               record-keeping steps involved, and clarify whether separate tax or
               legal advice may be needed.
             </p>

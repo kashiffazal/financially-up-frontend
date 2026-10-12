@@ -38,7 +38,7 @@ export default function DoubleTaxAndFitoSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column: What If Foreign Tax Has Already Been Paid? */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between h-full">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between h-full">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80 mb-4">
                 <AuditOutlined /> Double Taxation Relief
@@ -90,7 +90,7 @@ export default function DoubleTaxAndFitoSection() {
           </div>
 
           {/* Right Column: What Is a Foreign Income Tax Offset? */}
-          <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between h-full">
+          <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between h-full">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-200 dark:border-blue-800/80 mb-4">
                 <FileDoneOutlined /> Offset Mechanics

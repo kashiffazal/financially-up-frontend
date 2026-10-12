@@ -10,11 +10,17 @@ import WhyFinanciallyUpCatchUp from "./components/WhyFinanciallyUpCatchUp";
 import RelatedBookkeepingRibbon from "../components/RelatedBookkeepingRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of Bookkeeping)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Catch Up Bookkeeping Services Australia | Financially Up",
   description:
     "Behind on your books? Financially Up provides catch up bookkeeping to reconcile records, clear backlogs and restore reliable business accounts.",
@@ -29,18 +35,19 @@ export const metadata = {
     "overdue BAS bookkeeping",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/catch-up-bookkeeping/",
+    canonical: `${SITE_URL}/services/bookkeeping/catch-up-bookkeeping/`,
   },
   openGraph: {
     title: "Catch Up Bookkeeping Services Australia | Financially Up",
     description:
       "Behind on your books? Financially Up provides catch up bookkeeping to reconcile records, clear backlogs and restore reliable business accounts.",
-    url: "https://financiallyup.com.au/services/bookkeeping/catch-up-bookkeeping/",
+    url: `${SITE_URL}/services/bookkeeping/catch-up-bookkeeping/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Bookkeeping service hierarchy
@@ -128,10 +135,7 @@ export default function CatchUpBookkeepingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function CatchUpBookkeepingPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              When bookkeeping falls behind, the priority is to rebuild a reliable set of records without guessing or rushing through transactions. Financially Up provides catch up bookkeeping for businesses that need to bring overdue records up to date, reconcile accounts and create a clearer starting point for current bookkeeping, reporting and tax compliance.
+              When bookkeeping falls behind, the priority is to rebuild a reliable set of records without guessing or rushing through transactions. <CompanyName /> provides catch up bookkeeping for businesses that need to bring overdue records up to date, reconcile accounts and create a clearer starting point for current bookkeeping, reporting and tax compliance.
             </span>
             <span className="block mt-2">
               A bookkeeping backlog can develop after rapid growth, staff changes, a software transition, competing priorities or simply not having a regular bookkeeping process. The work may involve several months or financial periods and can include bank transactions, sales, expenses, supplier bills, customer receipts, GST coding and other records relevant to the business.
@@ -164,7 +168,7 @@ export default function CatchUpBookkeepingPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Bookkeeping Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -195,7 +199,7 @@ export default function CatchUpBookkeepingPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about clearing overdue books, multi-month backlogs, missing receipts and tax compliance coordination with Financially Up."
+        subtitle={<BrandText text={"Common questions about clearing overdue books, multi-month backlogs, missing receipts and tax compliance coordination with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Catch Up Bookkeeping Frequently Asked Questions"
         items={catchUpBookkeepingFaqs}
@@ -207,7 +211,7 @@ export default function CatchUpBookkeepingPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your books are behind, Book an Appointment with Financially Up to discuss the outstanding periods, available records, accounting software and the work required to bring the file up to date. We can also clarify whether ongoing bookkeeping or separately scoped accounting and tax work is needed once the backlog is cleared."
+        subtitle={<BrandText text={"If your books are behind, Book an Appointment with Financially Up to discuss the outstanding periods, available records, accounting software and the work required to bring the file up to date. We can also clarify whether ongoing bookkeeping or separately scoped accounting and tax work is needed once the backlog is cleared."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore All Bookkeeping Services"

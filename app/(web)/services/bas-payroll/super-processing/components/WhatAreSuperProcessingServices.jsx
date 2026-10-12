@@ -53,7 +53,7 @@ export default function WhatAreSuperProcessingServices() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-4">
               <div className="flex items-center gap-3 text-brand-primary dark:text-emerald-400">
                 <SafetyCertificateOutlined className="text-2xl" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -71,7 +71,7 @@ export default function WhatAreSuperProcessingServices() {
         </div>
 
         {/* Part 2: What changed with Payday Super from 1 July 2026? */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
+        <div className="p-8 sm:p-12 rounded-lg bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-4 space-y-4">
               <div className="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">

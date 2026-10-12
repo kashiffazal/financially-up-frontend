@@ -6,6 +6,7 @@ import {
   RedoOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ExceedingSixYearsAndRestartingClock Component
@@ -83,7 +84,7 @@ export default function ExceedingSixYearsAndRestartingClock() {
                 </div>
               </div>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Financially Up assists clients in documenting substantive
+                <CompanyName /> assists clients in documenting substantive
                 occupancy evidence to withstand potential ATO scrutiny upon
                 subsequent sale.
               </p>

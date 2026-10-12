@@ -57,7 +57,7 @@ export default function ResidencyScenariosAndTreaties() {
         {/* 2-Column Split: Moving In vs Temporary Residents */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Card 1: Moving to Australia */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-5">
                 <UserAddOutlined />
@@ -93,7 +93,7 @@ export default function ResidencyScenariosAndTreaties() {
           </div>
 
           {/* Card 2: Temporary Residents */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-5">
                 <IdcardOutlined />
@@ -124,7 +124,7 @@ export default function ResidencyScenariosAndTreaties() {
         {/* 2-Column Split: Dual Residency & Treaties vs Leaving Australia */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 3: Dual Residency */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-2xl mb-5">
                 <GlobalOutlined />
@@ -162,7 +162,7 @@ export default function ResidencyScenariosAndTreaties() {
           </div>
 
           {/* Card 4: Leaving Australia */}
-          <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
                 <UserDeleteOutlined />

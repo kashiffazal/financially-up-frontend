@@ -19,6 +19,7 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsDeceasedEstates Component
@@ -89,15 +90,15 @@ export default function HowFinanciallyUpHelpsDeceasedEstates() {
             Professional Practice Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} can assist with:
+            {company?.legalName} can assist with:
           </p>
         </div>
 
         {/* 9 Capabilities Cards Grid */}
-        <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs mb-12">
+        <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs mb-12">
           <div className="max-w-2xl mb-8">
             <span className="text-2xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
               Practice Capabilities
@@ -146,7 +147,7 @@ export default function HowFinanciallyUpHelpsDeceasedEstates() {
         </div>
 
         {/* Empathy & Professional Support Callout */}
-        <div className="rounded-3xl p-6 sm:p-8 bg-linear-to-r from-emerald-500/10 via-brand-primary/5 to-transparent dark:from-emerald-950/40 dark:via-zinc-800/40 dark:to-transparent border border-emerald-200 dark:border-emerald-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="rounded-lg p-6 sm:p-8 bg-linear-to-r from-emerald-500/10 via-brand-primary/5 to-transparent dark:from-emerald-950/40 dark:via-zinc-800/40 dark:to-transparent border border-emerald-200 dark:border-emerald-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 text-xs font-semibold mb-3">
               <SafetyCertificateOutlined /> Compassionate &amp; Rigorous Advice

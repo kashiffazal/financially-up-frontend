@@ -8,11 +8,17 @@ import HowFinanciallyUpHelpsCgt from "./components/HowFinanciallyUpHelpsCgt";
 import CgtRelatedServiceRibbon from "./components/CgtRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import CompanyName from "@/components/mutual/CompanyName";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Capital Gains Tax Accountant Australia | Financially Up",
   description:
     "Need a capital gains tax accountant? Financially Up helps Australians with CGT calculations, property sales, cost-base reviews and tax returns.",
@@ -28,18 +34,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/capital-gains-tax/",
+      `${SITE_URL}/services/individual-tax/capital-gains-tax/`,
   },
   openGraph: {
     title: "Capital Gains Tax Accountant Australia | Financially Up",
     description:
       "Need a capital gains tax accountant? Financially Up helps Australians with CGT calculations, property sales, cost-base reviews and tax returns.",
-    url: "https://financiallyup.com.au/services/individual-tax/capital-gains-tax/",
+    url: `${SITE_URL}/services/individual-tax/capital-gains-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -84,7 +91,7 @@ const cgtQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -247,10 +254,7 @@ export default function CapitalGainsTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -260,8 +264,7 @@ export default function CapitalGainsTaxPage() {
           <span className="space-y-3 block">
             <span className="block">
               Selling property, shares or another investment can create capital
-              gains tax consequences that are easy to miscalculate. Financially
-              Up Pty Ltd assists Australian homeowners, property investors,
+              gains tax consequences that are easy to miscalculate. <CompanyName legal /> assists Australian homeowners, property investors,
               joint owners and individual investors with understanding CGT,
               reviewing cost-base information, calculating capital gains or
               capital losses, and preparing the relevant tax return disclosures
@@ -298,7 +301,7 @@ export default function CapitalGainsTaxPage() {
           "Property, Shares & Crypto Disposals",
           "50% CGT Discount & Loss Offsets",
           "Cost-Base & Improvement Substantiation",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={cgtQuickSpecs}
         primaryCta={{
@@ -307,7 +310,7 @@ export default function CapitalGainsTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "CGT Advisory Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -335,7 +338,7 @@ export default function CapitalGainsTaxPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about capital gains tax calculations, property sales, main residence exemptions, the 50% discount and records with Financially Up."
+        subtitle={<BrandText text={"Common questions about capital gains tax calculations, property sales, main residence exemptions, the 50% discount and records with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Capital Gains Tax Frequently Asked Questions"
         items={cgtFaqs}
@@ -347,7 +350,7 @@ export default function CapitalGainsTaxPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Professional assistance can help where you are preparing to report a CGT event, need a capital gain or loss reviewed, or want to understand potential CGT considerations before selling an asset. The appropriate scope can be confirmed after Financially Up reviews the asset, circumstances and available records. Book an appointment with Financially Up Pty Ltd to discuss a property, shares, an inherited asset or another CGT matter."
+        subtitle={<BrandText text={"Professional assistance can help where you are preparing to report a CGT event, need a capital gain or loss reviewed, or want to understand potential CGT considerations before selling an asset. The appropriate scope can be confirmed after Financially Up reviews the asset, circumstances and available records. Book an appointment with Financially Up Pty Ltd to discuss a property, shares, an inherited asset or another CGT matter."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

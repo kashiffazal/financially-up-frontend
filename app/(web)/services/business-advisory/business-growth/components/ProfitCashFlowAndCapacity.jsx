@@ -13,6 +13,7 @@ import {
   ShopOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ProfitCashFlowAndCapacity Component
@@ -149,7 +150,7 @@ export default function ProfitCashFlowAndCapacity() {
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
                 Growth also creates operational demands. Hiring may need payroll
                 processes and supervision; expanding locations may need stock
-                controls and consistent reporting. Financially Up can address
+                controls and consistent reporting. <CompanyName /> can address
                 the accounting, tax and financial management implications and
                 help identify operational or legal questions for other advisers.
               </p>

@@ -3,12 +3,14 @@ import { App } from "antd";
 import FormPageHeader from "@/components/website/FormPageHeader";
 import FormPreFooter from "@/components/website/FormPreFooter";
 import ChangesToCompanyDetailsForm from "@/components/admin/forms/changes-to-company-details";
+import { brandedMetadata } from "@/lib/brandMetadata";
 
-export const metadata = {
+const baseMetadata = {
   title: "Changes to Company Details (ASIC Form 484) - Financially Up",
   description:
     "Lodge corporate changes for company directors, shareholders, share structure, and registered office addresses with ASIC.",
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 export default function ChangesToCompanyDetailsPage() {
   return (

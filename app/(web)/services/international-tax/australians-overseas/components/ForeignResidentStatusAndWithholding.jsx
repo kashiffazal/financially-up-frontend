@@ -39,7 +39,7 @@ export default function ForeignResidentStatusAndWithholding() {
         {/* 2-Column Split: Real Property & 15% FRCGW vs Passive Withholding */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-8">
           {/* Left Column: Real Property & FRCGW 15% Rate */}
-          <div className="lg:col-span-7 p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
+          <div className="lg:col-span-7 p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl">
                 <HomeOutlined />
@@ -73,7 +73,7 @@ export default function ForeignResidentStatusAndWithholding() {
           </div>
 
           {/* Right Column: Australian Interest & Dividends */}
-          <div className="lg:col-span-5 p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between h-full">
+          <div className="lg:col-span-5 p-8 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between h-full">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">

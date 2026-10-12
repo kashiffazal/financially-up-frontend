@@ -8,11 +8,16 @@ import TaxAccountingImpactAndWhyChoose from "./components/TaxAccountingImpactAnd
 import CompanyChangesRelatedRibbon from "./components/CompanyChangesRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 / Pillar 7.2)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Change Company Details with ASIC | Financially Up",
   description:
     "Need to change company details with ASIC? Get help with addresses, officeholders, share information and other common company updates and lodgements.",
@@ -27,18 +32,19 @@ export const metadata = {
     "ASIC corporate compliance",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/company-changes/",
+    canonical: `${SITE_URL}/services/asic/company-changes/`,
   },
   openGraph: {
     title: "Change Company Details with ASIC | Financially Up",
     description:
       "Need to change company details with ASIC? Get help with addresses, officeholders, share information and other common company updates and lodgements.",
-    url: "https://financiallyup.com.au/services/asic/company-changes/",
+    url: `${SITE_URL}/services/asic/company-changes/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -126,10 +132,7 @@ export default function CompanyChangesPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -141,7 +144,7 @@ export default function CompanyChangesPage() {
               If your company’s registered details change, ASIC may need to be notified. Common updates include changes to company addresses, directors or secretaries, member details and share information. Many of these changes are lodged through the ASIC company-change process commonly associated with Form 484.
             </span>
             <span className="block mt-2">
-              Financially Up provides a change company details service for directors who want the ASIC filing reviewed and lodged accurately against the company’s underlying records. The right process depends on what changed, when it changed and whether the event has wider tax, accounting or legal consequences.
+              <CompanyName /> provides a change company details service for directors who want the ASIC filing reviewed and lodged accurately against the company’s underlying records. The right process depends on what changed, when it changed and whether the event has wider tax, accounting or legal consequences.
             </span>
           </span>
         }
@@ -199,7 +202,7 @@ export default function CompanyChangesPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you need to update company details with ASIC, book an appointment with Financially Up to review the change, required records, lodgement timing and any related accounting or tax issues."
+        subtitle={<BrandText text={"If you need to update company details with ASIC, book an appointment with Financially Up to review the change, required records, lodgement timing and any related accounting or tax issues."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

@@ -15,6 +15,7 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * CommonAreasAndYearEnd Component
@@ -164,7 +165,7 @@ export default function CommonAreasAndYearEnd() {
           </div>
 
           {/* Document Paragraph 2 - Verbatim Callout Card (Eligibility Criteria & Notice of Intent) */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900 dark:to-teal-950/20 border border-teal-200/80 dark:border-teal-800/80 shadow-sm">
+          <div className="p-8 sm:p-10 rounded-lg bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900 dark:to-teal-950/20 border border-teal-200/80 dark:border-teal-800/80 shadow-sm">
             <div className="max-w-4xl mx-auto space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
@@ -187,7 +188,7 @@ export default function CommonAreasAndYearEnd() {
                 claiming a deduction for an eligible personal super contribution
                 generally requires a valid notice of intent to be given to the
                 fund within the required time and an acknowledgement from the
-                fund before the deduction is claimed. Financially Up reviews
+                fund before the deduction is claimed. <CompanyName /> reviews
                 these matters based on the current rules and your circumstances
                 rather than assuming a tax benefit will apply.
               </blockquote>

@@ -9,6 +9,7 @@ import {
   InfoCircleOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * SuperComplianceAndRecordsNeeded Component
@@ -32,7 +33,7 @@ export default function SuperComplianceAndRecordsNeeded() {
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Part 1: Compliance Responsibilities & Advice Boundary */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 mb-16">
+        <div className="p-8 sm:p-12 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 mb-16">
           <div className="max-w-3xl mb-8">
             <Tag
               color="cyan"
@@ -64,12 +65,13 @@ export default function SuperComplianceAndRecordsNeeded() {
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
                 Superannuation processing is also different from personal
                 financial advice about which super fund or investment option an
-                employee should choose. Financially Up&apos;s service focuses on
-                employer-side payroll, contribution processing, accounting
-                records and related tax administration. It does not include
-                recommendations to choose, switch, buy, sell or hold a financial
-                product. Where financial product advice is needed, an
-                appropriately authorized financial adviser may be required.
+                employee should choose. <CompanyName />
+                &apos;s service focuses on employer-side payroll, contribution
+                processing, accounting records and related tax administration.
+                It does not include recommendations to choose, switch, buy, sell
+                or hold a financial product. Where financial product advice is
+                needed, an appropriately authorized financial adviser may be
+                required.
               </p>
             </div>
           </div>
@@ -97,14 +99,14 @@ export default function SuperComplianceAndRecordsNeeded() {
             </p>
 
             <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 italic">
-              The information needed will depend on whether Financially Up is
+              The information needed will depend on whether <CompanyName /> is
               helping with a regular super payment cycle, a reconciliation issue
               or a broader payroll clean-up.
             </p>
           </div>
 
           <div className="lg:col-span-7">
-            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
               <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
                 Documentation Requested for Super Workflows:
               </h4>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import FeatureHighlightsSection from "@/components/website/FeatureHighlightsSection";
+import { useBrandText } from "@/context/SettingsContext";
 
 /**
  * Home Feature Highlights Data
@@ -40,9 +41,10 @@ const homeHighlights = [
  * Uses the mutual, reusable FeatureHighlightsSection from `@/components/website/FeatureHighlightsSection`.
  */
 export default function HomeFeatureHighlightsSection() {
+  const brand = useBrandText();
   return (
     <FeatureHighlightsSection
-      tag="Why Financially Up"
+      tag={brand("Why Financially Up")}
       title="Empower Your Finances with Precision"
       subtitle="Designed for busy Australians seeking fast, accurate, and completely transparent tax services."
       items={homeHighlights}

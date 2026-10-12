@@ -9,12 +9,16 @@ import WhatToBringFirstMeetingSuccession from "./components/WhatToBringFirstMeet
 import SuccessionRelatedServicesRibbon from "./components/SuccessionRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 10 (10- Succession Planning)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Succession Planning Services | Financially Up",
   description:
     "Prepare for a business handover or exit. Financially Up helps owners review financial readiness, transition options and tax questions with suitable specialists.",
@@ -30,18 +34,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/succession-planning/",
+      `${SITE_URL}/services/business-advisory/succession-planning/`,
   },
   openGraph: {
     title: "Business Succession Planning Services | Financially Up",
     description:
       "Prepare for a business handover or exit. Financially Up helps owners review financial readiness, transition options and tax questions with suitable specialists.",
-    url: "https://financiallyup.com.au/services/business-advisory/succession-planning/",
+    url: `${SITE_URL}/services/business-advisory/succession-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -117,7 +122,7 @@ const jsonLd = {
       provider: {
         "@type": "AccountingService",
         name: "Financially Up",
-        url: "https://financiallyup.com.au",
+        url: `${SITE_URL}`,
         telephone: "+61-1300-328-316",
         address: {
           "@type": "PostalAddress",
@@ -183,10 +188,7 @@ export default function SuccessionPlanningPage() {
   return (
     <>
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* SubServiceHero Component */}
       <SubServiceHero
@@ -194,7 +196,7 @@ export default function SuccessionPlanningPage() {
         subtitle="Business Succession Planning"
         description={[
           "Business succession planning services help an owner prepare for someone else to take over, whether through a family handover, an internal transition or a future sale. The work starts before a transfer date is fixed: the business may need clearer records, a realistic assessment of value, capable successors and time to address tax and funding questions.",
-          "Financially Up supports the accounting and business planning side of succession. We help you assess financial readiness, compare possible pathways and identify where legal or other specialist advice is needed. Book an Appointment to discuss your plans and how far along you are.",
+          <BrandText key="brand-1" text={"Financially Up supports the accounting and business planning side of succession. We help you assess financial readiness, compare possible pathways and identify where legal or other specialist advice is needed. Book an Appointment to discuss your plans and how far along you are."} />,
         ]}
         parentService={{
           label: "Business Advisory Hub",
@@ -246,7 +248,7 @@ export default function SuccessionPlanningPage() {
       {/* Section 9: Call to Action Banner */}
       <CallToActionBanner
         title="Prepare for the next chapter"
-        description="Book an Appointment with Financially Up to discuss your preferred transition, the financial records available, possible tax questions and which specialist advisers may need to be involved."
+        description={<BrandText text={"Book an Appointment with Financially Up to discuss your preferred transition, the financial records available, possible tax questions and which specialist advisers may need to be involved."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
       />

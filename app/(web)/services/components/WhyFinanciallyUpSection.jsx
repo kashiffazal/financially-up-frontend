@@ -10,6 +10,7 @@ import {
   LockOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * 6 Core Value Pillars
@@ -81,14 +82,14 @@ export default function WhyFinanciallyUpSection() {
             color="green"
             className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
           >
-            Why Financially Up
+            Why <CompanyName />
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Built on Professional Integrity, Accuracy &amp; Transparency
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
             Discover why individuals, business owners, and trustees across
-            Australia trust Financially Up for all their accounting and taxation
+            Australia trust <CompanyName /> for all their accounting and taxation
             needs.
           </p>
         </div>

@@ -11,6 +11,8 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpAsic Component
@@ -47,7 +49,7 @@ export default function WhyChooseFinanciallyUpAsic() {
         <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
       ),
       title: "Registered Tax Agent Status",
-      description: `${company?.legalName || "Financially Up"} is a registered tax agent, connecting company registers with broader tax, payroll, and financial records.`,
+      description: `${company?.legalName} is a registered tax agent, connecting company registers with broader tax, payroll, and financial records.`,
     },
     {
       icon: (
@@ -69,13 +71,13 @@ export default function WhyChooseFinanciallyUpAsic() {
             Experience
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why choose Financially Up for ASIC company compliance services?
+            Why choose <CompanyName /> for ASIC company compliance services?
           </h2>
           {/* Document Paragraph 1 - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up combines corporate administration with accounting and
+            <CompanyName /> combines corporate administration with accounting and
             tax context. Our team has more than 10 years of experience and
-            includes CPA and IPA professionals, and Financially Up is a
+            includes CPA and IPA professionals, and <CompanyName /> is a
             registered tax agent. We support clients Australia-wide, with online
             and in-person appointment options.
           </p>
@@ -122,7 +124,7 @@ export default function WhyChooseFinanciallyUpAsic() {
           tag="ASIC Registered Agent Consultation"
           tagIcon="safety"
           title="Appoint an ASIC Registered Agent for Your Company"
-          description="Never miss an annual review, late fee, or statutory update again. Book an appointment with Financially Up to review your current ASIC standing and transfer ongoing company administration to our qualified registered agent team."
+          description={<BrandText text={"Never miss an annual review, late fee, or statutory update again. Book an appointment with Financially Up to review your current ASIC standing and transfer ongoing company administration to our qualified registered agent team."} />}
           primaryButton={{
             text: "Book an Appointment",
             href: "/book-an-appointment",

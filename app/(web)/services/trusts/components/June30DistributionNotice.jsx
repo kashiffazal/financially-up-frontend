@@ -9,6 +9,7 @@ import {
   DollarOutlined,
 } from "@ant-design/icons";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * June30DistributionNotice Component
@@ -104,7 +105,7 @@ export default function June30DistributionNotice() {
           tag="Year-End Trust Governance"
           tagIcon="safety"
           title="Plan Your Trust Distributions Before 30 June"
-          description="Avoid costly default tax rates and Section 100A integrity challenges. Financially Up models your trust's estimated taxable income in May and June, drafts compliant distribution minutes, and ensures present entitlement is established before statutory deadlines."
+          description={<BrandText text={"Avoid costly default tax rates and Section 100A integrity challenges. Financially Up models your trust's estimated taxable income in May and June, drafts compliant distribution minutes, and ensures present entitlement is established before statutory deadlines."} />}
           primaryButton={{
             text: "Book Distribution Advice",
             href: "/services/trusts/distribution-planning",

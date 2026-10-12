@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * KeyAreasCoveredCompliance Component
@@ -41,7 +42,7 @@ export default function KeyAreasCoveredCompliance() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* 1. Payroll records and pay slips */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <FileTextOutlined className="text-lg" />
@@ -68,7 +69,7 @@ export default function KeyAreasCoveredCompliance() {
           </div>
 
           {/* 2. PAYG withholding and activity statements */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <DollarOutlined className="text-lg" />
@@ -90,7 +91,8 @@ export default function KeyAreasCoveredCompliance() {
             <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800">
               <p className="text-xs text-slate-600 dark:text-zinc-400">
                 If the issue is primarily about activity statement preparation
-                or lodgement, Financially Up&apos;s{" "}
+                or lodgement, <CompanyName />
+                &apos;s{" "}
                 <Link
                   href="/services/bas-payroll"
                   className="font-semibold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
@@ -104,7 +106,7 @@ export default function KeyAreasCoveredCompliance() {
           </div>
 
           {/* 3. Single Touch Payroll */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <ThunderboltOutlined className="text-lg" />
@@ -137,7 +139,7 @@ export default function KeyAreasCoveredCompliance() {
           </div>
 
           {/* 4. Superannuation and Payday Super */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between md:col-span-2 lg:col-span-2">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between md:col-span-2 lg:col-span-2">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
                 <CalendarOutlined className="text-lg" />
@@ -177,7 +179,7 @@ export default function KeyAreasCoveredCompliance() {
           </div>
 
           {/* 5. Payroll tax and jurisdiction-specific obligations */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                 <BankOutlined className="text-lg" />

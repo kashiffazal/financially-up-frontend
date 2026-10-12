@@ -50,7 +50,7 @@ export default function WhatIsBusinessNameRenewal() {
         {/* 2-Column Focus: 30-Day Notice & Who Needs Renewal */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Card 1: 30-Day Renewal Notice Mechanism */}
-          <div className="rounded-3xl p-7 sm:p-9 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="rounded-lg p-7 sm:p-9 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-5">
                 <MailOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
@@ -91,7 +91,7 @@ export default function WhatIsBusinessNameRenewal() {
           </div>
 
           {/* Card 2: Who May Need a Business Name Renewal Service? */}
-          <div className="rounded-3xl p-7 sm:p-9 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="rounded-lg p-7 sm:p-9 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-5">
                 <TeamOutlined className="text-xl text-teal-600 dark:text-teal-400" />
@@ -134,7 +134,7 @@ export default function WhatIsBusinessNameRenewal() {
         </div>
 
         {/* Action Callout */}
-        <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl">
             <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1">
               Is your business name approaching expiry?

@@ -9,23 +9,28 @@ import KeyAreasCoveredCompliance from "./components/KeyAreasCoveredCompliance";
 import AuditVsPracticalReviewAndInfo from "./components/AuditVsPracticalReviewAndInfo";
 import HowFinanciallyUpHelpsCompliance from "./components/HowFinanciallyUpHelpsCompliance";
 import WhyChooseFinanciallyUpCompliance from "./components/WhyChooseFinanciallyUpCompliance";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Payroll Compliance Services Australia | Financially Up",
   description:
     "Payroll compliance services for Australian employers, covering payroll records, STP, PAYG, super and payroll reviews. Get practical support from Financially Up.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/employer-compliance/",
+    canonical: `${SITE_URL}/services/bas-payroll/employer-compliance/`,
   },
   openGraph: {
     title: "Payroll Compliance Services Australia | Financially Up",
     description:
       "Payroll compliance services for Australian employers, covering payroll records, STP, PAYG, super and payroll reviews. Get practical support from Financially Up.",
-    url: "https://financiallyup.com.au/services/bas-payroll/employer-compliance/",
+    url: `${SITE_URL}/services/bas-payroll/employer-compliance/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -51,7 +56,7 @@ const employerComplianceFaqs = [
       "We can review payroll data, pay categories and accounting records within the agreed service scope. Where the core question is how a modern award, enterprise agreement or employment contract applies, specialist workplace-relations or legal advice may also be required.",
   },
   {
-    question: "Can Financially Up help fix historical payroll records?",
+    question: <BrandText text={"Can Financially Up help fix historical payroll records?"} />,
     answer:
       "Where the issue is within our accounting, payroll and tax scope, we can help identify discrepancies and work through appropriate corrections. The required process depends on what is wrong, the periods affected and whether external legal or workplace advice is also needed.",
   },
@@ -67,7 +72,7 @@ export default function EmployerCompliancePage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -78,10 +83,7 @@ export default function EmployerCompliancePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -95,7 +97,7 @@ export default function EmployerCompliancePage() {
           title="Payroll Compliance Services for Employers"
           description={[
             "Payroll compliance services help employers check that payroll processes, reporting and supporting records are working together correctly. For many businesses, payroll is not just calculating wages: it also involves employee records, pay slips, PAYG withholding, Single Touch Payroll reporting, superannuation, leave balances and other obligations that can vary with the workforce and employment arrangements.",
-            "Financially Up supports employers who want a clearer, more reliable payroll process and an accounting-focused review of the information flowing through payroll. The service is designed for businesses that need ongoing payroll compliance support, are changing payroll systems, have grown their team, or want to review existing processes before small errors become recurring problems.",
+            <BrandText key="brand-1" text={"Financially Up supports employers who want a clearer, more reliable payroll process and an accounting-focused review of the information flowing through payroll. The service is designed for businesses that need ongoing payroll compliance support, are changing payroll systems, have grown their team, or want to review existing processes before small errors become recurring problems."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"

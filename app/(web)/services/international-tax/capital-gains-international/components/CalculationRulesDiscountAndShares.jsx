@@ -39,7 +39,7 @@ export default function CalculationRulesDiscountAndShares() {
         {/* 2-Column Split: Foreign Homes & Discount Apportionment vs Foreign Shares */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Card 1: Foreign Homes & CGT Discount Reduction */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
                 <HomeOutlined />
@@ -69,7 +69,7 @@ export default function CalculationRulesDiscountAndShares() {
           </div>
 
           {/* Card 2: Foreign Shares & Portfolio Disposals */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-5">
                 <LineChartOutlined />

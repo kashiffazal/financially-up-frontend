@@ -101,7 +101,7 @@ export default function MissingRecordsAndCatchUpProcess() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* Reliable Sources Checklist */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-6">
                   <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -132,7 +132,7 @@ export default function MissingRecordsAndCatchUpProcess() {
             </div>
 
             {/* Substantiation Rules & No Invention Callout */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-6">
                   <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -222,7 +222,7 @@ export default function MissingRecordsAndCatchUpProcess() {
           </div>
 
           {/* Additional Records Consideration Callout */}
-          <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-lg bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="max-w-2xl text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
               <span className="font-bold text-slate-900 dark:text-white block mb-1">
                 Complex Returns &amp; Additional Records:

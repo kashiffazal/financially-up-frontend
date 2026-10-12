@@ -148,7 +148,7 @@ export default function WhenToAmendAndBeforeRequesting() {
           </div>
 
           {/* Ripple Effect Warning Callout */}
-          <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-linear-to-r from-amber-500/10 via-amber-500/5 to-transparent dark:from-amber-950/40 dark:via-zinc-800/40 dark:to-transparent border border-amber-200 dark:border-amber-800/60">
+          <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-lg bg-linear-to-r from-amber-500/10 via-amber-500/5 to-transparent dark:from-amber-950/40 dark:via-zinc-800/40 dark:to-transparent border border-amber-200 dark:border-amber-800/60">
             <div className="flex items-start gap-4">
               <CalculatorOutlined className="text-amber-600 dark:text-amber-400 text-2xl mt-1 shrink-0" />
               <div>

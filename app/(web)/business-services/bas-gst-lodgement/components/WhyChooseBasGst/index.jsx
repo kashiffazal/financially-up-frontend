@@ -12,6 +12,7 @@ import {
   UsergroupAddOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function WhyChooseBasGst() {
   const whyChoosePoints = [
@@ -80,7 +81,7 @@ export default function WhyChooseBasGst() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
-            Why Choose Financially Up for Your BAS/GST lodgement?
+            Why Choose <CompanyName /> for Your BAS/GST lodgement?
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-zinc-400">

@@ -9,6 +9,7 @@ import {
   CheckCircleOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BusinessIncomeDeductionsRecords Component
@@ -43,7 +44,7 @@ export default function BusinessIncomeDeductionsRecords() {
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
             Good records are also important for GST, superannuation, asset
-            transactions and other business obligations. Financially Up can
+            transactions and other business obligations. <CompanyName /> can
             identify gaps in the information provided and explain what may be
             needed before a planning position can be finalised.
           </p>

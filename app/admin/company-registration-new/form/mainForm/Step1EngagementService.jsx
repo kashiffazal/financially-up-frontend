@@ -15,6 +15,8 @@ import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 import TermsOfEngagementTrigger from "./TermsOfEngagementTrigger";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step1EngagementService({ form }) {
   const relationship = Form.useWatch("contactRelationship", form);
@@ -56,7 +58,7 @@ export default function Step1EngagementService({ form }) {
               name="termsOfEngagementAccepted"
               text={
                 <span className="text-xs sm:text-[13px] text-slate-800 dark:text-zinc-200 leading-relaxed select-none">
-                  I have read and agree to the Financially Up Company
+                  I have read and agree to the <CompanyName /> Company
                   Registration Terms of Engagement. (
                   <TermsOfEngagementTrigger />)
                   <span className="text-red-500 font-bold ml-0.5">*</span>
@@ -73,7 +75,7 @@ export default function Step1EngagementService({ form }) {
               Before you begin
             </span>
             <p className="text-xs text-slate-600 dark:text-zinc-400 leading-normal">
-              Financially Up collects and handles personal information for the
+              <CompanyName /> collects and handles personal information for the
               purposes described in its Privacy Collection Notice.
             </p>
             <AntInput
@@ -205,7 +207,7 @@ export default function Step1EngagementService({ form }) {
               name="authorityDescription"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Authority to Instruct Financially Up *
+                  Authority to Instruct <CompanyName /> *
                 </span>
               }
               placeholder="Describe your legal capacity and authorisation from the company founders/directors to lodge this registration."
@@ -288,12 +290,12 @@ export default function Step1EngagementService({ form }) {
           group={[
             {
               value: "Financially Up registered office address",
-              label: "Financially Up Registered Office Address Service",
+              label: <BrandText text={"Financially Up Registered Office Address Service"} />,
             },
             {
               value: "Financially Up principal place of business address",
               label:
-                "Financially Up Principal Place of Business Address Service",
+                <BrandText text={"Financially Up Principal Place of Business Address Service"} />,
             },
             {
               value:

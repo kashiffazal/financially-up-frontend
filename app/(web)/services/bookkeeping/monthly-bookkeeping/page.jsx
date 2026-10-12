@@ -10,11 +10,17 @@ import WhyChooseFinanciallyUpMonthly from "./components/WhyChooseFinanciallyUpMo
 import RelatedBookkeepingRibbon from "../components/RelatedBookkeepingRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of Bookkeeping)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Monthly Bookkeeping Services Australia | Financially Up",
   description:
     "Monthly bookkeeping services for Australian businesses. Keep accounts reconciled, records organised and bookkeeping ready for ongoing reporting and compliance.",
@@ -29,18 +35,19 @@ export const metadata = {
     "ongoing bookkeeping support",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/monthly-bookkeeping/",
+    canonical: `${SITE_URL}/services/bookkeeping/monthly-bookkeeping/`,
   },
   openGraph: {
     title: "Monthly Bookkeeping Services Australia | Financially Up",
     description:
       "Monthly bookkeeping services for Australian businesses. Keep accounts reconciled, records organised and bookkeeping ready for ongoing reporting and compliance.",
-    url: "https://financiallyup.com.au/services/bookkeeping/monthly-bookkeeping/",
+    url: `${SITE_URL}/services/bookkeeping/monthly-bookkeeping/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Bookkeeping service hierarchy
@@ -97,7 +104,7 @@ const monthlyBookkeepingFaqs = [
     label: "Do you offer outsourced monthly bookkeeping Australia-wide?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up can provide outsourced monthly bookkeeping online to businesses across Australia, with in-person appointments also available where preferred.
+        Yes. <CompanyName /> can provide outsourced monthly bookkeeping online to businesses across Australia, with in-person appointments also available where preferred.
       </p>
     ),
   },
@@ -128,10 +135,7 @@ export default function MonthlyBookkeepingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function MonthlyBookkeepingPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Monthly bookkeeping services provide a regular cycle for keeping business records up to date instead of leaving transactions to build up until BAS or tax time. Financially Up offers ongoing bookkeeping for businesses that want consistent reconciliations, organised records and a clearer view of their financial activity from month to month.
+              Monthly bookkeeping services provide a regular cycle for keeping business records up to date instead of leaving transactions to build up until BAS or tax time. <CompanyName /> offers ongoing bookkeeping for businesses that want consistent reconciliations, organised records and a clearer view of their financial activity from month to month.
             </span>
             <span className="block mt-2">
               A monthly service can suit established small businesses, growing businesses and owners who no longer want to manage bookkeeping themselves. The scope is agreed around your transaction volume, software, number of accounts and reporting needs.
@@ -164,7 +168,7 @@ export default function MonthlyBookkeepingPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Bookkeeping Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -195,7 +199,7 @@ export default function MonthlyBookkeepingPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about recurring monthly bookkeeping, cycle frequencies, BAS alignment and outsourced workflows with Financially Up."
+        subtitle={<BrandText text={"Common questions about recurring monthly bookkeeping, cycle frequencies, BAS alignment and outsourced workflows with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Monthly Bookkeeping Frequently Asked Questions"
         items={monthlyBookkeepingFaqs}
@@ -207,7 +211,7 @@ export default function MonthlyBookkeepingPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you want a regular bookkeeping routine instead of repeated catch-up work, book an appointment with Financially Up. We can discuss your accounting software, transaction volume, current backlog and reporting needs, then confirm whether monthly bookkeeping is the right cadence for your business."
+        subtitle={<BrandText text={"If you want a regular bookkeeping routine instead of repeated catch-up work, book an appointment with Financially Up. We can discuss your accounting software, transaction volume, current backlog and reporting needs, then confirm whether monthly bookkeeping is the right cadence for your business."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore All Bookkeeping Services"

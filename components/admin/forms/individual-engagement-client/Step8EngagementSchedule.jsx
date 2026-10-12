@@ -28,12 +28,13 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import formStyles from "./individualEngagement.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * Service Schedule Helper Matrix
  * Maps each selected service from Step 1 to standard engagement parameters.
  */
-export const getScheduleItemsForServices = (services = []) => {
+export const getScheduleItemsForServices = (services = [], companyName = "Financially Up") => {
   const currentYear = new Date().getFullYear();
   const fyPeriod = `FY ${currentYear - 1}-${currentYear}`;
 
@@ -120,7 +121,7 @@ export const getScheduleItemsForServices = (services = []) => {
         "14 business days from receipt of complete information",
       lodgmentDeadline,
       specialConditions,
-      responsibleAccountant: "Financially Up - Registered Tax Agent Team",
+      responsibleAccountant: `${companyName} - Registered Tax Agent Team`,
       engagementTerm: "Ongoing until terminated in writing with 14 days notice",
       acceptanceDate: new Date().toLocaleDateString("en-AU", {
         day: "2-digit",
@@ -158,7 +159,7 @@ export default function Step8EngagementSchedule({
     "Individual Client";
   const selectedServices =
     form?.getFieldValue("services") || formData?.services || [];
-  const scheduleData = getScheduleItemsForServices(selectedServices);
+  const scheduleData = getScheduleItemsForServices(selectedServices, company.name);
 
   const handleOpenScheduleModal = () => {
     setHasOpenedSchedule(true);
@@ -379,7 +380,7 @@ export default function Step8EngagementSchedule({
               RESPONSIBLE ACCOUNTANT
             </span>
             <span className="font-bold text-slate-800 dark:text-zinc-200">
-              Financially Up - Registered Tax Agent Team
+              <CompanyName /> - Registered Tax Agent Team
             </span>
           </div>
           <div>
@@ -587,7 +588,7 @@ export default function Step8EngagementSchedule({
                 <strong className="text-slate-500 block text-[10px]">
                   10. RESPONSIBLE ACCOUNTANT
                 </strong>
-                <span>Financially Up - Registered Tax Agent Team</span>
+                <span><CompanyName /> - Registered Tax Agent Team</span>
               </div>
               <div>
                 <strong className="text-slate-500 block text-[10px]">

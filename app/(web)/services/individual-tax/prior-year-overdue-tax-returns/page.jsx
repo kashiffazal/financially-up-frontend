@@ -7,11 +7,17 @@ import HowFinanciallyUpHelpsOverdue from "./components/HowFinanciallyUpHelpsOver
 import OverdueRelatedServiceRibbon from "./components/OverdueRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 11)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Overdue Tax Returns Australia | Catch Up Prior Years",
   description:
     "Need help with overdue tax returns? Catch up prior-year and unlodged returns with Financially Up. Book an Australia-wide appointment.",
@@ -27,18 +33,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/prior-year-overdue-tax-returns/",
+      `${SITE_URL}/services/individual-tax/prior-year-overdue-tax-returns/`,
   },
   openGraph: {
     title: "Overdue Tax Returns Australia | Catch Up Prior Years",
     description:
       "Need help with overdue tax returns? Catch up prior-year and unlodged returns with Financially Up. Book an Australia-wide appointment.",
-    url: "https://financiallyup.com.au/services/individual-tax/prior-year-overdue-tax-returns/",
+    url: `${SITE_URL}/services/individual-tax/prior-year-overdue-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -87,7 +94,7 @@ const overdueQuickSpecs = [
     icon: "safety",
     label: "Compliance Guarantee",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
 ];
 
@@ -266,10 +273,7 @@ export default function PriorYearOverdueTaxReturnsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-950 transition-colors">
       {/* FAQ Schema Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* Hero Section */}
       <SubServiceHero
@@ -278,7 +282,7 @@ export default function PriorYearOverdueTaxReturnsPage() {
         subtitle="Falling behind on a tax return can happen because of changed employment, missing records, time overseas, family pressures or uncertainty about what needs to be lodged. If you have one late return or several years outstanding, the first step is to identify your lodgment obligations and bring each relevant year up to date."
         bodyText={
           <span>
-            Financially Up Pty Ltd helps Australian individuals prepare and
+            <CompanyName legal /> helps Australian individuals prepare and
             lodge overdue tax returns, prior year tax returns and catch up tax
             returns. We can review the years involved, identify available
             information, explain what is still required and prepare the
@@ -305,7 +309,7 @@ export default function PriorYearOverdueTaxReturnsPage() {
           "Multi-Year Historical ATO Portal Access",
           "Non-Lodgment Advice (NLA) Assessment",
           "FTL Penalty & GIC Remission Guidance",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={overdueQuickSpecs}
         primaryCta={{
@@ -314,7 +318,7 @@ export default function PriorYearOverdueTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Catch-Up Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -339,7 +343,7 @@ export default function PriorYearOverdueTaxReturnsPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about catching up on late tax returns, penalties, non-lodgment advice, missing records and ATO notices with Financially Up."
+        subtitle={<BrandText text={"Common questions about catching up on late tax returns, penalties, non-lodgment advice, missing records and ATO notices with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Overdue Tax Returns Australia Frequently Asked Questions"
         items={overdueFaqs}
@@ -351,7 +355,7 @@ export default function PriorYearOverdueTaxReturnsPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you have a late return, unlodged tax returns or several years to catch up, an initial appointment can clarify what is outstanding, what records are available and which services may be required. Financially Up will explain the proposed return-preparation scope and next steps after reviewing your circumstances. No particular assessment, refund, penalty outcome or remission can be promised in advance."
+        subtitle={<BrandText text={"If you have a late return, unlodged tax returns or several years to catch up, an initial appointment can clarify what is outstanding, what records are available and which services may be required. Financially Up will explain the proposed return-preparation scope and next steps after reviewing your circumstances. No particular assessment, refund, penalty outcome or remission can be promised in advance."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

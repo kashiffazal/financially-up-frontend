@@ -12,11 +12,16 @@ import WhyChooseFinanciallyUpAudit from "./components/WhyChooseFinanciallyUpAudi
 import RelatedAtoAuditRibbon from "./components/RelatedAtoAuditRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 3 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Audit Support Australia | Financially Up",
   description:
     "ATO audit support for individuals and businesses. Organize records, respond to information requests and manage ATO communication with a tax agent.",
@@ -31,18 +36,19 @@ export const metadata = {
     "tax agent representation",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/ato-audit/",
+    canonical: `${SITE_URL}/services/ato-help/ato-audit/`,
   },
   openGraph: {
     title: "ATO Audit Support Australia | Financially Up",
     description:
       "ATO audit support for individuals and businesses. Organize records, respond to information requests and manage ATO communication with a tax agent.",
-    url: "https://financiallyup.com.au/services/ato-help/ato-audit/",
+    url: `${SITE_URL}/services/ato-help/ato-audit/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -121,10 +127,7 @@ export default function AtoAuditSupportPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -136,7 +139,7 @@ export default function AtoAuditSupportPage() {
               ATO audit support helps individuals and businesses respond to an ATO audit or review in an organized, evidence-based way. The key tasks are to understand the enquiry, preserve relevant records, check the tax position and provide complete responses that are consistent with the underlying documents.
             </span>
             <span className="block mt-2">
-              Financially Up can assist as your tax agent with audit correspondence, record preparation, accounting analysis and ATO communication within the agreed scope. An audit can involve significant technical or legal issues, so specialist tax or legal advice may also be required depending on what the ATO is examining.
+              <CompanyName /> can assist as your tax agent with audit correspondence, record preparation, accounting analysis and ATO communication within the agreed scope. An audit can involve significant technical or legal issues, so specialist tax or legal advice may also be required depending on what the ATO is examining.
             </span>
           </span>
         }
@@ -147,7 +150,7 @@ export default function AtoAuditSupportPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.2 • Audit Defence Practice"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Evidence Indexing & Substantiation Schedules",
           "Independent Review & Objection Support",
         ]}
@@ -157,7 +160,7 @@ export default function AtoAuditSupportPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

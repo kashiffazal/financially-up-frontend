@@ -13,6 +13,7 @@ import {
   QuestionCircleOutlined,
   FolderOpenOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinanciallyUpHelpsIas Component
@@ -88,7 +89,7 @@ export default function WhatFinanciallyUpHelpsIas() {
             Expert Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-            What Financially Up can help with
+            What <CompanyName /> can help with
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Our IAS lodgement service can include reviewing the activity
@@ -123,7 +124,7 @@ export default function WhatFinanciallyUpHelpsIas() {
         </div>
 
         {/* Part 2: What information may be needed? */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="p-8 sm:p-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-6 space-y-5">
               <div className="flex items-center gap-3">

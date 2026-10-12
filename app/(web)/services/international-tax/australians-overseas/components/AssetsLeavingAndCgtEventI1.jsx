@@ -41,7 +41,7 @@ export default function AssetsLeavingAndCgtEventI1() {
         </div>
 
         {/* Advisory Callout */}
-        <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-start gap-6">
+        <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-start gap-6">
           <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl shrink-0">
             <ExclamationCircleOutlined />
           </div>

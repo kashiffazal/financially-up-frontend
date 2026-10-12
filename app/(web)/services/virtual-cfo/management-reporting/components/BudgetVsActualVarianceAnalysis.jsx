@@ -8,6 +8,7 @@ import {
   CheckCircleOutlined,
   SlidersOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * BudgetVsActualVarianceAnalysis Component
@@ -62,7 +63,7 @@ export default function BudgetVsActualVarianceAnalysis() {
               inflation, inefficiency or a one-off item?
             </p>
             <p>
-              Financially Up can help structure budget-versus-actual reporting
+              <CompanyName /> can help structure budget-versus-actual reporting
               so material movements are visible and management can focus on the
               reasons behind them. Where no useful budget exists, a forecast or
               baseline may need to be developed before variance reporting

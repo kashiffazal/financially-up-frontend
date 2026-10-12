@@ -12,6 +12,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatAreAccountsPayableServices Component
@@ -79,7 +80,7 @@ export default function WhatAreAccountsPayableServices() {
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
             Accounts payable outsourcing does not have to mean giving up
             financial control. A well-designed outsourced AP process separates
-            routine processing from approval authority. Financially Up can
+            routine processing from approval authority. <CompanyName /> can
             support the bookkeeping workflow, while payment approval and banking
             authority remain subject to the controls agreed with the client.
           </p>

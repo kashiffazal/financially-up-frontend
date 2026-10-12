@@ -13,6 +13,7 @@ import {
   CheckCircleFilled,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpCanAssist Component
@@ -93,11 +94,11 @@ export default function HowFinanciallyUpCanAssist() {
             Service Capabilities
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Can Assist
+            How <CompanyName /> Can Assist
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             An accountant for sole traders can bring business and personal tax
-            information together in one return. Financially Up can assist with:
+            information together in one return. <CompanyName /> can assist with:
           </p>
         </div>
 
@@ -106,7 +107,7 @@ export default function HowFinanciallyUpCanAssist() {
           {serviceItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -140,7 +141,7 @@ export default function HowFinanciallyUpCanAssist() {
           ))}
 
           {/* 8th Card: Non-Business Cross-Link Callout Card */}
-          <div className="flex flex-col justify-between rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-slate-900 via-zinc-900 to-emerald-950 text-white shadow-xl border border-emerald-800/40 relative overflow-hidden">
+          <div className="flex flex-col justify-between rounded-lg p-6 sm:p-7 bg-gradient-to-br from-slate-900 via-zinc-900 to-emerald-950 text-white shadow-xl border border-emerald-800/40 relative overflow-hidden">
             <div>
               <Tag
                 color="cyan"

@@ -65,7 +65,7 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
             </p>
           </div>
 
-          <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+          <div className="p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
             <div className="max-w-3xl mb-6">
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">
                 Cost Base Rules for Inherited Property &amp; Investments
@@ -139,7 +139,7 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
             </p>
           </div>
 
-          <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+          <div className="p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
             <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block mb-4">
               Relevant records may include:
             </span>

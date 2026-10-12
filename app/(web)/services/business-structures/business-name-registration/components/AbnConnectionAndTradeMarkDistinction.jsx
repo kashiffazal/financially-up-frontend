@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   FileProtectOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * AbnConnectionAndTradeMarkDistinction Component
@@ -24,7 +25,7 @@ export default function AbnConnectionAndTradeMarkDistinction() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           {/* Card 1: ABN and business name registration are connected, but not the same */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 flex items-center justify-center">
                 <IdcardOutlined className="text-lg" />
@@ -46,7 +47,7 @@ export default function AbnConnectionAndTradeMarkDistinction() {
 
               <div className="pt-2 space-y-2.5">
                 <p className="text-sm text-slate-600 dark:text-zinc-300">
-                  If you have not yet applied for an ABN, Financially Up can
+                  If you have not yet applied for an ABN, <CompanyName /> can
                   assist through our{" "}
                   <Link
                     href="/services/business-structures/abn-registration"
@@ -83,7 +84,7 @@ export default function AbnConnectionAndTradeMarkDistinction() {
           </div>
 
           {/* Card 2: Does registering a business name protect the brand? */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center">
                 <FileProtectOutlined className="text-lg" />
@@ -103,7 +104,7 @@ export default function AbnConnectionAndTradeMarkDistinction() {
               </p>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can explain the accounting and registration side
+                <CompanyName /> can explain the accounting and registration side
                 of the setup. Trade mark or other legal intellectual-property
                 advice may require an appropriately qualified legal or IP
                 adviser.

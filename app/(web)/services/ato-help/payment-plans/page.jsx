@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpPaymentPlan from "./components/WhyChooseFinancially
 import RelatedPaymentPlansRibbon from "./components/RelatedPaymentPlansRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Payment Plan Help | Financially Up",
   description:
     "Unable to pay an ATO debt in full? Financially Up can review your account, help plan affordable instalments and assist with a payment arrangement.",
@@ -29,18 +35,19 @@ export const metadata = {
     "ATO payment plan accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/payment-plans/",
+    canonical: `${SITE_URL}/services/ato-help/payment-plans/`,
   },
   openGraph: {
     title: "ATO Payment Plan Help | Financially Up",
     description:
       "Unable to pay an ATO debt in full? Financially Up can review your account, help plan affordable instalments and assist with a payment arrangement.",
-    url: "https://financiallyup.com.au/services/ato-help/payment-plans/",
+    url: `${SITE_URL}/services/ato-help/payment-plans/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -85,7 +92,7 @@ const paymentPlanFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up guarantee approval?",
+    label: <BrandText text={"Can Financially Up guarantee approval?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         No. We can prepare accurate information and assist with the request, but the ATO decides whether to accept or vary an arrangement and on what terms.
@@ -119,10 +126,7 @@ export default function PaymentPlansPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function PaymentPlansPage() {
               An ATO tax debt can be difficult to manage when the full amount is due at once. A payment plan may allow an eligible taxpayer to pay an agreed amount by instalments over a fixed period, subject to the ATO’s assessment and available service options. The arrangement must deal with the existing balance without making future tax obligations unaffordable.
             </span>
             <span className="block mt-2">
-              Financially Up provides ATO payment plan help to individuals and businesses that need to understand their debt, available cash flow and proposed repayments. We can reconcile the account, identify outstanding lodgements, help prepare a realistic proposal and assist with ATO communication within the agreed engagement.
+              <CompanyName /> provides ATO payment plan help to individuals and businesses that need to understand their debt, available cash flow and proposed repayments. We can reconcile the account, identify outstanding lodgements, help prepare a realistic proposal and assist with ATO communication within the agreed engagement.
             </span>
           </span>
         }
@@ -145,7 +149,7 @@ export default function PaymentPlansPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.6 • ATO Payment Arrangement Support"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Eligible Online Portal Help (≤$200,000)",
           "Realistic Cash-Flow Feasibility Testing",
         ]}
@@ -155,7 +159,7 @@ export default function PaymentPlansPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

@@ -12,6 +12,7 @@ import {
   InfoCircleOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * TrusteeResponsibilityAndWhyChoose Component
@@ -31,7 +32,7 @@ export default function TrusteeResponsibilityAndWhyChoose() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `${company.legalName || "Financially Up Pty Ltd"} is a registered tax agent (registration number ${company.tpbNumber || "26242127"}) with more than 10 years of experience across accounting and taxation.`,
+      desc: `${company.legalName} is a registered tax agent (registration number ${company.taxAgentNumber}) with more than 10 years of experience across accounting and taxation.`,
     },
     {
       icon: (
@@ -53,7 +54,7 @@ export default function TrusteeResponsibilityAndWhyChoose() {
     <section className="py-16 sm:py-24 bg-gradient-to-b from-brand-bg-lighter via-white to-brand-bg-lighter/40 dark:from-zinc-900/60 dark:via-zinc-950 dark:to-zinc-900/40 relative border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section: Can an administrator take over trustee responsibility? */}
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16 w-full">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16 w-full">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center shrink-0">
               <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
@@ -67,7 +68,7 @@ export default function TrusteeResponsibilityAndWhyChoose() {
                 responsibility. Trustees remain responsible for complying with
                 superannuation law, keeping an appropriate investment strategy,
                 making investment decisions and authorizing benefits and
-                pensions. Financially Up does not use an administration
+                pensions. <CompanyName /> does not use an administration
                 engagement to manage investments, recommend financial products
                 or make trustee decisions.
               </p>
@@ -92,10 +93,10 @@ export default function TrusteeResponsibilityAndWhyChoose() {
               Practical Support Scope
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              How Financially Up can help
+              How <CompanyName /> can help
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can establish a practical record-keeping workflow,
+              <CompanyName /> can establish a practical record-keeping workflow,
               process and reconcile fund transactions, maintain supporting
               schedules, identify missing documents, prepare the file for
               year-end accounting and coordinate information requested for
@@ -116,11 +117,11 @@ export default function TrusteeResponsibilityAndWhyChoose() {
               Credentials & Trust
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up Pty Ltd is a registered tax agent (registration
-              number {company.tpbNumber || "26242127"}) with more than 10 years
+              <CompanyName legal /> is a registered tax agent (registration
+              number {company.taxAgentNumber}) with more than 10 years
               of experience across accounting and taxation. Our team includes
               CPA and IPA professionals. We provide Australia-wide support
               through online appointments and also offer in-person appointments.
@@ -151,7 +152,7 @@ export default function TrusteeResponsibilityAndWhyChoose() {
           </div>
 
           {/* Action Bar */}
-          <div className="p-8 rounded-3xl bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="p-8 rounded-lg bg-slate-900 text-white dark:bg-zinc-900 dark:border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-white mb-1">
                 Need ongoing or catch-up SMSF administration?

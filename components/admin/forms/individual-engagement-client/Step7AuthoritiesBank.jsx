@@ -15,6 +15,7 @@ import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 const RELATIONSHIP_OPTIONS = [
   { value: "Parent / Guardian", label: "Parent / Legal Guardian" },
@@ -63,7 +64,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
           Statutory Authorities & Refund Bank Account
         </h2>
         <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1">
-          Authorize Financially Up to represent you before the ATO/ABR and
+          Authorize <CompanyName /> to represent you before the ATO/ABR and
           nominate your refund bank account.
         </p>
       </div>
@@ -373,7 +374,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
           <div className="border-b-2 border-brand-primary pb-3 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-black text-brand-primary m-0">
-                FINANCIALLY UP PTY LTD
+                <CompanyName legal upper />
               </h2>
               <p className="text-xs text-slate-500 m-0">
                 Registered Tax Agent #{company.taxAgentNumber} | Statutory
@@ -390,7 +391,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
               1. ATO Tax Agent Authority Scope
             </h4>
             <p className="text-slate-700 dark:text-zinc-300 m-0 leading-relaxed">
-              By granting ATO Authority, you authorise Financially Up to add or
+              By granting ATO Authority, you authorise <CompanyName /> to add or
               maintain your tax record on our ATO client list, access your ATO
               online portal income pre-fill data, communicate with ATO officers,
               receive ATO notices, and lodge approved income tax returns,
@@ -403,7 +404,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
               2. ABR Authority Scope (Where Applicable)
             </h4>
             <p className="text-slate-700 dark:text-zinc-300 m-0 leading-relaxed">
-              By granting ABR Authority, you authorise Financially Up to access
+              By granting ABR Authority, you authorise <CompanyName /> to access
               your Australian Business Register record, submit ABN and GST
               registration applications, update registered business details, and
               manage ABR correspondence relevant to your accepted business

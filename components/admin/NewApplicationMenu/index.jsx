@@ -24,6 +24,7 @@ import { antdMsg } from "@/services";
 import ShareFormModal from "@/components/admin/ShareFormModal";
 import { MODULE_META } from "@/components/admin/GlobalSearch/searchConfig";
 import { canViewModule } from "@/lib/adminAccess";
+import { SITE_URL } from "@/lib/companyDefaults";
 import styles from "./NewApplicationMenu.module.css";
 
 const FORM_GROUPS = [
@@ -140,7 +141,7 @@ const FORM_GROUPS = [
 const publicUrl = (path) =>
   typeof window !== "undefined"
     ? `${window.location.origin}${path}`
-    : `https://financiallyup.com.au${path}`;
+    : `${SITE_URL}${path}`;
 
 export default function NewApplicationMenu() {
   const { user, hasRole } = useAuth();

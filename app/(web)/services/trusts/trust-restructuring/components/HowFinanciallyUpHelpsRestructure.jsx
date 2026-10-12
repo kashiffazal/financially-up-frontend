@@ -11,6 +11,7 @@ import {
   SwapOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsRestructure Component
@@ -64,10 +65,10 @@ export default function HowFinanciallyUpHelpsRestructure() {
             Restructuring Services
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can review the existing accounting and tax position,
+            <CompanyName /> can review the existing accounting and tax position,
             understand the proposed commercial or family objective, identify tax
             issues that need to be tested, and coordinate the accounting steps
             associated with the change. If the work is a broader reorganization

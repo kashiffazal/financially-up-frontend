@@ -12,6 +12,7 @@ import {
   AuditOutlined,
   MailOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * RecordsNeededAndHowFinanciallyUpHelps Component
@@ -103,16 +104,16 @@ export default function RecordsNeededAndHowFinanciallyUpHelps() {
         </div>
 
         {/* Part 2: How Financially Up Can Help */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-4">
+        <div className="p-8 sm:p-10 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-4">
           <div className="flex items-center gap-2 text-brand-primary dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
             <SolutionOutlined />
             End-To-End Delivery
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h3>
           <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can provide STP payroll services for businesses
+            <CompanyName /> can provide STP payroll services for businesses
             needing practical support with setup, recurring reporting,
             corrections and year-end finalization. We can also coordinate STP
             with broader payroll, bookkeeping and BAS work where those services

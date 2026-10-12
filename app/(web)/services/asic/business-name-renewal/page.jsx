@@ -7,11 +7,16 @@ import RenewalVsCompanyAnnualReviewAndHowWeHelp from "./components/RenewalVsComp
 import BusinessNameRenewalRelatedRibbon from "./components/BusinessNameRenewalRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 / Pillar 7.3)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Name Renewal Australia | Financially Up",
   description:
     "Renew your ASIC business name with practical support from Financially Up. Review registration details, renewal timing and the next steps before expiry.",
@@ -26,18 +31,19 @@ export const metadata = {
     "ASIC registration renewal",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/business-name-renewal/",
+    canonical: `${SITE_URL}/services/asic/business-name-renewal/`,
   },
   openGraph: {
     title: "Business Name Renewal Australia | Financially Up",
     description:
       "Renew your ASIC business name with practical support from Financially Up. Review registration details, renewal timing and the next steps before expiry.",
-    url: "https://financiallyup.com.au/services/asic/business-name-renewal/",
+    url: `${SITE_URL}/services/asic/business-name-renewal/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -116,10 +122,7 @@ export default function BusinessNameRenewalPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function BusinessNameRenewalPage() {
               A business name renewal keeps your registered business name active with ASIC so you can continue carrying on business under that name. If the registration is approaching expiry, the practical task is to confirm the name is still needed, check the holder details, choose the renewal period and make sure the renewal is completed before ASIC cancellation becomes an issue.
             </span>
             <span className="block mt-2">
-              Financially Up can assist business owners who want help reviewing an ASIC business name renewal, checking the information connected with the registration and coordinating the renewal with broader business administration where required. This page is about renewing an existing business name. If you need to register a new name instead, see our business name registration service.
+              <CompanyName /> can assist business owners who want help reviewing an ASIC business name renewal, checking the information connected with the registration and coordinating the renewal with broader business administration where required. This page is about renewing an existing business name. If you need to register a new name instead, see our business name registration service.
             </span>
           </span>
         }
@@ -186,7 +189,7 @@ export default function BusinessNameRenewalPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your business name is approaching expiry, has become overdue or needs to be reviewed alongside other business changes, book an appointment with Financially Up to discuss the registration and next steps."
+        subtitle={<BrandText text={"If your business name is approaching expiry, has become overdue or needs to be reviewed alongside other business changes, book an appointment with Financially Up to discuss the registration and next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

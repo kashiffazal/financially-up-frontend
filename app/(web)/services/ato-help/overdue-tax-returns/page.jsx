@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpOverdue from "./components/WhyChooseFinanciallyUpOv
 import RelatedOverdueReturnsRibbon from "./components/RelatedOverdueReturnsRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 4 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Overdue Tax Return Accountant | Financially Up",
   description:
     "Have one or more overdue tax returns? Financially Up can help check your obligations, organize missing records and prepare the returns you need to lodge.",
@@ -29,18 +35,19 @@ export const metadata = {
     "multiple years overdue tax",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/overdue-tax-returns/",
+    canonical: `${SITE_URL}/services/ato-help/overdue-tax-returns/`,
   },
   openGraph: {
     title: "Overdue Tax Return Accountant | Financially Up",
     description:
       "Have one or more overdue tax returns? Financially Up can help check your obligations, organize missing records and prepare the returns you need to lodge.",
-    url: "https://financiallyup.com.au/services/ato-help/overdue-tax-returns/",
+    url: `${SITE_URL}/services/ato-help/overdue-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function OverdueTaxReturnsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function OverdueTaxReturnsPage() {
               Overdue tax returns can become harder to deal with as records go missing and ATO correspondence builds up. The first step is to identify which years actually require a return and what information is needed for each one. A late return does not automatically mean you owe tax or have a penalty, but it is important to establish your position.
             </span>
             <span className="block mt-2">
-              Financially Up provides a tax return catch up service for individuals and business owners with one or several unlodged years. We can review the outstanding obligations, prepare the returns within our engagement and help you understand notices, assessments and amounts owing. Book an Appointment to start with the years you need to resolve.
+              <CompanyName /> provides a tax return catch up service for individuals and business owners with one or several unlodged years. We can review the outstanding obligations, prepare the returns within our engagement and help you understand notices, assessments and amounts owing. Book an Appointment to start with the years you need to resolve.
             </span>
           </span>
         }
@@ -145,7 +149,7 @@ export default function OverdueTaxReturnsPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.3 • Lodgement Catch-Up Practice"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "Multi-Year Catch-Up Specialists",
           "Reconstruct Missing Income & Bank Records",
         ]}
@@ -155,7 +159,7 @@ export default function OverdueTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -197,7 +201,7 @@ export default function OverdueTaxReturnsPage() {
       <CallToActionBanner
         tag="Resolve Unlodged Years"
         title="Start with the Outstanding Years"
-        subtitle="Bring any ATO correspondence and a list of the years you are concerned about. Financially Up can help establish the next steps and prepare the returns within the agreed scope."
+        subtitle={<BrandText text={"Bring any ATO correspondence and a list of the years you are concerned about. Financially Up can help establish the next steps and prepare the returns within the agreed scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ATO Help Hub"

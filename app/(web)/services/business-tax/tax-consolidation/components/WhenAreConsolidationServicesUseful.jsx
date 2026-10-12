@@ -14,6 +14,7 @@ import {
   AuditOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhenAreConsolidationServicesUseful Component
@@ -136,7 +137,7 @@ export default function WhenAreConsolidationServicesUseful() {
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               Whether forming a new tax consolidated group or preparing annual
-              head company returns, Financially Up provides clear statutory
+              head company returns, <CompanyName /> provides clear statutory
               guidance.
             </p>
           </div>

@@ -8,11 +8,17 @@ import HowFinanciallyUpHelpsYearEnd from "./components/HowFinanciallyUpHelpsYear
 import RelatedYearEndServicesRibbon from "./components/RelatedYearEndServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Year End Accounting Services Australia | Financially Up",
   description:
     "Year end accounting for Australian businesses. Get help with reconciliations, annual accounts, adjustments, financial statements and tax-ready records.",
@@ -26,18 +32,19 @@ export const metadata = {
     "tax-ready accounts",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/year-end-accounting/",
+    canonical: `${SITE_URL}/services/business-tax/year-end-accounting/`,
   },
   openGraph: {
     title: "Year End Accounting Services Australia | Financially Up",
     description:
       "Year end accounting for Australian businesses. Get help with reconciliations, annual accounts, adjustments, financial statements and tax-ready records.",
-    url: "https://financiallyup.com.au/services/business-tax/year-end-accounting/",
+    url: `${SITE_URL}/services/business-tax/year-end-accounting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -134,10 +141,7 @@ export default function YearEndAccountingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -149,7 +153,7 @@ export default function YearEndAccountingPage() {
               Year end accounting is the process of reviewing, reconciling and finalizing a business&apos;s accounting records at the end of its financial year. It creates a reliable set of year-end figures that can support financial statements, business tax returns and the next year&apos;s opening balances.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides year end accounting services for companies, trusts, partnerships and sole traders across Australia. We can review the accounting file, reconcile key balances, identify missing or unusual items, prepare year-end adjustments and coordinate the records needed for annual tax and reporting work.
+              <CompanyName legal /> provides year end accounting services for companies, trusts, partnerships and sole traders across Australia. We can review the accounting file, reconcile key balances, identify missing or unusual items, prepare year-end adjustments and coordinate the records needed for annual tax and reporting work.
             </span>
           </span>
         }
@@ -197,7 +201,7 @@ export default function YearEndAccountingPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "EOFY Close Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -234,7 +238,7 @@ export default function YearEndAccountingPage() {
       {/* 9. Pre-Footer Call To Action Banner */}
       <CallToActionBanner
         title="Book an Appointment"
-        description="If you need year end accounting services, book an appointment with Financially Up to discuss your records, reporting requirements and the work needed to finalize the financial year."
+        description={<BrandText text={"If you need year end accounting services, book an appointment with Financially Up to discuss your records, reporting requirements and the work needed to finalize the financial year."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnLink="/book-an-appointment"
       />

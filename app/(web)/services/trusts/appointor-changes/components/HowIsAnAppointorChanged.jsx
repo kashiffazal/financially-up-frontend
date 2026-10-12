@@ -10,6 +10,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowIsAnAppointorChanged Component
@@ -103,7 +104,7 @@ export default function HowIsAnAppointorChanged() {
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 A change of appointor should be supported by appropriate legal
                 documents and reflected consistently in the trust records.
-                Financially Up does not present legal drafting as an accounting
+                <CompanyName /> does not present legal drafting as an accounting
                 service; we can work with the executed documents and advise on
                 the accounting and tax matters within scope.
               </p>

@@ -12,6 +12,7 @@ import {
   ClockCircleOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatHappensDuringAnnualReview Component
@@ -59,7 +60,7 @@ export default function WhatHappensDuringAnnualReview() {
         {/* 3 Core Obligations Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Obligation 1: Check Details */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div className="rounded-lg p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-lg">
@@ -100,7 +101,7 @@ export default function WhatHappensDuringAnnualReview() {
           </div>
 
           {/* Obligation 2: Pay Fee */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div className="rounded-lg p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-lg">
@@ -133,7 +134,7 @@ export default function WhatHappensDuringAnnualReview() {
           </div>
 
           {/* Obligation 3: Solvency Resolution */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div className="rounded-lg p-7 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-lg transition-shadow">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-11 h-11 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-lg">
@@ -171,14 +172,14 @@ export default function WhatHappensDuringAnnualReview() {
         </div>
 
         {/* Action Callout */}
-        <div className="w-full rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="w-full rounded-lg p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl">
             <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1">
               Annual statement arrived or review date approaching?
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed m-0 font-normal">
               If your annual statement has arrived or your company review date
-              is approaching, Financially Up can help you check what needs
+              is approaching, <CompanyName /> can help you check what needs
               attention and organize the relevant ASIC compliance steps.
             </p>
           </div>

@@ -11,11 +11,15 @@ import WhyChooseFinanciallyUpCfoSub from "./components/WhyChooseFinanciallyUpCfo
 import RelatedServiceRibbonCfo from "./components/RelatedServiceRibbonCfo";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 1)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Outsourced CFO Services Australia | Financially Up",
   description:
     "Outsourced CFO services for growing businesses. Financially Up supports reporting, forecasting, cash flow, budgets and commercially focused finance decisions.",
@@ -29,18 +33,19 @@ export const metadata = {
     "sme cfo support",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/virtual-cfo-services/",
+    canonical: `${SITE_URL}/services/virtual-cfo/virtual-cfo-services/`,
   },
   openGraph: {
     title: "Outsourced CFO Services Australia | Financially Up",
     description:
       "Outsourced CFO services for growing businesses. Financially Up supports reporting, forecasting, cash flow, budgets and commercially focused finance decisions.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/virtual-cfo-services/",
+    url: `${SITE_URL}/services/virtual-cfo/virtual-cfo-services/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -110,10 +115,7 @@ export default function OutsourcedCfoServicesPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -125,7 +127,7 @@ export default function OutsourcedCfoServicesPage() {
               Outsourced CFO services give a business access to senior finance capability through an external provider rather than a permanent in-house CFO. The service can cover a recurring package of management reporting, forecasting, cash flow review, budgeting and financial analysis, with the level of involvement matched to the size and complexity of the business.
             </span>
             <span className="block mt-2">
-              Financially Up provides outsourced CFO support for owners and management teams that need more than bookkeeping and annual compliance. The objective is to create a dependable finance function that produces timely information, explains what the numbers mean and supports the decisions management is responsible for making.
+              <CompanyName /> provides outsourced CFO support for owners and management teams that need more than bookkeeping and annual compliance. The objective is to create a dependable finance function that produces timely information, explains what the numbers mean and supports the decisions management is responsible for making.
             </span>
             <span className="block mt-2">
               If your business has outgrown ad hoc financial reporting, an initial discussion can help define the reporting cycle, responsibilities and level of CFO support you need.

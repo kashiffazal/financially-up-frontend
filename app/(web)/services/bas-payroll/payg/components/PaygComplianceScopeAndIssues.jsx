@@ -112,7 +112,7 @@ export default function PaygComplianceScopeAndIssues() {
         </div>
 
         {/* Part 2: Common PAYG withholding problems */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20">
+        <div className="p-8 sm:p-12 rounded-lg bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
               <WarningOutlined className="text-2xl" />

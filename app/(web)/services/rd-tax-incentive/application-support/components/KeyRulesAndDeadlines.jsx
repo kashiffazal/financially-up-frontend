@@ -38,7 +38,7 @@ export default function KeyRulesAndDeadlines() {
         {/* 3 Pillars Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Card 1: $20,000 Expenditure Rule */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -73,7 +73,7 @@ export default function KeyRulesAndDeadlines() {
           </div>
 
           {/* Card 2: Overseas R&D Activities */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -110,7 +110,7 @@ export default function KeyRulesAndDeadlines() {
           </div>
 
           {/* Card 3: 10-Month Deadline */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-blue-600 dark:text-blue-400">

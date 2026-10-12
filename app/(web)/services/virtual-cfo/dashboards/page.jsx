@@ -8,11 +8,16 @@ import WhatToBringAndDashboardScope from "./components/WhatToBringAndDashboardSc
 import RelatedServiceRibbonDashboards from "./components/RelatedServiceRibbonDashboards";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 6)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Finance Dashboard Services for Business | Financially Up",
   description:
     "See the financial measures behind your decisions. Financially Up helps design and maintain dashboards that present results, cash and trends with useful context.",
@@ -25,18 +30,19 @@ export const metadata = {
     "cash flow dashboard",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/dashboards/",
+    canonical: `${SITE_URL}/services/virtual-cfo/dashboards/`,
   },
   openGraph: {
     title: "Finance Dashboard Services for Business | Financially Up",
     description:
       "See the financial measures behind your decisions. Financially Up helps design and maintain dashboards that present results, cash and trends with useful context.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/dashboards/",
+    url: `${SITE_URL}/services/virtual-cfo/dashboards/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -115,10 +121,7 @@ export default function DashboardsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -130,7 +133,7 @@ export default function DashboardsPage() {
               Finance dashboard services bring selected business figures into one clear view so owners and managers can see what has changed and what needs attention. A dashboard might show revenue, gross margin, cash and overdue receivables beside budget or prior-period results. Its value comes from reliable data, agreed definitions and a regular conversation about what the figures mean.
             </span>
             <span className="block mt-2">
-              Financially Up helps businesses decide what a dashboard should answer, prepare the underlying information and design a reporting view suited to its users.
+              <CompanyName /> helps businesses decide what a dashboard should answer, prepare the underlying information and design a reporting view suited to its users.
             </span>
             <span className="block mt-2">
               Book an Appointment to discuss your current reports, the decisions you make and the data available.
@@ -191,7 +194,7 @@ export default function DashboardsPage() {
       <CallToActionBanner
         tag="Make the Numbers Easier to Use"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss what your decision makers need to see, whether your records support it and an appropriate scope for finance dashboard services."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss what your decision makers need to see, whether your records support it and an appropriate scope for finance dashboard services."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Virtual CFO Services"

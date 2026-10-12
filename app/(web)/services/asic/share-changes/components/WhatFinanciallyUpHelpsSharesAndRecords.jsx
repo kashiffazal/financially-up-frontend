@@ -14,6 +14,7 @@ import {
   PieChartOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinanciallyUpHelpsSharesAndRecords Component
@@ -80,7 +81,7 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
               Service Scope & Register Integrity
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              What Financially Up can help with
+              What <CompanyName /> can help with
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               Our share change support can be scoped around the transaction and
@@ -93,7 +94,7 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {scopePoints.map((point, idx) => (
                 <div
@@ -124,7 +125,7 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
           </div>
 
           {/* Subsection 2: Information we may ask you to provide */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
               Information we may ask you to provide
             </h3>
@@ -155,16 +156,16 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
         </div>
 
         {/* Subsection 3: Why choose Financially Up */}
-        <div className="w-full rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+        <div className="w-full rounded-lg p-8 sm:p-12 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white shadow-xl border border-slate-800 relative overflow-hidden">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
               Integrated Equity & Compliance Practice
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Why choose Financially Up
+              Why choose <CompanyName />
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up combines ASIC administration with accounting and
+              <CompanyName /> combines ASIC administration with accounting and
               tax context. We are a registered tax agent with more than 10 years
               of experience, and our professional team includes CPA and IPA
               members. We support clients Australia-wide through online

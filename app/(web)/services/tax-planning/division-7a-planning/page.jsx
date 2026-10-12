@@ -10,12 +10,18 @@ import HowFinanciallyUpHelpsDiv7A from "./components/HowFinanciallyUpHelpsDiv7A"
 import RelatedDivision7ARibbon from "./components/RelatedDivision7ARibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Division 7A Advice & Planning Australia | Financially Up",
   description:
     "Get Division 7A advice for private company loans, shareholder benefits, repayments and trust interactions. Practical planning with Financially Up.",
@@ -29,18 +35,19 @@ export const metadata = {
     "private company tax accountant Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/division-7a-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/division-7a-planning/`,
   },
   openGraph: {
     title: "Division 7A Advice & Planning Australia | Financially Up",
     description:
       "Get Division 7A advice for private company loans, shareholder benefits, repayments and trust interactions. Practical planning with Financially Up.",
-    url: "https://financiallyup.com.au/services/tax-planning/division-7a-planning/",
+    url: `${SITE_URL}/services/tax-planning/division-7a-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -137,10 +144,7 @@ export default function Division7APlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -152,7 +156,7 @@ export default function Division7APlanningPage() {
               Division 7A can apply when a private company provides payments, loans or debt forgiveness to a shareholder or their associate. Without appropriate management, these transactions can be treated as unfranked dividends for tax purposes, resulting in unexpected tax liabilities for the recipient.
             </span>
             <span className="block mt-2">
-              Financially Up provides Division 7A advice and planning for Australian private companies and business owners. We review company transactions, loan accounts, shareholder drawings, trust interactions and existing loan agreements to identify issues, confirm current tax requirements and help you make informed decisions before deadlines pass.
+              <CompanyName /> provides Division 7A advice and planning for Australian private companies and business owners. We review company transactions, loan accounts, shareholder drawings, trust interactions and existing loan agreements to identify issues, confirm current tax requirements and help you make informed decisions before deadlines pass.
             </span>
           </span>
         }
@@ -173,7 +177,7 @@ export default function Division7APlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Private Company Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -204,7 +208,7 @@ export default function Division7APlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about Division 7A loans, deemed dividends, benchmark interest rates, and the Bendel decision with Financially Up."
+        subtitle={<BrandText text={"Common questions about Division 7A loans, deemed dividends, benchmark interest rates, and the Bendel decision with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Division 7A Planning Frequently Asked Questions"
         items={division7APlanningFaqs}
@@ -216,7 +220,7 @@ export default function Division7APlanningPage() {
       <CallToActionBanner
         tag="Division 7A Advisory"
         title="Book an Appointment"
-        subtitle="Discuss your company loan accounts, shareholder transactions, repayments, trust interactions and Division 7A planning requirements with Financially Up."
+        subtitle={<BrandText text={"Discuss your company loan accounts, shareholder transactions, repayments, trust interactions and Division 7A planning requirements with Financially Up."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

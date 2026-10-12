@@ -10,12 +10,17 @@ import WhatInformationNeededAsic from "./components/WhatInformationNeededAsic";
 import WhyChooseFinanciallyUpAsic from "./components/WhyChooseFinanciallyUpAsic";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: '7th Pillar ASIC.docx' (Section 1)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ASIC Compliance Services Australia | Financially Up",
   description:
     "ASIC compliance services for Australian companies, including annual reviews, company updates, lodgements and registered agent support.",
@@ -32,18 +37,19 @@ export const metadata = {
     "Australian Securities and Investments Commission compliance",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/",
+    canonical: `${SITE_URL}/services/asic/`,
   },
   openGraph: {
     title: "ASIC Compliance Services Australia | Financially Up",
     description:
       "ASIC compliance services for Australian companies, including annual reviews, company updates, lodgements and registered agent support.",
-    url: "https://financiallyup.com.au/services/asic/",
+    url: `${SITE_URL}/services/asic/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for ASIC Compliance Hub
@@ -158,7 +164,7 @@ const asicFaqs = [
     label: "Do ASIC services include legal advice?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Financially Up can assist with accounting, tax and corporate compliance administration within scope. Legal advice or legal documentation may require an appropriately qualified legal adviser.
+        No. <CompanyName /> can assist with accounting, tax and corporate compliance administration within scope. Legal advice or legal documentation may require an appropriately qualified legal adviser.
       </p>
     ),
   },
@@ -224,10 +230,7 @@ export default function AsicMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship Mutual ServiceHero */}
       <ServiceHero
@@ -245,7 +248,7 @@ export default function AsicMainPage() {
         }
         subDescription={
           <p className="m-0">
-            Financially Up supports Australian companies with practical ASIC company compliance services alongside accounting and tax work. The scope can include reviewing annual statements, coordinating company changes, assisting with common ASIC lodgements and maintaining a clearer link between the company register and the records used for accounting and tax compliance.
+            <CompanyName /> supports Australian companies with practical ASIC company compliance services alongside accounting and tax work. The scope can include reviewing annual statements, coordinating company changes, assisting with common ASIC lodgements and maintaining a clearer link between the company register and the records used for accounting and tax compliance.
           </p>
         }
         scopeNotice={
@@ -312,7 +315,7 @@ export default function AsicMainPage() {
       <CallToActionBanner
         tag="Book an Appointment"
         title="Book an Appointment"
-        subtitle="If you need ongoing ASIC compliance support or help resolving specific company filings, book an appointment with Financially Up to discuss the company, current records and the work required. Book an Appointment"
+        subtitle={<BrandText text={"If you need ongoing ASIC compliance support or help resolving specific company filings, book an appointment with Financially Up to discuss the company, current records and the work required. Book an Appointment"} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Contact Us"

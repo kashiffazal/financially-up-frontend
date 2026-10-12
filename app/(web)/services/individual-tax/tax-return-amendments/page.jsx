@@ -7,11 +7,17 @@ import HowFinanciallyUpHelpsAmendments from "./components/HowFinanciallyUpHelpsA
 import AmendmentsRelatedServiceRibbon from "./components/AmendmentsRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 12)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Tax Return Amendment Accountant | Financially Up",
   description:
     "Need to correct a lodged return? Financially Up reviews errors and omissions and assists with tax return amendments for Australian individuals.",
@@ -27,18 +33,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/tax-return-amendments/",
+      `${SITE_URL}/services/individual-tax/tax-return-amendments/`,
   },
   openGraph: {
     title: "Tax Return Amendment Accountant | Financially Up",
     description:
       "Need to correct a lodged return? Financially Up reviews errors and omissions and assists with tax return amendments for Australian individuals.",
-    url: "https://financiallyup.com.au/services/individual-tax/tax-return-amendments/",
+    url: `${SITE_URL}/services/individual-tax/tax-return-amendments/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -89,7 +96,7 @@ const amendmentQuickSpecs = [
     icon: "safety",
     label: "Lodgement Channel",
     value:
-      "Direct electronic ATO Tax Agent Portal transmission by TPB Agent #26242127",
+      <BrandText text={"Direct electronic ATO Tax Agent Portal transmission by TPB Agent #26242127"} />,
   },
 ];
 
@@ -267,10 +274,7 @@ export default function TaxReturnAmendmentsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-950 transition-colors">
       {/* FAQ Schema Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* Hero Section */}
       <SubServiceHero
@@ -279,7 +283,7 @@ export default function TaxReturnAmendmentsPage() {
         subtitle="Already lodged your tax return and later found a mistake, missing income or a deduction that was not handled correctly? A tax return amendment is used to correct information in a return that has already been lodged and processed by the Australian Taxation Office (ATO)."
         bodyText={
           <span>
-            Financially Up Pty Ltd helps Australian individuals review lodged
+            <CompanyName legal /> helps Australian individuals review lodged
             returns, identify possible errors or omissions and prepare amendment
             requests where appropriate. This service is for correcting a return
             that has already been lodged. If an earlier return has not been
@@ -307,7 +311,7 @@ export default function TaxReturnAmendmentsPage() {
           "Notice of Assessment Reconciliation",
           "Statutory 2-Year & 4-Year Time Limit Audits",
           "Voluntary Disclosure Penalty Mitigation",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={amendmentQuickSpecs}
         primaryCta={{
@@ -316,7 +320,7 @@ export default function TaxReturnAmendmentsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Amendment Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -341,7 +345,7 @@ export default function TaxReturnAmendmentsPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about amending lodged tax returns, time limits, penalties, missed deductions and objections with Financially Up."
+        subtitle={<BrandText text={"Common questions about amending lodged tax returns, time limits, penalties, missed deductions and objections with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Tax Return Amendment Services Frequently Asked Questions"
         items={amendmentFaqs}
@@ -353,7 +357,7 @@ export default function TaxReturnAmendmentsPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="Need to amend a tax return? Book an appointment with Financially Up to discuss the lodged return, what needs to be corrected, the available records and any ATO correspondence. We can help determine whether an amendment appears appropriate, what information is required and whether any related tax advice should be scoped separately."
+        subtitle={<BrandText text={"Need to amend a tax return? Book an appointment with Financially Up to discuss the lodged return, what needs to be corrected, the available records and any ATO correspondence. We can help determine whether an amendment appears appropriate, what information is required and whether any related tax advice should be scoped separately."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

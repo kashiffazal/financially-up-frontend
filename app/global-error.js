@@ -16,7 +16,6 @@ import {
   BankOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
-import { COMPANY_DEFAULTS } from "@/lib/companyDefaults";
 import "./globals.css";
 
 /**
@@ -28,20 +27,14 @@ import "./globals.css";
  * Features:
  * 1. Branded emergency recovery card with dark emerald aesthetic.
  * 2. Official global company variables (Phone, Email, Address, ABN, Legal Name, Tax Agent #)
- *    dynamically fetched via useCompany() with automatic offline fallback to COMPANY_DEFAULTS.
+ *    from useCompany() (Settings > Company Details).
  * 3. Immediate recovery actions: Reload Application and Return to Homepage.
  * 4. Expandable error diagnostics for debugging without compromising customer reassurance.
  */
 export default function GlobalError({ error, reset }) {
-  let company = COMPANY_DEFAULTS;
-  try {
-    const dynamicCompany = useCompany();
-    if (dynamicCompany && dynamicCompany.name) {
-      company = dynamicCompany;
-    }
-  } catch {
-    company = COMPANY_DEFAULTS;
-  }
+  // Settings > Company Details (the defaults in lib/companyDefaults.js when this
+  // page renders without the settings provider)
+  const company = useCompany();
 
   const [showDetails, setShowDetails] = useState(false);
 
@@ -68,13 +61,13 @@ export default function GlobalError({ error, reset }) {
         />
 
         {/* Central Glassmorphic Recovery Card */}
-        <div className="relative z-10 max-w-2xl w-full rounded-3xl bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-6 sm:p-10 shadow-2xl text-slate-100 space-y-6">
+        <div className="relative z-10 max-w-2xl w-full rounded-lg bg-slate-900/90 backdrop-blur-xl border border-slate-800 p-6 sm:p-10 shadow-2xl text-slate-100 space-y-6">
           {/* Top Brand Logo & Status Tag */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5">
             <Link href="/" className="inline-block">
               <Image
                 src="/images/logo-w.png"
-                alt={company.name || "Financially Up"}
+                alt={company.name}
                 width={160}
                 height={42}
                 priority
@@ -132,11 +125,11 @@ export default function GlobalError({ error, reset }) {
           <div className="rounded-lg bg-slate-950/60 border border-slate-800/80 p-5 space-y-4">
             <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-emerald-400 border-b border-slate-800/80 pb-2.5">
               <span>
-                {company.legalName || "Financially Up Pty Ltd"} - Support &amp;
+                {company.legalName} - Support &amp;
                 Enquiries
               </span>
               <span className="text-slate-400 font-normal normal-case">
-                Tax Agent #{company.taxAgentNumber || "25800000"}
+                Tax Agent #{company.taxAgentNumber}
               </span>
             </div>
 
@@ -149,10 +142,10 @@ export default function GlobalError({ error, reset }) {
                     Direct Support Line
                   </span>
                   <a
-                    href={`tel:${(company.phone || "1300328316").replace(/\s+/g, "")}`}
+                    href={`tel:${(company.phone).replace(/\s+/g, "")}`}
                     className="font-bold text-white hover:text-emerald-400 transition-colors"
                   >
-                    {company.phone || "1300 328 316"}
+                    {company.phone}
                   </a>
                 </div>
               </div>
@@ -165,10 +158,10 @@ export default function GlobalError({ error, reset }) {
                     Official Email
                   </span>
                   <a
-                    href={`mailto:${company.email || "info@financiallyup.com.au"}`}
+                    href={`mailto:${company.email}`}
                     className="font-bold text-white hover:text-emerald-400 transition-colors"
                   >
-                    {company.email || "info@financiallyup.com.au"}
+                    {company.email}
                   </a>
                 </div>
               </div>
@@ -181,8 +174,7 @@ export default function GlobalError({ error, reset }) {
                     Head Office
                   </span>
                   <span className="text-slate-200">
-                    {company.address ||
-                      "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                    {company.address}
                   </span>
                 </div>
               </div>
@@ -193,7 +185,7 @@ export default function GlobalError({ error, reset }) {
                   <BankOutlined className="text-emerald-500" />
                   ABN:{" "}
                   <strong className="text-slate-200">
-                    {company.abn || "84 659 717 263"}
+                    {company.abn}
                   </strong>
                 </span>
                 <span className="flex items-center gap-1.5">

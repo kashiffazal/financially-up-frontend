@@ -3,6 +3,7 @@
 import React from "react";
 import { Tag } from "antd";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * KeyIssuesReviewedBeforeLodgement Component
@@ -40,7 +41,7 @@ export default function KeyIssuesReviewedBeforeLodgement() {
             Key issues reviewed before lodgement
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Every trust tax return prepared by Financially Up undergoes a
+            Every trust tax return prepared by <CompanyName /> undergoes a
             rigorous 10-point technical review to ensure statutory accuracy,
             eliminate ATO audit exposure, and protect beneficiary tax outcomes.
           </p>

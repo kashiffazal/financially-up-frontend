@@ -61,7 +61,7 @@ export default function SoleTraderExpensesAndAssets() {
         {/* 3 Core Content Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Card 1: Common Deductible Areas */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl mb-5">
                 <DollarOutlined />
@@ -100,7 +100,7 @@ export default function SoleTraderExpensesAndAssets() {
           </div>
 
           {/* Card 2: Depreciating Assets & Capital Expenses */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl mb-5">
                 <ToolOutlined />
@@ -137,7 +137,7 @@ export default function SoleTraderExpensesAndAssets() {
           </div>
 
           {/* Card 3: 5-Year Record Keeping & Bookkeeping */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl mb-5">
                 <HistoryOutlined />

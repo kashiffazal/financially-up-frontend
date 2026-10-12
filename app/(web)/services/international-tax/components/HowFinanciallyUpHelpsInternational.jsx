@@ -13,6 +13,7 @@ import {
   SendOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsInternational Component
@@ -103,11 +104,11 @@ export default function HowFinanciallyUpHelpsInternational() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            International Tax Services Australia - How Financially Up Can Help
+            International Tax Services Australia - How <CompanyName /> Can Help
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up can assist with Australian tax matters involving
+            <CompanyName /> can assist with Australian tax matters involving
             international circumstances by providing structured, practical
             guidance tailored to your specific cross-border position.
           </p>

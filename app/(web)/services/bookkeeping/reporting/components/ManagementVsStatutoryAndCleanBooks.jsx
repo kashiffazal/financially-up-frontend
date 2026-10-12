@@ -9,6 +9,7 @@ import {
   ArrowRightOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ManagementVsStatutoryAndCleanBooks Component
@@ -50,7 +51,7 @@ export default function ManagementVsStatutoryAndCleanBooks() {
               </p>
 
               <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can provide internal business reporting and
+                <CompanyName /> can provide internal business reporting and
                 bookkeeping-based management accounts. Formal financial
                 statements, tax returns, audit work and other statutory or
                 compliance reporting are separately scoped.

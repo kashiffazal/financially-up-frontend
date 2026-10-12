@@ -42,7 +42,7 @@ export default function InvestorVsTraderClassification() {
         {/* 2-Column Comparison Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Card 1: Share Investor */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -83,7 +83,7 @@ export default function InvestorVsTraderClassification() {
           </div>
 
           {/* Card 2: Share Trader */}
-          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+          <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
@@ -127,7 +127,7 @@ export default function InvestorVsTraderClassification() {
         </div>
 
         {/* ATO Classification Criteria Callout */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-1">
             <span className="font-bold text-sm sm:text-base text-amber-900 dark:text-amber-100 block">
               ATO Multi-Factor Business Test:

@@ -12,8 +12,12 @@ import ManagementVsStatutoryAndCleanBooks from "./components/ManagementVsStatuto
 import HowManagementReportingWorks from "./components/HowManagementReportingWorks";
 import WhatReportingHelpsYouSeeAndInfoNeeded from "./components/WhatReportingHelpsYouSeeAndInfoNeeded";
 import WhyChooseFinanciallyUpReporting from "./components/WhyChooseFinanciallyUpReporting";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Management Reporting Services for Business | Financially Up",
   description:
     "Management reporting services that turn current bookkeeping data into practical profit, balance sheet and cash-flow information for business owners.",
@@ -26,16 +30,17 @@ export const metadata = {
     "financial visibility business",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/reporting/",
+    canonical: `${SITE_URL}/services/bookkeeping/reporting/`,
   },
   openGraph: {
     title: "Management Reporting Services for Business | Financially Up",
     description:
       "Management reporting services that turn current bookkeeping data into practical profit, balance sheet and cash-flow information for business owners.",
-    url: "https://financiallyup.com.au/services/bookkeeping/reporting/",
+    url: `${SITE_URL}/services/bookkeeping/reporting/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -89,10 +94,7 @@ export default function ManagementReportingPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-neutral-900">
         {/* Hero Section */}
@@ -105,9 +107,9 @@ export default function ManagementReportingPage() {
           badge="Management Reporting Services"
           title="Management Reporting Services for Better Business Visibility"
           subtitle="Turn current bookkeeping data into structured financial information to understand performance and make informed business decisions."
-          description={`Management reporting services turn current bookkeeping data into structured financial information that business owners and managers can use to understand performance. Rather than waiting until tax time, regular reports can show how the business is tracking across income, expenses, profitability, cash and key balance-sheet accounts.
+          description={<BrandText text={`Management reporting services turn current bookkeeping data into structured financial information that business owners and managers can use to understand performance. Rather than waiting until tax time, regular reports can show how the business is tracking across income, expenses, profitability, cash and key balance-sheet accounts.
 
-Financially Up provides management accounts services for businesses that want reliable recurring reporting built on accurate bookkeeping records. Reports can be tailored to the information that is useful for managing the business, without confusing internal management reporting with statutory financial statements, tax returns or audit work.`}
+Financially Up provides management accounts services for businesses that want reliable recurring reporting built on accurate bookkeeping records. Reports can be tailored to the information that is useful for managing the business, without confusing internal management reporting with statutory financial statements, tax returns or audit work.`} />}
           appointmentNote="Discuss the reports you currently use, how often you need them, the quality of your bookkeeping data and which financial information would be most useful for management decisions."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"
@@ -147,7 +149,7 @@ Financially Up provides management accounts services for businesses that want re
         {/* Call to Action Banner */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you want clearer financial information throughout the year rather than only at tax time, book an appointment with Financially Up. We can discuss your current bookkeeping, reporting needs, preferred frequency and the management reporting services that fit your business."
+          description={<BrandText text={"If you want clearer financial information throughout the year rather than only at tax time, book an appointment with Financially Up. We can discuss your current bookkeeping, reporting needs, preferred frequency and the management reporting services that fit your business."} />}
           buttonText="Book an Appointment"
           buttonLink="/book-an-appointment"
         />

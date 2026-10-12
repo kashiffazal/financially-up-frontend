@@ -8,6 +8,7 @@ import {
   ArrowRightOutlined,
   DashboardOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelpsDashboards Component
@@ -37,7 +38,7 @@ export default function HowFinanciallyUpHelpsDashboards() {
               Service Delivery
             </Tag>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              How Financially Up helps
+              How <CompanyName /> helps
             </h2>
             <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               <p>

@@ -10,6 +10,7 @@ import {
   HomeOutlined,
 } from "@ant-design/icons";
 import styles from "./PropertyTaxOverview.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function PropertyTaxOverview() {
   const highlights = [
@@ -36,7 +37,7 @@ export default function PropertyTaxOverview() {
             </h2>
 
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At Financially Up, our team of tax professionals specializes in
+              At <CompanyName />, our team of tax professionals specializes in
               individual tax returns involving investment properties. We
               understand the unique tax considerations and complexities that
               come with rental income. Our goal is to help you maximize your tax

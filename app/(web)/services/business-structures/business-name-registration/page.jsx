@@ -9,23 +9,28 @@ import ChecklistBeforeBusinessNameRegistration from "./components/ChecklistBefor
 import AbnConnectionAndTradeMarkDistinction from "./components/AbnConnectionAndTradeMarkDistinction";
 import WhatFinanciallyUpHelpsBusinessName from "./components/WhatFinanciallyUpHelpsBusinessName";
 import WhyChooseFinanciallyUpBusinessName from "./components/WhyChooseFinanciallyUpBusinessName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Business Name Registration Australia | Financially Up",
   description:
     "Business name registration support for Australian businesses, including ASIC registration, ABN checks and practical setup guidance before you start trading.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/business-name-registration/",
+    canonical: `${SITE_URL}/services/business-structures/business-name-registration/`,
   },
   openGraph: {
     title: "Business Name Registration Australia | Financially Up",
     description:
       "Business name registration support for Australian businesses, including ASIC registration, ABN checks and practical setup guidance before you start trading.",
-    url: "https://financiallyup.com.au/services/business-structures/business-name-registration/",
+    url: `${SITE_URL}/services/business-structures/business-name-registration/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -72,7 +77,7 @@ export default function BusinessNameRegistrationPage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -83,10 +88,7 @@ export default function BusinessNameRegistrationPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -100,7 +102,7 @@ export default function BusinessNameRegistrationPage() {
           title="Business Name Registration in Australia"
           description={[
             "A business name registration allows you to carry on business under a name that is different from your legal name. In Australia, most businesses using a separate trading name need to register that name with ASIC. The right setup also means checking the entity behind the name, its ABN and whether the proposed name is available.",
-            "Financially Up can help with business name registration as part of a practical business setup process. We can review who should hold the name, confirm the relevant ABN position, assist with the registration steps and make sure the registration fits the business structure you are actually using.",
+            <BrandText key="brand-1" text={"Financially Up can help with business name registration as part of a practical business setup process. We can review who should hold the name, confirm the relevant ABN position, assist with the registration steps and make sure the registration fits the business structure you are actually using."} />,
           ]}
           ctaText="Book an Appointment"
           ctaHref="/contact"
@@ -135,7 +137,7 @@ export default function BusinessNameRegistrationPage() {
         {/* Section 7: Final Call to Action */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If you need help registering a business name or want to make sure the name is being registered to the right entity, book an appointment with Financially Up. We can review the structure, ABN position and registration steps, then confirm the appropriate scope of assistance."
+          description={<BrandText text={"If you need help registering a business name or want to make sure the name is being registered to the right entity, book an appointment with Financially Up. We can review the structure, ABN position and registration steps, then confirm the appropriate scope of assistance."} />}
           ctaText="Book an Appointment"
           ctaHref="/contact"
         />

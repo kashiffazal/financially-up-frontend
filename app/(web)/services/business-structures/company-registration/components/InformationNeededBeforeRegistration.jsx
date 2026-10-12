@@ -110,7 +110,7 @@ export default function InformationNeededBeforeRegistration() {
         </div>
 
         {/* ASIC Consent & Director ID Callout */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20">
+        <div className="p-8 sm:p-10 rounded-lg bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
               <WarningOutlined className="text-xl" />

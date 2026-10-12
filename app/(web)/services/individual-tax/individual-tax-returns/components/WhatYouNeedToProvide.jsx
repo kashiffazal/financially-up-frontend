@@ -13,6 +13,7 @@ import {
   LineChartOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatYouNeedToProvide Component
@@ -139,7 +140,7 @@ export default function WhatYouNeedToProvide() {
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
             Information shown in ATO systems may not contain everything needed
             to support your return or deductions. Keep the relevant records and
-            provide any information Financially Up requests. You do not need to
+            provide any information <CompanyName /> requests. You do not need to
             identify every document before booking; we will guide you based on
             your circumstances.
           </p>

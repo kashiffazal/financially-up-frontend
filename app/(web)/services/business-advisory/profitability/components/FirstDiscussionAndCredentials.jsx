@@ -12,6 +12,7 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * FirstDiscussionAndCredentials Component
@@ -101,7 +102,7 @@ export default function FirstDiscussionAndCredentials() {
         {/* Narrative Box: 10+ Years Experience & Tax Distinction */}
         <div className="p-6 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 mb-12 text-center max-w-4xl mx-auto">
           <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
-            Financially Up Pty Ltd has more than 10 years of experience, with a
+            <CompanyName legal /> has more than 10 years of experience, with a
             team including CPA and IPA members. We work with clients across
             Australia through online and in-person appointments. As a registered
             tax agent, we can recognize where a proposal also raises tax

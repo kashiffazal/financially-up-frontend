@@ -82,7 +82,7 @@ export default function WhoConsidersAndSetupSteps() {
         </div>
 
         {/* Part 2: What does setup involve? */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="p-8 sm:p-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7 space-y-5">
               <div className="flex items-center gap-3">

@@ -85,7 +85,7 @@ export default function BeneficiariesAndTaxConsequences() {
         </div>
 
         {/* Verbatim Paragraph 3 on Corporate Beneficiaries & Division 7A Link */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-800 text-white rounded-lg p-8 sm:p-10 shadow-xl">
           <div className="flex items-start gap-4 mb-6">
             <BankOutlined className="text-2xl text-emerald-400 mt-1 shrink-0" />
             <div className="space-y-2">

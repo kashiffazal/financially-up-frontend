@@ -6,11 +6,16 @@ import KeepCompanyRecordsCurrentAndWhyChoose from "./components/KeepCompanyRecor
 import AnnualReviewsRelatedRibbon from "./components/AnnualReviewsRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9 / Pillar 7.8)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ASIC Annual Review Service for Companies | Financially Up",
   description:
     "Financially Up helps companies manage ASIC annual reviews, annual statements, company-detail checks, review fees and solvency-resolution requirements.",
@@ -25,18 +30,19 @@ export const metadata = {
     "positive solvency declaration",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/annual-reviews/",
+    canonical: `${SITE_URL}/services/asic/annual-reviews/`,
   },
   openGraph: {
     title: "ASIC Annual Review Service for Companies | Financially Up",
     description:
       "Financially Up helps companies manage ASIC annual reviews, annual statements, company-detail checks, review fees and solvency-resolution requirements.",
-    url: "https://financiallyup.com.au/services/asic/annual-reviews/",
+    url: `${SITE_URL}/services/asic/annual-reviews/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -115,10 +121,7 @@ export default function AnnualReviewsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -130,7 +133,7 @@ export default function AnnualReviewsPage() {
               An ASIC annual review is the yearly compliance process that follows a company’s annual review date, usually the anniversary of its registration. ASIC issues an annual statement showing the company details on the register and an invoice for the annual review fee. Directors then need to review the information, deal with any required updates and address the company’s solvency-resolution obligation.
             </span>
             <span className="block mt-2">
-              Financially Up can help manage the practical steps around the company annual review ASIC process, including reviewing the annual statement, identifying outdated company details and helping with relevant ASIC updates. The company and its directors remain responsible for meeting their legal obligations, even where an accountant or registered agent assists with administration.
+              <CompanyName /> can help manage the practical steps around the company annual review ASIC process, including reviewing the annual statement, identifying outdated company details and helping with relevant ASIC updates. The company and its directors remain responsible for meeting their legal obligations, even where an accountant or registered agent assists with administration.
             </span>
           </span>
         }
@@ -182,7 +185,7 @@ export default function AnnualReviewsPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your company’s annual review is due or you need help checking an ASIC annual statement, book an appointment with Financially Up."
+        subtitle={<BrandText text={"If your company’s annual review is due or you need help checking an ASIC annual statement, book an appointment with Financially Up."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

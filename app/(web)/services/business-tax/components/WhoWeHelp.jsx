@@ -3,6 +3,7 @@
 import React from "react";
 import ProfileCardsGrid from "@/components/website/ProfileCardsGrid";
 import EntityRoutingBanner from "@/components/website/EntityRoutingBanner";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhoWeHelp Component
@@ -90,7 +91,7 @@ export default function WhoWeHelp() {
       subtitle={
         <span className="block space-y-2">
           <span className="block">
-            Financially Up works with business owners who need ongoing
+            <CompanyName /> works with business owners who need ongoing
             accounting and tax support or help bringing year-end records into a
             position that can be used for tax reporting.
           </span>

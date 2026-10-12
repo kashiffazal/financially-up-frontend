@@ -11,11 +11,17 @@ import HowFinanciallyUpHelpsCgt from "./components/HowFinanciallyUpHelpsCgt";
 import RelatedPropertyCgtRibbon from "./components/RelatedPropertyCgtRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of 10th Pillar Property Tax.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Property Capital Gains Tax Accountant | Financially Up",
   description:
     "Selling property? Get help reviewing the cost base, exemptions, CGT calculation and current clearance-certificate requirements with Financially Up.",
@@ -29,18 +35,19 @@ export const metadata = {
     "capital gains tax rental property",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/property-tax/property-capital-gains-tax/",
+    canonical: `${SITE_URL}/services/property-tax/property-capital-gains-tax/`,
   },
   openGraph: {
     title: "Property Capital Gains Tax Accountant | Financially Up",
     description:
       "Selling property? Get help reviewing the cost base, exemptions, CGT calculation and current clearance-certificate requirements with Financially Up.",
-    url: "https://financiallyup.com.au/services/property-tax/property-capital-gains-tax/",
+    url: `${SITE_URL}/services/property-tax/property-capital-gains-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function PropertyCapitalGainsTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function PropertyCapitalGainsTaxPage() {
               Selling property can create a capital gain or capital loss, but the difference between the purchase price and sale price is not the complete calculation. Acquisition and selling costs, improvements, prior deductions, ownership, residency and the property's use must all be considered.
             </span>
             <span className="block mt-2">
-              Financially Up provides property capital gains tax calculation, reporting and separately scoped advice for Australian property owners. Book an Appointment before settlement or tax-return preparation to review the transaction and available records.
+              <CompanyName /> provides property capital gains tax calculation, reporting and separately scoped advice for Australian property owners. Book an Appointment before settlement or tax-return preparation to review the transaction and available records.
             </span>
           </span>
         }
@@ -155,7 +159,7 @@ export default function PropertyCapitalGainsTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Property Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -201,7 +205,7 @@ export default function PropertyCapitalGainsTaxPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Review Your Property Sale"
-        subtitle="Bring your contracts, ownership and use history, prior rental schedules and major expense records. Financially Up can identify gaps, prepare a supported calculation and explain the reporting steps."
+        subtitle={<BrandText text={"Bring your contracts, ownership and use history, prior rental schedules and major expense records. Financially Up can identify gaps, prepare a supported calculation and explain the reporting steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Property Tax Services"

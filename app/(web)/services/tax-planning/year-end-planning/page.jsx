@@ -9,12 +9,17 @@ import HowFinanciallyUpHelpsYearEnd from "./components/HowFinanciallyUpHelpsYear
 import RelatedYearEndPlanningRibbon from "./components/RelatedYearEndPlanningRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Year End Tax Planning Australia | Financially Up",
   description:
     "Plan ahead before 30 June with practical year end tax planning for individuals and businesses. Review timing, records and tax considerations.",
@@ -28,18 +33,19 @@ export const metadata = {
     "tax planning accountant Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/year-end-planning/",
+    canonical: `${SITE_URL}/services/tax-planning/year-end-planning/`,
   },
   openGraph: {
     title: "Year End Tax Planning Australia | Financially Up",
     description:
       "Plan ahead before 30 June with practical year end tax planning for individuals and businesses. Review timing, records and tax considerations.",
-    url: "https://financiallyup.com.au/services/tax-planning/year-end-planning/",
+    url: `${SITE_URL}/services/tax-planning/year-end-planning/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -127,10 +133,7 @@ export default function YearEndPlanningPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -163,7 +166,7 @@ export default function YearEndPlanningPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Planning Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -191,7 +194,7 @@ export default function YearEndPlanningPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about pre-30 June tax reviews, timing of strategies, superannuation deadlines, and planning benefits with Financially Up."
+        subtitle={<BrandText text={"Common questions about pre-30 June tax reviews, timing of strategies, superannuation deadlines, and planning benefits with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Year End Tax Planning Frequently Asked Questions"
         items={yearEndPlanningFaqs}
@@ -203,7 +206,7 @@ export default function YearEndPlanningPage() {
       <CallToActionBanner
         tag="EOFY Tax Planning"
         title="Book an Appointment"
-        subtitle="Discuss your expected year-end position, planned transactions, records and tax obligations with Financially Up before the financial year closes."
+        subtitle={<BrandText text={"Discuss your expected year-end position, planned transactions, records and tax obligations with Financially Up before the financial year closes."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

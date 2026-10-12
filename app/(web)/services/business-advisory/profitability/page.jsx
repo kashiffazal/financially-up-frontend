@@ -10,12 +10,16 @@ import FirstDiscussionAndCredentials from "./components/FirstDiscussionAndCreden
 import ProfitabilityRelatedServicesRibbon from "./components/ProfitabilityRelatedServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO
  * Exact values from client document: Page 8 (8- Profitability)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Profitability Consulting for Business | Financially Up",
   description:
     "Understand where profit is made and lost. Financially Up reviews margins, pricing and costs, then helps you test opportunities to improve profitability.",
@@ -31,18 +35,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/business-advisory/profitability/",
+      `${SITE_URL}/services/business-advisory/profitability/`,
   },
   openGraph: {
     title: "Profitability Consulting for Business | Financially Up",
     description:
       "Understand where profit is made and lost. Financially Up reviews margins, pricing and costs, then helps you test opportunities to improve profitability.",
-    url: "https://financiallyup.com.au/services/business-advisory/profitability/",
+    url: `${SITE_URL}/services/business-advisory/profitability/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -118,7 +123,7 @@ const jsonLd = {
       provider: {
         "@type": "AccountingService",
         name: "Financially Up",
-        url: "https://financiallyup.com.au",
+        url: `${SITE_URL}`,
         telephone: "+61-1300-328-316",
         address: {
           "@type": "PostalAddress",
@@ -184,10 +189,7 @@ export default function ProfitabilityPage() {
   return (
     <>
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       {/* SubServiceHero Component */}
       <SubServiceHero
@@ -195,7 +197,7 @@ export default function ProfitabilityPage() {
         subtitle="Profitability Consulting"
         description={[
           "Profitability consulting helps a business understand what it earns from its work after the relevant costs are considered, then identify changes worth testing. Higher sales do not always bring higher profit. A busy product line can absorb labour, materials and overhead while contributing less than expected.",
-          "Financially Up works with owners who want to see where profit is made, where it leaks away and which changes may be realistic. We start with your accounts and how the business operates, rather than assuming that cutting costs or raising prices is always the answer. Book an Appointment to discuss the profit concern and the information available.",
+          <BrandText key="brand-1" text={"Financially Up works with owners who want to see where profit is made, where it leaks away and which changes may be realistic. We start with your accounts and how the business operates, rather than assuming that cutting costs or raising prices is always the answer. Book an Appointment to discuss the profit concern and the information available."} />,
         ]}
         parentService={{
           label: "Business Advisory Hub",
@@ -250,7 +252,7 @@ export default function ProfitabilityPage() {
       {/* Section 10: Call to Action Banner */}
       <CallToActionBanner
         title="Understand the drivers before changing course"
-        description="Book an Appointment with Financially Up to discuss the profitability question, the records available and a practical scope for analyzing and monitoring your options."
+        description={<BrandText text={"Book an Appointment with Financially Up to discuss the profitability question, the records available and a practical scope for analyzing and monitoring your options."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
       />

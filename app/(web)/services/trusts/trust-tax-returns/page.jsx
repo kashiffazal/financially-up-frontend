@@ -11,11 +11,16 @@ import WhyChooseFinanciallyUpTrustTax from "./components/WhyChooseFinanciallyUpT
 import RelatedTrustTaxRibbon from "./components/RelatedTrustTaxRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 6 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Trust Tax Return Accountant Australia | Financially Up",
   description:
     "Trust tax return preparation for Australian trusts. Financially Up reviews accounts, beneficiary distributions, tax records and ATO reporting requirements.",
@@ -29,18 +34,19 @@ export const metadata = {
     "overdue trust tax returns",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/trust-tax-returns/",
+    canonical: `${SITE_URL}/services/trusts/trust-tax-returns/`,
   },
   openGraph: {
     title: "Trust Tax Return Accountant Australia | Financially Up",
     description:
       "Trust tax return preparation for Australian trusts. Financially Up reviews accounts, beneficiary distributions, tax records and ATO reporting requirements.",
-    url: "https://financiallyup.com.au/services/trusts/trust-tax-returns/",
+    url: `${SITE_URL}/services/trusts/trust-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -94,7 +100,7 @@ const trustTaxFaqs = [
     label: "Can you prepare overdue trust tax returns?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes, Financially Up can review prior-year records and scope overdue trust return work. The records required and
+        Yes, <CompanyName /> can review prior-year records and scope overdue trust return work. The records required and
         the number of years involved will determine the work needed before lodgement.
       </p>
     ),
@@ -126,10 +132,7 @@ export default function TrustTaxReturnsPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -145,7 +148,7 @@ export default function TrustTaxReturnsPage() {
               beneficiary entitlements and the transactions that occurred during the year.
             </span>
             <span className="block mt-2">
-              Financially Up assists trustees with the accounting, reconciliation and preparation work needed to
+              <CompanyName /> assists trustees with the accounting, reconciliation and preparation work needed to
               complete an accurate trust tax return. Our registered tax agents work with family discretionary trusts,
               unit trusts, investment trusts and other private trust structures across Australia. Where broader
               tax-planning advice, distribution strategy or restructuring is needed, that work can be scoped separately
@@ -170,7 +173,7 @@ export default function TrustTaxReturnsPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}

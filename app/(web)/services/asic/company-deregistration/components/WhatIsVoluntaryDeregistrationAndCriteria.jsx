@@ -128,7 +128,7 @@ export default function WhatIsVoluntaryDeregistrationAndCriteria() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-8">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               A company deregistration service is generally relevant to
               directors and shareholders of a company that has genuinely
@@ -147,7 +147,7 @@ export default function WhatIsVoluntaryDeregistrationAndCriteria() {
             </p>
           </div>
 
-          <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="rounded-lg p-6 sm:p-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="max-w-2xl">
               <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1">
                 Considering closing an Australian company?

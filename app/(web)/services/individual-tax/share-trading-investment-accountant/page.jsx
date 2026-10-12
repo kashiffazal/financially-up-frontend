@@ -7,11 +7,17 @@ import HowFinanciallyUpHelpsShares from "./components/HowFinanciallyUpHelpsShare
 import ShareRelatedServiceRibbon from "./components/ShareRelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Share Trading Accountant Australia | Financially Up",
   description:
     "Share trading accountant for Australian investors, dividends, ETFs, managed funds and investment tax reporting. Book an appointment.",
@@ -27,18 +33,19 @@ export const metadata = {
   ],
   alternates: {
     canonical:
-      "https://financiallyup.com.au/services/individual-tax/share-trading-investment-accountant/",
+      `${SITE_URL}/services/individual-tax/share-trading-investment-accountant/`,
   },
   openGraph: {
     title: "Share Trading Accountant Australia | Financially Up",
     description:
       "Share trading accountant for Australian investors, dividends, ETFs, managed funds and investment tax reporting. Book an appointment.",
-    url: "https://financiallyup.com.au/services/individual-tax/share-trading-investment-accountant/",
+    url: `${SITE_URL}/services/individual-tax/share-trading-investment-accountant/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -83,7 +90,7 @@ const shareQuickSpecs = [
     icon: "send",
     label: "ATO Lodgement",
     value:
-      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+      <BrandText text={"Direct electronic ATO portal lodgement by Registered Tax Agent #26242127"} />,
   },
   {
     icon: "safety",
@@ -213,10 +220,7 @@ export default function ShareTradingInvestmentAccountantPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -232,7 +236,7 @@ export default function ShareTradingInvestmentAccountantPage() {
               business of share trading.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd assists Australian individuals with share
+              <CompanyName legal /> assists Australian individuals with share
               and investment-related tax reporting. Services are available
               Australia-wide through online meetings, with appointments also
               available by phone or in person where preferred.
@@ -259,7 +263,7 @@ export default function ShareTradingInvestmentAccountantPage() {
           "Shares, ETFs & Managed Fund Distributions",
           "Franking Credits & Dividend Gross-Up",
           "Investor vs Share Trader Assessment",
-          "Registered Tax Agent #26242127",
+          <BrandText key="brand-3" text={"Registered Tax Agent #26242127"} />,
         ]}
         quickSpecs={shareQuickSpecs}
         primaryCta={{
@@ -268,7 +272,7 @@ export default function ShareTradingInvestmentAccountantPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Share Tax Experience" },
-          { value: "TPB #26242127", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26242127"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person" },
         ]}
@@ -293,7 +297,7 @@ export default function ShareTradingInvestmentAccountantPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about share investments, dividend taxation, franking credits, capital gains, ETFs and share trading classification with Financially Up."
+        subtitle={<BrandText text={"Common questions about share investments, dividend taxation, franking credits, capital gains, ETFs and share trading classification with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Share Trading Accountant Frequently Asked Questions"
         items={shareFaqs}
@@ -305,7 +309,7 @@ export default function ShareTradingInvestmentAccountantPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If shares, ETFs or managed funds have made your tax return more complex, Financially Up can review your investment records and explain the work required before lodgement. Book an appointment to discuss your transactions, statements, capital gains or losses and the next steps."
+        subtitle={<BrandText text={"If shares, ETFs or managed funds have made your tax return more complex, Financially Up can review your investment records and explain the work required before lodgement. Book an appointment to discuss your transactions, statements, capital gains or losses and the next steps."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

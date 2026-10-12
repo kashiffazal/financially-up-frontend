@@ -14,6 +14,8 @@ import {
   EnvironmentOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUpHighIncome Component
@@ -31,7 +33,7 @@ export default function WhyChooseFinanciallyUpHighIncome() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      subtitle: "Tax Agent Number: 26242127",
+      subtitle: <BrandText text={"Tax Agent Number: 26242127"} />,
     },
     {
       icon: (
@@ -61,7 +63,7 @@ export default function WhyChooseFinanciallyUpHighIncome() {
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            About Financially Up
+            About <CompanyName />
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Professional accounting and advisory practice supporting executives,
@@ -71,7 +73,7 @@ export default function WhyChooseFinanciallyUpHighIncome() {
 
         {/* 2 Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
-          {/* Card 1: Statutory Credentials */}
+          {/* Card 1: Statutory Credentials */}rounded-lg
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
@@ -79,22 +81,21 @@ export default function WhyChooseFinanciallyUpHighIncome() {
                 <span>Registered Tax Agent Credentials</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                {company?.legalName || "Financially Up Pty Ltd"} is a registered
-                tax agent, Tax Agent Number 26242127. We provide individual tax
-                return preparation and tax planning support for Australian
-                professionals, executives and individuals with complex tax
-                circumstances.
+                {company?.legalName} is a registered
+                tax agent, Tax Agent Number <BrandText text={"26242127"} />. We
+                provide individual tax return preparation and tax planning
+                support for Australian professionals, executives and individuals
+                with complex tax circumstances.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 flex items-center justify-between">
-              <span>ABN: {company?.abn || "84 659 717 263"}</span>
+              <span>ABN: {company?.abn}</span>
               <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                 TPB Registered
               </span>
             </div>
           </div>
-
-          {/* Card 2: Professional Approach */}
+          {/* Card 2: Professional Approach */}rounded-lg
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
@@ -110,8 +111,7 @@ export default function WhyChooseFinanciallyUpHighIncome() {
             <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 flex items-center gap-2">
               <EnvironmentOutlined className="text-emerald-600 dark:text-emerald-400" />
               <span>
-                {company?.address ||
-                  "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                {company?.address}
               </span>
             </div>
           </div>

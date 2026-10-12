@@ -9,6 +9,7 @@ import {
   AuditOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatIsAnLrbaAndStructure Component
@@ -125,7 +126,7 @@ export default function WhatIsAnLrbaAndStructure() {
             <span className="font-bold text-slate-900 dark:text-white">
               Strict Advisory Notice:
             </span>{" "}
-            Financially Up Pty Ltd provides accounting, tax and compliance
+            <CompanyName legal /> provides accounting, tax and compliance
             support for existing and proposed LRBAs. We do not provide loan
             approval, credit assistance, legal documents or financial product
             advice about whether borrowing suits your retirement strategy. Those

@@ -8,6 +8,7 @@ import {
   ArrowRightOutlined,
   CalculatorOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * OverdueBasAndAtoPenalties Component
@@ -40,7 +41,7 @@ export default function OverdueBasAndAtoPenalties() {
               <p>
                 Penalty remission may be available in some circumstances, but it
                 is not automatic and should not be assumed before the facts are
-                reviewed. Financially Up can help identify the relevant
+                reviewed. <CompanyName /> can help identify the relevant
                 circumstances and communicate with the ATO within scope if a
                 remission request is appropriate.
               </p>

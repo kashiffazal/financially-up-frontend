@@ -12,11 +12,17 @@ import WhyChooseFinanciallyUpAppointor from "./components/WhyChooseFinanciallyUp
 import RelatedAppointorChangesRibbon from "./components/RelatedAppointorChangesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9 of 8th Pillar Trust Services.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Change Appointor Trust Australia | Financially Up",
   description:
     "Change appointor of a trust with tax and accounting support from Financially Up. Review control, deed requirements and related trust implications before the change.",
@@ -29,18 +35,19 @@ export const metadata = {
     "appointor vs trustee",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/trusts/appointor-changes/",
+    canonical: `${SITE_URL}/services/trusts/appointor-changes/`,
   },
   openGraph: {
     title: "Change Appointor Trust Australia | Financially Up",
     description:
       "Change appointor of a trust with tax and accounting support from Financially Up. Review control, deed requirements and related trust implications before the change.",
-    url: "https://financiallyup.com.au/services/trusts/appointor-changes/",
+    url: `${SITE_URL}/services/trusts/appointor-changes/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -128,10 +135,7 @@ export default function AppointorChangesPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -146,7 +150,7 @@ export default function AppointorChangesPage() {
               when the change takes effect.
             </span>
             <span className="block mt-2">
-              Financially Up can review the accounting and tax implications of a proposed change of appointor and help
+              <CompanyName /> can review the accounting and tax implications of a proposed change of appointor and help
               identify related trust matters that need attention. Legal advice may be required for deed interpretation,
               succession rights and preparation of the legal documents. This page focuses on changing the appointor
               role; it is separate from changing the trustee itself.
@@ -175,7 +179,7 @@ export default function AppointorChangesPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Trust Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -222,7 +226,7 @@ export default function AppointorChangesPage() {
       {/* 12. Call to Action Banner */}
       <CallToActionBanner
         title="Planning to Change the Appointor of Your Trust?"
-        subtitle="If you are considering a change of appointor, book an appointment with Financially Up to review the trust deed, tax history, control issues and related accounting matters before the change is finalized."
+        subtitle={<BrandText text={"If you are considering a change of appointor, book an appointment with Financially Up to review the trust deed, tax history, control issues and related accounting matters before the change is finalized."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnHref="/book-an-appointment"
         secondaryBtnText="Explore All Trust Services"

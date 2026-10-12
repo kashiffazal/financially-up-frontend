@@ -17,6 +17,7 @@ import {
   ApartmentOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatPropertyTaxAccountantHelpsWith Component
@@ -181,7 +182,7 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
                 Whether you need assistance with rental deductions, loan
                 interest apportionment, capital gains calculations, or
-                development GST, Financially Up is here to help.
+                development GST, <CompanyName /> is here to help.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">

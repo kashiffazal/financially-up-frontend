@@ -11,6 +11,7 @@ import {
   AuditOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhenAnnualReviewHelpsAndScope Component
@@ -49,7 +50,7 @@ export default function WhenAnnualReviewHelpsAndScope() {
             </h2>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               Annual-review support is useful where directors are busy, the
               company&apos;s records are maintained by an external accountant,
@@ -59,7 +60,7 @@ export default function WhenAnnualReviewHelpsAndScope() {
               be retained after the review.
             </p>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              If Financially Up acts as the company&apos;s{" "}
+              If <CompanyName /> acts as the company&apos;s{" "}
               <Link
                 href="/services/asic/registered-agent"
                 className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
@@ -83,11 +84,11 @@ export default function WhenAnnualReviewHelpsAndScope() {
               Scope of Assistance
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              How Financially Up can help
+              How <CompanyName /> can help
             </h2>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {scopeItems.map((item, idx) => (
                 <div

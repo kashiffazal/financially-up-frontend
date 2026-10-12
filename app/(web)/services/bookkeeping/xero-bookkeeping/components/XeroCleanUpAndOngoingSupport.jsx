@@ -11,6 +11,7 @@ import {
   CheckCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * XeroCleanUpAndOngoingSupport Component
@@ -111,7 +112,7 @@ export default function XeroCleanUpAndOngoingSupport() {
               <div className="space-y-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                 <p>
                   Once the file is in order, an ongoing process can help keep it
-                  that way. Financially Up can agree on a recurring bookkeeping
+                  that way. <CompanyName /> can agree on a recurring bookkeeping
                   scope based on transaction volume, number of bank accounts,
                   reporting needs and the level of review required. Businesses
                   wanting a set recurring cadence can also consider our monthly

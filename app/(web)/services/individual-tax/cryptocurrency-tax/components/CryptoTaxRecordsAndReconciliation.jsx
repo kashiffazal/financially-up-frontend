@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * CryptoTaxRecordsAndReconciliation Component
@@ -53,7 +54,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
         {/* 2-Column Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
           {/* Left Column: Checklist */}
-          <div className="lg:col-span-7 bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -106,7 +107,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
           {/* Right Column: Statutory Retention & Incomplete Records */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
             {/* Box 1: Retention & Foreign Exchanges */}
-            <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex-1 flex flex-col justify-between">
+            <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <HistoryOutlined className="text-xl text-blue-500" />
@@ -130,7 +131,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
             </div>
 
             {/* Box 2: Missing or Incomplete Records */}
-            <div className="bg-amber-50/60 dark:bg-amber-950/20 rounded-3xl p-7 border border-amber-200/80 dark:border-amber-800/40 shadow-xs flex-1 flex flex-col justify-between">
+            <div className="bg-amber-50/60 dark:bg-amber-950/20 rounded-lg p-7 border border-amber-200/80 dark:border-amber-800/40 shadow-xs flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <WarningOutlined className="text-xl text-amber-600 dark:text-amber-400" />
@@ -139,7 +140,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
                   </h4>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                  If records are incomplete, Financially Up can identify gaps
+                  If records are incomplete, <CompanyName /> can identify gaps
                   and explain what further information may be needed. Not every
                   missing transaction can necessarily be reconstructed.
                 </p>

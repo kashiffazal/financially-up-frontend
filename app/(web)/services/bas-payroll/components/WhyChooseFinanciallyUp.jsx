@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUp Component
@@ -74,12 +75,12 @@ export default function WhyChooseFinanciallyUp() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why choose Financially Up?
+            Why choose <CompanyName />?
           </h2>
 
           {/* Document Section 7 Paragraph - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up Pty Ltd"} is an Australian
+            {company?.legalName} is an Australian
             accounting, taxation, bookkeeping and business advisory firm and a
             registered tax agent. The team includes CPA and IPA members and
             brings more than 10 years of experience across business accounting

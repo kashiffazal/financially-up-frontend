@@ -31,6 +31,7 @@ import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
 import { useAuth } from "@/context/AuthContext";
 import styles from "./EmailSettings.module.css";
+import { useBrandText } from "@/context/SettingsContext";
 
 /**
  * Settings > Email
@@ -120,6 +121,7 @@ const Note = ({ children }) => (
 );
 
 export default function EmailSettings() {
+  const brand = useBrandText();
   const { user, hasPermission, hasRole } = useAuth();
   const canManage =
     hasRole("administrator") || hasPermission("settings.update");
@@ -205,7 +207,7 @@ export default function EmailSettings() {
             ...PRESETS.microsoft365,
             name: "",
             username: "",
-            fromName: "Financially Up",
+            fromName: brand("Financially Up"),
             fromEmail: "",
           },
     );
@@ -492,7 +494,7 @@ export default function EmailSettings() {
               mode="tags"
               name="defaultTo"
               label="Send to"
-              placeholder="e.g. forms@financiallyup.com.au"
+              placeholder={brand("e.g. forms@financiallyup.com.au")}
               rules={[
                 { required: true, message: "Add at least one address" },
                 emailListRule,
@@ -540,7 +542,7 @@ export default function EmailSettings() {
                   <div className={styles.areaList}>
                     <p className={styles.muted}>
                       Leave a form empty to use the list above (e.g. Medicare →
-                      m.e@financiallyup.com.au).
+                      {brand("m.e@financiallyup.com.au")}).
                     </p>
                     {areas.map((area) => (
                       <div key={area.key} className={styles.areaRow}>
@@ -649,14 +651,14 @@ export default function EmailSettings() {
               <AntInput
                 name="fromName"
                 label="From name"
-                placeholder="Financially Up"
+                placeholder={brand("Financially Up")}
                 noRequired
               />
               <AntInput
                 type="email"
                 name="fromEmail"
                 label="From email"
-                placeholder="noreply@financiallyup.com.au"
+                placeholder={brand("noreply@financiallyup.com.au")}
                 reqMsg="Enter the From email"
               />
             </div>

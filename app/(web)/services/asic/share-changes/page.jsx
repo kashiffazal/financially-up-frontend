@@ -6,11 +6,16 @@ import WhatFinanciallyUpHelpsSharesAndRecords from "./components/WhatFinancially
 import ShareChangesRelatedRibbon from "./components/ShareChangesRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 7 / Pillar 7.6)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Share Transfer ASIC & Company Share Changes | Financially Up",
   description:
     "Need help with a share transfer or share issue? Financially Up assists with ASIC notifications, shareholder updates and company share records.",
@@ -25,18 +30,19 @@ export const metadata = {
     "statutory member register",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/share-changes/",
+    canonical: `${SITE_URL}/services/asic/share-changes/`,
   },
   openGraph: {
     title: "Share Transfer ASIC & Company Share Changes | Financially Up",
     description:
       "Need help with a share transfer or share issue? Financially Up assists with ASIC notifications, shareholder updates and company share records.",
-    url: "https://financiallyup.com.au/services/asic/share-changes/",
+    url: `${SITE_URL}/services/asic/share-changes/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -81,7 +87,7 @@ const shareChangesFaqs = [
   },
   {
     key: "4",
-    label: "Can Financially Up update an old or incorrect share register?",
+    label: <BrandText text={"Can Financially Up update an old or incorrect share register?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
         We can review the records available and help update or reconstruct the register where the history can be supported. If there are disputed ownership issues or missing legal documents, further legal advice may be needed.
@@ -115,10 +121,7 @@ export default function ShareChangesPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -127,7 +130,7 @@ export default function ShareChangesPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              A company share transfer, new share issue or other change to share ownership needs more than an ASIC update. The company also needs accurate internal records, appropriate approvals and supporting documents that reflect what actually occurred. Financially Up can help company directors and shareholders work through the accounting and ASIC administration connected with share changes so the company records and public register stay aligned.
+              A company share transfer, new share issue or other change to share ownership needs more than an ASIC update. The company also needs accurate internal records, appropriate approvals and supporting documents that reflect what actually occurred. <CompanyName /> can help company directors and shareholders work through the accounting and ASIC administration connected with share changes so the company records and public register stay aligned.
             </span>
             <span className="block mt-2">
               If you are planning to transfer shares in an Australian company, issue new shares or correct shareholder information, it is important to establish the nature and effective date of the change before lodging anything. A share transfer is not the same as issuing new shares, and the supporting steps can differ. Where tax, legal or valuation advice is required, that work is considered separately from the ASIC filing itself.
@@ -182,7 +185,7 @@ export default function ShareChangesPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If your company is transferring shares, issuing shares or correcting shareholder records, book an appointment with Financially Up. We can help clarify the ASIC filing, company-record and accounting steps relevant to your circumstances."
+        subtitle={<BrandText text={"If your company is transferring shares, issuing shares or correcting shareholder records, book an appointment with Financially Up. We can help clarify the ASIC filing, company-record and accounting steps relevant to your circumstances."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

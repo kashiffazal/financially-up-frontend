@@ -50,7 +50,7 @@ export default function TheFourResidencyTestsDetailed() {
         {/* The 4 Tests Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Test 1: Resides test */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl">
@@ -87,7 +87,7 @@ export default function TheFourResidencyTestsDetailed() {
           </div>
 
           {/* Test 2: Domicile test */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl">
@@ -122,7 +122,7 @@ export default function TheFourResidencyTestsDetailed() {
           </div>
 
           {/* Test 3: 183-day test */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl">
@@ -156,7 +156,7 @@ export default function TheFourResidencyTestsDetailed() {
           </div>
 
           {/* Test 4: Commonwealth superannuation fund test */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/50 flex items-center justify-center text-purple-600 dark:text-purple-400 text-2xl">
@@ -185,7 +185,7 @@ export default function TheFourResidencyTestsDetailed() {
         </div>
 
         {/* Callout: Is the 183-Day Rule Enough to Determine Residency? */}
-        <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
+        <div className="p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800">
           <div className="flex items-start gap-4">
             <ExclamationCircleOutlined className="text-2xl text-amber-500 mt-1 shrink-0" />
             <div className="space-y-3">

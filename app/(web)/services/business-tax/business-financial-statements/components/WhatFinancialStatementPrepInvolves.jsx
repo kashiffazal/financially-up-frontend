@@ -16,6 +16,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatFinancialStatementPrepInvolves Component
@@ -159,7 +160,7 @@ export default function WhatFinancialStatementPrepInvolves() {
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               Reports prepared for internal management may not be the same as
               statements required under a specific legal, finance or assurance
-              framework. Financially Up ensures that the structure and
+              framework. <CompanyName /> ensures that the structure and
               presentation match your agreed engagement goals.
             </p>
           </div>

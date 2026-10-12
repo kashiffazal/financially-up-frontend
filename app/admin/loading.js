@@ -14,7 +14,7 @@ import Image from "next/image";
 export default function AdminLoading() {
   return (
     <div
-      aria-label="Authenticating Financially Up ERP Admin Portal..."
+      aria-label="Loading the admin portal..."
       role="status"
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-hidden select-none transition-colors duration-300"
     >
@@ -40,7 +40,7 @@ export default function AdminLoading() {
           <div className="relative w-12 h-12 rounded-full bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center shadow-xl shadow-brand-primary/10 dark:shadow-emerald-500/20">
             <Image
               src="/images/icon.ico"
-              alt="Financially Up ERP"
+              alt="Admin portal"
               width={32}
               height={32}
               className="w-7 h-7 object-contain animate-pulse"

@@ -7,11 +7,16 @@ import WhatWeNeedAndHowWeHelp from "./components/WhatWeNeedAndHowWeHelp";
 import AsicRegisteredAgentRelatedRibbon from "./components/AsicRegisteredAgentRelatedRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 / Pillar 7.1)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ASIC Registered Agent Service Australia | Financially Up",
   description:
     "ASIC registered agent service for companies needing support with ASIC correspondence, annual reviews, company updates and routine corporate lodgements.",
@@ -26,18 +31,19 @@ export const metadata = {
     "ASIC corporate governance",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/asic/registered-agent/",
+    canonical: `${SITE_URL}/services/asic/registered-agent/`,
   },
   openGraph: {
     title: "ASIC Registered Agent Service Australia | Financially Up",
     description:
       "ASIC registered agent service for companies needing support with ASIC correspondence, annual reviews, company updates and routine corporate lodgements.",
-    url: "https://financiallyup.com.au/services/asic/registered-agent/",
+    url: `${SITE_URL}/services/asic/registered-agent/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -125,10 +131,7 @@ export default function AsicRegisteredAgentPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +143,7 @@ export default function AsicRegisteredAgentPage() {
               An ASIC registered agent is appointed by a company to carry out certain ASIC-related tasks on its behalf. For directors who do not want corporate correspondence and routine lodgements managed ad hoc, a registered agent service can provide a consistent administrative contact for annual statements, company updates and common ASIC filings.
             </span>
             <span className="block mt-2">
-              Financially Up provides an ASIC registered agent service for companies that want their ASIC administration coordinated with their accounting and tax records. The service is administrative and compliance-focused: appointing an agent does not transfer directors’ legal duties or responsibility for the accuracy of company information.
+              <CompanyName /> provides an ASIC registered agent service for companies that want their ASIC administration coordinated with their accounting and tax records. The service is administrative and compliance-focused: appointing an agent does not transfer directors’ legal duties or responsibility for the accuracy of company information.
             </span>
           </span>
         }
@@ -195,7 +198,7 @@ export default function AsicRegisteredAgentPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you want a consistent point of contact for ASIC correspondence and company administration, book an appointment to discuss appointing Financially Up as your registered agent and the ongoing service scope."
+        subtitle={<BrandText text={"If you want a consistent point of contact for ASIC correspondence and company administration, book an appointment to discuss appointing Financially Up as your registered agent and the ongoing service scope."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ASIC Compliance Hub"

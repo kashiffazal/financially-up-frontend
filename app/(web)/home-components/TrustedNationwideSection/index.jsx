@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button, Tag } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import styles from "./TrustedNationwideSection.module.css";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function TrustedNationwideSection() {
   const partnerLogos = [
@@ -55,7 +56,7 @@ export default function TrustedNationwideSection() {
             </Tag>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight leading-[1.2]">
-              Over 50,000+ Australians trust Financially Up to get business
+              Over 50,000+ Australians trust <CompanyName /> to get business
               &amp; tax registered.
             </h2>
 

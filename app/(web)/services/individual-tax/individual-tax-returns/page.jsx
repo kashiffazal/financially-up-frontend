@@ -8,11 +8,17 @@ import WhyChooseFinanciallyUpIndividual from "./components/WhyChooseFinanciallyU
 import RelatedServiceRibbon from "./components/RelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Individual Tax Return Services Australia | Financially Up",
   description:
     "Need help with an individual tax return? Financially Up assists clients Australia-wide with preparation, complex income, deductions and online appointments.",
@@ -26,18 +32,19 @@ export const metadata = {
     "lodge tax return online Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/individual-tax-returns/",
+    canonical: `${SITE_URL}/services/individual-tax/individual-tax-returns/`,
   },
   openGraph: {
     title: "Individual Tax Return Services Australia | Financially Up",
     description:
       "Need help with an individual tax return? Financially Up assists clients Australia-wide with preparation, complex income, deductions and online appointments.",
-    url: "https://financiallyup.com.au/services/individual-tax/individual-tax-returns/",
+    url: `${SITE_URL}/services/individual-tax/individual-tax-returns/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -64,10 +71,10 @@ const individualTaxFaqs = [
   },
   {
     key: "2",
-    label: "Can Financially Up help with a complex individual tax return?",
+    label: <BrandText text={"Can Financially Up help with a complex individual tax return?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up assists with complex individual returns involving multiple income sources, investment property, shares, managed funds, capital gains, crypto assets, foreign income, employee share schemes and other matters requiring closer review. The work required depends on your circumstances and records.
+        Yes. <CompanyName /> assists with complex individual returns involving multiple income sources, investment property, shares, managed funds, capital gains, crypto assets, foreign income, employee share schemes and other matters requiring closer review. The work required depends on your circumstances and records.
       </p>
     ),
   },
@@ -76,7 +83,7 @@ const individualTaxFaqs = [
     label: "Can I complete my individual tax return online?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up provides online individual tax return support across Australia. You can book through the website or by phone, attend an Outlook Calendar online meeting and provide the requested documents without visiting an office. In-person appointments are also available by arrangement.
+        Yes. <CompanyName /> provides online individual tax return support across Australia. You can book through the website or by phone, attend an Outlook Calendar online meeting and provide the requested documents without visiting an office. In-person appointments are also available by arrangement.
       </p>
     ),
   },
@@ -85,7 +92,7 @@ const individualTaxFaqs = [
     label: "What documents do I need for my tax return?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The documents depend on your income, deductions and investments. Common examples include income statements, interest and dividend information, receipts, rental property records, capital gains records, crypto asset reports and foreign income documents. Financially Up will confirm what is relevant to your return.
+        The documents depend on your income, deductions and investments. Common examples include income statements, interest and dividend information, receipts, rental property records, capital gains records, crypto asset reports and foreign income documents. <CompanyName /> will confirm what is relevant to your return.
       </p>
     ),
   },
@@ -103,7 +110,7 @@ const individualTaxFaqs = [
     label: "What happens after I book an appointment?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up will confirm the appointment and discuss your circumstances. We then identify the information required, explain the next steps and prepare the return once the necessary records are available. You review and approve the completed return before lodgement.
+        <CompanyName /> will confirm the appointment and discuss your circumstances. We then identify the information required, explain the next steps and prepare the return once the necessary records are available. You review and approve the completed return before lodgement.
       </p>
     ),
   },
@@ -112,7 +119,7 @@ const individualTaxFaqs = [
     label: "Can you help with prior-year or overdue tax returns?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up can assist with prior-year and overdue individual tax returns. We will identify the years and records involved and explain whether any related ATO correspondence or additional work requires separate attention.
+        Yes. <CompanyName /> can assist with prior-year and overdue individual tax returns. We will identify the years and records involved and explain whether any related ATO correspondence or additional work requires separate attention.
       </p>
     ),
   },
@@ -143,10 +150,7 @@ export default function IndividualTaxReturnPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -158,7 +162,7 @@ export default function IndividualTaxReturnPage() {
               An individual tax return can become more involved when you have income beyond salary and wages. Investment property, capital gains, shares, managed funds, crypto assets, foreign income, employee share schemes, contracting income or significant deductions can all require closer review.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides individual tax return services for clients across Australia. We review the information relevant to your circumstances, prepare your return, explain the key details and obtain your approval before lodgement. We also assist with straightforward returns when you prefer an accountant to manage the process.
+              <CompanyName legal /> provides individual tax return services for clients across Australia. We review the information relevant to your circumstances, prepare your return, explain the key details and obtain your approval before lodgement. We also assist with straightforward returns when you prefer an accountant to manage the process.
             </span>
           </span>
         }
@@ -170,7 +174,7 @@ export default function IndividualTaxReturnPage() {
         subPillarTag="Pillar 1.1 • Personal Tax Practice"
         highlights={[
           "Extended ATO Lodgement Deadlines",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-1" text={"Registered Tax Agent #26234055"} />,
           "100% Online or In-Person Consultations",
         ]}
         primaryCta={{
@@ -179,7 +183,7 @@ export default function IndividualTaxReturnPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -207,7 +211,7 @@ export default function IndividualTaxReturnPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about individual tax return preparation, required documents, deductions, and lodgement with Financially Up."
+        subtitle={<BrandText text={"Common questions about individual tax return preparation, required documents, deductions, and lodgement with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Individual Tax Return Frequently Asked Questions"
         items={individualTaxFaqs}
@@ -219,7 +223,7 @@ export default function IndividualTaxReturnPage() {
       <CallToActionBanner
         tag="Ready When You Are"
         title="Book an Appointment"
-        subtitle="If you need help with an individual tax return, book an appointment with Financially Up. We will discuss your circumstances, identify the appropriate service and explain the information needed to proceed."
+        subtitle={<BrandText text={"If you need help with an individual tax return, book an appointment with Financially Up. We will discuss your circumstances, identify the appropriate service and explain the information needed to proceed."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Individual Tax Services"

@@ -12,8 +12,12 @@ import BankReconTaxAndReporting from "./components/BankReconTaxAndReporting";
 import BankReconciliationWorkflow from "./components/BankReconciliationWorkflow";
 import InformationNeededBankRecon from "./components/InformationNeededBankRecon";
 import WhyChooseFinanciallyUpBankRecon from "./components/WhyChooseFinanciallyUpBankRecon";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Bank Reconciliation Services Australia | Financially Up",
   description:
     "Keep business accounts accurate with bank reconciliation services that match bank activity to your bookkeeping records and identify discrepancies.",
@@ -26,16 +30,17 @@ export const metadata = {
     "credit card reconciliation",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bookkeeping/bank-reconciliation/",
+    canonical: `${SITE_URL}/services/bookkeeping/bank-reconciliation/`,
   },
   openGraph: {
     title: "Bank Reconciliation Services Australia | Financially Up",
     description:
       "Keep business accounts accurate with bank reconciliation services that match bank activity to your bookkeeping records and identify discrepancies.",
-    url: "https://financiallyup.com.au/services/bookkeeping/bank-reconciliation/",
+    url: `${SITE_URL}/services/bookkeeping/bank-reconciliation/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -89,10 +94,7 @@ export default function BankReconciliationPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-neutral-900">
         {/* Hero Section */}
@@ -105,9 +107,9 @@ export default function BankReconciliationPage() {
           badge="Bank Reconciliation Services"
           title="Bank Reconciliation Services for Accurate Business Books"
           subtitle="Compare accounting records with bank and credit-card statements to confirm money received and paid is recorded accurately."
-          description={`Bank reconciliation services compare the transactions in your accounting records with the activity shown on your bank and credit-card statements. The aim is to confirm that money received and paid has been recorded correctly and to identify missing, duplicated or incorrectly allocated entries.
+          description={<BrandText text={`Bank reconciliation services compare the transactions in your accounting records with the activity shown on your bank and credit-card statements. The aim is to confirm that money received and paid has been recorded correctly and to identify missing, duplicated or incorrectly allocated entries.
 
-Financially Up provides bank account reconciliation services for businesses that want cleaner records, more reliable reporting and a consistent bookkeeping process. Reconciliation can be provided as a standalone task or as part of ongoing bookkeeping support.`}
+Financially Up provides bank account reconciliation services for businesses that want cleaner records, more reliable reporting and a consistent bookkeeping process. Reconciliation can be provided as a standalone task or as part of ongoing bookkeeping support.`} />}
           appointmentNote="We can review your current accounting file, the accounts that need reconciling, how far records are up to date and whether you need ongoing or catch-up reconciliation support."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"
@@ -147,7 +149,7 @@ Financially Up provides bank account reconciliation services for businesses that
         {/* Call to Action Banner */}
         <CallToActionBanner
           title="Book an Appointment"
-          description="If your accounts are not reconciling, your bookkeeping is falling behind or you want a consistent monthly process, book an appointment with Financially Up. We can review the accounts involved, the condition of the records and the appropriate bank reconciliation service scope."
+          description={<BrandText text={"If your accounts are not reconciling, your bookkeeping is falling behind or you want a consistent monthly process, book an appointment with Financially Up. We can review the accounts involved, the condition of the records and the appropriate bank reconciliation service scope."} />}
           buttonText="Book an Appointment"
           buttonLink="/book-an-appointment"
         />

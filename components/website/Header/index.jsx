@@ -41,7 +41,7 @@ import {
 } from "@ant-design/icons";
 import { useTheme } from "../../../app/ThemeProvider";
 import styles from "./Header.module.css";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
 import ServicesMegaMenu from "./ServicesMegaMenu";
 import {
   MAIN_SERVICES_MEGA_MENU,
@@ -86,6 +86,7 @@ function renderMobilePillarIcon(iconKey) {
  * 4. Dark / Light mode toggle with persistent smooth transitions
  */
 export default function WebsiteHeader() {
+  const brand = useBrandText();
   const { isDark, toggleTheme } = useTheme();
   const company = useCompany();
   const pathname = usePathname();
@@ -368,7 +369,7 @@ export default function WebsiteHeader() {
           <Link href="/" className="flex items-center gap-2 group">
             <Image
               src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-              alt="Financially Up Logo"
+              alt={brand("Financially Up Logo")}
               width={180}
               height={45}
               priority
@@ -543,7 +544,7 @@ export default function WebsiteHeader() {
             >
               <Image
                 src={isDark ? "/images/logo-w.png" : "/images/logo.png"}
-                alt="Financially Up Logo"
+                alt={brand("Financially Up Logo")}
                 width={130}
                 height={34}
                 className="h-7 w-auto object-contain"

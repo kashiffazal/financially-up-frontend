@@ -10,6 +10,7 @@ import {
   CalendarOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * TestingImprovementOptions Component
@@ -100,7 +101,7 @@ export default function TestingImprovementOptions() {
               </h3>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
                 The business also needs a review period and a small set of
-                measures for checking the result. Financially Up can help
+                measures for checking the result. <CompanyName /> can help
                 document the assumption, expected financial effect and evidence
                 to monitor, so management can compare the actual outcome with
                 the model and adjust the next decision.

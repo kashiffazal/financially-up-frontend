@@ -13,6 +13,8 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsInvestment Component
@@ -53,14 +55,13 @@ export default function HowFinanciallyUpHelpsInvestment() {
             Advisory Partnership &amp; Credentials
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-4">
-            How Financially Up Can Help
+            How <CompanyName /> Can Help
           </h2>
         </div>
-
         {/* Verbatim Explanatory Lead */}
         <div className="max-w-4xl mx-auto mb-12 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
           <p className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm">
-            Financially Up can review the tax implications of existing or
+            <CompanyName /> can review the tax implications of existing or
             proposed investment transactions, explain how income and CGT rules
             may apply, identify records needed for a reliable calculation and
             assist with separately scoped tax planning where appropriate.
@@ -73,7 +74,6 @@ export default function HowFinanciallyUpHelpsInvestment() {
             authorized adviser.
           </p>
         </div>
-
         {/* 4 Feature Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {serviceCapabilities.map((item, idx) => (
@@ -95,8 +95,7 @@ export default function HowFinanciallyUpHelpsInvestment() {
             </div>
           ))}
         </div>
-
-        {/* Why Choose Us & Company Info Card */}
+        {/* Why Choose Us & Company Info Card */}rounded-lg
         <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Column: Why Choose Financially Up Copy */}
@@ -105,10 +104,10 @@ export default function HowFinanciallyUpHelpsInvestment() {
                 Registered Tax Agents
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                Why Choose Financially Up?
+                Why Choose <CompanyName />?
               </h3>
               <p className="text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed mb-4">
-                Financially Up Pty Ltd is a registered tax agent with more than
+                <CompanyName legal /> is a registered tax agent with more than
                 10 years of experience. Our team includes CPA and IPA members
                 and provides Australia-wide tax and accounting support through
                 online and in-person appointments.
@@ -139,10 +138,10 @@ export default function HowFinanciallyUpHelpsInvestment() {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg text-white">
-                    {company?.legalName || "Financially Up Pty Ltd"}
+                    {company?.legalName}
                   </h4>
                   <p className="text-xs text-emerald-400 font-semibold">
-                    Registered Tax Agent • TPB #26234055
+                    Registered Tax Agent • TPB #<BrandText text={"26234055"} />
                   </p>
                 </div>
               </div>
@@ -158,7 +157,7 @@ export default function HowFinanciallyUpHelpsInvestment() {
                       href={`tel:${company?.phone?.replace(/\s/g, "") || "1300328316"}`}
                       className="text-white hover:text-emerald-400 font-medium transition-colors"
                     >
-                      {company?.phone || "1300 328 316"}
+                      {company?.phone}
                     </a>
                   </div>
                 </div>
@@ -170,10 +169,10 @@ export default function HowFinanciallyUpHelpsInvestment() {
                       Email Advisory
                     </span>
                     <a
-                      href={`mailto:${company?.email || "info@financiallyup.com.au"}`}
+                      href={`mailto:${company?.email}`}
                       className="text-white hover:text-emerald-400 font-medium transition-colors"
                     >
-                      {company?.email || "info@financiallyup.com.au"}
+                      {company?.email}
                     </a>
                   </div>
                 </div>
@@ -185,8 +184,7 @@ export default function HowFinanciallyUpHelpsInvestment() {
                       National Office
                     </span>
                     <span className="text-zinc-200">
-                      {company?.address ||
-                        "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                      {company?.address}
                     </span>
                   </div>
                 </div>
@@ -198,7 +196,7 @@ export default function HowFinanciallyUpHelpsInvestment() {
                   </div>
                   <div className="flex items-center space-x-1.5">
                     <AuditOutlined className="text-emerald-400" />
-                    <span>ABN: {company?.abn || "84 659 717 263"}</span>
+                    <span>ABN: {company?.abn}</span>
                   </div>
                 </div>
               </div>

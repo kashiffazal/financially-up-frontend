@@ -8,11 +8,17 @@ import HowFinanciallyUpHelpsSoleTraders from "./components/HowFinanciallyUpHelps
 import RelatedSoleTraderServicesRibbon from "./components/RelatedSoleTraderServicesRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Sole Trader Tax Return & Accounting | Financially Up",
   description:
     "Sole trader tax return and accounting support for Australian businesses. Get help with business income, expenses, GST, BAS, records and year-end tax.",
@@ -26,18 +32,19 @@ export const metadata = {
     "lodge sole trader tax return",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/sole-trader-tax/",
+    canonical: `${SITE_URL}/services/business-tax/sole-trader-tax/`,
   },
   openGraph: {
     title: "Sole Trader Tax Return & Accounting | Financially Up",
     description:
       "Sole trader tax return and accounting support for Australian businesses. Get help with business income, expenses, GST, BAS, records and year-end tax.",
-    url: "https://financiallyup.com.au/services/business-tax/sole-trader-tax/",
+    url: `${SITE_URL}/services/business-tax/sole-trader-tax/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -91,10 +98,10 @@ const soleTraderTaxFaqs = [
   },
   {
     key: "5",
-    label: "Can Financially Up help with bookkeeping as well as tax?",
+    label: <BrandText text={"Can Financially Up help with bookkeeping as well as tax?"} />,
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up provides bookkeeping and accounting services in addition to taxation. The bookkeeping or catch-up work can be scoped separately based on the condition of your records.
+        Yes. <CompanyName /> provides bookkeeping and accounting services in addition to taxation. The bookkeeping or catch-up work can be scoped separately based on the condition of your records.
       </p>
     ),
   },
@@ -125,10 +132,7 @@ export default function SoleTraderTaxPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -140,7 +144,7 @@ export default function SoleTraderTaxPage() {
               A sole trader reports business income and expenses through their individual tax return rather than lodging a separate business income tax return. That sounds simple, but the return can become more involved when you have business assets, GST, BAS, vehicle or home-based costs, contractors, multiple income streams or incomplete records.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides sole trader tax return preparation and ongoing business accounting support for sole traders across Australia. This page focuses on the business side of sole trader tax: recording business activity correctly, preparing year-end figures and meeting related tax and accounting obligations.
+              <CompanyName legal /> provides sole trader tax return preparation and ongoing business accounting support for sole traders across Australia. This page focuses on the business side of sole trader tax: recording business activity correctly, preparing year-end figures and meeting related tax and accounting obligations.
             </span>
           </span>
         }
@@ -188,7 +192,7 @@ export default function SoleTraderTaxPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Sole Trader Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -225,7 +229,7 @@ export default function SoleTraderTaxPage() {
       {/* 9. Pre-Footer Call To Action Banner */}
       <CallToActionBanner
         title="Book an Appointment"
-        description="If your business records, deductions, BAS or year-end tax position need review, book an appointment with Financially Up to discuss the work required for your sole trader tax return and ongoing accounting needs."
+        description={<BrandText text={"If your business records, deductions, BAS or year-end tax position need review, book an appointment with Financially Up to discuss the work required for your sole trader tax return and ongoing accounting needs."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnLink="/book-an-appointment"
       />

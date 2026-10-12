@@ -14,6 +14,7 @@ import {
   TrophyOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpAP Component
@@ -31,7 +32,7 @@ export default function WhyChooseFinanciallyUpAP() {
         <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
       title: "Registered Tax Agent",
-      desc: `TPB Registration #${company.taxAgentNumber || "26234055"} with formal regulatory accountability.`,
+      desc: `TPB Registration #${company.taxAgentNumber} with formal regulatory accountability.`,
     },
     {
       icon: (
@@ -68,10 +69,10 @@ export default function WhyChooseFinanciallyUpAP() {
             Professional Governance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why Choose Financially Up
+            Why Choose <CompanyName />
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up Pty Ltd"} combines bookkeeping
+            {company.legalName} combines bookkeeping
             support with accounting, taxation and business advisory services. We
             are a registered tax agent with more than 10 years of experience,
             and our team includes CPA and IPA members. This broader context

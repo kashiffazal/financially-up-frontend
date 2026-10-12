@@ -13,6 +13,7 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpSupportsGrowth Component
@@ -67,7 +68,7 @@ export default function HowFinanciallyUpSupportsGrowth() {
             Advisory Partnership &amp; Boundaries
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up Supports the Decision
+            How <CompanyName /> Supports the Decision
           </h2>
         </div>
 

@@ -12,6 +12,7 @@ import {
   CheckCircleOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * ValueAndTaxConnectedDistinct Component
@@ -97,7 +98,7 @@ export default function ValueAndTaxConnectedDistinct() {
                 <span>Legal Coordination &amp; Market Realities</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Financially Up can review the accounting and tax implications
+                <CompanyName /> can review the accounting and tax implications
                 within the agreed scope and coordinate with the lawyer drafting
                 the transaction documents. A valuation is not a guarantee that a
                 buyer will offer or a lender will accept a stated price.

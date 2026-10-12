@@ -11,8 +11,12 @@ import ReportableFbtAndTiming from "./components/ReportableFbtAndTiming";
 import CommonRecordsNeededForFbt from "./components/CommonRecordsNeededForFbt";
 import HowFinanciallyUpHelpsFbt from "./components/HowFinanciallyUpHelpsFbt";
 import WhyChooseFinanciallyUpFbt from "./components/WhyChooseFinanciallyUpFbt";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import BrandText from "@/components/mutual/BrandText";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "FBT Accountant Australia | Fringe Benefits Tax Services",
   description:
     "FBT accountant support for employers with fringe benefits, FBT calculations, records and return preparation. Australia-wide appointments available.",
@@ -26,16 +30,17 @@ export const metadata = {
     "FBT exemptions",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/bas-payroll/fringe-benefits-tax/",
+    canonical: `${SITE_URL}/services/bas-payroll/fringe-benefits-tax/`,
   },
   openGraph: {
     title: "FBT Accountant Australia | Fringe Benefits Tax Services",
     description:
       "FBT accountant support for employers with fringe benefits, FBT calculations, records and return preparation. Australia-wide appointments available.",
-    url: "https://financiallyup.com.au/services/bas-payroll/fringe-benefits-tax/",
+    url: `${SITE_URL}/services/bas-payroll/fringe-benefits-tax/`,
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -94,10 +99,7 @@ export default function FringeBenefitsTaxPage() {
   return (
     <>
       {/* Schema.org FAQ Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       <main className="min-h-screen bg-white dark:bg-zinc-900">
         {/* Hero Section */}
@@ -110,7 +112,7 @@ export default function FringeBenefitsTaxPage() {
           badge="FBT Accountant Services"
           title="FBT Accountant for Fringe Benefits Tax Compliance"
           subtitle="Identify employee benefits, calculate taxable values, and lodge annual FBT returns with qualified tax agent support."
-          description={`An FBT accountant can help employers identify fringe benefits, review available records, calculate taxable values and prepare an FBT return where required. Financially Up supports businesses that provide non-cash benefits or reimbursements and need help understanding the related fringe benefits tax obligations.`}
+          description={<BrandText text={`An FBT accountant can help employers identify fringe benefits, review available records, calculate taxable values and prepare an FBT return where required. Financially Up supports businesses that provide non-cash benefits or reimbursements and need help understanding the related fringe benefits tax obligations.`} />}
           appointmentNote="Unsure whether employee benefits create an FBT obligation? Book an Appointment."
           ctaText="Book an Appointment"
           ctaLink="/book-an-appointment"

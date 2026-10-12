@@ -11,6 +11,8 @@ import {
   GlobalOutlined,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsRd Component
@@ -28,7 +30,7 @@ export default function HowFinanciallyUpHelpsRd() {
       ),
       title: "Review Tax & Accounting Aspects",
       description:
-        "As a registered tax agent, Financially Up can review the tax and accounting aspects of an R&D tax incentive claim and assist with a company tax return within an agreed engagement.",
+        <BrandText text={"As a registered tax agent, Financially Up can review the tax and accounting aspects of an R&D tax incentive claim and assist with a company tax return within an agreed engagement."} />,
     },
     {
       icon: (
@@ -68,10 +70,10 @@ export default function HowFinanciallyUpHelpsRd() {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            As a registered tax agent, Financially Up can review the tax and
+            As a registered tax agent, <CompanyName /> can review the tax and
             accounting aspects of an R&amp;D tax incentive claim and assist with
             a company tax return within an agreed engagement. We can help
             organise project and cost information, identify questions for
@@ -117,7 +119,7 @@ export default function HowFinanciallyUpHelpsRd() {
                 self-assessment, activity descriptions and expenditure records.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed m-0 font-medium">
-                Financially Up Pty Ltd has more than 10 years of experience and
+                <CompanyName legal /> has more than 10 years of experience and
                 a team including CPA and IPA members. We offer online and
                 in-person appointments across Australia. We discuss the specific
                 work needed without guaranteeing eligibility, registration, an

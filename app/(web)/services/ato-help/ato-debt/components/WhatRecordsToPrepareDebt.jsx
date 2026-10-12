@@ -11,6 +11,7 @@ import {
   FundProjectionScreenOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatRecordsToPrepareDebt Component
@@ -122,7 +123,7 @@ export default function WhatRecordsToPrepareDebt() {
         <div className="rounded-lg p-6 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-center">
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
             <strong>Missing records or overdue accounting?</strong> Don't let
-            incomplete paperwork delay you. Financially Up can help reconcile
+            incomplete paperwork delay you. <CompanyName /> can help reconcile
             your files, reconstruct missing data, and gather required records
             from the ATO tax agent portal.
           </p>

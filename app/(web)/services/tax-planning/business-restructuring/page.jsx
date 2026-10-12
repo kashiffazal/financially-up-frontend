@@ -10,12 +10,18 @@ import HowFinanciallyUpHelpsRestructuring from "./components/HowFinanciallyUpHel
 import RelatedRestructuringRibbon from "./components/RelatedRestructuringRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 11)
  * File: '3rd Pillar Tax Planning & Advisory Final Content Pages 1-12.docx'
  */
-export const metadata = {
+const baseMetadata = {
   title: "Business Restructuring Advice Australia | Financially Up",
   description:
     "Review business restructure tax implications, ownership, assets and compliance before making changes. Practical restructuring advice from Financially Up.",
@@ -29,18 +35,19 @@ export const metadata = {
     "corporate restructuring advice Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/tax-planning/business-restructuring/",
+    canonical: `${SITE_URL}/services/tax-planning/business-restructuring/`,
   },
   openGraph: {
     title: "Business Restructuring Advice Australia | Financially Up",
     description:
       "Review business restructure tax implications, ownership, assets and compliance before making changes. Practical restructuring advice from Financially Up.",
-    url: "https://financiallyup.com.au/services/tax-planning/business-restructuring/",
+    url: `${SITE_URL}/services/tax-planning/business-restructuring/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the Tax Planning service hierarchy
@@ -97,7 +104,7 @@ const businessRestructuringFaqs = [
     label: "Do I need a lawyer for a business restructure?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Often, legal advice or documents are required for company, trust, contract, ownership or employment changes. Financially Up can address the tax and accounting aspects and identify when separate legal advice should be obtained.
+        Often, legal advice or documents are required for company, trust, contract, ownership or employment changes. <CompanyName /> can address the tax and accounting aspects and identify when separate legal advice should be obtained.
       </p>
     ),
   },
@@ -128,10 +135,7 @@ export default function BusinessRestructuringPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -164,7 +168,7 @@ export default function BusinessRestructuringPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Business Advisory Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Virtual & In-Person Support" },
         ]}
@@ -195,7 +199,7 @@ export default function BusinessRestructuringPage() {
       <FaqSection
         badgeTag="Answers & Clarity"
         title="Frequently Asked Questions"
-        subtitle="Common questions about business restructuring tax consequences, SBRR rollovers, stamp duty, and legal requirements with Financially Up."
+        subtitle={<BrandText text={"Common questions about business restructuring tax consequences, SBRR rollovers, stamp duty, and legal requirements with Financially Up."} />}
         image="/images/services/faq.webp"
         imageAlt="Business Restructuring Advice Frequently Asked Questions"
         items={businessRestructuringFaqs}
@@ -207,7 +211,7 @@ export default function BusinessRestructuringPage() {
       <CallToActionBanner
         tag="Business Restructuring Advisory"
         title="Book an Appointment"
-        subtitle="Discuss your current structure, proposed changes, ownership, assets and business objectives with Financially Up before the restructure is implemented."
+        subtitle={<BrandText text={"Discuss your current structure, proposed changes, ownership, assets and business objectives with Financially Up before the restructure is implemented."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Tax Planning Hub"

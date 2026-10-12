@@ -8,11 +8,17 @@ import WhyChooseFinanciallyUpRdClaim from "./components/WhyChooseFinanciallyUpRd
 import RelatedServiceRibbon from "./components/RelatedServiceRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 2 of 15th Pillar R&D Tax Incentive.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "R&D Tax Claim Preparation | Financially Up",
   description:
     "Prepare an R&D tax claim using traceable project costs and records. Get help reconciling expenditure, registration details and the company tax return.",
@@ -26,18 +32,19 @@ export const metadata = {
     "overseas finding R&D",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/rd-tax-incentive/rnd-tax-claim-preparation/",
+    canonical: `${SITE_URL}/services/rd-tax-incentive/rnd-tax-claim-preparation/`,
   },
   openGraph: {
     title: "R&D Tax Claim Preparation | Financially Up",
     description:
       "Prepare an R&D tax claim using traceable project costs and records. Get help reconciling expenditure, registration details and the company tax return.",
-    url: "https://financiallyup.com.au/services/rd-tax-incentive/rnd-tax-claim-preparation/",
+    url: `${SITE_URL}/services/rd-tax-incentive/rnd-tax-claim-preparation/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -120,10 +127,7 @@ export default function RdTaxClaimPreparationPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -138,7 +142,7 @@ export default function RdTaxClaimPreparationPage() {
               assessed under the R&amp;D tax rules before the offset is included in the company return.
             </span>
             <span className="block mt-2">
-              Financially Up works with companies that have registered, or are preparing to register,
+              <CompanyName /> works with companies that have registered, or are preparing to register,
               R&amp;D activities and need help with the tax and accounting stage. Book an Appointment
               to discuss the income year, registration status and records. We will identify the next
               step and the scope of claim assistance appropriate to your circumstances.
@@ -154,7 +158,7 @@ export default function RdTaxClaimPreparationPage() {
         highlights={[
           "Traceable Ledger & Payroll Allocations",
           "10-Month AusIndustry Registration Deadline",
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-2" text={"Registered Tax Agent #26234055"} />,
         ]}
         primaryCta={{
           label: "Book an Appointment",
@@ -162,7 +166,7 @@ export default function RdTaxClaimPreparationPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "R&D Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -199,7 +203,7 @@ export default function RdTaxClaimPreparationPage() {
       <CallToActionBanner
         tag="Prepare a claim you can explain"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to review your activity registration, cost records and the R&D tax claim preparation needed for your company return."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to review your activity registration, cost records and the R&D tax claim preparation needed for your company return."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore R&D Tax Incentive"

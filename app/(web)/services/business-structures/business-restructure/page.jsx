@@ -9,23 +9,28 @@ import RestructureTaxAndRegistrations from "./components/RestructureTaxAndRegist
 import HowRestructureAccountantHelps from "./components/HowRestructureAccountantHelps";
 import RestructureProcessAndInfoNeeded from "./components/RestructureProcessAndInfoNeeded";
 import WhyChooseFinanciallyUpRestructure from "./components/WhyChooseFinanciallyUpRestructure";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
-export const metadata = {
+const baseMetadata = {
   title: "Business Restructuring Services Australia | Financially Up",
   description:
     "Business restructuring services Australia for owners changing structure, ownership or operations, with tax, accounting and registration support.",
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-structures/business-restructure/",
+    canonical: `${SITE_URL}/services/business-structures/business-restructure/`,
   },
   openGraph: {
     title: "Business Restructuring Services Australia | Financially Up",
     description:
       "Business restructuring services Australia for owners changing structure, ownership or operations, with tax, accounting and registration support.",
-    url: "https://financiallyup.com.au/services/business-structures/business-restructure/",
+    url: `${SITE_URL}/services/business-structures/business-restructure/`,
     siteName: "Financially Up",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -57,7 +62,7 @@ export default function BusinessRestructurePage() {
     provider: {
       "@type": "AccountingService",
       name: "Financially Up Pty Ltd",
-      url: "https://financiallyup.com.au",
+      url: `${SITE_URL}`,
     },
     areaServed: {
       "@type": "Country",
@@ -68,10 +73,7 @@ export default function BusinessRestructurePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <JsonLd data={schemaData} />
 
       <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100">
         {/* Hero Section */}
@@ -120,7 +122,7 @@ export default function BusinessRestructurePage() {
         {/* Section 7: CTA Banner */}
         <CallToActionBanner
           title="Book an Appointment"
-          subtitle="If you are planning to restructure a business, book an appointment with Financially Up to discuss the current structure, proposed change, tax and accounting implications, registrations and the professional work needed before implementation."
+          subtitle={<BrandText text={"If you are planning to restructure a business, book an appointment with Financially Up to discuss the current structure, proposed change, tax and accounting implications, registrations and the professional work needed before implementation."} />}
           buttonText="Book an Appointment"
           buttonLink="/contact"
         />

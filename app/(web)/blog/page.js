@@ -4,6 +4,7 @@ import BlogHub from "./components/BlogHub";
 import { getBlogHub } from "@/lib/blogFetch";
 import { getSettings } from "@/lib/getSettings";
 import { siteBaseUrl } from "@/lib/blog";
+import { brandText } from "@/lib/brand";
 
 /**
  * /blog - Blog & Tax Insights listing.
@@ -16,7 +17,7 @@ export async function generateMetadata() {
   const siteUrl = siteBaseUrl(settings["url.website"]);
   return {
     metadataBase: new URL(siteUrl),
-    title: "Blog & Tax Insights | Financially Up",
+    title: brandText("Blog & Tax Insights | Financially Up", settings),
     description:
       "Expert tax tips, ATO compliance updates, business structuring advice and wealth strategies from Australian registered tax agents.",
     alternates: { canonical: "/blog" },

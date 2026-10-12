@@ -71,7 +71,7 @@ export default function WhatIsInvestmentPropertyTax() {
           {corePrinciples.map((item, index) => (
             <div
               key={index}
-              className="group bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-primary/40 dark:hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="group bg-slate-50/70 dark:bg-zinc-800/60 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-primary/40 dark:hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-700/80 border border-slate-200 dark:border-zinc-600 flex items-center justify-center shadow-xs mb-5 group-hover:scale-105 transition-transform">
@@ -94,7 +94,7 @@ export default function WhatIsInvestmentPropertyTax() {
         </div>
 
         {/* Callout Strip */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-zinc-800/80 dark:via-zinc-850 dark:to-zinc-800/80 border border-emerald-200/80 dark:border-emerald-800/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="mt-12 p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-zinc-800/80 dark:via-zinc-850 dark:to-zinc-800/80 border border-emerald-200/80 dark:border-emerald-800/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-1.5 text-center md:text-left">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               First-time Landlord or Expanding Property Portfolio?

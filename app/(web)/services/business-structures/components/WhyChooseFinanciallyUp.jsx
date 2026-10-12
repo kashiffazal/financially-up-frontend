@@ -10,6 +10,8 @@ import {
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * WhyChooseFinanciallyUp Component
@@ -25,7 +27,7 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
  */
 export default function WhyChooseFinanciallyUp() {
   const company = useCompany();
-  const legalName = company?.legalName || "Financially Up Pty Ltd";
+  const legalName = company?.legalName;
 
   const credentialBadges = [
     {
@@ -72,7 +74,7 @@ export default function WhyChooseFinanciallyUp() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Why choose Financially Up?
+            Why choose <CompanyName />?
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
@@ -124,7 +126,7 @@ export default function WhyChooseFinanciallyUp() {
           tag="Strategic Advisory Consultation"
           tagIcon="safety"
           title="Discuss Your Structure With a Qualified Tax Agent"
-          description="Whether you are starting a new business, incorporating a company, establishing a trust, or reviewing whether your current setup still fits your growth, book an appointment with Financially Up."
+          description={<BrandText text={"Whether you are starting a new business, incorporating a company, establishing a trust, or reviewing whether your current setup still fits your growth, book an appointment with Financially Up."} />}
           primaryButton={{
             text: "Book an Appointment",
             href: "/book-an-appointment",

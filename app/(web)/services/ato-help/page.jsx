@@ -11,11 +11,15 @@ import AfterFirstReview from "./components/AfterFirstReview";
 import WhyChooseFinanciallyUpAto from "./components/WhyChooseFinanciallyUpAto";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Help Australia | Tax Agent Support | Financially Up",
   description:
     "Need help dealing with the ATO? Financially Up assists with tax notices, lodgements, account issues, debt and audit matters across Australia.",
@@ -32,18 +36,19 @@ export const metadata = {
     "overdue BAS lodgement",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/",
+    canonical: `${SITE_URL}/services/ato-help/`,
   },
   openGraph: {
     title: "ATO Help Australia | Tax Agent Support | Financially Up",
     description:
       "Need help dealing with the ATO? Financially Up assists with tax notices, lodgements, account issues, debt and audit matters across Australia.",
-    url: "https://financiallyup.com.au/services/ato-help/",
+    url: `${SITE_URL}/services/ato-help/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration for ATO Help
@@ -144,7 +149,7 @@ const atoFaqs = [
     label: "Does ATO help include legal representation?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Not automatically. Financially Up provides tax and accounting assistance within scope. Formal
+        Not automatically. <CompanyName /> provides tax and accounting assistance within scope. Formal
         legal representation, litigation or insolvency work may require an appropriately qualified
         specialist.
       </p>
@@ -228,10 +233,7 @@ export default function AtoHelpMainPage() {
   return (
     <main className="w-full overflow-hidden bg-white dark:bg-zinc-950 transition-colors">
       {/* Structured Data: FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 1. Hero Section using Flagship ServiceHero with Exact H1 & Verbatim Lead Text */}
       <ServiceHero
@@ -247,7 +249,7 @@ export default function AtoHelpMainPage() {
             If you have received an ATO letter, have overdue lodgements, are unsure about an account
             balance or need help responding to the Australian Taxation Office, the right starting
             point is to identify exactly what the ATO is asking for and what deadline or tax issue is
-            involved. Financially Up provides ATO help in Australia for individuals and businesses that
+            involved. <CompanyName /> provides ATO help in Australia for individuals and businesses that
             want a registered tax agent to review the issue, organise the underlying tax work and
             communicate with the ATO where authorised.
           </p>

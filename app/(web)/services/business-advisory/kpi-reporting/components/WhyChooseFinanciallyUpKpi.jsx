@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhyChooseFinanciallyUpKpi Component
@@ -60,10 +61,10 @@ export default function WhyChooseFinanciallyUpKpi() {
             Accreditation &amp; Practical Value
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why Choose Financially Up?
+            Why Choose <CompanyName />?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up Pty Ltd brings accounting and business advisory work
+            <CompanyName legal /> brings accounting and business advisory work
             together. Our team includes CPA and IPA members and has more than 10
             years of experience. We offer online and in-person appointments to
             businesses across Australia. We focus on reports that an owner can

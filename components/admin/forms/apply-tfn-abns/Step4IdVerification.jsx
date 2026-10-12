@@ -5,6 +5,7 @@ import { Tag } from "antd";
 import { IdcardOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
+import CompanyName from "@/components/mutual/CompanyName";
 
 export default function Step4IdVerification() {
   return (
@@ -61,7 +62,7 @@ export default function Step4IdVerification() {
 
         <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
           I declare that the information provided in this application is true
-          and correct. I authorise Financially Up as a registered Australian Tax
+          and correct. I authorise <CompanyName /> as a registered Australian Tax
           & ASIC Agent to lodge this TFN/ABN application on my behalf with the
           ATO and the Australian Business Register.
         </p>

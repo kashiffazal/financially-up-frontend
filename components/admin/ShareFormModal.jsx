@@ -13,6 +13,8 @@ import {
 } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import { antdMsg, HTTP } from "@/services";
+import { useBrandText } from "@/context/SettingsContext";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 const { Text } = Typography;
 
@@ -40,6 +42,7 @@ export default function ShareFormModal({
   defaultMessage = "",
   onSuccess,
 }) {
+  const brand = useBrandText();
   const [form] = Form.useForm();
   const [isSending, setIsSending] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -52,7 +55,7 @@ export default function ShareFormModal({
       const cleanPath = formPath.startsWith("/") ? formPath : `/${formPath}`;
       return `${window.location.origin}${cleanPath}`;
     }
-    return `https://financiallyup.com.au${formPath}`;
+    return brand(`${SITE_URL}${formPath}`);
   }, [formPath]);
 
   // --------------------------------------------------------------------------

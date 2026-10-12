@@ -11,6 +11,7 @@ import {
   ArrowRightOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhenNeedServiceAndTaxConsiderations Component
@@ -67,7 +68,7 @@ export default function WhenNeedServiceAndTaxConsiderations() {
             </h2>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-6">
+          <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6 mb-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               Share changes commonly arise when a founder leaves, a new owner
               joins, family ownership changes, an investor is introduced, an
@@ -129,7 +130,7 @@ export default function WhenNeedServiceAndTaxConsiderations() {
             </h2>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               An ASIC filing does not determine the tax outcome of a share
               transaction. A transfer or issue can have tax, accounting,
@@ -141,7 +142,7 @@ export default function WhenNeedServiceAndTaxConsiderations() {
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               For that reason, it can be useful to seek advice before signing or
               implementing a significant ownership change rather than treating
-              the ASIC update as the first step. Financially Up can assist with
+              the ASIC update as the first step. <CompanyName /> can assist with
               the accounting and tax aspects that fall within the agreed scope.
               Legal documentation, shareholder rights or transaction-specific
               legal advice may require a lawyer.

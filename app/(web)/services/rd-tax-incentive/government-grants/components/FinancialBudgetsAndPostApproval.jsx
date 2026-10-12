@@ -11,6 +11,7 @@ import {
   FileSyncOutlined,
   AuditOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * FinancialBudgetsAndPostApproval Component
@@ -57,7 +58,7 @@ export default function FinancialBudgetsAndPostApproval() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Budgeting Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -78,7 +79,7 @@ export default function FinancialBudgetsAndPostApproval() {
           </div>
 
           {/* R&D Interaction Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-teal-600 dark:text-teal-400">
@@ -89,7 +90,7 @@ export default function FinancialBudgetsAndPostApproval() {
                 </h3>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Financially Up can assist with relevant accounting information
+                <CompanyName /> can assist with relevant accounting information
                 within the agreed engagement. This may include reviewing
                 existing financial records, organizing project costs and
                 checking that budget figures align with the supporting

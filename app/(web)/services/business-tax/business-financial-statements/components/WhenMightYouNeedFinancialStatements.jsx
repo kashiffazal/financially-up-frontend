@@ -15,6 +15,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhenMightYouNeedFinancialStatements Component
@@ -136,7 +137,7 @@ export default function WhenMightYouNeedFinancialStatements() {
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               Not every set of financial statements is audited or independently
-              assured. Financially Up does not imply an audit or assurance
+              assured. <CompanyName /> does not imply an audit or assurance
               engagement unless that work is specifically agreed and legally
               appropriate.
             </p>

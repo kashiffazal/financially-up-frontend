@@ -4,12 +4,14 @@ import React from "react";
 import { Form, Button } from "antd";
 import { MailOutlined, ArrowLeftOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function ForgotPasswordForm({
   onFinish,
   loading,
   onBackToSignInClick,
 }) {
+  const brand = useBrandText();
   const [form] = Form.useForm();
 
   return (
@@ -39,7 +41,7 @@ export default function ForgotPasswordForm({
               Email Address
             </span>
           }
-          placeholder="you@financiallyup.com.au"
+          placeholder={brand("you@financiallyup.com.au")}
           preIconAnt={<MailOutlined className="text-slate-400 mr-2" />}
           size="large"
           className="h-11 border-slate-200 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-white rounded-lg focus:border-[#008043]"

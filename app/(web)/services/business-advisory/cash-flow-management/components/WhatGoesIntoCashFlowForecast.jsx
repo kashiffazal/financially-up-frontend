@@ -17,6 +17,7 @@ import {
   CheckCircleOutlined,
   ArrowRightOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhatGoesIntoCashFlowForecast Component
@@ -131,7 +132,7 @@ export default function WhatGoesIntoCashFlowForecast() {
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             A forecast should be based on the actual payment patterns of the
             business rather than simply spreading annual income and expenses
-            evenly across months. Depending on the business, Financially Up may
+            evenly across months. Depending on the business, <CompanyName /> may
             review:
           </p>
         </div>
@@ -167,7 +168,7 @@ export default function WhatGoesIntoCashFlowForecast() {
 
               <div className="mt-5 pt-3 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
                 <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
-                <span>Reviewed by Financially Up</span>
+                <span>Reviewed by <CompanyName /></span>
               </div>
             </div>
           ))}

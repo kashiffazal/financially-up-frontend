@@ -9,11 +9,16 @@ import WhatToBringThreeWayForecasting from "./components/WhatToBringThreeWayFore
 import RelatedServiceRibbonThreeWay from "./components/RelatedServiceRibbonThreeWay";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
 
 /**
  * Server Metadata for SEO (Exact values from client document: Subpage 7)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Three Way Financial Forecasting | Financially Up",
   description:
     "See how future profit, cash and financial position fit together. Financially Up builds connected forecasts around your business assumptions and decisions.",
@@ -26,18 +31,19 @@ export const metadata = {
     "bank finance forecasting",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/virtual-cfo/three-way-forecasting/",
+    canonical: `${SITE_URL}/services/virtual-cfo/three-way-forecasting/`,
   },
   openGraph: {
     title: "Three Way Financial Forecasting | Financially Up",
     description:
       "See how future profit, cash and financial position fit together. Financially Up builds connected forecasts around your business assumptions and decisions.",
-    url: "https://financiallyup.com.au/services/virtual-cfo/three-way-forecasting/",
+    url: `${SITE_URL}/services/virtual-cfo/three-way-forecasting/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking back through the service hierarchy
@@ -116,10 +122,7 @@ export default function ThreeWayForecastingPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -131,7 +134,7 @@ export default function ThreeWayForecastingPage() {
               Three way financial forecasting connects a projected profit and loss statement, balance sheet and cash flow statement. It shows how a plan may affect earnings, the assets and liabilities the business holds, and the cash available to meet commitments. This matters when a profitable-looking plan could still create a funding gap.
             </span>
             <span className="block mt-2">
-              Financially Up works with businesses planning growth, capital purchases, funding or a change in operations. We build an agreed forecast around the decision and the records available, then explain which results depend most on assumptions.
+              <CompanyName /> works with businesses planning growth, capital purchases, funding or a change in operations. We build an agreed forecast around the decision and the records available, then explain which results depend most on assumptions.
             </span>
             <span className="block mt-2">
               Book an Appointment to discuss your planning question and whether an integrated forecast is the right tool.
@@ -195,7 +198,7 @@ export default function ThreeWayForecastingPage() {
       <CallToActionBanner
         tag="See the Full Effect of Your Plan"
         title="Book an Appointment"
-        subtitle="Book an Appointment with Financially Up to discuss the decision, available records and whether three way financial forecasting would provide the connected view you need."
+        subtitle={<BrandText text={"Book an Appointment with Financially Up to discuss the decision, available records and whether three way financial forecasting would provide the connected view you need."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore Virtual CFO Services"

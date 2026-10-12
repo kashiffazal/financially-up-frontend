@@ -6,6 +6,7 @@ import { GlobalOutlined, TeamOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import UploadFile from "@/components/mutual/antd-upload-file-component";
 import PrivacyCollectionNoticeTrigger from "./PrivacyCollectionNoticeTrigger";
+import CompanyName from "@/components/mutual/CompanyName";
 
 const VISA_STATUS_OPTIONS = [
   "Permanent Resident (PR)",
@@ -375,7 +376,7 @@ export default function Step3ResidencyFamily({ form }) {
               name="prepareSpouseReturn"
               label={
                 <span className="font-bold text-slate-800 dark:text-zinc-200">
-                  Would you like Financially Up to prepare your spouse&apos;s
+                  Would you like <CompanyName /> to prepare your spouse&apos;s
                   tax return as well?
                 </span>
               }

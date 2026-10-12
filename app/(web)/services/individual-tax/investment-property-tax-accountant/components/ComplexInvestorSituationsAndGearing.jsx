@@ -68,7 +68,7 @@ export default function ComplexInvestorSituationsAndGearing() {
         {/* 2-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
           {/* Left Column: Complex Scenarios */}
-          <div className="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-brand-primary dark:bg-emerald-400" />
@@ -136,7 +136,7 @@ export default function ComplexInvestorSituationsAndGearing() {
           </div>
 
           {/* Right Column: Negative and Positive Gearing */}
-          <div className="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />

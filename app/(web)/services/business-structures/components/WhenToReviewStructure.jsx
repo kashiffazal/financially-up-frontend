@@ -13,6 +13,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhenToReviewStructure Component
@@ -153,7 +154,7 @@ export default function WhenToReviewStructure() {
                   asset-transfer and state tax consequences. That work is
                   different from initial setup and usually needs a separate
                   review before anything is transferred or implemented.
-                  Financially Up can help identify the accounting and tax issues
+                  <CompanyName /> can help identify the accounting and tax issues
                   and coordinate with legal advisers where legal documentation
                   or legal advice is required.
                 </p>

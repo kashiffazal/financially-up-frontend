@@ -5,6 +5,7 @@ import { Alert, Tag } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import { AntInput } from "@/services/antdFields";
 import SignatureCanvas from "@/components/mutual/SignatureCanvas";
+import BrandText from "@/components/mutual/BrandText";
 
 export default function Step10ElectronicSignature() {
   return (
@@ -98,7 +99,7 @@ export default function Step10ElectronicSignature() {
         showIcon
         icon={<LockOutlined />}
         title="Engagement Status After Submission: Pending Review"
-        description="Upon clicking 'Submit Engagement Application', your application will be securely sent to Financially Up. Your engagement remains in 'Pending Review' status until reviewed and formally accepted by our accounting staff."
+        description={<BrandText text={"Upon clicking 'Submit Engagement Application', your application will be securely sent to Financially Up. Your engagement remains in 'Pending Review' status until reviewed and formally accepted by our accounting staff."} />}
         className="rounded-lg p-4 border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200"
       />
     </div>

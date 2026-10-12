@@ -24,6 +24,8 @@ import { AntInput } from "@/services/antdFields";
 import PageHero from "@/components/website/PageHero";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * Service options for Contact Form dropdown
@@ -67,7 +69,7 @@ const contactFaqs = [
       "Do I need to visit an office in person or is everything 100% online?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up is fully optimized for 100% online service across all
+        <CompanyName /> is fully optimized for 100% online service across all
         Australian states. You can securely upload your documents, communicate
         via phone or video call, and sign documents electronically from your
         phone or laptop. In-person meetings are also available at our North
@@ -166,7 +168,7 @@ export default function ContactContent() {
       <PageHero
         breadcrumbs={breadcrumbs}
         badgeTag="Get In Touch"
-        title="Contact Financially Up"
+        title={<BrandText text={"Contact Financially Up"} />}
         subtitle="Speak directly with registered Australian tax agents and qualified CPAs. We provide proactive accounting and taxation support nationwide."
       />
 
@@ -304,7 +306,7 @@ export default function ContactContent() {
 
           {/* Right Column: Interactive Contact Form (Span 7) */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-9 rounded-3xl border border-slate-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl transition-all relative">
+            <div className="p-6 sm:p-9 rounded-lg border border-slate-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl transition-all relative">
               {/* Header Title inside Form Container */}
               <div className="mb-6 space-y-1.5 pb-4 border-b border-slate-100 dark:border-zinc-800">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400">
@@ -329,7 +331,7 @@ export default function ContactContent() {
                       Message Successfully Sent!
                     </h5>
                     <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-                      Thank you for contacting Financially Up. We have received
+                      Thank you for contacting <CompanyName />. We have received
                       your enquiry and an accountant will review your details
                       and contact you shortly.
                     </p>

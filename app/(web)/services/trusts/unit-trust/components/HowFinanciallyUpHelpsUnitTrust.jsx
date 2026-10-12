@@ -12,6 +12,8 @@ import {
   AuditOutlined,
 } from "@ant-design/icons";
 import { useCompany } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsUnitTrust Component
@@ -28,7 +30,7 @@ export default function HowFinanciallyUpHelpsUnitTrust() {
       icon: (
         <SafetyCertificateOutlined className="text-xl text-brand-emerald" />
       ),
-      title: "Registered Tax Agent #26234055",
+      title: <BrandText text={"Registered Tax Agent #26234055"} />,
       desc: "Licensed with the TPB, providing full lodging authority, extended deadlines, and ATO representation.",
     },
     {
@@ -66,7 +68,7 @@ export default function HowFinanciallyUpHelpsUnitTrust() {
             Client Partnership
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             We can review unit trust records, reconcile the accounts, prepare
@@ -80,10 +82,10 @@ export default function HowFinanciallyUpHelpsUnitTrust() {
         <div className="mb-12">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-              Why choose Financially Up?
+              Why choose <CompanyName />?
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
-              {company.legalName || "Financially Up Pty Ltd"} is a registered
+              {company.legalName} is a registered
               tax agent with more than 10 years of experience. Our team includes
               CPA and IPA members and provides support Australia-wide, with
               online and in-person appointment options.

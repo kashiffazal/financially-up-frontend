@@ -13,8 +13,10 @@ import {
   SafetyOutlined,
 } from "@ant-design/icons";
 import styles from "./WhyChooseUsSection.module.css";
+import { useBrandText } from "@/context/SettingsContext";
 
 export default function WhyChooseUsSection() {
+  const brand = useBrandText();
   const points = [
     {
       title: "Precision & Accuracy",
@@ -64,7 +66,7 @@ export default function WhyChooseUsSection() {
               <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-emerald-950/10 border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-2">
                 <Image
                   src="/images/services/home-Why-Choose-Us.webp"
-                  alt="Financially Up Professional Team Meeting"
+                  alt={brand("Financially Up Professional Team Meeting")}
                   width={550}
                   height={450}
                   className="w-full h-auto object-cover rounded-lg"

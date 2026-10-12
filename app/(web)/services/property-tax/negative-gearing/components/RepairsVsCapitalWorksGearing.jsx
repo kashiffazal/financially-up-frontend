@@ -6,6 +6,7 @@ import {
   HomeOutlined,
   ApartmentOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * RepairsVsCapitalWorksGearing Component
@@ -116,7 +117,7 @@ export default function RepairsVsCapitalWorksGearing() {
         </div>
 
         <div className="mt-12 text-center text-slate-600 text-sm sm:text-base max-w-3xl mx-auto">
-          Financially Up conducts item-by-item invoice reviews of major property
+          <CompanyName /> conducts item-by-item invoice reviews of major property
           expenditure to ensure deductions are claimed strictly under their
           compliant legislative category.
         </div>

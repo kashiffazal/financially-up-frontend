@@ -9,11 +9,17 @@ import HowFinanciallyUpHelpsDivision7A from "./components/HowFinanciallyUpHelpsD
 import RelatedDivision7ARibbon from "./components/RelatedDivision7ARibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 9 of Business Tax)
  */
-export const metadata = {
+const baseMetadata = {
   title: "Division 7A Accountant & Tax Advice | Financially Up",
   description:
     "Division 7A accountant support for private companies, shareholders and associates. Get help reviewing loans, payments, repayments and compliance.",
@@ -27,18 +33,19 @@ export const metadata = {
     "Bendel decision UPE Division 7A",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/business-tax/division-7a/",
+    canonical: `${SITE_URL}/services/business-tax/division-7a/`,
   },
   openGraph: {
     title: "Division 7A Accountant & Tax Advice | Financially Up",
     description:
       "Division 7A accountant support for private companies, shareholders and associates. Get help reviewing loans, payments, repayments and compliance.",
-    url: "https://financiallyup.com.au/services/business-tax/division-7a/",
+    url: `${SITE_URL}/services/business-tax/division-7a/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the business tax hierarchy
@@ -144,10 +151,7 @@ export default function Division7APage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -159,7 +163,7 @@ export default function Division7APage() {
               Division 7A is an Australian tax integrity regime that can treat certain payments, loans or forgiven debts provided by a private company to a shareholder or their associate as an unfranked dividend. It is designed to prevent private-company profits being accessed outside the ordinary dividend framework without the appropriate tax treatment. Any deemed dividend is generally limited by the private company&apos;s distributable surplus.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides Division 7A services for private companies, shareholders and business groups, including reviews of company-to-shareholder transactions, loan accounts, repayments and year-end compliance. Detailed advice is separately scoped because the rules depend on the facts.
+              <CompanyName legal /> provides Division 7A services for private companies, shareholders and business groups, including reviews of company-to-shareholder transactions, loan accounts, repayments and year-end compliance. Detailed advice is separately scoped because the rules depend on the facts.
             </span>
           </span>
         }
@@ -207,7 +211,7 @@ export default function Division7APage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Specialist Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person Support" },
         ]}
@@ -247,7 +251,7 @@ export default function Division7APage() {
       {/* 10. Pre-Footer Call To Action Banner */}
       <CallToActionBanner
         title="Book an Appointment"
-        description="If you need a Division 7A accountant to review private-company loans, shareholder transactions or repayment requirements, book an appointment with Financially Up to discuss the facts and next steps."
+        description={<BrandText text={"If you need a Division 7A accountant to review private-company loans, shareholder transactions or repayment requirements, book an appointment with Financially Up to discuss the facts and next steps."} />}
         primaryBtnText="Book an Appointment"
         primaryBtnLink="/book-an-appointment"
       />

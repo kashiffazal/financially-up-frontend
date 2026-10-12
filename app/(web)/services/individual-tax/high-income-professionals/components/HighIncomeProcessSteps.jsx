@@ -13,7 +13,9 @@ import {
   PhoneOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
-import { useCompany } from "@/context/SettingsContext";
+import { useCompany, useBrandText } from "@/context/SettingsContext";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HighIncomeProcessSteps Component
@@ -23,14 +25,17 @@ import { useCompany } from "@/context/SettingsContext";
  * Dynamically resolves company phone via useCompany().
  */
 export default function HighIncomeProcessSteps() {
+  const brand = useBrandText();
   const company = useCompany();
-  const phoneDisplay = company?.phone || "1300 328 316";
+  const phoneDisplay = company?.phone;
 
   const steps = [
     {
       number: "01",
       title: "1. Book an appointment",
-      description: `Book online through the Financially Up website or arrange a time by phone (${phoneDisplay}). Online meetings and in-person appointments are available.`,
+      description: brand(
+        `Book online through the Financially Up website or arrange a time by phone (${phoneDisplay}). Online meetings and in-person appointments are available.`,
+      ),
       icon: (
         <CalendarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
       ),
@@ -56,8 +61,13 @@ export default function HighIncomeProcessSteps() {
     {
       number: "04",
       title: "4. Review and prepare",
-      description:
-        "Financially Up reviews the information provided, prepares your individual tax return and raises any questions before finalization.",
+      description: (
+        <BrandText
+          text={
+            "Financially Up reviews the information provided, prepares your individual tax return and raises any questions before finalization."
+          }
+        />
+      ),
       icon: (
         <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
       ),
@@ -99,7 +109,7 @@ export default function HighIncomeProcessSteps() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 relative group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
@@ -139,7 +149,7 @@ export default function HighIncomeProcessSteps() {
                 Australia-Wide Professional Service
               </h4>
               <p className="text-xs sm:text-sm text-zinc-300 font-normal">
-                Financially Up works with clients Australia-wide. Meetings can
+                <CompanyName /> works with clients Australia-wide. Meetings can
                 be held online through an Outlook Calendar online meeting, or in
                 person by arrangement.
               </p>

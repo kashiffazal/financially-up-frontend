@@ -10,6 +10,8 @@ import {
   ArrowRightOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * HowFinanciallyUpHelpsRegistrations Component
@@ -26,7 +28,7 @@ export default function HowFinanciallyUpHelpsRegistrations() {
         <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
       ),
       title: "Review Registration Position & Entitlement",
-      desc: "Financially Up can help review the registration position, assessing whether the trust carries on an enterprise and meets Australian Business Register entitlement requirements.",
+      desc: <BrandText text={"Financially Up can help review the registration position, assessing whether the trust carries on an enterprise and meets Australian Business Register entitlement requirements."} />,
     },
     {
       icon: (
@@ -56,10 +58,10 @@ export default function HowFinanciallyUpHelpsRegistrations() {
             Professional Assistance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can help review the registration position, prepare
+            <CompanyName /> can help review the registration position, prepare
             information for the trust ABN registration and trust TFN
             registration process, and coordinate those registrations with
             related accounting and tax setup. Where GST, PAYG or other

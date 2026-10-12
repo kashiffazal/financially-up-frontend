@@ -15,6 +15,7 @@ import {
   ArrowRightOutlined,
   SyncOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * WhoBenefitsAndCapabilitiesSuper Component
@@ -124,7 +125,7 @@ export default function WhoBenefitsAndCapabilitiesSuper() {
         <div className="pt-12 border-t border-slate-200/80 dark:border-zinc-800">
           <div className="max-w-3xl mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-              What can Financially Up help with?
+              What can <CompanyName /> help with?
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               Our structured service bridges the gap between calculating
@@ -134,7 +135,7 @@ export default function WhoBenefitsAndCapabilitiesSuper() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* 1. Contribution data from payroll */}
-            <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <CalculatorOutlined className="text-lg" />
@@ -156,7 +157,7 @@ export default function WhoBenefitsAndCapabilitiesSuper() {
             </div>
 
             {/* 2. Payment workflow and administration */}
-            <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                   <FileDoneOutlined className="text-lg" />
@@ -166,7 +167,7 @@ export default function WhoBenefitsAndCapabilitiesSuper() {
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
                   Depending on the agreed scope and the systems used by the
-                  business, Financially Up can assist with the administrative
+                  business, <CompanyName /> can assist with the administrative
                   steps required to prepare and process employer super
                   contributions through the business&apos;s chosen compliant
                   payment solution. This may include organizing contribution
@@ -177,7 +178,7 @@ export default function WhoBenefitsAndCapabilitiesSuper() {
             </div>
 
             {/* 3. Reconciliation of super liabilities */}
-            <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                   <SyncOutlined className="text-lg" />
@@ -197,7 +198,7 @@ export default function WhoBenefitsAndCapabilitiesSuper() {
             </div>
 
             {/* 4. Coordination with payroll and STP */}
-            <div className="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                   <ThunderboltOutlined className="text-lg" />

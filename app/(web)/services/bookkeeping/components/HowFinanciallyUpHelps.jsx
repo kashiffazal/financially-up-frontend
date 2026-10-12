@@ -11,6 +11,7 @@ import {
   InteractionOutlined,
   ToolOutlined,
 } from "@ant-design/icons";
+import CompanyName from "@/components/mutual/CompanyName";
 
 /**
  * HowFinanciallyUpHelps Component
@@ -88,11 +89,11 @@ export default function HowFinanciallyUpHelps() {
             <ToolOutlined className="mr-1" /> Practical Support
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            How Financially Up can help
+            How <CompanyName /> can help
           </h2>
           {/* Document Introductory Paragraph - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up can review your current bookkeeping setup, identify
+            <CompanyName /> can review your current bookkeeping setup, identify
             areas that need clean-up and agree on a practical scope for ongoing
             support. We can work with the accounting records you already have
             and help establish a more consistent process for receiving

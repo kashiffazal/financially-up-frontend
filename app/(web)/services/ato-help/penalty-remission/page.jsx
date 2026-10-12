@@ -11,11 +11,17 @@ import WhyChooseFinanciallyUpRemission from "./components/WhyChooseFinanciallyUp
 import RelatedPenaltyRemissionRibbon from "./components/RelatedPenaltyRemissionRibbon";
 import FaqSection from "@/components/website/FaqSection";
 import CallToActionBanner from "@/components/website/CallToActionBanner";
+import CompanyName from "@/components/mutual/CompanyName";
+import BrandText from "@/components/mutual/BrandText";
+import JsonLd from "@/components/mutual/JsonLd";
+import { brandedMetadata } from "@/lib/brandMetadata";
+import { SITE_URL } from "@/lib/companyDefaults";
+
 
 /**
  * Server Metadata for SEO (Exact values from client document: Page 5 of 11th Pillar ATO Help.docx)
  */
-export const metadata = {
+const baseMetadata = {
   title: "ATO Penalty Remission Help | Financially Up",
   description:
     "Received an ATO penalty? Financially Up can review the notice, your circumstances and supporting evidence before helping you prepare a remission request.",
@@ -29,18 +35,19 @@ export const metadata = {
     "FTL penalty accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/ato-help/penalty-remission/",
+    canonical: `${SITE_URL}/services/ato-help/penalty-remission/`,
   },
   openGraph: {
     title: "ATO Penalty Remission Help | Financially Up",
     description:
       "Received an ATO penalty? Financially Up can review the notice, your circumstances and supporting evidence before helping you prepare a remission request.",
-    url: "https://financiallyup.com.au/services/ato-help/penalty-remission/",
+    url: `${SITE_URL}/services/ato-help/penalty-remission/`,
     siteName: "Financially Up",
     locale: "en_AU",
     type: "website",
   },
 };
+export const generateMetadata = brandedMetadata(baseMetadata);
 
 /**
  * Breadcrumbs configuration linking through the service hierarchy
@@ -119,10 +126,7 @@ export default function PenaltyRemissionPage() {
   return (
     <main className="w-full">
       {/* Structured Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={faqSchema} />
 
       {/* 0. Dedicated Sub-Service Hero with Verbatim Lead Copy */}
       <SubServiceHero
@@ -134,7 +138,7 @@ export default function PenaltyRemissionPage() {
               An ATO penalty notice should be reviewed through the correct process. Where the penalty has been validly imposed, you may be able to request remission, but difficulty paying the amount is not enough by itself. The ATO considers the type of penalty, what caused the non-compliance, the action taken to correct it and the evidence supporting the explanation.
             </span>
             <span className="block mt-2">
-              Financially Up helps clients review an imposed penalty and prepare a clear, factual request where remission may be appropriate. The ATO decides whether to remit all or part of a penalty. Book an Appointment and bring the notice and relevant correspondence.
+              <CompanyName /> helps clients review an imposed penalty and prepare a clear, factual request where remission may be appropriate. The ATO decides whether to remit all or part of a penalty. Book an Appointment and bring the notice and relevant correspondence.
             </span>
           </span>
         }
@@ -145,7 +149,7 @@ export default function PenaltyRemissionPage() {
         breadcrumbs={breadcrumbs}
         subPillarTag="Pillar 11.4 • Penalty Relief Practice"
         highlights={[
-          "Registered Tax Agent #26234055",
+          <BrandText key="brand-0" text={"Registered Tax Agent #26234055"} />,
           "FTL & Administrative Penalty Reviews",
           "Factual Chronology & Evidentiary Submissions",
         ]}
@@ -155,7 +159,7 @@ export default function PenaltyRemissionPage() {
         }}
         metrics={[
           { value: "10+ Years", label: "Tax Experience" },
-          { value: "TPB #26234055", label: "Registered Tax Agent" },
+          { value: <BrandText text={"TPB #26234055"} />, label: "Registered Tax Agent" },
           { value: "CPA & IPA", label: "Qualified Specialists" },
           { value: "Australia-Wide", label: "Online & In-Person" },
         ]}
@@ -197,7 +201,7 @@ export default function PenaltyRemissionPage() {
       <CallToActionBanner
         tag="Review Your Notice"
         title="Review Your ATO Notice"
-        subtitle="Bring the penalty notice, dates and evidence of the circumstances that affected compliance. Financially Up can help you assess the request and present the facts clearly."
+        subtitle={<BrandText text={"Bring the penalty notice, dates and evidence of the circumstances that affected compliance. Financially Up can help you assess the request and present the facts clearly."} />}
         primaryButtonText="Book an Appointment"
         primaryButtonHref="/book-an-appointment"
         secondaryButtonText="Explore ATO Help Hub"

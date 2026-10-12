@@ -12,6 +12,7 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceBanner";
+import BrandText from "@/components/mutual/BrandText";
 
 /**
  * AnnualReviewAndSolvency Component
@@ -163,7 +164,7 @@ export default function AnnualReviewAndSolvency() {
           tag="Corporate Secretarial Reassurance"
           tagIcon="safety"
           title="Never Miss an ASIC Annual Review Deadline"
-          description="Appointing Financially Up as your ASIC registered agent means annual statements are delivered directly to our registered agent portal, checked against your financial records, and sent to you with documented solvency minutes ready for signature."
+          description={<BrandText text={"Appointing Financially Up as your ASIC registered agent means annual statements are delivered directly to our registered agent portal, checked against your financial records, and sent to you with documented solvency minutes ready for signature."} />}
           primaryButton={{
             text: "Appoint Registered Agent",
             href: "/services/asic/registered-agent",
