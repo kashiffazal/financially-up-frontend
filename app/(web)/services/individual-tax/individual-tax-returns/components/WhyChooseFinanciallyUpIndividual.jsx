@@ -67,7 +67,7 @@ export default function WhyChooseFinanciallyUpIndividual() {
         {/* 2 Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>Certified Tax Credentials</span>
@@ -83,7 +83,7 @@ export default function WhyChooseFinanciallyUpIndividual() {
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <CheckCircleOutlined />
               <span>Flexible Consultations &amp; Specialist Care</span>
@@ -102,9 +102,9 @@ export default function WhyChooseFinanciallyUpIndividual() {
           {credentials.map((cred, i) => (
             <div
               key={i}
-              className="text-center p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="text-center p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
                 {cred.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -125,7 +125,7 @@ export default function WhyChooseFinanciallyUpIndividual() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book an Appointment
             </Button>
@@ -136,7 +136,7 @@ export default function WhyChooseFinanciallyUpIndividual() {
               <Button
                 size="large"
                 icon={<PhoneOutlined />}
-                className="rounded-xl font-bold px-6 h-12 bg-white dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20"
+                className="rounded-lg font-bold px-6 h-12 bg-white dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20"
               >
                 Call {company.phone}
               </Button>

@@ -31,22 +31,30 @@ export default function HowFinanciallyUpHelpsCashFlow() {
 
   const processPillars = [
     {
-      icon: <SlidersOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SlidersOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Build or Review a Forecast",
       desc: "Construct a custom rolling or monthly cash model tailored to your trading cycle and payment patterns.",
     },
     {
-      icon: <ThunderboltOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ThunderboltOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Test Assumptions & Stress-Scenarios",
       desc: "Model debtor lag, revenue dips, Capex, and hiring before committing capital or binding contracts.",
     },
     {
-      icon: <FundViewOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FundViewOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Identify Pressure Points",
       desc: "Expose upcoming liquidity crunches weeks in advance to manage cash buffers and avoid overdraft stress.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Actual vs Expected Tracking",
       desc: "Establish a recurring review cadence comparing actual bank movements against the model to refine forecasts.",
     },
@@ -95,18 +103,18 @@ export default function HowFinanciallyUpHelpsCashFlow() {
         {/* 2 Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 Card */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <CheckCircleOutlined />
                 <span>Practical Forward Cash Clarity</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Financially Up can build or review a forecast, test
-                assumptions, identify pressure points and establish a process
-                for comparing actual cash movements with expectations. The focus
-                is practical: understand when cash should move, what obligations
-                need funding and which assumptions require close monitoring.
+                Financially Up can build or review a forecast, test assumptions,
+                identify pressure points and establish a process for comparing
+                actual cash movements with expectations. The focus is practical:
+                understand when cash should move, what obligations need funding
+                and which assumptions require close monitoring.
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
@@ -115,7 +123,7 @@ export default function HowFinanciallyUpHelpsCashFlow() {
           </div>
 
           {/* Paragraph 2 Card */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <CheckCircleOutlined />
@@ -139,9 +147,9 @@ export default function HowFinanciallyUpHelpsCashFlow() {
           {processPillars.map((step, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-all group"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                 {step.icon}
               </div>
               <div className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 mb-1">
@@ -162,9 +170,9 @@ export default function HowFinanciallyUpHelpsCashFlow() {
           {credentials.map((cred, i) => (
             <div
               key={i}
-              className="text-center p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="text-center p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
                 {cred.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -185,7 +193,7 @@ export default function HowFinanciallyUpHelpsCashFlow() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book an Appointment
             </Button>
@@ -196,7 +204,7 @@ export default function HowFinanciallyUpHelpsCashFlow() {
               <Button
                 size="large"
                 icon={<PhoneOutlined />}
-                className="rounded-xl font-bold px-6 h-12 bg-white dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20"
+                className="rounded-lg font-bold px-6 h-12 bg-white dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20"
               >
                 Call {company.phone}
               </Button>

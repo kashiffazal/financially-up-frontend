@@ -77,16 +77,17 @@ export default function GenericMainLog({
       const recordTitle =
         record.referenceNumber ||
         record.reference_number ||
-        record.name ||
+        (record.name && record.email ? `${record.name} (${record.email})` : record.name) ||
         record.legalName ||
         record.LegalName ||
         record.companyName1 ||
         record.FullName ||
-        record.id ||
+        record.email ||
+        (record.id ? `record #${record.id}` : "") ||
         "this record";
 
       modal.confirm({
-        title: "Update Application Status",
+        title: "Update Status",
         icon: <ExclamationCircleOutlined className="text-brand-primary" />,
         content: (
           <div className="py-2 space-y-2">
@@ -125,15 +126,21 @@ export default function GenericMainLog({
               ? statusUpdateEndpoint(recordId, newStatusKey)
               : statusUpdateEndpoint || `${endpoint}/${recordId}`;
 
-            await HTTP("PUT", targetUrl, {
+            const res = await HTTP("PUT", targetUrl, {
               status: newStatusKey,
             });
+            if (!res?.success) return; // the API's error message is already shown
 
             antdMsg.success(`Status updated to "${newStatusKey}" successfully.`);
 
+            // Use the server's updated record when it sends one (e.g. dates it set,
+            // "changed by"), so View Details shows current values without a refresh
+            const serverRow =
+              res.data && typeof res.data === "object" && !Array.isArray(res.data) && res.data.id === record.id ? res.data : null;
+
             // Real-time optimistic update across tab buckets
             if (typeof changeStatus === "function") {
-              changeStatus(record, targetStatus, record.status);
+              changeStatus(serverRow ? { ...record, ...serverRow } : record, targetStatus, record.status);
             } else if (typeof fetchData === "function") {
               fetchData();
             }
@@ -267,22 +274,19 @@ export default function GenericMainLog({
   // --------------------------------------------------------------------------
   // BULK ACTION HANDLERS
   // --------------------------------------------------------------------------
-  const bulkActionOptions = useMemo(() => {
-    return [
-      {
-        label: "Mark as Approved",
-        value: "bulk-approve",
-        bulkActionMsg: "Are you sure you want to approve all selected records?",
-        bulkActionBottomBtnLabel: "Approve Selected",
-      },
-      {
-        label: "Mark as On Hold",
-        value: "bulk-hold",
-        bulkActionMsg: "Are you sure you want to place selected records on hold?",
-        bulkActionBottomBtnLabel: "Hold Selected",
-      },
-    ];
-  }, []);
+  // One "Mark as …" action per status of THIS log (e.g. Subscribed / Unsubscribed
+  // for the newsletter, New / Contacted / Closed / Spam for enquiries), so bulk
+  // changes always use statuses the server accepts.
+  const bulkActionOptions = useMemo(
+    () =>
+      (statusList || []).map((st) => ({
+        label: `Mark as ${st.label}`,
+        value: st.key,
+        bulkActionMsg: `Change all selected records to "${st.label}"?`,
+        bulkActionBottomBtnLabel: `Set ${st.label}`,
+      })),
+    [statusList]
+  );
 
   const handleBulkAction = useCallback(
     async (selectedInfo, actionValue) => {
@@ -293,14 +297,18 @@ export default function GenericMainLog({
       }
 
       try {
-        if (actionValue === "bulk-approve" || actionValue === "bulk-hold") {
-          const targetStatus = actionValue === "bulk-approve" ? "Approved" : "On Hold";
-          await Promise.all(
+        const target = (statusList || []).find((st) => st.key === actionValue);
+        if (target) {
+          // hideErrorMsg: one summary message instead of a toast per record
+          const results = await Promise.all(
             selectedIds.map((id) =>
-              HTTP("PUT", `${endpoint}/${id}`, { status: targetStatus })
+              HTTP("PUT", `${endpoint}/${id}`, { status: target.key }, false, true).catch(() => null)
             )
           );
-          antdMsg.success(`Selected records updated to "${targetStatus}".`);
+          const done = results.filter((r) => r?.success).length;
+          const failed = selectedIds.length - done;
+          if (done) antdMsg.success(`${done} record${done === 1 ? "" : "s"} set to "${target.label}".`);
+          if (failed) antdMsg.error(`${failed} record${failed === 1 ? "" : "s"} couldn't be updated.`);
         }
 
         if (typeof fetchData === "function") {
@@ -310,7 +318,7 @@ export default function GenericMainLog({
         antdMsg.error("Bulk action failed partially or completely.");
       }
     },
-    [endpoint, fetchData]
+    [endpoint, fetchData, statusList]
   );
 
   // --------------------------------------------------------------------------

@@ -55,21 +55,29 @@ export default function SmsfAccountingVsFinancialAdvice() {
             SMSF accounting is different from investment advice
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Accounting for an SMSF involves recording transactions, preparing financial statements, tax reporting and explaining accounting or tax consequences within scope. It does not mean recommending that you establish an SMSF, choose a particular investment, buy or sell an asset, or select a financial product.
+            Accounting for an SMSF involves recording transactions, preparing
+            financial statements, tax reporting and explaining accounting or tax
+            consequences within scope. It does not mean recommending that you
+            establish an SMSF, choose a particular investment, buy or sell an
+            asset, or select a financial product.
           </p>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Where a decision requires regulated financial product advice, an appropriately authorized financial adviser may be required. Trustees remain responsible for the SMSF and its investment decisions even when accountants, administrators or other professionals assist with parts of the work.
+            Where a decision requires regulated financial product advice, an
+            appropriately authorized financial adviser may be required. Trustees
+            remain responsible for the SMSF and its investment decisions even
+            when accountants, administrators or other professionals assist with
+            parts of the work.
           </p>
         </div>
 
         {/* 2-Column Comparison Matrix */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Left: SMSF Accounting Scope */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                     <FileTextOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
                   </div>
                   <div>
@@ -88,7 +96,10 @@ export default function SmsfAccountingVsFinancialAdvice() {
 
               <ul className="space-y-3.5 mb-6">
                 {accountingDuties.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -97,16 +108,17 @@ export default function SmsfAccountingVsFinancialAdvice() {
             </div>
 
             <div className="pt-4 border-t border-slate-200/80 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Focus: Accurate annual accounts, tax compliance, and coordinated independent audit support.
+              Focus: Accurate annual accounts, tax compliance, and coordinated
+              independent audit support.
             </div>
           </div>
 
           {/* Right: Regulated Financial Advice Scope */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
                     <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
                   </div>
                   <div>
@@ -125,7 +137,10 @@ export default function SmsfAccountingVsFinancialAdvice() {
 
               <ul className="space-y-3.5 mb-6">
                 {financialAdviceDuties.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <InfoCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -134,15 +149,16 @@ export default function SmsfAccountingVsFinancialAdvice() {
             </div>
 
             <div className="pt-4 border-t border-slate-200/80 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Focus: Personal financial product recommendations, investment suitability, and product selection.
+              Focus: Personal financial product recommendations, investment
+              suitability, and product selection.
             </div>
           </div>
         </div>
 
         {/* Trustee Governance Notice */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div className="rounded-lg bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 text-xl">
+            <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 text-xl">
               <SafetyCertificateOutlined />
             </div>
             <div>
@@ -150,7 +166,9 @@ export default function SmsfAccountingVsFinancialAdvice() {
                 Trustee Decision-Making Responsibility
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1 max-w-2xl leading-relaxed">
-                Trustees remain responsible for the SMSF and its investment decisions even when accountants, administrators or other professionals assist with parts of the work.
+                Trustees remain responsible for the SMSF and its investment
+                decisions even when accountants, administrators or other
+                professionals assist with parts of the work.
               </p>
             </div>
           </div>
@@ -161,7 +179,7 @@ export default function SmsfAccountingVsFinancialAdvice() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
             >
               Discuss Your Fund
             </Button>

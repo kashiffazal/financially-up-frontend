@@ -23,21 +23,27 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
 export default function June30DistributionNotice() {
   const timingRules = [
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Strict 30 June Execution Deadline",
       description:
         "Trustee distribution resolutions must be formally made and documented on or before 30 June. Resolutions cannot be backdated or treated as an afterthought during year-end tax preparation.",
       tag: "Statutory Deadline",
     },
     {
-      icon: <WarningOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <WarningOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "47% Default Trustee Tax Assessment",
       description:
         "If a valid resolution is not executed by 30 June, no beneficiary is presently entitled. Under Section 99A, trust income may be assessed directly to the trustee at the top marginal rate of 47%.",
       tag: "Tax Risk",
     },
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "CGT & Franking Credit Streaming",
       description:
         "Streaming net capital gains or franked dividends to specific beneficiaries requires explicit streaming powers within the trust deed and precise drafting in the 30 June resolution.",
@@ -59,7 +65,10 @@ export default function June30DistributionNotice() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            For discretionary trusts, establishing beneficiary present entitlement before 30 June is a mandatory statutory requirement. Effective planning ensures distributions are legally valid and tax-optimised.
+            For discretionary trusts, establishing beneficiary present
+            entitlement before 30 June is a mandatory statutory requirement.
+            Effective planning ensures distributions are legally valid and
+            tax-optimised.
           </p>
         </div>
 
@@ -68,11 +77,11 @@ export default function June30DistributionNotice() {
           {timingRules.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">

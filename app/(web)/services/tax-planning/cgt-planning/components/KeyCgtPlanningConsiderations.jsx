@@ -71,7 +71,7 @@ export default function KeyCgtPlanningConsiderations() {
               className="bg-slate-50 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">

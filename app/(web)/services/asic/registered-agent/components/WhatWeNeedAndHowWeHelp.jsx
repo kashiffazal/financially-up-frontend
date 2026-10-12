@@ -103,7 +103,7 @@ export default function WhatWeNeedAndHowWeHelp() {
             {onboardingChecklist.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900/70 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-400/50 transition-colors"
+                className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-900/70 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-400/50 transition-colors"
               >
                 <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-3">
                   {item.icon}
@@ -118,7 +118,7 @@ export default function WhatWeNeedAndHowWeHelp() {
             ))}
           </div>
 
-          <div className="p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40">
+          <div className="p-5 rounded-lg bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40">
             <p className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed m-0 font-normal">
               <strong>Record Reconciliation Note:</strong> Where the ASIC record
               does not match the company’s internal records, we may first need
@@ -174,7 +174,7 @@ export default function WhatWeNeedAndHowWeHelp() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full sm:w-auto rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
+                  className="w-full sm:w-auto rounded-lg font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
                 >
                   Book an Appointment
                 </Button>
@@ -188,7 +188,7 @@ export default function WhatWeNeedAndHowWeHelp() {
                   <Button
                     size="large"
                     icon={<PhoneOutlined />}
-                    className="w-full sm:w-auto rounded-xl font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
+                    className="w-full sm:w-auto rounded-lg font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
                   >
                     Call {company.phone}
                   </Button>

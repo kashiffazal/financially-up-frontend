@@ -26,9 +26,11 @@ export default function HowFinanciallyUpHelpsGst() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <CompassOutlined className="mr-1.5" />
             Professional Support
           </Tag>
@@ -38,7 +40,11 @@ export default function HowFinanciallyUpHelpsGst() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can provide GST registration services Australia-wide for businesses that need help with registration and the compliance steps that follow. The service can include reviewing the available facts, assisting with the registration process and helping configure the accounting and BAS workflow at a practical level.
+            Financially Up can provide GST registration services Australia-wide
+            for businesses that need help with registration and the compliance
+            steps that follow. The service can include reviewing the available
+            facts, assisting with the registration process and helping configure
+            the accounting and BAS workflow at a practical level.
           </p>
         </div>
 
@@ -47,7 +53,7 @@ export default function HowFinanciallyUpHelpsGst() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
+              className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
             >
               <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircleOutlined />
@@ -58,7 +64,6 @@ export default function HowFinanciallyUpHelpsGst() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

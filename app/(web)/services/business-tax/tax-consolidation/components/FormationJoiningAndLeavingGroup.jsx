@@ -75,10 +75,10 @@ export default function FormationJoiningAndLeavingGroup() {
           {lifecycleStages.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -93,7 +93,7 @@ export default function FormationJoiningAndLeavingGroup() {
         </div>
 
         {/* Verbatim Critical Box: Commercial Price vs Tax Values */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-amber-500/10 via-white to-slate-50 dark:from-amber-950/20 dark:via-zinc-900 dark:to-zinc-950 border border-amber-500/20 dark:border-amber-500/30 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-amber-500/10 via-white to-slate-50 dark:from-amber-950/20 dark:via-zinc-900 dark:to-zinc-950 border border-amber-500/20 dark:border-amber-500/30 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400" />
@@ -113,7 +113,7 @@ export default function FormationJoiningAndLeavingGroup() {
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

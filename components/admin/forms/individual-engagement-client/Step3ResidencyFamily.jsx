@@ -81,7 +81,7 @@ export default function Step3ResidencyFamily({ form }) {
       </div>
 
       {/* Citizenship & Residency Section */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
         {/* RES-001: Australian Citizen */}
         <AntInput
           type="radio"
@@ -119,7 +119,7 @@ export default function Step3ResidencyFamily({ form }) {
                 }
                 placeholder="e.g. United Kingdom, New Zealand, India"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Please select your country of citizenship."
                 containerClassName="!mb-2"
               />
@@ -135,7 +135,7 @@ export default function Step3ResidencyFamily({ form }) {
                 options={VISA_STATUS_OPTIONS}
                 placeholder="Select Visa Type"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Please select your visa status."
                 containerClassName="!mb-2"
               />
@@ -149,7 +149,7 @@ export default function Step3ResidencyFamily({ form }) {
                 }
                 placeholder="e.g. 500, 482, 820"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Please enter visa subclass."
                 containerClassName="!mb-2"
               />
@@ -165,7 +165,7 @@ export default function Step3ResidencyFamily({ form }) {
                 placeholder="DD/MM/YYYY"
                 format="DD/MM/YYYY"
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 reqMsg="Please select visa expiry date."
                 containerClassName="!mb-2"
               />
@@ -181,7 +181,7 @@ export default function Step3ResidencyFamily({ form }) {
                 placeholder="DD/MM/YYYY"
                 format="DD/MM/YYYY"
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 reqMsg="Please select arrival date."
                 containerClassName="!mb-2"
               />
@@ -197,7 +197,7 @@ export default function Step3ResidencyFamily({ form }) {
                 reqMsg="Please upload visa evidence."
                 type="3"
                 height={40}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-2"
               />
             </div>
@@ -228,7 +228,7 @@ export default function Step3ResidencyFamily({ form }) {
               showIcon
               title="Residency Status Review Required"
               description="Notice: Changes in tax residency during the financial year affect your tax-free threshold and CGT asset rules. Our accountants will conduct a detailed residency review."
-              className="rounded-xl border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200 !mb-6"
+              className="rounded-lg border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200 !mb-6"
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -243,7 +243,7 @@ export default function Step3ResidencyFamily({ form }) {
                 placeholder="DD/MM/YYYY"
                 format="DD/MM/YYYY"
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 noRequired={true}
                 containerClassName="!mb-2"
               />
@@ -259,7 +259,7 @@ export default function Step3ResidencyFamily({ form }) {
                 placeholder="DD/MM/YYYY"
                 format="DD/MM/YYYY"
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 noRequired={true}
                 containerClassName="!mb-2"
               />
@@ -274,7 +274,7 @@ export default function Step3ResidencyFamily({ form }) {
               }
               placeholder="Country during non-residency period"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               noRequired={true}
               containerClassName="!mb-6"
             />
@@ -289,7 +289,7 @@ export default function Step3ResidencyFamily({ form }) {
               }
               placeholder="Provide details regarding foreign salary, offshore bank accounts, or overseas property..."
               rows={3}
-              className="rounded-xl"
+              className="rounded-lg"
               noRequired={true}
               containerClassName="!mb-0"
             />
@@ -298,7 +298,7 @@ export default function Step3ResidencyFamily({ form }) {
       </div>
 
       {/* Spouse Information (FAM-001 to FAM-005) */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="hasSpouse"
@@ -331,7 +331,7 @@ export default function Step3ResidencyFamily({ form }) {
                 }
                 placeholder="Spouse full legal name"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Please enter spouse name."
                 containerClassName="!mb-2"
               />
@@ -347,7 +347,7 @@ export default function Step3ResidencyFamily({ form }) {
                 placeholder="DD/MM/YYYY"
                 format="DD/MM/YYYY"
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 reqMsg="Please select DOB."
                 containerClassName="!mb-2"
               />
@@ -364,7 +364,7 @@ export default function Step3ResidencyFamily({ form }) {
                 numPreFix="$"
                 comma={true}
                 size="large"
-                className="w-full rounded-xl"
+                className="w-full rounded-lg"
                 noRequired={true}
                 containerClassName="!mb-2"
               />
@@ -391,7 +391,7 @@ export default function Step3ResidencyFamily({ form }) {
       </div>
 
       {/* Dependant Children (FAM-006 & FAM-007) */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="hasDependants"
@@ -422,7 +422,7 @@ export default function Step3ResidencyFamily({ form }) {
             max={15}
             step={1}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             reqMsg="Enter number of dependants."
             containerClassName="!mt-4 !mb-0 max-w-xs"
           />

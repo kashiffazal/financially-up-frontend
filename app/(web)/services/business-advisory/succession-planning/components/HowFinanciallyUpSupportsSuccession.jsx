@@ -25,27 +25,37 @@ import {
 export default function HowFinanciallyUpSupportsSuccession() {
   const supportSteps = [
     {
-      icon: <AimOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AimOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Clarify Owner Objectives",
       desc: "Establishing target exit timing, post-handover involvement, and required capital realization.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Accounts & Cash Flow Needs",
       desc: "Reviewing financial statements, working capital requirements, and ongoing retirement income draws.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Identify Record Gaps",
       desc: "Uncovering documentation, contract, or ledger deficiencies before they derail negotiations.",
     },
     {
-      icon: <ExperimentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ExperimentOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Model Transition Scenarios",
       desc: "Testing alternative structural pathways, vendor finance options, and post-transfer profitability.",
     },
     {
-      icon: <CheckSquareOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CheckSquareOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Action Roadmap Tracking",
       desc: "Tracking pre-settlement milestones and preparing materials for solicitors, bankers, and buyers.",
     },
@@ -81,12 +91,12 @@ export default function HowFinanciallyUpSupportsSuccession() {
           {supportSteps.map((step, idx) => (
             <div
               key={idx}
-              className={`p-5 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between ${
+              className={`p-5 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between ${
                 idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-center mb-3 text-lg">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-center mb-3 text-lg">
                   {step.icon}
                 </div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-2">
@@ -101,7 +111,7 @@ export default function HowFinanciallyUpSupportsSuccession() {
         </div>
 
         {/* Pre-Sale Performance & Modular Scope Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
             Tailored Scope Aligned to Your Specific Timeline
           </h3>
@@ -118,7 +128,7 @@ export default function HowFinanciallyUpSupportsSuccession() {
               <Button
                 type="default"
                 icon={<LineChartOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Profitability Consulting
               </Button>
@@ -128,7 +138,7 @@ export default function HowFinanciallyUpSupportsSuccession() {
               <Button
                 type="default"
                 icon={<ArrowRightOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Valuations
               </Button>

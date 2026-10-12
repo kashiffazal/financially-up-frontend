@@ -29,7 +29,9 @@ import { departmentOptions } from "@/lib/departments";
 export default function EditUserModal({ open, onCancel, onSuccess, user }) {
   const { get } = useSettings();
   const { user: currentUser } = useAuth();
-  const isSelf = Boolean(user && currentUser && String(user.id) === String(currentUser.id));
+  const isSelf = Boolean(
+    user && currentUser && String(user.id) === String(currentUser.id),
+  );
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -81,7 +83,7 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
       centered
       title={
         <div className="flex items-center gap-3 pr-6 pb-2 border-b border-slate-100 dark:border-zinc-800">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 text-xl shadow-xs">
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 text-xl shadow-xs">
             <EditOutlined />
           </div>
           <div>
@@ -89,7 +91,9 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
               Edit User Profile
             </div>
             <div className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
-              {user?.fullName || `${user?.firstName || ""} ${user?.lastName || ""}`.trim()} • {user?.email}
+              {user?.fullName ||
+                `${user?.firstName || ""} ${user?.lastName || ""}`.trim()}{" "}
+              • {user?.email}
             </div>
           </div>
         </div>
@@ -134,7 +138,8 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 leading-relaxed">
-              Click the avatar circle or camera badge to choose, zoom, and crop. Recommended: Square portrait, PNG or JPG (Max 5MB).
+              Click the avatar circle or camera badge to choose, zoom, and crop.
+              Recommended: Square portrait, PNG or JPG (Max 5MB).
             </p>
             {avatarUrl && (
               <div className="mt-2 flex items-center justify-center sm:justify-start gap-2">
@@ -188,7 +193,10 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
             type="select"
             name="department"
             label="Department"
-            options={departmentOptions(get("staff.departments"), user?.department)}
+            options={departmentOptions(
+              get("staff.departments"),
+              user?.department,
+            )}
             placeholder="Select practice department"
             noRequired
             className="rounded-lg"
@@ -205,17 +213,17 @@ export default function EditUserModal({ open, onCancel, onSuccess, user }) {
 
         {/* You can't change your own account status (prevents locking yourself out) */}
         {!isSelf && (
-        <AntInput
-          type="select"
-          name="status"
-          label="Account Status"
-          placeholder="Select status"
-          options={[
-            { label: "Active", value: "Active" },
-            { label: "Inactive", value: "Inactive" },
-            { label: "Suspended", value: "Suspended" },
-          ]}
-        />
+          <AntInput
+            type="select"
+            name="status"
+            label="Account Status"
+            placeholder="Select status"
+            options={[
+              { label: "Active", value: "Active" },
+              { label: "Inactive", value: "Inactive" },
+              { label: "Suspended", value: "Suspended" },
+            ]}
+          />
         )}
 
         {/* Actions Footer */}

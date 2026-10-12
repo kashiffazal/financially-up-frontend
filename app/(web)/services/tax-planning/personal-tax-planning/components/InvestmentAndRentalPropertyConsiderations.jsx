@@ -61,9 +61,9 @@ export default function InvestmentAndRentalPropertyConsiderations() {
         {/* 2 Focused Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Card 1: Investment Income Beyond Cash Received */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-6">
                 <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
               </div>
 
@@ -77,7 +77,7 @@ export default function InvestmentAndRentalPropertyConsiderations() {
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                     Managed Funds (AMMA Statements)
                   </h4>
@@ -86,7 +86,7 @@ export default function InvestmentAndRentalPropertyConsiderations() {
                     tax-deferred adjustments.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                     Australian Share Portfolios
                   </h4>
@@ -95,7 +95,7 @@ export default function InvestmentAndRentalPropertyConsiderations() {
                     DRP cost bases.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                     Overseas &amp; Foreign Income
                   </h4>
@@ -109,9 +109,9 @@ export default function InvestmentAndRentalPropertyConsiderations() {
           </div>
 
           {/* Card 2: Rental Properties & Dedicated Compliance Link */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
                 <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
               </div>
 
@@ -143,7 +143,7 @@ export default function InvestmentAndRentalPropertyConsiderations() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
+                  className="w-full rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
                 >
                   Explore Investment Property Tax
                 </Button>

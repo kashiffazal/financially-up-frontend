@@ -29,11 +29,13 @@ export default function BasLodgementForSmallBusiness() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: BAS lodgement for small business */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="purple" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="purple"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <AuditOutlined className="mr-1.5" />
               Small Business Focus
             </Tag>
@@ -43,11 +45,18 @@ export default function BasLodgementForSmallBusiness() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A BAS accountant for small business should do more than transfer totals from software into a form. The purpose of professional review is to make sure the figures are supported by the records and that obvious inconsistencies are addressed before lodgement.
+              A BAS accountant for small business should do more than transfer
+              totals from software into a form. The purpose of professional
+              review is to make sure the figures are supported by the records
+              and that obvious inconsistencies are addressed before lodgement.
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              That does not mean every BAS requires complex tax advice. Straightforward preparation and lodgement can remain a defined compliance service. Where a transaction raises a separate GST interpretation, restructuring or tax-advice issue, Financially Up can identify that and scope the additional work separately.
+              That does not mean every BAS requires complex tax advice.
+              Straightforward preparation and lodgement can remain a defined
+              compliance service. Where a transaction raises a separate GST
+              interpretation, restructuring or tax-advice issue, Financially Up
+              can identify that and scope the additional work separately.
             </p>
           </div>
 
@@ -60,7 +69,10 @@ export default function BasLodgementForSmallBusiness() {
                 </h3>
               </div>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Enjoy transparent fixed-scope activity statement preparation without paying for unsolicited complex tax advice, while keeping the security of an experienced registered tax agent reviewing your figures.
+                Enjoy transparent fixed-scope activity statement preparation
+                without paying for unsolicited complex tax advice, while keeping
+                the security of an experienced registered tax agent reviewing
+                your figures.
               </p>
             </div>
           </div>
@@ -77,7 +89,10 @@ export default function BasLodgementForSmallBusiness() {
               How Financially Up can help
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up provides BAS preparation and lodgement support within the firm&apos;s registered tax-agent scope. Depending on your records and obligations, we can assist with BAS preparation, review, lodgement and related ATO correspondence.
+              Financially Up provides BAS preparation and lodgement support
+              within the firm&apos;s registered tax-agent scope. Depending on
+              your records and obligations, we can assist with BAS preparation,
+              review, lodgement and related ATO correspondence.
             </p>
           </div>
 
@@ -85,7 +100,7 @@ export default function BasLodgementForSmallBusiness() {
             {helpCapabilities.map((capability, index) => (
               <div
                 key={index}
-                className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
+                className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
               >
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                   <CheckCircleOutlined />
@@ -97,7 +112,6 @@ export default function BasLodgementForSmallBusiness() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

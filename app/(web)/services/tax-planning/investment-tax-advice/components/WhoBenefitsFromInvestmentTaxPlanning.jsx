@@ -21,37 +21,51 @@ import {
 export default function WhoBenefitsFromInvestmentTaxPlanning() {
   const investorProfiles = [
     {
-      icon: <FundOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FundOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Portfolio Diversification",
       desc: "Investors with shares, ETFs, managed funds or multiple investment accounts.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Income & Distribution Streams",
       desc: "People receiving significant dividends, franking credits, interest or managed-fund distributions.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Asset Disposals & Realisations",
       desc: "Investors considering the sale of shares, property or another CGT asset.",
     },
     {
-      icon: <HistoryOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Loss Quarantining & Gains",
       desc: "Taxpayers carrying forward capital losses or expecting a material capital gain.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Property Portfolio Strategy",
       desc: "Property investors reviewing ownership, income, expenses or a future disposal.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Multi-Entity Ownership",
       desc: "People with investments held through different entities or ownership arrangements.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Cost Base Reconstruction",
       desc: "Investors whose records do not clearly show acquisition costs, corporate actions or prior cost-base adjustments.",
     },
@@ -69,7 +83,9 @@ export default function WhoBenefitsFromInvestmentTaxPlanning() {
             Who May Benefit From Tax Planning for Investments?
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300">
-            Tax planning for investments can be useful where the investment position has become more complicated or a significant transaction is being considered.
+            Tax planning for investments can be useful where the investment
+            position has become more complicated or a significant transaction is
+            being considered.
           </p>
         </div>
 
@@ -78,13 +94,13 @@ export default function WhoBenefitsFromInvestmentTaxPlanning() {
           {investorProfiles.map((profile, index) => (
             <div
               key={index}
-              className={`bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+              className={`bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
                 index === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-100 dark:border-zinc-700">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-100 dark:border-zinc-700">
                     {profile.icon}
                   </div>
                   <span className="text-xs font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">

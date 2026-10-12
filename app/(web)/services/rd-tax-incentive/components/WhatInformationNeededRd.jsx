@@ -26,7 +26,9 @@ import Link from "next/link";
 export default function WhatInformationNeededRd() {
   const discussionItems = [
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Company's Income Year",
       tag: "Statutory Timing",
       items: [
@@ -36,7 +38,9 @@ export default function WhatInformationNeededRd() {
       ],
     },
     {
-      icon: <ProjectOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ProjectOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Outline of Each Project & Key Dates",
       tag: "Project Charters",
       items: [
@@ -46,7 +50,9 @@ export default function WhatInformationNeededRd() {
       ],
     },
     {
-      icon: <ExperimentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ExperimentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Records of Experiments & Results",
       tag: "Contemporaneous Logs",
       items: [
@@ -56,7 +62,9 @@ export default function WhatInformationNeededRd() {
       ],
     },
     {
-      icon: <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Staff & Contractor Details",
       tag: "Personnel",
       items: [
@@ -66,7 +74,9 @@ export default function WhatInformationNeededRd() {
       ],
     },
     {
-      icon: <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Rough Expenditure Summary",
       tag: "Cost Breakdown",
       items: [
@@ -76,7 +86,9 @@ export default function WhatInformationNeededRd() {
       ],
     },
     {
-      icon: <GlobalOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Overseas Work & Prior Applications",
       tag: "Special Circumstances",
       items: [
@@ -102,7 +114,13 @@ export default function WhatInformationNeededRd() {
             What should you bring to a first discussion?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Bring the company&apos;s income year, an outline of each project, key dates, records of experiments and results, staff and contractor details, and a rough expenditure summary. Tell us whether any work was performed overseas, another entity paid costs or a registration application has already been made. We can then identify the immediate deadline and agree whether an eligibility review or claim preparation is the next step.
+            Bring the company&apos;s income year, an outline of each project,
+            key dates, records of experiments and results, staff and contractor
+            details, and a rough expenditure summary. Tell us whether any work
+            was performed overseas, another entity paid costs or a registration
+            application has already been made. We can then identify the
+            immediate deadline and agree whether an eligibility review or claim
+            preparation is the next step.
           </p>
         </div>
 
@@ -111,11 +129,11 @@ export default function WhatInformationNeededRd() {
           {discussionItems.map((card, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {card.icon}
                   </div>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
@@ -142,13 +160,14 @@ export default function WhatInformationNeededRd() {
         </div>
 
         {/* Next Steps Action Box */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
               Ready to identify your deadline and agree the next step?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1">
-              Book an Appointment to discuss the company, the work undertaken and where you are in the application process.
+              Book an Appointment to discuss the company, the work undertaken
+              and where you are in the application process.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -157,7 +176,7 @@ export default function WhatInformationNeededRd() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md"
             >
               Book an Appointment
             </Button>

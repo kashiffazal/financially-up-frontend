@@ -28,7 +28,8 @@ export const metadata = {
     "personal services income PSI accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/sole-trader-tax-return/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/sole-trader-tax-return/",
   },
   openGraph: {
     title: "Sole Trader Tax Return Australia | Financially Up",
@@ -59,32 +60,38 @@ const soleTraderQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Tradies, contractors, freelancers, consultants & sole traders with an ABN",
+    value:
+      "Tradies, contractors, freelancers, consultants & sole traders with an ABN",
   },
   {
     icon: "file",
     label: "Tax Reporting Model",
-    value: "Business profit & loss integrated into individual tax return (no separate company lodgement)",
+    value:
+      "Business profit & loss integrated into individual tax return (no separate company lodgement)",
   },
   {
     icon: "percentage",
     label: "Compliance & Bas",
-    value: "PAYG instalments, GST registration threshold ($75k) & Personal Services Income (PSI)",
+    value:
+      "PAYG instalments, GST registration threshold ($75k) & Personal Services Income (PSI)",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "Deductions & Assets",
-    value: "Motor vehicle expenses, tools, instant write-offs, home-based business & record keeping",
+    value:
+      "Motor vehicle expenses, tools, instant write-offs, home-based business & record keeping",
   },
 ];
 
@@ -97,7 +104,9 @@ const soleTraderFaqs = [
     label: "How is a sole trader taxed in Australia",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Business income and expenses are reported through the individual&apos;s return. Net business profit or loss is considered with other personal income.
+        Business income and expenses are reported through the individual&apos;s
+        return. Net business profit or loss is considered with other personal
+        income.
       </p>
     ),
   },
@@ -106,7 +115,9 @@ const soleTraderFaqs = [
     label: "What deductions can a sole trader claim",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Eligible expenses must relate to earning assessable income and be supported by records. Mixed expenses are generally apportioned, and some assets are claimed over time.
+        Eligible expenses must relate to earning assessable income and be
+        supported by records. Mixed expenses are generally apportioned, and some
+        assets are claimed over time.
       </p>
     ),
   },
@@ -115,7 +126,9 @@ const soleTraderFaqs = [
     label: "Does a sole trader need to register for GST",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        For most businesses, registration is required when current or projected GST turnover reaches $75,000. Different rules can apply, and voluntary registration may be available.
+        For most businesses, registration is required when current or projected
+        GST turnover reaches $75,000. Different rules can apply, and voluntary
+        registration may be available.
       </p>
     ),
   },
@@ -124,7 +137,8 @@ const soleTraderFaqs = [
     label: "What are PAYG instalments",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        They are payments towards expected tax on business and investment income and are credited against the annual assessment.
+        They are payments towards expected tax on business and investment income
+        and are credited against the annual assessment.
       </p>
     ),
   },
@@ -133,7 +147,9 @@ const soleTraderFaqs = [
     label: "Can I complete the process online",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Australia-wide clients can meet online and provide records digitally. Bookings can be arranged by phone, and in-person appointments are also available.
+        Yes. Australia-wide clients can meet online and provide records
+        digitally. Bookings can be arranged by phone, and in-person appointments
+        are also available.
       </p>
     ),
   },
@@ -142,7 +158,8 @@ const soleTraderFaqs = [
     label: "When should I use a sole trader accountant",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Assistance may be useful for mixed income, uncertain deductions, incomplete records, GST or PAYG obligations, PSI or a business loss.
+        Assistance may be useful for mixed income, uncertain deductions,
+        incomplete records, GST or PAYG obligations, PSI or a business loss.
       </p>
     ),
   },
@@ -185,16 +202,26 @@ export default function SoleTraderTaxReturnPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              As a sole trader, you report business income and expenses through your individual tax return rather than lodging a separate company return. Your overall tax position generally reflects your net business profit or loss, other personal income and the Australian tax rules applying to your circumstances.
+              As a sole trader, you report business income and expenses through
+              your individual tax return rather than lodging a separate company
+              return. Your overall tax position generally reflects your net
+              business profit or loss, other personal income and the Australian
+              tax rules applying to your circumstances.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides sole trader tax return preparation for tradies, contractors, freelancers, consultants and service-based business owners across Australia. We review the information provided, prepare the return and explain the outcome before lodgement.
+              Financially Up Pty Ltd provides sole trader tax return preparation
+              for tradies, contractors, freelancers, consultants and
+              service-based business owners across Australia. We review the
+              information provided, prepare the return and explain the outcome
+              before lodgement.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              During the first appointment, we discuss your activities, income, expenses, records and tax obligations, then explain the documents required and next steps.
+              During the first appointment, we discuss your activities, income,
+              expenses, records and tax obligations, then explain the documents
+              required and next steps.
             </div>
           </span>
         }

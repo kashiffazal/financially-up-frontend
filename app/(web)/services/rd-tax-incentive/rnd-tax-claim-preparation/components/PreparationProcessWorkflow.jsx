@@ -20,7 +20,9 @@ export default function PreparationProcessWorkflow() {
   const steps = [
     {
       step: "01",
-      icon: <FileSyncOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSyncOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Scoping & Reconciliations",
       title: "Review of Activities, Allocation & Accounting",
       description:
@@ -28,7 +30,9 @@ export default function PreparationProcessWorkflow() {
     },
     {
       step: "02",
-      icon: <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Tax Return Integration",
       title: "Integrated Working Papers & Company Return",
       description:
@@ -36,7 +40,9 @@ export default function PreparationProcessWorkflow() {
     },
     {
       step: "03",
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Cross-Border Special Rule",
       title: "Overseas Finding Rules & Strict Timing",
       description:
@@ -59,8 +65,9 @@ export default function PreparationProcessWorkflow() {
             What does the preparation process involve?
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A methodical approach ensuring all calculations, technical assumptions,
-            and compliance schedules reconcile seamlessly into your Australian company tax return.
+            A methodical approach ensuring all calculations, technical
+            assumptions, and compliance schedules reconcile seamlessly into your
+            Australian company tax return.
           </p>
         </div>
 
@@ -69,10 +76,10 @@ export default function PreparationProcessWorkflow() {
           {steps.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col md:flex-row items-start gap-6 lg:gap-8 group"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col md:flex-row items-start gap-6 lg:gap-8 group"
             >
               <div className="flex items-center gap-4 shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 shadow-xs">
+                <div className="w-14 h-14 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 shadow-xs">
                   {item.icon}
                 </div>
                 <div className="text-3xl font-black text-slate-300 dark:text-zinc-700 font-mono">
@@ -101,15 +108,18 @@ export default function PreparationProcessWorkflow() {
         </div>
 
         {/* Critical Overseas Finding Alert */}
-        <div className="bg-amber-50/60 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center shrink-0 text-amber-800 dark:text-amber-300">
+        <div className="bg-amber-50/60 dark:bg-amber-950/20 rounded-lg p-6 sm:p-7 border border-amber-200/80 dark:border-amber-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center shrink-0 text-amber-800 dark:text-amber-300">
             <WarningOutlined className="text-xl" />
           </div>
           <p className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed font-normal">
             <strong className="font-semibold text-amber-950 dark:text-amber-100">
               Crucial Statutory Cut-Off:
             </strong>{" "}
-            Overseas finding applications must be submitted <em>prior to the end of the income year</em> in which offshore activities are carried out. The Department has no discretion to accept late applications or grant extensions.
+            Overseas finding applications must be submitted{" "}
+            <em>prior to the end of the income year</em> in which offshore
+            activities are carried out. The Department has no discretion to
+            accept late applications or grant extensions.
           </p>
         </div>
       </div>

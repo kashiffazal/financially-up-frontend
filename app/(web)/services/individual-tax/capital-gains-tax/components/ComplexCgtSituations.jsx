@@ -80,7 +80,7 @@ export default function ComplexCgtSituations() {
               key={idx}
               className="flex items-start gap-4 p-5 sm:p-6 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs hover:shadow-md transition-all"
             >
-              <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-700 flex items-center justify-center shrink-0 border border-slate-200 dark:border-zinc-600 text-lg shadow-2xs">
+              <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-700 flex items-center justify-center shrink-0 border border-slate-200 dark:border-zinc-600 text-lg shadow-2xs">
                 {item.icon}
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 leading-relaxed font-medium m-0">

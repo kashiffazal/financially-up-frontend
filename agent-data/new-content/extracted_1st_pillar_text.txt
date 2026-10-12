@@ -500,7 +500,7 @@ Not necessarily. Specialist assistance may help when remuneration, investments, 
 
 What makes a high-income tax return more complex?
 
-Complexity usually comes from income sources, remuneration arrangements, investments, transactions and deductions—not income level alone.
+Complexity usually comes from income sources, remuneration arrangements, investments, transactions and deductions-not income level alone.
 
 What is the difference between tax return preparation and tax planning?
 
@@ -1322,7 +1322,7 @@ For an investor, a gain or loss is generally worked out by comparing capital pro
 
 Capital losses can generally reduce capital gains but not salary or other ordinary income. Unused net capital losses may be carried forward. Eligible individuals may be entitled to the CGT discount for assets held for at least 12 months, after applying capital losses and subject to the relevant conditions.
 
-The personal-use asset exception is narrow. It depends on crypto being kept or used mainly to buy items for personal use or consumption—not merely on eventually spending an investment. A gain on a qualifying asset acquired for less than $10,000 may be disregarded; losses from personal-use assets are disregarded.
+The personal-use asset exception is narrow. It depends on crypto being kept or used mainly to buy items for personal use or consumption-not merely on eventually spending an investment. A gain on a qualifying asset acquired for less than $10,000 may be disregarded; losses from personal-use assets are disregarded.
 
 For more detail on the general rules, see our Capital Gains Tax page.
 

@@ -34,7 +34,8 @@ export default function WorldwideIncomeDeclaration() {
       desc: "Earnings in USD, EUR, GBP, INR, or any foreign currency must be declared using accepted ATO translation methods.",
     },
     {
-      title: "The overseas country has already included it in a foreign tax return",
+      title:
+        "The overseas country has already included it in a foreign tax return",
       desc: "Filing an overseas tax return does not replace your legal Australian worldwide lodgement requirement.",
     },
   ];
@@ -52,25 +53,33 @@ export default function WorldwideIncomeDeclaration() {
               Do Australian Residents Need to Declare Foreign Income?
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Australian residents for tax purposes are generally taxed on their worldwide assessable income. This means assessable foreign income may need to be reported even if:
+              Australian residents for tax purposes are generally taxed on their
+              worldwide assessable income. This means assessable foreign income
+              may need to be reported even if:
             </p>
 
-            <div className="mt-8 p-6 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60">
+            <div className="mt-8 p-6 rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60">
               <div className="flex gap-3">
                 <ExclamationCircleOutlined className="text-xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
                 <div className="space-y-3">
                   <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                    Tax treatment can differ for foreign residents and for people who qualify for Australia's temporary-resident rules. If your residency position is uncertain, it should usually be resolved before the foreign income calculation.
+                    Tax treatment can differ for foreign residents and for
+                    people who qualify for Australia's temporary-resident rules.
+                    If your residency position is uncertain, it should usually
+                    be resolved before the foreign income calculation.
                   </p>
                   <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                    Where the residency position needs a separate factual review, our{" "}
+                    Where the residency position needs a separate factual
+                    review, our{" "}
                     <Link
                       href="/services/international-tax/tax-residency"
                       className="font-semibold text-teal-600 dark:text-teal-400 hover:underline inline-flex items-center gap-1"
                     >
-                      Tax Residency service <ArrowRightOutlined className="text-xs" />
+                      Tax Residency service{" "}
+                      <ArrowRightOutlined className="text-xs" />
                     </Link>{" "}
-                    addresses that question before the foreign-income calculations are finalised.
+                    addresses that question before the foreign-income
+                    calculations are finalised.
                   </p>
                 </div>
               </div>
@@ -82,7 +91,7 @@ export default function WorldwideIncomeDeclaration() {
             {reportingConditions.map((cond, index) => (
               <div
                 key={index}
-                className="p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all flex items-start gap-4"
+                className="p-5 sm:p-6 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all flex items-start gap-4"
               >
                 <CheckCircleFilled className="text-xl text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
                 <div>

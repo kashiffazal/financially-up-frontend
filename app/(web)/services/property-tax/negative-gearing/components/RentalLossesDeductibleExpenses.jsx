@@ -2,7 +2,11 @@
 
 import React from "react";
 import { Alert } from "antd";
-import { CheckOutlined, CloseOutlined, WarningOutlined } from "@ant-design/icons";
+import {
+  CheckOutlined,
+  CloseOutlined,
+  WarningOutlined,
+} from "@ant-design/icons";
 
 /**
  * RentalLossesDeductibleExpenses Component
@@ -41,13 +45,15 @@ export default function RentalLossesDeductibleExpenses() {
             Rental Losses Are Based on Deductible Expenses, Not Cash Flow
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            A common mistake is treating every payment made towards a property as an automatic tax deduction. Tax treatment strictly depends on what each expense was incurred for.
+            A common mistake is treating every payment made towards a property
+            as an automatic tax deduction. Tax treatment strictly depends on
+            what each expense was incurred for.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Allowable Deductions */}
-          <div className="bg-emerald-50/40 border border-emerald-200 rounded-2xl p-6 sm:p-8">
+          <div className="bg-emerald-50/40 border border-emerald-200 rounded-lg p-6 sm:p-8">
             <h3 className="text-xl font-bold text-emerald-950 mb-3 flex items-center gap-2">
               <span className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 text-sm font-bold">
                 ✓
@@ -55,11 +61,15 @@ export default function RentalLossesDeductibleExpenses() {
               Generally Deductible Operating Expenses
             </h3>
             <p className="text-emerald-800 text-sm mb-6">
-              Claimable when the property is tenanted or genuinely available for rent at market rates:
+              Claimable when the property is tenanted or genuinely available for
+              rent at market rates:
             </p>
             <ul className="space-y-3.5">
               {deductibleItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-slate-800 text-sm">
+                <li
+                  key={idx}
+                  className="flex items-start gap-3 text-slate-800 text-sm"
+                >
                   <CheckOutlined className="text-emerald-600 font-bold shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
@@ -68,7 +78,7 @@ export default function RentalLossesDeductibleExpenses() {
           </div>
 
           {/* Non-Deductible / Capital Items */}
-          <div className="bg-rose-50/40 border border-rose-200 rounded-2xl p-6 sm:p-8">
+          <div className="bg-rose-50/40 border border-rose-200 rounded-lg p-6 sm:p-8">
             <h3 className="text-xl font-bold text-rose-950 mb-3 flex items-center gap-2">
               <span className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-700 text-sm font-bold">
                 ✕
@@ -76,11 +86,15 @@ export default function RentalLossesDeductibleExpenses() {
               Non-Deductible or Capital Outgoings
             </h3>
             <p className="text-rose-800 text-sm mb-6">
-              Expenditures that cannot be claimed as immediate deductions against ordinary rental income:
+              Expenditures that cannot be claimed as immediate deductions
+              against ordinary rental income:
             </p>
             <ul className="space-y-3.5">
               {nonDeductibleItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-slate-800 text-sm">
+                <li
+                  key={idx}
+                  className="flex items-start gap-3 text-slate-800 text-sm"
+                >
                   <CloseOutlined className="text-rose-500 font-bold shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
@@ -97,10 +111,15 @@ export default function RentalLossesDeductibleExpenses() {
           title="Private Use, Holiday Homes & Non-Commercial Leases"
           description={
             <div className="text-slate-700 text-sm sm:text-base leading-relaxed mt-1">
-              If a property is used privately for part of the year, rented to family or friends on non-commercial terms (below genuine market rates), or not actively marketed and genuinely available for rent, deductions must be proportionally restricted or capped at rental income received. Our accountants review the underlying facts to prevent ATO non-compliance.
+              If a property is used privately for part of the year, rented to
+              family or friends on non-commercial terms (below genuine market
+              rates), or not actively marketed and genuinely available for rent,
+              deductions must be proportionally restricted or capped at rental
+              income received. Our accountants review the underlying facts to
+              prevent ATO non-compliance.
             </div>
           }
-          className="border border-amber-200 bg-amber-50/60 rounded-xl p-5"
+          className="border border-amber-200 bg-amber-50/60 rounded-lg p-5"
         />
       </div>
     </section>

@@ -21,19 +21,28 @@ import {
 export default function WhenDoesPropertyCgtApply() {
   const propertyCategories = [
     {
-      icon: <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Contract Date Governs the Timing",
-      description: "For standard property sales, the CGT event (A1) occurs on the date contracts are exchanged, not the settlement date. The gain is reported in the tax year of contract exchange.",
+      description:
+        "For standard property sales, the CGT event (A1) occurs on the date contracts are exchanged, not the settlement date. The gain is reported in the tax year of contract exchange.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Main Residence vs Investments",
-      description: "Qualifying primary homes may be fully exempt, while rental properties, holiday homes, vacant land, and commercial premises generally require formal CGT calculations.",
+      description:
+        "Qualifying primary homes may be fully exempt, while rental properties, holiday homes, vacant land, and commercial premises generally require formal CGT calculations.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Special CGT Circumstances",
-      description: "Inherited deceased estates, marriage and relationship breakdowns, pre-CGT assets (acquired prior to 20 Sept 1985), and changes in Australian tax residency require tailored rules.",
+      description:
+        "Inherited deceased estates, marriage and relationship breakdowns, pre-CGT assets (acquired prior to 20 Sept 1985), and changes in Australian tax residency require tailored rules.",
     },
   ];
 
@@ -58,9 +67,9 @@ export default function WhenDoesPropertyCgtApply() {
           {propertyCategories.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
+              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -76,7 +85,7 @@ export default function WhenDoesPropertyCgtApply() {
         {/* Verbatim Paragraph 1, 2 & 3 Blocks */}
         <div className="space-y-6 max-w-4xl mx-auto">
           {/* Paragraph 1 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-start gap-3">
               <CheckCircleOutlined className="text-emerald-500 text-lg mt-1 shrink-0" />
               <div>
@@ -85,14 +94,19 @@ export default function WhenDoesPropertyCgtApply() {
                 </h4>
                 {/* Verbatim text from official document */}
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                  A disposal of property acquired on or after 20 September 1985 generally triggers a CGT event. For a standard sale contract, the event usually occurs when the parties enter into the contract, not when settlement occurs. The capital gain or loss is therefore reported in the income year of the contract date, even if settlement is later.
+                  A disposal of property acquired on or after 20 September 1985
+                  generally triggers a CGT event. For a standard sale contract,
+                  the event usually occurs when the parties enter into the
+                  contract, not when settlement occurs. The capital gain or loss
+                  is therefore reported in the income year of the contract date,
+                  even if settlement is later.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-start gap-3">
               <CheckCircleOutlined className="text-emerald-500 text-lg mt-1 shrink-0" />
               <div>
@@ -101,21 +115,29 @@ export default function WhenDoesPropertyCgtApply() {
                 </h4>
                 {/* Verbatim text from official document */}
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                  A qualifying main residence may be fully exempt. An investment property, holiday home, vacant land or property used to produce income will generally require a CGT calculation. Special rules can apply to inherited property, relationship breakdowns, pre-CGT interests and changes in tax residency.
+                  A qualifying main residence may be fully exempt. An investment
+                  property, holiday home, vacant land or property used to
+                  produce income will generally require a CGT calculation.
+                  Special rules can apply to inherited property, relationship
+                  breakdowns, pre-CGT interests and changes in tax residency.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Paragraph 3 */}
-          <div className="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-7 border border-emerald-200 dark:border-emerald-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-lg p-7 border border-emerald-200 dark:border-emerald-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
               <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1">
                 Development &amp; Subdivision Cross-Over
               </h4>
               {/* Verbatim text from official document */}
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                A sale may instead produce ordinary income where the property was acquired or developed as part of a business or commercial profit-making transaction. Our Property Subdivision Tax page explains the distinct issues arising when land is divided or developed for sale.
+                A sale may instead produce ordinary income where the property
+                was acquired or developed as part of a business or commercial
+                profit-making transaction. Our Property Subdivision Tax page
+                explains the distinct issues arising when land is divided or
+                developed for sale.
               </p>
             </div>
             <Link href="/services/property-tax/property-subdivision-tax">

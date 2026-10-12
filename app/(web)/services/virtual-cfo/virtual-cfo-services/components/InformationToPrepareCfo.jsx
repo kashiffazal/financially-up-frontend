@@ -29,7 +29,8 @@ export default function InformationToPrepareCfo() {
       desc: "Loan contracts, lease agreements, equipment finance schedules, and overdraft limits.",
     },
     {
-      title: "key customer, supplier or staffing information that affects forecasts",
+      title:
+        "key customer, supplier or staffing information that affects forecasts",
       desc: "Major client contracts, payment terms, key supplier price locks, and upcoming hiring plans.",
     },
     {
@@ -47,14 +48,19 @@ export default function InformationToPrepareCfo() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Onboarding Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Information to prepare
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            To design an outsourced finance arrangement tailored to your operating rhythm, having the following records ready accelerates the initial scoping discussion:
+            To design an outsourced finance arrangement tailored to your
+            operating rhythm, having the following records ready accelerates the
+            initial scoping discussion:
           </p>
         </div>
 
@@ -63,11 +69,11 @@ export default function InformationToPrepareCfo() {
           {prepItems.map((item, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/60 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/60 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100/60 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100/60 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
                     0{index + 1}
                   </div>
                   <FileDoneOutlined className="text-lg text-slate-400 dark:text-zinc-500" />

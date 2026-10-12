@@ -55,10 +55,12 @@ const servicesFaqs = [
     label: "Can I bundle or combine multiple services together?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes, absolutely. Many of our clients bundle services to reduce costs and streamline their compliance.
-        Common packages include bookkeeping combined with quarterly BAS lodgements and annual company tax
-        returns, or individual returns bundled with investment property schedules and tax planning.
-        We provide transparent, fixed-fee package quotes tailored to your exact requirements.
+        Yes, absolutely. Many of our clients bundle services to reduce costs and
+        streamline their compliance. Common packages include bookkeeping
+        combined with quarterly BAS lodgements and annual company tax returns,
+        or individual returns bundled with investment property schedules and tax
+        planning. We provide transparent, fixed-fee package quotes tailored to
+        your exact requirements.
       </p>
     ),
   },
@@ -67,10 +69,12 @@ const servicesFaqs = [
     label: "How does an online consultation with Financially Up work?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        You can book an appointment directly through our online booking tool. Once confirmed, you will
-        receive a calendar invitation with a secure video conference link (Zoom, Microsoft Teams, or Google Meet).
-        Before or during the meeting, you can securely upload relevant documents to our encrypted portal.
-        After the session, we confirm our agreed scope and commence preparation.
+        You can book an appointment directly through our online booking tool.
+        Once confirmed, you will receive a calendar invitation with a secure
+        video conference link (Zoom, Microsoft Teams, or Google Meet). Before or
+        during the meeting, you can securely upload relevant documents to our
+        encrypted portal. After the session, we confirm our agreed scope and
+        commence preparation.
       </p>
     ),
   },
@@ -79,10 +83,12 @@ const servicesFaqs = [
     label: "What documents or records do I need to have ready?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Document requirements depend on the service. For individuals, you will typically need your PAYG
-        income statements, work deduction records, private health statements, and rental property summaries.
-        For businesses, we typically require access to your cloud accounting software (Xero, MYOB, or QBO),
-        recent bank statements, payroll STP summaries, and prior-year tax returns. We provide an itemised checklist
+        Document requirements depend on the service. For individuals, you will
+        typically need your PAYG income statements, work deduction records,
+        private health statements, and rental property summaries. For
+        businesses, we typically require access to your cloud accounting
+        software (Xero, MYOB, or QBO), recent bank statements, payroll STP
+        summaries, and prior-year tax returns. We provide an itemised checklist
         prior to your consultation.
       </p>
     ),
@@ -92,10 +98,12 @@ const servicesFaqs = [
     label: "How long does it take to prepare and lodge a tax return or report?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Standard individual tax returns are usually prepared within 3 to 5 business days after receiving
-        complete records. Business tax returns, trust accounts, and company financial statements typically
-        take 1 to 2 weeks, depending on the volume of ledger reconciliation required. Once you review and
-        sign off electronically, lodgement with the ATO is transmitted instantly.
+        Standard individual tax returns are usually prepared within 3 to 5
+        business days after receiving complete records. Business tax returns,
+        trust accounts, and company financial statements typically take 1 to 2
+        weeks, depending on the volume of ledger reconciliation required. Once
+        you review and sign off electronically, lodgement with the ATO is
+        transmitted instantly.
       </p>
     ),
   },
@@ -104,9 +112,11 @@ const servicesFaqs = [
     label: "Are Financially Up accountants registered with the ATO and ASIC?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Financially Up Pty Ltd is a registered Tax Agent with the Tax Practitioners Board (TPB) and
-        an ASIC Registered Agent. All our accountants hold professional qualifications with CPA Australia
-        or CA ANZ, adhering strictly to professional ethical standards and Australian taxation law.
+        Yes. Financially Up Pty Ltd is a registered Tax Agent with the Tax
+        Practitioners Board (TPB) and an ASIC Registered Agent. All our
+        accountants hold professional qualifications with CPA Australia or CA
+        ANZ, adhering strictly to professional ethical standards and Australian
+        taxation law.
       </p>
     ),
   },
@@ -115,9 +125,10 @@ const servicesFaqs = [
     label: "Can you help with overdue prior-year tax returns or ATO debts?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Through our dedicated ATO Help practice (Pillar 11), we frequently assist clients who have
-        multiple years of outstanding tax returns, missing paperwork, or accumulated ATO debts.
-        We can contact the ATO on your behalf, retrieve historical data, request penalty and interest
+        Yes. Through our dedicated ATO Help practice (Pillar 11), we frequently
+        assist clients who have multiple years of outstanding tax returns,
+        missing paperwork, or accumulated ATO debts. We can contact the ATO on
+        your behalf, retrieve historical data, request penalty and interest
         remissions, and establish realistic payment arrangements.
       </p>
     ),
@@ -127,10 +138,12 @@ const servicesFaqs = [
     label: "How are your fees structured?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        We believe in upfront pricing with zero surprises. Most compliance work—including individual tax
-        returns, company tax returns, BAS lodgements, and SMSF annual accounts—is quoted as a fixed, all-inclusive
-        fee. Strategic advisory, Virtual CFO, and special consulting projects are available on transparent
-        monthly retainers or agreed milestone-based pricing.
+        We believe in upfront pricing with zero surprises. Most compliance
+        work-including individual tax returns, company tax returns, BAS
+        lodgements, and SMSF annual accounts-is quoted as a fixed, all-inclusive
+        fee. Strategic advisory, Virtual CFO, and special consulting projects
+        are available on transparent monthly retainers or agreed milestone-based
+        pricing.
       </p>
     ),
   },
@@ -139,9 +152,11 @@ const servicesFaqs = [
     label: "Do you service clients outside Sydney or overseas?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. We serve clients across all Australian states and territories (NSW, VIC, QLD, WA, SA, TAS, ACT, NT),
-        both in capital cities and regional communities. We also support Australian expatriates living abroad
-        with non-resident returns, foreign income compliance, and tax residency determinations.
+        Yes. We serve clients across all Australian states and territories (NSW,
+        VIC, QLD, WA, SA, TAS, ACT, NT), both in capital cities and regional
+        communities. We also support Australian expatriates living abroad with
+        non-resident returns, foreign income compliance, and tax residency
+        determinations.
       </p>
     ),
   },

@@ -5,9 +5,10 @@ import AboutContent from "./AboutContent";
  * Server Metadata for SEO
  */
 export const metadata = {
-  title: "About Us | CPA Accountants & Registered Tax Agents Australia | Financially Up",
+  title:
+    "About Us | CPA Accountants & Registered Tax Agents Australia | Financially Up",
   description:
-    "Learn about Financially Up Pty Ltd — Australia's premier online accounting firm. Dedicated CPA qualified accountants and registered tax agents delivering stress-free compliance nationwide.",
+    "Learn about Financially Up Pty Ltd - Australia's premier online accounting firm. Dedicated CPA qualified accountants and registered tax agents delivering stress-free compliance nationwide.",
   keywords: [
     "about Financially Up",
     "CPA accountants Australia",
@@ -20,9 +21,10 @@ export const metadata = {
     canonical: "https://financiallyup.com.au/about/",
   },
   openGraph: {
-    title: "About Us | CPA Accountants & Registered Tax Agents Australia | Financially Up",
+    title:
+      "About Us | CPA Accountants & Registered Tax Agents Australia | Financially Up",
     description:
-      "Learn about Financially Up Pty Ltd — Australia's premier online accounting firm. Dedicated CPA qualified accountants and registered tax agents delivering stress-free compliance nationwide.",
+      "Learn about Financially Up Pty Ltd - Australia's premier online accounting firm. Dedicated CPA qualified accountants and registered tax agents delivering stress-free compliance nationwide.",
     url: "https://financiallyup.com.au/about/",
     siteName: "Financially Up",
     locale: "en_AU",

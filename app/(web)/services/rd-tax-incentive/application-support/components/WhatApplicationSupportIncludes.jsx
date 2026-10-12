@@ -20,22 +20,30 @@ import {
 export default function WhatApplicationSupportIncludes() {
   const supportElements = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Application Planning",
       desc: "Timeline planning, eligibility validation checkpoints, and portal registration structure.",
     },
     {
-      icon: <SolutionOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SolutionOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Activity Descriptions",
       desc: "Reviewing technical narratives to reflect hypotheses, experiments, and technical uncertainties accurately.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Record Review",
       desc: "Assessing contemporaneous project notes, test results, payroll records, and contractor documentation.",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Expenditure Coordination",
       desc: "Reconciling the R&D schedule with general ledger accounts and overall company tax compliance.",
     },
@@ -60,11 +68,13 @@ export default function WhatApplicationSupportIncludes() {
         {/* Verbatim Document Copy Card */}
         <div className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-            Support can include application planning, activity descriptions, record review and
-            coordination of the expenditure schedule with company tax compliance. Management and
-            technical personnel still need to explain what was attempted, how outcomes were evaluated
-            and what records substantiate the work. An adviser can organize and test that information,
-            but should not invent activities, evidence or expenditure.
+            Support can include application planning, activity descriptions,
+            record review and coordination of the expenditure schedule with
+            company tax compliance. Management and technical personnel still
+            need to explain what was attempted, how outcomes were evaluated and
+            what records substantiate the work. An adviser can organize and test
+            that information, but should not invent activities, evidence or
+            expenditure.
           </p>
         </div>
 
@@ -73,9 +83,9 @@ export default function WhatApplicationSupportIncludes() {
           {supportElements.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">

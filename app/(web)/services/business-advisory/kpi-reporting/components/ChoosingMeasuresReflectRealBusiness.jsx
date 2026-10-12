@@ -67,9 +67,9 @@ export default function ChoosingMeasuresReflectRealBusiness() {
         {/* Dual Pillar: Financial vs Operational Measures */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Financial KPIs */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800">
+          <div className="p-6 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800">
             <div className="flex items-center gap-3 mb-6">
-              <span className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <span className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <DollarOutlined className="text-xl" />
               </span>
               <div>
@@ -86,7 +86,7 @@ export default function ChoosingMeasuresReflectRealBusiness() {
               {financialMeasures.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800"
                 >
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-sm shrink-0" />
                   <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-zinc-300">
@@ -98,9 +98,9 @@ export default function ChoosingMeasuresReflectRealBusiness() {
           </div>
 
           {/* Operational KPIs */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800">
+          <div className="p-6 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800">
             <div className="flex items-center gap-3 mb-6">
-              <span className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400">
+              <span className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400">
                 <RocketOutlined className="text-xl" />
               </span>
               <div>
@@ -117,7 +117,7 @@ export default function ChoosingMeasuresReflectRealBusiness() {
               {operationalMeasures.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800"
                 >
                   <CheckCircleOutlined className="text-blue-600 dark:text-blue-400 text-sm shrink-0" />
                   <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-zinc-300">
@@ -130,7 +130,7 @@ export default function ChoosingMeasuresReflectRealBusiness() {
         </div>
 
         {/* Narrative Box: Definitions and Frequency Matter */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/40 dark:bg-amber-950/10 border border-amber-200/70 dark:border-amber-900/40 mb-8">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/40 dark:bg-amber-950/10 border border-amber-200/70 dark:border-amber-900/40 mb-8">
           <div className="flex items-start gap-3">
             <ExclamationCircleOutlined className="text-xl text-amber-600 dark:text-amber-400 shrink-0 mt-1" />
             <div>
@@ -151,7 +151,7 @@ export default function ChoosingMeasuresReflectRealBusiness() {
         </div>
 
         {/* Business.gov.au Framework Callout */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4">
+        <div className="p-5 sm:p-6 rounded-lg bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4">
           <BankOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div>
             <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1">

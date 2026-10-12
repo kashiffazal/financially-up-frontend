@@ -54,7 +54,7 @@ export default function AccurateRecordsBeforeBas() {
           {/* Card 1: Bookkeeping Services */}
           <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <FileProtectOutlined className="text-2xl" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -83,7 +83,7 @@ export default function AccurateRecordsBeforeBas() {
           {/* Card 2: GST Registration */}
           <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                 <ThunderboltOutlined className="text-2xl" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">

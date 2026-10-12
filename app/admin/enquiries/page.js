@@ -29,32 +29,57 @@ import { HTTP, antdMsg } from "@/services";
 
 const ENQUIRY_STATUS_LIST = [
   { key: "New", label: "New", color: "processing", icon: <InboxOutlined /> },
-  { key: "Contacted", label: "Contacted", color: "success", icon: <PhoneOutlined /> },
-  { key: "Closed", label: "Closed", color: "default", icon: <CheckCircleOutlined /> },
+  {
+    key: "Contacted",
+    label: "Contacted",
+    color: "success",
+    icon: <PhoneOutlined />,
+  },
+  {
+    key: "Closed",
+    label: "Closed",
+    color: "default",
+    icon: <CheckCircleOutlined />,
+  },
   { key: "Spam", label: "Spam", color: "error", icon: <StopOutlined /> },
 ];
 
-const EMAIL_STATUS_COLORS = { sent: "success", failed: "error", pending: "processing", skipped: "default" };
+const EMAIL_STATUS_COLORS = {
+  sent: "success",
+  failed: "error",
+  pending: "processing",
+  skipped: "default",
+};
 
 const emailStatusTag = (status, error) => {
-  if (!status) return "—";
+  if (!status) return "-";
   return (
     <span className="inline-flex flex-col gap-1">
-      <Tag color={EMAIL_STATUS_COLORS[status] || "default"} className="rounded-pill capitalize w-fit">
+      <Tag
+        color={EMAIL_STATUS_COLORS[status] || "default"}
+        className="rounded-pill capitalize w-fit"
+      >
         {status}
       </Tag>
-      {error && <span className="text-[11px] text-red-500 break-words">{error}</span>}
+      {error && (
+        <span className="text-[11px] text-red-500 break-words">{error}</span>
+      )}
     </span>
   );
 };
 
-const SOURCE_LABELS = { contact_page: "Contact page", contact_modal: "Contact Us popup" };
+const SOURCE_LABELS = {
+  contact_page: "Contact page",
+  contact_modal: "Contact Us popup",
+};
 
-const fullName = (r) => [r.firstName, r.lastName].filter(Boolean).join(" ") || "—";
-const formatDateTime = (value) => (value ? new Date(value).toLocaleString("en-AU") : "—");
+const fullName = (r) =>
+  [r.firstName, r.lastName].filter(Boolean).join(" ") || "-";
+const formatDateTime = (value) =>
+  value ? new Date(value).toLocaleString("en-AU") : "-";
 
 export default function EnquiriesAdminPage() {
-  // Staff notes editor (row action) — remounting the log after save refreshes its data
+  // Staff notes editor (row action) - remounting the log after save refreshes its data
   const [notesRecord, setNotesRecord] = useState(null);
   const [notesDraft, setNotesDraft] = useState("");
   const [savingNotes, setSavingNotes] = useState(false);
@@ -68,7 +93,9 @@ export default function EnquiriesAdminPage() {
   const saveNotes = async () => {
     if (!notesRecord) return;
     setSavingNotes(true);
-    const res = await HTTP("PUT", `/contact-enquiries/${notesRecord.id}`, { staffNotes: notesDraft });
+    const res = await HTTP("PUT", `/contact-enquiries/${notesRecord.id}`, {
+      staffNotes: notesDraft,
+    });
     setSavingNotes(false);
     if (res?.success) {
       antdMsg.success("Staff notes saved");
@@ -100,8 +127,12 @@ export default function EnquiriesAdminPage() {
         sorter: (a, b) => fullName(a).localeCompare(fullName(b)),
         render: (_, r) => (
           <div>
-            <div className="font-semibold text-slate-900 dark:text-zinc-100">{fullName(r)}</div>
-            <div className="text-[11px] text-slate-400">{SOURCE_LABELS[r.source] || "Website"}</div>
+            <div className="font-semibold text-slate-900 dark:text-zinc-100">
+              {fullName(r)}
+            </div>
+            <div className="text-[11px] text-slate-400">
+              {SOURCE_LABELS[r.source] || "Website"}
+            </div>
           </div>
         ),
       },
@@ -111,11 +142,17 @@ export default function EnquiriesAdminPage() {
         dataIndex: "email",
         render: (_, r) => (
           <div className="space-y-0.5 text-xs">
-            <a href={`mailto:${r.email}`} className="flex items-center gap-1.5 text-slate-700 dark:text-zinc-300 hover:text-brand-primary">
+            <a
+              href={`mailto:${r.email}`}
+              className="flex items-center gap-1.5 text-slate-700 dark:text-zinc-300 hover:text-brand-primary"
+            >
               <MailOutlined className="text-slate-400" /> {r.email}
             </a>
             {r.phone && (
-              <a href={`tel:${String(r.phone).replace(/\s/g, "")}`} className="flex items-center gap-1.5 text-slate-500 dark:text-zinc-400 hover:text-brand-primary">
+              <a
+                href={`tel:${String(r.phone).replace(/\s/g, "")}`}
+                className="flex items-center gap-1.5 text-slate-500 dark:text-zinc-400 hover:text-brand-primary"
+              >
                 <PhoneOutlined className="text-slate-400" /> {r.phone}
               </a>
             )}
@@ -126,7 +163,11 @@ export default function EnquiriesAdminPage() {
         title: "Service",
         key: "service",
         dataIndex: "service",
-        render: (service) => <span className="text-xs text-slate-600 dark:text-zinc-300">{service || "—"}</span>,
+        render: (service) => (
+          <span className="text-xs text-slate-600 dark:text-zinc-300">
+            {service || "-"}
+          </span>
+        ),
       },
       {
         title: "Message",
@@ -134,7 +175,9 @@ export default function EnquiriesAdminPage() {
         dataIndex: "message",
         width: 260,
         render: (message) => (
-          <span className="line-clamp-2 text-xs text-slate-500 dark:text-zinc-400">{message || "—"}</span>
+          <span className="line-clamp-2 text-xs text-slate-500 dark:text-zinc-400">
+            {message || "-"}
+          </span>
         ),
       },
       {
@@ -145,7 +188,7 @@ export default function EnquiriesAdminPage() {
         sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
         render: (date) => (
           <span className="text-[12px] text-slate-500 dark:text-zinc-400">
-            {date ? new Date(date).toLocaleDateString("en-AU") : "—"}
+            {date ? new Date(date).toLocaleDateString("en-AU") : "-"}
           </span>
         ),
       },
@@ -155,13 +198,16 @@ export default function EnquiriesAdminPage() {
         dataIndex: "status",
         width: 110,
         render: (status) => (
-          <Tag color={getStatusColor(status, ENQUIRY_STATUS_LIST)} className="font-semibold text-[11.5px] rounded-pill">
+          <Tag
+            color={getStatusColor(status, ENQUIRY_STATUS_LIST)}
+            className="font-semibold text-[11.5px] rounded-pill"
+          >
             {status || "New"}
           </Tag>
         ),
       },
     ],
-    []
+    [],
   );
 
   const customFilterCols = useMemo(
@@ -174,7 +220,7 @@ export default function EnquiriesAdminPage() {
       { label: "Service", value: "service" },
       { label: "Message", value: "message" },
     ],
-    []
+    [],
   );
 
   const exportColumns = useMemo(
@@ -191,7 +237,7 @@ export default function EnquiriesAdminPage() {
       { header: "Staff Notes", key: "staffNotes" },
       { header: "Received", key: "createdAt" },
     ],
-    []
+    [],
   );
 
   const extraActions = useCallback(
@@ -211,7 +257,7 @@ export default function EnquiriesAdminPage() {
         onClick: () => openNotes(record),
       },
     ],
-    [openNotes]
+    [openNotes],
   );
 
   // --------------------------------------------------------------------------
@@ -223,23 +269,40 @@ export default function EnquiriesAdminPage() {
         bordered
         size="small"
         layout={layout}
-        title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Enquiry</span>}
+        title={
+          <span className="text-sm font-bold text-slate-800 dark:text-zinc-200">
+            Enquiry
+          </span>
+        }
         column={{ xs: 1, sm: 2, md: 3 }}
       >
         <Descriptions.Item label="Reference">
           <span className="font-mono">{data.referenceNumber}</span>
         </Descriptions.Item>
         <Descriptions.Item label="Status">
-          <Tag color={getStatusColor(data.status, ENQUIRY_STATUS_LIST)} className="rounded-pill">
+          <Tag
+            color={getStatusColor(data.status, ENQUIRY_STATUS_LIST)}
+            className="rounded-pill"
+          >
             {data.status}
           </Tag>
         </Descriptions.Item>
-        <Descriptions.Item label="Received">{formatDateTime(data.createdAt)}</Descriptions.Item>
-        <Descriptions.Item label="Sent From">{SOURCE_LABELS[data.source] || "Website"}</Descriptions.Item>
-        <Descriptions.Item label="Service">{data.service || "—"}</Descriptions.Item>
-        <Descriptions.Item label="Preferred Contact">{data.preferredContact || "—"}</Descriptions.Item>
+        <Descriptions.Item label="Received">
+          {formatDateTime(data.createdAt)}
+        </Descriptions.Item>
+        <Descriptions.Item label="Sent From">
+          {SOURCE_LABELS[data.source] || "Website"}
+        </Descriptions.Item>
+        <Descriptions.Item label="Service">
+          {data.service || "-"}
+        </Descriptions.Item>
+        <Descriptions.Item label="Preferred Contact">
+          {data.preferredContact || "-"}
+        </Descriptions.Item>
         <Descriptions.Item label="Message" span={3}>
-          <div className="whitespace-pre-line leading-relaxed">{data.message || "—"}</div>
+          <div className="whitespace-pre-line leading-relaxed">
+            {data.message || "-"}
+          </div>
         </Descriptions.Item>
       </Descriptions>
 
@@ -247,7 +310,11 @@ export default function EnquiriesAdminPage() {
         bordered
         size="small"
         layout={layout}
-        title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Contact Details</span>}
+        title={
+          <span className="text-sm font-bold text-slate-800 dark:text-zinc-200">
+            Contact Details
+          </span>
+        }
         column={{ xs: 1, sm: 2, md: 3 }}
       >
         <Descriptions.Item label="Name">{fullName(data)}</Descriptions.Item>
@@ -255,7 +322,13 @@ export default function EnquiriesAdminPage() {
           <a href={`mailto:${data.email}`}>{data.email}</a>
         </Descriptions.Item>
         <Descriptions.Item label="Phone">
-          {data.phone ? <a href={`tel:${String(data.phone).replace(/\s/g, "")}`}>{data.phone}</a> : "—"}
+          {data.phone ? (
+            <a href={`tel:${String(data.phone).replace(/\s/g, "")}`}>
+              {data.phone}
+            </a>
+          ) : (
+            "-"
+          )}
         </Descriptions.Item>
       </Descriptions>
 
@@ -263,14 +336,24 @@ export default function EnquiriesAdminPage() {
         bordered
         size="small"
         layout={layout}
-        title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Follow-up</span>}
+        title={
+          <span className="text-sm font-bold text-slate-800 dark:text-zinc-200">
+            Follow-up
+          </span>
+        }
         column={{ xs: 1, sm: 2, md: 3 }}
       >
-        <Descriptions.Item label="Handled By">{data.handledByName || "—"}</Descriptions.Item>
-        <Descriptions.Item label="Handled At">{formatDateTime(data.handledAt)}</Descriptions.Item>
-        <Descriptions.Item label="Last Updated">{formatDateTime(data.updatedAt)}</Descriptions.Item>
+        <Descriptions.Item label="Handled By">
+          {data.handledByName || "-"}
+        </Descriptions.Item>
+        <Descriptions.Item label="Handled At">
+          {formatDateTime(data.handledAt)}
+        </Descriptions.Item>
+        <Descriptions.Item label="Last Updated">
+          {formatDateTime(data.updatedAt)}
+        </Descriptions.Item>
         <Descriptions.Item label="Staff Notes" span={3}>
-          <div className="whitespace-pre-line">{data.staffNotes || "—"}</div>
+          <div className="whitespace-pre-line">{data.staffNotes || "-"}</div>
         </Descriptions.Item>
       </Descriptions>
 
@@ -278,14 +361,27 @@ export default function EnquiriesAdminPage() {
         bordered
         size="small"
         layout={layout}
-        title={<span className="text-sm font-bold text-slate-800 dark:text-zinc-200">Email Delivery</span>}
+        title={
+          <span className="text-sm font-bold text-slate-800 dark:text-zinc-200">
+            Email Delivery
+          </span>
+        }
         column={{ xs: 1, sm: 2, md: 3 }}
       >
-        <Descriptions.Item label="Staff Alert">{emailStatusTag(data.staffEmailStatus, data.staffEmailError)}</Descriptions.Item>
-        <Descriptions.Item label="Client Confirmation">
-          {emailStatusTag(data.confirmationEmailStatus, data.confirmationEmailError)}
+        <Descriptions.Item label="Staff Alert">
+          {emailStatusTag(data.staffEmailStatus, data.staffEmailError)}
         </Descriptions.Item>
-        {data.spamReason && <Descriptions.Item label="Flagged as Spam">{data.spamReason}</Descriptions.Item>}
+        <Descriptions.Item label="Client Confirmation">
+          {emailStatusTag(
+            data.confirmationEmailStatus,
+            data.confirmationEmailError,
+          )}
+        </Descriptions.Item>
+        {data.spamReason && (
+          <Descriptions.Item label="Flagged as Spam">
+            {data.spamReason}
+          </Descriptions.Item>
+        )}
       </Descriptions>
     </div>
   );
@@ -306,7 +402,11 @@ export default function EnquiriesAdminPage() {
             href: "/admin/dashboard",
           },
           {
-            title: <span className="font-semibold text-brand-primary dark:text-emerald-400">Website Enquiries</span>,
+            title: (
+              <span className="font-semibold text-brand-primary dark:text-emerald-400">
+                Website Enquiries
+              </span>
+            ),
           },
         ]}
       />
@@ -321,7 +421,9 @@ export default function EnquiriesAdminPage() {
         exportColumns={exportColumns}
         filenamePrefix="Website_Enquiries"
         filterPlaceholder="Search enquiries..."
-        viewDetailsTitle={(d) => `${fullName(d)} - Enquiry ${d.referenceNumber}`}
+        viewDetailsTitle={(d) =>
+          `${fullName(d)} - Enquiry ${d.referenceNumber}`
+        }
         viewDetailsIcon={<MessageOutlined />}
         renderViewDetails={renderViewDetails}
         extraActions={extraActions}
@@ -334,11 +436,16 @@ export default function EnquiriesAdminPage() {
         okText="Save Notes"
         confirmLoading={savingNotes}
         okButtonProps={{ className: "!bg-brand-primary" }}
-        title={notesRecord ? `Staff notes · ${notesRecord.referenceNumber}` : "Staff notes"}
+        title={
+          notesRecord
+            ? `Staff notes · ${notesRecord.referenceNumber}`
+            : "Staff notes"
+        }
         destroyOnHidden
       >
         <p className="m-0 mb-2 text-xs text-slate-500 dark:text-zinc-400">
-          Internal only. Record calls, emails sent, or next steps for {notesRecord ? fullName(notesRecord) : "this client"}.
+          Internal only. Record calls, emails sent, or next steps for{" "}
+          {notesRecord ? fullName(notesRecord) : "this client"}.
         </p>
         <Input.TextArea
           rows={6}

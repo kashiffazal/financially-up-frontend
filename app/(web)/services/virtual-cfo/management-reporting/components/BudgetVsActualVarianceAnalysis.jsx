@@ -43,7 +43,10 @@ export default function BudgetVsActualVarianceAnalysis() {
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="purple" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="purple"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Variance Anatomy
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -51,10 +54,19 @@ export default function BudgetVsActualVarianceAnalysis() {
           </h2>
           <div className="mt-4 space-y-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             <p>
-              A budget creates a financial expectation for a period. Comparing actual results with budget helps identify where the business performed differently from plan. The useful part is not the variance itself but the explanation: was revenue lower because of volume, timing or pricing? Did costs rise because of growth, inflation, inefficiency or a one-off item?
+              A budget creates a financial expectation for a period. Comparing
+              actual results with budget helps identify where the business
+              performed differently from plan. The useful part is not the
+              variance itself but the explanation: was revenue lower because of
+              volume, timing or pricing? Did costs rise because of growth,
+              inflation, inefficiency or a one-off item?
             </p>
             <p>
-              Financially Up can help structure budget-versus-actual reporting so material movements are visible and management can focus on the reasons behind them. Where no useful budget exists, a forecast or baseline may need to be developed before variance reporting becomes meaningful.
+              Financially Up can help structure budget-versus-actual reporting
+              so material movements are visible and management can focus on the
+              reasons behind them. Where no useful budget exists, a forecast or
+              baseline may need to be developed before variance reporting
+              becomes meaningful.
             </p>
           </div>
         </div>
@@ -64,7 +76,7 @@ export default function BudgetVsActualVarianceAnalysis() {
           {rootCauseQuestions.map((box, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm"
+              className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm"
             >
               <div className="flex items-center justify-between mb-4">
                 <Tag color={box.color} className="font-semibold text-xs m-0">
@@ -77,7 +89,10 @@ export default function BudgetVsActualVarianceAnalysis() {
               </h3>
               <ul className="space-y-3">
                 {box.questions.map((q, qIdx) => (
-                  <li key={qIdx} className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 flex items-start gap-2.5">
+                  <li
+                    key={qIdx}
+                    className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 flex items-start gap-2.5"
+                  >
                     <QuestionCircleOutlined className="text-indigo-600 dark:text-indigo-400 mt-1 shrink-0 text-sm" />
                     <span>{q}</span>
                   </li>

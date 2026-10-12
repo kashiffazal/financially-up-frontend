@@ -60,7 +60,10 @@ export default function WhatFinanciallyUpReviewsMainResidence() {
             How {company?.legalName || "Financially Up"} Can Help
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Our work is fact-led. We do not assume a property is fully exempt simply because it was called a family home, and we do not assume a later rental period automatically creates tax. We review your actual timeline and apply the exact legislative rules.
+            Our work is fact-led. We do not assume a property is fully exempt
+            simply because it was called a family home, and we do not assume a
+            later rental period automatically creates tax. We review your actual
+            timeline and apply the exact legislative rules.
           </p>
         </div>
 
@@ -68,19 +71,23 @@ export default function WhatFinanciallyUpReviewsMainResidence() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="p-3 bg-slate-50 w-fit rounded-xl border border-slate-100 mb-5">
+              <div className="p-3 bg-slate-50 w-fit rounded-lg border border-slate-100 mb-5">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {item.title}
+              </h3>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Records Required */}
-        <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-16">
+        <div className="bg-white rounded-lg p-8 sm:p-10 border border-slate-200 shadow-sm mb-16">
           <div className="flex items-center gap-3 mb-6">
             <FolderOpenOutlined className="text-2xl text-emerald-600" />
             <h3 className="text-2xl font-bold text-slate-900">
@@ -88,11 +95,16 @@ export default function WhatFinanciallyUpReviewsMainResidence() {
             </h3>
           </div>
           <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-            Where a home was owned for years, gathering these records before settlement or tax time prevents surprises and locks in cost-base additions that can save thousands in tax:
+            Where a home was owned for years, gathering these records before
+            settlement or tax time prevents surprises and locks in cost-base
+            additions that can save thousands in tax:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {recordsList.map((rec, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100"
+              >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
                 <span className="text-slate-700 text-sm">{rec}</span>
               </div>
@@ -110,30 +122,42 @@ export default function WhatFinanciallyUpReviewsMainResidence() {
               Why Choose {company?.legalName || "Financially Up"}?
             </h3>
             <p className="text-emerald-200 text-sm sm:text-base mt-3 leading-relaxed">
-              {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience across Australian property taxation and accounting. Our team includes CPA and IPA professionals supporting property owners nationwide.
+              {company?.legalName || "Financially Up"} is a registered tax agent
+              with more than 10 years of experience across Australian property
+              taxation and accounting. Our team includes CPA and IPA
+              professionals supporting property owners nationwide.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <TeamOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">CPA & IPA Certified</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                CPA & IPA Certified
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Deep technical mastery of CGT Division 118, Section 118-192 valuations, and absence rules.
+                Deep technical mastery of CGT Division 118, Section 118-192
+                valuations, and absence rules.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <SafetyCertificateOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">10+ Years Experience</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                10+ Years Experience
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Hundreds of complex property tax returns, audit defences, and private rulings handled.
+                Hundreds of complex property tax returns, audit defences, and
+                private rulings handled.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <GlobalOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">Australia-Wide Service</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                Australia-Wide Service
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Seamless online consultations and in-person appointments for clients across all states.
+                Seamless online consultations and in-person appointments for
+                clients across all states.
               </p>
             </div>
           </div>

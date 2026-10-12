@@ -37,18 +37,22 @@ export default function AsicVsTaxCompliance() {
           </h2>
           {/* Document Paragraph 1 - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            An ASIC filing records corporate information; it does not automatically determine the tax treatment of the underlying transaction. For example, a share issue, share transfer, director change or restructure may have accounting, tax, commercial or legal consequences beyond the ASIC notification itself.
+            An ASIC filing records corporate information; it does not
+            automatically determine the tax treatment of the underlying
+            transaction. For example, a share issue, share transfer, director
+            change or restructure may have accounting, tax, commercial or legal
+            consequences beyond the ASIC notification itself.
           </p>
         </div>
 
         {/* 2-Column Comparison Split */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Left Column: ASIC Corporate Filing */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                     <BankOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
                   </div>
                   <div>
@@ -68,30 +72,40 @@ export default function AsicVsTaxCompliance() {
               <div className="space-y-3 mb-6 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                 <div className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Records company officeholders, registered addresses, and share capital</span>
+                  <span>
+                    Records company officeholders, registered addresses, and
+                    share capital
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Maintains statutory alignment under the Corporations Act 2001</span>
+                  <span>
+                    Maintains statutory alignment under the Corporations Act
+                    2001
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Does not automatically resolve tax or accounting implications of the transaction</span>
+                  <span>
+                    Does not automatically resolve tax or accounting
+                    implications of the transaction
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-200/70 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Role: Recording and updating corporate registry information with ASIC.
+              Role: Recording and updating corporate registry information with
+              ASIC.
             </div>
           </div>
 
           {/* Right Column: Tax & Accounting Treatment */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
                     <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
                   </div>
                   <div>
@@ -111,27 +125,37 @@ export default function AsicVsTaxCompliance() {
               <div className="space-y-3 mb-6 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                 <div className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
-                  <span>Determines Capital Gains Tax (CGT), stamp duty, and taxable income treatment</span>
+                  <span>
+                    Determines Capital Gains Tax (CGT), stamp duty, and taxable
+                    income treatment
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
-                  <span>Adjusts general ledger, dividend franking accounts, and financial statements</span>
+                  <span>
+                    Adjusts general ledger, dividend franking accounts, and
+                    financial statements
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
-                  <span>Evaluates Division 7A shareholder loans, commercial terms, and payroll impact</span>
+                  <span>
+                    Evaluates Division 7A shareholder loans, commercial terms,
+                    and payroll impact
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-200/70 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Role: Managing financial reporting, ATO obligations, and tax outcomes.
+              Role: Managing financial reporting, ATO obligations, and tax
+              outcomes.
             </div>
           </div>
         </div>
 
         {/* Verbatim Paragraph 2 Scope & Legal Notice Box */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg bg-slate-50 dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-semibold mb-3">
               <FileProtectOutlined />
@@ -139,14 +163,18 @@ export default function AsicVsTaxCompliance() {
             </div>
             {/* Document Paragraph 2 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-              Where a transaction has wider tax implications, the work may need to be separately scoped through our business tax compliance service or another relevant tax service. Legal documents, shareholder agreements or questions about legal rights may require an appropriately qualified legal adviser.
+              Where a transaction has wider tax implications, the work may need
+              to be separately scoped through our business tax compliance
+              service or another relevant tax service. Legal documents,
+              shareholder agreements or questions about legal rights may require
+              an appropriately qualified legal adviser.
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-3">
             <Link href="/services/business-tax">
               <Button
                 size="large"
-                className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
               >
                 Business Tax Services
               </Button>

@@ -2,7 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { UsergroupAddOutlined, FileDoneOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import {
+  UsergroupAddOutlined,
+  FileDoneOutlined,
+  ArrowRightOutlined,
+} from "@ant-design/icons";
 
 /**
  * OwnershipAndTaxReportingGearing Component
@@ -21,25 +25,34 @@ export default function OwnershipAndTaxReportingGearing() {
             Ownership Affects Who Reports the Rental Loss
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Rental income and tax deductions must strictly mirror the registered legal ownership interests on the certificate of title.
+            Rental income and tax deductions must strictly mirror the registered
+            legal ownership interests on the certificate of title.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Legal Ownership vs Cash Outgoings */}
-          <div className="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white rounded-lg p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-5">
                 <UsergroupAddOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 Title Ownership Governs the Tax Result
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-                The fact that one spouse pays the entire mortgage repayment or coordinates the property manager does not transfer the tax deductions to that individual. If the property is owned 50/50 as joint tenants or tenants-in-common, both rental income and deductible expenses must be declared exactly 50/50 on each individual tax return.
+                The fact that one spouse pays the entire mortgage repayment or
+                coordinates the property manager does not transfer the tax
+                deductions to that individual. If the property is owned 50/50 as
+                joint tenants or tenants-in-common, both rental income and
+                deductible expenses must be declared exactly 50/50 on each
+                individual tax return.
               </p>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Similarly, properties owned by discretionary trusts, unit trusts, or corporate entities have distinct tax loss rules—losses incurred in a trust generally cannot be distributed directly to individual beneficiaries.
+                Similarly, properties owned by discretionary trusts, unit
+                trusts, or corporate entities have distinct tax loss
+                rules-losses incurred in a trust generally cannot be distributed
+                directly to individual beneficiaries.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-100">
@@ -54,19 +67,25 @@ export default function OwnershipAndTaxReportingGearing() {
           </div>
 
           {/* Annual Tax Return Reporting */}
-          <div className="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white rounded-lg p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5">
                 <FileDoneOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 Negative Gearing & Annual Tax Returns
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-                Negative gearing is formally reconciled as part of the annual tax return for the property owner. Complete records of gross rental income, agent statements, loan interest, insurance, rates, and detailed expense categories are required, along with precise records of any private use or vacancy periods.
+                Negative gearing is formally reconciled as part of the annual
+                tax return for the property owner. Complete records of gross
+                rental income, agent statements, loan interest, insurance,
+                rates, and detailed expense categories are required, along with
+                precise records of any private use or vacancy periods.
               </p>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                This page focuses specifically on diagnosing and calculating a legitimate rental tax loss, avoiding errors in capital items, and ensuring all interest tracing complies with ATO guidelines.
+                This page focuses specifically on diagnosing and calculating a
+                legitimate rental tax loss, avoiding errors in capital items,
+                and ensuring all interest tracing complies with ATO guidelines.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-100">

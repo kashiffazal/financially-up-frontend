@@ -12,7 +12,7 @@
 
 /* Canvas drawing area container with custom pen cursor */
 .canvasContainer {
-  cursor: url('/cursors/pen.cur'), url('/pen.cur'), crosshair;
+  cursor: url("/cursors/pen.cur"), url("/pen.cur"), crosshair;
   touch-action: none;
   -ms-touch-action: none;
   position: relative;
@@ -44,7 +44,7 @@
 .canvasContainer canvas,
 .canvasContainer svg,
 .canvasContainer path {
-  cursor: url('/cursors/pen.cur'), url('/pen.cur'), crosshair !important;
+  cursor: url("/cursors/pen.cur"), url("/pen.cur"), crosshair !important;
 }
 
 /*
@@ -66,7 +66,7 @@
   background-color: transparent !important;
 }
 
-/* Disabled state — shows not-allowed cursor and reduces opacity */
+/* Disabled state - shows not-allowed cursor and reduces opacity */
 .disabled {
   cursor: not-allowed !important;
   opacity: 0.6;
@@ -81,7 +81,7 @@
   width: 100%;
 }
 
-/* Existing signature image — scales to fit container */
+/* Existing signature image - scales to fit container */
 .existingSignature img {
   max-width: 100%;
   max-height: 100%;

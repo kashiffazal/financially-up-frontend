@@ -76,7 +76,7 @@ export default function WhatHappensAfterRegistration() {
 
           <div className="lg:col-span-5 space-y-6">
             {/* Link Card 1: BAS Lodgement */}
-            <div className="p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div className="space-y-2 mb-4">
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                   BAS Lodgement Services
@@ -101,7 +101,7 @@ export default function WhatHappensAfterRegistration() {
             </div>
 
             {/* Link Card 2: Bookkeeping */}
-            <div className="p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+            <div className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div className="space-y-2 mb-4">
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                   Routine Bookkeeping Support

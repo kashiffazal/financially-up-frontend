@@ -60,7 +60,7 @@ export default function ShareCapitalGainsAndEtfs() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <LineChartOutlined className="text-xl" />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export default function ShareCapitalGainsAndEtfs() {
                   different times and prices.
                 </p>
 
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Loss Quarantining &amp; 50% Concession:
                   </span>
@@ -119,7 +119,7 @@ export default function ShareCapitalGainsAndEtfs() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <FileTextOutlined className="text-xl" />
                 </div>
                 <div>
@@ -141,7 +141,7 @@ export default function ShareCapitalGainsAndEtfs() {
                   Annual statement.
                 </p>
 
-                <div className="space-y-1.5 p-3.5 rounded-2xl bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700">
+                <div className="space-y-1.5 p-3.5 rounded-lg bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700">
                   <span className="font-bold text-slate-900 dark:text-white block text-2xs uppercase tracking-wider mb-1">
                     Complex Statement Components:
                   </span>
@@ -156,7 +156,7 @@ export default function ShareCapitalGainsAndEtfs() {
                   ))}
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200">
+                <div className="p-3.5 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200">
                   <span className="font-bold block mb-1">
                     Cash vs Taxable Income:
                   </span>

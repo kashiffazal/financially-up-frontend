@@ -104,7 +104,7 @@ export default function PropertyCostsTreatment() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shadow-2xs">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shadow-2xs">
                     {tier.icon}
                   </div>
                   <Tag className="m-0 font-bold text-2xs uppercase tracking-wider py-0.5 px-2.5 rounded-full border-slate-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-800/90 text-slate-800 dark:text-zinc-200">

@@ -64,7 +64,7 @@ export default function AssetPurchasesAndYearEndPlanning() {
         </div>
 
         {/* Year-End Business Tax Planning Deep-Dive Card */}
-        <div className="rounded-2xl bg-slate-50/80 dark:bg-zinc-950/80 border border-slate-200/80 dark:border-zinc-800 p-7 sm:p-10 mb-12">
+        <div className="rounded-lg bg-slate-50/80 dark:bg-zinc-950/80 border border-slate-200/80 dark:border-zinc-800 p-7 sm:p-10 mb-12">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-slate-200/80 dark:border-zinc-800">
             <div className="space-y-2 max-w-2xl">
               <span className="text-xs font-bold text-brand-primary dark:text-emerald-400 uppercase tracking-wider">
@@ -94,7 +94,7 @@ export default function AssetPurchasesAndYearEndPlanning() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full lg:w-auto rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6"
+                  className="w-full lg:w-auto rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6"
                 >
                   Explore Year-End Planning
                 </Button>
@@ -107,7 +107,7 @@ export default function AssetPurchasesAndYearEndPlanning() {
             {yearEndFocusItems.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/90 flex items-start gap-3 hover:border-emerald-400/60 transition-colors"
+                className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/90 flex items-start gap-3 hover:border-emerald-400/60 transition-colors"
               >
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-sm mt-0.5 shrink-0" />
                 <span className="text-xs font-medium text-slate-700 dark:text-zinc-300 leading-snug">
@@ -119,7 +119,7 @@ export default function AssetPurchasesAndYearEndPlanning() {
         </div>
 
         {/* Advisory Boundaries Notice */}
-        <div className="rounded-2xl bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
+        <div className="rounded-lg bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
           <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-200 leading-relaxed font-normal">
             <strong>Advisory Scope Note:</strong> Financially Up provides

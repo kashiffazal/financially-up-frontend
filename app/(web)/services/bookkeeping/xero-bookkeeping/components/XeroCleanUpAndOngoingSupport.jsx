@@ -43,9 +43,9 @@ export default function XeroCleanUpAndOngoingSupport() {
         {/* 2 Strategic Blocks */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Block 1: Clean-Up of an existing Xero file */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-amber-100/70 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center mb-5 text-xl">
+              <div className="w-12 h-12 rounded-lg bg-amber-100/70 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center mb-5 text-xl">
                 <ClearOutlined />
               </div>
 
@@ -71,7 +71,7 @@ export default function XeroCleanUpAndOngoingSupport() {
               </div>
 
               {/* Note on Historical Corrections */}
-              <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
+              <div className="mt-6 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <AlertOutlined className="text-amber-600 dark:text-amber-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
                   Our qualified CPAs assess the impact of prior entries on
@@ -98,9 +98,9 @@ export default function XeroCleanUpAndOngoingSupport() {
           </div>
 
           {/* Block 2: Ongoing Xero bookkeeping support */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-100/70 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 flex items-center justify-center mb-5 text-xl">
+              <div className="w-12 h-12 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 flex items-center justify-center mb-5 text-xl">
                 <CalendarOutlined />
               </div>
 
@@ -124,7 +124,7 @@ export default function XeroCleanUpAndOngoingSupport() {
               </div>
 
               {/* Note on Monthly Rhythm */}
-              <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
+              <div className="mt-6 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
                   Enjoy peace of mind with recurring month-end reconciliations,

@@ -54,9 +54,9 @@ export default function EntityStructureOwnerTransactions() {
         {/* 2 Strategic Blocks */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Block 1: Annual Return Compliance & Entity Types */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
                 <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
               </div>
 
@@ -71,7 +71,7 @@ export default function EntityStructureOwnerTransactions() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 mb-6">
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                     Company Returns
                   </h4>
@@ -80,7 +80,7 @@ export default function EntityStructureOwnerTransactions() {
                     profits.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800">
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                     Trust Returns
                   </h4>
@@ -98,7 +98,7 @@ export default function EntityStructureOwnerTransactions() {
               >
                 <Button
                   type="default"
-                  className="w-full rounded-xl font-semibold border-slate-300 dark:border-zinc-700 h-10 text-xs"
+                  className="w-full rounded-lg font-semibold border-slate-300 dark:border-zinc-700 h-10 text-xs"
                 >
                   Company Tax Returns
                 </Button>
@@ -109,7 +109,7 @@ export default function EntityStructureOwnerTransactions() {
               >
                 <Button
                   type="default"
-                  className="w-full rounded-xl font-semibold border-slate-300 dark:border-zinc-700 h-10 text-xs"
+                  className="w-full rounded-lg font-semibold border-slate-300 dark:border-zinc-700 h-10 text-xs"
                 >
                   Trust Tax Returns
                 </Button>
@@ -118,9 +118,9 @@ export default function EntityStructureOwnerTransactions() {
           </div>
 
           {/* Block 2: Division 7A & Private Company Owner Loans */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center mb-6">
                 <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />
               </div>
 
@@ -140,7 +140,7 @@ export default function EntityStructureOwnerTransactions() {
                 If this is a concern, see our Division 7A service.
               </p>
 
-              <div className="rounded-xl bg-white dark:bg-zinc-900 p-4 border border-slate-200/80 dark:border-zinc-800 mb-6">
+              <div className="rounded-lg bg-white dark:bg-zinc-900 p-4 border border-slate-200/80 dark:border-zinc-800 mb-6">
                 <div className="text-xs font-bold text-amber-700 dark:text-amber-400 mb-1">
                   Compliance Risk Alert
                 </div>
@@ -159,7 +159,7 @@ export default function EntityStructureOwnerTransactions() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
+                  className="w-full rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
                 >
                   Explore Division 7A Planning
                 </Button>

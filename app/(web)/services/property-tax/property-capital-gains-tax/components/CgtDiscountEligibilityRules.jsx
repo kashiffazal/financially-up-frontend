@@ -22,19 +22,22 @@ export default function CgtDiscountEligibilityRules() {
       title: "Individuals & Discretionary Trusts",
       status: "Eligible for 50% Discount",
       color: "green",
-      description: "Eligible for the 50% CGT discount provided the property asset has been held for at least 12 months prior to the contract date of sale.",
+      description:
+        "Eligible for the 50% CGT discount provided the property asset has been held for at least 12 months prior to the contract date of sale.",
     },
     {
       title: "Complying SMSFs",
       status: "Eligible for 33.33% Discount",
       color: "blue",
-      description: "Complying superannuation funds receive a 33.33% discount on assets held for over 12 months, resulting in an effective 10% tax rate in accumulation.",
+      description:
+        "Complying superannuation funds receive a 33.33% discount on assets held for over 12 months, resulting in an effective 10% tax rate in accumulation.",
     },
     {
       title: "Companies & Corporate Entities",
       status: "Ineligible (0% Discount)",
       color: "red",
-      description: "Companies cannot access the general 50% CGT discount. Net capital gains are taxed at the full corporate headline rate (25% or 30%).",
+      description:
+        "Companies cannot access the general 50% CGT discount. Net capital gains are taxed at the full corporate headline rate (25% or 30%).",
     },
   ];
 
@@ -59,11 +62,14 @@ export default function CgtDiscountEligibilityRules() {
           {discountEntities.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
+              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <Tag color={item.color} className="font-semibold text-xs uppercase">
+                  <Tag
+                    color={item.color}
+                    className="font-semibold text-xs uppercase"
+                  >
                     {item.status}
                   </Tag>
                 </div>
@@ -81,26 +87,33 @@ export default function CgtDiscountEligibilityRules() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>12-Month Holding Rule &amp; Entity Restrictions</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Individuals and trusts may generally access the CGT discount for an eligible asset held for at least 12 months. The acquisition and disposal dates, type of owner and other conditions must be checked. Companies cannot use the general CGT discount.
+              Individuals and trusts may generally access the CGT discount for
+              an eligible asset held for at least 12 months. The acquisition and
+              disposal dates, type of owner and other conditions must be
+              checked. Companies cannot use the general CGT discount.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-4">
               <GlobalOutlined />
               <span>Foreign Residency &amp; Life-Event Restrictions</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Foreign-residency periods can restrict the discount, and foreign residents are generally not entitled to the main-residence exemption unless a specified life-event exception applies. Residency history should therefore be identified early rather than dealt with after the gain has been calculated.
+              Foreign-residency periods can restrict the discount, and foreign
+              residents are generally not entitled to the main-residence
+              exemption unless a specified life-event exception applies.
+              Residency history should therefore be identified early rather than
+              dealt with after the gain has been calculated.
             </p>
           </div>
         </div>

@@ -22,39 +22,59 @@ import {
 export default function WhatGrantConsultantDoes() {
   const supportItems = [
     {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Guidelines & Criteria Review",
-      description: "reviewing the published grant guidelines, eligibility rules and assessment criteria",
+      description:
+        "reviewing the published grant guidelines, eligibility rules and assessment criteria",
     },
     {
-      icon: <CheckSquareOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CheckSquareOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Applicant & Project Fit",
-      description: "checking whether the applicant and proposed project appear to fit the program",
+      description:
+        "checking whether the applicant and proposed project appear to fit the program",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Mandatory Document Identification",
-      description: "identifying mandatory documents, financial information and supporting evidence",
+      description:
+        "identifying mandatory documents, financial information and supporting evidence",
     },
     {
-      icon: <EditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <EditOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Structuring Responses",
       description: "helping structure responses to selection or merit criteria",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Project Budgets & Costs",
-      description: "assisting with project budgets, cost information and financial data",
+      description:
+        "assisting with project budgets, cost information and financial data",
     },
     {
-      icon: <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Consistency & Clarity Review",
-      description: "reviewing the application for consistency, clarity and completeness",
+      description:
+        "reviewing the application for consistency, clarity and completeness",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Acquittal & Reporting Readiness",
-      description: "identifying reporting, record-keeping and acquittal requirements if funding is awarded",
+      description:
+        "identifying reporting, record-keeping and acquittal requirements if funding is awarded",
     },
   ];
 
@@ -81,11 +101,13 @@ export default function WhatGrantConsultantDoes() {
             <span>Practical Assessment &amp; Competitive Merit Principles</span>
           </div>
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-            A government grants consultant assists with the practical work of assessing and preparing a
-            grant application. This does not mean that funding is guaranteed or that every business will
-            qualify. Decisions are made by the administering authority under the rules for the relevant
-            program. Competitive grants may also be assessed on merit against other eligible applications,
-            so satisfying basic eligibility is not the same as securing funding.
+            A government grants consultant assists with the practical work of
+            assessing and preparing a grant application. This does not mean that
+            funding is guaranteed or that every business will qualify. Decisions
+            are made by the administering authority under the rules for the
+            relevant program. Competitive grants may also be assessed on merit
+            against other eligible applications, so satisfying basic eligibility
+            is not the same as securing funding.
           </p>
           <p className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider text-xs">
             Depending on the engagement, support may include:
@@ -97,12 +119,12 @@ export default function WhatGrantConsultantDoes() {
           {supportItems.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-500/40 transition-colors flex flex-col justify-between ${
+              className={`bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-500/40 transition-colors flex flex-col justify-between ${
                 idx === 6 ? "sm:col-span-2 lg:col-span-3 xl:col-span-1" : ""
               }`}
             >
               <div>
-                <div className="w-11 h-11 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+                <div className="w-11 h-11 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">

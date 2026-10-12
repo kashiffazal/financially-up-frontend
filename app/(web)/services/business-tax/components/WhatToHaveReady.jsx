@@ -35,58 +35,82 @@ export default function WhatToHaveReady() {
     {
       id: "bookkeeping",
       tag: "Ledgers",
-      icon: <FileTextOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Bookkeeping Reports",
-      description: "General ledger summaries, trial balance reports and management accounts",
+      description:
+        "General ledger summaries, trial balance reports and management accounts",
     },
     {
       id: "banking",
       tag: "Banking",
-      icon: <BankOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Bank & Credit-Card Records",
-      description: "Full-year bank statements, credit card statements and merchant facility reconciliations",
+      description:
+        "Full-year bank statements, credit card statements and merchant facility reconciliations",
     },
     {
       id: "sales-expenses",
       tag: "Invoices",
-      icon: <DollarOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Sales & Expense Records",
-      description: "Invoices issued, receipts for allowable expenses and commercial supplier bills",
+      description:
+        "Invoices issued, receipts for allowable expenses and commercial supplier bills",
     },
     {
       id: "payroll",
       tag: "Payroll",
-      icon: <TeamOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Payroll Information",
-      description: "Single Touch Payroll (STP) summaries and superannuation guarantee payment records",
+      description:
+        "Single Touch Payroll (STP) summaries and superannuation guarantee payment records",
     },
     {
       id: "asset-finance",
       tag: "Finance",
-      icon: <ShoppingOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <ShoppingOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Asset Purchase & Finance Documents",
-      description: "Tax invoices, loan agreements, chattel mortgages and asset purchase documentation",
+      description:
+        "Tax invoices, loan agreements, chattel mortgages and asset purchase documentation",
     },
     {
       id: "bas-records",
       tag: "BAS / GST",
-      icon: <ScheduleOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <ScheduleOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "BAS Records",
-      description: "Copies of quarterly Business Activity Statements and monthly IAS lodgments",
+      description:
+        "Copies of quarterly Business Activity Statements and monthly IAS lodgments",
     },
     {
       id: "prior-year",
       tag: "Tax History",
-      icon: <HistoryOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Prior-Year Financials & Returns",
-      description: "Prior-year financial statements, tax return lodgments and depreciation registers",
+      description:
+        "Prior-year financial statements, tax return lodgments and depreciation registers",
     },
     {
       id: "unusual-transactions",
       tag: "Special Events",
-      icon: <ExclamationCircleOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <ExclamationCircleOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Details of Unusual Transactions",
-      description: "Asset disposals, insurance recoveries, director drawings or one-off transactions",
+      description:
+        "Asset disposals, insurance recoveries, director drawings or one-off transactions",
     },
   ];
 
@@ -118,11 +142,11 @@ export default function WhatToHaveReady() {
           {recordCategories.map((cat) => (
             <div
               key={cat.id}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center group-hover:scale-105 transition-transform shadow-2xs">
+                  <div className="w-11 h-11 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center group-hover:scale-105 transition-transform shadow-2xs">
                     {cat.icon}
                   </div>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono border border-slate-200/60 dark:border-zinc-700/60">

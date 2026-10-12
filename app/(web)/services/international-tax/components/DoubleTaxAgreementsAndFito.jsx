@@ -53,18 +53,21 @@ export default function DoubleTaxAgreementsAndFito() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            A common concern is whether the same income will be taxed twice. Australia&apos;s foreign income tax offset system can provide relief in eligible circumstances where foreign income tax has been paid on income that is also included in Australian assessable income.
+            A common concern is whether the same income will be taxed twice.
+            Australia&apos;s foreign income tax offset system can provide relief
+            in eligible circumstances where foreign income tax has been paid on
+            income that is also included in Australian assessable income.
           </p>
         </div>
 
         {/* 2-Column Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           {/* Left: Australia's FITO System */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
                     <CalculatorOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
                   </div>
                   <div>
@@ -76,14 +79,20 @@ export default function DoubleTaxAgreementsAndFito() {
                     </h3>
                   </div>
                 </div>
-                <Tag color="green" className="font-semibold px-2.5 py-0.5 rounded-full">
+                <Tag
+                  color="green"
+                  className="font-semibold px-2.5 py-0.5 rounded-full"
+                >
                   Tax Relief
                 </Tag>
               </div>
 
               <ul className="space-y-3 mb-6">
                 {fitoKeyPoints.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                     <span>{point}</span>
                   </li>
@@ -92,16 +101,17 @@ export default function DoubleTaxAgreementsAndFito() {
             </div>
 
             <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Purpose: Provides credit for foreign income tax paid on income also taxed in Australia.
+              Purpose: Provides credit for foreign income tax paid on income
+              also taxed in Australia.
             </div>
           </div>
 
           {/* Right: Bilateral Tax Treaties */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                     <GlobalOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
                   </div>
                   <div>
@@ -113,14 +123,20 @@ export default function DoubleTaxAgreementsAndFito() {
                     </h3>
                   </div>
                 </div>
-                <Tag color="cyan" className="font-semibold px-2.5 py-0.5 rounded-full">
+                <Tag
+                  color="cyan"
+                  className="font-semibold px-2.5 py-0.5 rounded-full"
+                >
                   Taxing Rights
                 </Tag>
               </div>
 
               <ul className="space-y-3 mb-6">
                 {treatyKeyPoints.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                     <span>{point}</span>
                   </li>
@@ -129,13 +145,14 @@ export default function DoubleTaxAgreementsAndFito() {
             </div>
 
             <div className="pt-4 border-t border-slate-200/60 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Purpose: Allocates taxing rights between nations and governs recognition limits.
+              Purpose: Allocates taxing rights between nations and governs
+              recognition limits.
             </div>
           </div>
         </div>
 
         {/* Essential Rule Callout (Verbatim Paragraph 2 from doc) */}
-        <div className="rounded-2xl bg-gradient-to-r from-teal-50/80 via-emerald-50/60 to-white dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/80 dark:border-teal-800/60 p-6 sm:p-8">
+        <div className="rounded-lg bg-gradient-to-r from-teal-50/80 via-emerald-50/60 to-white dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/80 dark:border-teal-800/60 p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <FileProtectOutlined className="text-teal-600 dark:text-teal-400 text-2xl mt-1 shrink-0" />
@@ -144,16 +161,24 @@ export default function DoubleTaxAgreementsAndFito() {
                   Why Foreign Income and Foreign Tax Must Be Reviewed Together
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed m-0 max-w-3xl">
-                  However, an offset is not automatically equal to every amount paid overseas. The foreign tax must satisfy Australian requirements, and tax treaties can affect which country has taxing rights and the amount of foreign tax recognised. This is why both the foreign income and foreign tax information should be reviewed together.
+                  However, an offset is not automatically equal to every amount
+                  paid overseas. The foreign tax must satisfy Australian
+                  requirements, and tax treaties can affect which country has
+                  taxing rights and the amount of foreign tax recognised. This
+                  is why both the foreign income and foreign tax information
+                  should be reviewed together.
                 </p>
               </div>
             </div>
-            <Link href="/services/international-tax/foreign-tax-offset" className="shrink-0">
+            <Link
+              href="/services/international-tax/foreign-tax-offset"
+              className="shrink-0"
+            >
               <Button
                 type="primary"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="font-semibold h-10 px-5 rounded-xl shadow-xs"
+                className="font-semibold h-10 px-5 rounded-lg shadow-xs"
               >
                 FITO Offset Guidance
               </Button>

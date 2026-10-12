@@ -2,14 +2,14 @@
 
 /**
  * ============================================================
- * UploadFile — Universal Modern Ant Design File Upload Component
+ * UploadFile - Universal Modern Ant Design File Upload Component
  * ============================================================
  *
  * Supports 4 Design Types:
  *   - type="1": Vertical Dropzone Card (centered icon on top, title, subtitle, badges)
  *   - type="2": Compact Button Mode (sleek button trigger with file chip & quick remove)
  *   - type="3": Input-Field Style (matches AntInput height e.g. 40px/44px for single-row alignments)
- *   - type="4": Horizontal Dropzone Card (left-aligned icon box, right-side title, subtitle & badges — optimal for medium-height side-by-side grids)
+ *   - type="4": Horizontal Dropzone Card (left-aligned icon box, right-side title, subtitle & badges - optimal for medium-height side-by-side grids)
  *
  * Smart Defaults:
  *   - Default File Types: Images (.jpg, .jpeg, .png, .webp) and PDF (.pdf)
@@ -292,7 +292,7 @@ const UploadFileControl = ({
     <>
       {/* Progress Bar Indicator */}
       {loader && (
-        <div className="w-full p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
+        <div className="w-full p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
           <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-zinc-300 mb-1.5">
             <span>Uploading File...</span>
             <span className="font-mono text-brand-primary">{progress}%</span>
@@ -308,7 +308,7 @@ const UploadFileControl = ({
 
       {/* Validation Errors */}
       {extensionError && (
-        <div className="w-full p-2.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-semibold animate-fadeIn">
+        <div className="w-full p-2.5 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-semibold animate-fadeIn">
           <CloseCircleFilled />
           <span>
             Invalid format! Please upload files with:{" "}
@@ -319,7 +319,7 @@ const UploadFileControl = ({
         </div>
       )}
       {sizeError && (
-        <div className="w-full p-2.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-semibold animate-fadeIn">
+        <div className="w-full p-2.5 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-semibold animate-fadeIn">
           <CloseCircleFilled />
           <span>
             File too large! Maximum allowed size is{" "}
@@ -331,7 +331,7 @@ const UploadFileControl = ({
         </div>
       )}
       {maxCountError && (
-        <div className="w-full p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-center gap-2 text-xs text-amber-700 dark:text-amber-300 font-semibold animate-fadeIn">
+        <div className="w-full p-2.5 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-center gap-2 text-xs text-amber-700 dark:text-amber-300 font-semibold animate-fadeIn">
           <CloseCircleFilled />
           <span>
             Upload limit reached! You cannot upload more than{" "}
@@ -347,10 +347,10 @@ const UploadFileControl = ({
           {fileList.map((file, idx) => (
             <div
               key={file.uid || file.name || idx}
-              className="w-full p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-between gap-3 shadow-sm animate-fadeIn"
+              className="w-full p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-between gap-3 shadow-sm animate-fadeIn"
             >
               <div className="flex items-center gap-3 min-w-0 flex-1">
-                <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shrink-0">
                   {getFileIcon(file.name)}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -376,7 +376,7 @@ const UploadFileControl = ({
                     size="small"
                     icon={<DeleteOutlined />}
                     onClick={() => handleRemoveFile(idx)}
-                    className="text-slate-400 hover:text-red-500 h-8 w-8 rounded-xl shrink-0"
+                    className="text-slate-400 hover:text-red-500 h-8 w-8 rounded-lg shrink-0"
                   />
                 </Tooltip>
               )}
@@ -397,7 +397,7 @@ const UploadFileControl = ({
               href={`${filePath}${doc}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full p-2.5 rounded-xl bg-slate-100/70 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 flex items-center justify-between text-xs font-semibold text-brand-primary dark:text-emerald-400 hover:underline"
+              className="w-full p-2.5 rounded-lg bg-slate-100/70 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 flex items-center justify-between text-xs font-semibold text-brand-primary dark:text-emerald-400 hover:underline"
             >
               <span className="truncate">{doc}</span>
               <EyeOutlined className="text-sm" />
@@ -409,7 +409,7 @@ const UploadFileControl = ({
   );
 
   /* ═══════════════════════════════════════════════════════════════
-     RENDER: TYPE 1 — Vertical Dropzone Card
+     RENDER: TYPE 1 - Vertical Dropzone Card
      ═══════════════════════════════════════════════════════════════ */
   if (normalizedType === "1") {
     const mainTitle =
@@ -426,7 +426,7 @@ const UploadFileControl = ({
             height: normalizedHeight,
             minHeight: normalizedHeight || "140px",
           }}
-          className={`w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
+          className={`w-full rounded-lg border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
         >
           <Dragger
             {...uploadProps}
@@ -442,7 +442,7 @@ const UploadFileControl = ({
             }}
           >
             <div className="flex flex-col items-center justify-center text-center space-y-2 select-none w-full">
-              <div className="w-12 h-12 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
+              <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200">
                 <InboxOutlined className="text-2xl" />
               </div>
 
@@ -457,14 +457,14 @@ const UploadFileControl = ({
 
               {/* Badges for allowed formats & max size */}
               <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-xl bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
                   {displayExtensionsBadge}
                 </span>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-xl bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-slate-200/70 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
                   Max {fileSize || DEFAULT_MAX_FILE_SIZE_MB}MB
                 </span>
                 {maxCount && (multiple || maxCount > 1) && (
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800">
                     Max {maxCount} Files
                   </span>
                 )}
@@ -479,7 +479,7 @@ const UploadFileControl = ({
   }
 
   /* ═══════════════════════════════════════════════════════════════
-     RENDER: TYPE 4 — Horizontal Compact Dropzone Card (Icon on Left)
+     RENDER: TYPE 4 - Horizontal Compact Dropzone Card (Icon on Left)
      ═══════════════════════════════════════════════════════════════ */
   if (normalizedType === "4") {
     const mainTitle = title || heading || "Click or drag file to upload";
@@ -492,7 +492,7 @@ const UploadFileControl = ({
             height: normalizedHeight,
             minHeight: normalizedHeight || "120px",
           }}
-          className={`w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
+          className={`w-full rounded-lg border-2 border-dashed border-slate-300 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-900/50 hover:border-brand-primary dark:hover:border-emerald-500 hover:bg-brand-primary-soft/30 dark:hover:bg-emerald-950/20 transition-all duration-200 overflow-hidden flex flex-col justify-center ${className}`}
         >
           <Dragger
             {...uploadProps}
@@ -509,7 +509,7 @@ const UploadFileControl = ({
           >
             <div className="flex flex-row items-center gap-3.5 select-none w-full text-left">
               {/* Left Icon */}
-              <div className="w-12 h-12 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200">
+              <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 border border-brand-primary/20 dark:border-emerald-800 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200">
                 <InboxOutlined className="text-2xl" />
               </div>
 
@@ -545,7 +545,7 @@ const UploadFileControl = ({
   }
 
   /* ═══════════════════════════════════════════════════════════════
-     RENDER: TYPE 2 — Compact Button Mode
+     RENDER: TYPE 2 - Compact Button Mode
      ═══════════════════════════════════════════════════════════════ */
   if (normalizedType === "2") {
     const btnTitle = title || heading || "Upload Document";
@@ -559,7 +559,7 @@ const UploadFileControl = ({
             type={hasFiles ? "primary" : "default"}
             disabled={disabled}
             style={{ height: normalizedHeight }}
-            className={`rounded-xl font-bold flex items-center gap-2 ${
+            className={`rounded-lg font-bold flex items-center gap-2 ${
               hasFiles
                 ? "bg-brand-primary border-brand-primary hover:bg-brand-primary-hover"
                 : ""
@@ -575,7 +575,7 @@ const UploadFileControl = ({
             {fileList.map((f, i) => (
               <div
                 key={f.uid || f.name || i}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs font-semibold text-slate-800 dark:text-zinc-200 animate-fadeIn"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs font-semibold text-slate-800 dark:text-zinc-200 animate-fadeIn"
               >
                 {getFileIcon(f.name)}
                 <span className="truncate max-w-[150px]">{f.name}</span>
@@ -625,7 +625,7 @@ const UploadFileControl = ({
   }
 
   /* ═══════════════════════════════════════════════════════════════
-     RENDER: TYPE 3 — Input-Field Style (Equal-Height Input Box)
+     RENDER: TYPE 3 - Input-Field Style (Equal-Height Input Box)
      ═══════════════════════════════════════════════════════════════ */
   const inputPlaceholder = placeholder || title || "Choose file to upload...";
   const hasFile = fileList.length > 0;
@@ -642,7 +642,7 @@ const UploadFileControl = ({
             height: normalizedHeight || "40px",
             minHeight: normalizedHeight || "40px",
           }}
-          className={`w-full px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 flex items-center justify-between gap-2.5 transition-all duration-200 cursor-pointer select-none hover:border-brand-primary dark:hover:border-emerald-500 ${
+          className={`w-full px-3.5 py-1.5 rounded-lg border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 flex items-center justify-between gap-2.5 transition-all duration-200 cursor-pointer select-none hover:border-brand-primary dark:hover:border-emerald-500 ${
             hasFile
               ? "border-brand-primary/60 dark:border-emerald-600/60 bg-brand-primary-soft/20 dark:bg-emerald-950/20"
               : ""
@@ -695,13 +695,13 @@ const UploadFileControl = ({
                     e.stopPropagation();
                     handleRemoveFile(fileList.length - 1);
                   }}
-                  className="w-6 h-6 rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/50 flex items-center justify-center transition-colors"
+                  className="w-6 h-6 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/50 flex items-center justify-center transition-colors"
                 >
                   <CloseOutlined className="text-xs" />
                 </button>
               )
             ) : (
-              <span className="text-[11px] font-bold text-brand-primary dark:text-emerald-400 px-2 py-0.5 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 border border-brand-primary/20 dark:border-emerald-800">
+              <span className="text-[11px] font-bold text-brand-primary dark:text-emerald-400 px-2 py-0.5 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 border border-brand-primary/20 dark:border-emerald-800">
                 Browse
               </span>
             )}

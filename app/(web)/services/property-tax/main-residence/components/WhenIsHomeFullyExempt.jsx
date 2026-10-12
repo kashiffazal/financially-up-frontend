@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Card } from "antd";
-import { HomeOutlined, CheckCircleOutlined, CompassOutlined, FileTextOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  CheckCircleOutlined,
+  CompassOutlined,
+  FileTextOutlined,
+} from "@ant-design/icons";
 
 /**
  * WhenIsHomeFullyExempt Component
@@ -50,7 +55,9 @@ export default function WhenIsHomeFullyExempt() {
             When Is a Home Generally Fully Exempt from CGT?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            In straightforward cases, selling your family home attracts 0% capital gains tax. However, eligibility relies on satisfying strict statutory tests throughout your entire period of ownership.
+            In straightforward cases, selling your family home attracts 0%
+            capital gains tax. However, eligibility relies on satisfying strict
+            statutory tests throughout your entire period of ownership.
           </p>
         </div>
 
@@ -58,31 +65,42 @@ export default function WhenIsHomeFullyExempt() {
           {criteria.map((item, idx) => (
             <Card
               key={idx}
-              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl"
+              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg"
               styles={{ body: { padding: "28px" } }}
             >
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 w-fit mb-5">
+              <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 w-fit mb-5">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{item.description}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {item.title}
+              </h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                {item.description}
+              </p>
             </Card>
           ))}
         </div>
 
         {/* Factual Matrix of Occupancy */}
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 sm:p-10">
+        <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 sm:p-10">
           <h3 className="text-xl font-bold text-slate-900 mb-3">
             Factual Indicators of Genuine Main Residence
           </h3>
           <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-            The Australian Taxation Office examines the verifiable lifestyle facts rather than subjective intent alone. Key evidentiary factors include:
+            The Australian Taxation Office examines the verifiable lifestyle
+            facts rather than subjective intent alone. Key evidentiary factors
+            include:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {occupancyIndicators.map((factor, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3.5 bg-white rounded-lg border border-slate-200 shadow-sm"
+              >
                 <CheckCircleOutlined className="text-emerald-600 text-base shrink-0 mt-0.5" />
-                <span className="text-slate-800 text-sm font-medium">{factor}</span>
+                <span className="text-slate-800 text-sm font-medium">
+                  {factor}
+                </span>
               </div>
             ))}
           </div>

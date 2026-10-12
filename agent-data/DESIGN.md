@@ -133,7 +133,7 @@ Global: `-webkit-font-smoothing: antialiased`. Headings use `letter-spacing: -0.
 | `--radius-xl`  | `calc(var(--radius) + 4px)` = 14px |
 | `--radius-2xl` | `calc(var(--radius) + 8px)` = 18px |
 
-Cards use `rounded-xl` or `rounded-xl`. Buttons use `rounded-xl`. Pills / tags use `rounded-full`.
+Cards use `rounded-lg` or `rounded-lg`. Buttons use `rounded-lg`. Pills / tags use `rounded-full`.
 
 ### 4.2 Spacing scale
 
@@ -157,7 +157,7 @@ Tailwind default 4px base. Section vertical padding: `py-16 md:py-24`. Container
 
 Configured via `ConfigProvider` in `src/routes/__root.tsx`. Primary color: `#16A34A`.
 
-- **Primary:** brand green fill, white text, `rounded-xl`, medium weight. Use for main CTAs ("Book an Appointment").
+- **Primary:** brand green fill, white text, `rounded-lg`, medium weight. Use for main CTAs ("Book an Appointment").
 - **Default:** transparent fill, border `--border`, foreground text. Secondary actions.
 - **Ghost:** no fill, no border, brand text. Tertiary / footer links.
 - **Sizes:** `large` for hero CTAs, `middle` for inline forms and nav.
@@ -166,7 +166,7 @@ Configured via `ConfigProvider` in `src/routes/__root.tsx`. Primary color: `#16A
 
 - Background: `--card`
 - Border: `1px solid --border`
-- Radius: `rounded-xl`
+- Radius: `rounded-lg`
 - Shadow: `shadow-card`
 - Padding: `p-6` (mobile) / `p-8` (desktop)
 - Hover: `hover:shadow-brand transition-shadow`

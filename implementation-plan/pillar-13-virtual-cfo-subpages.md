@@ -1,10 +1,12 @@
 # Implementation Plan: Pillar 13 (Virtual CFO) Subpages
 
 ## 1. Overview & Objective
+
 This plan outlines the end-to-end implementation for creating all **7 subpages** under Pillar 13: **Virtual CFO** (`/services/virtual-cfo/`), extracted verbatim from the client's master SEO document:
 `financially-up-frontend\agent-data\new-content\13th Pillar Virtual CFO.docx`.
 
 As instructed:
+
 - **100% Verbatim Content**: All copy, headings, bullet lists, FAQs, and calls-to-action written by the SEO specialist are strictly preserved without rephrasing.
 - **Reference Architecture**: Following the proven design and component pattern of `/services/individual-tax/individual-tax-return`.
 - **Dynamic Company Hook**: Full integration with `useCompany()` from `@/context/SettingsContext` for dynamic phone numbers, email addresses, legal name, ABN, and contact references.
@@ -15,15 +17,15 @@ As instructed:
 
 ## 2. Subpage Routes & SEO Metadata Registry
 
-| # | Subpage Title | Route / Canonical URL | Primary Keyword | Components Folder |
-|---|---------------|-----------------------|-----------------|-------------------|
-| **1** | Outsourced CFO Services | `/services/virtual-cfo/virtual-cfo-services` | `outsourced cfo services` | `./virtual-cfo-services/components/` |
-| **2** | Management Reporting Services | `/services/virtual-cfo/management-reporting` | `management reporting services` | `./management-reporting/components/` |
-| **3** | Financial Modelling Services | `/services/virtual-cfo/financial-modelling` | `financial modelling services` | `./financial-modelling/components/` |
-| **4** | Financial Scenario Planning | `/services/virtual-cfo/scenario-planning` | `financial scenario planning services` | `./scenario-planning/components/` |
-| **5** | Board Reporting Services | `/services/virtual-cfo/board-reporting` | `board reporting services` | `./board-reporting/components/` |
-| **6** | Finance Dashboard Services | `/services/virtual-cfo/dashboards` | `finance dashboard services` | `./dashboards/components/` |
-| **7** | Three Way Financial Forecasting | `/services/virtual-cfo/three-way-forecasting` | `three way financial forecasting` | `./three-way-forecasting/components/` |
+| #     | Subpage Title                   | Route / Canonical URL                         | Primary Keyword                        | Components Folder                     |
+| ----- | ------------------------------- | --------------------------------------------- | -------------------------------------- | ------------------------------------- |
+| **1** | Outsourced CFO Services         | `/services/virtual-cfo/virtual-cfo-services`  | `outsourced cfo services`              | `./virtual-cfo-services/components/`  |
+| **2** | Management Reporting Services   | `/services/virtual-cfo/management-reporting`  | `management reporting services`        | `./management-reporting/components/`  |
+| **3** | Financial Modelling Services    | `/services/virtual-cfo/financial-modelling`   | `financial modelling services`         | `./financial-modelling/components/`   |
+| **4** | Financial Scenario Planning     | `/services/virtual-cfo/scenario-planning`     | `financial scenario planning services` | `./scenario-planning/components/`     |
+| **5** | Board Reporting Services        | `/services/virtual-cfo/board-reporting`       | `board reporting services`             | `./board-reporting/components/`       |
+| **6** | Finance Dashboard Services      | `/services/virtual-cfo/dashboards`            | `finance dashboard services`           | `./dashboards/components/`            |
+| **7** | Three Way Financial Forecasting | `/services/virtual-cfo/three-way-forecasting` | `three way financial forecasting`      | `./three-way-forecasting/components/` |
 
 ---
 
@@ -129,6 +131,7 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
 ## 4. Subpage Details & Content Specifications
 
 ### Subpage 1: `/services/virtual-cfo/virtual-cfo-services` (Outsourced CFO Services)
+
 - **Metadata**:
   - `title`: `"Outsourced CFO Services Australia | Financially Up"`
   - `description`: `"Outsourced CFO services for growing businesses. Financially Up supports reporting, forecasting, cash flow, budgets and commercially focused finance decisions."`
@@ -142,20 +145,21 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `subPillarTag`: `"Pillar 13.1 • Executive Finance Advisory"`
   - `metrics`: `10+ Years Experience`, `CPA & IPA Specialists`, `Australia-Wide Online & In-Person`, `Custom Retainer Scopes`
 - **Core Sections**:
-  1. *What are outsourced CFO services?* (9-point scope checklist with rich icon cards).
-  2. *When does CFO outsourcing make sense?* (8 trigger scenario indicators).
-  3. *A structured monthly finance cycle* (7-step workflow from period close to action tracking).
-  4. *Forecasting and scenario analysis* (Testing decisions before committing + visible assumptions).
-  5. *Outsourced CFO versus bookkeeping and year-end accounting* (Side-by-side comparative grid).
-  6. *Responsibilities, engagement scope & What Financially Up can help with* (Governance boundaries and commercial support).
-  7. *Information to prepare* (6 items to get started).
-  8. *Why Financially Up?* (Dynamic `useCompany()` phone/email/credentials).
-  9. *Verbatim FAQs* (3 items with JSON-LD schema).
-  10. *CTA Banner & Related Service Ribbon*.
+  1. _What are outsourced CFO services?_ (9-point scope checklist with rich icon cards).
+  2. _When does CFO outsourcing make sense?_ (8 trigger scenario indicators).
+  3. _A structured monthly finance cycle_ (7-step workflow from period close to action tracking).
+  4. _Forecasting and scenario analysis_ (Testing decisions before committing + visible assumptions).
+  5. _Outsourced CFO versus bookkeeping and year-end accounting_ (Side-by-side comparative grid).
+  6. _Responsibilities, engagement scope & What Financially Up can help with_ (Governance boundaries and commercial support).
+  7. _Information to prepare_ (6 items to get started).
+  8. _Why Financially Up?_ (Dynamic `useCompany()` phone/email/credentials).
+  9. _Verbatim FAQs_ (3 items with JSON-LD schema).
+  10. _CTA Banner & Related Service Ribbon_.
 
 ---
 
 ### Subpage 2: `/services/virtual-cfo/management-reporting` (Management Reporting Services)
+
 - **Metadata**:
   - `title`: `"Management Reporting Services | Financially Up"`
   - `description`: `"Management reporting services that turn accounting data into useful monthly insights, KPIs, variance analysis and clearer business performance information."`
@@ -167,20 +171,21 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `parentService`: `{ label: "Virtual CFO Hub", href: "/services/virtual-cfo" }`
   - `subPillarTag`: `"Pillar 13.2 • Performance Reporting"`
 - **Core Sections**:
-  1. *What is management reporting?* (Government business guidance reference, tailoring by business type).
-  2. *What can monthly management reporting include?* (9 key elements with interactive visual cards).
-  3. *Why monthly reporting can be more useful than year-end reporting alone* (Shorter feedback loop vs stale annual accounts).
-  4. *Budget versus actual and variance analysis* (Root cause analysis: volume vs timing vs pricing).
-  5. *Cash flow and management reporting* (Accounting profit vs cash liquidity).
-  6. *Management reporting versus statutory financial statements* (Internal decision tool vs compliance).
-  7. *What makes a useful management report & Disclosing estimates vs actuals* (7 golden principles).
-  8. *Records and access needed & Why Financially Up* (`useCompany()` contact dynamic linking).
-  9. *Verbatim FAQs* (3 items with schema).
-  10. *CTA Banner & Related Service Ribbon*.
+  1. _What is management reporting?_ (Government business guidance reference, tailoring by business type).
+  2. _What can monthly management reporting include?_ (9 key elements with interactive visual cards).
+  3. _Why monthly reporting can be more useful than year-end reporting alone_ (Shorter feedback loop vs stale annual accounts).
+  4. _Budget versus actual and variance analysis_ (Root cause analysis: volume vs timing vs pricing).
+  5. _Cash flow and management reporting_ (Accounting profit vs cash liquidity).
+  6. _Management reporting versus statutory financial statements_ (Internal decision tool vs compliance).
+  7. _What makes a useful management report & Disclosing estimates vs actuals_ (7 golden principles).
+  8. _Records and access needed & Why Financially Up_ (`useCompany()` contact dynamic linking).
+  9. _Verbatim FAQs_ (3 items with schema).
+  10. _CTA Banner & Related Service Ribbon_.
 
 ---
 
 ### Subpage 3: `/services/virtual-cfo/financial-modelling` (Financial Modelling Services)
+
 - **Metadata**:
   - `title`: `"Financial Modelling Services for Business | Financially Up"`
   - `description`: `"Build a financial model around your business decisions. Financially Up connects forecasts, cash flow and assumptions so you can plan with clearer numbers."`
@@ -192,18 +197,19 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `parentService`: `{ label: "Virtual CFO Hub", href: "/services/virtual-cfo" }`
   - `subPillarTag`: `"Pillar 13.3 • Strategic Financial Modelling"`
 - **Core Sections**:
-  1. *When does a business need a financial model?* (Multi-part decisions: expansion, new site, large contract timing gaps).
-  2. *What does financial modelling for business include?* (3-statement linked structure vs concise cash model).
-  3. *What goes into a useful forecast?* (6 key drivers: seasonal demand, direct costs, payment timing, debt, capex).
-  4. *How Financially Up builds and uses the model* (Clarifying question, traceable inputs, lender/investor pack support).
-  5. *What to bring to the first discussion* (Financials, budget, pipeline, loan schedules).
-  6. *Service scope, professional boundaries & Why Financially Up* (`useCompany()` credentials).
-  7. *Verbatim FAQs* (4 items with schema).
-  8. *CTA Banner & Related Service Ribbon*.
+  1. _When does a business need a financial model?_ (Multi-part decisions: expansion, new site, large contract timing gaps).
+  2. _What does financial modelling for business include?_ (3-statement linked structure vs concise cash model).
+  3. _What goes into a useful forecast?_ (6 key drivers: seasonal demand, direct costs, payment timing, debt, capex).
+  4. _How Financially Up builds and uses the model_ (Clarifying question, traceable inputs, lender/investor pack support).
+  5. _What to bring to the first discussion_ (Financials, budget, pipeline, loan schedules).
+  6. _Service scope, professional boundaries & Why Financially Up_ (`useCompany()` credentials).
+  7. _Verbatim FAQs_ (4 items with schema).
+  8. _CTA Banner & Related Service Ribbon_.
 
 ---
 
 ### Subpage 4: `/services/virtual-cfo/scenario-planning` (Financial Scenario Planning Services)
+
 - **Metadata**:
   - `title`: `"Financial Scenario Planning Services | Financially Up"`
   - `description`: `"Explore what different business outcomes could mean for profit and cash. Financially Up helps test assumptions, risks and practical responses before you decide."`
@@ -215,19 +221,20 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `parentService`: `{ label: "Virtual CFO Hub", href: "/services/virtual-cfo" }`
   - `subPillarTag`: `"Pillar 13.4 • Risk & Scenario Planning"`
 - **Core Sections**:
-  1. *What is financial scenario planning?* (Expected vs downside vs upside; coherent commercial logic).
-  2. *When can scenario analysis help?* (Hiring, lease signing, capex, price increases, customer concentration).
-  3. *5 Core Scenarios Businesses Test* (Demand drop, cost inflation, working capital stretch, delays, refinancing).
-  4. *Designing meaningful scenarios & Identifying trigger points* (Operational levers and breakeven cushions).
-  5. *How Financially Up builds scenario models* (Sensitivity tables, cash runway indicators).
-  6. *Information needed & Boundaries* (Base accounts, variable costs, contractual commitments).
-  7. *Why Financially Up* (`useCompany()` dynamic resolution).
-  8. *Verbatim FAQs* (4 items with schema).
-  9. *CTA Banner & Related Service Ribbon*.
+  1. _What is financial scenario planning?_ (Expected vs downside vs upside; coherent commercial logic).
+  2. _When can scenario analysis help?_ (Hiring, lease signing, capex, price increases, customer concentration).
+  3. _5 Core Scenarios Businesses Test_ (Demand drop, cost inflation, working capital stretch, delays, refinancing).
+  4. _Designing meaningful scenarios & Identifying trigger points_ (Operational levers and breakeven cushions).
+  5. _How Financially Up builds scenario models_ (Sensitivity tables, cash runway indicators).
+  6. _Information needed & Boundaries_ (Base accounts, variable costs, contractual commitments).
+  7. _Why Financially Up_ (`useCompany()` dynamic resolution).
+  8. _Verbatim FAQs_ (4 items with schema).
+  9. _CTA Banner & Related Service Ribbon_.
 
 ---
 
 ### Subpage 5: `/services/virtual-cfo/board-reporting` (Board Reporting Services)
+
 - **Metadata**:
   - `title`: `"Board Reporting Services for Directors | Financially Up"`
   - `description`: `"Give directors clearer financial information. Financially Up prepares tailored board packs with results, cash flow, variances and decision-focused commentary."`
@@ -239,19 +246,20 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `parentService`: `{ label: "Virtual CFO Hub", href: "/services/virtual-cfo" }`
   - `subPillarTag`: `"Pillar 13.5 • Governance & Board Support"`
 - **Core Sections**:
-  1. *What should a financial board pack include?* (P&L, balance sheet, cash forecast, KPI dashboard, variance notes).
-  2. *Why does the commentary matter?* (Explaining the 'why' behind the numbers for governance oversight).
-  3. *6 Essential Pillars of an Effective Board Report* (Executive flash numbers, margin drilldowns, runway).
-  4. *Establishing a predictable board reporting schedule* (Month-end close to pack distribution rhythm).
-  5. *Board reporting versus statutory audited accounts* (Distinguishing management governance from external audit).
-  6. *What Financially Up provides & Information needed* (Tailored templates, objective commentary).
-  7. *Why choose Financially Up* (`useCompany()` contact data).
-  8. *Verbatim FAQs* (4 items with schema).
-  9. *CTA Banner & Related Service Ribbon*.
+  1. _What should a financial board pack include?_ (P&L, balance sheet, cash forecast, KPI dashboard, variance notes).
+  2. _Why does the commentary matter?_ (Explaining the 'why' behind the numbers for governance oversight).
+  3. _6 Essential Pillars of an Effective Board Report_ (Executive flash numbers, margin drilldowns, runway).
+  4. _Establishing a predictable board reporting schedule_ (Month-end close to pack distribution rhythm).
+  5. _Board reporting versus statutory audited accounts_ (Distinguishing management governance from external audit).
+  6. _What Financially Up provides & Information needed_ (Tailored templates, objective commentary).
+  7. _Why choose Financially Up_ (`useCompany()` contact data).
+  8. _Verbatim FAQs_ (4 items with schema).
+  9. _CTA Banner & Related Service Ribbon_.
 
 ---
 
 ### Subpage 6: `/services/virtual-cfo/dashboards` (Finance Dashboard Services)
+
 - **Metadata**:
   - `title`: `"Finance Dashboard Services for Business | Financially Up"`
   - `description`: `"See the financial measures behind your decisions. Financially Up helps design and maintain dashboards that present results, cash and trends with useful context."`
@@ -263,19 +271,20 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `parentService`: `{ label: "Virtual CFO Hub", href: "/services/virtual-cfo" }`
   - `subPillarTag`: `"Pillar 13.6 • Visual Analytics & KPIs"`
 - **Core Sections**:
-  1. *When does a finance dashboard help?* (Cutting through noise, multi-entity/location visibility).
-  2. *What belongs on a useful dashboard?* (Start with the question, not the chart; 6 essential metric categories).
-  3. *Common dashboard pitfalls and data integrity* (Avoiding vanity metrics and un-reconciled feeds).
-  4. *Data integrity and system connectivity* (Xero/MYOB integration, reconciliation gates).
-  5. *How Financially Up designs and maintains dashboards* (Definition agreement, refresh cadence).
-  6. *Information needed & Boundaries* (Source systems, KPI priorities).
-  7. *Why choose Financially Up* (`useCompany()` phone/email/credentials).
-  8. *Verbatim FAQs* (4 items with schema).
-  9. *CTA Banner & Related Service Ribbon*.
+  1. _When does a finance dashboard help?_ (Cutting through noise, multi-entity/location visibility).
+  2. _What belongs on a useful dashboard?_ (Start with the question, not the chart; 6 essential metric categories).
+  3. _Common dashboard pitfalls and data integrity_ (Avoiding vanity metrics and un-reconciled feeds).
+  4. _Data integrity and system connectivity_ (Xero/MYOB integration, reconciliation gates).
+  5. _How Financially Up designs and maintains dashboards_ (Definition agreement, refresh cadence).
+  6. _Information needed & Boundaries_ (Source systems, KPI priorities).
+  7. _Why choose Financially Up_ (`useCompany()` phone/email/credentials).
+  8. _Verbatim FAQs_ (4 items with schema).
+  9. _CTA Banner & Related Service Ribbon_.
 
 ---
 
 ### Subpage 7: `/services/virtual-cfo/three-way-forecasting` (Three Way Financial Forecasting)
+
 - **Metadata**:
   - `title`: `"Three Way Financial Forecasting | Financially Up"`
   - `description`: `"See how future profit, cash and financial position fit together. Financially Up builds connected forecasts around your business assumptions and decisions."`
@@ -287,15 +296,15 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
   - `parentService`: `{ label: "Virtual CFO Hub", href: "/services/virtual-cfo" }`
   - `subPillarTag`: `"Pillar 13.7 • Integrated Financial Forecasting"`
 - **Core Sections**:
-  1. *What are the three parts of a three way forecast?* (The interconnected trio: P&L + Balance Sheet + Cash Flow).
-  2. *When is integrated forecasting useful?* (Why profitable plans can create cash shortages; working capital timing).
-  3. *How is the forecast built?* (Opening balances, operating assumptions, 6-step practical build).
-  4. *What does the forecast help you decide?* (Funding runway, debt servicing capacity, growth feasibility).
-  5. *How Financially Up can help & Professional boundaries* (Assumptions documentation, lender compliance limits).
-  6. *What to bring to the first discussion* (Financials, loan terms, pipeline, pricing).
-  7. *Why Financially Up* (`useCompany()` dynamic contact integration).
-  8. *Verbatim FAQs* (4 items with schema).
-  9. *CTA Banner & Related Service Ribbon*.
+  1. _What are the three parts of a three way forecast?_ (The interconnected trio: P&L + Balance Sheet + Cash Flow).
+  2. _When is integrated forecasting useful?_ (Why profitable plans can create cash shortages; working capital timing).
+  3. _How is the forecast built?_ (Opening balances, operating assumptions, 6-step practical build).
+  4. _What does the forecast help you decide?_ (Funding runway, debt servicing capacity, growth feasibility).
+  5. _How Financially Up can help & Professional boundaries_ (Assumptions documentation, lender compliance limits).
+  6. _What to bring to the first discussion_ (Financials, loan terms, pipeline, pricing).
+  7. _Why Financially Up_ (`useCompany()` dynamic contact integration).
+  8. _Verbatim FAQs_ (4 items with schema).
+  9. _CTA Banner & Related Service Ribbon_.
 
 ---
 
@@ -308,7 +317,7 @@ financially-up-frontend/app/(web)/services/virtual-cfo/
    - Crisp headings (`text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white`).
    - Clean body copy (`text-slate-600 dark:text-zinc-300 leading-relaxed`).
 3. **Card & Container Styling**:
-   - Rounded-2xl cards with subtle borders (`border border-slate-200/80 dark:border-zinc-800`).
+   - rounded-lg cards with subtle borders (`border border-slate-200/80 dark:border-zinc-800`).
    - Premium soft hover elevations (`hover:shadow-lg hover:border-brand-primary/40 transition-all duration-300`).
    - Smooth light/dark mode transitions.
 4. **Structured Data (Schema.org)**:

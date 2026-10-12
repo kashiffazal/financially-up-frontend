@@ -56,7 +56,7 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center text-brand-primary dark:text-emerald-400 border border-brand-primary/20">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center text-brand-primary dark:text-emerald-400 border border-brand-primary/20">
                   <ShopOutlined className="text-2xl" />
                 </div>
                 <div>
@@ -93,7 +93,7 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/40 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40">
                   <UserOutlined className="text-2xl" />
                 </div>
                 <div>
@@ -142,7 +142,7 @@ export default function YearEndPlanningForBusinessesAndIndividuals() {
         </div>
 
         {/* Verbatim Disclaimer on Bookkeeping, Financial Advice & Legal Boundaries */}
-        <div className="max-w-4xl mx-auto bg-slate-100 dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200 dark:border-zinc-800 flex items-start gap-4">
+        <div className="max-w-4xl mx-auto bg-slate-100 dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200 dark:border-zinc-800 flex items-start gap-4">
           <InfoCircleOutlined className="text-xl text-slate-500 dark:text-zinc-400 mt-1 shrink-0" />
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
             Year-end planning does not replace bookkeeping, BAS preparation,

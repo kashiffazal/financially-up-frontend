@@ -2,7 +2,7 @@
 
 /**
  * Blog listing (/blog): featured spotlight, category filter bar, article grid,
- * search, popular tags and newsletter. Same design as before — the articles,
+ * search, popular tags and newsletter. Same design as before - the articles,
  * categories and tags now come from the database (managed at /admin/blog).
  *
  * @param {Array} posts       - live posts (newest first), see lib/blogFetch.js
@@ -41,7 +41,17 @@ function PostImage({ src, alt, sizes, priority = false, className = "" }) {
       </div>
     );
   }
-  return <Image src={url} alt={alt} fill priority={priority} sizes={sizes} className={className} unoptimized={isExternalImage(url)} />;
+  return (
+    <Image
+      src={url}
+      alt={alt}
+      fill
+      priority={priority}
+      sizes={sizes}
+      className={className}
+      unoptimized={isExternalImage(url)}
+    />
+  );
 }
 
 export default function BlogHub({ posts = [], categories = [], tags = [] }) {
@@ -50,14 +60,24 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const blogCategories = ["ALL", ...categories.map((c) => c.name.toUpperCase())];
+  const blogCategories = [
+    "ALL",
+    ...categories.map((c) => c.name.toUpperCase()),
+  ];
   const popularTags = tags.slice(0, POPULAR_TAG_LIMIT).map((t) => t.name);
 
   // Filter posts based on category, tag, and search query
   const filteredPosts = posts.filter((post) => {
     const matchesCat =
-      activeCategory === "ALL" || (post.categories || []).some((c) => c.name.toUpperCase() === activeCategory);
-    const matchesTag = !selectedTag || (post.tags || []).some((t) => t.toLowerCase() === selectedTag.toLowerCase());
+      activeCategory === "ALL" ||
+      (post.categories || []).some(
+        (c) => c.name.toUpperCase() === activeCategory,
+      );
+    const matchesTag =
+      !selectedTag ||
+      (post.tags || []).some(
+        (t) => t.toLowerCase() === selectedTag.toLowerCase(),
+      );
     const q = searchQuery.toLowerCase();
     const matchesSearch =
       !searchQuery ||
@@ -69,17 +89,25 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
   });
 
   const featuredPost = posts.find((p) => p.featured) || posts[0];
-  const isDefaultView = activeCategory === "ALL" && !selectedTag && !searchQuery;
+  const isDefaultView =
+    activeCategory === "ALL" && !selectedTag && !searchQuery;
 
   // Grid posts: everything except the spotlight post on the default view
-  const gridPosts = isDefaultView && featuredPost ? filteredPosts.filter((p) => p.id !== featuredPost.id) : filteredPosts;
+  const gridPosts =
+    isDefaultView && featuredPost
+      ? filteredPosts.filter((p) => p.id !== featuredPost.id)
+      : filteredPosts;
   const totalPages = Math.max(1, Math.ceil(gridPosts.length / POSTS_PER_PAGE));
   const page = Math.min(currentPage, totalPages);
-  const pagePosts = gridPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+  const pagePosts = gridPosts.slice(
+    (page - 1) * POSTS_PER_PAGE,
+    page * POSTS_PER_PAGE,
+  );
 
   const goToPage = (n) => {
     setCurrentPage(Math.min(Math.max(1, n), totalPages));
-    if (typeof window !== "undefined") window.scrollTo({ top: 320, behavior: "smooth" });
+    if (typeof window !== "undefined")
+      window.scrollTo({ top: 320, behavior: "smooth" });
   };
 
   const breadcrumbs = [
@@ -190,7 +218,9 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
                         <div className="w-6 h-6 rounded-full bg-brand-primary-soft text-brand-primary flex items-center justify-center text-[10px] font-black">
                           {featuredPost.author.avatar}
                         </div>
-                        <span className="text-[11px] truncate max-w-[110px]">{featuredPost.author.name}</span>
+                        <span className="text-[11px] truncate max-w-[110px]">
+                          {featuredPost.author.name}
+                        </span>
                       </div>
 
                       <span className="text-brand-primary dark:text-emerald-400 font-black text-xs flex items-center gap-1 group-hover:underline uppercase tracking-wider">
@@ -248,7 +278,9 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
                         </h3>
 
                         {/* Excerpt */}
-                        <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed line-clamp-3">{post.excerpt}</p>
+                        <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
+                          {post.excerpt}
+                        </p>
                       </div>
 
                       {/* Bottom Author & Read More */}
@@ -257,7 +289,9 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
                           <div className="w-7 h-7 rounded-full bg-brand-primary-soft dark:bg-zinc-800 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-[10px] font-black border border-emerald-200/60 dark:border-emerald-800/40">
                             {post.author.avatar}
                           </div>
-                          <span className="text-[11px] truncate max-w-[120px]">{post.author.name}</span>
+                          <span className="text-[11px] truncate max-w-[120px]">
+                            {post.author.name}
+                          </span>
                         </div>
 
                         <span className="text-brand-primary dark:text-emerald-400 flex items-center gap-1 group-hover:underline text-[11px] uppercase tracking-wider">
@@ -272,7 +306,9 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
             ) : (
               <div className="p-12 text-center rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
                 <p className="text-sm font-bold text-slate-700 dark:text-zinc-300">
-                  {posts.length ? "No articles found matching your filters." : "New articles are on the way. Please check back soon."}
+                  {posts.length
+                    ? "No articles found matching your filters."
+                    : "New articles are on the way. Please check back soon."}
                 </p>
                 {posts.length > 0 && (
                   <button
@@ -302,19 +338,21 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
                   <LeftOutlined className="text-xs" />
                 </button>
 
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
-                  <button
-                    key={n}
-                    onClick={() => goToPage(n)}
-                    className={`w-10 h-10 rounded-lg font-black text-xs transition-all cursor-pointer ${
-                      page === n
-                        ? "bg-brand-primary text-white shadow-md shadow-emerald-700/20"
-                        : "bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-brand-primary"
-                    }`}
-                  >
-                    {n}
-                  </button>
-                ))}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (n) => (
+                    <button
+                      key={n}
+                      onClick={() => goToPage(n)}
+                      className={`w-10 h-10 rounded-lg font-black text-xs transition-all cursor-pointer ${
+                        page === n
+                          ? "bg-brand-primary text-white shadow-md shadow-emerald-700/20"
+                          : "bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:border-brand-primary"
+                      }`}
+                    >
+                      {n}
+                    </button>
+                  ),
+                )}
 
                 <button
                   onClick={() => goToPage(page + 1)}
@@ -332,7 +370,9 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-[140px] self-start">
             {/* Widget 1: SEARCH ARTICLES */}
             <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
-              <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">SEARCH ARTICLES</h4>
+              <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">
+                SEARCH ARTICLES
+              </h4>
               <div className="relative">
                 <input
                   type="text"
@@ -351,7 +391,9 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
             {/* Widget 2: POPULAR TAGS */}
             {popularTags.length > 0 && (
               <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
-                <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">POPULAR TAGS</h4>
+                <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-zinc-50">
+                  POPULAR TAGS
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {popularTags.map((tag) => {
                     const isSelected = selectedTag === tag;
@@ -386,10 +428,15 @@ export default function BlogHub({ posts = [], categories = [], tags = [] }) {
                 JOIN THE FINANCIALLY UP NEWSLETTER
               </h4>
               <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
-                Get tax tips, ATO compliance reminders, and structuring guides delivered straight to your inbox once a week.
+                Get tax tips, ATO compliance reminders, and structuring guides
+                delivered straight to your inbox once a week.
               </p>
 
-              <NewsletterSignup source="blog_listing" placeholder="Enter your email address" buttonLabel="SUBSCRIBE NOW" />
+              <NewsletterSignup
+                source="blog_listing"
+                placeholder="Enter your email address"
+                buttonLabel="SUBSCRIBE NOW"
+              />
             </div>
           </aside>
         </div>

@@ -29,42 +29,54 @@ export default function RecordsToPrepareForForecast() {
     {
       icon: <BankOutlined className="text-emerald-600 dark:text-emerald-400" />,
       title: "Current Bank Balances",
-      description: "Reconciled business trading, tax reserve, and savings account balances.",
+      description:
+        "Reconciled business trading, tax reserve, and savings account balances.",
     },
     {
       icon: <FileTextOutlined className="text-teal-600 dark:text-teal-400" />,
       title: "Recent Financial Statements",
-      description: "Profit and Loss, Balance Sheet, and Trial Balance from current software.",
+      description:
+        "Profit and Loss, Balance Sheet, and Trial Balance from current software.",
     },
     {
       icon: <AuditOutlined className="text-blue-600 dark:text-blue-400" />,
       title: "Aged Receivables & Payables",
-      description: "Detailed debtor and creditor reports showing 30, 60, and 90+ day balances.",
+      description:
+        "Detailed debtor and creditor reports showing 30, 60, and 90+ day balances.",
     },
     {
       icon: <TeamOutlined className="text-indigo-600 dark:text-indigo-400" />,
       title: "Payroll Information",
-      description: "Wages, superannuation accruals, headcount, and PAYG withholding liabilities.",
+      description:
+        "Wages, superannuation accruals, headcount, and PAYG withholding liabilities.",
     },
     {
-      icon: <FileProtectOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileProtectOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       title: "Tax Liabilities",
-      description: "Integrated Client Account balances, pending BAS amounts, and tax payment plans.",
+      description:
+        "Integrated Client Account balances, pending BAS amounts, and tax payment plans.",
     },
     {
       icon: <DollarOutlined className="text-amber-600 dark:text-amber-400" />,
       title: "Loan & Finance Schedules",
-      description: "Commercial mortgages, equipment leases, interest rates, and balloon payments.",
+      description:
+        "Commercial mortgages, equipment leases, interest rates, and balloon payments.",
     },
     {
       icon: <ToolOutlined className="text-rose-600 dark:text-rose-400" />,
       title: "Recurring Payment Commitments",
-      description: "Premises leases, annual insurance premiums, software subscriptions, and utility contracts.",
+      description:
+        "Premises leases, annual insurance premiums, software subscriptions, and utility contracts.",
     },
     {
-      icon: <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Expected Sales & Major Expenses",
-      description: "Confirmed customer pipeline contracts, quotes, capital expenditure, and project costs.",
+      description:
+        "Confirmed customer pipeline contracts, quotes, capital expenditure, and project costs.",
     },
   ];
 
@@ -98,9 +110,9 @@ export default function RecordsToPrepareForForecast() {
           {documentChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-3">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-3">
                 {item.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -114,7 +126,7 @@ export default function RecordsToPrepareForForecast() {
         </div>
 
         {/* Verbatim Supporting Cross-Link Banner */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
@@ -148,7 +160,7 @@ export default function RecordsToPrepareForForecast() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="rounded-xl font-bold px-6 h-11"
+                  className="rounded-lg font-bold px-6 h-11"
                 >
                   Book Record Review
                 </Button>

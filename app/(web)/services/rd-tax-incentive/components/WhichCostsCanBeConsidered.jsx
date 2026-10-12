@@ -22,7 +22,9 @@ import {
 export default function WhichCostsCanBeConsidered() {
   const expenditureCategories = [
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Notional Deductions",
       tag: "ATO Classification",
       description:
@@ -35,7 +37,9 @@ export default function WhichCostsCanBeConsidered() {
       ],
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "The $20,000 Expenditure Threshold",
       tag: "Statutory Minimum",
       description:
@@ -48,7 +52,9 @@ export default function WhichCostsCanBeConsidered() {
       ],
     },
     {
-      icon: <GlobalOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Overseas Activities & Findings",
       tag: "Strict Year-End Cutoff",
       description:
@@ -77,7 +83,13 @@ export default function WhichCostsCanBeConsidered() {
             Which costs can be considered?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Potentially relevant expenditure may include eligible staff time, contractor or research service provider work, materials and other costs that meet the tax rules. The ATO calls eligible amounts notional deductions. Each amount must be connected to eligible activities and tested under the relevant expenditure rules, including who incurred it, whether it is at risk and whether special rules apply.
+            Potentially relevant expenditure may include eligible staff time,
+            contractor or research service provider work, materials and other
+            costs that meet the tax rules. The ATO calls eligible amounts
+            notional deductions. Each amount must be connected to eligible
+            activities and tested under the relevant expenditure rules,
+            including who incurred it, whether it is at risk and whether special
+            rules apply.
           </p>
         </div>
 
@@ -86,11 +98,11 @@ export default function WhichCostsCanBeConsidered() {
           {expenditureCategories.map((cat, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {cat.icon}
                   </div>
                   <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">
@@ -109,7 +121,10 @@ export default function WhichCostsCanBeConsidered() {
                 <div className="pt-3 border-t border-slate-200 dark:border-zinc-800">
                   <ul className="space-y-2">
                     {cat.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-zinc-400">
+                      <li
+                        key={pIdx}
+                        className="flex items-start gap-2 text-xs text-slate-600 dark:text-zinc-400"
+                      >
                         <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                         <span>{pt}</span>
                       </li>
@@ -122,7 +137,7 @@ export default function WhichCostsCanBeConsidered() {
         </div>
 
         {/* Cautionary Warning Box: Threshold & Offshore Realities (Verbatim from docx) */}
-        <div className="rounded-2xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 p-6 sm:p-8">
+        <div className="rounded-lg bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 p-6 sm:p-8">
           <div className="flex items-start gap-3.5">
             <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400 text-xl mt-0.5 shrink-0" />
             <div className="space-y-2">
@@ -130,10 +145,17 @@ export default function WhichCostsCanBeConsidered() {
                 Important Allocation &amp; Offshore Finding Rules
               </h4>
               <p className="text-xs sm:text-sm text-amber-950/90 dark:text-amber-200/90 leading-relaxed m-0">
-                The threshold is only one part of eligibility. We do not treat a whole salary, software budget or project cost as automatically claimable because the team worked on an R&amp;D project.
+                The threshold is only one part of eligibility. We do not treat a
+                whole salary, software budget or project cost as automatically
+                claimable because the team worked on an R&amp;D project.
               </p>
               <p className="text-xs sm:text-sm text-amber-950/90 dark:text-amber-200/90 leading-relaxed m-0 font-medium">
-                The application for an overseas finding must be submitted before the end of the income year in which the company conducts, or plans to conduct, the overseas activities, and the Department cannot accept a late application or grant an extension for an overseas finding. If a project involves offshore work, raise it early.
+                The application for an overseas finding must be submitted before
+                the end of the income year in which the company conducts, or
+                plans to conduct, the overseas activities, and the Department
+                cannot accept a late application or grant an extension for an
+                overseas finding. If a project involves offshore work, raise it
+                early.
               </p>
             </div>
           </div>

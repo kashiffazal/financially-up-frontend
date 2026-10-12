@@ -45,7 +45,7 @@ export default function BeneficiariesAndTaxConsequences() {
 
         {/* Verbatim Paragraphs 1 & 2 */}
         <div className="max-w-4xl mx-auto mb-12 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start gap-4">
+          <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start gap-4">
             <UserOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
             <p>
               In broad terms, a beneficiary who is presently entitled to a share
@@ -56,7 +56,7 @@ export default function BeneficiariesAndTaxConsequences() {
             </p>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start gap-4">
+          <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start gap-4">
             <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
             <p>
               Good trust tax planning therefore looks beyond the accounting
@@ -74,7 +74,7 @@ export default function BeneficiariesAndTaxConsequences() {
           {considerations.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/40 p-4 sm:p-5 rounded-xl border border-slate-200/70 dark:border-zinc-700/60 flex items-start gap-3"
+              className="bg-slate-50 dark:bg-zinc-800/40 p-4 sm:p-5 rounded-lg border border-slate-200/70 dark:border-zinc-700/60 flex items-start gap-3"
             >
               <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0" />
               <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-zinc-300">

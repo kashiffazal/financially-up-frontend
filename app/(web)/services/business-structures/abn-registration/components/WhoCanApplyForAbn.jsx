@@ -27,11 +27,12 @@ export default function WhoCanApplyForAbn() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="cyan" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <IdcardOutlined className="mr-1.5" />
               ABR Entitlement
             </Tag>
@@ -41,18 +42,29 @@ export default function WhoCanApplyForAbn() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The Australian Business Register states that an entity may be entitled to an ABN where it is carrying on or starting an enterprise in Australia, making supplies connected with Australia&apos;s indirect tax zone, or is a Corporations Act company. The rules can also apply to other entities such as trusts, partnerships and organisations depending on their activities.
+              The Australian Business Register states that an entity may be
+              entitled to an ABN where it is carrying on or starting an
+              enterprise in Australia, making supplies connected with
+              Australia&apos;s indirect tax zone, or is a Corporations Act
+              company. The rules can also apply to other entities such as
+              trusts, partnerships and organisations depending on their
+              activities.
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              There is no single test for whether an activity is a business. Factors can include commercial purpose, an intention to make a profit, repetition, organisation and whether the activity is carried on in a business-like way.
+              There is no single test for whether an activity is a business.
+              Factors can include commercial purpose, an intention to make a
+              profit, repetition, organisation and whether the activity is
+              carried on in a business-like way.
             </p>
 
             {/* Employment exclusion note */}
-            <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 flex items-start gap-3 text-sm text-rose-900 dark:text-rose-200">
+            <div className="p-4 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 flex items-start gap-3 text-sm text-rose-900 dark:text-rose-200">
               <CloseCircleOutlined className="text-lg text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
               <span>
-                <strong>Crucial Exclusion:</strong> A person who is only performing work as an employee is not entitled to an ABN for that employment activity.
+                <strong>Crucial Exclusion:</strong> A person who is only
+                performing work as an employee is not entitled to an ABN for
+                that employment activity.
               </span>
             </div>
           </div>
@@ -67,7 +79,10 @@ export default function WhoCanApplyForAbn() {
               </div>
               <ul className="space-y-3">
                 {businessFactors.map((factor, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-600 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-sm text-slate-600 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                     <span>{factor}</span>
                   </li>
@@ -75,9 +90,7 @@ export default function WhoCanApplyForAbn() {
               </ul>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

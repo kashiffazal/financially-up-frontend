@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { ClockCircleOutlined, CheckCircleFilled, ExclamationCircleFilled, CalendarOutlined } from "@ant-design/icons";
+import {
+  ClockCircleOutlined,
+  CheckCircleFilled,
+  ExclamationCircleFilled,
+  CalendarOutlined,
+} from "@ant-design/icons";
 
 /**
  * NegativeGearingRuleChanges2027 Component
@@ -20,7 +25,9 @@ export default function NegativeGearingRuleChanges2027() {
             Negative Gearing Rules Change from 1 July 2027
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            The treatment of residential rental losses changes from 1 July 2027. Understanding the cutoff dates, exemptions, and ring-fencing provisions is vital for existing and future property investors.
+            The treatment of residential rental losses changes from 1 July 2027.
+            Understanding the cutoff dates, exemptions, and ring-fencing
+            provisions is vital for existing and future property investors.
           </p>
         </div>
 
@@ -35,45 +42,71 @@ export default function NegativeGearingRuleChanges2027() {
                 Grandfathering & Ring-Fencing Framework
               </h3>
               <p className="text-slate-300 text-base leading-relaxed mb-4">
-                Properties held at <strong className="text-white font-semibold">7:30 pm AEST on 12 May 2026</strong> are grandfathered from the negative-gearing restriction, and qualifying new residential builds can continue to access full negative gearing against other assessable income.
+                Properties held at{" "}
+                <strong className="text-white font-semibold">
+                  7:30 pm AEST on 12 May 2026
+                </strong>{" "}
+                are grandfathered from the negative-gearing restriction, and
+                qualifying new residential builds can continue to access full
+                negative gearing against other assessable income.
               </p>
               <p className="text-slate-300 text-base leading-relaxed">
-                For established residential property acquired after that time, losses arising from <strong className="text-white font-semibold">1 July 2027</strong> generally cannot reduce non-residential income such as salary. They may instead be applied against residential property income, including relevant capital gains, with excess amounts carried forward under the new rules.
+                For established residential property acquired after that time,
+                losses arising from{" "}
+                <strong className="text-white font-semibold">
+                  1 July 2027
+                </strong>{" "}
+                generally cannot reduce non-residential income such as salary.
+                They may instead be applied against residential property income,
+                including relevant capital gains, with excess amounts carried
+                forward under the new rules.
               </p>
             </div>
 
             <div className="flex flex-col justify-center space-y-4">
-              <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <CheckCircleFilled className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Grandfathered Properties</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Grandfathered Properties
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Properties held at or before 7:30 pm AEST on 12 May 2026 remain fully eligible to offset salary and other personal income.
+                      Properties held at or before 7:30 pm AEST on 12 May 2026
+                      remain fully eligible to offset salary and other personal
+                      income.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <CheckCircleFilled className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Qualifying New Builds</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Qualifying New Builds
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      New residential builds continue to access negative gearing deductions against all forms of assessable personal income.
+                      New residential builds continue to access negative gearing
+                      deductions against all forms of assessable personal
+                      income.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <ExclamationCircleFilled className="text-amber-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Post-Cutoff Established Properties</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Post-Cutoff Established Properties
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Losses can only offset residential rental income and property CGT, with unused excess losses carried forward into future tax years.
+                      Losses can only offset residential rental income and
+                      property CGT, with unused excess losses carried forward
+                      into future tax years.
                     </p>
                   </div>
                 </div>
@@ -85,11 +118,15 @@ export default function NegativeGearingRuleChanges2027() {
             <div className="flex items-center gap-3 text-slate-400 text-sm">
               <CalendarOutlined className="text-amber-400 text-base" />
               <span>
-                <strong className="text-white">Note for Current Returns:</strong> These reforms do not apply to the 2025–26 tax return.
+                <strong className="text-white">
+                  Note for Current Returns:
+                </strong>{" "}
+                These reforms do not apply to the 2025–26 tax return.
               </span>
             </div>
             <p className="text-slate-400 text-xs sm:text-sm text-right">
-              Acquisition dates and property classifications should be formally documented now.
+              Acquisition dates and property classifications should be formally
+              documented now.
             </p>
           </div>
         </div>

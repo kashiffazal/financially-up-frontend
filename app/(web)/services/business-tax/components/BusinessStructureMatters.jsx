@@ -27,7 +27,9 @@ export default function BusinessStructureMatters() {
   const structureComparisons = [
     {
       title: "Company (Pty Ltd)",
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       taxpayer: "Separate Legal Taxpayer",
       taxRate: "25% (Base Rate) or 30%",
       losses: "Carried forward subject to COT/BCT tests",
@@ -37,7 +39,9 @@ export default function BusinessStructureMatters() {
     },
     {
       title: "Trusts",
-      icon: <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       taxpayer: "Flow-Through Entity",
       taxRate: "Taxed at beneficiary marginal rates",
       losses: "Trapped in trust (Trust Loss Rules apply)",
@@ -47,7 +51,9 @@ export default function BusinessStructureMatters() {
     },
     {
       title: "Partnerships",
-      icon: <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       taxpayer: "Information Return Only",
       taxRate: "Partners taxed on their profit share",
       losses: "Distributed directly to partners",
@@ -57,7 +63,9 @@ export default function BusinessStructureMatters() {
     },
     {
       title: "Sole Traders",
-      icon: <UserOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       taxpayer: "Individual Person",
       taxRate: "Individual marginal tax rates",
       losses: "Subject to Non-Commercial Loss Rules",
@@ -82,7 +90,7 @@ export default function BusinessStructureMatters() {
         </div>
 
         {/* Narrative Context Box - 100% Verbatim from Client Document */}
-        <div className="w-full mb-12 p-7 sm:p-9 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed space-y-4 shadow-xs">
+        <div className="w-full mb-12 p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-slate-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed space-y-4 shadow-xs">
           <p className="m-0">
             Your structure affects who reports the income, how losses may be
             dealt with, how profits can be distributed or retained and what
@@ -113,11 +121,11 @@ export default function BusinessStructureMatters() {
           {structureComparisons.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-brand-primary/40 dark:hover:border-emerald-600/40 transition-all flex flex-col justify-between group"
+              className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-brand-primary/40 dark:hover:border-emerald-600/40 transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center group-hover:scale-105 transition-transform shadow-2xs">
+                  <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center group-hover:scale-105 transition-transform shadow-2xs">
                     {item.icon}
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white m-0 tracking-tight group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition-colors">
@@ -126,28 +134,28 @@ export default function BusinessStructureMatters() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-xs text-slate-600 dark:text-zinc-400">
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
                     <span className="block font-bold text-slate-900 dark:text-white mb-0.5">
                       Taxpayer Status
                     </span>
                     <span>{item.taxpayer}</span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
                     <span className="block font-bold text-slate-900 dark:text-white mb-0.5">
                       Applicable Rates
                     </span>
                     <span>{item.taxRate}</span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
                     <span className="block font-bold text-slate-900 dark:text-white mb-0.5">
                       Loss Treatment
                     </span>
                     <span>{item.losses}</span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-800">
                     <span className="block font-bold text-slate-900 dark:text-white mb-0.5">
                       Profit Allocation
                     </span>

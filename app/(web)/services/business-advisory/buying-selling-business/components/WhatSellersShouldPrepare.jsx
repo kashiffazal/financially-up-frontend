@@ -25,22 +25,30 @@ import {
 export default function WhatSellersShouldPrepare() {
   const sellerChecklist = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Reconciled Source Records",
       desc: "Financial statements, tax returns, and management accounts fully reconciled to bank feeds and general ledgers.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Normalisation Schedules",
       desc: "Documented explanations for discretionary owner wages, related-party perks, and one-off extraordinary expenses.",
     },
     {
-      icon: <AppstoreOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AppstoreOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Asset & Inclusion Identification",
       desc: "Clear definitions of trading stock, equipment, plant, IP, customer contracts, goodwill, debtors, and liabilities.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Operational & Staff Transfers",
       desc: "Employee entitlements, award structures, premises lease assignments, licences, and key supplier agreements.",
     },
@@ -65,7 +73,7 @@ export default function WhatSellersShouldPrepare() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Evidence of Financial Performance */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
                 <FileTextOutlined />
@@ -81,12 +89,13 @@ export default function WhatSellersShouldPrepare() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Clear schedules prevent buyer skepticism during due diligence reviews.
+              Clear schedules prevent buyer skepticism during due diligence
+              reviews.
             </div>
           </div>
 
           {/* Card 2: Identifying Included Assets & Liabilities */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-3">
                 <AppstoreOutlined />
@@ -113,7 +122,7 @@ export default function WhatSellersShouldPrepare() {
           {sellerChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-950 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="bg-white dark:bg-zinc-950 p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-3">
                 {item.icon}
@@ -129,7 +138,7 @@ export default function WhatSellersShouldPrepare() {
         </div>
 
         {/* Verbatim Paragraph 3 Cross-Link Feature Banner */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
@@ -156,7 +165,7 @@ export default function WhatSellersShouldPrepare() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="rounded-xl font-bold px-6 h-11 shadow-sm"
+                  className="rounded-lg font-bold px-6 h-11 shadow-sm"
                 >
                   Valuation Services
                 </Button>

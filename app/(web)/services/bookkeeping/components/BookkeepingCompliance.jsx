@@ -48,10 +48,10 @@ export default function BookkeepingCompliance() {
         {/* 2 Key Statutory Compliance Focus Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Statutory 5-Year Record Keeping */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
                   <FieldTimeOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
                 </div>
                 <span className="text-xs font-semibold px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60">
@@ -70,25 +70,34 @@ export default function BookkeepingCompliance() {
               <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Retain records for at least 5 years from completion of transactions</span>
+                  <span>
+                    Retain records for at least 5 years from completion of
+                    transactions
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Comply with separate corporate record-keeping rules for Australian companies</span>
+                  <span>
+                    Comply with separate corporate record-keeping rules for
+                    Australian companies
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Maintain electronic receipts and clear transaction audit trails</span>
+                  <span>
+                    Maintain electronic receipts and clear transaction audit
+                    trails
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Card 2: GST Records & BAS Scope Boundary (Verbatim Paragraph 2) */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
                   <AuditOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60">
@@ -106,9 +115,9 @@ export default function BookkeepingCompliance() {
                 the BAS process more efficient, but bookkeeping itself is not
                 the same as BAS preparation or lodgement. Work that requires
                 determining GST treatment or preparing or lodging a BAS should
-                be included in separately scoped compliance work. Where required,
-                Financially Up can coordinate bookkeeping with our BAS and GST
-                lodgement service.
+                be included in separately scoped compliance work. Where
+                required, Financially Up can coordinate bookkeeping with our BAS
+                and GST lodgement service.
               </p>
             </div>
           </div>

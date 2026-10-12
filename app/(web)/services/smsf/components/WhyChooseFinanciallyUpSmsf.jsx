@@ -32,25 +32,33 @@ export default function WhyChooseFinanciallyUpSmsf() {
   // 4 Core Firm Strengths derived directly from verbatim document copy
   const firmStrengths = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description:
         "Registered tax agent with full authority to prepare SMSF annual accounts, manage tax reporting, and liaise with the ATO.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       description:
         "Our team includes qualified CPA and IPA members adhering to rigorous professional and ethical superannuation accounting standards.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "10+ Years Experience",
       description:
         "More than 10 years of experience across accounting, taxation, bookkeeping and business advisory work for Australian trustees.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Support",
       description:
         "We support clients Australia-wide through flexible online appointments as well as dedicated in-person consultations.",
@@ -71,7 +79,13 @@ export default function WhyChooseFinanciallyUpSmsf() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience across accounting, taxation, bookkeeping and business advisory work. Our team includes CPA and IPA members, and we support clients Australia-wide through online appointments as well as in-person appointments. For SMSFs, our focus is clear records, accurate annual reporting and a practical handover of information for the independent audit.
+            {company?.legalName || "Financially Up"} is a registered tax agent
+            with more than 10 years of experience across accounting, taxation,
+            bookkeeping and business advisory work. Our team includes CPA and
+            IPA members, and we support clients Australia-wide through online
+            appointments as well as in-person appointments. For SMSFs, our focus
+            is clear records, accurate annual reporting and a practical handover
+            of information for the independent audit.
           </p>
         </div>
 
@@ -80,9 +94,9 @@ export default function WhyChooseFinanciallyUpSmsf() {
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
+              className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                 {item.icon}
               </div>
               <div className="space-y-1.5">

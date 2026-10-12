@@ -56,9 +56,9 @@ export default function WhenAnAccountantHelps() {
         {/* Primary Content Presentation with Verbatim Copy */}
         <div className="w-full space-y-6 mb-12">
           {/* Paragraph 1 Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0 mt-0.5">
                 <QuestionCircleOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
               </div>
               <div className="space-y-3">
@@ -79,9 +79,9 @@ export default function WhenAnAccountantHelps() {
           </div>
 
           {/* Paragraph 2 Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-11 h-11 rounded-lg bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center shrink-0 mt-0.5">
                 <SafetyCertificateOutlined className="text-xl text-teal-600 dark:text-teal-400" />
               </div>
               <div className="space-y-3">
@@ -104,7 +104,7 @@ export default function WhenAnAccountantHelps() {
           {benefitPillars.map((benefit, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
               <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg mb-3" />
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">
@@ -125,7 +125,7 @@ export default function WhenAnAccountantHelps() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-semibold px-7 shadow-md"
+              className="rounded-lg font-semibold px-7 shadow-md"
             >
               Book an Appointment
             </Button>

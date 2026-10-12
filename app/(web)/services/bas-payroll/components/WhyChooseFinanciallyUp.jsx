@@ -31,25 +31,33 @@ export default function WhyChooseFinanciallyUp() {
    */
   const firmStrengths = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description:
         "Registered Australian tax agent firm providing authorized, accurate activity statement preparation, lodgement and ATO liaison.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       description:
         "Our professional accounting team includes accredited CPA Australia and Institute of Public Accountants (IPA) members.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "10+ Years of Experience",
       description:
         "Bringing more than 10 years of hands-on experience across Australian business accounting, tax work, and compliance reporting.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Support",
       description:
         "Comprehensive support is available Australia-wide, featuring convenient online video consultations and in-person appointments.",
@@ -85,9 +93,9 @@ export default function WhyChooseFinanciallyUp() {
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
+              className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                 {item.icon}
               </div>
               <div className="space-y-2">

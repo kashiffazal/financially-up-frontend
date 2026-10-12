@@ -24,25 +24,33 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
 export default function WhyChooseFinanciallyUp() {
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description:
         "Financially Up is an officially registered tax agent with the Tax Practitioners Board (TPB).",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       description:
         "Our team includes qualified members of CPA Australia and the Institute of Public Accountants (IPA).",
     },
     {
-      icon: <HistoryOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <HistoryOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "10+ Years Experience",
       description:
         "The business has more than 10 years of experience supporting clients with accounting and tax matters.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Services",
       description:
         "Comprehensive accounting, taxation, bookkeeping and business advisory services to clients Australia-wide.",
@@ -76,10 +84,10 @@ export default function WhyChooseFinanciallyUp() {
           {credentials.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center mb-4 shadow-2xs">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/70 flex items-center justify-center mb-4 shadow-2xs">
                   {item.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 tracking-tight">

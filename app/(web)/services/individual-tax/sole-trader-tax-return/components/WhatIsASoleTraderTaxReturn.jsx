@@ -79,7 +79,7 @@ export default function WhatIsASoleTraderTaxReturn() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
                     {item.icon}
                   </div>
                   <Tag className="text-[11px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 border-none m-0">
@@ -110,7 +110,7 @@ export default function WhatIsASoleTraderTaxReturn() {
         </div>
 
         {/* Informational Callout */}
-        <div className="rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
+        <div className="rounded-lg bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
           <div className="flex items-start gap-4 max-w-3xl">
             <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-2xl mt-1 shrink-0" />
             <div>
@@ -132,7 +132,7 @@ export default function WhatIsASoleTraderTaxReturn() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full md:w-auto font-bold rounded-xl bg-brand-primary hover:bg-brand-primary-dark border-none h-11 px-6"
+                className="w-full md:w-auto font-bold rounded-lg bg-brand-primary hover:bg-brand-primary-dark border-none h-11 px-6"
               >
                 Book Sole Trader Consultation
               </Button>

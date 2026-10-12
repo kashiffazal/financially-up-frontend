@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Card } from "antd";
-import { DollarOutlined, CalculatorOutlined, FileProtectOutlined, FallOutlined } from "@ant-design/icons";
+import {
+  DollarOutlined,
+  CalculatorOutlined,
+  FileProtectOutlined,
+  FallOutlined,
+} from "@ant-design/icons";
 
 /**
  * WhatDoesNegativeGearingMean Component
@@ -47,7 +52,8 @@ export default function WhatDoesNegativeGearingMean() {
             What Does Negative Gearing Mean for Tax?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Understanding the distinction between cash shortfall and allowable tax deductions is essential for compliant rental property reporting.
+            Understanding the distinction between cash shortfall and allowable
+            tax deductions is essential for compliant rental property reporting.
           </p>
         </div>
 
@@ -55,7 +61,7 @@ export default function WhatDoesNegativeGearingMean() {
           {cards.map((card, idx) => (
             <Card
               key={idx}
-              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-xl"
+              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg"
               styles={{ body: { padding: "28px" } }}
             >
               <div className="flex items-start gap-4">
@@ -63,8 +69,12 @@ export default function WhatDoesNegativeGearingMean() {
                   {card.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{card.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{card.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    {card.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             </Card>

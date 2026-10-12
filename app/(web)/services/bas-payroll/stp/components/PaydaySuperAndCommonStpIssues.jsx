@@ -28,7 +28,6 @@ export default function PaydaySuperAndCommonStpIssues() {
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: Superannuation and Current Payroll Reporting */}
         <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-16">
           <div className="max-w-3xl space-y-4">
@@ -40,24 +39,37 @@ export default function PaydaySuperAndCommonStpIssues() {
               Superannuation and Current Payroll Reporting
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              From 1 July 2026, Payday Super changed the timing of super guarantee contributions. Employers generally need to ensure contributions are received by the employee&apos;s super fund within seven business days of payday, subject to the applicable exceptions. Payroll and STP processes should therefore use the current rules rather than older quarterly-payment assumptions.
+              From 1 July 2026, Payday Super changed the timing of super
+              guarantee contributions. Employers generally need to ensure
+              contributions are received by the employee&apos;s super fund
+              within seven business days of payday, subject to the applicable
+              exceptions. Payroll and STP processes should therefore use the
+              current rules rather than older quarterly-payment assumptions.
             </p>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The exact super treatment can depend on the worker, payment and circumstances, so any unusual arrangements should be reviewed separately.
+              The exact super treatment can depend on the worker, payment and
+              circumstances, so any unusual arrangements should be reviewed
+              separately.
             </p>
           </div>
 
-          <div className="mt-6 p-4 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 flex items-start gap-3">
+          <div className="mt-6 p-4 rounded-lg bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 flex items-start gap-3">
             <ClockCircleOutlined className="text-lg text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
             <span className="text-xs sm:text-sm text-emerald-900 dark:text-emerald-200 leading-relaxed">
-              <strong>Payday Super Requirement:</strong> Move away from traditional quarterly super clearing deadlines. Super contributions must be scheduled and received within 7 business days of each employee payday.
+              <strong>Payday Super Requirement:</strong> Move away from
+              traditional quarterly super clearing deadlines. Super
+              contributions must be scheduled and received within 7 business
+              days of each employee payday.
             </span>
           </div>
         </div>
 
         {/* Part 2: Common STP Problems */}
         <div className="max-w-3xl mb-12">
-          <Tag color="volcano" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="volcano"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <WarningOutlined className="mr-1.5" />
             Error Resolution
           </Tag>
@@ -67,11 +79,17 @@ export default function PaydaySuperAndCommonStpIssues() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-            Common issues include incorrect employee details, duplicated employees, incorrect year-to-date balances, reporting under the wrong payroll categories, missed pay events, software migrations and year-end figures that do not reconcile to payroll records.
+            Common issues include incorrect employee details, duplicated
+            employees, incorrect year-to-date balances, reporting under the
+            wrong payroll categories, missed pay events, software migrations and
+            year-end figures that do not reconcile to payroll records.
           </p>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A single touch payroll accountant can help review the accounting and tax-reporting side of these problems. Employment-law or entitlement disputes are separate matters and may require specialist workplace advice.
+            A single touch payroll accountant can help review the accounting and
+            tax-reporting side of these problems. Employment-law or entitlement
+            disputes are separate matters and may require specialist workplace
+            advice.
           </p>
         </div>
 
@@ -80,7 +98,7 @@ export default function PaydaySuperAndCommonStpIssues() {
           {commonIssues.map((issue, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-start gap-3.5 hover:border-rose-400/60 transition-all"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-start gap-3.5 hover:border-rose-400/60 transition-all"
             >
               <CloseCircleOutlined className="text-rose-500 text-lg shrink-0 mt-0.5" />
               <p className="text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug">
@@ -89,7 +107,6 @@ export default function PaydaySuperAndCommonStpIssues() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

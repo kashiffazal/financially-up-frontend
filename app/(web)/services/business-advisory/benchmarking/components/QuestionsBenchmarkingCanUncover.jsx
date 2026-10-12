@@ -26,28 +26,42 @@ import {
 export default function QuestionsBenchmarkingCanUncover() {
   const diagnosticQuestions = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      question: "Has gross margin changed because of pricing, cost or product mix?",
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      question:
+        "Has gross margin changed because of pricing, cost or product mix?",
       subtitle: "Pricing vs Inflation Diagnostics",
     },
     {
-      icon: <TeamOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      question: "Are staffing costs rising with productive activity or ahead of demand?",
+      icon: (
+        <TeamOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      question:
+        "Are staffing costs rising with productive activity or ahead of demand?",
       subtitle: "Headcount & Capacity Productivity",
     },
     {
-      icon: <ShopOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      question: "Does one site perform differently because its customers or expenses differ?",
+      icon: (
+        <ShopOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      question:
+        "Does one site perform differently because its customers or expenses differ?",
       subtitle: "Location & Branch Variance",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       question: "Are debtors taking longer to pay than in prior periods?",
       subtitle: "Working Capital & Cash Flow Drag",
     },
     {
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      question: "Has an apparent improvement come from a one-off event or a changed accounting classification?",
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      question:
+        "Has an apparent improvement come from a one-off event or a changed accounting classification?",
       subtitle: "Data Integrity & Normalized Earnings",
     },
   ];
@@ -77,12 +91,12 @@ export default function QuestionsBenchmarkingCanUncover() {
           {diagnosticQuestions.map((item, idx) => (
             <div
               key={idx}
-              className={`p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between ${
+              className={`p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between ${
                 idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <Tag color="cyan" className="text-2xs font-semibold mb-2">
@@ -97,7 +111,7 @@ export default function QuestionsBenchmarkingCanUncover() {
         </div>
 
         {/* Action Pathways Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
             Translating Comparative Gaps into Tailored Action
           </h3>
@@ -114,7 +128,7 @@ export default function QuestionsBenchmarkingCanUncover() {
               <Button
                 type="default"
                 icon={<DollarOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Profitability Consulting
               </Button>
@@ -124,7 +138,7 @@ export default function QuestionsBenchmarkingCanUncover() {
               <Button
                 type="default"
                 icon={<LineChartOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 KPI Reporting
               </Button>
@@ -134,7 +148,7 @@ export default function QuestionsBenchmarkingCanUncover() {
               <Button
                 type="default"
                 icon={<ArrowRightOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Growth Consulting
               </Button>

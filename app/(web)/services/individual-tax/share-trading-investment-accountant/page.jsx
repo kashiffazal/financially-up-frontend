@@ -26,7 +26,8 @@ export const metadata = {
     "capital gains on shares Australia",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/share-trading-investment-accountant/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/share-trading-investment-accountant/",
   },
   openGraph: {
     title: "Share Trading Accountant Australia | Financially Up",
@@ -57,32 +58,38 @@ const shareQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Share investors, active traders, ETF holders & dividend yield portfolios",
+    value:
+      "Share investors, active traders, ETF holders & dividend yield portfolios",
   },
   {
     icon: "file",
     label: "Tax Reporting Model",
-    value: "Dividends, distributions & capital gains in individual return (or trading stock for traders)",
+    value:
+      "Dividends, distributions & capital gains in individual return (or trading stock for traders)",
   },
   {
     icon: "bank",
     label: "Corporate Actions",
-    value: "DRP tracking, stock splits, demergers, rights issues & parcel cost bases",
+    value:
+      "DRP tracking, stock splits, demergers, rights issues & parcel cost bases",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "Credits & Concessions",
-    value: "Franking credit tax offsets & 50% CGT discount for 12+ month holdings",
+    value:
+      "Franking credit tax offsets & 50% CGT discount for 12+ month holdings",
   },
 ];
 
@@ -95,7 +102,9 @@ const shareFaqs = [
     label: "What does a share trading accountant do",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A share trading accountant reviews investment activity, records, dividends, distributions and disposals for tax-return preparation, calculation work or separately scoped advice.
+        A share trading accountant reviews investment activity, records,
+        dividends, distributions and disposals for tax-return preparation,
+        calculation work or separately scoped advice.
       </p>
     ),
   },
@@ -104,7 +113,9 @@ const shareFaqs = [
     label: "How are shares taxed in Australia",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Investors generally hold shares as CGT assets and may have assessable dividend income. A genuine share-trading business may instead apply ordinary income and trading stock rules.
+        Investors generally hold shares as CGT assets and may have assessable
+        dividend income. A genuine share-trading business may instead apply
+        ordinary income and trading stock rules.
       </p>
     ),
   },
@@ -113,7 +124,9 @@ const shareFaqs = [
     label: "What is the difference between a share investor and a share trader",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The distinction depends on the overall facts and whether the activity amounts to carrying on a business. Transaction frequency or portfolio size alone does not decide the classification.
+        The distinction depends on the overall facts and whether the activity
+        amounts to carrying on a business. Transaction frequency or portfolio
+        size alone does not decide the classification.
       </p>
     ),
   },
@@ -122,7 +135,9 @@ const shareFaqs = [
     label: "Do I pay tax on dividends",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Dividends are generally assessable income. Franked dividends may also carry franking credits that must be reported where the investor is entitled to them.
+        Dividends are generally assessable income. Franked dividends may also
+        carry franking credits that must be reported where the investor is
+        entitled to them.
       </p>
     ),
   },
@@ -131,7 +146,9 @@ const shareFaqs = [
     label: "How do franking credits work",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An eligible investor generally includes the attached credit in assessable income and may receive an equivalent tax offset. The credit does not guarantee a refund.
+        An eligible investor generally includes the attached credit in
+        assessable income and may receive an equivalent tax offset. The credit
+        does not guarantee a refund.
       </p>
     ),
   },
@@ -140,7 +157,9 @@ const shareFaqs = [
     label: "How are capital gains from shares taxed",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An investor may make a capital gain or loss when shares are disposed of. The calculation depends on proceeds, cost base, ownership period, losses and any available concession.
+        An investor may make a capital gain or loss when shares are disposed of.
+        The calculation depends on proceeds, cost base, ownership period, losses
+        and any available concession.
       </p>
     ),
   },
@@ -149,7 +168,10 @@ const shareFaqs = [
     label: "How are ETFs and managed funds treated for tax",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Treatment depends on the investment structure and tax-statement components. Taxable amounts can include distributions, capital gains, franking credits and foreign income, even when they differ from cash received.
+        Treatment depends on the investment structure and tax-statement
+        components. Taxable amounts can include distributions, capital gains,
+        franking credits and foreign income, even when they differ from cash
+        received.
       </p>
     ),
   },
@@ -158,7 +180,9 @@ const shareFaqs = [
     label: "What records should I keep for share investments",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Keep acquisition and disposal records, brokerage, dividend statements, annual tax statements, parcel details and documents relating to corporate actions.
+        Keep acquisition and disposal records, brokerage, dividend statements,
+        annual tax statements, parcel details and documents relating to
+        corporate actions.
       </p>
     ),
   },
@@ -201,16 +225,27 @@ export default function ShareTradingInvestmentAccountantPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Shares, ETFs and managed funds can add dividends, franking credits, distributions, capital gains, capital losses and numerous transactions to an individual tax return. The correct treatment also depends on whether your activities amount to investing or a business of share trading.
+              Shares, ETFs and managed funds can add dividends, franking
+              credits, distributions, capital gains, capital losses and numerous
+              transactions to an individual tax return. The correct treatment
+              also depends on whether your activities amount to investing or a
+              business of share trading.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd assists Australian individuals with share and investment-related tax reporting. Services are available Australia-wide through online meetings, with appointments also available by phone or in person where preferred.
+              Financially Up Pty Ltd assists Australian individuals with share
+              and investment-related tax reporting. Services are available
+              Australia-wide through online meetings, with appointments also
+              available by phone or in person where preferred.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              Book an appointment to discuss your investment activity, transaction history, dividend and distribution statements, capital gains or losses and the records available. The first appointment helps identify the work required and whether you need tax-return preparation, calculation work or separately scoped tax advice.
+              Book an appointment to discuss your investment activity,
+              transaction history, dividend and distribution statements, capital
+              gains or losses and the records available. The first appointment
+              helps identify the work required and whether you need tax-return
+              preparation, calculation work or separately scoped tax advice.
             </div>
           </span>
         }

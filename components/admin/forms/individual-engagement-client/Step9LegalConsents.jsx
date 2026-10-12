@@ -30,12 +30,27 @@ import { applyCompanyVars } from "@/lib/applyCompanyVars";
 export default function Step9LegalConsents({ form }) {
   // Company details inside the legal text come from the global settings store
   const { settings } = useSettings();
-  const TERMS_AND_CONDITIONS_INFO = applyCompanyVars(TERMS_AND_CONDITIONS_INFO_RAW, settings);
-  const PRIVACY_POLICY_INFO = applyCompanyVars(PRIVACY_POLICY_INFO_RAW, settings);
-  const EXACT_PRIVACY_COLLECTION_NOTICE_TEXT = applyCompanyVars(EXACT_PRIVACY_COLLECTION_NOTICE_TEXT_RAW, settings);
-  const TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO = applyCompanyVars(TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO_RAW, settings);
+  const TERMS_AND_CONDITIONS_INFO = applyCompanyVars(
+    TERMS_AND_CONDITIONS_INFO_RAW,
+    settings,
+  );
+  const PRIVACY_POLICY_INFO = applyCompanyVars(
+    PRIVACY_POLICY_INFO_RAW,
+    settings,
+  );
+  const EXACT_PRIVACY_COLLECTION_NOTICE_TEXT = applyCompanyVars(
+    EXACT_PRIVACY_COLLECTION_NOTICE_TEXT_RAW,
+    settings,
+  );
+  const TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO = applyCompanyVars(
+    TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO_RAW,
+    settings,
+  );
   const TPB_STATEMENT_INFO = applyCompanyVars(TPB_STATEMENT_INFO_RAW, settings);
-  const ATO_AUDIT_DECLARATION_INFO = applyCompanyVars(ATO_AUDIT_DECLARATION_INFO_RAW, settings);
+  const ATO_AUDIT_DECLARATION_INFO = applyCompanyVars(
+    ATO_AUDIT_DECLARATION_INFO_RAW,
+    settings,
+  );
   const company = useCompany();
   const identityMethod = Form.useWatch("identityMethod", form);
   const techBlendedTeam = Form.useWatch("techBlendedTeam", form);
@@ -132,8 +147,9 @@ export default function Step9LegalConsents({ form }) {
     }
   };
 
+  // AntInput radios pass the chosen value ("Yes" / "No"); a plain antd Radio passes an event
   const handleTechRadioChange = (e) => {
-    const val = e.target.value;
+    const val = e?.target ? e.target.value : e;
     if (val === "No") {
       form.setFieldsValue({
         overseasAccessBlocked: true,
@@ -172,13 +188,13 @@ export default function Step9LegalConsents({ form }) {
       </div>
 
       {/* Main Top Action Bar: Legal Documents List */}
-      <div className="p-6 rounded-xl bg-slate-50/90 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
+      <div className="p-6 rounded-lg bg-slate-50/90 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-4 shadow-sm">
         <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
           <h3 className="text-sm font-extrabold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
             <FileProtectOutlined className="text-brand-primary text-base" />
             <span>Legal Documents Repository (Open & Read Each Document)</span>
           </h3>
-          <Tag color="blue" className="font-semibold text-xs rounded-xl">
+          <Tag color="blue" className="font-semibold text-xs rounded-lg">
             Statutory Documents
           </Tag>
         </div>
@@ -188,7 +204,7 @@ export default function Step9LegalConsents({ form }) {
             type="default"
             icon={<FilePdfOutlined className="text-emerald-600" />}
             onClick={handleOpenTermsModal}
-            className="rounded-xl font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
+            className="rounded-lg font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
           >
             View Terms & Conditions
           </Button>
@@ -197,7 +213,7 @@ export default function Step9LegalConsents({ form }) {
             type="default"
             icon={<SafetyCertificateOutlined className="text-blue-600" />}
             onClick={handleOpenPrivacyNoticeModal}
-            className="rounded-xl font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
+            className="rounded-lg font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
           >
             View Privacy Collection Notice
           </Button>
@@ -206,7 +222,7 @@ export default function Step9LegalConsents({ form }) {
             type="default"
             icon={<BookOutlined className="text-indigo-600" />}
             onClick={handleOpenPrivacyPolicyModal}
-            className="rounded-xl font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
+            className="rounded-lg font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
           >
             View Privacy Policy
           </Button>
@@ -215,7 +231,7 @@ export default function Step9LegalConsents({ form }) {
             type="default"
             icon={<SafetyCertificateOutlined className="text-amber-600" />}
             onClick={handleOpenTpbModal}
-            className="rounded-xl font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
+            className="rounded-lg font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
           >
             View TPB Statement
           </Button>
@@ -224,7 +240,7 @@ export default function Step9LegalConsents({ form }) {
             type="default"
             icon={<GlobalOutlined className="text-teal-600" />}
             onClick={handleOpenTechModal}
-            className="rounded-xl font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
+            className="rounded-lg font-semibold border-slate-300 dark:border-zinc-700 hover:border-brand-primary text-xs"
           >
             View Technology Notice
           </Button>
@@ -232,11 +248,11 @@ export default function Step9LegalConsents({ form }) {
       </div>
 
       {/* Statutory Declarations Box */}
-      <div className="p-6 rounded-xl bg-brand-primary-soft/30 dark:bg-emerald-950/30 border border-brand-primary/20 dark:border-emerald-900/50 space-y-4">
+      <div className="p-6 rounded-lg bg-brand-primary-soft/30 dark:bg-emerald-950/30 border border-brand-primary/20 dark:border-emerald-900/50 space-y-4">
         {/* ======================================================== */}
         {/* DOCUMENT CARD 1: TERMS & CONDITIONS */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-zinc-800 pb-3">
             <div className="space-y-0.5">
               <div className="flex items-center gap-2">
@@ -254,7 +270,7 @@ export default function Step9LegalConsents({ form }) {
               type="primary"
               icon={<BookOutlined />}
               onClick={handleOpenTermsModal}
-              className="bg-brand-primary hover:bg-brand-primary-hover font-bold rounded-xl h-10 px-5 shadow-sm shrink-0"
+              className="bg-brand-primary hover:bg-brand-primary-hover font-bold rounded-lg h-10 px-5 shadow-sm shrink-0"
             >
               Read Terms & Conditions
             </Button>
@@ -271,7 +287,7 @@ export default function Step9LegalConsents({ form }) {
                   Conditions&apos; to inspect the document before consenting.
                 </span>
               }
-              className="rounded-xl py-2 px-3 !mb-4"
+              className="rounded-lg py-2 px-3 !mb-4"
             />
           )}
 
@@ -306,7 +322,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* TECHNOLOGY & BLENDED TEAM CONTROL (YES / NO CONTROL) */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-zinc-800 pb-3">
             <div>
               <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 text-sm m-0 flex items-center gap-2">
@@ -324,7 +340,7 @@ export default function Step9LegalConsents({ form }) {
               type="default"
               icon={<BookOutlined />}
               onClick={handleOpenTechModal}
-              className="rounded-xl font-semibold border-slate-300 text-xs shrink-0"
+              className="rounded-lg font-semibold border-slate-300 text-xs shrink-0"
             >
               View Technology Notice
             </Button>
@@ -376,7 +392,7 @@ export default function Step9LegalConsents({ form }) {
                   feasibility review for your engagement.
                 </span>
               }
-              className="rounded-xl py-2 px-3 border-amber-300 bg-amber-50/80 text-amber-900 !mt-4"
+              className="rounded-lg py-2 px-3 border-amber-300 bg-amber-50/80 text-amber-900 !mt-4"
             />
           )}
         </div>
@@ -384,14 +400,14 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* PRIVACY & TPB DOCUMENTS CARDS BLOCK */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-5">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-5">
           <h4 className="text-xs font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wider mb-4">
             Privacy & TPB Statutory Documents
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Privacy Collection Notice Card */}
-            <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 flex flex-col justify-between">
+            <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 flex flex-col justify-between">
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100 text-xs flex items-center justify-between">
                   <span>Privacy Collection Notice</span>
@@ -404,14 +420,14 @@ export default function Step9LegalConsents({ form }) {
                 type="default"
                 icon={<SafetyCertificateOutlined />}
                 onClick={handleOpenPrivacyNoticeModal}
-                className="w-full rounded-xl font-semibold border-slate-300 dark:border-zinc-700 text-xs"
+                className="w-full rounded-lg font-semibold border-slate-300 dark:border-zinc-700 text-xs"
               >
                 Read Collection Notice
               </Button>
             </div>
 
             {/* Privacy Policy Card */}
-            <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 flex flex-col justify-between">
+            <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 flex flex-col justify-between">
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100 text-xs flex items-center justify-between">
                   <span>Privacy Policy</span>
@@ -424,14 +440,14 @@ export default function Step9LegalConsents({ form }) {
                 type="primary"
                 icon={<BookOutlined />}
                 onClick={handleOpenPrivacyPolicyModal}
-                className="w-full bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold text-xs"
+                className="w-full bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold text-xs"
               >
                 Read Privacy Policy
               </Button>
             </div>
 
             {/* TPB Client Information Statement Card */}
-            <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 flex flex-col justify-between">
+            <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 flex flex-col justify-between">
               <div>
                 <div className="font-bold text-slate-900 dark:text-zinc-100 text-xs flex items-center justify-between">
                   <span>TPB Statement</span>
@@ -447,7 +463,7 @@ export default function Step9LegalConsents({ form }) {
                 type="default"
                 icon={<SafetyCertificateOutlined />}
                 onClick={handleOpenTpbModal}
-                className="w-full rounded-xl font-semibold border-slate-300 dark:border-zinc-700 text-xs"
+                className="w-full rounded-lg font-semibold border-slate-300 dark:border-zinc-700 text-xs"
               >
                 Read TPB Statement
               </Button>
@@ -466,7 +482,7 @@ export default function Step9LegalConsents({ form }) {
                   consenting.
                 </span>
               }
-              className="rounded-xl py-2 px-3 !mb-4"
+              className="rounded-lg py-2 px-3 !mb-4"
             />
           )}
 
@@ -507,13 +523,13 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* ATO AUDIT & SUBSTANTIATION DECLARATION */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-3">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-3">
           <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 text-sm m-0 flex items-center gap-2 mb-4">
             <SafetyCertificateOutlined className="text-brand-primary" />
             <span>ATO Audit & Substantiation Declaration</span>
           </h4>
 
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed italic mb-2">
+          <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed italic mb-2">
             &ldquo;{ATO_AUDIT_DECLARATION_INFO.fullText}&rdquo;
           </div>
 
@@ -539,7 +555,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* STATUTORY CLIENT DECLARATIONS */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs space-y-4">
           <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 text-sm m-0 flex items-center gap-2 mb-4">
             <FileProtectOutlined className="text-brand-primary" />
             <span>Client Statutory Declarations</span>
@@ -601,7 +617,7 @@ export default function Step9LegalConsents({ form }) {
         {/* CONDITIONAL BIOMETRIC CONSENT */}
         {/* ======================================================== */}
         {identityMethod === "Biometric Verification" && (
-          <div className="p-5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80 shadow-xs space-y-2">
             <h4 className="font-bold text-emerald-900 dark:text-emerald-200 text-xs m-0 uppercase tracking-wider mt-4">
               Conditional Biometric Verification Consent
             </h4>
@@ -627,7 +643,7 @@ export default function Step9LegalConsents({ form }) {
         {/* ======================================================== */}
         {/* OPTIONAL AUDIO / VIDEO RECORDING CONSENT */}
         {/* ======================================================== */}
-        <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs">
+        <div className="p-5 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs">
           <AntInput
             type="checkbox"
             name="consentRecording"
@@ -658,7 +674,7 @@ export default function Step9LegalConsents({ form }) {
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -666,7 +682,7 @@ export default function Step9LegalConsents({ form }) {
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setTermsModalOpen(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-6 h-10 shadow-md"
             >
               I Have Read & Understood These Terms
             </Button>
@@ -680,22 +696,22 @@ export default function Step9LegalConsents({ form }) {
                 FINANCIALLY UP PTY LTD
               </h1>
               <p className="text-xs text-slate-500 m-0">
-                ABN {company.abn} | Registered Tax Agent #{company.taxAgentNumber}
+                ABN {company.abn} | Registered Tax Agent #
+                {company.taxAgentNumber}
               </p>
             </div>
             <div className="text-right">
               <Tag
                 color="green"
-                className="font-extrabold text-xs px-3 py-1 rounded-xl"
-              >
-              </Tag>
+                className="font-extrabold text-xs px-3 py-1 rounded-lg"
+              ></Tag>
               <div className="text-[11px] font-mono text-slate-400 mt-1">
                 Effective: {TERMS_AND_CONDITIONS_INFO.effectiveDate}
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
             <h2 className="text-lg font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wide m-0">
               CLIENT ENGAGEMENT TERMS & CONDITIONS
             </h2>
@@ -709,7 +725,7 @@ export default function Step9LegalConsents({ form }) {
             {TERMS_AND_CONDITIONS_INFO.clauses.map((clause) => (
               <div
                 key={clause.id}
-                className="p-4 rounded-xl bg-slate-50/60 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 space-y-1.5"
+                className="p-4 rounded-lg bg-slate-50/60 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 space-y-1.5"
               >
                 <h4 className="font-bold text-slate-900 dark:text-zinc-100 text-xs m-0 text-brand-primary dark:text-emerald-400">
                   {clause.title}
@@ -742,7 +758,7 @@ export default function Step9LegalConsents({ form }) {
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -750,7 +766,7 @@ export default function Step9LegalConsents({ form }) {
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setPrivacyNoticeModalOpen(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-6 h-10 shadow-md"
             >
               I Have Read Collection Notice
             </Button>
@@ -769,12 +785,11 @@ export default function Step9LegalConsents({ form }) {
             </div>
             <Tag
               color="blue"
-              className="font-extrabold text-xs px-3 py-1 rounded-xl"
-            >
-            </Tag>
+              className="font-extrabold text-xs px-3 py-1 rounded-lg"
+            ></Tag>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
             <h2 className="text-lg font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wide m-0">
               PRIVACY COLLECTION NOTICE
             </h2>
@@ -783,7 +798,7 @@ export default function Step9LegalConsents({ form }) {
             </p>
           </div>
 
-          <div className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
+          <div className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
             {EXACT_PRIVACY_COLLECTION_NOTICE_TEXT.fullText}
           </div>
         </div>
@@ -808,7 +823,7 @@ export default function Step9LegalConsents({ form }) {
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -816,7 +831,7 @@ export default function Step9LegalConsents({ form }) {
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setPrivacyPolicyModalOpen(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-6 h-10 shadow-md"
             >
               I Have Read Privacy Policy
             </Button>
@@ -836,16 +851,15 @@ export default function Step9LegalConsents({ form }) {
             <div className="text-right">
               <Tag
                 color="blue"
-                className="font-extrabold text-xs px-3 py-1 rounded-xl"
-              >
-              </Tag>
+                className="font-extrabold text-xs px-3 py-1 rounded-lg"
+              ></Tag>
               <div className="text-[11px] font-mono text-slate-400 mt-1">
                 Effective: {PRIVACY_POLICY_INFO.effectiveDate}
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
             <h2 className="text-lg font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wide m-0">
               PRIVACY POLICY
             </h2>
@@ -859,7 +873,7 @@ export default function Step9LegalConsents({ form }) {
             {PRIVACY_POLICY_INFO.sections.map((sec) => (
               <div
                 key={sec.id}
-                className="p-4 rounded-xl bg-slate-50/60 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 space-y-1.5"
+                className="p-4 rounded-lg bg-slate-50/60 dark:bg-zinc-900/60 border border-slate-200/60 dark:border-zinc-800/60 space-y-1.5"
               >
                 <h4 className="font-bold text-slate-900 dark:text-zinc-100 text-xs m-0 text-brand-primary dark:text-emerald-400">
                   {sec.title}
@@ -892,7 +906,7 @@ export default function Step9LegalConsents({ form }) {
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -900,7 +914,7 @@ export default function Step9LegalConsents({ form }) {
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setTpbModalOpen(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-6 h-10 shadow-md"
             >
               I Have Read TPB Statement
             </Button>
@@ -919,13 +933,13 @@ export default function Step9LegalConsents({ form }) {
             </div>
             <Tag
               color="amber"
-              className="font-extrabold text-xs px-3 py-1 rounded-xl"
+              className="font-extrabold text-xs px-3 py-1 rounded-lg"
             >
               TASA 2009
             </Tag>
           </div>
 
-          <div className="bg-amber-50/80 dark:bg-amber-950/40 p-5 rounded-xl border border-amber-200 dark:border-amber-900 space-y-3">
+          <div className="bg-amber-50/80 dark:bg-amber-950/40 p-5 rounded-lg border border-amber-200 dark:border-amber-900 space-y-3">
             <h3 className="text-base font-extrabold text-amber-900 dark:text-amber-200 m-0 flex items-center gap-2">
               <SafetyCertificateOutlined className="text-amber-600" />
               <span>TPB Client Information Statement</span>
@@ -935,7 +949,7 @@ export default function Step9LegalConsents({ form }) {
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">
+          <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">
             <h4 className="font-bold text-slate-900 dark:text-zinc-100 uppercase tracking-wider m-0">
               Tax Agent Registration Details
             </h4>
@@ -944,7 +958,8 @@ export default function Step9LegalConsents({ form }) {
                 <strong>Registered Entity:</strong> {company.legalName}
               </div>
               <div>
-                <strong>Tax Agent Number (TAN):</strong> #{company.taxAgentNumber}
+                <strong>Tax Agent Number (TAN):</strong> #
+                {company.taxAgentNumber}
               </div>
               <div>
                 <strong>Public Register:</strong> www.tpb.gov.au/public-register
@@ -976,7 +991,7 @@ export default function Step9LegalConsents({ form }) {
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -984,7 +999,7 @@ export default function Step9LegalConsents({ form }) {
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setTechModalOpen(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-6 h-10 shadow-md"
             >
               I Have Read Technology Notice
             </Button>
@@ -1003,12 +1018,11 @@ export default function Step9LegalConsents({ form }) {
             </div>
             <Tag
               color="teal"
-              className="font-extrabold text-xs px-3 py-1 rounded-xl"
-            >
-            </Tag>
+              className="font-extrabold text-xs px-3 py-1 rounded-lg"
+            ></Tag>
           </div>
 
-          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
             <h2 className="text-lg font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wide m-0">
               TECHNOLOGY & BLENDED TEAM NOTICE
             </h2>
@@ -1018,7 +1032,7 @@ export default function Step9LegalConsents({ form }) {
             </p>
           </div>
 
-          <div className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
+          <div className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-xs text-slate-700 dark:text-zinc-300 leading-relaxed">
             {TECHNOLOGY_AND_OVERSEAS_NOTICE_INFO.fullText}
           </div>
         </div>

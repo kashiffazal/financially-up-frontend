@@ -61,7 +61,7 @@ export default function BudgetVsForecastAndScenarioSupport() {
         {/* 2 Comparison Cards (Budget vs Forecast) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Budget Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">
@@ -101,7 +101,7 @@ export default function BudgetVsForecastAndScenarioSupport() {
           </div>
 
           {/* Forecast Card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
@@ -140,7 +140,7 @@ export default function BudgetVsForecastAndScenarioSupport() {
         </div>
 
         {/* Section 2: How Cash Flow Advisory Can Support Decisions */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="max-w-3xl mb-8">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2">
               <ExperimentOutlined />
@@ -179,7 +179,7 @@ export default function BudgetVsForecastAndScenarioSupport() {
             {scenarioExamples.map((sc, i) => (
               <div
                 key={i}
-                className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/60 dark:border-zinc-800/80"
+                className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/60 dark:border-zinc-800/80"
               >
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white mb-1.5">
                   <SlidersOutlined className="text-emerald-600 dark:text-emerald-400" />
@@ -196,14 +196,16 @@ export default function BudgetVsForecastAndScenarioSupport() {
           <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
               <AlertOutlined className="text-amber-500" />
-              <span>Visible assumptions allow proactive operational corrections.</span>
+              <span>
+                Visible assumptions allow proactive operational corrections.
+              </span>
             </div>
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="rounded-xl font-bold px-6 h-11 shadow-sm"
+                className="rounded-lg font-bold px-6 h-11 shadow-sm"
               >
                 Test Your Scenarios
               </Button>

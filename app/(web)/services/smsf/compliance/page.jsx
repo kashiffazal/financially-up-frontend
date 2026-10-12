@@ -56,22 +56,26 @@ const smsfComplianceQuickSpecs = [
   {
     icon: "safety",
     label: "Statutory Rule",
-    value: "Sole purpose test & legal separation between personal and super fund assets",
+    value:
+      "Sole purpose test & legal separation between personal and super fund assets",
   },
   {
     icon: "lineChart",
     label: "Investment Policy",
-    value: "Documented written strategy reviewing risk, liquidity, and insurance",
+    value:
+      "Documented written strategy reviewing risk, liquidity, and insurance",
   },
   {
     icon: "team",
     label: "Arm's-Length Rule",
-    value: "Commercial terms for related-party leases and statutory 5% in-house asset cap",
+    value:
+      "Commercial terms for related-party leases and statutory 5% in-house asset cap",
   },
   {
     icon: "clock",
     label: "Record Lifespan",
-    value: "5 years for accounting ledgers; 10 years for trustee governance files",
+    value:
+      "5 years for accounting ledgers; 10 years for trustee governance files",
   },
   {
     icon: "file",
@@ -81,7 +85,8 @@ const smsfComplianceQuickSpecs = [
   {
     icon: "audit",
     label: "Audit Assurance",
-    value: "Independent approved auditor appointed 45 days prior to SAR due date",
+    value:
+      "Independent approved auditor appointed 45 days prior to SAR due date",
   },
 ];
 
@@ -94,7 +99,9 @@ const smsfComplianceFaqs = [
     label: "Who is responsible for SMSF compliance?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The trustees are responsible for managing the SMSF and complying with superannuation and tax obligations. Engaging accountants, administrators or advisers does not transfer those trustee responsibilities.
+        The trustees are responsible for managing the SMSF and complying with
+        superannuation and tax obligations. Engaging accountants, administrators
+        or advisers does not transfer those trustee responsibilities.
       </p>
     ),
   },
@@ -103,7 +110,8 @@ const smsfComplianceFaqs = [
     label: "Does every SMSF need an annual audit?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. An approved SMSF auditor must audit the fund’s financial statements and compliance each income year before the SMSF annual return is lodged.
+        Yes. An approved SMSF auditor must audit the fund’s financial statements
+        and compliance each income year before the SMSF annual return is lodged.
       </p>
     ),
   },
@@ -112,7 +120,9 @@ const smsfComplianceFaqs = [
     label: "Can Financially Up do an SMSF compliance review before year-end?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. A review can be useful when trustees are planning a transaction, have changed investments, are unsure about records or want to identify issues before annual accounting and audit.
+        Yes. A review can be useful when trustees are planning a transaction,
+        have changed investments, are unsure about records or want to identify
+        issues before annual accounting and audit.
       </p>
     ),
   },
@@ -121,7 +131,9 @@ const smsfComplianceFaqs = [
     label: "What happens if my SMSF breaches a rule?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The consequences depend on the rule, facts and seriousness of the matter. An independent auditor may have reporting obligations, and some issues may require specialist advice or engagement with the ATO.
+        The consequences depend on the rule, facts and seriousness of the
+        matter. An independent auditor may have reporting obligations, and some
+        issues may require specialist advice or engagement with the ATO.
       </p>
     ),
   },
@@ -190,12 +202,19 @@ export default function SmsfComplianceSubpage() {
         subtitle="SMSF compliance means operating the fund in accordance with its trust deed, superannuation law and the reporting obligations that apply to self-managed super funds. Trustees are responsible for the fund’s decisions, even when accountants, administrators or advisers assist with the work."
         bodyText={
           <span>
-            Financially Up provides SMSF compliance support by reviewing accounting records, identifying transactions or documentation that may need attention, helping trustees prepare for annual accounting and audit, and coordinating tax and reporting work within our scope. We do not replace the trustees’ legal responsibilities, an independent SMSF auditor or regulated financial product advice.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up provides SMSF compliance support by reviewing
+            accounting records, identifying transactions or documentation that
+            may need attention, helping trustees prepare for annual accounting
+            and audit, and coordinating tax and reporting work within our scope.
+            We do not replace the trustees’ legal responsibilities, an
+            independent SMSF auditor or regulated financial product advice.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Initial Compliance Review:
               </span>
-              If you are unsure whether your SMSF records or transactions are in order, an initial compliance review can help identify what should be checked before year-end, audit or lodgement.
+              If you are unsure whether your SMSF records or transactions are in
+              order, an initial compliance review can help identify what should
+              be checked before year-end, audit or lodgement.
             </div>
           </span>
         }

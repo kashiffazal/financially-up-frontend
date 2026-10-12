@@ -31,7 +31,9 @@ export default function RecordsUnitTrustShouldKeep() {
       text: "the trust deed and all variations",
     },
     {
-      icon: <FileProtectOutlined className="text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileProtectOutlined className="text-blue-600 dark:text-blue-400" />
+      ),
       title: "Unit Register & Unit Classes",
       text: "current unit register and details of unit classes",
     },
@@ -46,7 +48,9 @@ export default function RecordsUnitTrustShouldKeep() {
       text: "bank and investment statements",
     },
     {
-      icon: <DollarCircleOutlined className="text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-amber-600 dark:text-amber-400" />
+      ),
       title: "Income & Expense Records",
       text: "income and expense records",
     },
@@ -61,7 +65,9 @@ export default function RecordsUnitTrustShouldKeep() {
       text: "asset purchase and sale documentation",
     },
     {
-      icon: <CheckCircleOutlined className="text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Trustee Minutes & Distributions",
       text: "trustee minutes and distribution records",
     },
@@ -77,7 +83,10 @@ export default function RecordsUnitTrustShouldKeep() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Compliance Records Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -93,9 +102,9 @@ export default function RecordsUnitTrustShouldKeep() {
           {recordsList.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex items-start gap-4"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex items-start gap-4"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 mt-0.5">
                 {item.icon}
               </div>
               <div>
@@ -112,8 +121,8 @@ export default function RecordsUnitTrustShouldKeep() {
         </div>
 
         {/* Verbatim Critical Unrelated Investors Note */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/70 dark:bg-zinc-900 border border-amber-200 dark:border-amber-900/60 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-5">
-          <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 border border-amber-300 dark:border-amber-700 flex items-center justify-center shrink-0">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/70 dark:bg-zinc-900 border border-amber-200 dark:border-amber-900/60 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-5">
+          <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-amber-300 dark:border-amber-700 flex items-center justify-center shrink-0">
             <ExclamationCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
           </div>
           <div className="space-y-1">
@@ -121,8 +130,9 @@ export default function RecordsUnitTrustShouldKeep() {
               Multiple Unrelated Investors & Mid-Year Ownership Changes
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Keeping the unit register and financial records consistent is particularly important where there are
-              multiple unrelated investors or ownership has changed during the year.
+              Keeping the unit register and financial records consistent is
+              particularly important where there are multiple unrelated
+              investors or ownership has changed during the year.
             </p>
           </div>
         </div>

@@ -48,7 +48,11 @@ import styles from "./ViewDetails.module.css";
 // VALUE HELPERS
 // ----------------------------------------------------------------------------
 const isEmpty = (v) =>
-  v === null || v === undefined || v === "" || v === false || (Array.isArray(v) && v.length === 0);
+  v === null ||
+  v === undefined ||
+  v === "" ||
+  v === false ||
+  (Array.isArray(v) && v.length === 0);
 
 const parseJson = (val) => {
   if (!val) return null;
@@ -66,8 +70,18 @@ const formatDate = (val, withTime = false) => {
   const d = new Date(val);
   if (Number.isNaN(d.getTime())) return String(val);
   return withTime
-    ? d.toLocaleString("en-AU", { day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" })
-    : d.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
+    ? d.toLocaleString("en-AU", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      })
+    : d.toLocaleDateString("en-AU", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      });
 };
 
 const yesNo = (val) => {
@@ -82,7 +96,11 @@ const toList = (val) => {
   if (!Array.isArray(parsed)) return [];
   return parsed
     .filter((v) => !isEmpty(v))
-    .map((v) => (typeof v === "object" ? Object.values(v).filter(Boolean).join(" ") : String(v)));
+    .map((v) =>
+      typeof v === "object"
+        ? Object.values(v).filter(Boolean).join(" ")
+        : String(v),
+    );
 };
 
 const tagList = (val) => {
@@ -91,7 +109,10 @@ const tagList = (val) => {
   return (
     <div className="flex flex-wrap gap-1.5">
       {items.map((v, i) => (
-        <Tag key={i} className="!m-0 !rounded-md !border-slate-200 !bg-slate-50 dark:!border-zinc-700 dark:!bg-zinc-800">
+        <Tag
+          key={i}
+          className="!m-0 !rounded-md !border-slate-200 !bg-slate-50 dark:!border-zinc-700 dark:!bg-zinc-800"
+        >
           {v}
         </Tag>
       ))}
@@ -102,7 +123,11 @@ const tagList = (val) => {
 const textValue = (val) => {
   const parsed = parseJson(val);
   if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-    return Object.values(parsed).filter((v) => !isEmpty(v)).join(", ") || null;
+    return (
+      Object.values(parsed)
+        .filter((v) => !isEmpty(v))
+        .join(", ") || null
+    );
   }
   return isEmpty(val) ? null : String(val);
 };
@@ -141,7 +166,8 @@ const initialsOf = (name) =>
 const fileIcon = (path) => {
   const p = String(path || "").toLowerCase();
   if (p.endsWith(".pdf")) return <FilePdfOutlined className="text-red-500" />;
-  if (/\.(png|jpe?g|gif|webp|heic)$/.test(p)) return <FileImageOutlined className="text-sky-500" />;
+  if (/\.(png|jpe?g|gif|webp|heic)$/.test(p))
+    return <FileImageOutlined className="text-sky-500" />;
   return <FileTextOutlined className="text-slate-500" />;
 };
 
@@ -156,14 +182,21 @@ function Section({ icon, title, fields = [], children }) {
 
   return (
     <section className={`${styles.section} overflow-hidden`}>
-      <header className={`${styles.sectionHeader} flex items-center gap-2 px-4 py-2.5`}>
+      <header
+        className={`${styles.sectionHeader} flex items-center gap-2 px-4 py-2.5`}
+      >
         <span className="text-brand-primary dark:text-emerald-400">{icon}</span>
-        <h4 className="m-0 text-[13px] font-semibold text-slate-800 dark:text-zinc-100">{title}</h4>
+        <h4 className="m-0 text-[13px] font-semibold text-slate-800 dark:text-zinc-100">
+          {title}
+        </h4>
       </header>
       {visible.length > 0 && (
         <dl className="m-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 p-4">
           {visible.map(([label, value, full]) => (
-            <div key={label} className={`min-w-0 ${full ? "sm:col-span-2 lg:col-span-3" : ""}`}>
+            <div
+              key={label}
+              className={`min-w-0 ${full ? "sm:col-span-2 lg:col-span-3" : ""}`}
+            >
               <dt className={styles.fieldLabel}>{label}</dt>
               <dd className="m-0 mt-1 text-[13px] leading-relaxed text-slate-800 dark:text-zinc-100 break-words">
                 {value}
@@ -187,16 +220,25 @@ function Fact({ icon, label, value, href }) {
       </span>
       <span className="min-w-0">
         <span className={`${styles.fieldLabel} block`}>{label}</span>
-        <span className="block truncate text-[13px] font-medium text-slate-800 dark:text-zinc-100">{value}</span>
+        <span className="block truncate text-[13px] font-medium text-slate-800 dark:text-zinc-100">
+          {value}
+        </span>
       </span>
     </>
   );
   return href ? (
-    <a href={href} className={`${styles.fact} flex items-center gap-3 px-3 py-2.5 min-w-0 hover:!border-brand-primary/40`}>
+    <a
+      href={href}
+      className={`${styles.fact} flex items-center gap-3 px-3 py-2.5 min-w-0 hover:!border-brand-primary/40`}
+    >
       {content}
     </a>
   ) : (
-    <div className={`${styles.fact} flex items-center gap-3 px-3 py-2.5 min-w-0`}>{content}</div>
+    <div
+      className={`${styles.fact} flex items-center gap-3 px-3 py-2.5 min-w-0`}
+    >
+      {content}
+    </div>
   );
 }
 
@@ -209,14 +251,22 @@ function FileTile({ icon, title, subtitle, url }) {
       rel="noopener noreferrer"
       className={`${styles.tile} flex items-center gap-3 px-3 py-3 min-w-0`}
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-zinc-800 text-lg">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-zinc-800 text-lg">
         {icon}
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-[13px] font-semibold text-slate-800 dark:text-zinc-100">{title}</span>
-        {subtitle && <span className="block truncate text-[11px] text-slate-500 dark:text-zinc-400">{subtitle}</span>}
+        <span className="block truncate text-[13px] font-semibold text-slate-800 dark:text-zinc-100">
+          {title}
+        </span>
+        {subtitle && (
+          <span className="block truncate text-[11px] text-slate-500 dark:text-zinc-400">
+            {subtitle}
+          </span>
+        )}
       </span>
-      <ExportOutlined className={`${styles.tileAction} text-brand-primary dark:text-emerald-400`} />
+      <ExportOutlined
+        className={`${styles.tileAction} text-brand-primary dark:text-emerald-400`}
+      />
     </a>
   );
 }
@@ -224,11 +274,17 @@ function FileTile({ icon, title, subtitle, url }) {
 function EmptyState({ icon, title, description, action }) {
   return (
     <div className="flex flex-col items-center px-6 py-12 text-center">
-      <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 dark:bg-zinc-800 text-xl text-slate-400 dark:text-zinc-500">
+      <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100 dark:bg-zinc-800 text-xl text-slate-400 dark:text-zinc-500">
         {icon}
       </span>
-      <p className="m-0 text-[14px] font-semibold text-slate-800 dark:text-zinc-100">{title}</p>
-      {description && <p className="m-0 mt-1 max-w-sm text-[12px] text-slate-500 dark:text-zinc-400">{description}</p>}
+      <p className="m-0 text-[14px] font-semibold text-slate-800 dark:text-zinc-100">
+        {title}
+      </p>
+      {description && (
+        <p className="m-0 mt-1 max-w-sm text-[12px] text-slate-500 dark:text-zinc-400">
+          {description}
+        </p>
+      )}
       {action && <div className="mt-4">{action}</div>}
     </div>
   );
@@ -254,7 +310,12 @@ const tabLabel = (icon, text, count, pending = false) => (
 // ============================================================================
 // MODAL
 // ============================================================================
-export default function IndividualEngagementViewDetails({ visible, data, onClose, onReview }) {
+export default function IndividualEngagementViewDetails({
+  visible,
+  data,
+  onClose,
+  onReview,
+}) {
   if (!data) return null;
 
   const client = data.client || {};
@@ -262,26 +323,74 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
   const review = data.adminReview || null;
   const reference = data.referenceNumber || `IE-${data.id}`;
   const clientName =
-    client.fullName || [client.firstName, client.lastName].filter(Boolean).join(" ") || "Individual Engagement";
-  const services = (data.services || []).map((s) => s.serviceName).filter(Boolean);
+    client.fullName ||
+    [client.firstName, client.lastName].filter(Boolean).join(" ") ||
+    "Individual Engagement";
+  const services = (data.services || [])
+    .map((s) => s.serviceName)
+    .filter(Boolean);
 
   // Official generated PDFs
   const pdfs = [
-    { key: "client", label: "Client Engagement", description: "Client-signed engagement & application", url: data.clientPdfPath },
-    { key: "admin", label: "Admin Review Package", description: "Tax agent review & compliance checks", url: data.adminPdfPath },
-    { key: "acceptance", label: "Acceptance Certificate", description: "Engagement acceptance confirmation", url: data.acceptancePdfPath },
-    { key: "audit", label: "Compliance Audit Report", description: "Full activity & audit trail", url: data.auditPdfPath },
+    {
+      key: "client",
+      label: "Client Engagement",
+      description: "Client-signed engagement & application",
+      url: data.clientPdfPath,
+    },
+    {
+      key: "admin",
+      label: "Admin Review Package",
+      description: "Tax agent review & compliance checks",
+      url: data.adminPdfPath,
+    },
+    {
+      key: "acceptance",
+      label: "Acceptance Certificate",
+      description: "Engagement acceptance confirmation",
+      url: data.acceptancePdfPath,
+    },
+    {
+      key: "audit",
+      label: "Compliance Audit Report",
+      description: "Full activity & audit trail",
+      url: data.auditPdfPath,
+    },
   ].filter((p) => p.url);
 
   // Uploaded documents + identity files, de-duplicated by path
   const documents = [
     ...(Array.isArray(data.documents) ? data.documents : []),
-    identity.primaryIdPath && { documentCategory: "Primary ID", fileName: identity.primaryIdType || "Primary photo ID", filePath: identity.primaryIdPath },
-    identity.primaryIdBackPath && { documentCategory: "Primary ID (back)", fileName: identity.primaryIdType || "Primary photo ID", filePath: identity.primaryIdBackPath },
-    identity.supportingIdPath && { documentCategory: "Supporting ID", fileName: identity.supportingIdType || "Supporting ID", filePath: identity.supportingIdPath },
-    identity.supportingIdBackPath && { documentCategory: "Supporting ID (back)", fileName: identity.supportingIdType || "Supporting ID", filePath: identity.supportingIdBackPath },
-    identity.selfiePath && { documentCategory: "Selfie", fileName: "Biometric selfie photo", filePath: identity.selfiePath },
-  ].filter((doc, idx, all) => doc?.filePath && all.findIndex((d) => d?.filePath === doc.filePath) === idx);
+    identity.primaryIdPath && {
+      documentCategory: "Primary ID",
+      fileName: identity.primaryIdType || "Primary photo ID",
+      filePath: identity.primaryIdPath,
+    },
+    identity.primaryIdBackPath && {
+      documentCategory: "Primary ID (back)",
+      fileName: identity.primaryIdType || "Primary photo ID",
+      filePath: identity.primaryIdBackPath,
+    },
+    identity.supportingIdPath && {
+      documentCategory: "Supporting ID",
+      fileName: identity.supportingIdType || "Supporting ID",
+      filePath: identity.supportingIdPath,
+    },
+    identity.supportingIdBackPath && {
+      documentCategory: "Supporting ID (back)",
+      fileName: identity.supportingIdType || "Supporting ID",
+      filePath: identity.supportingIdBackPath,
+    },
+    identity.selfiePath && {
+      documentCategory: "Selfie",
+      fileName: "Biometric selfie photo",
+      filePath: identity.selfiePath,
+    },
+  ].filter(
+    (doc, idx, all) =>
+      doc?.filePath &&
+      all.findIndex((d) => d?.filePath === doc.filePath) === idx,
+  );
 
   const copyReference = async () => {
     try {
@@ -292,7 +401,8 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
     }
   };
 
-  const openPdf = (url) => window.open(getFileUrl(url), "_blank", "noopener,noreferrer");
+  const openPdf = (url) =>
+    window.open(getFileUrl(url), "_blank", "noopener,noreferrer");
 
   // --------------------------------------------------------------------------
   // TAB CONTENT
@@ -307,12 +417,20 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
           ["Date of Birth", formatDate(client.dateOfBirth)],
           ["Occupation", client.occupation],
           ["Employment Status", client.employmentStatus],
-          ["TFN", client.maskedTfn && <span className="font-mono">{client.maskedTfn}</span>],
+          [
+            "TFN",
+            client.maskedTfn && (
+              <span className="font-mono">{client.maskedTfn}</span>
+            ),
+          ],
           ["TFN Status", data.tfnStatus],
           ["TFN Explanation", data.tfnExplanation, true],
           ["Country of Birth", client.birthCountry],
           ["City of Birth", client.birthCity],
-          ["Previous Names", data.hasPreviousName === "Yes" ? data.previousNames || "Yes" : null],
+          [
+            "Previous Names",
+            data.hasPreviousName === "Yes" ? data.previousNames || "Yes" : null,
+          ],
           ["About the Client", client.about, true],
         ]}
       />
@@ -333,8 +451,16 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
           ["Spouse Name", data.spouseName],
           ["Spouse DOB", formatDate(data.spouseDob)],
           ["Spouse Income", data.spouseIncome],
-          ["Prepare Spouse Return", data.hasSpouse === "Yes" ? data.prepareSpouseReturn : null],
-          ["Dependants", data.hasDependants === "Yes" ? `Yes (${data.dependantCount || 0})` : data.hasDependants],
+          [
+            "Prepare Spouse Return",
+            data.hasSpouse === "Yes" ? data.prepareSpouseReturn : null,
+          ],
+          [
+            "Dependants",
+            data.hasDependants === "Yes"
+              ? `Yes (${data.dependantCount || 0})`
+              : data.hasDependants,
+          ],
         ]}
       />
       <Section
@@ -353,10 +479,20 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
           ["Representative", data.repName],
           ["Relationship", data.relationship],
           ["Authority", data.authorityDesc, true],
-          ["Refund Bank Account", data.needBank === "Yes" ? "Required" : data.needBank],
+          [
+            "Refund Bank Account",
+            data.needBank === "Yes" ? "Required" : data.needBank,
+          ],
           ["Account Name", data.accountName],
           ["BSB", data.bsb && <span className="font-mono">{data.bsb}</span>],
-          ["Account Number", data.accountNumber && <span className="font-mono">{maskAccount(data.accountNumber)}</span>],
+          [
+            "Account Number",
+            data.accountNumber && (
+              <span className="font-mono">
+                {maskAccount(data.accountNumber)}
+              </span>
+            ),
+          ],
         ]}
       />
     </div>
@@ -387,7 +523,12 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         icon={<ShopOutlined />}
         title="Sole Trader / BAS / GST"
         fields={[
-          ["Existing ABN", data.existingAbn && <span className="font-mono">{data.existingAbn}</span>],
+          [
+            "Existing ABN",
+            data.existingAbn && (
+              <span className="font-mono">{data.existingAbn}</span>
+            ),
+          ],
           ["ABN Status", data.abnStatus],
           ["Business Activity", data.businessActivity],
           ["Business Start Date", formatDate(data.businessStartDate)],
@@ -396,7 +537,10 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
           ["BAS Period", data.basPeriod],
           ["Reporting Frequency", data.reportingFrequency],
           ["GST Status", data.gstStatus],
-          ["GST ABN", data.gstAbn && <span className="font-mono">{data.gstAbn}</span>],
+          [
+            "GST ABN",
+            data.gstAbn && <span className="font-mono">{data.gstAbn}</span>,
+          ],
           ["GST Effective Date", formatDate(data.gstEffectiveDate)],
           ["GST Turnover", data.gstTurnover],
           ["Accounting Method", data.accountingMethod],
@@ -434,20 +578,31 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
           [
             "DVS Status",
             identity.dvsStatus && (
-              <Tag color={identity.dvsStatus === "Verified" ? "success" : "warning"} className="!m-0">
+              <Tag
+                color={
+                  identity.dvsStatus === "Verified" ? "success" : "warning"
+                }
+                className="!m-0"
+              >
                 {identity.dvsStatus}
               </Tag>
             ),
           ],
           ["Primary ID Type", identity.primaryIdType],
           ["Supporting ID Type", identity.supportingIdType],
-          ["Biometric Consent", identity.selfiePath ? yesNo(identity.biometricConsent) : null],
+          [
+            "Biometric Consent",
+            identity.selfiePath ? yesNo(identity.biometricConsent) : null,
+          ],
           ["No Photo ID Reason", identity.noPhotoIdReason, true],
         ]}
       />
 
       {documents.length > 0 && (
-        <Section icon={<FolderOpenOutlined />} title={`Uploaded Documents (${documents.length})`}>
+        <Section
+          icon={<FolderOpenOutlined />}
+          title={`Uploaded Documents (${documents.length})`}
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {documents.map((doc) => (
               <FileTile
@@ -466,18 +621,28 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         <Section icon={<SignatureOutlined />} title="Signatures">
           <ul className="m-0 p-0 list-none divide-y divide-slate-100 dark:divide-zinc-800">
             {signatures.map((sig) => (
-              <li key={sig.id} className="flex flex-wrap items-center justify-between gap-2 py-2 first:pt-0 last:pb-0">
+              <li
+                key={sig.id}
+                className="flex flex-wrap items-center justify-between gap-2 py-2 first:pt-0 last:pb-0"
+              >
                 <span className="flex items-center gap-2 text-[13px]">
-                  <Tag className="!m-0" color={sig.signerType === "TaxAgent" ? "blue" : "green"}>
+                  <Tag
+                    className="!m-0"
+                    color={sig.signerType === "TaxAgent" ? "blue" : "green"}
+                  >
                     {sig.signerType === "TaxAgent" ? "Tax Agent" : "Client"}
                   </Tag>
-                  <span className="font-medium text-slate-800 dark:text-zinc-100">{sig.signerFullName || "—"}</span>
+                  <span className="font-medium text-slate-800 dark:text-zinc-100">
+                    {sig.signerFullName || "-"}
+                  </span>
                   {sig.signatureMethod && (
-                    <span className="text-slate-400 dark:text-zinc-500 capitalize">· {sig.signatureMethod}</span>
+                    <span className="text-slate-400 dark:text-zinc-500 capitalize">
+                      · {sig.signatureMethod}
+                    </span>
                   )}
                 </span>
                 <span className="flex items-center gap-3">
-                  {/* Signature preview — white card so dark ink stays visible in dark mode */}
+                  {/* Signature preview - white card so dark ink stays visible in dark mode */}
                   {sig.signatureFilePath && (
                     <a
                       href={getFileUrl(sig.signatureFilePath)}
@@ -494,7 +659,9 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
                       />
                     </a>
                   )}
-                  <span className="text-[12px] text-slate-500 dark:text-zinc-400">{formatDate(sig.createdAt, true)}</span>
+                  <span className="text-[12px] text-slate-500 dark:text-zinc-400">
+                    {formatDate(sig.createdAt, true)}
+                  </span>
                 </span>
               </li>
             ))}
@@ -502,9 +669,16 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         </Section>
       )}
 
-      {!pdfs.length && !documents.length && !signatures.length && !identity.identityMethod && (
-        <EmptyState icon={<FolderOpenOutlined />} title="No documents yet" description="Nothing has been uploaded or generated for this engagement." />
-      )}
+      {!pdfs.length &&
+        !documents.length &&
+        !signatures.length &&
+        !identity.identityMethod && (
+          <EmptyState
+            icon={<FolderOpenOutlined />}
+            title="No documents yet"
+            description="Nothing has been uploaded or generated for this engagement."
+          />
+        )}
     </div>
   );
 
@@ -514,10 +688,32 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         icon={<AuditOutlined />}
         title="Decision"
         fields={[
-          ["Decision", review.decision && <Tag color={statusColor(review.decision)} className="!m-0 font-semibold">{review.decision}</Tag>],
-          ["Reviewer", [review.reviewerName, review.userRole && `(${review.userRole})`].filter(Boolean).join(" ")],
+          [
+            "Decision",
+            review.decision && (
+              <Tag
+                color={statusColor(review.decision)}
+                className="!m-0 font-semibold"
+              >
+                {review.decision}
+              </Tag>
+            ),
+          ],
+          [
+            "Reviewer",
+            [review.reviewerName, review.userRole && `(${review.userRole})`]
+              .filter(Boolean)
+              .join(" "),
+          ],
           ["Reviewed", formatDate(review.createdAt, true)],
-          ["Risk Level", review.riskLevel && <Tag color={riskColor(review.riskLevel)} className="!m-0">{review.riskLevel}</Tag>],
+          [
+            "Risk Level",
+            review.riskLevel && (
+              <Tag color={riskColor(review.riskLevel)} className="!m-0">
+                {review.riskLevel}
+              </Tag>
+            ),
+          ],
           ["Risk Rationale", review.riskRationale, true],
           ["Checklist", tagList(review.checklistItems), true],
           ["Review Notes", review.reviewNotes, true],
@@ -528,7 +724,10 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         title="AML / CTF & Sanctions Checks"
         fields={[
           ["Designated Service", review.amlDesignatedServiceInvolved],
-          ["Beneficial Ownership Verified", review.amlBeneficialOwnershipVerified],
+          [
+            "Beneficial Ownership Verified",
+            review.amlBeneficialOwnershipVerified,
+          ],
           ["Source of Funds Recorded", review.amlSourceOfFundsRecorded],
           ["Escalation Required", review.amlEscalationRequired],
           ["Overseas Activity", review.sanctionsOverseasActivityCheck],
@@ -544,7 +743,12 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
       description="No decision has been recorded for this engagement yet."
       action={
         typeof onReview === "function" && (
-          <Button type="primary" icon={<EditOutlined />} onClick={() => onReview(data)} className="!bg-brand-primary">
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
+            onClick={() => onReview(data)}
+            className="!bg-brand-primary"
+          >
             Start Review &amp; Decision
           </Button>
         )
@@ -567,7 +771,10 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
 
         {mainPdf && (
           <Space.Compact>
-            <Button icon={<FilePdfOutlined className="text-red-500" />} onClick={() => openPdf(mainPdf.url)}>
+            <Button
+              icon={<FilePdfOutlined className="text-red-500" />}
+              onClick={() => openPdf(mainPdf.url)}
+            >
               {mainPdf.label} PDF
             </Button>
             {otherPdfs.length > 0 && (
@@ -583,8 +790,13 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
                   })),
                 }}
               >
-                <Tooltip title={`${otherPdfs.length} more PDF${otherPdfs.length === 1 ? "" : "s"}`}>
-                  <Button icon={<DownOutlined className="text-[10px]" />} aria-label="More PDFs" />
+                <Tooltip
+                  title={`${otherPdfs.length} more PDF${otherPdfs.length === 1 ? "" : "s"}`}
+                >
+                  <Button
+                    icon={<DownOutlined className="text-[10px]" />}
+                    aria-label="More PDFs"
+                  />
                 </Tooltip>
               </Dropdown>
             )}
@@ -592,7 +804,12 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         )}
 
         {typeof onReview === "function" && (
-          <Button type="primary" icon={<EditOutlined />} onClick={() => onReview(data)} className="!bg-brand-primary">
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
+            onClick={() => onReview(data)}
+            className="!bg-brand-primary"
+          >
             Review &amp; Decision
           </Button>
         )}
@@ -614,11 +831,15 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
       rootClassName={styles.modal}
       title={
         <div className="flex items-start gap-4 pr-8">
-          <span className={`${styles.avatar} flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-base font-bold text-white`}>
+          <span
+            className={`${styles.avatar} flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-base font-bold text-white`}
+          >
             {initialsOf(clientName)}
           </span>
           <div className="min-w-0 flex-1">
-            <h3 className="m-0 truncate text-[18px] font-bold leading-tight text-slate-900 dark:text-zinc-50">{clientName}</h3>
+            <h3 className="m-0 truncate text-[18px] font-bold leading-tight text-slate-900 dark:text-zinc-50">
+              {clientName}
+            </h3>
             <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[12px] font-normal">
               <button
                 type="button"
@@ -629,7 +850,10 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
                 {reference}
                 <CopyOutlined className="text-slate-400 group-hover:text-brand-primary" />
               </button>
-              <Tag color={statusColor(data.status)} className="!m-0 font-semibold">
+              <Tag
+                color={statusColor(data.status)}
+                className="!m-0 font-semibold"
+              >
                 {data.status || "Pending Review"}
               </Tag>
               {data.riskLevel && (
@@ -638,7 +862,8 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
                 </Tag>
               )}
               <span className="flex items-center gap-1 text-slate-500 dark:text-zinc-400">
-                <CalendarOutlined /> Submitted {formatDate(data.submittedAt || data.createdAt, true)}
+                <CalendarOutlined /> Submitted{" "}
+                {formatDate(data.submittedAt || data.createdAt, true)}
               </span>
             </div>
           </div>
@@ -648,14 +873,25 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
       <div className={`${styles.body} modal-flush`}>
         {/* Quick facts */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 px-6 pt-5">
-          <Fact icon={<MailOutlined />} label="Email" value={client.email} href={client.email && `mailto:${client.email}`} />
+          <Fact
+            icon={<MailOutlined />}
+            label="Email"
+            value={client.email}
+            href={client.email && `mailto:${client.email}`}
+          />
           <Fact
             icon={<PhoneOutlined />}
             label="Mobile"
             value={client.mobile}
-            href={client.mobile && `tel:${String(client.mobile).replace(/\s/g, "")}`}
+            href={
+              client.mobile && `tel:${String(client.mobile).replace(/\s/g, "")}`
+            }
           />
-          <Fact icon={<GlobalOutlined />} label="Tax Residency" value={data.taxResidency} />
+          <Fact
+            icon={<GlobalOutlined />}
+            label="Tax Residency"
+            value={data.taxResidency}
+          />
           <Fact
             icon={<ProfileOutlined />}
             label={`Services (${services.length})`}
@@ -664,7 +900,7 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
         </div>
 
         {data.riskNotes && (
-          <div className="mx-6 mt-3 flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-300">
+          <div className="mx-6 mt-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-300">
             <SafetyCertificateOutlined className="mt-0.5" />
             <span>
               <strong>Risk notes:</strong> {data.riskNotes}
@@ -677,16 +913,33 @@ export default function IndividualEngagementViewDetails({ visible, data, onClose
           defaultActiveKey="overview"
           tabBarStyle={{ padding: "0 24px" }}
           items={[
-            { key: "overview", label: tabLabel(<UserOutlined />, "Overview"), children: <div className="px-6 pb-6">{overviewTab}</div> },
-            { key: "tax", label: tabLabel(<DollarOutlined />, "Tax Profile"), children: <div className="px-6 pb-6">{taxTab}</div> },
+            {
+              key: "overview",
+              label: tabLabel(<UserOutlined />, "Overview"),
+              children: <div className="px-6 pb-6">{overviewTab}</div>,
+            },
+            {
+              key: "tax",
+              label: tabLabel(<DollarOutlined />, "Tax Profile"),
+              children: <div className="px-6 pb-6">{taxTab}</div>,
+            },
             {
               key: "documents",
-              label: tabLabel(<FolderOpenOutlined />, "Documents", pdfs.length + documents.length),
+              label: tabLabel(
+                <FolderOpenOutlined />,
+                "Documents",
+                pdfs.length + documents.length,
+              ),
               children: <div className="px-6 pb-6">{documentsTab}</div>,
             },
             {
               key: "review",
-              label: tabLabel(<AuditOutlined />, "Tax Agent Review", undefined, !review),
+              label: tabLabel(
+                <AuditOutlined />,
+                "Tax Agent Review",
+                undefined,
+                !review,
+              ),
               children: <div className="px-6 pb-6">{reviewTab}</div>,
             },
           ]}

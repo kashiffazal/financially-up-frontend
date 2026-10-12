@@ -47,12 +47,14 @@ export default function HowFinanciallyUpHelpsEss() {
       desc: "Analyzing forfeiture risks, genuine disposal restrictions, trading windows, and statutory ceilings.",
     },
     {
-      title: "Reviewing disposal records, cost-base information and related CGT calculations",
+      title:
+        "Reviewing disposal records, cost-base information and related CGT calculations",
       icon: <CalculatorOutlined className="text-teal-500 text-lg" />,
       desc: "Establishing accurate market-value cost base resets and applying the critical 30-day disposal rule.",
     },
     {
-      title: "Identifying when an amended statement or prior return may require consideration",
+      title:
+        "Identifying when an amended statement or prior return may require consideration",
       icon: <HistoryOutlined className="text-rose-500 text-lg" />,
       desc: "Reviewing retroactive adjustments when employer statements are amended or rights lapse unexercised.",
     },
@@ -63,14 +65,19 @@ export default function HowFinanciallyUpHelpsEss() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Practice Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} provides ESS tax assistance to employees Australia-wide. Depending on the agreed scope, we may assist with:
+            {company?.legalName || "Financially Up Pty Ltd"} provides ESS tax
+            assistance to employees Australia-wide. Depending on the agreed
+            scope, we may assist with:
           </p>
         </div>
 
@@ -89,10 +96,10 @@ export default function HowFinanciallyUpHelpsEss() {
             {services.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
+                className="flex flex-col justify-between p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
                     {item.icon}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -109,7 +116,10 @@ export default function HowFinanciallyUpHelpsEss() {
           {/* Scope Clarification Note */}
           <div className="mt-8 pt-6 border-t border-slate-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-400">
             <p className="m-0 max-w-2xl leading-relaxed">
-              Tax-return preparation and document review are distinct from advice before a vesting, exercise or sale. Additional advice is separately scoped, with fees confirmed before work begins. For broader personal tax matters, see our{" "}
+              Tax-return preparation and document review are distinct from
+              advice before a vesting, exercise or sale. Additional advice is
+              separately scoped, with fees confirmed before work begins. For
+              broader personal tax matters, see our{" "}
               <Link
                 href="/services/individual-tax"
                 className="text-brand-primary dark:text-emerald-400 font-semibold hover:underline"
@@ -134,10 +144,13 @@ export default function HowFinanciallyUpHelpsEss() {
               <SafetyCertificateOutlined /> Clear & Transparent Engagements
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              Have You Received an ESS Statement or Exercised Options This Financial Year?
+              Have You Received an ESS Statement or Exercised Options This
+              Financial Year?
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 mt-1 leading-relaxed">
-              Whether you have tech RSUs, executive options, or corporate share matching, we provide transparent guidance and tailored return preparation to keep you fully compliant with the ATO.
+              Whether you have tech RSUs, executive options, or corporate share
+              matching, we provide transparent guidance and tailored return
+              preparation to keep you fully compliant with the ATO.
             </p>
           </div>
 

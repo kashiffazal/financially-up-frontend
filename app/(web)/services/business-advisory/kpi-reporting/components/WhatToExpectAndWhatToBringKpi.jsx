@@ -23,7 +23,9 @@ import {
 export default function WhatToExpectAndWhatToBringKpi() {
   const checklistItems = [
     {
-      icon: <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       text: "Recent statutory financial statements or internal management accounts",
     },
     {
@@ -35,7 +37,9 @@ export default function WhatToExpectAndWhatToBringKpi() {
       text: "Approved operational budget or rolling forecast models",
     },
     {
-      icon: <CarryOutOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CarryOutOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       text: "Specific examples of commercial decisions you currently struggle to make",
     },
   ];
@@ -67,7 +71,7 @@ export default function WhatToExpectAndWhatToBringKpi() {
         {/* 2-Column Split: What to Bring & Handling Data Gaps */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Column 1: What to Bring */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+          <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               Documents to Bring to the Initial Discussion
             </h3>
@@ -81,7 +85,7 @@ export default function WhatToExpectAndWhatToBringKpi() {
               {checklistItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/60 dark:border-zinc-800"
+                  className="flex items-start gap-3 p-3.5 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/60 dark:border-zinc-800"
                 >
                   <span className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0 mt-0.5 text-base">
                     {item.icon}
@@ -95,18 +99,18 @@ export default function WhatToExpectAndWhatToBringKpi() {
           </div>
 
           {/* Column 2: Data Integrity & Pragmatic Reporting */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
+          <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">
                 <ExclamationCircleOutlined className="text-2xl" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                 Handling Incomplete Source Data
               </h3>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                If source data is incomplete, we will identify the gaps and agree
-                what can be reported reliably before building a dashboard around
-                it.
+                If source data is incomplete, we will identify the gaps and
+                agree what can be reported reliably before building a dashboard
+                around it.
               </p>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
                 Building dashboards on unverified figures creates a false sense

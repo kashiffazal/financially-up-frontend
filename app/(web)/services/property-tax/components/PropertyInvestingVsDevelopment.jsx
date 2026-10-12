@@ -22,7 +22,9 @@ import AdvisoryReassuranceBanner from "@/components/website/AdvisoryReassuranceB
 export default function PropertyInvestingVsDevelopment() {
   const comparisonFrameworks = [
     {
-      icon: <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Long-Term Investment Property",
       tag: "Capital Account (CGT)",
       description:
@@ -34,7 +36,9 @@ export default function PropertyInvestingVsDevelopment() {
       ],
     },
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Development or Profit-Making Ventures",
       tag: "Revenue Account (Ordinary Income)",
       description:
@@ -46,7 +50,9 @@ export default function PropertyInvestingVsDevelopment() {
       ],
     },
     {
-      icon: <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "GST Considerations on Property",
       tag: "Enterprise & Supplies",
       description:
@@ -69,15 +75,24 @@ export default function PropertyInvestingVsDevelopment() {
           </Tag>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
-            Property investing and property development are not taxed the same way
+            Property investing and property development are not taxed the same
+            way
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            A key first step is understanding the character of the property activity. Long-term investment property is commonly dealt with under rental income and capital gains tax rules. A development or profit-making venture may instead produce ordinary income, and GST can become relevant depending on the facts.
+            A key first step is understanding the character of the property
+            activity. Long-term investment property is commonly dealt with under
+            rental income and capital gains tax rules. A development or
+            profit-making venture may instead produce ordinary income, and GST
+            can become relevant depending on the facts.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            The distinction is important because tax outcomes can differ materially. Intention, scale, repetition, development activity, how the property is financed and the way the project is carried out can all matter. A property sale should not automatically be treated as a capital gain simply because real estate is involved.
+            The distinction is important because tax outcomes can differ
+            materially. Intention, scale, repetition, development activity, how
+            the property is financed and the way the project is carried out can
+            all matter. A property sale should not automatically be treated as a
+            capital gain simply because real estate is involved.
           </p>
         </div>
 
@@ -86,11 +101,11 @@ export default function PropertyInvestingVsDevelopment() {
           {comparisonFrameworks.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
@@ -106,7 +121,10 @@ export default function PropertyInvestingVsDevelopment() {
 
                 <ul className="space-y-2 border-t border-slate-200/60 dark:border-zinc-800 pt-3">
                   {item.highlights.map((h, hIdx) => (
-                    <li key={hIdx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-zinc-300">
+                    <li
+                      key={hIdx}
+                      className="flex items-start gap-2 text-xs text-slate-700 dark:text-zinc-300"
+                    >
                       <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-0.5 shrink-0 text-xs" />
                       <span>{h}</span>
                     </li>

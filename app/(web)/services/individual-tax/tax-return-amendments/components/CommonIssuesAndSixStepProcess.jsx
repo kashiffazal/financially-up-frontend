@@ -79,7 +79,7 @@ export default function CommonIssuesAndSixStepProcess() {
             <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                  <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
                     <ToolOutlined className="text-xl" />
                   </div>
                   <div>
@@ -105,7 +105,7 @@ export default function CommonIssuesAndSixStepProcess() {
             <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3.5 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                     <ApartmentOutlined className="text-xl" />
                   </div>
                   <div>
@@ -138,7 +138,7 @@ export default function CommonIssuesAndSixStepProcess() {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 text-center font-medium">
+          <div className="p-5 rounded-lg bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 text-center font-medium">
             Detailed tax advice, calculations or reviews outside the amendment
             itself may need to be scoped separately.
           </div>
@@ -168,9 +168,9 @@ export default function CommonIssuesAndSixStepProcess() {
             {steps.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex items-start gap-4 sm:gap-6 hover:shadow-xs transition-shadow"
+                className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex items-start gap-4 sm:gap-6 hover:shadow-xs transition-shadow"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 font-extrabold text-sm sm:text-base shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-brand-primary dark:text-emerald-400 font-extrabold text-sm sm:text-base shrink-0">
                   {item.num}
                 </div>
                 <div>

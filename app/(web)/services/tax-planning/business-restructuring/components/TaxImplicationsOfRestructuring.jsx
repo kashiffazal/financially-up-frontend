@@ -19,22 +19,30 @@ import {
 export default function TaxImplicationsOfRestructuring() {
   const taxTriggers = [
     {
-      icon: <CalculatorOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "CGT Events on Transfer",
       desc: "Transferring active assets, goodwill, or shares from one entity to another triggers CGT events A1 or other disposals.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Depreciating Assets & Stock",
       desc: "Balancing adjustments on plant and equipment depreciation, plus trading-stock transfer valuations.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "GST & Going Concern Status",
       desc: "Determining whether asset sales constitute a GST-free supply of a going concern or attract GST liabilities.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "State & Territory Duties",
       desc: "Stamp duty on real estate, business assets, and vehicle transfers varies substantially across Australian states.",
     },
@@ -54,8 +62,11 @@ export default function TaxImplicationsOfRestructuring() {
         </div>
 
         {/* Verbatim Paragraph 1 */}
-        <div className="max-w-4xl mx-auto mb-10 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          A restructure can involve the transfer of business assets or interests from one taxpayer to another. Depending on the facts, that can trigger CGT events, balancing adjustments for depreciating assets, trading-stock consequences, GST issues and state or territory duties.
+        <div className="max-w-4xl mx-auto mb-10 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          A restructure can involve the transfer of business assets or interests
+          from one taxpayer to another. Depending on the facts, that can trigger
+          CGT events, balancing adjustments for depreciating assets,
+          trading-stock consequences, GST issues and state or territory duties.
         </div>
 
         {/* 4 Tax Triggers Grid */}
@@ -63,10 +74,10 @@ export default function TaxImplicationsOfRestructuring() {
           {taxTriggers.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -81,17 +92,26 @@ export default function TaxImplicationsOfRestructuring() {
         </div>
 
         {/* Verbatim Paragraph 2 on Small Business Restructure Roll-Over (SBRR) */}
-        <div className="max-w-4xl mx-auto mb-8 bg-emerald-50/60 dark:bg-emerald-950/20 rounded-2xl p-6 sm:p-8 border border-emerald-200/80 dark:border-emerald-800/40 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
+        <div className="max-w-4xl mx-auto mb-8 bg-emerald-50/60 dark:bg-emerald-950/20 rounded-lg p-6 sm:p-8 border border-emerald-200/80 dark:border-emerald-800/40 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
           <h3 className="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">
             Small Business Restructure Roll-Over (Subdivision 328-G)
           </h3>
           <p>
-            Some restructures may qualify for a roll-over or other relief if the relevant statutory conditions are met. For example, the small business restructure roll-over may apply to eligible transfers of certain CGT assets, trading stock, revenue assets and depreciating assets as part of a genuine restructure of an ongoing business. Eligibility depends on all applicable conditions, including the small-business requirements, asset eligibility and continuity of ultimate economic ownership. It is not automatic, and a transaction should not be implemented on the assumption that roll-over relief will apply.
+            Some restructures may qualify for a roll-over or other relief if the
+            relevant statutory conditions are met. For example, the small
+            business restructure roll-over may apply to eligible transfers of
+            certain CGT assets, trading stock, revenue assets and depreciating
+            assets as part of a genuine restructure of an ongoing business.
+            Eligibility depends on all applicable conditions, including the
+            small-business requirements, asset eligibility and continuity of
+            ultimate economic ownership. It is not automatic, and a transaction
+            should not be implemented on the assumption that roll-over relief
+            will apply.
           </p>
         </div>
 
         {/* Verbatim Paragraph 3 on Stamp Duty & Legal Documentation Warning */}
-        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
+        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
           <div className="flex items-start gap-4">
             <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <div className="space-y-2 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
@@ -99,7 +119,10 @@ export default function TaxImplicationsOfRestructuring() {
                 State Stamp Duties &amp; Legal Documentation
               </h3>
               <p>
-                Stamp duty and other state taxes are separate from federal income tax and vary by jurisdiction. Legal documentation may also be required. These matters should be checked before assets or ownership interests are transferred.
+                Stamp duty and other state taxes are separate from federal
+                income tax and vary by jurisdiction. Legal documentation may
+                also be required. These matters should be checked before assets
+                or ownership interests are transferred.
               </p>
             </div>
           </div>

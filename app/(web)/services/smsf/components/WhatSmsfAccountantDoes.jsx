@@ -30,28 +30,36 @@ export default function WhatSmsfAccountantDoes() {
   // 4 Core Accounting Duties identified verbatim in the document
   const coreDuties = [
     {
-      icon: <FileTextOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Maintaining & Reviewing Records",
       description:
         "Maintaining or reviewing accounting records, reconciling bank accounts, and organizing fund investment transactions.",
       tag: "Accounting Records",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Preparing Financial Statements",
       description:
         "Preparing annual financial statements, including the operating statement and statement of financial position.",
       tag: "Financial Accounts",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "SMSF Annual Return Preparation",
       description:
         "Preparing the SMSF annual return, calculating fund tax liabilities, franking credit refunds, and member reporting.",
       tag: "Annual Tax Return",
     },
     {
-      icon: <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Auditor Information Coordination",
       description:
         "Coordinating information, source records, and supporting schedules for the fund's approved independent SMSF auditor.",
@@ -74,7 +82,12 @@ export default function WhatSmsfAccountantDoes() {
             What does an SMSF accountant do?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            An SMSF accountant supports the financial, tax and reporting side of the fund. The exact work depends on the fund&apos;s investments, member activity and stage of life, but commonly includes maintaining or reviewing accounting records, preparing annual financial statements, preparing the SMSF annual return and coordinating information for the fund&apos;s approved SMSF auditor.
+            An SMSF accountant supports the financial, tax and reporting side of
+            the fund. The exact work depends on the fund&apos;s investments,
+            member activity and stage of life, but commonly includes maintaining
+            or reviewing accounting records, preparing annual financial
+            statements, preparing the SMSF annual return and coordinating
+            information for the fund&apos;s approved SMSF auditor.
           </p>
         </div>
 
@@ -83,11 +96,11 @@ export default function WhatSmsfAccountantDoes() {
           {coreDuties.map((duty, index) => (
             <div
               key={index}
-              className="group p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="group p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {duty.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -106,7 +119,7 @@ export default function WhatSmsfAccountantDoes() {
         </div>
 
         {/* Statutory Auditor Independence Highlight - Exact Copy from Document */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Narrative with Verbatim Copy */}
             <div className="lg:col-span-8">
@@ -118,7 +131,11 @@ export default function WhatSmsfAccountantDoes() {
                 The auditor must remain independent
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed mb-6">
-                Every SMSF is required to have its financial statements and compliance audited each income year by an approved SMSF auditor registered with ASIC. Accounting and tax preparation can support the audit process, but the accountant does not replace the independent audit.
+                Every SMSF is required to have its financial statements and
+                compliance audited each income year by an approved SMSF auditor
+                registered with ASIC. Accounting and tax preparation can support
+                the audit process, but the accountant does not replace the
+                independent audit.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Link href="/book-an-appointment">
@@ -127,7 +144,7 @@ export default function WhatSmsfAccountantDoes() {
                     size="large"
                     icon={<ArrowRightOutlined />}
                     iconPlacement="end"
-                    className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                    className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
                   >
                     Book an Appointment
                   </Button>
@@ -136,7 +153,7 @@ export default function WhatSmsfAccountantDoes() {
                   <Button
                     size="large"
                     icon={<EyeOutlined />}
-                    className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                    className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
                   >
                     Explore SMSF Services
                   </Button>
@@ -145,7 +162,7 @@ export default function WhatSmsfAccountantDoes() {
             </div>
 
             {/* Right Statutory Card */}
-            <div className="lg:col-span-4 bg-slate-50 dark:bg-zinc-950/60 rounded-xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800/80 space-y-3">
+            <div className="lg:col-span-4 bg-slate-50 dark:bg-zinc-950/60 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800/80 space-y-3">
               <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center text-lg">
                 <SafetyCertificateOutlined />
               </div>
@@ -153,7 +170,9 @@ export default function WhatSmsfAccountantDoes() {
                 Statutory Separation
               </h4>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
-                ASIC regulations require the approved SMSF auditor to be completely independent of the accounting firm that prepares the fund&apos;s financial statements and tax return.
+                ASIC regulations require the approved SMSF auditor to be
+                completely independent of the accounting firm that prepares the
+                fund&apos;s financial statements and tax return.
               </p>
             </div>
           </div>

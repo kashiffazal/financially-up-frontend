@@ -29,56 +29,72 @@ export default function WhatInformationNeeded() {
    */
   const commonItems = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Bank and credit-card statements",
       description:
         "Statements or direct electronic bank feeds for all trading accounts, credit cards, and payment gateways.",
       tag: "Statements",
     },
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Sales records",
       description:
         "Customer invoices, POS summaries, merchant reports, and e-commerce platform sales summaries.",
       tag: "Sales",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Supplier invoices",
       description:
         "Tax invoices and bills from vendors, contractors, and suppliers for business operating expenses.",
       tag: "Bills",
     },
     {
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Receipts",
       description:
         "Electronic receipts, photos, or paperless documentation substantiating business purchases.",
       tag: "Receipts",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Loan or finance statements",
       description:
         "Commercial loan contracts, equipment leases, vehicle financing, and chattel mortgage schedules.",
       tag: "Finance",
     },
     {
-      icon: <UserOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Payroll information",
       description:
         "Wages summaries, timesheets, superannuation guarantee reports, and STP reporting records.",
       tag: "Payroll",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Prior BAS records",
       description:
         "Previously lodged Business Activity Statements and tax returns to verify opening balances.",
       tag: "Prior BAS",
     },
     {
-      icon: <FolderOpenOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Access to the accounting file",
       description:
         "User or advisor permissions in cloud accounting software such as Xero, MYOB, or QuickBooks.",
@@ -113,11 +129,11 @@ export default function WhatInformationNeeded() {
           {commonItems.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
@@ -136,7 +152,7 @@ export default function WhatInformationNeeded() {
         </div>
 
         {/* Reassurance Callout Box */}
-        <div className="rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 flex items-center gap-5">
+        <div className="rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 flex items-center gap-5">
           <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
             <CheckOutlined className="text-lg" />
           </div>

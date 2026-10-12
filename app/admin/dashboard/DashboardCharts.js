@@ -29,7 +29,7 @@ const AntArea = dynamic(
         <Skeleton active paragraph={{ rows: 6 }} />
       </div>
     ),
-  }
+  },
 );
 
 const AntColumn = dynamic(
@@ -41,7 +41,7 @@ const AntColumn = dynamic(
         <Skeleton active paragraph={{ rows: 6 }} />
       </div>
     ),
-  }
+  },
 );
 
 const AntPie = dynamic(
@@ -53,7 +53,7 @@ const AntPie = dynamic(
         <Skeleton active paragraph={{ rows: 6 }} />
       </div>
     ),
-  }
+  },
 );
 
 /**
@@ -113,8 +113,8 @@ export function RequestsOverTimeChart({
     return antvAreaTrend && antvAreaTrend.length > 0
       ? antvAreaTrend
       : trendData && trendData.length > 0
-      ? trendData.map((d) => ({ date: d.label, applications: d.total }))
-      : defaultTotalData;
+        ? trendData.map((d) => ({ date: d.label, applications: d.total }))
+        : defaultTotalData;
   }, [antvAreaTrend, trendData]);
 
   const categoryData = useMemo(() => {
@@ -125,11 +125,14 @@ export function RequestsOverTimeChart({
 
   // Compute live KPI analytics for the selected timeframe
   const kpiStats = useMemo(() => {
-    const total = totalData.reduce((acc, curr) => acc + (curr.applications || 0), 0);
+    const total = totalData.reduce(
+      (acc, curr) => acc + (curr.applications || 0),
+      0,
+    );
     const count = totalData.length || 1;
     const avg = (total / count).toFixed(1);
 
-    let peak = { date: "—", applications: 0 };
+    let peak = { date: "-", applications: 0 };
     totalData.forEach((item) => {
       if ((item.applications || 0) > peak.applications) {
         peak = item;
@@ -186,7 +189,9 @@ export function RequestsOverTimeChart({
         labelOpacity: 1,
         labelFontSize: 11,
         gridLineDash: [3, 3],
-        gridStroke: isDark ? "rgba(255, 255, 255, 0.10)" : "rgba(0, 0, 0, 0.06)",
+        gridStroke: isDark
+          ? "rgba(255, 255, 255, 0.10)"
+          : "rgba(0, 0, 0, 0.06)",
       },
     },
     tooltip: {
@@ -247,7 +252,9 @@ export function RequestsOverTimeChart({
         labelOpacity: 1,
         labelFontSize: 11,
         gridLineDash: [3, 3],
-        gridStroke: isDark ? "rgba(255, 255, 255, 0.10)" : "rgba(0, 0, 0, 0.06)",
+        gridStroke: isDark
+          ? "rgba(255, 255, 255, 0.10)"
+          : "rgba(0, 0, 0, 0.06)",
       },
     },
     legend: {
@@ -275,22 +282,36 @@ export function RequestsOverTimeChart({
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/60 dark:border-emerald-800/40 text-xs">
             <RiseOutlined className="text-emerald-600 dark:text-emerald-400 font-bold" />
-            <span className="text-slate-600 dark:text-zinc-400 font-medium">Daily Avg:</span>
-            <strong className="text-emerald-700 dark:text-emerald-300 font-bold">{kpiStats.avg}</strong>
+            <span className="text-slate-600 dark:text-zinc-400 font-medium">
+              Daily Avg:
+            </span>
+            <strong className="text-emerald-700 dark:text-emerald-300 font-bold">
+              {kpiStats.avg}
+            </strong>
             <span className="text-[10px] text-slate-400">/day</span>
           </div>
 
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-950/50 border border-blue-200/60 dark:border-blue-800/40 text-xs">
             <ThunderboltOutlined className="text-blue-600 dark:text-blue-400 font-bold" />
-            <span className="text-slate-600 dark:text-zinc-400 font-medium">Peak Day:</span>
-            <strong className="text-blue-700 dark:text-blue-300 font-bold">{kpiStats.peak.applications}</strong>
-            <span className="text-[10px] text-slate-400">({kpiStats.peak.date})</span>
+            <span className="text-slate-600 dark:text-zinc-400 font-medium">
+              Peak Day:
+            </span>
+            <strong className="text-blue-700 dark:text-blue-300 font-bold">
+              {kpiStats.peak.applications}
+            </strong>
+            <span className="text-[10px] text-slate-400">
+              ({kpiStats.peak.date})
+            </span>
           </div>
 
           <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200/60 dark:border-zinc-700 text-xs">
             <CalendarOutlined className="text-slate-500 font-bold" />
-            <span className="text-slate-600 dark:text-zinc-400 font-medium">Period Total:</span>
-            <strong className="text-slate-800 dark:text-zinc-200 font-bold">{kpiStats.total}</strong>
+            <span className="text-slate-600 dark:text-zinc-400 font-medium">
+              Period Total:
+            </span>
+            <strong className="text-slate-800 dark:text-zinc-200 font-bold">
+              {kpiStats.total}
+            </strong>
           </div>
         </div>
 
@@ -318,16 +339,26 @@ export function RequestsOverTimeChart({
       {/* Ant Design Chart Canvas */}
       <div className="w-full min-h-[275px]">
         {viewMode === "total" ? (
-          <AntArea key={`total-${isDark ? "dark" : "light"}`} {...totalConfig} />
+          <AntArea
+            key={`total-${isDark ? "dark" : "light"}`}
+            {...totalConfig}
+          />
         ) : (
-          <AntArea key={`category-${isDark ? "dark" : "light"}`} {...categoryConfig} />
+          <AntArea
+            key={`category-${isDark ? "dark" : "light"}`}
+            {...categoryConfig}
+          />
         )}
       </div>
 
       {/* Plain English explanation footer */}
       <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-zinc-800/80 text-[11px] text-slate-400 dark:text-zinc-500 flex items-center justify-between">
         <span className="flex items-center gap-1">
-          💡 <strong className="text-slate-600 dark:text-zinc-300">Quick Tip:</strong> Hover over any date point to see exact submitted forms.
+          💡{" "}
+          <strong className="text-slate-600 dark:text-zinc-300">
+            Quick Tip:
+          </strong>{" "}
+          Hover over any date point to see exact submitted forms.
         </span>
         <span className="font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -355,25 +386,55 @@ export function RequestsByModuleChart({
   const [chartType, setChartType] = useState("column"); // "column" | "donut"
 
   const defaultDistribution = [
-    { service: "Company", fullName: "Company Registrations", count: 12, route: "/admin/company-registration-new" },
-    { service: "Individual", fullName: "Individual Engagements", count: 28, route: "/admin/individual-engagement-new" },
-    { service: "GST", fullName: "GST Registrations", count: 6, route: "/admin/gst-registrations" },
-    { service: "Medicare", fullName: "Medicare Claims", count: 4, route: "/admin/medicare" },
-    { service: "Trust", fullName: "Trust Registrations", count: 3, route: "/admin/trust-registrations" },
-    { service: "SMSF", fullName: "SMSF Registrations", count: 2, route: "/admin/smsf-registrations" },
+    {
+      service: "Company",
+      fullName: "Company Registrations",
+      count: 12,
+      route: "/admin/company-registration-new",
+    },
+    {
+      service: "Individual",
+      fullName: "Individual Engagements",
+      count: 28,
+      route: "/admin/individual-engagement-new",
+    },
+    {
+      service: "GST",
+      fullName: "GST Registrations",
+      count: 6,
+      route: "/admin/gst-registrations",
+    },
+    {
+      service: "Medicare",
+      fullName: "Medicare Claims",
+      count: 4,
+      route: "/admin/medicare",
+    },
+    {
+      service: "Trust",
+      fullName: "Trust Registrations",
+      count: 3,
+      route: "/admin/trust-registrations",
+    },
+    {
+      service: "SMSF",
+      fullName: "SMSF Registrations",
+      count: 2,
+      route: "/admin/smsf-registrations",
+    },
   ];
 
   const chartData = useMemo(() => {
     return antvDistributionData && antvDistributionData.length > 0
       ? antvDistributionData.slice(0, 6)
       : moduleBreakdown && moduleBreakdown.length > 0
-      ? moduleBreakdown.slice(0, 6).map((m) => ({
-          service: m.shortName || m.name,
-          fullName: m.name,
-          count: m.count || 0,
-          route: m.route,
-        }))
-      : defaultDistribution;
+        ? moduleBreakdown.slice(0, 6).map((m) => ({
+            service: m.shortName || m.name,
+            fullName: m.name,
+            count: m.count || 0,
+            route: m.route,
+          }))
+        : defaultDistribution;
   }, [antvDistributionData, moduleBreakdown]);
 
   const totalCount = useMemo(() => {
@@ -390,7 +451,14 @@ export function RequestsByModuleChart({
     height: 275,
     scale: {
       color: {
-        range: ["#008043", "#10b981", "#f59e0b", "#ef4444", "#06b6d4", "#8b5cf6"],
+        range: [
+          "#008043",
+          "#10b981",
+          "#f59e0b",
+          "#ef4444",
+          "#06b6d4",
+          "#8b5cf6",
+        ],
       },
     },
     style: {
@@ -414,7 +482,9 @@ export function RequestsByModuleChart({
         labelOpacity: 1,
         labelFontSize: 11,
         gridLineDash: [3, 3],
-        gridStroke: isDark ? "rgba(255, 255, 255, 0.10)" : "rgba(0, 0, 0, 0.06)",
+        gridStroke: isDark
+          ? "rgba(255, 255, 255, 0.10)"
+          : "rgba(0, 0, 0, 0.06)",
       },
     },
     label: {
@@ -449,7 +519,14 @@ export function RequestsByModuleChart({
     height: 275,
     scale: {
       color: {
-        range: ["#008043", "#10b981", "#f59e0b", "#ef4444", "#06b6d4", "#8b5cf6"],
+        range: [
+          "#008043",
+          "#10b981",
+          "#f59e0b",
+          "#ef4444",
+          "#06b6d4",
+          "#8b5cf6",
+        ],
       },
     },
     legend: {
@@ -509,7 +586,10 @@ export function RequestsByModuleChart({
       {/* Ant Design Chart Render Canvas */}
       <div className="w-full min-h-[275px]">
         {chartType === "column" ? (
-          <AntColumn key={`col-${isDark ? "dark" : "light"}`} {...columnConfig} />
+          <AntColumn
+            key={`col-${isDark ? "dark" : "light"}`}
+            {...columnConfig}
+          />
         ) : (
           <AntPie key={`pie-${isDark ? "dark" : "light"}`} {...donutConfig} />
         )}
@@ -518,7 +598,10 @@ export function RequestsByModuleChart({
       {/* Direct links to registers footer */}
       <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-zinc-800/80 flex items-center justify-between text-xs">
         <span className="text-slate-500 dark:text-zinc-400 font-medium">
-          Total in Top Services: <strong className="text-slate-800 dark:text-zinc-200">{totalCount}</strong>
+          Total in Top Services:{" "}
+          <strong className="text-slate-800 dark:text-zinc-200">
+            {totalCount}
+          </strong>
         </span>
         <Link
           href="/admin/company-registration-new"

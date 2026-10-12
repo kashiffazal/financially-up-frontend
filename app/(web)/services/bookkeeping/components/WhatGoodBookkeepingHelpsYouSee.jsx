@@ -28,28 +28,36 @@ export default function WhatGoodBookkeepingHelpsYouSee() {
    */
   const visibilityDimensions = [
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "What the business has earned",
       description:
         "Clear records of trading revenue, service fees, sales channels, and incoming cash flows.",
       tag: "Revenue Visibility",
     },
     {
-      icon: <ShoppingOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ShoppingOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "What it has spent",
       description:
         "Accurate classification of supplier costs, operating expenses, wages, and commercial overheads.",
       tag: "Expense Tracking",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Which accounts are outstanding",
       description:
         "Current balances of unpaid customer invoices (receivables) and supplier bills (payables).",
       tag: "Outstanding Items",
     },
     {
-      icon: <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Whether unusual transactions need attention",
       description:
         "Prompt identification of variances, duplicate entries, suspense items, and unallocated amounts.",
@@ -84,11 +92,11 @@ export default function WhatGoodBookkeepingHelpsYouSee() {
           {visibilityDimensions.map((dim, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center">
                     {dim.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
@@ -107,7 +115,7 @@ export default function WhatGoodBookkeepingHelpsYouSee() {
         </div>
 
         {/* Document Paragraph 2 Callout Box - Verbatim Monthly Bookkeeping Pathway */}
-        <div className="rounded-2xl bg-gradient-to-r from-teal-50/80 via-emerald-50/40 to-white dark:from-zinc-900 dark:via-zinc-900/80 dark:to-zinc-950 border border-teal-200/80 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="rounded-lg bg-gradient-to-r from-teal-50/80 via-emerald-50/40 to-white dark:from-zinc-900 dark:via-zinc-900/80 dark:to-zinc-950 border border-teal-200/80 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold text-teal-800 dark:text-teal-400 uppercase tracking-wider">
               <CalendarOutlined />
@@ -120,13 +128,16 @@ export default function WhatGoodBookkeepingHelpsYouSee() {
               better fit.
             </p>
           </div>
-          <Link href="/services/bookkeeping/monthly-bookkeeping" className="shrink-0">
+          <Link
+            href="/services/bookkeeping/monthly-bookkeeping"
+            className="shrink-0"
+          >
             <Button
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Explore Monthly Bookkeeping
             </Button>

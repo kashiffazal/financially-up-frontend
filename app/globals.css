@@ -75,7 +75,7 @@
   --radius-admin-modal: 6px;
   --radius-admin-tag: 6px;
   --radius-admin-table: 6px;
-  --radius-admin-pill: 6px;
+  --radius-admin-pill: 100px;
 
   /* --- CONTEXTUAL DEFAULT RADIUS (Resolves to Web by default) --- */
   /* --radius-xs: var(--radius-web-xs);
@@ -224,6 +224,9 @@ body:has(.web-portal-root) {
 .ant-btn-primary,
 .ant-btn-dashed,
 .ant-btn-round,
+
+.ant-popover-container,
+/* border-radius: 16px !important; */
 .ant-popconfirm-buttons .ant-btn {
   border-radius: var(--radius-btn) !important;
 }
@@ -354,6 +357,18 @@ body:has(.web-portal-root) {
 
 .rounded-input {
   border-radius: var(--radius-input) !important;
+}
+
+/* 11. Alerts: icon on the first line of text (whole app + website)
+   antd centres the icon vertically on alerts without a description, which looks
+   off when the text wraps to several lines. Top-align it and nudge it down so it
+   sits on the first line (alerts with a description are already top-aligned). */
+.ant-alert:not(.ant-alert-with-description) {
+  align-items: flex-start;
+}
+
+.ant-alert:not(.ant-alert-with-description) > .ant-alert-icon {
+  margin-top: 0.3em;
 }
 
 /* ==========================================================================
@@ -714,9 +729,20 @@ body {
 }
 
 .ant-form-item-explain-error {
-  position: absolute !important;
+  /* position: absolute !important;
   font-size: 11px;
-  right: 0px;
+  right: 0px; */
+  font-size: 12px;
+  right: 0;
+  position: absolute !important;
+  background: #ff0d0d;
+  border: 1px solid red;
+  padding: 2px 5px;
+  border-radius: 4px;
+  /* hei-ght: 18px; */
+  line-height: 12px;
+  margin-top: 3px;
+  color: #fff !important;
 }
 
 /* ==========================================================================
@@ -729,7 +755,9 @@ body {
  * `display: none`; skip those, otherwise the invisible full-screen wrap stays
  * on top of the page and swallows every click.
  */
-.ant-modal-wrap:not(.ant-modal-wrap-top):not([style*="display: none"]):not([style*="display:none"]) {
+.ant-modal-wrap:not(.ant-modal-wrap-top):not([style*="display: none"]):not(
+    [style*="display:none"]
+  ) {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -740,7 +768,9 @@ body {
 }
 
 @media (max-width: 640px) {
-  .ant-modal-wrap:not(.ant-modal-wrap-top):not([style*="display: none"]):not([style*="display:none"]) {
+  .ant-modal-wrap:not(.ant-modal-wrap-top):not([style*="display: none"]):not(
+      [style*="display:none"]
+    ) {
     padding-top: 16px !important;
     padding-bottom: 16px !important;
   }

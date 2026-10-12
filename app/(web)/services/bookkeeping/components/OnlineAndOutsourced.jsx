@@ -35,19 +35,20 @@ export default function OnlineAndOutsourced() {
           {/* Document Paragraph 1 - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
             Online bookkeeping can suit businesses that want records maintained
-            without relying on paper files or regular office visits. Documents can
-            be shared electronically, transactions reviewed in cloud accounting
-            software and questions resolved as part of an agreed workflow.
+            without relying on paper files or regular office visits. Documents
+            can be shared electronically, transactions reviewed in cloud
+            accounting software and questions resolved as part of an agreed
+            workflow.
           </p>
         </div>
 
         {/* 2 Main Columns: Online Cloud Workflow vs Outsourced Process */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-10">
           {/* Column 1: Online Bookkeeping Advantage */}
-          <div className="p-7 sm:p-9 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-lg bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
                   <LaptopOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
@@ -59,22 +60,30 @@ export default function OnlineAndOutsourced() {
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed mb-6">
                 Electronic document sharing and live cloud accounting access
-                enable our team to keep your files reconciled without the friction
-                of physical paperwork or office drop-offs.
+                enable our team to keep your files reconciled without the
+                friction of physical paperwork or office drop-offs.
               </p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Secure electronic receipt, invoice and document sharing</span>
+                  <span>
+                    Secure electronic receipt, invoice and document sharing
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Real-time transaction review inside modern cloud accounting systems</span>
+                  <span>
+                    Real-time transaction review inside modern cloud accounting
+                    systems
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
-                  <span>Queries and exceptions resolved systematically within agreed workflows</span>
+                  <span>
+                    Queries and exceptions resolved systematically within agreed
+                    workflows
+                  </span>
                 </div>
               </div>
             </div>
@@ -85,7 +94,7 @@ export default function OnlineAndOutsourced() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-12 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
+                className="w-full h-12 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
               >
                 Discuss Online Bookkeeping
               </Button>
@@ -93,10 +102,10 @@ export default function OnlineAndOutsourced() {
           </div>
 
           {/* Column 2: Outsourced Bookkeeping Scope & Xero Pathway (Verbatim Paragraph 2) */}
-          <div className="p-7 sm:p-9 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
                   <TeamOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
@@ -120,25 +129,37 @@ export default function OnlineAndOutsourced() {
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
-                  <span>Eliminate internal hiring, management, and training overheads</span>
+                  <span>
+                    Eliminate internal hiring, management, and training
+                    overheads
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
-                  <span>Scope structured specifically around your transaction volume and complexity</span>
+                  <span>
+                    Scope structured specifically around your transaction volume
+                    and complexity
+                  </span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
-                  <span>Dedicated workflows and software-specific bookkeeping support for Xero</span>
+                  <span>
+                    Dedicated workflows and software-specific bookkeeping
+                    support for Xero
+                  </span>
                 </div>
               </div>
             </div>
 
-            <Link href="/services/bookkeeping/xero-bookkeeping" className="w-full block">
+            <Link
+              href="/services/bookkeeping/xero-bookkeeping"
+              className="w-full block"
+            >
               <Button
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-12 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all flex items-center justify-center"
+                className="w-full h-12 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all flex items-center justify-center"
               >
                 View Xero Bookkeeping Services
               </Button>

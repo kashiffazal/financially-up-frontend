@@ -64,7 +64,7 @@ export default function WhatTaxPlanningInvolves() {
         {/* 2-Column Split: Verbatim Review Scope & Lawful Principles */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
           {/* Left Column: Paragraph 2 & Structured Checkpoints */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider mb-3">
                 <FileSearchOutlined /> Areas Considered in a Review
@@ -102,7 +102,7 @@ export default function WhatTaxPlanningInvolves() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   Book a Planning Review
                 </Button>
@@ -111,7 +111,7 @@ export default function WhatTaxPlanningInvolves() {
                 <Button
                   size="large"
                   icon={<EyeOutlined />}
-                  className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                  className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
                 >
                   Explore Services
                 </Button>
@@ -120,9 +120,9 @@ export default function WhatTaxPlanningInvolves() {
           </div>
 
           {/* Right Column: Paragraph 3 - Lawful Decision-Making & Evidence */}
-          <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/50 dark:from-zinc-900 dark:via-zinc-900 dark:to-teal-950/20 border border-teal-200/80 dark:border-teal-800/70 shadow-sm">
+          <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-lg bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/50 dark:from-zinc-900 dark:via-zinc-900 dark:to-teal-950/20 border border-teal-200/80 dark:border-teal-800/70 shadow-sm">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center mb-5 shadow-sm">
+              <div className="w-12 h-12 rounded-lg bg-teal-600 text-white flex items-center justify-center mb-5 shadow-sm">
                 <SafetyCertificateOutlined className="text-2xl" />
               </div>
 

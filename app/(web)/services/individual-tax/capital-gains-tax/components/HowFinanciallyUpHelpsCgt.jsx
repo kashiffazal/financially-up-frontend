@@ -94,7 +94,7 @@ export default function HowFinanciallyUpHelpsCgt() {
               className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-xl mb-4">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-xl mb-4">
                   {svc.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -160,7 +160,7 @@ export default function HowFinanciallyUpHelpsCgt() {
             {records.map((rec, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
+                className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
               >
                 <CheckCircleOutlined className="text-emerald-500 mt-0.5 shrink-0" />
                 <span>{rec}</span>
@@ -168,7 +168,7 @@ export default function HowFinanciallyUpHelpsCgt() {
             ))}
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed flex items-start gap-3">
+          <div className="p-4 sm:p-5 rounded-lg bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed flex items-start gap-3">
             <HistoryOutlined className="text-lg text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
             <div>
               <span className="font-bold block mb-1">

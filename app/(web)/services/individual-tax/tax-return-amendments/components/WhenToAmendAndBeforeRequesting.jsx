@@ -59,14 +59,18 @@ export default function WhenToAmendAndBeforeRequesting() {
         {/* Section 2: When Should You Amend a Tax Return */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Common Triggers &amp; Scenarios
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               When Should You Amend a Tax Return?
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              You may need to amend a tax return when the information originally lodged was incomplete or incorrect. Common examples include:
+              You may need to amend a tax return when the information originally
+              lodged was incomplete or incorrect. Common examples include:
             </p>
           </div>
 
@@ -74,9 +78,9 @@ export default function WhenToAmendAndBeforeRequesting() {
             {commonTriggers.map((trigger, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-2xs hover:shadow-xs transition-shadow"
+                className="flex items-start gap-3 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-2xs hover:shadow-xs transition-shadow"
               >
-                <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5">
                   <CheckCircleOutlined className="text-xs" />
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-zinc-200 leading-snug">
@@ -86,25 +90,33 @@ export default function WhenToAmendAndBeforeRequesting() {
             ))}
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
+          <div className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
             <span className="font-bold text-slate-900 dark:text-white block mb-1">
               Process Evaluation:
             </span>
-            Not every difference necessarily requires an amendment. The appropriate process depends on the issue, the affected income year, the available evidence and whether the matter involves correcting information or disputing an ATO decision.
+            Not every difference necessarily requires an amendment. The
+            appropriate process depends on the issue, the affected income year,
+            the available evidence and whether the matter involves correcting
+            information or disputing an ATO decision.
           </div>
         </div>
 
         {/* Section 3: Before Requesting an Amendment */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Pre-Amendment Due Diligence
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Before Requesting an Amendment
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The original return should generally be processed before an amendment is requested. Check the notice of assessment, the lodged return and the records supporting the proposed correction.
+              The original return should generally be processed before an
+              amendment is requested. Check the notice of assessment, the lodged
+              return and the records supporting the proposed correction.
             </p>
           </div>
 
@@ -117,7 +129,7 @@ export default function WhenToAmendAndBeforeRequesting() {
               {fourChecklistItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+                  className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
                     <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold text-xs flex items-center justify-center">
@@ -144,7 +156,12 @@ export default function WhenToAmendAndBeforeRequesting() {
                   Systemic Impact: Why Full Return Review Is Essential
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                  A change to one item can affect other calculations, including taxable income, tax offsets, the Medicare levy, study or training loan repayments, capital losses and other income-tested obligations. The complete affected return should therefore be reviewed rather than changing one figure in isolation.
+                  A change to one item can affect other calculations, including
+                  taxable income, tax offsets, the Medicare levy, study or
+                  training loan repayments, capital losses and other
+                  income-tested obligations. The complete affected return should
+                  therefore be reviewed rather than changing one figure in
+                  isolation.
                 </p>
               </div>
             </div>

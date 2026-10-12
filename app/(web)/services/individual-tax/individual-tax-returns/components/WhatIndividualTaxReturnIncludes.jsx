@@ -97,11 +97,11 @@ export default function WhatIndividualTaxReturnIncludes() {
           {scopeItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -124,7 +124,7 @@ export default function WhatIndividualTaxReturnIncludes() {
           ))}
 
           {/* 6th Card: Book an Appointment CTA Card */}
-          <div className="flex flex-col justify-between rounded-2xl p-6 sm:p-7 bg-gradient-to-br from-emerald-800 to-teal-900 text-white shadow-lg border border-emerald-700/60 relative overflow-hidden">
+          <div className="flex flex-col justify-between rounded-lg p-6 sm:p-7 bg-gradient-to-br from-emerald-800 to-teal-900 text-white shadow-lg border border-emerald-700/60 relative overflow-hidden">
             <div className="relative z-10">
               <span className="text-[11px] font-extrabold text-emerald-200 uppercase tracking-widest block mb-2">
                 Get Started
@@ -144,7 +144,7 @@ export default function WhatIndividualTaxReturnIncludes() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11"
+                  className="w-full rounded-lg font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11"
                 >
                   Book an Appointment
                 </Button>
@@ -154,7 +154,7 @@ export default function WhatIndividualTaxReturnIncludes() {
         </div>
 
         {/* Legal Disclaimer / Statutory Note from Client Document */}
-        <div className="rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
+        <div className="rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
           <InfoCircleOutlined className="text-amber-600 dark:text-amber-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed font-normal">
             <strong>Important Regulatory Notice:</strong> The treatment of any

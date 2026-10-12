@@ -34,37 +34,55 @@ export default function WhatTrustAccountantDoes() {
   const typicalWorkItems = [
     {
       title: "preparing or reviewing annual trust accounts and reconciliations",
-      icon: <FolderOpenOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <FolderOpenOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       tag: "Accounts & Ledger",
     },
     {
       title: "classifying trust income, expenses, assets and liabilities",
-      icon: <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       tag: "Classification",
     },
     {
       title: "preparing trust tax returns where required",
-      icon: <FileTextOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <FileTextOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       tag: "Tax Return",
     },
     {
-      title: "preparing beneficiary distribution information from the final tax position",
-      icon: <ScheduleOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      title:
+        "preparing beneficiary distribution information from the final tax position",
+      icon: (
+        <ScheduleOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       tag: "Beneficiaries",
     },
     {
-      title: "reviewing accounting records used to support trustee distribution decisions",
-      icon: <CheckCircleOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      title:
+        "reviewing accounting records used to support trustee distribution decisions",
+      icon: (
+        <CheckCircleOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       tag: "Trustee Records",
     },
     {
-      title: "identifying issues that may require separate tax planning, legal advice or specialist review",
-      icon: <ExclamationCircleOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      title:
+        "identifying issues that may require separate tax planning, legal advice or specialist review",
+      icon: (
+        <ExclamationCircleOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       tag: "Specialist Scope",
     },
     {
-      title: "coordinating trust records with related companies, beneficiaries or other entities where relevant.",
-      icon: <TeamOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      title:
+        "coordinating trust records with related companies, beneficiaries or other entities where relevant.",
+      icon: (
+        <TeamOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       tag: "Entity Coordination",
     },
   ];
@@ -88,11 +106,13 @@ export default function WhatTrustAccountantDoes() {
 
           {/* Exact Verbatim Introductory Paragraph from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A trust accountant helps translate the financial activity of a trust into accurate
-            accounting records and tax reporting. Unlike an individual taxpayer, a trust involves a
-            trustee who administers trust property for beneficiaries under a trust deed. Tax outcomes
-            can depend on the trust&apos;s income, the deed, beneficiary entitlements, trustee
-            resolutions, capital gains, franked distributions and other facts.
+            A trust accountant helps translate the financial activity of a trust
+            into accurate accounting records and tax reporting. Unlike an
+            individual taxpayer, a trust involves a trustee who administers
+            trust property for beneficiaries under a trust deed. Tax outcomes
+            can depend on the trust&apos;s income, the deed, beneficiary
+            entitlements, trustee resolutions, capital gains, franked
+            distributions and other facts.
           </p>
         </div>
 
@@ -109,11 +129,11 @@ export default function WhatTrustAccountantDoes() {
             {typicalWorkItems.map((item, index) => (
               <div
                 key={index}
-                className="group p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="group p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                       {item.icon}
                     </div>
                     <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -130,14 +150,15 @@ export default function WhatTrustAccountantDoes() {
         </div>
 
         {/* Verbatim Referral Banner to Trust Tax Returns Service */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-teal-200/80 dark:border-teal-800/60 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-teal-200/80 dark:border-teal-800/60 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-teal-700 dark:text-teal-300 uppercase tracking-wider">
               <FileTextOutlined />
               <span>Annual ATO Lodgement Specialist Scope</span>
             </div>
             <p className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0">
-              For a page focused specifically on annual return preparation and lodgement, see our{" "}
+              For a page focused specifically on annual return preparation and
+              lodgement, see our{" "}
               <Link
                 href="/services/business-tax/trust-tax-returns"
                 className="text-teal-600 dark:text-teal-400 hover:underline font-extrabold"
@@ -148,13 +169,16 @@ export default function WhatTrustAccountantDoes() {
             </p>
           </div>
 
-          <Link href="/services/business-tax/trust-tax-returns" className="shrink-0">
+          <Link
+            href="/services/business-tax/trust-tax-returns"
+            className="shrink-0"
+          >
             <Button
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
             >
               View Trust Tax Returns
             </Button>

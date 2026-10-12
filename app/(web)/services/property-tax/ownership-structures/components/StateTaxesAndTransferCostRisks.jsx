@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Alert } from "antd";
-import { DollarOutlined, ExclamationCircleOutlined, SafetyCertificateOutlined, SwapOutlined } from "@ant-design/icons";
+import {
+  DollarOutlined,
+  ExclamationCircleOutlined,
+  SafetyCertificateOutlined,
+  SwapOutlined,
+} from "@ant-design/icons";
 
 /**
  * StateTaxesAndTransferCostRisks Component
@@ -39,7 +44,9 @@ export default function StateTaxesAndTransferCostRisks() {
             Review State Taxes and the Cost of Changing Ownership
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            State duties and annual land taxes can significantly alter the net return of a property investment. Structuring must be decided before the contract of sale is signed.
+            State duties and annual land taxes can significantly alter the net
+            return of a property investment. Structuring must be decided before
+            the contract of sale is signed.
           </p>
         </div>
 
@@ -47,14 +54,18 @@ export default function StateTaxesAndTransferCostRisks() {
           {taxPoints.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="p-3 bg-white rounded-xl border border-slate-200 w-fit mb-5">
+                <div className="p-3 bg-white rounded-lg border border-slate-200 w-fit mb-5">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -63,14 +74,19 @@ export default function StateTaxesAndTransferCostRisks() {
         <Alert
           type="warning"
           showIcon
-          icon={<ExclamationCircleOutlined className="text-amber-600 text-xl" />}
+          icon={
+            <ExclamationCircleOutlined className="text-amber-600 text-xl" />
+          }
           title="Resolve the Purchaser Entity Before Signing the Contract"
           description={
             <div className="text-slate-700 text-sm sm:text-base leading-relaxed mt-1">
-              Once contracts are exchanged, changing the nominated purchaser from an individual to a trust or company can be treated by state revenue offices as a novation or sub-sale, attracting a second round of full stamp duty. Always seek advice before signing.
+              Once contracts are exchanged, changing the nominated purchaser
+              from an individual to a trust or company can be treated by state
+              revenue offices as a novation or sub-sale, attracting a second
+              round of full stamp duty. Always seek advice before signing.
             </div>
           }
-          className="border border-amber-200 bg-amber-50/60 rounded-xl p-5"
+          className="border border-amber-200 bg-amber-50/60 rounded-lg p-5"
         />
       </div>
     </section>

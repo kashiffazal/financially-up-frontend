@@ -71,11 +71,11 @@ export default function PracticalAPWorkflowAndInternalControls() {
           {workflowSteps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shadow-xs">
+                  <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shadow-xs">
                     {step.icon}
                   </div>
                   <span className="text-2xl font-black text-slate-300 dark:text-zinc-700">
@@ -100,7 +100,7 @@ export default function PracticalAPWorkflowAndInternalControls() {
         </div>
 
         {/* Verbatim Internal Controls Block */}
-        <div className="bg-slate-900 text-white dark:bg-zinc-950 rounded-2xl p-7 sm:p-9 border border-slate-800 shadow-md">
+        <div className="bg-slate-900 text-white dark:bg-zinc-950 rounded-lg p-7 sm:p-9 border border-slate-800 shadow-md">
           <div className="flex items-center gap-3 mb-4">
             <LockOutlined className="text-emerald-400 text-2xl" />
             <h3 className="text-xl sm:text-2xl font-bold text-white">

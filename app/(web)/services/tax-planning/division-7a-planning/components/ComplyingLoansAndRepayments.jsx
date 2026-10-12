@@ -59,7 +59,7 @@ export default function ComplyingLoansAndRepayments() {
         </div>
 
         {/* Verbatim Paragraph 1 */}
-        <div className="max-w-4xl mx-auto mb-12 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+        <div className="max-w-4xl mx-auto mb-12 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
           Where an eligible private company loan is not repaid before the
           company’s lodgement day, a written complying loan agreement entered
           into by that day may prevent section 109D from treating the loan as a
@@ -75,10 +75,10 @@ export default function ComplyingLoansAndRepayments() {
           {complianceSteps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/40 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {step.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -93,7 +93,7 @@ export default function ComplyingLoansAndRepayments() {
         </div>
 
         {/* Verbatim Paragraph 2 on Holistic Planning */}
-        <div className="max-w-4xl mx-auto mb-14 bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
+        <div className="max-w-4xl mx-auto mb-14 bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
             A complying loan agreement is not a blanket solution. Good planning
             still requires review of the original transaction, agreement timing,

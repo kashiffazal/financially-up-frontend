@@ -65,9 +65,9 @@ export default function TaxAndComplianceImplications() {
 
         {/* Verbatim Content Blocks */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center mb-5 border border-amber-200/60 dark:border-amber-800/40">
+              <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center mb-5 border border-amber-200/60 dark:border-amber-800/40">
                 <WarningOutlined className="text-xl text-amber-600 dark:text-amber-400" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
@@ -84,9 +84,9 @@ export default function TaxAndComplianceImplications() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center mb-5 border border-brand-primary/20 dark:border-emerald-800/40">
+              <div className="w-12 h-12 rounded-lg bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center mb-5 border border-brand-primary/20 dark:border-emerald-800/40">
                 <ScheduleOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
@@ -122,7 +122,7 @@ export default function TaxAndComplianceImplications() {
             {serviceCards.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-white/10 dark:bg-zinc-800/60 backdrop-blur-sm rounded-2xl p-6 border border-white/10 dark:border-zinc-700 flex flex-col justify-between hover:bg-white/15 transition-all duration-300"
+                className="bg-white/10 dark:bg-zinc-800/60 backdrop-blur-sm rounded-lg p-6 border border-white/10 dark:border-zinc-700 flex flex-col justify-between hover:bg-white/15 transition-all duration-300"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-4">

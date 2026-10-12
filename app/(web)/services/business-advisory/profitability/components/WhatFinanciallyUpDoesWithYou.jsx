@@ -25,22 +25,30 @@ import {
 export default function WhatFinanciallyUpDoesWithYou() {
   const servicePillars = [
     {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Review of Accounts & Data",
       desc: "Detailed examination of statutory financial statements and internal management figures.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Activity-Based Analysis",
       desc: "Granular breakdown by product line, project, or service department where records permit.",
     },
     {
-      icon: <CommentOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CommentOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Operational Driver Dialogue",
       desc: "Interrogating real-world shop floor and commercial realities behind the financial numbers.",
     },
     {
-      icon: <FieldTimeOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FieldTimeOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Measurement & Reporting Plan",
       desc: "Designing practical recurring reports so you can track whether actions are delivering expected ROI.",
     },
@@ -75,9 +83,9 @@ export default function WhatFinanciallyUpDoesWithYou() {
           {servicePillars.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -91,7 +99,7 @@ export default function WhatFinanciallyUpDoesWithYou() {
         </div>
 
         {/* Interconnected Service Navigation Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
             Connecting Margin Insights with Strategic Execution
           </h3>
@@ -109,7 +117,7 @@ export default function WhatFinanciallyUpDoesWithYou() {
               <Button
                 type="default"
                 icon={<LineChartOutlined />}
-                className="rounded-xl font-semibold bg-slate-50 dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-slate-50 dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 KPI Reporting Services
               </Button>
@@ -119,7 +127,7 @@ export default function WhatFinanciallyUpDoesWithYou() {
               <Button
                 type="default"
                 icon={<CompassOutlined />}
-                className="rounded-xl font-semibold bg-slate-50 dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-slate-50 dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Benchmarking
               </Button>
@@ -129,7 +137,7 @@ export default function WhatFinanciallyUpDoesWithYou() {
               <Button
                 type="default"
                 icon={<ArrowRightOutlined />}
-                className="rounded-xl font-semibold bg-slate-50 dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-slate-50 dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Growth Advisory
               </Button>

@@ -89,7 +89,7 @@ export default function Step4IncomeProfile({ form }) {
       />
 
       {/* Previous Accountant (INC-002 to INC-005) */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="hadPreviousAccountant"
@@ -125,7 +125,7 @@ export default function Step4IncomeProfile({ form }) {
                 }
                 placeholder="Enter accounting firm name"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Please enter the previous firm."
                 containerClassName="!mb-2"
               />
@@ -157,7 +157,7 @@ export default function Step4IncomeProfile({ form }) {
               }
               placeholder="Briefly describe your reason for changing accountants..."
               rows={2}
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Please provide a reason."
               containerClassName="!mb-0"
             />
@@ -166,7 +166,7 @@ export default function Step4IncomeProfile({ form }) {
       </div>
 
       {/* ATO Debt & Audit Matters (INC-006 to INC-010) */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="atoIssues"
@@ -193,7 +193,7 @@ export default function Step4IncomeProfile({ form }) {
               icon={<WarningOutlined />}
               title="Priority ATO Review Workflow"
               description="Notice: Our registered tax agents will conduct an immediate Tax Agent Portal lookup to review your ATO status and payment arrangement options."
-              className="rounded-xl border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200 !mb-4"
+              className="rounded-lg border-amber-200 bg-amber-50 dark:bg-amber-950/40 text-slate-800 dark:text-zinc-200 !mb-4"
             />
 
             <AntInput
@@ -206,7 +206,7 @@ export default function Step4IncomeProfile({ form }) {
               }
               placeholder="Provide details regarding the ATO debt amount, audit notice, or correspondence..."
               rows={3}
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Please provide details."
               containerClassName="!mb-0"
             />
@@ -224,7 +224,7 @@ export default function Step4IncomeProfile({ form }) {
                   placeholder="DD/MM/YYYY"
                   format="DD/MM/YYYY"
                   size="large"
-                  className="w-full rounded-xl"
+                  className="w-full rounded-lg"
                   noRequired={true}
                   containerClassName="!mb-4"
                 />
@@ -240,7 +240,7 @@ export default function Step4IncomeProfile({ form }) {
                   placeholder="DD/MM/YYYY"
                   format="DD/MM/YYYY"
                   size="large"
-                  className="w-full rounded-xl"
+                  className="w-full rounded-lg"
                   noRequired={true}
                   containerClassName="!mb-0"
                 />
@@ -258,7 +258,7 @@ export default function Step4IncomeProfile({ form }) {
                 noRequired={true}
                 type="4"
                 height={124}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>

@@ -26,7 +26,8 @@ export const metadata = {
     "shortfall interest charge",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/tax-return-amendments/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/tax-return-amendments/",
   },
   openGraph: {
     title: "Tax Return Amendment Accountant | Financially Up",
@@ -57,32 +58,38 @@ const amendmentQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Individuals & sole traders needing to correct an already-lodged and processed return",
+    value:
+      "Individuals & sole traders needing to correct an already-lodged and processed return",
   },
   {
     icon: "file",
     label: "Core Prerequisite",
-    value: "Original Notice of Assessment issued and processed by the Australian Taxation Office",
+    value:
+      "Original Notice of Assessment issued and processed by the Australian Taxation Office",
   },
   {
     icon: "clock",
     label: "Time Limits",
-    value: "Generally 2 years from assessment (4 years for eligible business taxpayers from 2024-25)",
+    value:
+      "Generally 2 years from assessment (4 years for eligible business taxpayers from 2024-25)",
   },
   {
     icon: "calculator",
     label: "Impact Analysis",
-    value: "Complete recalculation of taxable income, Medicare levy, offsets & HECS/HELP",
+    value:
+      "Complete recalculation of taxable income, Medicare levy, offsets & HECS/HELP",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "safety",
     label: "Lodgement Channel",
-    value: "Direct electronic ATO Tax Agent Portal transmission by TPB Agent #26242127",
+    value:
+      "Direct electronic ATO Tax Agent Portal transmission by TPB Agent #26242127",
   },
 ];
 
@@ -95,7 +102,9 @@ const amendmentFaqs = [
     label: "What is a tax return amendment",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It is a request to correct information in a tax return that has already been lodged and processed, subject to the applicable ATO rules and time limits.
+        It is a request to correct information in a tax return that has already
+        been lodged and processed, subject to the applicable ATO rules and time
+        limits.
       </p>
     ),
   },
@@ -104,7 +113,8 @@ const amendmentFaqs = [
     label: "Do I need to wait for my notice of assessment",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Generally, the original return should first be processed. The notice of assessment also helps establish when the amendment period begins.
+        Generally, the original return should first be processed. The notice of
+        assessment also helps establish when the amendment period begins.
       </p>
     ),
   },
@@ -113,7 +123,9 @@ const amendmentFaqs = [
     label: "Can I add a missed deduction after lodging",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A missed eligible deduction may be added where the ordinary deduction and record-keeping requirements are satisfied and the amendment is made within the applicable time limit.
+        A missed eligible deduction may be added where the ordinary deduction
+        and record-keeping requirements are satisfied and the amendment is made
+        within the applicable time limit.
       </p>
     ),
   },
@@ -122,7 +134,9 @@ const amendmentFaqs = [
     label: "What if I forgot to declare income",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Omitted income may need to be corrected. The amendment could result in additional tax, interest or a penalty depending on the circumstances. These outcomes are not automatic in every case.
+        Omitted income may need to be corrected. The amendment could result in
+        additional tax, interest or a penalty depending on the circumstances.
+        These outcomes are not automatic in every case.
       </p>
     ),
   },
@@ -131,7 +145,10 @@ const amendmentFaqs = [
     label: "How far back can I amend a tax return",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Most individuals generally have two years from the day after the ATO gives the notice of assessment. Different periods can apply to sole traders and other taxpayers, particularly for 2024-25 and later income years.
+        Most individuals generally have two years from the day after the ATO
+        gives the notice of assessment. Different periods can apply to sole
+        traders and other taxpayers, particularly for 2024-25 and later income
+        years.
       </p>
     ),
   },
@@ -140,7 +157,9 @@ const amendmentFaqs = [
     label: "Will amending my tax return result in a penalty",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Not automatically. Penalty treatment depends on the error, whether it caused a tax shortfall, the taxpayer&apos;s conduct and when and how the correction was disclosed. Interest can apply separately.
+        Not automatically. Penalty treatment depends on the error, whether it
+        caused a tax shortfall, the taxpayer&apos;s conduct and when and how the
+        correction was disclosed. Interest can apply separately.
       </p>
     ),
   },
@@ -149,7 +168,10 @@ const amendmentFaqs = [
     label: "When should I lodge an objection instead",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An objection may be appropriate where you disagree with an ATO assessment or decision rather than correcting information you originally provided. It may also need to be considered where the amendment period has expired.
+        An objection may be appropriate where you disagree with an ATO
+        assessment or decision rather than correcting information you originally
+        provided. It may also need to be considered where the amendment period
+        has expired.
       </p>
     ),
   },
@@ -158,7 +180,9 @@ const amendmentFaqs = [
     label: "Can an accountant amend my tax return",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A registered tax agent can review the lodged return, identify the required corrections and prepare or lodge an amendment on your behalf. Complex matters may require separately scoped tax advice.
+        A registered tax agent can review the lodged return, identify the
+        required corrections and prepare or lodge an amendment on your behalf.
+        Complex matters may require separately scoped tax advice.
       </p>
     ),
   },
@@ -255,12 +279,21 @@ export default function TaxReturnAmendmentsPage() {
         subtitle="Already lodged your tax return and later found a mistake, missing income or a deduction that was not handled correctly? A tax return amendment is used to correct information in a return that has already been lodged and processed by the Australian Taxation Office (ATO)."
         bodyText={
           <span>
-            Financially Up Pty Ltd helps Australian individuals review lodged returns, identify possible errors or omissions and prepare amendment requests where appropriate. This service is for correcting a return that has already been lodged. If an earlier return has not been lodged at all, our prior-year and overdue tax returns service may be more relevant.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up Pty Ltd helps Australian individuals review lodged
+            returns, identify possible errors or omissions and prepare amendment
+            requests where appropriate. This service is for correcting a return
+            that has already been lodged. If an earlier return has not been
+            lodged at all, our prior-year and overdue tax returns service may be
+            more relevant.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              Book an Appointment to discuss the affected income year, what has changed or been discovered, the available records and any ATO correspondence. An amendment outcome, refund or tax saving cannot be confirmed before the circumstances and supporting information are reviewed.
+              Book an Appointment to discuss the affected income year, what has
+              changed or been discovered, the available records and any ATO
+              correspondence. An amendment outcome, refund or tax saving cannot
+              be confirmed before the circumstances and supporting information
+              are reviewed.
             </div>
           </span>
         }

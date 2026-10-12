@@ -40,11 +40,13 @@ export default function PayrollTaxRisksAndHelp() {
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950/70 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: Common payroll tax risks */}
         <div className="mb-20">
           <div className="max-w-3xl mb-12">
-            <Tag color="volcano" className="brand-section-tag font-bold tracking-wider uppercase text-xs mb-3">
+            <Tag
+              color="volcano"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs mb-3"
+            >
               <WarningOutlined className="mr-1.5" />
               Risk Assessment
             </Tag>
@@ -52,7 +54,9 @@ export default function PayrollTaxRisksAndHelp() {
               Common payroll tax risks
             </h2>
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              State revenue authorities regularly conduct data-matching against STP feeds and federal income tax returns. Proactive review avoids retroactive assessments and penalties.
+              State revenue authorities regularly conduct data-matching against
+              STP feeds and federal income tax returns. Proactive review avoids
+              retroactive assessments and penalties.
             </p>
           </div>
 
@@ -60,7 +64,7 @@ export default function PayrollTaxRisksAndHelp() {
             {commonRisks.map((risk, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-start gap-3.5"
+                className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-start gap-3.5"
               >
                 <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
                   <WarningOutlined className="text-sm" />
@@ -75,12 +79,11 @@ export default function PayrollTaxRisksAndHelp() {
 
         {/* Part 2: Information Needed & How Financially Up Helps */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-          
           {/* Records needed */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                   <FolderOpenOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -89,20 +92,30 @@ export default function PayrollTaxRisksAndHelp() {
               </div>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A payroll tax review may require payroll reports by employee and location, general ledger wage accounts, superannuation records, fringe benefits information, contractor payment details, entity and group structure information, prior payroll tax returns and registrations, and details of employees working across state borders.
+                A payroll tax review may require payroll reports by employee and
+                location, general ledger wage accounts, superannuation records,
+                fringe benefits information, contractor payment details, entity
+                and group structure information, prior payroll tax returns and
+                registrations, and details of employees working across state
+                borders.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 italic">
-                The records needed will depend on whether the engagement is a registration review, return preparation, historical clean-up or broader payroll tax advice.
+                The records needed will depend on whether the engagement is a
+                registration review, return preparation, historical clean-up or
+                broader payroll tax advice.
               </p>
 
-              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/80 space-y-2.5">
+              <div className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/80 space-y-2.5">
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
                   Review Documentation:
                 </h4>
                 <ul className="space-y-2">
                   {recordsNeeded.map((rec, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300"
+                    >
                       <CheckCircleOutlined className="text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                       <span>{rec}</span>
                     </li>
@@ -116,7 +129,7 @@ export default function PayrollTaxRisksAndHelp() {
           <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <AuditOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -125,27 +138,37 @@ export default function PayrollTaxRisksAndHelp() {
               </div>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Financially Up can provide payroll tax compliance support from initial threshold review through to return preparation and annual reconciliation. We can also help a business understand which wage categories or transactions need further investigation before lodgement. We do not assume that one state’s payroll tax rules apply everywhere; the relevant jurisdiction is reviewed as part of the engagement.
+                Financially Up can provide payroll tax compliance support from
+                initial threshold review through to return preparation and
+                annual reconciliation. We can also help a business understand
+                which wage categories or transactions need further investigation
+                before lodgement. We do not assume that one state’s payroll tax
+                rules apply everywhere; the relevant jurisdiction is reviewed as
+                part of the engagement.
               </p>
 
-              <div className="p-6 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-800/60 space-y-3">
+              <div className="p-6 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-800/60 space-y-3">
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">
                   Multi-State Expertise:
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                  Whether your business operates in NSW, Victoria, Queensland, or multiple states simultaneously, we verify thresholds and grouping implications specifically against the relevant state or territory revenue legislation.
+                  Whether your business operates in NSW, Victoria, Queensland,
+                  or multiple states simultaneously, we verify thresholds and
+                  grouping implications specifically against the relevant state
+                  or territory revenue legislation.
                 </p>
               </div>
             </div>
 
             <div className="mt-8 pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center gap-2.5 text-xs text-slate-500 dark:text-zinc-400 font-medium">
               <InfoCircleOutlined className="text-sm text-purple-600 dark:text-purple-400 shrink-0" />
-              <span>Full compliance alignment between state revenue portals and internal general ledgers.</span>
+              <span>
+                Full compliance alignment between state revenue portals and
+                internal general ledgers.
+              </span>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

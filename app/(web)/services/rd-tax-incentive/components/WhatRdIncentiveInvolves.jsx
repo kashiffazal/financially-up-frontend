@@ -35,8 +35,11 @@ export default function WhatRdIncentiveInvolves() {
         "Submit detailed project descriptions and experimental objectives",
         "Obtain formal activity registration number before tax lodgement",
       ],
-      icon: <ExperimentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      badgeClass: "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border-teal-200/80 dark:border-teal-800/60",
+      icon: (
+        <ExperimentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      badgeClass:
+        "bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border-teal-200/80 dark:border-teal-800/60",
     },
     {
       stage: "Stage 2",
@@ -50,8 +53,11 @@ export default function WhatRdIncentiveInvolves() {
         "Calculate notional deductions for eligible staff, contractors and materials",
         "Claim refundable or non-refundable tax offset through the tax return",
       ],
-      icon: <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      badgeClass: "bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-200/80 dark:border-blue-800/60",
+      icon: (
+        <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      badgeClass:
+        "bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-200/80 dark:border-blue-800/60",
     },
   ];
 
@@ -70,7 +76,14 @@ export default function WhatRdIncentiveInvolves() {
             How does the R&D tax incentive work?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            The program has two connected stages. The company applies to register eligible R&amp;D activities with the Department of Industry, Science and Resources through the R&amp;D Tax Incentive customer portal. Once registration requirements are met, the company claims any eligible R&amp;D tax offset through its company income tax return with the ATO, including the relevant R&amp;D schedule. Registration and a tax return claim have separate requirements; neither removes the need for accurate records.
+            The program has two connected stages. The company applies to
+            register eligible R&amp;D activities with the Department of
+            Industry, Science and Resources through the R&amp;D Tax Incentive
+            customer portal. Once registration requirements are met, the company
+            claims any eligible R&amp;D tax offset through its company income
+            tax return with the ATO, including the relevant R&amp;D schedule.
+            Registration and a tax return claim have separate requirements;
+            neither removes the need for accurate records.
           </p>
         </div>
 
@@ -79,12 +92,12 @@ export default function WhatRdIncentiveInvolves() {
           {stages.map((stg, idx) => (
             <div
               key={idx}
-              className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                       {stg.icon}
                     </div>
                     <div>
@@ -96,7 +109,9 @@ export default function WhatRdIncentiveInvolves() {
                       </h3>
                     </div>
                   </div>
-                  <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border ${stg.badgeClass}`}>
+                  <span
+                    className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border ${stg.badgeClass}`}
+                  >
                     {stg.portal}
                   </span>
                 </div>
@@ -105,7 +120,7 @@ export default function WhatRdIncentiveInvolves() {
                   {stg.description}
                 </p>
 
-                <div className="bg-slate-50 dark:bg-zinc-950/60 rounded-xl p-4 border border-slate-200/80 dark:border-zinc-800/80 mb-4">
+                <div className="bg-slate-50 dark:bg-zinc-950/60 rounded-lg p-4 border border-slate-200/80 dark:border-zinc-800/80 mb-4">
                   <span className="text-xs font-bold text-slate-700 dark:text-zinc-300 uppercase tracking-wider block mb-2.5">
                     Stage Focus &amp; Requirements
                   </span>
@@ -134,7 +149,7 @@ export default function WhatRdIncentiveInvolves() {
         </div>
 
         {/* 10-Month Deadline & Extension Rules Banner (Verbatim from docx) */}
-        <div className="rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 p-6 sm:p-8 lg:p-10 shadow-sm">
+        <div className="rounded-lg bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 p-6 sm:p-8 lg:p-10 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-2 mb-3">
@@ -144,15 +159,22 @@ export default function WhatRdIncentiveInvolves() {
                 </h3>
               </div>
               <p className="text-sm sm:text-base text-amber-950/90 dark:text-amber-100/90 leading-relaxed m-0 mb-3">
-                Applications to register activities are generally due within 10 months after the end of the company’s income year in which those activities took place. A company with a 30 June year end should not assume its registration date is the same as its income tax return due date.
+                Applications to register activities are generally due within 10
+                months after the end of the company’s income year in which those
+                activities took place. A company with a 30 June year end should
+                not assume its registration date is the same as its income tax
+                return due date.
               </p>
               <p className="text-sm sm:text-base text-amber-950/90 dark:text-amber-100/90 leading-relaxed m-0 font-medium">
-                Extensions are subject to the Department’s rules and evidence requirements; a late application should never be assumed to be accepted. We confirm the relevant income year and deadline early.
+                Extensions are subject to the Department’s rules and evidence
+                requirements; a late application should never be assumed to be
+                accepted. We confirm the relevant income year and deadline
+                early.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-center gap-3">
-              <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-amber-200 dark:border-amber-800 w-full text-center">
+              <div className="p-4 rounded-lg bg-white/80 dark:bg-zinc-900/80 border border-amber-200 dark:border-amber-800 w-full text-center">
                 <span className="text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider block">
                   Standard 30 June Year End
                 </span>
@@ -169,7 +191,7 @@ export default function WhatRdIncentiveInvolves() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full h-11 rounded-xl font-semibold bg-amber-600 hover:bg-amber-700 border-none text-white shadow-md"
+                  className="w-full h-11 rounded-lg font-semibold bg-amber-600 hover:bg-amber-700 border-none text-white shadow-md"
                 >
                   Confirm Your Deadline
                 </Button>

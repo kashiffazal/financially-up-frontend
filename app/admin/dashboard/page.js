@@ -69,7 +69,10 @@ export default function Dashboard() {
   const isAdministrator = hasRole("administrator");
   // Staff without any client-application access get their own welcome dashboard
   const hasApplicationAccess =
-    isAdministrator || APPLICATION_MODULE_KEYS.some((key) => canViewModule(user?.permissions || [], key));
+    isAdministrator ||
+    APPLICATION_MODULE_KEYS.some((key) =>
+      canViewModule(user?.permissions || [], key),
+    );
 
   // State Management
   const [activeRange, setActiveRange] = useState("7D");
@@ -88,7 +91,7 @@ export default function Dashboard() {
 
   // Helper to format file sizes
   const formatFileSize = (bytes) => {
-    if (!bytes || bytes <= 0) return "—";
+    if (!bytes || bytes <= 0) return "-";
     const k = 1024;
     const sizes = ["B", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -389,7 +392,8 @@ export default function Dashboard() {
   }
 
   // Team & Security figures are only sent to staff with users.view / audit.view
-  const showTeamCard = metrics.activeStaff !== null && metrics.activeStaff !== undefined;
+  const showTeamCard =
+    metrics.activeStaff !== null && metrics.activeStaff !== undefined;
 
   return (
     <div className="space-y-6 pb-12 animate-fade-in">
@@ -535,7 +539,9 @@ export default function Dashboard() {
       </div>
 
       {/* ─── ROW 3: 4-CARD EXECUTIVE METRIC STRIP ─── */}
-      <div className={`grid grid-cols-1 sm:grid-cols-2 ${showTeamCard ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-4`}>
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 ${showTeamCard ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-4`}
+      >
         {/* Metric 1: Total Applications & Registrations */}
         <div className="bg-white dark:bg-zinc-900 p-5 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-[var(--brand-primary)]/40 transition-all group">
           <div className="flex items-center justify-between">
@@ -550,7 +556,7 @@ export default function Dashboard() {
                 <QuestionCircleOutlined className="text-xs text-slate-400 hover:text-[var(--brand-primary)] cursor-pointer" />
               </Tooltip>
             </div>
-            <div className="w-9 h-9 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center font-bold text-base border border-[var(--brand-primary)]/20">
+            <div className="w-9 h-9 rounded-lg bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center font-bold text-base border border-[var(--brand-primary)]/20">
               <FileTextOutlined />
             </div>
           </div>
@@ -584,7 +590,7 @@ export default function Dashboard() {
                 <QuestionCircleOutlined className="text-xs text-slate-400 hover:text-amber-500 cursor-pointer" />
               </Tooltip>
             </div>
-            <div className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-base border border-amber-200/60 dark:border-amber-800/40">
+            <div className="w-9 h-9 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-base border border-amber-200/60 dark:border-amber-800/40">
               <ClockCircleOutlined />
             </div>
           </div>
@@ -617,7 +623,7 @@ export default function Dashboard() {
                 <QuestionCircleOutlined className="text-xs text-slate-400 hover:text-emerald-500 cursor-pointer" />
               </Tooltip>
             </div>
-            <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base border border-emerald-200/60 dark:border-emerald-800/40">
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base border border-emerald-200/60 dark:border-emerald-800/40">
               <CheckCircleOutlined />
             </div>
           </div>
@@ -638,45 +644,45 @@ export default function Dashboard() {
 
         {/* Metric 4: Team Members & Security Activity */}
         {showTeamCard && (
-        <div className="bg-white dark:bg-zinc-900 p-5 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-400/40 transition-all group">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[11px] font-bold text-slate-600 dark:text-zinc-300 uppercase tracking-wider">
-                Team &amp; Security
-              </span>
-              <Tooltip
-                title="Active staff accounts with portal access, currently logged-in devices, and tamper-proof security audit records."
-                placement="top"
-              >
-                <QuestionCircleOutlined className="text-xs text-slate-400 hover:text-blue-500 cursor-pointer" />
-              </Tooltip>
+          <div className="bg-white dark:bg-zinc-900 p-5 rounded-card border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-400/40 transition-all group">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] font-bold text-slate-600 dark:text-zinc-300 uppercase tracking-wider">
+                  Team &amp; Security
+                </span>
+                <Tooltip
+                  title="Active staff accounts with portal access, currently logged-in devices, and tamper-proof security audit records."
+                  placement="top"
+                >
+                  <QuestionCircleOutlined className="text-xs text-slate-400 hover:text-blue-500 cursor-pointer" />
+                </Tooltip>
+              </div>
+              <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base border border-blue-200/60 dark:border-blue-800/40">
+                <SafetyCertificateOutlined />
+              </div>
             </div>
-            <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base border border-blue-200/60 dark:border-blue-800/40">
-              <SafetyCertificateOutlined />
+            <div className="mt-3">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-black text-slate-900 dark:text-white">
+                  {metrics.activeStaff}
+                </span>
+                <span className="text-xs font-semibold text-slate-400 dark:text-zinc-500">
+                  staff / {metrics.activeSessions} active sessions
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 mt-1.5 text-xs">
+                <Link
+                  href="/admin/audit-logs"
+                  className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  {metrics.totalAuditLogs} Activity Logs
+                </Link>
+                <span className="text-slate-400 dark:text-zinc-500">
+                  tamper-proof
+                </span>
+              </div>
             </div>
           </div>
-          <div className="mt-3">
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-black text-slate-900 dark:text-white">
-                {metrics.activeStaff}
-              </span>
-              <span className="text-xs font-semibold text-slate-400 dark:text-zinc-500">
-                staff / {metrics.activeSessions} active sessions
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5 mt-1.5 text-xs">
-              <Link
-                href="/admin/audit-logs"
-                className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                {metrics.totalAuditLogs} Activity Logs
-              </Link>
-              <span className="text-slate-400 dark:text-zinc-500">
-                tamper-proof
-              </span>
-            </div>
-          </div>
-        </div>
         )}
       </div>
 
@@ -1068,7 +1074,7 @@ export default function Dashboard() {
                           </Popover>
                         ) : (
                           <span className="text-slate-300 dark:text-zinc-600 text-xs font-mono">
-                            —
+                            -
                           </span>
                         )}
                       </td>
@@ -1248,7 +1254,7 @@ export default function Dashboard() {
         footer={null}
         width={720}
         centered
-        className="rounded-2xl"
+        className="rounded-lg"
       >
         {selectedApplication &&
           (() => {
@@ -1260,7 +1266,7 @@ export default function Dashboard() {
                 {/* Modal Header Bar */}
                 <div className="flex flex-wrap items-start justify-between gap-3 pb-3 border-b border-slate-100 dark:border-zinc-800">
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center text-xl font-bold shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center text-xl font-bold shrink-0">
                       <FileTextOutlined />
                     </div>
                     <div>
@@ -1300,7 +1306,7 @@ export default function Dashboard() {
                 </div>
 
                 {/* Key Details Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-800 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-800 text-xs">
                   <div>
                     <span className="text-slate-400 dark:text-zinc-500 block text-[11px]">
                       Contact Person
@@ -1355,7 +1361,7 @@ export default function Dashboard() {
                 </div>
 
                 {/* Official Generated PDFs Section */}
-                <div className="p-4 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
+                <div className="p-4 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 m-0">
                       <FilePdfOutlined className="text-rose-500 text-sm" />
@@ -1428,7 +1434,7 @@ export default function Dashboard() {
                 </div>
 
                 {/* Client Attached Files & Evidence */}
-                <div className="p-4 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
+                <div className="p-4 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5 m-0">
                       <PaperClipOutlined className="text-[var(--brand-primary)] text-sm" />

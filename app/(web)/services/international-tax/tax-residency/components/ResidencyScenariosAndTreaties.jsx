@@ -48,7 +48,9 @@ export default function ResidencyScenariosAndTreaties() {
             Residency Changes, Dual Residency & Treaties
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Whether arriving in Australia, departing for an overseas contract, or managing ties across jurisdictions, timing and statutory definitions dictate the tax consequences.
+            Whether arriving in Australia, departing for an overseas contract,
+            or managing ties across jurisdictions, timing and statutory
+            definitions dictate the tax consequences.
           </p>
         </div>
 
@@ -57,17 +59,27 @@ export default function ResidencyScenariosAndTreaties() {
           {/* Card 1: Moving to Australia */}
           <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-5">
                 <UserAddOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 Tax Residency When Moving to Australia
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A person moving to Australia may become an Australian resident for tax purposes from a particular date rather than automatically from the beginning of the financial year. The relevant date depends on the circumstances.
+                A person moving to Australia may become an Australian resident
+                for tax purposes from a particular date rather than
+                automatically from the beginning of the financial year. The
+                relevant date depends on the circumstances.
               </p>
               <p className="mt-4 text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Once a person becomes an Australian resident, Australian obligations can extend to foreign income, subject to applicable exemptions and special rules. For CGT, a new resident is generally taken to acquire certain assets that are not taxable Australian property at their market value when residency begins, unless an exception such as temporary-resident treatment applies. The records and valuation implications should be reviewed separately.
+                Once a person becomes an Australian resident, Australian
+                obligations can extend to foreign income, subject to applicable
+                exemptions and special rules. For CGT, a new resident is
+                generally taken to acquire certain assets that are not taxable
+                Australian property at their market value when residency begins,
+                unless an exception such as temporary-resident treatment
+                applies. The records and valuation implications should be
+                reviewed separately.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800">
@@ -83,17 +95,24 @@ export default function ResidencyScenariosAndTreaties() {
           {/* Card 2: Temporary Residents */}
           <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-5">
                 <IdcardOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 Temporary Residents
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                “Temporary resident” has a specific meaning under Australian tax law and should not be confused with simply being an Australian resident who happens to hold a temporary visa.
+                “Temporary resident” has a specific meaning under Australian tax
+                law and should not be confused with simply being an Australian
+                resident who happens to hold a temporary visa.
               </p>
               <p className="mt-4 text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A qualifying temporary resident can be an Australian resident for tax purposes while still receiving special treatment for certain foreign income and capital gains. The rules depend on matters including visa status and whether the individual or their spouse is an Australian resident within the meaning of the relevant social-security provisions.
+                A qualifying temporary resident can be an Australian resident
+                for tax purposes while still receiving special treatment for
+                certain foreign income and capital gains. The rules depend on
+                matters including visa status and whether the individual or
+                their spouse is an Australian resident within the meaning of the
+                relevant social-security provisions.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs font-medium text-slate-500 dark:text-zinc-400">
@@ -107,28 +126,37 @@ export default function ResidencyScenariosAndTreaties() {
           {/* Card 3: Dual Residency */}
           <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-2xl mb-5">
                 <GlobalOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 Can You Be a Tax Resident of Two Countries?
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Yes, it is possible for two countries' domestic laws to treat the same person as a tax resident. Where Australia has a double tax agreement with the other country, the treaty may contain rules for determining how dual residency is dealt with for treaty purposes.
+                Yes, it is possible for two countries' domestic laws to treat
+                the same person as a tax resident. Where Australia has a double
+                tax agreement with the other country, the treaty may contain
+                rules for determining how dual residency is dealt with for
+                treaty purposes.
               </p>
               <h4 className="mt-4 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-zinc-300">
                 Depending on the treaty, relevant matters can include:
               </h4>
               <div className="mt-3 space-y-2">
                 {dualResidencyFactors.map((f, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300">
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
                     <span>{f}</span>
                   </div>
                 ))}
               </div>
               <p className="mt-4 text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                The wording differs between treaties, so the relevant agreement needs to be considered rather than applying a single universal test.
+                The wording differs between treaties, so the relevant agreement
+                needs to be considered rather than applying a single universal
+                test.
               </p>
             </div>
           </div>
@@ -136,14 +164,16 @@ export default function ResidencyScenariosAndTreaties() {
           {/* Card 4: Leaving Australia */}
           <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
                 <UserDeleteOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 Tax Residency When Leaving Australia
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Leaving Australia does not automatically end Australian tax residency on the date of departure. Important questions can include:
+                Leaving Australia does not automatically end Australian tax
+                residency on the date of departure. Important questions can
+                include:
               </p>
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-slate-700 dark:text-zinc-300">
                 {leavingQuestions.map((q, idx) => (
@@ -154,7 +184,10 @@ export default function ResidencyScenariosAndTreaties() {
                 ))}
               </div>
               <p className="mt-4 text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                The residency analysis should reflect what actually occurred, not simply the original travel plan. Where residency ceases, separate Australian tax issues can arise in relation to income and capital assets.
+                The residency analysis should reflect what actually occurred,
+                not simply the original travel plan. Where residency ceases,
+                separate Australian tax issues can arise in relation to income
+                and capital assets.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800">

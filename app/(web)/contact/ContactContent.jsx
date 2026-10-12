@@ -37,7 +37,10 @@ const contactServiceOptions = [
   { value: "SMSF Accounting", label: "SMSF Accounting & Audit" },
   { value: "Trusts & Asset Protection", label: "Trusts & Asset Structuring" },
   { value: "Property Tax & CGT", label: "Property Tax & Capital Gains" },
-  { value: "Business Advisory & CFO", label: "Business Advisory & Virtual CFO" },
+  {
+    value: "Business Advisory & CFO",
+    label: "Business Advisory & Virtual CFO",
+  },
   { value: "ATO Overdue & Audit Help", label: "ATO Letters & Debt Management" },
   { value: "General Enquiry", label: "General Accounting Question" },
 ];
@@ -51,16 +54,24 @@ const contactFaqs = [
     label: "How quickly will an accountant respond to my enquiry?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        We respond to all contact submissions and email enquiries within 1 business day (and typically within 2 to 4 business hours). If your matter is urgent, we recommend calling us directly on our dedicated phone line or booking a same-day appointment.
+        We respond to all contact submissions and email enquiries within 1
+        business day (and typically within 2 to 4 business hours). If your
+        matter is urgent, we recommend calling us directly on our dedicated
+        phone line or booking a same-day appointment.
       </p>
     ),
   },
   {
     key: "2",
-    label: "Do I need to visit an office in person or is everything 100% online?",
+    label:
+      "Do I need to visit an office in person or is everything 100% online?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up is fully optimized for 100% online service across all Australian states. You can securely upload your documents, communicate via phone or video call, and sign documents electronically from your phone or laptop. In-person meetings are also available at our North Sydney head office by prior appointment.
+        Financially Up is fully optimized for 100% online service across all
+        Australian states. You can securely upload your documents, communicate
+        via phone or video call, and sign documents electronically from your
+        phone or laptop. In-person meetings are also available at our North
+        Sydney head office by prior appointment.
       </p>
     ),
   },
@@ -69,7 +80,11 @@ const contactFaqs = [
     label: "What documents should I prepare before our initial discussion?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        For individual tax returns, having your PAYG payment summary, private health statement, and deduction receipts ready is helpful. For businesses, access to your cloud accounting software (Xero, MYOB, QuickBooks) or your prior year&apos;s financial statements and BAS records will help us give you an exact quote and turnaround timeframe.
+        For individual tax returns, having your PAYG payment summary, private
+        health statement, and deduction receipts ready is helpful. For
+        businesses, access to your cloud accounting software (Xero, MYOB,
+        QuickBooks) or your prior year&apos;s financial statements and BAS
+        records will help us give you an exact quote and turnaround timeframe.
       </p>
     ),
   },
@@ -78,7 +93,10 @@ const contactFaqs = [
     label: "How is my personal and financial information protected?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        We take data confidentiality very seriously. Our portals utilize bank-grade 256-bit SSL encryption, and as registered Australian tax agents, we strictly adhere to the Privacy Act 1988 and the Tax Practitioners Board (TPB) Code of Professional Conduct.
+        We take data confidentiality very seriously. Our portals utilize
+        bank-grade 256-bit SSL encryption, and as registered Australian tax
+        agents, we strictly adhere to the Privacy Act 1988 and the Tax
+        Practitioners Board (TPB) Code of Professional Conduct.
       </p>
     ),
   },
@@ -87,7 +105,9 @@ const contactFaqs = [
     label: "Can I book a complimentary discovery consultation?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes! We offer a complimentary 15-minute phone or video discovery consultation to discuss your specific accounting or tax situation and provide an upfront fixed fee quote with zero obligation.
+        Yes! We offer a complimentary 15-minute phone or video discovery
+        consultation to discuss your specific accounting or tax situation and
+        provide an upfront fixed fee quote with zero obligation.
       </p>
     ),
   },
@@ -109,16 +129,13 @@ export default function ContactContent() {
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  // When the form became interactive — very fast submissions are treated as bots
+  // When the form became interactive - very fast submissions are treated as bots
   const formOpenedAtRef = useRef(null);
   useEffect(() => {
     formOpenedAtRef.current = Date.now();
   }, []);
 
-  const breadcrumbs = [
-    { label: "Home", href: "/" },
-    { label: "Contact Us" },
-  ];
+  const breadcrumbs = [{ label: "Home", href: "/" }, { label: "Contact Us" }];
 
   /** Send the enquiry to the practice (stored + staff notified). Errors are shown by HTTP(). */
   const handleFinish = async (values) => {
@@ -127,7 +144,9 @@ export default function ContactContent() {
       const res = await HTTP("POST", "/contact-enquiries", {
         ...values,
         source: "contact_page",
-        formElapsedMs: formOpenedAtRef.current ? Date.now() - formOpenedAtRef.current : undefined,
+        formElapsedMs: formOpenedAtRef.current
+          ? Date.now() - formOpenedAtRef.current
+          : undefined,
       });
       if (res?.success) {
         setSubmitted(true);
@@ -154,7 +173,6 @@ export default function ContactContent() {
       {/* 2. Main Contact Grid (Contact Cards & Interactive Form) */}
       <section className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          
           {/* Left Column: Direct Contact Details & Practice Information (Span 5) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
@@ -166,16 +184,18 @@ export default function ContactContent() {
                 We&apos;re Here to Help Your Finances Grow
               </h2>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Whether you need assistance with an overdue tax return, company BAS lodgements, or strategic Virtual CFO advice, our qualified team is ready to assist.
+                Whether you need assistance with an overdue tax return, company
+                BAS lodgements, or strategic Virtual CFO advice, our qualified
+                team is ready to assist.
               </p>
             </div>
 
             {/* Contact Method Cards Stack */}
             <div className="space-y-3.5">
               {/* Phone Card */}
-              <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-2xs transition-all group">
+              <div className="p-4 sm:p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-2xs transition-all group">
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
                     <PhoneOutlined />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -201,9 +221,9 @@ export default function ContactContent() {
               </div>
 
               {/* Email Card */}
-              <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-2xs transition-all group">
+              <div className="p-4 sm:p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-2xs transition-all group">
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
                     <MailOutlined />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -229,9 +249,9 @@ export default function ContactContent() {
               </div>
 
               {/* Head Office Card */}
-              <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-2xs transition-all group">
+              <div className="p-4 sm:p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-2xs transition-all group">
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
                     <EnvironmentOutlined />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -249,7 +269,7 @@ export default function ContactContent() {
               </div>
 
               {/* Registered Agent & Credentials Pill */}
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/50 border border-slate-200/70 dark:border-zinc-800 flex items-center justify-between text-xs">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900/50 border border-slate-200/70 dark:border-zinc-800 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 text-slate-700 dark:text-zinc-300 font-semibold">
                   <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400 text-sm" />
                   <span>Tax Practitioners Board Registered</span>
@@ -261,7 +281,7 @@ export default function ContactContent() {
             </div>
 
             {/* Direct Booking Highlight Banner */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-emerald-950 to-[#00381e] text-white shadow-lg space-y-3">
+            <div className="p-5 rounded-lg bg-gradient-to-br from-emerald-950 to-[#00381e] text-white shadow-lg space-y-3">
               <div className="flex items-center gap-2">
                 <CalendarOutlined className="text-emerald-300 text-base" />
                 <h4 className="text-sm font-bold text-white">
@@ -269,11 +289,12 @@ export default function ContactContent() {
                 </h4>
               </div>
               <p className="text-xs text-emerald-100 leading-relaxed font-normal">
-                Select a convenient 15-minute slot directly on our live calendar for a complimentary phone or video consultation.
+                Select a convenient 15-minute slot directly on our live calendar
+                for a complimentary phone or video consultation.
               </p>
               <Link
                 href="/book-an-appointment"
-                className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white text-xs font-bold transition-all shadow-sm"
+                className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white text-xs font-bold transition-all shadow-sm"
               >
                 <span>Book Free Discovery Call</span>
                 <RightOutlined className="text-[10px]" />
@@ -284,7 +305,6 @@ export default function ContactContent() {
           {/* Right Column: Interactive Contact Form (Span 7) */}
           <div className="lg:col-span-7">
             <div className="p-6 sm:p-9 rounded-3xl border border-slate-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl transition-all relative">
-              
               {/* Header Title inside Form Container */}
               <div className="mb-6 space-y-1.5 pb-4 border-b border-slate-100 dark:border-zinc-800">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400">
@@ -295,20 +315,23 @@ export default function ContactContent() {
                   Send Us a Direct Message
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
-                  Fill in your details below and one of our Australian CPA accountants will review and respond within 24 hours.
+                  Fill in your details below and one of our Australian CPA
+                  accountants will review and respond within 24 hours.
                 </p>
               </div>
 
               {/* Form Success State Notification */}
               {submitted && (
-                <div className="mb-6 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-start gap-3">
-                  <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
+                <div className="mb-6 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-start gap-3">
+                  <CheckCircleFilled className="text-brand-primary! dark:text-emerald-400! text-lg mt-0.5 shrink-0" />
                   <div className="space-y-1">
                     <h5 className="text-sm font-bold text-slate-900 dark:text-white">
                       Message Successfully Sent!
                     </h5>
                     <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-                      Thank you for contacting Financially Up. We have received your enquiry and an accountant will review your details and contact you shortly.
+                      Thank you for contacting Financially Up. We have received
+                      your enquiry and an accountant will review your details
+                      and contact you shortly.
                     </p>
                   </div>
                 </div>
@@ -328,7 +351,13 @@ export default function ContactContent() {
                 {/* Anti-spam honeypot: display:none so browsers and password managers never autofill it; bots reading the HTML still do */}
                 <div aria-hidden="true" hidden style={{ display: "none" }}>
                   <Form.Item name="fu_contact_trap" noStyle>
-                    <input type="text" tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore="true" />
+                    <input
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      data-lpignore="true"
+                      data-1p-ignore="true"
+                    />
                   </Form.Item>
                 </div>
 
@@ -410,7 +439,10 @@ export default function ContactContent() {
                 <div className="pt-2 space-y-4">
                   <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-zinc-400">
                     <LockOutlined className="text-emerald-500" />
-                    <span>Your data is strictly confidential and protected by Australian privacy standards.</span>
+                    <span>
+                      Your data is strictly confidential and protected by
+                      Australian privacy standards.
+                    </span>
                   </div>
 
                   <Button
@@ -418,16 +450,14 @@ export default function ContactContent() {
                     htmlType="submit"
                     loading={submitting}
                     icon={<SendOutlined />}
-                    className="w-full h-12 rounded-xl font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-700/20 transition-all cursor-pointer"
+                    className="w-full h-12 rounded-lg font-bold text-sm bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-700/20 transition-all cursor-pointer"
                   >
                     {submitting ? "Sending Your Enquiry..." : "Submit Message"}
                   </Button>
                 </div>
               </Form>
-
             </div>
           </div>
-
         </div>
       </section>
 
@@ -439,7 +469,8 @@ export default function ContactContent() {
               100% Online Accounting Nationwide
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
-              No matter where you are located across Australia, you get direct access to certified CPA professionals.
+              No matter where you are located across Australia, you get direct
+              access to certified CPA professionals.
             </p>
           </div>
 
@@ -452,7 +483,7 @@ export default function ContactContent() {
             ].map((reg, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-2xs"
+                className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 shadow-2xs"
               >
                 <div className="text-sm font-bold text-brand-primary dark:text-emerald-400">
                   {reg.region}

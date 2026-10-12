@@ -104,11 +104,11 @@ export default function SoleTradersWeAssist() {
           {clientGroups.map((group, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105">
                     {group.icon}
                   </div>
                   <Tag className="text-[11px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 border-none m-0 shadow-2xs">
@@ -137,7 +137,7 @@ export default function SoleTradersWeAssist() {
         </div>
 
         {/* Verbatim Contextual Scenario Callout */}
-        <div className="rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-6 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
+        <div className="rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-6 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
           <div className="flex items-start gap-3.5 max-w-3xl">
             <InfoCircleOutlined className="text-amber-600 dark:text-amber-400 text-xl mt-0.5 shrink-0" />
             <p className="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed font-normal">
@@ -151,7 +151,7 @@ export default function SoleTradersWeAssist() {
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
-                className="w-full md:w-auto font-bold rounded-xl bg-amber-700 hover:bg-amber-800 text-white border-none h-10 px-5"
+                className="w-full md:w-auto font-bold rounded-lg bg-amber-700 hover:bg-amber-800 text-white border-none h-10 px-5"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

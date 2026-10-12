@@ -41,11 +41,11 @@ export default function Step1FundInfo() {
         reqMsg="Name of SMSF is required"
         preIconAnt={<SafetyCertificateOutlined className="text-slate-400" />}
         size="large"
-        className="rounded-xl"
+        className="rounded-lg"
         containerClassName="!mb-2"
       />
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
           Founder / Establishing Party Details
         </span>
@@ -63,7 +63,7 @@ export default function Step1FundInfo() {
             emptyFirstVal="- Select Founder Type -"
             reqMsg="Founder type is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -78,7 +78,7 @@ export default function Step1FundInfo() {
             placeholder="e.g. Jonathan Smith or Acme Pty Ltd"
             reqMsg="Name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -95,7 +95,7 @@ export default function Step1FundInfo() {
           noRequired={true}
           preIconAnt={<IdcardOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-0 !mt-2"
         />
       </div>

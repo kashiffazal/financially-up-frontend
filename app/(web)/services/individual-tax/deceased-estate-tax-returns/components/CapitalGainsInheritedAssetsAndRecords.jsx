@@ -48,14 +48,20 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
         {/* Section 5: Capital Gains and Inherited Assets */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               CGT &amp; Inherited Property
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Capital Gains and Inherited Assets
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Death itself does not generally trigger CGT merely because an asset passes to a legal personal representative or beneficiary. CGT may arise if the estate or beneficiary later disposes of the asset.
+              Death itself does not generally trigger CGT merely because an
+              asset passes to a legal personal representative or beneficiary.
+              CGT may arise if the estate or beneficiary later disposes of the
+              asset.
             </p>
           </div>
 
@@ -65,7 +71,8 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
                 Cost Base Rules for Inherited Property &amp; Investments
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Inherited property, shares and other investments can have specific cost-base rules. The treatment may depend on:
+                Inherited property, shares and other investments can have
+                specific cost-base rules. The treatment may depend on:
               </p>
             </div>
 
@@ -73,7 +80,7 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
               {cgtFactors.map((factor, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-zinc-200 font-medium"
+                  className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-zinc-200 font-medium"
                 >
                   <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 text-xs" />
                   <span>{factor}</span>
@@ -101,7 +108,10 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
               </p>
               <div className="flex items-center gap-3 shrink-0">
                 <Link href="/services/individual-tax/capital-gains-tax">
-                  <Button type="link" className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline text-xs">
+                  <Button
+                    type="link"
+                    className="p-0 font-bold text-brand-primary dark:text-emerald-400 hover:underline text-xs"
+                  >
                     Capital Gains Tax <ArrowRightOutlined className="text-xs" />
                   </Button>
                 </Link>
@@ -113,14 +123,19 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
         {/* Section 6: Records You May Need */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Documentation Checklist
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Records You May Need
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Assembling accurate documentation is critical for preparing both the deceased person&apos;s final individual return and any required trust returns for the estate.
+              Assembling accurate documentation is critical for preparing both
+              the deceased person&apos;s final individual return and any
+              required trust returns for the estate.
             </p>
           </div>
 
@@ -133,7 +148,7 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
               {recordsList.map((record, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-zinc-200 font-medium"
+                  className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-zinc-200 font-medium"
                 >
                   <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 text-xs" />
                   <span>{record}</span>
@@ -142,11 +157,15 @@ export default function CapitalGainsInheritedAssetsAndRecords() {
             </div>
 
             {/* Statutory Retention Note */}
-            <div className="p-5 rounded-2xl bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/50 text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
+            <div className="p-5 rounded-lg bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/50 text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
               <span className="font-bold block mb-1">
                 Reasonable Basis &amp; 5-Year Retention Requirement:
               </span>
-              Missing records do not necessarily prevent an initial review, but figures should not be estimated without a reasonable basis. Records for inherited assets may need to be retained until at least five years after a later disposal or other relevant CGT event.
+              Missing records do not necessarily prevent an initial review, but
+              figures should not be estimated without a reasonable basis.
+              Records for inherited assets may need to be retained until at
+              least five years after a later disposal or other relevant CGT
+              event.
             </div>
           </div>
         </div>

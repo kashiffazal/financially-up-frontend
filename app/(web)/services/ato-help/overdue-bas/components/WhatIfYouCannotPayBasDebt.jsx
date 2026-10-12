@@ -22,19 +22,25 @@ export default function WhatIfYouCannotPayBasDebt() {
       title: "Lodgement vs Payment Separation",
       description:
         "Lodgment and payment are separate obligations. It can still be important to lodge an accurate BAS even when the full amount cannot be paid immediately. Once the activity statements are up to date, the actual account balance is clearer and payment options can be considered on the correct figures.",
-      icon: <ReconciliationOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ReconciliationOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "Daily Compounding Interest (GIC)",
       description:
         "Amounts that remain unpaid after their due date generally attract general interest charge, calculated daily on a compounding basis. (Note: from 1 July 2025, newly incurred GIC is no longer tax deductible).",
-      icon: <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       title: "Ongoing Compliance Conditions",
       description:
         "A standard payment plan does not stop GIC from accruing and does not remove the need to keep future lodgments and payments current. New quarterly BAS liabilities must be funded separately.",
-      icon: <CalendarOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
     },
   ];
 
@@ -50,10 +56,19 @@ export default function WhatIfYouCannotPayBasDebt() {
           </h2>
           <div className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed space-y-4">
             <p>
-              Lodgment and payment are separate obligations. It can still be important to lodge an accurate BAS even when the full amount cannot be paid immediately. Once the activity statements are up to date, the actual account balance is clearer and payment options can be considered on the correct figures.
+              Lodgment and payment are separate obligations. It can still be
+              important to lodge an accurate BAS even when the full amount
+              cannot be paid immediately. Once the activity statements are up to
+              date, the actual account balance is clearer and payment options
+              can be considered on the correct figures.
             </p>
             <p>
-              Amounts that remain unpaid after their due date generally attract general interest charge, calculated daily on a compounding basis. If overdue BAS has created or increased an ATO debt, our ATO debt service can address the debt and payment side separately. A standard payment plan does not stop GIC from accruing and does not remove the need to keep future lodgments and payments current.
+              Amounts that remain unpaid after their due date generally attract
+              general interest charge, calculated daily on a compounding basis.
+              If overdue BAS has created or increased an ATO debt, our ATO debt
+              service can address the debt and payment side separately. A
+              standard payment plan does not stop GIC from accruing and does not
+              remove the need to keep future lodgments and payments current.
             </p>
           </div>
         </div>
@@ -63,10 +78,10 @@ export default function WhatIfYouCannotPayBasDebt() {
           {principles.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3">
@@ -81,12 +96,15 @@ export default function WhatIfYouCannotPayBasDebt() {
         </div>
 
         {/* Debt Help Practice Link */}
-        <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-blue-500/10 border border-emerald-500/20 dark:border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-6 rounded-lg bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-blue-500/10 border border-emerald-500/20 dark:border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3">
             <WarningOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 mt-1 sm:mt-0 flex-shrink-0" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200">
-              Need to negotiate an instalment plan for accumulated BAS liabilities? Visit our dedicated{" "}
-              <strong className="text-slate-900 dark:text-white font-semibold">ATO Payment Plan Help practice</strong>{" "}
+              Need to negotiate an instalment plan for accumulated BAS
+              liabilities? Visit our dedicated{" "}
+              <strong className="text-slate-900 dark:text-white font-semibold">
+                ATO Payment Plan Help practice
+              </strong>{" "}
               for sustainable cash-flow proposals.
             </p>
           </div>

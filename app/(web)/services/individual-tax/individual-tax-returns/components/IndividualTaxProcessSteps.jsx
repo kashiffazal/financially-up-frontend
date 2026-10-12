@@ -94,14 +94,14 @@ export default function IndividualTaxProcessSteps() {
           {processSteps.map((step, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/50 transition-all duration-300"
+              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/50 transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl font-black text-brand-primary dark:text-emerald-400 tracking-tight">
                     {step.step}
                   </span>
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center shadow-2xs">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center shadow-2xs">
                     {step.icon}
                   </div>
                 </div>
@@ -122,13 +122,13 @@ export default function IndividualTaxProcessSteps() {
           ))}
 
           {/* Box 6: Additional Action Card */}
-          <div className="flex flex-col justify-between bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-6 sm:p-7 border border-emerald-800 shadow-lg">
+          <div className="flex flex-col justify-between bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-lg p-6 sm:p-7 border border-emerald-800 shadow-lg">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-200 px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700/60">
                   Ready to Start?
                 </span>
-                <div className="w-12 h-12 rounded-xl bg-emerald-800/50 border border-emerald-700/50 flex items-center justify-center shadow-2xs">
+                <div className="w-12 h-12 rounded-lg bg-emerald-800/50 border border-emerald-700/50 flex items-center justify-center shadow-2xs">
                   <ArrowRightOutlined className="text-emerald-300 text-lg" />
                 </div>
               </div>
@@ -151,7 +151,7 @@ export default function IndividualTaxProcessSteps() {
                   size="middle"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-white text-emerald-950 hover:bg-emerald-50 border-none shadow-md h-10"
+                  className="w-full rounded-lg font-bold bg-white text-emerald-950 hover:bg-emerald-50 border-none shadow-md h-10"
                 >
                   Book Appointment
                 </Button>
@@ -165,7 +165,7 @@ export default function IndividualTaxProcessSteps() {
                   <Button
                     size="middle"
                     icon={<PhoneOutlined />}
-                    className="w-full rounded-xl font-bold bg-white/10 hover:bg-white/15 text-white border-white/20 h-10"
+                    className="w-full rounded-lg font-bold bg-white/10 hover:bg-white/15 text-white border-white/20 h-10"
                   >
                     Call Now
                   </Button>

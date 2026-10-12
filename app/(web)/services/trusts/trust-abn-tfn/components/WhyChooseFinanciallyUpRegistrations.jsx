@@ -27,22 +27,30 @@ export default function WhyChooseFinanciallyUpRegistrations() {
 
   const advantages = [
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-brand-emerald" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-brand-emerald" />
+      ),
       title: "Registered Tax Agent #26234055",
       desc: "Licensed under the Tax Practitioners Board with direct access to ATO tax professional services and portal lodgements.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       desc: "Our team brings more than 10 years of experience across accounting, taxation, bookkeeping and business advisory services.",
     },
     {
-      icon: <GlobalOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Appointments",
       desc: "We support clients across all states and territories through convenient online appointments, with in-person appointments also available.",
     },
     {
-      icon: <AimOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AimOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Aligned Entity & Tax Setup",
       desc: "For trust registrations, the focus is on getting the entity details, registration basis and tax setup aligned from the beginning.",
     },
@@ -53,18 +61,23 @@ export default function WhyChooseFinanciallyUpRegistrations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why choose Financially Up?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience
-            across accounting, taxation, bookkeeping and business advisory services. Our team includes CPA and IPA
-            members. We support clients Australia-wide through online appointments, with in-person appointments also
-            available. For trust registrations, the focus is on getting the entity details, registration basis and tax
-            setup aligned from the beginning.
+            {company.legalName || "Financially Up"} is a registered tax agent
+            with more than 10 years of experience across accounting, taxation,
+            bookkeeping and business advisory services. Our team includes CPA
+            and IPA members. We support clients Australia-wide through online
+            appointments, with in-person appointments also available. For trust
+            registrations, the focus is on getting the entity details,
+            registration basis and tax setup aligned from the beginning.
           </p>
         </div>
 
@@ -73,10 +86,10 @@ export default function WhyChooseFinanciallyUpRegistrations() {
           {advantages.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -91,15 +104,15 @@ export default function WhyChooseFinanciallyUpRegistrations() {
         </div>
 
         {/* Contact Action Box */}
-        <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="p-8 sm:p-10 rounded-lg bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2 max-w-2xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <CheckCircleOutlined className="text-brand-emerald" />
               Speak with an Australian Trust Registration Specialist
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Review your trust deed, confirm ABN enterprise entitlement and complete your trust TFN application with
-              precision. Call us at{" "}
+              Review your trust deed, confirm ABN enterprise entitlement and
+              complete your trust TFN application with precision. Call us at{" "}
               {company.phone ? (
                 <a
                   href={`tel:${company.phone.replace(/\s/g, "")}`}
@@ -117,7 +130,7 @@ export default function WhyChooseFinanciallyUpRegistrations() {
             {company.phone && (
               <a
                 href={`tel:${company.phone.replace(/\s/g, "")}`}
-                className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 dark:text-zinc-200 bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-700 dark:text-zinc-200 bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 transition-colors"
               >
                 <PhoneOutlined className="mr-2" />
                 {company.phone}
@@ -126,7 +139,7 @@ export default function WhyChooseFinanciallyUpRegistrations() {
             <Link href="/book-an-appointment" className="w-full sm:w-auto">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPosition="end"
               >

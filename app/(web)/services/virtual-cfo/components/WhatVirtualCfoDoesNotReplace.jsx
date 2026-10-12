@@ -31,34 +31,49 @@ export default function WhatVirtualCfoDoesNotReplace() {
    */
   const boundaries = [
     {
-      icon: <BookOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BookOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Bookkeeping",
       role: "Transactional Processing",
-      description: "Day-to-day invoice entry, payroll processing, and weekly bank reconciliations.",
+      description:
+        "Day-to-day invoice entry, payroll processing, and weekly bank reconciliations.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Tax Return Preparation",
       role: "Statutory Lodgements",
-      description: "Preparing and lodging annual company tax returns and compliance schedules with the ATO.",
+      description:
+        "Preparing and lodging annual company tax returns and compliance schedules with the ATO.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Audit & Assurance",
       role: "Independent Audit",
-      description: "Statutory audits and formal independent assurance opinions on financial reports.",
+      description:
+        "Statutory audits and formal independent assurance opinions on financial reports.",
     },
     {
-      icon: <CompassOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Legal Advice",
       role: "Legal Counsel",
-      description: "Drafting shareholder agreements, commercial contracts, or formal legal representation.",
+      description:
+        "Drafting shareholder agreements, commercial contracts, or formal legal representation.",
     },
     {
-      icon: <BankOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Regulated Product Advice",
       role: "Financial Advisory",
-      description: "Advice on regulated financial products, wealth investments, or AFSL retail recommendations.",
+      description:
+        "Advice on regulated financial products, wealth investments, or AFSL retail recommendations.",
     },
   ];
 
@@ -81,7 +96,14 @@ export default function WhatVirtualCfoDoesNotReplace() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A virtual CFO service is not automatically the same as bookkeeping, tax return preparation, audit, legal advice or regulated financial product advice. Those functions can interact, but they have different purposes and professional boundaries. Financially Up can coordinate accounting, tax, bookkeeping and business advisory work within scope. Where legal advice or regulated financial product advice is required, an appropriately qualified or authorised professional may also be needed.
+            A virtual CFO service is not automatically the same as bookkeeping,
+            tax return preparation, audit, legal advice or regulated financial
+            product advice. Those functions can interact, but they have
+            different purposes and professional boundaries. Financially Up can
+            coordinate accounting, tax, bookkeeping and business advisory work
+            within scope. Where legal advice or regulated financial product
+            advice is required, an appropriately qualified or authorised
+            professional may also be needed.
           </p>
         </div>
 
@@ -90,10 +112,10 @@ export default function WhatVirtualCfoDoesNotReplace() {
           {boundaries.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 shadow-2xs hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
+              className="p-5 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 shadow-2xs hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center mb-3.5 shadow-2xs">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center mb-3.5 shadow-2xs">
                   {item.icon}
                 </div>
                 <span className="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider block mb-1">
@@ -111,7 +133,7 @@ export default function WhatVirtualCfoDoesNotReplace() {
         </div>
 
         {/* Bookkeeping Gateway Box (Exact Verbatim Paragraph 2) */}
-        <div className="rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 lg:p-10">
+        <div className="rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 lg:p-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="max-w-3xl space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 text-xs font-semibold">
@@ -123,7 +145,9 @@ export default function WhatVirtualCfoDoesNotReplace() {
               </h3>
               {/* Exact Verbatim Paragraph 2 from Document */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-                If the records themselves need regular processing or clean-up before management reporting is reliable, our bookkeeping services may be the more appropriate starting point.
+                If the records themselves need regular processing or clean-up
+                before management reporting is reliable, our bookkeeping
+                services may be the more appropriate starting point.
               </p>
             </div>
 
@@ -134,7 +158,7 @@ export default function WhatVirtualCfoDoesNotReplace() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full sm:w-auto h-11 px-6 rounded-xl font-semibold shadow-xs hover:scale-[1.01] transition-all"
+                  className="w-full sm:w-auto h-11 px-6 rounded-lg font-semibold shadow-xs hover:scale-[1.01] transition-all"
                 >
                   Bookkeeping Services
                 </Button>

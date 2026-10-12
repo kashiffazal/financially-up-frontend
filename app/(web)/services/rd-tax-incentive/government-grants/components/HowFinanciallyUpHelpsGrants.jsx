@@ -41,8 +41,8 @@ export default function HowFinanciallyUpHelpsGrants() {
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Our government grant application services provide structured support without implying
-            that an application will be approved.
+            Our government grant application services provide structured support
+            without implying that an application will be approved.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function HowFinanciallyUpHelpsGrants() {
           {serviceList.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 hover:border-emerald-500/40 transition-colors"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 hover:border-emerald-500/40 transition-colors"
             >
               <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0 text-base" />
               <div>
@@ -67,15 +67,19 @@ export default function HowFinanciallyUpHelpsGrants() {
         </div>
 
         {/* Specialist Boundary Alert */}
-        <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-slate-200/80 dark:bg-zinc-700 flex items-center justify-center shrink-0 text-slate-700 dark:text-zinc-200">
+        <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="w-10 h-10 rounded-lg bg-slate-200/80 dark:bg-zinc-700 flex items-center justify-center shrink-0 text-slate-700 dark:text-zinc-200">
             <AlertOutlined className="text-lg" />
           </div>
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
             <strong className="font-semibold text-slate-900 dark:text-white">
               Specialist Advisory Demarcation:
             </strong>{" "}
-            Where legal, engineering, scientific, technical or other specialist evidence is required, the applicant may need input from an appropriately qualified adviser. Professional grant support is not a substitute for evidence the guidelines require from another specialist.
+            Where legal, engineering, scientific, technical or other specialist
+            evidence is required, the applicant may need input from an
+            appropriately qualified adviser. Professional grant support is not a
+            substitute for evidence the guidelines require from another
+            specialist.
           </p>
         </div>
       </div>

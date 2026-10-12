@@ -67,7 +67,7 @@ export default function DividendsAndFrankingCredits() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
                     <DollarOutlined />
                   </div>
                   <Tag className="m-0 font-semibold text-2xs uppercase tracking-wider py-0.5 px-2.5 rounded-full border-slate-300 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">
@@ -106,7 +106,7 @@ export default function DividendsAndFrankingCredits() {
                 dividend and attached franking credit are generally included in
                 assessable income, and the credit may provide a tax offset.
               </p>
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
                 <span className="font-bold text-slate-900 dark:text-white block mb-1">
                   Holding Period Requirements:
                 </span>
@@ -137,7 +137,7 @@ export default function DividendsAndFrankingCredits() {
                 prepared, so it should not replace the investor’s own statements
                 and records.
               </p>
-              <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+              <div className="p-4 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                 <span className="font-bold block mb-1">
                   Our Professional Audit Check:
                 </span>

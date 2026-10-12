@@ -22,37 +22,49 @@ export default function HowBasCatchUpServiceWorks() {
       num: "1",
       title: "Audit Lodgement History",
       desc: "confirm which activity statements are outstanding and whether any periods have already been lodged or ATO-finalized",
-      icon: <HistoryOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       num: "2",
       title: "Reconcile Bookkeeping",
       desc: "bring bookkeeping and reconciliations up to date where necessary",
-      icon: <ReconciliationOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ReconciliationOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       num: "3",
       title: "Technical Tax & GST Review",
       desc: "review GST coding, sales, purchases, payroll and other BAS labels relevant to the business",
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
     },
     {
       num: "4",
       title: "Preparation & Client Approval",
       desc: "prepare each overdue BAS using the available records and obtain client approval for lodgment",
-      icon: <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
     },
     {
       num: "5",
       title: "Sequential Lodgement",
       desc: "lodge the outstanding statements and review the resulting ATO account position",
-      icon: <CloudUploadOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CloudUploadOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       num: "6",
       title: "Debt & Penalty Separation",
       desc: "identify any further debt, penalty, payment-plan or registration work that should be handled separately.",
-      icon: <BankOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
   ];
 
@@ -67,7 +79,12 @@ export default function HowBasCatchUpServiceWorks() {
             How does a BAS catch up service work?
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            A catch-up engagement is normally handled in stages so the figures remain traceable and later periods are not built on incorrect opening balances. Financially Up may first review the ATO activity statement history, accounting file, bank reconciliations and payroll records. We then identify the missing work and prepare the overdue periods in sequence.
+            A catch-up engagement is normally handled in stages so the figures
+            remain traceable and later periods are not built on incorrect
+            opening balances. Financially Up may first review the ATO activity
+            statement history, accounting file, bank reconciliations and payroll
+            records. We then identify the missing work and prepare the overdue
+            periods in sequence.
           </p>
         </div>
 
@@ -76,11 +93,11 @@ export default function HowBasCatchUpServiceWorks() {
           {processSteps.map((step, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 transition-transform">
                     {step.icon}
                   </div>
                   <span className="text-sm font-black text-slate-300 dark:text-zinc-700 font-mono">

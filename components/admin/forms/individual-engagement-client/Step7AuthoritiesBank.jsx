@@ -69,7 +69,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
       </div>
 
       {/* Representative Section (REP-001 to REP-005) */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="isSelf"
@@ -106,7 +106,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 }
                 placeholder="Enter representative name"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Enter representative name."
                 containerClassName="!mb-2"
               />
@@ -122,7 +122,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 options={RELATIONSHIP_OPTIONS}
                 placeholder="Select Relationship"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Select relationship."
                 containerClassName="!mb-2"
               />
@@ -140,7 +140,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 noRequired={true}
                 type="4"
                 height={149}
-                className="rounded-xl"
+                className="rounded-lg"
               />
 
               <AntInput
@@ -153,7 +153,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 }
                 placeholder="Provide brief details regarding your authority to act..."
                 rows={5}
-                className="rounded-xl !h-[150px]"
+                className="rounded-lg !h-[150px]"
                 noRequired={true}
                 containerClassName="!mb-0"
               />
@@ -163,7 +163,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
       </div>
 
       {/* Bank Account Section (BANK-001 to BANK-005) */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <AntInput
           type="radio"
           name="needBank"
@@ -204,7 +204,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 }
                 placeholder="e.g. John Smith"
                 size="large"
-                className="rounded-xl"
+                className="rounded-lg"
                 reqMsg="Enter account name."
                 containerClassName="!mb-2"
               />
@@ -219,7 +219,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 placeholder="000-000"
                 size="large"
                 maxLength={7}
-                className="rounded-xl font-mono"
+                className="rounded-lg font-mono"
                 rules={[
                   { required: true, message: "Enter BSB." },
                   {
@@ -239,7 +239,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 }
                 placeholder="12345678"
                 size="large"
-                className="rounded-xl font-mono"
+                className="rounded-lg font-mono"
                 reqMsg="Enter account number."
                 containerClassName="!mb-2"
               />
@@ -264,7 +264,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
       </div>
 
       {/* Statutory Authorities Section */}
-      <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-3">
           <h4 className="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
             <SafetyCertificateOutlined className="text-brand-primary" />{" "}
@@ -274,7 +274,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
             type="default"
             icon={<BookOutlined />}
             onClick={() => setAuthorityModalOpen(true)}
-            className="rounded-xl font-bold text-xs"
+            className="rounded-lg font-bold text-xs"
           >
             View Authority Details
           </Button>
@@ -354,7 +354,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -362,7 +362,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setAuthorityModalOpen(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-6 h-10 shadow-md"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-6 h-10 shadow-md"
             >
               Understood
             </Button>
@@ -376,8 +376,8 @@ export default function Step7AuthoritiesBank({ form, formData }) {
                 FINANCIALLY UP PTY LTD
               </h2>
               <p className="text-xs text-slate-500 m-0">
-                Registered Tax Agent #{company.taxAgentNumber} | Statutory Authority
-                Framework
+                Registered Tax Agent #{company.taxAgentNumber} | Statutory
+                Authority Framework
               </p>
             </div>
             <Tag color="green" className="font-bold text-xs">
@@ -385,7 +385,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
             </Tag>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">
+          <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">
             <h4 className="font-bold text-slate-900 dark:text-zinc-100 m-0 text-brand-primary">
               1. ATO Tax Agent Authority Scope
             </h4>
@@ -398,7 +398,7 @@ export default function Step7AuthoritiesBank({ form, formData }) {
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">
+          <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2 text-xs">
             <h4 className="font-bold text-slate-900 dark:text-zinc-100 m-0 text-brand-primary">
               2. ABR Authority Scope (Where Applicable)
             </h4>

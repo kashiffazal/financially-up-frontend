@@ -45,9 +45,24 @@ import styles from "./PostsList.module.css";
 
 const TABS = [
   { key: "all", label: "All", countKey: "all", icon: <AppstoreOutlined /> },
-  { key: "published", label: "Published", countKey: "published", icon: <CheckCircleOutlined /> },
-  { key: "scheduled", label: "Scheduled", countKey: "scheduled", icon: <ClockCircleOutlined /> },
-  { key: "draft", label: "Drafts", countKey: "drafts", icon: <FileTextOutlined /> },
+  {
+    key: "published",
+    label: "Published",
+    countKey: "published",
+    icon: <CheckCircleOutlined />,
+  },
+  {
+    key: "scheduled",
+    label: "Scheduled",
+    countKey: "scheduled",
+    icon: <ClockCircleOutlined />,
+  },
+  {
+    key: "draft",
+    label: "Drafts",
+    countKey: "drafts",
+    icon: <FileTextOutlined />,
+  },
   { key: "trash", label: "Trash", countKey: "trash", icon: <DeleteOutlined /> },
 ];
 
@@ -61,7 +76,8 @@ const SEARCH_FIELDS = [
   { label: "Status", value: "displayStatus" },
 ];
 
-const dateTime = (value) => (value ? dayjs(value).format("D MMM YYYY, h:mm A") : "");
+const dateTime = (value) =>
+  value ? dayjs(value).format("D MMM YYYY, h:mm A") : "";
 
 export default function PostsList() {
   const router = useRouter();
@@ -71,7 +87,11 @@ export default function PostsList() {
   const canManage = hasPermission("blog.manage");
   const siteUrl = siteBaseUrl(get("url.website"));
 
-  const [status, setStatus] = useState(() => (TABS.some((t) => t.key === searchParams.get("status")) ? searchParams.get("status") : "all"));
+  const [status, setStatus] = useState(() =>
+    TABS.some((t) => t.key === searchParams.get("status"))
+      ? searchParams.get("status")
+      : "all",
+  );
   // Global Search "View all" (?ids=1,2,3&q=term) narrows the list, like the other logs
   const idsParam = searchParams.get("ids");
   const queryParam = searchParams.get("q");
@@ -79,7 +99,9 @@ export default function PostsList() {
     const ids = (idsParam || "").split(",").map(Number).filter(Boolean);
     return ids.length ? { ids, query: queryParam || "" } : null;
   }, [idsParam, queryParam]);
-  const [categoryId, setCategoryId] = useState(() => Number(searchParams.get("category")) || null);
+  const [categoryId, setCategoryId] = useState(
+    () => Number(searchParams.get("category")) || null,
+  );
   const [posts, setPosts] = useState([]);
   const [counts, setCounts] = useState({});
   const [categories, setCategories] = useState([]);
@@ -90,12 +112,14 @@ export default function PostsList() {
   // Posts for the current tab / category (the DataTable searches them in the browser)
   useEffect(() => {
     let active = true;
-    blogApi.listPosts({ status, categoryId: categoryId || undefined }).then((res) => {
-      if (!active) return;
-      setPosts(res?.data?.posts || []);
-      setCounts(res?.data?.counts || {});
-      setLoading(false);
-    });
+    blogApi
+      .listPosts({ status, categoryId: categoryId || undefined })
+      .then((res) => {
+        if (!active) return;
+        setPosts(res?.data?.posts || []);
+        setCounts(res?.data?.counts || {});
+        setLoading(false);
+      });
     return () => {
       active = false;
     };
@@ -103,7 +127,9 @@ export default function PostsList() {
 
   // Flat text fields so the DataTable search / "Filter by" can match them
   const rows = useMemo(() => {
-    const list = searchFilter ? posts.filter((p) => searchFilter.ids.includes(p.id)) : posts;
+    const list = searchFilter
+      ? posts.filter((p) => searchFilter.ids.includes(p.id))
+      : posts;
     return list.map((p) => ({
       ...p,
       categoryNames: (p.categories || []).map((c) => c.name).join(", "),
@@ -120,10 +146,13 @@ export default function PostsList() {
       { header: "Author", key: "authorName" },
       { header: "Categories", key: "categoryNames" },
       { header: "Tags", key: "tagNames" },
-      { header: "Published / Goes Live", key: (p) => (p.status === "published" ? dateTime(p.publishedAt) : "") },
+      {
+        header: "Published / Goes Live",
+        key: (p) => (p.status === "published" ? dateTime(p.publishedAt) : ""),
+      },
       { header: "Last Updated", key: (p) => dateTime(p.updatedAt) },
     ],
-    [siteUrl]
+    [siteUrl],
   );
 
   useEffect(() => {
@@ -139,7 +168,10 @@ export default function PostsList() {
   const changeTab = (key) => {
     setStatus(key);
     setLoading(true);
-    router.replace(key === "all" ? "/admin/blog" : `/admin/blog?status=${key}`, { scroll: false });
+    router.replace(
+      key === "all" ? "/admin/blog" : `/admin/blog?status=${key}`,
+      { scroll: false },
+    );
   };
 
   // ---------------------------------------------------------------------------
@@ -153,7 +185,11 @@ export default function PostsList() {
     }
   };
 
-  const toggleFeatured = (post) => run(blogApi.setFeatured(post.id, !post.featured), post.featured ? "Unfeatured." : "Featured.");
+  const toggleFeatured = (post) =>
+    run(
+      blogApi.setFeatured(post.id, !post.featured),
+      post.featured ? "Unfeatured." : "Featured.",
+    );
 
   // ---------------------------------------------------------------------------
   // Columns
@@ -171,7 +207,13 @@ export default function PostsList() {
         align: "center",
         render: (_, post) =>
           post.status === "trash" ? null : (
-            <Tooltip title={post.featured ? "Featured on the website — click to remove" : "Make this the featured post"}>
+            <Tooltip
+              title={
+                post.featured
+                  ? "Featured on the website - click to remove"
+                  : "Make this the featured post"
+              }
+            >
               <button
                 type="button"
                 className={`${styles.star} ${post.featured ? styles.starOn : ""}`}
@@ -191,7 +233,11 @@ export default function PostsList() {
           <div className="flex items-center gap-3 min-w-0">
             {post.featuredImage ? (
               // eslint-disable-next-line @next/next/no-img-element -- admin thumbnail
-              <img src={resolveBlogImage(post.featuredImage)} alt="" className={styles.thumb} />
+              <img
+                src={resolveBlogImage(post.featuredImage)}
+                alt=""
+                className={styles.thumb}
+              />
             ) : (
               <span className={`${styles.thumb} ${styles.thumbEmpty}`}>
                 <ReadOutlined />
@@ -199,13 +245,20 @@ export default function PostsList() {
             )}
             <div className="min-w-0">
               {post.status === "trash" ? (
-                <span className="font-semibold text-slate-500 line-through decoration-slate-300">{post.title}</span>
+                <span className="font-semibold text-slate-500 line-through decoration-slate-300">
+                  {post.title}
+                </span>
               ) : (
-                <Link href={`/admin/blog/${post.id}`} className="font-semibold text-slate-900 dark:text-zinc-100 hover:text-brand-primary!">
+                <Link
+                  href={`/admin/blog/${post.id}`}
+                  className="font-semibold text-slate-900 dark:text-zinc-100 hover:text-brand-primary!"
+                >
                   {post.title}
                 </Link>
               )}
-              <div className="truncate font-mono text-[11px] text-slate-400">/blog/{post.slug}</div>
+              <div className="truncate font-mono text-[11px] text-slate-400">
+                /blog/{post.slug}
+              </div>
             </div>
           </div>
         ),
@@ -214,7 +267,9 @@ export default function PostsList() {
         title: "Author",
         key: "author",
         width: 150,
-        render: (_, post) => <span className="text-[13px]">{post.authorName || "—"}</span>,
+        render: (_, post) => (
+          <span className="text-[13px]">{post.authorName || "-"}</span>
+        ),
       },
       {
         title: "Categories",
@@ -222,7 +277,9 @@ export default function PostsList() {
         width: 170,
         render: (_, post) =>
           post.categories?.length ? (
-            <span className="text-[12.5px] text-slate-600 dark:text-zinc-300">{post.categories.map((c) => c.name).join(", ")}</span>
+            <span className="text-[12.5px] text-slate-600 dark:text-zinc-300">
+              {post.categories.map((c) => c.name).join(", ")}
+            </span>
           ) : (
             <span className="text-slate-400">Uncategorised</span>
           ),
@@ -233,9 +290,11 @@ export default function PostsList() {
         width: 190,
         render: (_, post) =>
           post.tags?.length ? (
-            <span className="text-[12px] text-slate-500 dark:text-zinc-400">{post.tags.map((t) => `#${t.name}`).join(", ")}</span>
+            <span className="text-[12px] text-slate-500 dark:text-zinc-400">
+              {post.tags.map((t) => `#${t.name}`).join(", ")}
+            </span>
           ) : (
-            <span className="text-slate-400">—</span>
+            <span className="text-slate-400">-</span>
           ),
       },
       {
@@ -243,7 +302,8 @@ export default function PostsList() {
         key: "date",
         width: 225,
         render: (_, post) => {
-          const meta = POST_STATUS_META[post.displayStatus] || POST_STATUS_META.Draft;
+          const meta =
+            POST_STATUS_META[post.displayStatus] || POST_STATUS_META.Draft;
           const when =
             post.displayStatus === "Trash"
               ? `Trashed ${dayjs(post.trashedAt || post.updatedAt).format("D MMM YYYY")}`
@@ -255,7 +315,9 @@ export default function PostsList() {
               <Tag color={meta.color} className="m-0!">
                 {meta.label}
               </Tag>
-              <span className="whitespace-nowrap text-[11.5px] text-slate-500 dark:text-zinc-400">{when}</span>
+              <span className="whitespace-nowrap text-[11.5px] text-slate-500 dark:text-zinc-400">
+                {when}
+              </span>
             </div>
           );
         },
@@ -270,7 +332,13 @@ export default function PostsList() {
           const items =
             post.status === "trash"
               ? [
-                  canManage && { key: "restore", icon: <RollbackOutlined />, label: "Restore", onClick: () => run(blogApi.restorePost(post.id), "Restored.") },
+                  canManage && {
+                    key: "restore",
+                    icon: <RollbackOutlined />,
+                    label: "Restore",
+                    onClick: () =>
+                      run(blogApi.restorePost(post.id), "Restored."),
+                  },
                   canManage && {
                     key: "delete",
                     danger: true,
@@ -281,7 +349,9 @@ export default function PostsList() {
                         description="This can't be undone."
                         okText="Delete permanently"
                         okButtonProps={{ danger: true }}
-                        onConfirm={() => run(blogApi.deletePost(post.id), "Deleted.")}
+                        onConfirm={() =>
+                          run(blogApi.deletePost(post.id), "Deleted.")
+                        }
                       >
                         <span className="block w-full">Delete Permanently</span>
                       </Popconfirm>
@@ -289,27 +359,52 @@ export default function PostsList() {
                   },
                 ]
               : [
-                  { key: "edit", icon: <EditOutlined />, label: <Link href={`/admin/blog/${post.id}`}>Edit</Link> },
+                  {
+                    key: "edit",
+                    icon: <EditOutlined />,
+                    label: <Link href={`/admin/blog/${post.id}`}>Edit</Link>,
+                  },
                   post.displayStatus === "Published" && {
                     key: "view",
                     icon: <ExportOutlined />,
                     label: (
-                      <a href={`${siteUrl}/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={`${siteUrl}/blog/${post.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         View on website
                       </a>
                     ),
                   },
                   canManage && {
                     key: "feature",
-                    icon: post.featured ? <StarOutlined /> : <StarFilled className="text-amber-400" />,
-                    label: post.featured ? "Remove from Featured" : "Make Featured",
+                    icon: post.featured ? (
+                      <StarOutlined />
+                    ) : (
+                      <StarFilled className="text-amber-400" />
+                    ),
+                    label: post.featured
+                      ? "Remove from Featured"
+                      : "Make Featured",
                     onClick: () => toggleFeatured(post),
                   },
                   canManage && { type: "divider" },
-                  canManage && { key: "trash", danger: true, icon: <DeleteOutlined />, label: "Move to Trash", onClick: () => run(blogApi.trashPost(post.id), "Moved to Trash.") },
+                  canManage && {
+                    key: "trash",
+                    danger: true,
+                    icon: <DeleteOutlined />,
+                    label: "Move to Trash",
+                    onClick: () =>
+                      run(blogApi.trashPost(post.id), "Moved to Trash."),
+                  },
                 ];
           return (
-            <Dropdown menu={{ items: items.filter(Boolean) }} trigger={["click"]} placement="bottomRight">
+            <Dropdown
+              menu={{ items: items.filter(Boolean) }}
+              trigger={["click"]}
+              placement="bottomRight"
+            >
               <Button size="small" icon={<MoreOutlined />}>
                 Actions
               </Button>
@@ -319,7 +414,7 @@ export default function PostsList() {
       },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run/toggleFeatured only call reload()
-    [canManage, siteUrl]
+    [canManage, siteUrl],
   );
 
   return (
@@ -337,12 +432,22 @@ export default function PostsList() {
             ),
             href: "/admin/dashboard",
           },
-          { title: <span className="font-semibold text-brand-primary dark:text-emerald-400">Blog Posts</span> },
+          {
+            title: (
+              <span className="font-semibold text-brand-primary dark:text-emerald-400">
+                Blog Posts
+              </span>
+            ),
+          },
         ]}
         extraActions={
           canManage && (
             <Link href="/admin/blog/new">
-              <Button type="primary" icon={<PlusOutlined />} className="bg-brand-primary!">
+              <Button
+                type="primary"
+                icon={<PlusOutlined />}
+                className="bg-brand-primary!"
+              >
                 Add New Post
               </Button>
             </Link>
@@ -400,9 +505,16 @@ export default function PostsList() {
                             setCategoryId(v ?? null);
                             setLoading(true);
                           }}
-                          options={categories.map((c) => ({ value: c.id, label: `${"— ".repeat(c.depth)}${c.name}` }))}
+                          options={categories.map((c) => ({
+                            value: c.id,
+                            label: `${"- ".repeat(c.depth)}${c.name}`,
+                          }))}
                         />
-                        <ExportButtons data={rows} columns={exportColumns} filename={`Blog_Posts_${t.label}`} />
+                        <ExportButtons
+                          data={rows}
+                          columns={exportColumns}
+                          filename={`Blog_Posts_${t.label}`}
+                        />
                       </div>
                     }
                   />

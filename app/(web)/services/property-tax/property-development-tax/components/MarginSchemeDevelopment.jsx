@@ -21,24 +21,36 @@ import {
 export default function MarginSchemeDevelopment() {
   const marginChecks = [
     {
-      icon: <HistoryOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Acquisition History Verification",
-      description: "If the site was acquired through a fully taxable supply without the margin scheme, the scheme cannot subsequently be applied upon resale.",
+      description:
+        "If the site was acquired through a fully taxable supply without the margin scheme, the scheme cannot subsequently be applied upon resale.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Written Agreement Before Settlement",
-      description: "The vendor and purchaser must enter into an explicit written agreement (usually via contract clause) that the margin scheme applies.",
+      description:
+        "The vendor and purchaser must enter into an explicit written agreement (usually via contract clause) that the margin scheme applies.",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Calculation of Margin",
-      description: "GST is calculated as 1/11th of the margin (sale price minus acquisition consideration or approved valuation), not the full sale price.",
+      description:
+        "GST is calculated as 1/11th of the margin (sale price minus acquisition consideration or approved valuation), not the full sale price.",
     },
     {
-      icon: <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "No Purchaser Input Tax Credit",
-      description: "Purchasers of property under the margin scheme cannot claim an input tax credit for any GST included in the purchase price.",
+      description:
+        "Purchasers of property under the margin scheme cannot claim an input tax credit for any GST included in the purchase price.",
     },
   ];
 
@@ -61,26 +73,32 @@ export default function MarginSchemeDevelopment() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>Eligibility &amp; Written Agreement</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              The GST margin scheme may be available for an eligible taxable sale of real property. It is not automatic. Eligibility depends on how the property was acquired and other conditions, and the seller and purchaser generally need to agree in writing that the margin scheme will apply before settlement.
+              The GST margin scheme may be available for an eligible taxable
+              sale of real property. It is not automatic. Eligibility depends on
+              how the property was acquired and other conditions, and the seller
+              and purchaser generally need to agree in writing that the margin
+              scheme will apply before settlement.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <HistoryOutlined />
               <span>Early Acquisition Document Review</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              If the margin scheme is being considered, it should be reviewed early rather than after settlement. The acquisition documents can be critical to determining whether the scheme is available.
+              If the margin scheme is being considered, it should be reviewed
+              early rather than after settlement. The acquisition documents can
+              be critical to determining whether the scheme is available.
             </p>
           </div>
         </div>
@@ -90,7 +108,7 @@ export default function MarginSchemeDevelopment() {
           {marginChecks.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-3">
                 {item.icon}
@@ -113,7 +131,8 @@ export default function MarginSchemeDevelopment() {
               size="large"
               className="brand-btn-secondary h-11 px-6 font-semibold"
             >
-              Explore In-Depth GST on Property &amp; Margin Scheme Guidance <ArrowRightOutlined />
+              Explore In-Depth GST on Property &amp; Margin Scheme Guidance{" "}
+              <ArrowRightOutlined />
             </Button>
           </Link>
         </div>

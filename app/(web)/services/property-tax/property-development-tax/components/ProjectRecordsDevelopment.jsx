@@ -24,57 +24,85 @@ import {
 export default function ProjectRecordsDevelopment() {
   const recordsList = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "purchase and settlement documents",
-      detail: "Contracts for sale of land, settlement adjustments, stamp duty assessment, and title registration fees.",
+      detail:
+        "Contracts for sale of land, settlement adjustments, stamp duty assessment, and title registration fees.",
       tag: "Acquisition",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "development approvals and project agreements",
-      detail: "Council DA notices, Section 7.11/94 contributions, construction certificates, and joint venture/project agreements.",
+      detail:
+        "Council DA notices, Section 7.11/94 contributions, construction certificates, and joint venture/project agreements.",
       tag: "Planning & Approvals",
     },
     {
-      icon: <ToolOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "construction and contractor invoices",
-      detail: "Progress claims, builder contracts (ABIC/Master Builders), subcontractor invoices, variations, and retention sums.",
+      detail:
+        "Progress claims, builder contracts (ABIC/Master Builders), subcontractor invoices, variations, and retention sums.",
       tag: "Construction",
     },
     {
-      icon: <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "architect, engineer, surveyor and consultant costs",
-      detail: "Architectural drawings, structural engineering reports, geotechnical surveys, and acoustic consultant fees.",
+      detail:
+        "Architectural drawings, structural engineering reports, geotechnical surveys, and acoustic consultant fees.",
       tag: "Consultants",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "loan statements and finance costs",
-      detail: "Development facility statements, lender line fees, valuation fees, interest capitalization, and broker commissions.",
+      detail:
+        "Development facility statements, lender line fees, valuation fees, interest capitalization, and broker commissions.",
       tag: "Funding & Finance",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "sales contracts, deposits and settlement statements",
-      detail: "Pre-sale contracts, agent trust deposit receipts, settlement direction sheets, and purchaser adjustments.",
+      detail:
+        "Pre-sale contracts, agent trust deposit receipts, settlement direction sheets, and purchaser adjustments.",
       tag: "Sales & Settlements",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "GST tax invoices and BAS records",
-      detail: "Valid tax invoices for all input tax credits claimed, quarterly/monthly BAS lodgements, and ATO portal statements.",
+      detail:
+        "Valid tax invoices for all input tax credits claimed, quarterly/monthly BAS lodgements, and ATO portal statements.",
       tag: "GST Records",
     },
     {
-      icon: <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "legal and conveyancing costs",
-      detail: "Solicitor fees for site acquisition, drafting off-the-plan contracts, easement negotiations, and strata titling.",
+      detail:
+        "Solicitor fees for site acquisition, drafting off-the-plan contracts, easement negotiations, and strata titling.",
       tag: "Legal & Titles",
     },
     {
-      icon: <ShareAltOutlined className="text-xl text-emerald-700 dark:text-emerald-300" />,
-      title: "entity distributions, loans and inter-entity transactions where relevant",
-      detail: "Division 7A loan agreements, trustee distribution resolutions, intercompany loan accounts, and journal entries.",
+      icon: (
+        <ShareAltOutlined className="text-xl text-emerald-700 dark:text-emerald-300" />
+      ),
+      title:
+        "entity distributions, loans and inter-entity transactions where relevant",
+      detail:
+        "Division 7A loan agreements, trustee distribution resolutions, intercompany loan accounts, and journal entries.",
       tag: "Inter-Entity Flows",
     },
   ];
@@ -95,7 +123,11 @@ export default function ProjectRecordsDevelopment() {
           </h2>
           {/* Verbatim Paragraph 1 */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A property developer accountant helps create a consistent record of acquisition, finance, construction, professional fees, GST, settlements and project income. Good project accounting makes it easier to understand profitability and prepare tax and BAS reporting.
+            A property developer accountant helps create a consistent record of
+            acquisition, finance, construction, professional fees, GST,
+            settlements and project income. Good project accounting makes it
+            easier to understand profitability and prepare tax and BAS
+            reporting.
           </p>
           <p className="mt-3 text-sm sm:text-base text-slate-700 dark:text-zinc-200 font-semibold">
             Depending on the project, records may include:
@@ -107,14 +139,17 @@ export default function ProjectRecordsDevelopment() {
           {recordsList.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
-                  <Tag color="cyan" className="text-[11px] font-semibold uppercase">
+                  <Tag
+                    color="cyan"
+                    className="text-[11px] font-semibold uppercase"
+                  >
                     {item.tag}
                   </Tag>
                 </div>

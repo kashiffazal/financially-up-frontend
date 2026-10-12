@@ -106,9 +106,9 @@ export default function HowFinanciallyUpHelpsTrusts() {
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Financially Up can assist with trust accounting, trust tax return
             preparation, distribution reporting and related business tax work.
-            Where the trust has more involved issues—such as unusual
+            Where the trust has more involved issues-such as unusual
             distribution arrangements, trust losses, Division 7A interactions,
-            restructuring or detailed planning—the advisory work can be
+            restructuring or detailed planning-the advisory work can be
             separately scoped.
           </p>
         </div>
@@ -118,10 +118,10 @@ export default function HowFinanciallyUpHelpsTrusts() {
           {serviceCapabilities.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -159,7 +159,7 @@ export default function HowFinanciallyUpHelpsTrusts() {
           {credentials.map((cred, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="mb-4">{cred.icon}</div>
               <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -173,7 +173,7 @@ export default function HowFinanciallyUpHelpsTrusts() {
         </div>
 
         {/* Contact Strip */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
             {company?.phone && (
               <a
@@ -204,7 +204,7 @@ export default function HowFinanciallyUpHelpsTrusts() {
             <Link href="/contact">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

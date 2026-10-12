@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { UserOutlined, PercentageOutlined, FileProtectOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  PercentageOutlined,
+  FileProtectOutlined,
+  SafetyCertificateOutlined,
+} from "@ant-design/icons";
 
 /**
  * PersonalAndCoOwnershipTaxImplications Component
@@ -43,7 +48,9 @@ export default function PersonalAndCoOwnershipTaxImplications() {
             Owning Property Personally or with Another Person
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Individual and co-ownership are the most common investment vehicles in Australia, but getting the title percentages right at contract signing is vital.
+            Individual and co-ownership are the most common investment vehicles
+            in Australia, but getting the title percentages right at contract
+            signing is vital.
           </p>
         </div>
 
@@ -51,14 +58,18 @@ export default function PersonalAndCoOwnershipTaxImplications() {
           {points.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 w-fit mb-4">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 w-fit mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}

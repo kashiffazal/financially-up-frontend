@@ -18,25 +18,33 @@ import {
 export default function WhatIsDivision7A() {
   const corePrinciples = [
     {
-      icon: <AuditOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Integrity Regime (ITAA 1936)",
       description:
         "Division 7A is an integrity regime in the Income Tax Assessment Act 1936.",
     },
     {
-      icon: <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Deemed Unfranked Dividends",
       description:
         "In broad terms, it can treat certain private company payments, loans and forgiven debts to shareholders or their associates as unfranked dividends unless an exclusion or complying arrangement applies.",
     },
     {
-      icon: <BankOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Distributable Surplus Cap",
       description:
         "Any deemed dividend is generally limited by the private company’s distributable surplus.",
     },
     {
-      icon: <CompassOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CompassOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Fact-Specific Ledger Review",
       description:
         "Not every transaction is a deemed dividend. The outcome depends on parties, timing, documentation, repayments, and actual cash movements.",
@@ -58,11 +66,19 @@ export default function WhatIsDivision7A() {
 
         {/* Verbatim Content Paragraphs */}
         <div className="max-w-4xl mx-auto mb-14 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            Division 7A is an integrity regime in the Income Tax Assessment Act 1936. In broad terms, it can treat certain private company payments, loans and forgiven debts to shareholders or their associates as unfranked dividends unless an exclusion or complying arrangement applies. Any deemed dividend is generally limited by the private company’s distributable surplus.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            Division 7A is an integrity regime in the Income Tax Assessment Act
+            1936. In broad terms, it can treat certain private company payments,
+            loans and forgiven debts to shareholders or their associates as
+            unfranked dividends unless an exclusion or complying arrangement
+            applies. Any deemed dividend is generally limited by the private
+            company’s distributable surplus.
           </p>
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            Not every company-shareholder transaction is a Division 7A dividend. The outcome depends on the transaction, parties, timing, documentation, repayments and other provisions, so the actual ledger, agreements and cash movements need to be reviewed.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            Not every company-shareholder transaction is a Division 7A dividend.
+            The outcome depends on the transaction, parties, timing,
+            documentation, repayments and other provisions, so the actual
+            ledger, agreements and cash movements need to be reviewed.
           </p>
         </div>
 
@@ -71,10 +87,10 @@ export default function WhatIsDivision7A() {
           {corePrinciples.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">

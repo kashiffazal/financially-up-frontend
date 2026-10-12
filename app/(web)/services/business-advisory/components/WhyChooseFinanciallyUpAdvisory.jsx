@@ -27,24 +27,36 @@ export default function WhyChooseFinanciallyUpAdvisory() {
   // Highlight points derived faithfully from the document text
   const credentialCards = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
-      description: "Registered tax agent status bridging technical statutory compliance with forward-looking commercial advisory.",
+      description:
+        "Registered tax agent status bridging technical statutory compliance with forward-looking commercial advisory.",
     },
     {
-      icon: <AuditOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Over 10 Years of Experience",
-      description: "More than a decade of proven experience across accounting, taxation, bookkeeping and business advisory.",
+      description:
+        "More than a decade of proven experience across accounting, taxation, bookkeeping and business advisory.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Professionals",
-      description: "Qualified team of CPA and IPA members delivering rigorous, high-level financial analysis and advice.",
+      description:
+        "Qualified team of CPA and IPA members delivering rigorous, high-level financial analysis and advice.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Support",
-      description: "Supporting business owners across Australia through seamless online and in-person appointment options.",
+      description:
+        "Supporting business owners across Australia through seamless online and in-person appointment options.",
     },
   ];
 
@@ -63,7 +75,13 @@ export default function WhyChooseFinanciallyUpAdvisory() {
 
           {/* Exact document text */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience across accounting, taxation, bookkeeping and business advisory. Our team includes CPA and IPA professionals, and we support clients Australia-wide through online and in-person appointments. That combination allows advisory work to stay connected with the accounting records and compliance obligations that underpin the business.
+            {company?.legalName || "Financially Up"} is a registered tax agent
+            with more than 10 years of experience across accounting, taxation,
+            bookkeeping and business advisory. Our team includes CPA and IPA
+            professionals, and we support clients Australia-wide through online
+            and in-person appointments. That combination allows advisory work to
+            stay connected with the accounting records and compliance
+            obligations that underpin the business.
           </p>
         </div>
 
@@ -72,10 +90,10 @@ export default function WhyChooseFinanciallyUpAdvisory() {
           {credentialCards.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
+              className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs mb-4">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 tracking-tight">

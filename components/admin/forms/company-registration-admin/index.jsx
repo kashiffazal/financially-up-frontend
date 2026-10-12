@@ -34,46 +34,46 @@ const RISK_RATING_OPTIONS = [
   {
     value: "Low",
     label:
-      "Low Risk — Standard domestic company, verified Australian directors",
+      "Low Risk - Standard domestic company, verified Australian directors",
   },
   {
     value: "Medium",
     label:
-      "Medium Risk — Complex shareholding, trust shareholders, or foreign income",
+      "Medium Risk - Complex shareholding, trust shareholders, or foreign income",
   },
   {
     value: "High",
     label:
-      "High Risk — Non-resident officeholders, nominee structures, or high-risk sectors",
+      "High Risk - Non-resident officeholders, nominee structures, or high-risk sectors",
   },
   {
     value: "Prohibited",
     label:
-      "Prohibited — Sanctioned entity, fraudulent identity, or illegal activity",
+      "Prohibited - Sanctioned entity, fraudulent identity, or illegal activity",
   },
 ];
 
 const DECISION_OPTIONS = [
   {
     value: "Approved",
-    label: "Approved — Approve application & generate legal pack",
+    label: "Approved - Approve application & generate legal pack",
   },
   {
     value: "Approved With Conditions",
-    label: "Approved With Conditions — Approve subject to document provision",
+    label: "Approved With Conditions - Approve subject to document provision",
   },
   {
     value: "Under Review",
-    label: "Under Review — Senior compliance officer assessment in progress",
+    label: "Under Review - Senior compliance officer assessment in progress",
   },
   {
     value: "Pending Documents",
-    label: "Pending Documents — Request missing identity or structure evidence",
+    label: "Pending Documents - Request missing identity or structure evidence",
   },
-  { value: "On Hold", label: "On Hold — Administrative hold" },
+  { value: "On Hold", label: "On Hold - Administrative hold" },
   {
     value: "Declined",
-    label: "Declined — Decline company registration application",
+    label: "Declined - Decline company registration application",
   },
 ];
 
@@ -239,10 +239,10 @@ export default function CompanyRegistrationAdminForm({
   return (
     <div>
       {/* Header Summary Banner */}
-      <div className="p-5 sm:p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
+      <div className="p-5 sm:p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
               <BankOutlined />
             </div>
             <div>
@@ -274,10 +274,10 @@ export default function CompanyRegistrationAdminForm({
       </div>
 
       {/* Reviewer Session Identity Banner */}
-      <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-4 sm:p-5 mb-6">
+      <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-4 sm:p-5 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-brand-primary/10 text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400 flex items-center justify-center text-base font-bold">
+            <div className="w-9 h-9 rounded-lg bg-brand-primary/10 text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400 flex items-center justify-center text-base font-bold">
               <UserOutlined />
             </div>
             <div>
@@ -306,7 +306,7 @@ export default function CompanyRegistrationAdminForm({
       {/* Company Application Overview Accordion */}
       <Collapse
         defaultActiveKey={["1", "2"]}
-        className="mb-6 rounded-xl overflow-hidden border border-slate-200/80 dark:border-zinc-800 bg-transparent"
+        className="mb-6 rounded-lg overflow-hidden border border-slate-200/80 dark:border-zinc-800 bg-transparent"
         items={[
           {
             key: "1",
@@ -379,7 +379,7 @@ export default function CompanyRegistrationAdminForm({
                     {officeholders.map((off, idx) => (
                       <div
                         key={idx}
-                        className="p-3 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900/40 text-xs"
+                        className="p-3 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900/40 text-xs"
                       >
                         <div className="font-bold text-slate-900 dark:text-zinc-100">
                           {off.givenNames} {off.familyName}
@@ -405,7 +405,7 @@ export default function CompanyRegistrationAdminForm({
                     {shareholders.map((sh, idx) => (
                       <div
                         key={idx}
-                        className="p-3 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900/40 text-xs"
+                        className="p-3 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900/40 text-xs"
                       >
                         <div className="font-bold text-slate-900 dark:text-zinc-100">
                           {sh.fullName} ({sh.memberType || "Individual"})
@@ -456,7 +456,7 @@ export default function CompanyRegistrationAdminForm({
                       onClick={() =>
                         window.open(getFileUrl(doc.filePath), "_blank")
                       }
-                      className="text-xs font-medium rounded-xl"
+                      className="text-xs font-medium rounded-lg"
                     >
                       {doc.documentType ||
                         doc.fileName ||
@@ -479,7 +479,7 @@ export default function CompanyRegistrationAdminForm({
         scrollToFirstError={{ behavior: "smooth", block: "center" }}
         className="space-y-6"
       >
-        <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-5 sm:p-6 space-y-5">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-5 sm:p-6 space-y-5">
           <h4 className="text-sm font-extrabold text-amber-600 dark:text-amber-400 flex items-center gap-2">
             <WarningOutlined /> Overall Compliance & Risk Evaluation
           </h4>
@@ -507,14 +507,14 @@ export default function CompanyRegistrationAdminForm({
                 </span>
               }
               radioOptions={[
-                { value: "Clear", label: "Clear — No Match" },
+                { value: "Clear", label: "Clear - No Match" },
                 {
                   value: "Flagged",
-                  label: "Flagged — Potential PEP/Sanctions",
+                  label: "Flagged - Potential PEP/Sanctions",
                 },
                 {
                   value: "False Positive",
-                  label: "False Positive — Identity Cleared",
+                  label: "False Positive - Identity Cleared",
                 },
               ]}
               reqMsg="Please select screening result."
@@ -529,8 +529,8 @@ export default function CompanyRegistrationAdminForm({
                 </span>
               }
               radioOptions={[
-                { value: "Clear", label: "Clear — No Adverse News" },
-                { value: "Flagged", label: "Flagged — Adverse Media Found" },
+                { value: "Clear", label: "Clear - No Adverse News" },
+                { value: "Flagged", label: "Flagged - Adverse Media Found" },
               ]}
               reqMsg="Please select adverse media screening."
             />
@@ -546,7 +546,7 @@ export default function CompanyRegistrationAdminForm({
             }
             placeholder="Record notes on source of funds, complex ownership, foreign directors, or identity verification..."
             rows={2}
-            className="rounded-xl"
+            className="rounded-lg"
             noRequired={true}
           />
 
@@ -579,7 +579,7 @@ export default function CompanyRegistrationAdminForm({
             }
             placeholder="Record review notes, decision rationale, or specific instructions for ASIC lodgement..."
             rows={3}
-            className="rounded-xl"
+            className="rounded-lg"
             noRequired={true}
           />
 
@@ -593,7 +593,7 @@ export default function CompanyRegistrationAdminForm({
             }
             placeholder="Specify any conditions for approval (e.g. proof of residential address required before ASIC certificate dispatch)..."
             rows={2}
-            className="rounded-xl"
+            className="rounded-lg"
             noRequired={true}
           />
 
@@ -618,7 +618,7 @@ export default function CompanyRegistrationAdminForm({
           <Button
             onClick={onCancel}
             disabled={isSubmitting}
-            className="h-11 px-6 rounded-xl font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
+            className="h-11 px-6 rounded-lg font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
           >
             Cancel
           </Button>
@@ -628,7 +628,7 @@ export default function CompanyRegistrationAdminForm({
             loading={isSubmitting}
             disabled={isSubmitting}
             icon={<CheckCircleOutlined />}
-            className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-xl shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
+            className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-lg shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
           >
             {isSubmitting ? "Saving Decision..." : "Save & Execute Decision"}
           </Button>

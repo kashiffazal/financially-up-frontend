@@ -18,25 +18,33 @@ import {
 export default function WhatCgtPlanningInvolves() {
   const corePrinciples = [
     {
-      icon: <CompassOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <CompassOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Pre-Return Transaction Review",
       description:
         "CGT planning looks at a proposed or recent transaction before the final tax return calculation.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Event & Timing Verification",
       description:
         "The review may consider whether a CGT event is expected, when it occurs, and how timing affects reporting.",
     },
     {
-      icon: <CalculatorOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Proceeds & Cost Base Modeling",
       description:
         "Determining capital proceeds and cost base elements, including whether capital losses are available to offset gains.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Concessions & Discounts",
       description:
         "Assessing whether statutory exemptions, the 50% general discount, or small business concessions apply to the transaction.",
@@ -58,11 +66,19 @@ export default function WhatCgtPlanningInvolves() {
 
         {/* Verbatim Content Paragraphs */}
         <div className="max-w-4xl mx-auto mb-14 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            CGT planning looks at a proposed or recent transaction before the final tax return calculation. The review may consider whether a CGT event is expected, when it occurs, how capital proceeds and the cost base may be determined, whether capital losses are available and whether an exemption, discount or concession may apply.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            CGT planning looks at a proposed or recent transaction before the
+            final tax return calculation. The review may consider whether a CGT
+            event is expected, when it occurs, how capital proceeds and the cost
+            base may be determined, whether capital losses are available and
+            whether an exemption, discount or concession may apply.
           </p>
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            The tax outcome depends on the asset, ownership, dates, taxpayer type, residency and other facts. For example, rules can differ for a home, rental property, listed shares and business assets. The review should therefore be based on the actual transaction and supporting documents rather than a general formula.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            The tax outcome depends on the asset, ownership, dates, taxpayer
+            type, residency and other facts. For example, rules can differ for a
+            home, rental property, listed shares and business assets. The review
+            should therefore be based on the actual transaction and supporting
+            documents rather than a general formula.
           </p>
         </div>
 
@@ -71,10 +87,10 @@ export default function WhatCgtPlanningInvolves() {
           {corePrinciples.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">

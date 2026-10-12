@@ -314,7 +314,7 @@ export default function CompanyRegistrationForm() {
               <div className="pt-2 pb-1 space-y-5 animate-fadeIn">
                 <div className="text-center space-y-2">
                   <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center shadow-inner">
-                    <CheckCircleFilled className="text-3xl text-emerald-600 dark:text-emerald-400" />
+                    <CheckCircleFilled className="text-3xl text-emerald-600! dark:text-emerald-400!" />
                   </div>
                   <h3 className="text-xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight">
                     Company Registration Application Lodged
@@ -508,7 +508,7 @@ export default function CompanyRegistrationForm() {
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400">
-                Step {currentStep + 1} of 12 —{" "}
+                Step {currentStep + 1} of 12 -{" "}
                 {STEP_ITEMS[currentStep].fullTitle}
               </div>
             </div>

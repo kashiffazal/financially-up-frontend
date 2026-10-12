@@ -56,32 +56,38 @@ const smsfWindUpQuickSpecs = [
   {
     icon: "fileText",
     label: "Orderly Procedure",
-    value: "Trustee resolution, asset liquidation, SuperStream rollovers, and final audits",
+    value:
+      "Trustee resolution, asset liquidation, SuperStream rollovers, and final audits",
   },
   {
     icon: "sync",
     label: "SuperStream Standards",
-    value: "Rollovers completed with final residual balances finalized within 28 days",
+    value:
+      "Rollovers completed with final residual balances finalized within 28 days",
   },
   {
     icon: "safety",
     label: "Final SMSF Audit",
-    value: "Independent approved auditor sign-off before lodging the final annual return",
+    value:
+      "Independent approved auditor sign-off before lodging the final annual return",
   },
   {
     icon: "bank",
     label: "ATO Closure",
-    value: "ATO automatically cancels fund ABN upon processing; never cancel manually",
+    value:
+      "ATO automatically cancels fund ABN upon processing; never cancel manually",
   },
   {
     icon: "creditCard",
     label: "Bank Account Timing",
-    value: "Keep SMSF bank account active until final ATO clearance and refund arrival",
+    value:
+      "Keep SMSF bank account active until final ATO clearance and refund arrival",
   },
   {
     icon: "clock",
     label: "10-Year Archival",
-    value: "Statutory 10-year record retention requirement after the final SAR lodgement",
+    value:
+      "Statutory 10-year record retention requirement after the final SAR lodgement",
   },
 ];
 
@@ -94,7 +100,9 @@ const smsfWindUpFaqs = [
     label: "Can I close an SMSF if it still owns assets?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The fund’s assets and liabilities need to be dealt with before the wind-up is completed. The appropriate steps depend on the assets and the members’ circumstances.
+        The fund’s assets and liabilities need to be dealt with before the
+        wind-up is completed. The appropriate steps depend on the assets and the
+        members’ circumstances.
       </p>
     ),
   },
@@ -103,7 +111,9 @@ const smsfWindUpFaqs = [
     label: "Do I need a final SMSF audit?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. The final income year must be audited by an approved SMSF auditor before the final SMSF annual return is lodged, and any outstanding earlier audits should also be completed.
+        Yes. The final income year must be audited by an approved SMSF auditor
+        before the final SMSF annual return is lodged, and any outstanding
+        earlier audits should also be completed.
       </p>
     ),
   },
@@ -112,7 +122,9 @@ const smsfWindUpFaqs = [
     label: "Should I cancel the SMSF ABN myself?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. The ATO states that trustees should not cancel the SMSF ABN. After the final annual return is processed, the ATO will cancel the ABN and close the fund records.
+        No. The ATO states that trustees should not cancel the SMSF ABN. After
+        the final annual return is processed, the ATO will cancel the ABN and
+        close the fund records.
       </p>
     ),
   },
@@ -121,7 +133,9 @@ const smsfWindUpFaqs = [
     label: "Can a wound-up SMSF be reopened?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Once an SMSF has been wound up, it cannot be reactivated. A new SMSF would need to be established if members later decided to use that structure again.
+        No. Once an SMSF has been wound up, it cannot be reactivated. A new SMSF
+        would need to be established if members later decided to use that
+        structure again.
       </p>
     ),
   },
@@ -130,7 +144,10 @@ const smsfWindUpFaqs = [
     label: "How much does it cost to wind up an SMSF?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        SMSF winding up cost depends on the condition of the records, number and type of assets, outstanding lodgements, audit work and any specialist issues. A review of the fund is usually needed before the work can be scoped accurately.
+        SMSF winding up cost depends on the condition of the records, number and
+        type of assets, outstanding lodgements, audit work and any specialist
+        issues. A review of the fund is usually needed before the work can be
+        scoped accurately.
       </p>
     ),
   },
@@ -207,12 +224,19 @@ export default function SmsfWindUpSubpage() {
         subtitle="An SMSF wind up is the formal process of ending a self-managed super fund after its members’ benefits, assets, liabilities, accounting, audit and reporting obligations have been dealt with. Closing a bank account or deciding to stop using the fund is not enough on its own."
         bodyText={
           <span>
-            Financially Up can assist trustees with the accounting, tax and administration work involved in an SMSF closure, including final accounts, coordination of the final audit and preparation of the final SMSF annual return. Decisions about where member benefits should be transferred, financial products or investment choices may require appropriately authorized financial advice.
-            <div className="mt-4 p-4 rounded-xl bg-amber-50/95 dark:bg-amber-950/40 border border-amber-200/90 dark:border-amber-700/50 text-xs sm:text-sm text-amber-950 dark:text-amber-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up can assist trustees with the accounting, tax and
+            administration work involved in an SMSF closure, including final
+            accounts, coordination of the final audit and preparation of the
+            final SMSF annual return. Decisions about where member benefits
+            should be transferred, financial products or investment choices may
+            require appropriately authorized financial advice.
+            <div className="mt-4 p-4 rounded-lg bg-amber-50/95 dark:bg-amber-950/40 border border-amber-200/90 dark:border-amber-700/50 text-xs sm:text-sm text-amber-950 dark:text-amber-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-amber-900 dark:text-amber-200 block mb-1">
                 Initial Wind Up Review:
               </span>
-              If you are considering closing your SMSF, we can review what remains in the fund, what records are outstanding and the steps needed before the final annual return is lodged.
+              If you are considering closing your SMSF, we can review what
+              remains in the fund, what records are outstanding and the steps
+              needed before the final annual return is lodged.
             </div>
           </span>
         }

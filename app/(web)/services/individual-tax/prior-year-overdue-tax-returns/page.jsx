@@ -26,7 +26,8 @@ export const metadata = {
     "ATO default assessment",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/prior-year-overdue-tax-returns/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/prior-year-overdue-tax-returns/",
   },
   openGraph: {
     title: "Overdue Tax Returns Australia | Catch Up Prior Years",
@@ -57,7 +58,8 @@ const overdueQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Individuals with 1 or multiple outstanding prior-year Australian tax returns",
+    value:
+      "Individuals with 1 or multiple outstanding prior-year Australian tax returns",
   },
   {
     icon: "clock",
@@ -72,17 +74,20 @@ const overdueQuickSpecs = [
   {
     icon: "file",
     label: "Record Rebuilding",
-    value: "ATO pre-fill reports, historical PAYG, bank records & substantiation",
+    value:
+      "ATO pre-fill reports, historical PAYG, bank records & substantiation",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "safety",
     label: "Compliance Guarantee",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
 ];
 
@@ -95,7 +100,9 @@ const overdueFaqs = [
     label: "Do I need to lodge a tax return for every outstanding year?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Not necessarily. The lodgment requirement must be checked for each year. If a return was not required, a non-lodgment advice may need to be submitted instead.
+        Not necessarily. The lodgment requirement must be checked for each year.
+        If a return was not required, a non-lodgment advice may need to be
+        submitted instead.
       </p>
     ),
   },
@@ -104,7 +111,8 @@ const overdueFaqs = [
     label: "Can I lodge prior-year tax returns?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Earlier returns can generally still be lodged, although the method and information required depend on the year and your circumstances.
+        Yes. Earlier returns can generally still be lodged, although the method
+        and information required depend on the year and your circumstances.
       </p>
     ),
   },
@@ -113,7 +121,9 @@ const overdueFaqs = [
     label: "What if I have multiple unlodged tax returns?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Each year should be reviewed separately. Start by confirming the outstanding years, then collect the income and deduction records relevant to each one.
+        Each year should be reviewed separately. Start by confirming the
+        outstanding years, then collect the income and deduction records
+        relevant to each one.
       </p>
     ),
   },
@@ -122,7 +132,9 @@ const overdueFaqs = [
     label: "Will I automatically receive a penalty for lodging late?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. The ATO may apply a failure-to-lodge penalty depending on the circumstances. Remission may be requested where relevant, but the ATO determines the outcome.
+        No. The ATO may apply a failure-to-lodge penalty depending on the
+        circumstances. Remission may be requested where relevant, but the ATO
+        determines the outcome.
       </p>
     ),
   },
@@ -131,7 +143,9 @@ const overdueFaqs = [
     label: "Can an overdue return still result in a refund?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Possibly. The result depends on the tax information for that year. A refund may also be offset against existing debts and cannot be guaranteed before assessment.
+        Possibly. The result depends on the tax information for that year. A
+        refund may also be offset against existing debts and cannot be
+        guaranteed before assessment.
       </p>
     ),
   },
@@ -140,7 +154,9 @@ const overdueFaqs = [
     label: "What if I cannot pay an amount assessed?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Lodgment and payment are separate obligations. Depending on your circumstances, an ATO payment plan may be available, although interest can continue to apply.
+        Lodgment and payment are separate obligations. Depending on your
+        circumstances, an ATO payment plan may be available, although interest
+        can continue to apply.
       </p>
     ),
   },
@@ -149,7 +165,10 @@ const overdueFaqs = [
     label: "What if my records are incomplete?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Begin with the records you have and try to obtain replacements. ATO information may assist but is not necessarily complete. Any estimate must have a reasonable basis and satisfy the relevant substantiation rules.
+        Begin with the records you have and try to obtain replacements. ATO
+        information may assist but is not necessarily complete. Any estimate
+        must have a reasonable basis and satisfy the relevant substantiation
+        rules.
       </p>
     ),
   },
@@ -158,7 +177,11 @@ const overdueFaqs = [
     label: "When should I use an accountant for overdue tax returns?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Professional help may be useful where several years are outstanding, records are missing, income is complex, or the ATO has issued correspondence. The accountant can help determine the information required and prepare accurate returns; they cannot guarantee a refund or remission.
+        Professional help may be useful where several years are outstanding,
+        records are missing, income is complex, or the ATO has issued
+        correspondence. The accountant can help determine the information
+        required and prepare accurate returns; they cannot guarantee a refund or
+        remission.
       </p>
     ),
   },
@@ -255,12 +278,20 @@ export default function PriorYearOverdueTaxReturnsPage() {
         subtitle="Falling behind on a tax return can happen because of changed employment, missing records, time overseas, family pressures or uncertainty about what needs to be lodged. If you have one late return or several years outstanding, the first step is to identify your lodgment obligations and bring each relevant year up to date."
         bodyText={
           <span>
-            Financially Up Pty Ltd helps Australian individuals prepare and lodge overdue tax returns, prior year tax returns and catch up tax returns. We can review the years involved, identify available information, explain what is still required and prepare the outstanding returns based on your circumstances.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up Pty Ltd helps Australian individuals prepare and
+            lodge overdue tax returns, prior year tax returns and catch up tax
+            returns. We can review the years involved, identify available
+            information, explain what is still required and prepare the
+            outstanding returns based on your circumstances.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              At your first appointment, we can discuss the outstanding years, available records, ATO correspondence, missing information and the likely next steps. Appointments can be booked online or by phone, with online meetings available Australia-wide and in-person meetings where available.
+              At your first appointment, we can discuss the outstanding years,
+              available records, ATO correspondence, missing information and the
+              likely next steps. Appointments can be booked online or by phone,
+              with online meetings available Australia-wide and in-person
+              meetings where available.
             </div>
           </span>
         }

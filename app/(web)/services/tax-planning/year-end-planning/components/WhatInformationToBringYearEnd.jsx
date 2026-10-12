@@ -22,42 +22,58 @@ import {
 export default function WhatInformationToBringYearEnd() {
   const documents = [
     {
-      icon: <FileTextOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Bookkeeping, Payroll & BAS",
       desc: "Current bookkeeping reports, payroll summaries, Single Touch Payroll records, and activity statements.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Business Profit & Forecasts",
       desc: "Expected year-end business profit, year-to-date trial balances, and anticipated supplier invoices.",
     },
     {
-      icon: <FundOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FundOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Salary & Bonus Information",
       desc: "Income statements, executive bonus agreements, and employee share scheme statements.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Investment & Property Reports",
       desc: "Dividend slips, managed fund annual tax statements, interest records, and rental property summaries.",
     },
     {
-      icon: <ShoppingOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ShoppingOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Asset Purchases & Disposals",
       desc: "Contracts for proposed capital asset acquisitions, equipment finance quotes, or sale agreements.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Capital Gains Records",
       desc: "Historical purchase confirmations, brokerage records, cost base calculations, and capital loss logs.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Superannuation Contributions",
       desc: "Fund contribution balances, concessional cap tracking, and notice of intent documentation.",
     },
     {
-      icon: <MailOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <MailOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "ATO Correspondence",
       desc: "Notices of assessment, PAYG instalment variation notices, or compliance correspondence.",
     },
@@ -77,8 +93,12 @@ export default function WhatInformationToBringYearEnd() {
         </div>
 
         {/* Verbatim Lead Paragraph */}
-        <div className="max-w-4xl mx-auto mb-12 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          Useful information may include current bookkeeping reports, payroll and BAS information, expected business profit, salary or bonus details, investment statements, property income and expenses, proposed asset purchases or disposals, capital gains records, superannuation information and any ATO correspondence relevant to your position.
+        <div className="max-w-4xl mx-auto mb-12 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          Useful information may include current bookkeeping reports, payroll
+          and BAS information, expected business profit, salary or bonus
+          details, investment statements, property income and expenses, proposed
+          asset purchases or disposals, capital gains records, superannuation
+          information and any ATO correspondence relevant to your position.
         </div>
 
         {/* 8-Item Grid */}
@@ -86,10 +106,10 @@ export default function WhatInformationToBringYearEnd() {
           {documents.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/40 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -104,14 +124,16 @@ export default function WhatInformationToBringYearEnd() {
         </div>
 
         {/* Verbatim Preliminary Review Callout */}
-        <div className="max-w-4xl mx-auto bg-brand-primary/5 dark:bg-emerald-950/20 border border-brand-primary/20 dark:border-emerald-800/40 rounded-2xl p-6 sm:p-7 flex items-start gap-4">
+        <div className="max-w-4xl mx-auto bg-brand-primary/5 dark:bg-emerald-950/20 border border-brand-primary/20 dark:border-emerald-800/40 rounded-lg p-6 sm:p-7 flex items-start gap-4">
           <SmileOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
           <div className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
             <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">
               Do Not Wait for Complete Documentation
             </h3>
             <p>
-              You do not need every document finalized before the first discussion. A preliminary review can help identify what is still required.
+              You do not need every document finalized before the first
+              discussion. A preliminary review can help identify what is still
+              required.
             </p>
           </div>
         </div>

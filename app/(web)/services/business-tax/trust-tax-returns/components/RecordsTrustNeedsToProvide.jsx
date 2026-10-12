@@ -98,10 +98,10 @@ export default function RecordsTrustNeedsToProvide() {
           {recordCategories.map((cat, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0">
                   {cat.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
@@ -124,7 +124,7 @@ export default function RecordsTrustNeedsToProvide() {
         </div>
 
         {/* Connected Business & Company Tax Notice */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-teal-50/80 via-emerald-50/60 to-white dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/70 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-teal-50/80 via-emerald-50/60 to-white dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/70 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ApartmentOutlined className="text-teal-600 dark:text-teal-400" />
@@ -142,7 +142,7 @@ export default function RecordsTrustNeedsToProvide() {
             <Link href="/services/business-tax">
               <Button
                 type="default"
-                className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-lg"
               >
                 Business Tax &amp; Accounting
               </Button>
@@ -150,7 +150,7 @@ export default function RecordsTrustNeedsToProvide() {
             <Link href="/services/business-tax/company-tax-returns">
               <Button
                 type="primary"
-                className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

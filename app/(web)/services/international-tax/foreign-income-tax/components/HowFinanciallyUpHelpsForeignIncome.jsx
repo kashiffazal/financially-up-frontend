@@ -47,14 +47,15 @@ export default function HowFinanciallyUpHelpsForeignIncome() {
               How Financially Up Can Help
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Our foreign income tax service can include, depending on the agreed scope:
+              Our foreign income tax service can include, depending on the
+              agreed scope:
             </p>
 
             <div className="mt-8 space-y-3.5">
               {servicesScope.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 shadow-xs"
+                  className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 shadow-xs"
                 >
                   <CheckCircleFilled className="text-teal-600 dark:text-teal-400 text-lg mt-0.5 shrink-0" />
                   <span className="text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug">
@@ -64,12 +65,17 @@ export default function HowFinanciallyUpHelpsForeignIncome() {
               ))}
             </div>
 
-            <div className="mt-8 p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+            <div className="mt-8 p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                {company.legalName || "Financially Up Pty Ltd"} provides Australian taxation and accounting advice. We do not automatically provide domestic tax advice for another country, and a foreign-country adviser may be required where overseas law needs to be interpreted.
+                {company.legalName || "Financially Up Pty Ltd"} provides
+                Australian taxation and accounting advice. We do not
+                automatically provide domestic tax advice for another country,
+                and a foreign-country adviser may be required where overseas law
+                needs to be interpreted.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                For matters involving several countries, entities or cross-border transactions, our{" "}
+                For matters involving several countries, entities or
+                cross-border transactions, our{" "}
                 <Link
                   href="/services/international-tax"
                   className="font-semibold text-teal-600 dark:text-teal-400 hover:underline"
@@ -84,14 +90,20 @@ export default function HowFinanciallyUpHelpsForeignIncome() {
           {/* Right Column: Why Choose Financially Up? */}
           <div className="lg:col-span-5">
             <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm relative overflow-hidden">
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-6">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-6">
                 <SafetyCertificateOutlined />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Why Choose Financially Up?
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                {company.legalName || "Financially Up Pty Ltd"} is a registered tax agent assisting clients across Australia. Our team includes CPA and IPA members and has more than 10 years of experience in taxation and accounting matters. We provide online and in-person appointment options and focus on explaining what information is required, how the Australian tax treatment works and what remains dependent on your individual circumstances.
+                {company.legalName || "Financially Up Pty Ltd"} is a registered
+                tax agent assisting clients across Australia. Our team includes
+                CPA and IPA members and has more than 10 years of experience in
+                taxation and accounting matters. We provide online and in-person
+                appointment options and focus on explaining what information is
+                required, how the Australian tax treatment works and what
+                remains dependent on your individual circumstances.
               </p>
 
               {/* Dynamic Company Details */}
@@ -99,7 +111,8 @@ export default function HowFinanciallyUpHelpsForeignIncome() {
                 <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-zinc-300">
                   <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400 text-base shrink-0" />
                   <span>
-                    Registered Tax Agent: <strong>TPB #{company.abn || "26234055"}</strong>
+                    Registered Tax Agent:{" "}
+                    <strong>TPB #{company.abn || "26234055"}</strong>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-zinc-300">
@@ -120,7 +133,10 @@ export default function HowFinanciallyUpHelpsForeignIncome() {
                 {company.email && (
                   <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-zinc-300">
                     <MailOutlined className="text-teal-600 dark:text-teal-400 text-base shrink-0" />
-                    <a href={`mailto:${company.email}`} className="hover:underline font-medium">
+                    <a
+                      href={`mailto:${company.email}`}
+                      className="hover:underline font-medium"
+                    >
                       {company.email}
                     </a>
                   </div>
@@ -130,7 +146,7 @@ export default function HowFinanciallyUpHelpsForeignIncome() {
               <div className="mt-8">
                 <Link
                   href="/book-an-appointment"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-colors shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-colors shadow-sm"
                 >
                   <CalendarOutlined /> Book an Appointment
                 </Link>

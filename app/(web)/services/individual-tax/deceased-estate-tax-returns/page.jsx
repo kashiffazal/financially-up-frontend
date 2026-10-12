@@ -26,7 +26,8 @@ export const metadata = {
     "estate administration tax accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/deceased-estate-tax-returns/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/deceased-estate-tax-returns/",
   },
   openGraph: {
     title: "Deceased Estate Tax Return Accountant | Financially Up",
@@ -57,32 +58,38 @@ const deceasedEstateQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Executors, administrators & legal personal representatives managing an estate",
+    value:
+      "Executors, administrators & legal personal representatives managing an estate",
   },
   {
     icon: "file",
     label: "Return Types",
-    value: "Final individual return (deceased TFN) & separate estate trust return (estate TFN)",
+    value:
+      "Final individual return (deceased TFN) & separate estate trust return (estate TFN)",
   },
   {
     icon: "clock",
     label: "Tax Periods",
-    value: "Date of death cut-off for individual return; administration period for trust return",
+    value:
+      "Date of death cut-off for individual return; administration period for trust return",
   },
   {
     icon: "bank",
     label: "Inheritance Tax",
-    value: "No general inheritance tax in Australia; ordinary income & CGT apply during administration",
+    value:
+      "No general inheritance tax in Australia; ordinary income & CGT apply during administration",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "safety",
     label: "Legal Safeguards",
-    value: "Formal authority verification protecting executor fiduciary responsibilities",
+    value:
+      "Formal authority verification protecting executor fiduciary responsibilities",
   },
 ];
 
@@ -95,7 +102,9 @@ const deceasedEstateFaqs = [
     label: "Does every deceased person need a final tax return",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. A final return may be required where the person had income or another lodgment obligation for the period up to death. The person&apos;s circumstances and lodgment history should be checked.
+        No. A final return may be required where the person had income or
+        another lodgment obligation for the period up to death. The
+        person&apos;s circumstances and lodgment history should be checked.
       </p>
     ),
   },
@@ -104,7 +113,9 @@ const deceasedEstateFaqs = [
     label: "Does every deceased estate need a separate tax return",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. A deceased estate tax return is required only where the estate has a relevant lodgment obligation. Estate income, gains, beneficiaries and the administration stage should be reviewed.
+        No. A deceased estate tax return is required only where the estate has a
+        relevant lodgment obligation. Estate income, gains, beneficiaries and
+        the administration stage should be reviewed.
       </p>
     ),
   },
@@ -113,7 +124,9 @@ const deceasedEstateFaqs = [
     label: "Does the estate use the deceased person's TFN",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. The final individual return uses the deceased person&apos;s TFN. A deceased estate that needs to lodge trust returns generally requires its own TFN.
+        No. The final individual return uses the deceased person&apos;s TFN. A
+        deceased estate that needs to lodge trust returns generally requires its
+        own TFN.
       </p>
     ),
   },
@@ -122,7 +135,9 @@ const deceasedEstateFaqs = [
     label: "Who can deal with the ATO",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The ATO generally requires an authorized executor, administrator or legal personal representative to establish their authority. A family member is not automatically authorized.
+        The ATO generally requires an authorized executor, administrator or
+        legal personal representative to establish their authority. A family
+        member is not automatically authorized.
       </p>
     ),
   },
@@ -131,7 +146,9 @@ const deceasedEstateFaqs = [
     label: "Is an inheritance taxable",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Receiving inherited assets is not automatically assessable income. Tax may apply to estate income distributed to a beneficiary or to a later disposal of an inherited asset.
+        Receiving inherited assets is not automatically assessable income. Tax
+        may apply to estate income distributed to a beneficiary or to a later
+        disposal of an inherited asset.
       </p>
     ),
   },
@@ -140,7 +157,10 @@ const deceasedEstateFaqs = [
     label: "What happens to tax debts or refunds",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An assessed tax debt is generally dealt with during administration of the estate. A refund generally becomes an estate asset and may be offset against existing debts. A relative does not become personally liable merely because of their relationship to the deceased.
+        An assessed tax debt is generally dealt with during administration of
+        the estate. A refund generally becomes an estate asset and may be offset
+        against existing debts. A relative does not become personally liable
+        merely because of their relationship to the deceased.
       </p>
     ),
   },
@@ -221,12 +241,22 @@ export default function DeceasedEstateTaxReturnsPage() {
         subtitle="When someone passes away, their tax affairs may still need to be finalized. Depending on the circumstances, this may involve: a final individual tax return for income derived by the deceased person up to the date of death; and a separate deceased estate tax return for relevant income or capital gains derived by the estate during administration."
         bodyText={
           <span>
-            Neither return is automatically required in every case. The person managing the estate should review the deceased person&apos;s lodgment history, income before death and any income received or derived by the estate afterwards. Financially Up Pty Ltd assists executors, administrators and legal personal representatives with understanding the relevant tax-return requirements, gathering records and preparing returns where required.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Neither return is automatically required in every case. The person
+            managing the estate should review the deceased person&apos;s
+            lodgment history, income before death and any income received or
+            derived by the estate afterwards. Financially Up Pty Ltd assists
+            executors, administrators and legal personal representatives with
+            understanding the relevant tax-return requirements, gathering
+            records and preparing returns where required.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              Book an Appointment to discuss the deceased person&apos;s tax history, estate income, property or investments, available records and any ATO correspondence. The first appointment is used to identify the likely returns and information required. It does not guarantee a particular tax, refund or estate outcome.
+              Book an Appointment to discuss the deceased person&apos;s tax
+              history, estate income, property or investments, available records
+              and any ATO correspondence. The first appointment is used to
+              identify the likely returns and information required. It does not
+              guarantee a particular tax, refund or estate outcome.
             </div>
           </span>
         }

@@ -36,7 +36,10 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
     { icon: <DollarOutlined />, label: "Assets and liabilities schedule" },
     { icon: <FileTextOutlined />, label: "Outstanding tax lodgements" },
     { icon: <TeamOutlined />, label: "Employee obligations records" },
-    { icon: <SafetyCertificateOutlined />, label: "Confirmation of no legal disputes" },
+    {
+      icon: <SafetyCertificateOutlined />,
+      label: "Confirmation of no legal disputes",
+    },
     { icon: <CheckCircleOutlined />, label: "Shareholder unanimous agreement" },
   ];
 
@@ -53,14 +56,24 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
         {/* Subsection 1: What Financially Up can help with */}
         <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-10">
-            <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Closure Scope & Compliance
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What Financially Up can help with
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can review the company&apos;s accounting records and ASIC status, identify outstanding bookkeeping or tax work, help assess whether the published voluntary deregistration criteria appear to be met, assist with final compliance tasks within scope, and support the ASIC deregistration application once the company is ready. If the company is not ready to close, we can identify the unresolved items so they can be addressed in the right order.
+              Financially Up can review the company&apos;s accounting records
+              and ASIC status, identify outstanding bookkeeping or tax work,
+              help assess whether the published voluntary deregistration
+              criteria appear to be met, assist with final compliance tasks
+              within scope, and support the ASIC deregistration application once
+              the company is ready. If the company is not ready to close, we can
+              identify the unresolved items so they can be addressed in the
+              right order.
             </p>
           </div>
 
@@ -70,14 +83,17 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
               Information and records to prepare
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal mb-6">
-              Useful records include the company ACN and ASIC details, financial or bookkeeping records, bank and loan balances, assets and liabilities, outstanding tax lodgements, employee obligations, any legal disputes and confirmation of shareholder agreement.
+              Useful records include the company ACN and ASIC details, financial
+              or bookkeeping records, bank and loan balances, assets and
+              liabilities, outstanding tax lodgements, employee obligations, any
+              legal disputes and confirmation of shareholder agreement.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               {recordPills.map((p, i) => (
                 <div
                   key={i}
-                  className="p-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 flex items-center gap-2.5 text-xs text-slate-700 dark:text-zinc-300 font-medium"
+                  className="p-3.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 flex items-center gap-2.5 text-xs text-slate-700 dark:text-zinc-300 font-medium"
                 >
                   <span className="text-emerald-600 dark:text-emerald-400 text-sm shrink-0">
                     {p.icon}
@@ -99,7 +115,13 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
               Why choose Financially Up?
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up is a registered tax agent with more than 10 years of experience. Our team includes CPA and IPA professionals and supports clients Australia-wide through online and in-person appointments. For company closure matters, we combine the ASIC administration with the accounting and tax review needed to understand whether the company is actually ready to be deregistered.
+              Financially Up is a registered tax agent with more than 10 years
+              of experience. Our team includes CPA and IPA professionals and
+              supports clients Australia-wide through online and in-person
+              appointments. For company closure matters, we combine the ASIC
+              administration with the accounting and tax review needed to
+              understand whether the company is actually ready to be
+              deregistered.
             </p>
 
             {/* Metrics */}
@@ -124,7 +146,7 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPosition="end"
-                  className="w-full sm:w-auto rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
+                  className="w-full sm:w-auto rounded-lg font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
                 >
                   Book an Appointment
                 </Button>
@@ -138,7 +160,7 @@ export default function WhatFinanciallyUpHelpsAndWhyChoose() {
                   <Button
                     size="large"
                     icon={<PhoneOutlined />}
-                    className="w-full sm:w-auto rounded-xl font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
+                    className="w-full sm:w-auto rounded-lg font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
                   >
                     Call {company.phone}
                   </Button>

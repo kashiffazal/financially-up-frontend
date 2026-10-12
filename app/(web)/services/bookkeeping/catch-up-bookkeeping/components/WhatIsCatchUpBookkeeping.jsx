@@ -93,9 +93,9 @@ export default function WhatIsCatchUpBookkeeping() {
           {scopeHighlights.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex items-start gap-4"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex items-start gap-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
                 {item.icon}
               </div>
               <div>
@@ -111,7 +111,7 @@ export default function WhatIsCatchUpBookkeeping() {
         </div>
 
         {/* Diagnostic Routing Strip */}
-        <div className="p-6 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-6 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-start gap-3">
             <ClearOutlined className="text-amber-600 dark:text-amber-400 text-xl shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">

@@ -67,7 +67,8 @@ export default function WhyChooseFinanciallyUpAppSupport() {
             Qualified Representation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why Choose {company?.tradingName || company?.legalName || "Financially Up"}?
+            Why Choose{" "}
+            {company?.tradingName || company?.legalName || "Financially Up"}?
           </h2>
         </div>
 
@@ -75,14 +76,17 @@ export default function WhyChooseFinanciallyUpAppSupport() {
         <div className="max-w-4xl mx-auto bg-white dark:bg-zinc-900 rounded-3xl p-8 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
             <CheckCircleOutlined />
-            <span>Integrated R&amp;D Application &amp; Corporate Compliance Support</span>
+            <span>
+              Integrated R&amp;D Application &amp; Corporate Compliance Support
+            </span>
           </div>
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent providing
-            taxation, accounting, bookkeeping and business advisory services. Our team includes CPA
-            and IPA members and has more than 10 years of experience across accounting and
-            taxation matters. We assist businesses Australia-wide through online appointments, with
-            in-person appointments also available.
+            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
+            agent providing taxation, accounting, bookkeeping and business
+            advisory services. Our team includes CPA and IPA members and has
+            more than 10 years of experience across accounting and taxation
+            matters. We assist businesses Australia-wide through online
+            appointments, with in-person appointments also available.
           </p>
         </div>
 
@@ -91,9 +95,9 @@ export default function WhyChooseFinanciallyUpAppSupport() {
           {credentials.map((cred, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 text-center shadow-xs flex flex-col items-center justify-center hover:border-emerald-500/40 transition-colors"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 text-center shadow-xs flex flex-col items-center justify-center hover:border-emerald-500/40 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-3">
+              <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-3">
                 {cred.icon}
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -112,7 +116,7 @@ export default function WhyChooseFinanciallyUpAppSupport() {
             <Button
               type="primary"
               size="large"
-              className="bg-emerald-600 hover:bg-emerald-700 border-emerald-600 font-semibold px-8 h-12 rounded-xl shadow-xs"
+              className="bg-emerald-600 hover:bg-emerald-700 border-emerald-600 font-semibold px-8 h-12 rounded-lg shadow-xs"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
             >
@@ -123,7 +127,7 @@ export default function WhyChooseFinanciallyUpAppSupport() {
             <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
               <Button
                 size="large"
-                className="font-semibold px-6 h-12 rounded-xl border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400"
+                className="font-semibold px-6 h-12 rounded-lg border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400"
                 icon={<PhoneOutlined />}
               >
                 Call {company.phone}

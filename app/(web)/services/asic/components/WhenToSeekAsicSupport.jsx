@@ -31,33 +31,48 @@ export default function WhenToSeekAsicSupport() {
    */
   const triggerSituations = [
     {
-      icon: <UserSwitchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <UserSwitchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Director Joining or Leaving",
-      description: "A director appointment, resignation, or vacation of office requiring statutory notifications.",
+      description:
+        "A director appointment, resignation, or vacation of office requiring statutory notifications.",
       tag: "Officeholders",
     },
     {
-      icon: <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Office Address Changing",
-      description: "Changes to registered office address or principal place of business location.",
+      description:
+        "Changes to registered office address or principal place of business location.",
       tag: "Addresses",
     },
     {
-      icon: <ShareAltOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ShareAltOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Shares Issued or Transferred",
-      description: "Equity allotments, member transfers, or updates to company share structures.",
+      description:
+        "Equity allotments, member transfers, or updates to company share structures.",
       tag: "Shares",
     },
     {
-      icon: <FileExclamationOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileExclamationOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Outdated Annual Statement",
-      description: "An annual review statement showing historical or incorrect corporate information.",
+      description:
+        "An annual review statement showing historical or incorrect corporate information.",
       tag: "Annual Review",
     },
     {
-      icon: <HistoryOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Overdue Company Changes",
-      description: "Several overdue company changes needing to be reconciled and brought up to date.",
+      description:
+        "Several overdue company changes needing to be reconciled and brought up to date.",
       tag: "Backlog Catch-Up",
     },
   ];
@@ -75,7 +90,12 @@ export default function WhenToSeekAsicSupport() {
           </h2>
           {/* Document Paragraph 1 - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            ASIC compliance support is useful when directors want ongoing administration handled consistently or when a company has a specific event to record. Common situations include a director joining or leaving, an office address changing, shares being issued or transferred, an annual statement showing outdated information, or several overdue company changes needing to be reconciled.
+            ASIC compliance support is useful when directors want ongoing
+            administration handled consistently or when a company has a specific
+            event to record. Common situations include a director joining or
+            leaving, an office address changing, shares being issued or
+            transferred, an annual statement showing outdated information, or
+            several overdue company changes needing to be reconciled.
           </p>
         </div>
 
@@ -84,11 +104,11 @@ export default function WhenToSeekAsicSupport() {
           {triggerSituations.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -106,10 +126,10 @@ export default function WhenToSeekAsicSupport() {
           ))}
 
           {/* Consistent Administration Card */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-emerald-500/50 hover:shadow-md transition-all flex flex-col justify-between">
+          <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-emerald-500/50 hover:shadow-md transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
                   <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -120,14 +140,15 @@ export default function WhenToSeekAsicSupport() {
                 Ongoing Administration
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal m-0">
-                Directors seeking consistent corporate secretarial and annual statement tracking managed professionally.
+                Directors seeking consistent corporate secretarial and annual
+                statement tracking managed professionally.
               </p>
             </div>
           </div>
         </div>
 
         {/* New Company Registration Routing Box - Paragraph 2 Verbatim */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 text-xs font-semibold mb-3">
               <RocketOutlined />
@@ -135,14 +156,17 @@ export default function WhenToSeekAsicSupport() {
             </div>
             {/* Document Paragraph 2 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-medium">
-              It can also be useful after a new company has been established. If you are still at the setup stage, our company registration service is the more relevant starting point. This page deals with the ongoing company compliance that follows registration.
+              It can also be useful after a new company has been established. If
+              you are still at the setup stage, our company registration service
+              is the more relevant starting point. This page deals with the
+              ongoing company compliance that follows registration.
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-3">
             <Link href="/services/business-structures">
               <Button
                 size="large"
-                className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
               >
                 Company Registration
               </Button>
@@ -153,7 +177,7 @@ export default function WhenToSeekAsicSupport() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
               >
                 Book an Appointment
               </Button>

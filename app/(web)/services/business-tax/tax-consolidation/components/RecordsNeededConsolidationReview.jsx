@@ -86,7 +86,7 @@ export default function RecordsNeededConsolidationReview() {
           {records.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm flex flex-col justify-between"
             >
               <div>
                 <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 flex items-center justify-center shrink-0 mb-3">
@@ -104,7 +104,7 @@ export default function RecordsNeededConsolidationReview() {
         </div>
 
         {/* Verbatim Indefinite Retention Box */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-teal-500/10 via-white to-slate-50 dark:from-teal-950/20 dark:via-zinc-900 dark:to-zinc-950 border border-teal-500/20 dark:border-teal-500/30 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-teal-500/10 via-white to-slate-50 dark:from-teal-950/20 dark:via-zinc-900 dark:to-zinc-950 border border-teal-500/20 dark:border-teal-500/30 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ClockCircleOutlined className="text-teal-600 dark:text-teal-400" />
@@ -121,7 +121,7 @@ export default function RecordsNeededConsolidationReview() {
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

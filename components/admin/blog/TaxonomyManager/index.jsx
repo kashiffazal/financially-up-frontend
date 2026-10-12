@@ -36,24 +36,33 @@ const CONFIG = {
     title: "Categories",
     singular: "Category",
     icon: <FolderOutlined />,
-    description: "Organise articles into parent categories and sub-categories. Categories appear as filters on the website blog.",
+    description:
+      "Organise articles into parent categories and sub-categories. Categories appear as filters on the website blog.",
     list: blogApi.listCategories,
     create: blogApi.createCategory,
     update: blogApi.updateCategory,
     remove: blogApi.deleteCategory,
-    deleteHint: "Posts keep their other categories, and any sub-categories move up one level.",
+    deleteHint:
+      "Posts keep their other categories, and any sub-categories move up one level.",
     noun: "category",
     // Shown in the delete dialog when posts use it
     options: {
-      remove: { title: "Remove it from these posts", desc: "They keep their other categories. Posts left with none show as Uncategorised." },
-      replace: { title: "Move these posts to another category", desc: "Each post gets the category you choose instead." },
+      remove: {
+        title: "Remove it from these posts",
+        desc: "They keep their other categories. Posts left with none show as Uncategorised.",
+      },
+      replace: {
+        title: "Move these posts to another category",
+        desc: "Each post gets the category you choose instead.",
+      },
     },
   },
   tag: {
     title: "Tags",
     singular: "Tag",
     icon: <TagsOutlined />,
-    description: "Keywords that describe an article. Popular tags are listed on the website blog.",
+    description:
+      "Keywords that describe an article. Popular tags are listed on the website blog.",
     list: blogApi.listTags,
     create: blogApi.createTag,
     update: blogApi.updateTag,
@@ -61,8 +70,14 @@ const CONFIG = {
     deleteHint: "The tag is removed from every post that uses it.",
     noun: "tag",
     options: {
-      remove: { title: "Remove it from these posts", desc: "The posts keep their other tags." },
-      replace: { title: "Replace it with another tag", desc: "Each post gets the tag you choose instead." },
+      remove: {
+        title: "Remove it from these posts",
+        desc: "The posts keep their other tags.",
+      },
+      replace: {
+        title: "Replace it with another tag",
+        desc: "Each post gets the tag you choose instead.",
+      },
     },
   },
 };
@@ -100,7 +115,12 @@ export default function TaxonomyManager({ type = "category" }) {
   const startEdit = (row) => {
     setEditing(row);
     setSlugTouched(true);
-    form.setFieldsValue({ name: row.name, slug: row.slug, description: row.description || "", parentId: row.parentId || NO_PARENT });
+    form.setFieldsValue({
+      name: row.name,
+      slug: row.slug,
+      description: row.description || "",
+      parentId: row.parentId || NO_PARENT,
+    });
   };
 
   const resetForm = () => {
@@ -112,7 +132,9 @@ export default function TaxonomyManager({ type = "category" }) {
   const submit = async (values) => {
     setSaving(true);
     const payload = { ...values, parentId: values.parentId || null };
-    const res = editing ? await cfg.update(editing.id, payload) : await cfg.create(payload);
+    const res = editing
+      ? await cfg.update(editing.id, payload)
+      : await cfg.create(payload);
     setSaving(false);
     if (!res?.success) return;
     antdMsg.success(res.message || `${cfg.singular} saved.`);
@@ -145,7 +167,10 @@ export default function TaxonomyManager({ type = "category" }) {
   // Anything except the one being deleted (sub-categories shown indented)
   const replacementOptions = rows
     .filter((r) => r.id !== deleting?.id)
-    .map((r) => ({ value: r.id, label: `${"— ".repeat(r.depth || 0)}${r.name}` }));
+    .map((r) => ({
+      value: r.id,
+      label: `${"- ".repeat(r.depth || 0)}${r.name}`,
+    }));
 
   // Parent options: everything except the category itself and its own sub-categories
   const parentOptions = (() => {
@@ -166,7 +191,12 @@ export default function TaxonomyManager({ type = "category" }) {
     }
     return [
       { value: NO_PARENT, label: "None (top-level category)" },
-      ...rows.filter((r) => !excluded.has(r.id)).map((r) => ({ value: r.id, label: `${"— ".repeat(r.depth || 0)}${r.name}` })),
+      ...rows
+        .filter((r) => !excluded.has(r.id))
+        .map((r) => ({
+          value: r.id,
+          label: `${"- ".repeat(r.depth || 0)}${r.name}`,
+        })),
     ];
   })();
 
@@ -175,27 +205,52 @@ export default function TaxonomyManager({ type = "category" }) {
       title: "Name",
       key: "name",
       render: (_, row) => (
-        <div style={{ paddingLeft: (row.depth || 0) * 26 }} className="flex items-start gap-2">
+        <div
+          style={{ paddingLeft: (row.depth || 0) * 26 }}
+          className="flex items-start gap-2"
+        >
           {isCategory ? (
             row.depth ? (
               <span className="flex items-center gap-1.5 text-slate-400">
-                <span className="text-slate-300">—</span>
+                <span className="text-slate-300">-</span>
                 <FolderOpenOutlined />
               </span>
             ) : (
               <FolderOutlined className="mt-1 text-brand-primary dark:text-emerald-400" />
             )
           ) : (
-            <span className="font-bold text-brand-primary dark:text-emerald-400">#</span>
+            <span className="font-bold text-brand-primary dark:text-emerald-400">
+              #
+            </span>
           )}
           <div className="min-w-0">
-            <div className={row.depth ? "text-[13px] font-medium" : "font-semibold text-slate-900 dark:text-zinc-100"}>{row.name}</div>
-            {row.description && <div className="truncate max-w-md text-[12px] text-slate-500 dark:text-zinc-400">{row.description}</div>}
+            <div
+              className={
+                row.depth
+                  ? "text-[13px] font-medium"
+                  : "font-semibold text-slate-900 dark:text-zinc-100"
+              }
+            >
+              {row.name}
+            </div>
+            {row.description && (
+              <div className="truncate max-w-md text-[12px] text-slate-500 dark:text-zinc-400">
+                {row.description}
+              </div>
+            )}
           </div>
         </div>
       ),
     },
-    { title: "Slug", dataIndex: "slug", key: "slug", width: 220, render: (v) => <span className="font-mono text-[12px] text-slate-500">{v}</span> },
+    {
+      title: "Slug",
+      dataIndex: "slug",
+      key: "slug",
+      width: 220,
+      render: (v) => (
+        <span className="font-mono text-[12px] text-slate-500">{v}</span>
+      ),
+    },
     {
       title: "Posts",
       key: "count",
@@ -204,7 +259,10 @@ export default function TaxonomyManager({ type = "category" }) {
       render: (_, row) =>
         row.count ? (
           isCategory ? (
-            <Link href={`/admin/blog?category=${row.id}`} className={styles.count}>
+            <Link
+              href={`/admin/blog?category=${row.id}`}
+              className={styles.count}
+            >
               {row.count}
             </Link>
           ) : (
@@ -222,7 +280,12 @@ export default function TaxonomyManager({ type = "category" }) {
       render: (_, row) => (
         <span className="flex items-center justify-center gap-1">
           <Tooltip title="Edit">
-            <Button type="text" size="small" icon={<EditOutlined />} onClick={() => startEdit(row)} />
+            <Button
+              type="text"
+              size="small"
+              icon={<EditOutlined />}
+              onClick={() => startEdit(row)}
+            />
           </Tooltip>
           {row.count ? (
             // Used by posts: ask what to do with them
@@ -241,13 +304,22 @@ export default function TaxonomyManager({ type = "category" }) {
           ) : (
             <Popconfirm
               title={`Delete "${row.name}"?`}
-              description={isCategory ? "No posts use it. Any sub-categories move up one level." : "No posts use it."}
+              description={
+                isCategory
+                  ? "No posts use it. Any sub-categories move up one level."
+                  : "No posts use it."
+              }
               okText="Delete"
               okButtonProps={{ danger: true }}
               onConfirm={() => remove(row)}
             >
               <Tooltip title="Delete">
-                <Button type="text" size="small" danger icon={<DeleteOutlined />} />
+                <Button
+                  type="text"
+                  size="small"
+                  danger
+                  icon={<DeleteOutlined />}
+                />
               </Tooltip>
             </Popconfirm>
           )}
@@ -272,7 +344,13 @@ export default function TaxonomyManager({ type = "category" }) {
             href: "/admin/dashboard",
           },
           { title: <Link href="/admin/blog">Blog Posts</Link> },
-          { title: <span className="font-semibold text-brand-primary dark:text-emerald-400">{cfg.title}</span> },
+          {
+            title: (
+              <span className="font-semibold text-brand-primary dark:text-emerald-400">
+                {cfg.title}
+              </span>
+            ),
+          },
         ]}
         extraActions={
           <Link href="/admin/blog">
@@ -289,7 +367,11 @@ export default function TaxonomyManager({ type = "category" }) {
                 {editing ? `Edit ${cfg.singular}` : `Add New ${cfg.singular}`}
               </h3>
               <p className="m-0 mt-1 mb-4 pb-4 border-b border-slate-100 dark:border-zinc-800 text-[12.5px] text-slate-500 dark:text-zinc-400">
-                {editing ? `Editing "${editing.name}".` : isCategory ? "Create a top-level category or a sub-category." : "Create a new tag."}
+                {editing
+                  ? `Editing "${editing.name}".`
+                  : isCategory
+                    ? "Create a top-level category or a sub-category."
+                    : "Create a new tag."}
               </p>
               <Form
                 form={form}
@@ -300,13 +382,16 @@ export default function TaxonomyManager({ type = "category" }) {
                 onFinish={submit}
                 onValuesChange={(changed) => {
                   if ("slug" in changed) setSlugTouched(Boolean(changed.slug));
-                  if ("name" in changed && !slugTouched) form.setFieldValue("slug", slugify(changed.name));
+                  if ("name" in changed && !slugTouched)
+                    form.setFieldValue("slug", slugify(changed.name));
                 }}
               >
                 <AntInput
                   name="name"
                   label="Name"
-                  placeholder={isCategory ? "e.g. Tax Planning" : "e.g. ATO Compliance"}
+                  placeholder={
+                    isCategory ? "e.g. Tax Planning" : "e.g. ATO Compliance"
+                  }
                   reqMsg={`Please enter a ${cfg.singular.toLowerCase()} name.`}
                   extra="How it appears on the website."
                   maxLength={120}
@@ -314,7 +399,9 @@ export default function TaxonomyManager({ type = "category" }) {
                 <AntInput
                   name="slug"
                   label="Slug"
-                  placeholder={isCategory ? "e.g. tax-planning" : "e.g. ato-compliance"}
+                  placeholder={
+                    isCategory ? "e.g. tax-planning" : "e.g. ato-compliance"
+                  }
                   className="font-mono"
                   extra="The URL-friendly version. Generated from the name if left empty."
                   maxLength={160}
@@ -346,8 +433,16 @@ export default function TaxonomyManager({ type = "category" }) {
                       Cancel
                     </Button>
                   )}
-                  <Button type="primary" htmlType="submit" icon={editing ? <EditOutlined /> : <PlusOutlined />} loading={saving} className="flex-1 bg-brand-primary!">
-                    {editing ? `Update ${cfg.singular}` : `Add New ${cfg.singular}`}
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    icon={editing ? <EditOutlined /> : <PlusOutlined />}
+                    loading={saving}
+                    className="flex-1 bg-brand-primary!"
+                  >
+                    {editing
+                      ? `Update ${cfg.singular}`
+                      : `Add New ${cfg.singular}`}
                   </Button>
                 </div>
               </Form>
@@ -358,7 +453,9 @@ export default function TaxonomyManager({ type = "category" }) {
         <div className={canManage ? "lg:col-span-8" : "lg:col-span-12"}>
           <div className={`${styles.panel} p-0!`}>
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-zinc-800">
-              <h3 className="m-0 text-[15px] font-bold text-slate-900 dark:text-zinc-100">Existing {cfg.title}</h3>
+              <h3 className="m-0 text-[15px] font-bold text-slate-900 dark:text-zinc-100">
+                Existing {cfg.title}
+              </h3>
               <span className="text-[12.5px] text-slate-500">
                 {rows.length} {rows.length === 1 ? cfg.singular : cfg.title}
               </span>
@@ -368,9 +465,26 @@ export default function TaxonomyManager({ type = "category" }) {
               columns={columns}
               dataSource={rows}
               loading={loading}
-              pagination={rows.length > 50 ? { pageSize: 50, showSizeChanger: false } : false}
-              rowClassName={(row) => (editing?.id === row.id ? styles.editingRow : row.depth ? styles.childRow : "")}
-              locale={{ emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={`No ${cfg.title.toLowerCase()} yet`} /> }}
+              pagination={
+                rows.length > 50
+                  ? { pageSize: 50, showSizeChanger: false }
+                  : false
+              }
+              rowClassName={(row) =>
+                editing?.id === row.id
+                  ? styles.editingRow
+                  : row.depth
+                    ? styles.childRow
+                    : ""
+              }
+              locale={{
+                emptyText: (
+                  <Empty
+                    image={Empty.PRESENTED_IMAGE_SIMPLE}
+                    description={`No ${cfg.title.toLowerCase()} yet`}
+                  />
+                ),
+              }}
             />
           </div>
         </div>
@@ -386,14 +500,24 @@ export default function TaxonomyManager({ type = "category" }) {
         width={520}
       >
         {deleting && (
-          <Form form={deleteForm} layout="vertical" requiredMark={false} initialValues={{ mode: "remove" }} onFinish={confirmDelete} className="pt-2">
+          <Form
+            form={deleteForm}
+            layout="vertical"
+            requiredMark={false}
+            initialValues={{ mode: "remove" }}
+            onFinish={confirmDelete}
+            className="pt-2"
+          >
             <p className={styles.modalText}>
               <strong>
                 {deleting.count} post{deleting.count === 1 ? "" : "s"}
               </strong>{" "}
               {deleting.count === 1 ? "uses" : "use"} this {cfg.noun}.{" "}
               {isCategory && (
-                <Link href={`/admin/blog?category=${deleting.id}`} target="_blank">
+                <Link
+                  href={`/admin/blog?category=${deleting.id}`}
+                  target="_blank"
+                >
                   View posts
                 </Link>
               )}{" "}
@@ -420,12 +544,21 @@ export default function TaxonomyManager({ type = "category" }) {
                 reqMsg={isCategory ? "Choose a category" : "Choose a tag"}
               />
             )}
-            {isCategory && <p className={styles.modalHint}>Any sub-categories move up one level.</p>}
+            {isCategory && (
+              <p className={styles.modalHint}>
+                Any sub-categories move up one level.
+              </p>
+            )}
             <div className={styles.modalFooter}>
               <Button onClick={() => setDeleting(null)} disabled={deleteBusy}>
                 Cancel
               </Button>
-              <Button type="primary" danger htmlType="submit" loading={deleteBusy}>
+              <Button
+                type="primary"
+                danger
+                htmlType="submit"
+                loading={deleteBusy}
+              >
                 Delete {cfg.noun}
               </Button>
             </div>

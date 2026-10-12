@@ -43,7 +43,8 @@ export default function HowFinanciallyUpHelpsAmendments() {
       desc: "Validating primary source receipts, bank feeds, payment summaries, and dividend vouchers.",
     },
     {
-      title: "considering whether an amendment appears to be the appropriate process;",
+      title:
+        "considering whether an amendment appears to be the appropriate process;",
       icon: <SafetyCertificateOutlined className="text-purple-500 text-lg" />,
       desc: "Confirming statutory time limits and verifying if an amendment or formal objection is required.",
     },
@@ -53,7 +54,8 @@ export default function HowFinanciallyUpHelpsAmendments() {
       desc: "Recalculating revised taxable income and drafting comprehensive reasons for adjustment.",
     },
     {
-      title: "preparing or lodging the amendment where authorised and included in the agreed scope; and",
+      title:
+        "preparing or lodging the amendment where authorised and included in the agreed scope; and",
       icon: <SendOutlined className="text-rose-500 text-lg" />,
       desc: "Direct electronic transmission via the ATO Tax Agent Portal under client authorization.",
     },
@@ -69,14 +71,18 @@ export default function HowFinanciallyUpHelpsAmendments() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Practice Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            For tax return amendment matters, {company?.legalName || "Financially Up Pty Ltd"} can assist with:
+            For tax return amendment matters,{" "}
+            {company?.legalName || "Financially Up Pty Ltd"} can assist with:
           </p>
         </div>
 
@@ -95,10 +101,10 @@ export default function HowFinanciallyUpHelpsAmendments() {
             {services.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
+                className="flex flex-col justify-between p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
                     {item.icon}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -115,7 +121,9 @@ export default function HowFinanciallyUpHelpsAmendments() {
           {/* Scope Clarification Note */}
           <div className="mt-8 pt-6 border-t border-slate-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-400">
             <p className="m-0 max-w-2xl leading-relaxed">
-              Where the issue requires separate tax advice, reconstruction of records or a more detailed review, the additional work can be discussed and scoped before proceeding.
+              Where the issue requires separate tax advice, reconstruction of
+              records or a more detailed review, the additional work can be
+              discussed and scoped before proceeding.
             </p>
             <Link
               href="/services/individual-tax"
@@ -136,7 +144,9 @@ export default function HowFinanciallyUpHelpsAmendments() {
               Discovered a Mistake on Your Already-Lodged Tax Return?
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 mt-1 leading-relaxed">
-              We can help determine whether an amendment appears appropriate, what information is required and whether any related tax advice should be scoped separately.
+              We can help determine whether an amendment appears appropriate,
+              what information is required and whether any related tax advice
+              should be scoped separately.
             </p>
           </div>
 

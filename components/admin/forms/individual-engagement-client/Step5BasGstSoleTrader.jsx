@@ -61,7 +61,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
           showIcon
           title="Step 5 Not Required for Your Selected Services"
           description="Based on your selections in Step 1, you did not request Sole Trader BAS, ABN Application, or GST Registration. You can safely click 'Next Step' to continue."
-          className="rounded-xl border-emerald-200 bg-emerald-50 dark:bg-emerald-950/40 text-slate-800 dark:text-zinc-200 p-6"
+          className="rounded-lg border-emerald-200 bg-emerald-50 dark:bg-emerald-950/40 text-slate-800 dark:text-zinc-200 p-6"
         />
       </div>
     );
@@ -93,7 +93,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
 
       {/* BAS SECTION (Visible when Sole Trader BAS selected - BAS-001 to BAS-010) */}
       {isBasSelected && (
-        <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+        <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
           <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
             <AuditOutlined className="text-brand-primary" /> Sole Trader BAS
             Details
@@ -109,7 +109,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               }
               placeholder="11 222 333 444"
               size="large"
-              className="rounded-xl font-mono"
+              className="rounded-lg font-mono"
               rules={[
                 { required: true, message: "Please enter your 11-digit ABN." },
                 {
@@ -150,7 +150,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               options={FREQUENCY_OPTIONS}
               placeholder="Select Frequency"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Please select frequency."
             />
 
@@ -165,7 +165,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               options={["Client", "Bookkeeper", "Accountant"]}
               placeholder="Select Record Keeper"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Please select record maintainer."
             />
           </div>
@@ -249,7 +249,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
 
       {/* ABN APPLICATION SECTION (Visible when ABN Application selected - ABN-001 to ABN-008) */}
       {isAbnSelected && (
-        <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+        <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
           <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
             <FormOutlined className="text-brand-primary" /> ABN Application
             Details
@@ -266,7 +266,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               }
               format="DD/MM/YYYY"
               size="large"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               reqMsg="Select start date."
             />
 
@@ -279,7 +279,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               }
               placeholder="e.g. IT Consulting, Rideshare, Plumbing"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Enter business activity."
             />
 
@@ -292,7 +292,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               }
               placeholder="e.g. Suburb, State or Registered Address"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Enter business location."
             />
 
@@ -308,7 +308,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               numPreFix="$"
               comma={true}
               size="large"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               reqMsg="Enter estimated turnover."
             />
           </div>
@@ -379,7 +379,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
 
       {/* GST REGISTRATION SECTION (Visible when GST Registration selected - GST-001 to GST-010) */}
       {isGstSelected && (
-        <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+        <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
           <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
             <BankOutlined className="text-brand-primary" /> GST Registration
             Setup
@@ -395,7 +395,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               }
               placeholder="11 222 333 444"
               size="large"
-              className="rounded-xl font-mono"
+              className="rounded-lg font-mono"
               reqMsg="Please enter ABN."
               containerClassName="!mb-2"
             />
@@ -410,7 +410,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               }
               format="DD/MM/YYYY"
               size="large"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               reqMsg="Select effective date."
               containerClassName="!mb-2"
             />
@@ -427,7 +427,7 @@ export default function Step5BasGstSoleTrader({ form, formData }) {
               numPreFix="$"
               comma={true}
               size="large"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               reqMsg="Enter GST turnover."
               containerClassName="!mb-2"
             />

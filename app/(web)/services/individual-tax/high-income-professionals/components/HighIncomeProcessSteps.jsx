@@ -106,7 +106,7 @@ export default function HighIncomeProcessSteps() {
                   <span className="text-2xl font-black text-emerald-600/30 dark:text-emerald-400/30 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {step.number}
                   </span>
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
                     {step.icon}
                   </div>
                 </div>
@@ -129,9 +129,9 @@ export default function HighIncomeProcessSteps() {
         </div>
 
         {/* Australia-wide delivery strip */}
-        <div className="rounded-2xl bg-gradient-to-r from-emerald-900 via-slate-900 to-teal-950 text-white p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md border border-emerald-800/40">
+        <div className="rounded-lg bg-gradient-to-r from-emerald-900 via-slate-900 to-teal-950 text-white p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md border border-emerald-800/40">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl shrink-0">
               <GlobalOutlined />
             </div>
             <div>
@@ -154,7 +154,7 @@ export default function HighIncomeProcessSteps() {
                 <Button
                   size="large"
                   icon={<PhoneOutlined />}
-                  className="w-full sm:w-auto font-bold rounded-xl text-white border-white/20 hover:border-white h-11 bg-white/10 hover:bg-white/20"
+                  className="w-full sm:w-auto font-bold rounded-lg text-white border-white/20 hover:border-white h-11 bg-white/10 hover:bg-white/20"
                 >
                   Call {company.phone}
                 </Button>
@@ -166,7 +166,7 @@ export default function HighIncomeProcessSteps() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full sm:w-auto font-bold rounded-xl bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11 px-6"
+                className="w-full sm:w-auto font-bold rounded-lg bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11 px-6"
               >
                 Book Appointment
               </Button>

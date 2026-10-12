@@ -1,7 +1,13 @@
 "use client";
 
 import React from "react";
-import { ArrowRightOutlined, InfoCircleOutlined, SwapOutlined, BankOutlined, FileTextOutlined } from "@ant-design/icons";
+import {
+  ArrowRightOutlined,
+  InfoCircleOutlined,
+  SwapOutlined,
+  BankOutlined,
+  FileTextOutlined,
+} from "@ant-design/icons";
 
 /**
  * InterestBorrowingPurposeTracing Component
@@ -38,7 +44,9 @@ export default function InterestBorrowingPurposeTracing() {
             Interest Deductions and the Purpose of the Borrowing
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            The ATO applies the strict "use test": it is the actual use of borrowed money that dictates tax deductibility, not which asset is mortgaged as collateral.
+            The ATO applies the strict "use test": it is the actual use of
+            borrowed money that dictates tax deductibility, not which asset is
+            mortgaged as collateral.
           </p>
         </div>
 
@@ -46,20 +54,24 @@ export default function InterestBorrowingPurposeTracing() {
           {tracingPoints.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="p-3 bg-slate-50 w-fit rounded-xl border border-slate-100 mb-5">
+                <div className="p-3 bg-slate-50 w-fit rounded-lg border border-slate-100 mb-5">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 bg-emerald-900 text-white rounded-2xl p-6 sm:p-8 shadow-md">
+        <div className="mt-10 bg-emerald-900 text-white rounded-lg p-6 sm:p-8 shadow-md">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 text-emerald-300 font-semibold text-sm uppercase tracking-wider mb-2">
@@ -67,7 +79,10 @@ export default function InterestBorrowingPurposeTracing() {
                 <span>Changed Borrowing Purpose?</span>
               </div>
               <p className="text-emerald-100 text-base max-w-2xl leading-relaxed">
-                If the purpose of a borrowing changes or funds have been redrawn, your tax treatment should be professionally reviewed rather than assuming the original full deduction continues indefinitely.
+                If the purpose of a borrowing changes or funds have been
+                redrawn, your tax treatment should be professionally reviewed
+                rather than assuming the original full deduction continues
+                indefinitely.
               </p>
             </div>
             <a

@@ -1,5 +1,7 @@
 # Implementation Plan: Backend Server Setup
+
 ### Date: 2026-07-15 00:49 AM
+
 ### Prompt Reference:
 
 > - If you need to create a component and that component is used in multiple routes, you can place it in the components folder in admin/website or mutual, but if a component is used in a single route like the forgot password component, it's just one-time use in the login screen, then you have to place it in the same route folder like the login folder.
@@ -9,13 +11,13 @@
 > - Create .env files for development and production
 > - Use Sequelize for every DB task
 > - Create table from agent-data/forms-field/individual-engagement.json
-> - Production URL: https://financiallyup.innotechcloud.online/
+> - Production URL: https://financiallyup.com.au/
 > - PDF storage: Skip for now, will handle later
 > - Frontend and backend must be separate (independently deployable)
 
 ---
 
-*(Full plan content is in the artifact implementation_plan.md)*
+_(Full plan content is in the artifact implementation_plan.md)_
 
 ## Architecture Flow
 
@@ -49,8 +51,9 @@ server/
 ```
 
 ## Key Decisions
+
 - Port: 5000
 - DB: XAMPP MySQL (root, no password)
 - Separate package.json inside server/
-- Production URL: https://financiallyup.innotechcloud.online/
+- Production URL: https://financiallyup.com.au/
 - No PDF storage columns for now

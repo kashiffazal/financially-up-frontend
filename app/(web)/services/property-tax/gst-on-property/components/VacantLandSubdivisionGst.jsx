@@ -21,15 +21,18 @@ export default function VacantLandSubdivisionGst() {
   const landCategories = [
     {
       title: "Potential Residential Land",
-      description: "Vacant land capable of residential use under applicable planning laws. Subject to purchaser withholding when sold to individual buyers.",
+      description:
+        "Vacant land capable of residential use under applicable planning laws. Subject to purchaser withholding when sold to individual buyers.",
     },
     {
       title: "Farmland & Rural Holdings",
-      description: "Eligible farmland used for farming business for at least 5 years preceding sale may qualify as a GST-free supply if buyer continues farming.",
+      description:
+        "Eligible farmland used for farming business for at least 5 years preceding sale may qualify as a GST-free supply if buyer continues farming.",
     },
     {
       title: "Commercial & Industrial Land",
-      description: "Generally treated as a taxable supply unless sold as an eligible going concern between registered entities.",
+      description:
+        "Generally treated as a taxable supply unless sold as an eligible going concern between registered entities.",
     },
   ];
 
@@ -49,7 +52,11 @@ export default function VacantLandSubdivisionGst() {
           </h2>
           {/* Verbatim Paragraph 1 */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Vacant land is not automatically subject to GST. The seller must first satisfy the taxable-supply requirements, including the enterprise and registration tests. Potential residential land, farmland and commercial land can also have specific rules or exceptions.
+            Vacant land is not automatically subject to GST. The seller must
+            first satisfy the taxable-supply requirements, including the
+            enterprise and registration tests. Potential residential land,
+            farmland and commercial land can also have specific rules or
+            exceptions.
           </p>
         </div>
 
@@ -58,9 +65,9 @@ export default function VacantLandSubdivisionGst() {
           {landCategories.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 <CompassOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -74,14 +81,16 @@ export default function VacantLandSubdivisionGst() {
         </div>
 
         {/* Verbatim Paragraph 2 Banner (Subdivision Tax Cross-Link) */}
-        <div className="bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40 rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1">
               Subdividing and Selling Land?
             </h4>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-normal">
-              If you plan to divide and sell land, income tax needs a separate review. Our Property Subdivision Tax page explains why CGT or ordinary income may arise alongside GST.
+              If you plan to divide and sell land, income tax needs a separate
+              review. Our Property Subdivision Tax page explains why CGT or
+              ordinary income may arise alongside GST.
             </p>
           </div>
           <Link href="/services/property-tax/property-subdivision-tax">

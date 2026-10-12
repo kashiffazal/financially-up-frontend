@@ -174,7 +174,7 @@ export default function CompanyRegistrationMainLog({
   // row action or bulk delete, and the API refuses DELETE requests.
 
   // --------------------------------------------------------------------------
-  // 5. BULK ACTION HANDLER (MULTI-ROW SELECTION) — status changes only
+  // 5. BULK ACTION HANDLER (MULTI-ROW SELECTION) - status changes only
   // --------------------------------------------------------------------------
   const handleBulkAction = useCallback(
     async (selectedRowsInfo, actionValue) => {
@@ -468,7 +468,9 @@ export default function CompanyRegistrationMainLog({
     <div className="w-full space-y-4">
       {/* Main Reusable DataTable Component */}
       <DataTable
-        rowClassName={(record) => (freshIds.includes(String(record.id)) ? "live-new-row" : "")}
+        rowClassName={(record) =>
+          freshIds.includes(String(record.id)) ? "live-new-row" : ""
+        }
         columns={columns}
         dataSource={data}
         loading={loading}
@@ -498,7 +500,8 @@ export default function CompanyRegistrationMainLog({
         onClose={() => {
           setIsViewDetailsOpen(false);
           setViewDetailsRecord(null);
-          if (autoOpenRecord && typeof onAutoOpenHandled === "function") onAutoOpenHandled();
+          if (autoOpenRecord && typeof onAutoOpenHandled === "function")
+            onAutoOpenHandled();
         }}
       />
 

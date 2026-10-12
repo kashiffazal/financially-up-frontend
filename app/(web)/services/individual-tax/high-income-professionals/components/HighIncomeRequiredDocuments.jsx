@@ -127,10 +127,10 @@ export default function HighIncomeRequiredDocuments() {
           {documents.map((doc, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-400/60 shadow-xs hover:shadow-md transition-all group"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-400/60 shadow-xs hover:shadow-md transition-all group"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105">
                   {doc.icon}
                 </div>
                 <span className="text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -153,7 +153,7 @@ export default function HighIncomeRequiredDocuments() {
         </div>
 
         {/* Verbatim Subtext / Compliance Notice */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
+        <div className="rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
           <div className="flex items-start gap-4 max-w-3xl">
             <InfoCircleOutlined className="text-brand-primary dark:text-emerald-400 text-xl mt-1 shrink-0" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
@@ -170,7 +170,7 @@ export default function HighIncomeRequiredDocuments() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full md:w-auto font-bold rounded-xl bg-brand-primary hover:bg-brand-primary-dark border-none h-11"
+                className="w-full md:w-auto font-bold rounded-lg bg-brand-primary hover:bg-brand-primary-dark border-none h-11"
               >
                 Send Documents for Review
               </Button>

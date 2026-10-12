@@ -81,11 +81,11 @@ export default function TaxComplianceProcessWorkflow() {
           {processSteps.slice(0, 6).map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="w-10 h-10 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center font-mono font-bold text-sm">
+                  <span className="w-10 h-10 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center font-mono font-bold text-sm">
                     {item.step}
                   </span>
                 </div>
@@ -101,8 +101,8 @@ export default function TaxComplianceProcessWorkflow() {
         </div>
 
         {/* Step 7 Full-Width Highlight Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <span className="w-12 h-12 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center font-mono font-bold text-base shrink-0">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <span className="w-12 h-12 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center font-mono font-bold text-base shrink-0">
             {processSteps[6].step}
           </span>
           <div className="space-y-1 flex-1">
@@ -116,7 +116,7 @@ export default function TaxComplianceProcessWorkflow() {
         </div>
 
         {/* Catch-Up vs Ongoing Engagements Notice */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               Flexible for One-Off Catch-Ups or Ongoing Engagements
@@ -130,7 +130,7 @@ export default function TaxComplianceProcessWorkflow() {
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

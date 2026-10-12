@@ -25,13 +25,15 @@ export default function CommonAuditProblems() {
     {
       icon: <FileExclamationOutlined className="text-xl text-red-500" />,
       title: "Incomplete Records & Unreconciled Figures",
-      verbatim: "incomplete or inconsistent records and unreconciled lodged figures",
+      verbatim:
+        "incomplete or inconsistent records and unreconciled lodged figures",
       desc: "Presenting figures that do not reconcile to lodged BAS or income tax returns immediately triggers heightened ATO suspicion.",
     },
     {
       icon: <QuestionCircleOutlined className="text-xl text-amber-500" />,
       title: "Responding Before Understanding the Scope",
-      verbatim: "responding before the scope and wording of the request are understood",
+      verbatim:
+        "responding before the scope and wording of the request are understood",
       desc: "Providing rushed answers before analyzing the legal basis of the ATO notice risks volunteering irrelevant or damaging data.",
     },
     {
@@ -43,7 +45,8 @@ export default function CommonAuditProblems() {
     {
       icon: <CloseCircleOutlined className="text-xl text-red-500" />,
       title: "Broken Audit Trail to Source Records",
-      verbatim: "missing links between source documents, accounting records and the tax position",
+      verbatim:
+        "missing links between source documents, accounting records and the tax position",
       desc: "Failing to demonstrate a clear mathematical bridge connecting receipt, ledger line, and tax return disclosure.",
     },
     {
@@ -55,7 +58,8 @@ export default function CommonAuditProblems() {
     {
       icon: <WarningOutlined className="text-xl text-purple-500" />,
       title: "Assuming Processed Returns Are Safe",
-      verbatim: "assuming a processed return or refund prevents later ATO review",
+      verbatim:
+        "assuming a processed return or refund prevents later ATO review",
       desc: "A processed return or paid refund is issued under Australia's self-assessment system and remains subject to review for years.",
     },
   ];
@@ -65,14 +69,19 @@ export default function CommonAuditProblems() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="red" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="red"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Audit Pitfalls to Avoid
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common problems that make an audit harder
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Tax audits frequently escalate not because of intentional wrongdoing, but because of poor presentation, inconsistent communication, and broken audit trails.
+            Tax audits frequently escalate not because of intentional
+            wrongdoing, but because of poor presentation, inconsistent
+            communication, and broken audit trails.
           </p>
         </div>
 
@@ -81,10 +90,10 @@ export default function CommonAuditProblems() {
           {problems.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-2xl p-6 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-red-400/60 dark:hover:border-red-400/60 transition-all duration-300 flex flex-col justify-between"
+              className="rounded-lg p-6 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-red-400/60 dark:hover:border-red-400/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">

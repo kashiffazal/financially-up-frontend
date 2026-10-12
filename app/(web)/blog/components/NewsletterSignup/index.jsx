@@ -3,26 +3,35 @@
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Form, Button } from "antd";
-import { SendOutlined, MailOutlined, CheckCircleFilled } from "@ant-design/icons";
+import {
+  SendOutlined,
+  MailOutlined,
+  UserOutlined,
+  CheckCircleFilled,
+} from "@ant-design/icons";
 import { antdMsg, HTTP } from "@/services";
 import { AntInput } from "@/services/antdFields";
 import styles from "./NewsletterSignup.module.css";
 
 /**
  * Newsletter sign-up form used in the blog sidebars ("Weekly Dispatch").
- * Saves the email to the newsletter list (POST /newsletter-subscribers);
+ * Saves the name and email to the newsletter list (POST /newsletter-subscribers);
  * staff see subscribers at /admin/newsletter.
  *
  * @param {"blog_listing"|"blog_article"} source - Where the form is shown
  * @param {string} [placeholder]
  * @param {string} [buttonLabel]
  */
-export default function NewsletterSignup({ source, placeholder = "Enter your email address", buttonLabel = "SUBSCRIBE NOW" }) {
+export default function NewsletterSignup({
+  source,
+  placeholder = "Enter your email address",
+  buttonLabel = "SUBSCRIBE NOW",
+}) {
   const pathname = usePathname();
   const [form] = Form.useForm();
   const [saving, setSaving] = useState(false);
   const [doneMessage, setDoneMessage] = useState("");
-  // When the form became interactive — very fast submissions are treated as bots
+  // When the form became interactive - very fast submissions are treated as bots
   const openedAtRef = useRef(null);
   useEffect(() => {
     openedAtRef.current = Date.now();
@@ -33,15 +42,24 @@ export default function NewsletterSignup({ source, placeholder = "Enter your ema
     setSaving(true);
     try {
       const res = await HTTP("POST", "/newsletter-subscribers", {
+        name: values.name,
         email: values.email,
         fu_newsletter_trap: values.fu_newsletter_trap || "",
         source,
         sourcePage: pathname,
-        formElapsedMs: openedAtRef.current ? Date.now() - openedAtRef.current : undefined,
+        formElapsedMs: openedAtRef.current
+          ? Date.now() - openedAtRef.current
+          : undefined,
       });
       if (res?.success) {
-        setDoneMessage(res.alreadySubscribed ? "You're already subscribed — thank you!" : "Subscribed! Check your inbox soon.");
-        antdMsg.success(res.message || "Thank you for subscribing to our Weekly Dispatch!");
+        setDoneMessage(
+          res.alreadySubscribed
+            ? "You're already subscribed - thank you!"
+            : "Subscribed! Check your inbox soon.",
+        );
+        antdMsg.success(
+          res.message || "Thank you for subscribing to our Weekly Dispatch!",
+        );
         form.resetFields();
       }
     } finally {
@@ -59,13 +77,34 @@ export default function NewsletterSignup({ source, placeholder = "Enter your ema
   }
 
   return (
-    <Form form={form} onFinish={handleFinish} requiredMark={false} className={`pt-1 ${styles.form}`}>
+    <Form
+      form={form}
+      onFinish={handleFinish}
+      requiredMark={false}
+      className={`pt-1 ${styles.form}`}
+    >
       {/* Anti-spam honeypot: display:none so browsers and password managers never autofill it; bots reading the HTML still do */}
       <div aria-hidden="true" hidden style={{ display: "none" }}>
         <Form.Item name="fu_newsletter_trap" noStyle>
-          <input type="text" tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore="true" />
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            data-lpignore="true"
+            data-1p-ignore="true"
+          />
         </Form.Item>
       </div>
+
+      <AntInput
+        name="name"
+        size="large"
+        placeholder="Your name"
+        preIconAnt={<UserOutlined className="text-slate-400" />}
+        reqMsg="Please enter your name."
+        maxLength={120}
+        autoComplete="name"
+      />
 
       <AntInput
         type="email"
@@ -79,7 +118,15 @@ export default function NewsletterSignup({ source, placeholder = "Enter your ema
         autoComplete="email"
       />
 
-      <Button htmlType="submit" type="primary" size="large" block loading={saving} icon={<SendOutlined />} className={styles.button}>
+      <Button
+        htmlType="submit"
+        type="primary"
+        size="large"
+        block
+        loading={saving}
+        icon={<SendOutlined />}
+        className={styles.button}
+      >
         {buttonLabel}
       </Button>
     </Form>

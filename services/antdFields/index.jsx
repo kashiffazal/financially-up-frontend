@@ -65,7 +65,7 @@ function CheckboxCardGroup({
           return (
             <label
               key={val}
-              className={`relative p-4 rounded-xl cursor-pointer block select-none border transition-all duration-200 ${
+              className={`relative p-4 rounded-lg cursor-pointer block select-none border transition-all duration-200 ${
                 cardClassName || ""
               } ${
                 isChecked
@@ -137,7 +137,7 @@ function RadioCardGroup({
           return (
             <label
               key={val}
-              className={`p-4 rounded-xl cursor-pointer block select-none border transition-all duration-200 ${
+              className={`p-4 rounded-lg cursor-pointer block select-none border transition-all duration-200 ${
                 cardClassName || ""
               } ${
                 isSelected

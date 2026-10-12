@@ -26,7 +26,8 @@ export const metadata = {
     "deferred taxing point",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/employee-share-schemes/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/employee-share-schemes/",
   },
   openGraph: {
     title: "Employee Share Scheme Tax Accountant | Financially Up",
@@ -57,32 +58,38 @@ const essQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Employees receiving shares, performance rights, RSUs, options or stapled securities",
+    value:
+      "Employees receiving shares, performance rights, RSUs, options or stapled securities",
   },
   {
     icon: "stock",
     label: "Tax Regimes",
-    value: "Upfront concessional/non-concessional schemes & eligible tax-deferred schemes",
+    value:
+      "Upfront concessional/non-concessional schemes & eligible tax-deferred schemes",
   },
   {
     icon: "clock",
     label: "Taxing Points",
-    value: "Grant date, deferred vesting, cessation of restrictions, or 30-day disposal rule",
+    value:
+      "Grant date, deferred vesting, cessation of restrictions, or 30-day disposal rule",
   },
   {
     icon: "file",
     label: "Reporting Flow",
-    value: "Annual employer ESS statements reconciled against ATO portal pre-fill data",
+    value:
+      "Annual employer ESS statements reconciled against ATO portal pre-fill data",
   },
   {
     icon: "percentage",
     label: "CGT Integration",
-    value: "Market value cost base reset at deferred taxing point preventing double taxation",
+    value:
+      "Market value cost base reset at deferred taxing point preventing double taxation",
   },
   {
     icon: "safety",
     label: "Professional Advice",
-    value: "Registered Tax Agent #26242127 lodgement with clear, transparent fee scopes",
+    value:
+      "Registered Tax Agent #26242127 lodgement with clear, transparent fee scopes",
   },
 ];
 
@@ -95,7 +102,9 @@ const essFaqs = [
     label: "How is employee share scheme tax treated in Australia?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The ESS discount is generally assessable upfront or at a deferred taxing point. The correct timing depends on the plan, the interest provided and whether the relevant legislative conditions are met.
+        The ESS discount is generally assessable upfront or at a deferred taxing
+        point. The correct timing depends on the plan, the interest provided and
+        whether the relevant legislative conditions are met.
       </p>
     ),
   },
@@ -104,7 +113,10 @@ const essFaqs = [
     label: "When is the deferred taxing point?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It depends on the interest and scheme. Forfeiture risk, genuine disposal restrictions, exercise conditions and the statutory maximum period may be relevant. Vesting or exercise alone should not be assumed to determine the date.
+        It depends on the interest and scheme. Forfeiture risk, genuine disposal
+        restrictions, exercise conditions and the statutory maximum period may
+        be relevant. Vesting or exercise alone should not be assumed to
+        determine the date.
       </p>
     ),
   },
@@ -113,7 +125,9 @@ const essFaqs = [
     label: "What is an ESS statement?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It is an employer statement containing ESS information reported for your tax return. Check it against the scheme documents and your actual vesting, exercise and disposal history.
+        It is an employer statement containing ESS information reported for your
+        tax return. Check it against the scheme documents and your actual
+        vesting, exercise and disposal history.
       </p>
     ),
   },
@@ -122,7 +136,9 @@ const essFaqs = [
     label: "What happens when I sell employee shares?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A sale may trigger CGT. The calculation should use the cost base and acquisition time established under the ESS rules and consider the special 30-day rule where relevant.
+        A sale may trigger CGT. The calculation should use the cost base and
+        acquisition time established under the ESS rules and consider the
+        special 30-day rule where relevant.
       </p>
     ),
   },
@@ -131,7 +147,10 @@ const essFaqs = [
     label: "Will the ESS discount be taxed again under CGT?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The rules generally reset or establish the CGT cost base using the value already recognized under the ESS provisions, so later CGT ordinarily applies only to a subsequent value change. The calculation still requires the correct dates and market values.
+        The rules generally reset or establish the CGT cost base using the value
+        already recognized under the ESS provisions, so later CGT ordinarily
+        applies only to a subsequent value change. The calculation still
+        requires the correct dates and market values.
       </p>
     ),
   },
@@ -140,7 +159,10 @@ const essFaqs = [
     label: "What happens if I leave my employer?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Employment ending on or after 1 July 2022 is not itself a deferred taxing point under the current rules. Other events caused by leaving, such as vesting, restrictions ending, forfeiture or sale, may still be relevant.
+        Employment ending on or after 1 July 2022 is not itself a deferred
+        taxing point under the current rules. Other events caused by leaving,
+        such as vesting, restrictions ending, forfeiture or sale, may still be
+        relevant.
       </p>
     ),
   },
@@ -149,7 +171,10 @@ const essFaqs = [
     label: "When should I use an ESS tax accountant?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Professional assistance may help with multiple grants, tax-deferred interests, options or rights, foreign-company shares, missing statements, uncertain taxing points or disposals close to the taxing point.
+        Professional assistance may help with multiple grants, tax-deferred
+        interests, options or rights, foreign-company shares, missing
+        statements, uncertain taxing points or disposals close to the taxing
+        point.
       </p>
     ),
   },
@@ -238,12 +263,20 @@ export default function EmployeeShareSchemesPage() {
         subtitle="If you receive shares, rights, options or other interests through your employer, the tax treatment can differ from an ordinary share investment. Employee share scheme tax may involve an assessable discount, an upfront or deferred taxing point, an employer ESS statement and a later capital gains tax calculation when the interest is disposed of."
         bodyText={
           <span>
-            Financially Up Pty Ltd assists Australian employees with reviewing ESS information and preparing individual tax returns involving employee shares. We can identify required records, distinguish ESS income from later CGT and explain when separately scoped advice may be appropriate.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up Pty Ltd assists Australian employees with reviewing
+            ESS information and preparing individual tax returns involving
+            employee shares. We can identify required records, distinguish ESS
+            income from later CGT and explain when separately scoped advice may
+            be appropriate.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              At your first appointment, we can discuss your ESS statement, plan documents, vesting or exercise history, disposal records and tax-return requirements. Book online or by phone; online meetings are available Australia-wide, with in-person meetings where available.
+              At your first appointment, we can discuss your ESS statement, plan
+              documents, vesting or exercise history, disposal records and
+              tax-return requirements. Book online or by phone; online meetings
+              are available Australia-wide, with in-person meetings where
+              available.
             </div>
           </span>
         }

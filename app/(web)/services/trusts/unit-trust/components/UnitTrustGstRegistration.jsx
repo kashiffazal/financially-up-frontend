@@ -21,14 +21,18 @@ import {
 export default function UnitTrustGstRegistration() {
   const criteria = [
     {
-      icon: <ShopOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Commercial Trading Enterprises",
       desc: "Unit trusts operating commercial businesses, property development projects, or continuous leasing services generally qualify as carrying on an enterprise and must register if turnover meets the $75,000 threshold.",
       tag: "ABN & GST Required",
       color: "cyan",
     },
     {
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Passive Investment Holding",
       desc: "Unit trusts solely holding passive equities, managed funds, or residential property may have a different status where inputs are input-taxed and GST registration is neither required nor beneficial.",
       tag: "Case-by-Case Review",
@@ -41,17 +45,22 @@ export default function UnitTrustGstRegistration() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Indirect Tax Evaluation
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Does a unit trust need to register for GST?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            GST registration depends on the trust’s activities and whether the relevant registration requirements are
-            met. A unit trust that carries on an enterprise may need an ABN and, where required, GST registration. A
-            trust that merely holds certain investments may have a different position. The activities and turnover
-            should be reviewed rather than assuming all unit trusts have the same GST obligations.
+            GST registration depends on the trust’s activities and whether the
+            relevant registration requirements are met. A unit trust that
+            carries on an enterprise may need an ABN and, where required, GST
+            registration. A trust that merely holds certain investments may have
+            a different position. The activities and turnover should be reviewed
+            rather than assuming all unit trusts have the same GST obligations.
           </p>
         </div>
 
@@ -60,11 +69,11 @@ export default function UnitTrustGstRegistration() {
           {criteria.map((item, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col justify-between"
+              className="p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <Tag color={item.color} className="font-semibold text-xs">

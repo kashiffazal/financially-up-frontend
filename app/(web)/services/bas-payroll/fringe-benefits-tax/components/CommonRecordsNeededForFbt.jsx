@@ -97,9 +97,9 @@ export default function CommonRecordsNeededForFbt() {
           {records.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-start gap-4 hover:border-emerald-400/60 transition-all"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-start gap-4 hover:border-emerald-400/60 transition-all"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 mt-0.5">
                 {item.icon}
               </div>
               <p className="text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug pt-2">
@@ -110,7 +110,7 @@ export default function CommonRecordsNeededForFbt() {
         </div>
 
         {/* 5-Year Record Retention Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 mb-16">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 mb-16">
           <div className="flex items-start gap-4">
             <InfoCircleOutlined className="text-xl sm:text-2xl text-amber-600 dark:text-amber-400 shrink-0 mt-1" />
             <div className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">

@@ -16,13 +16,17 @@ import { AntInput } from "@/services/antdFields";
 import UploadAndCropImage from "@/components/mutual/andt-upload-and-crop-image-component";
 import { useSettings } from "@/context/SettingsContext";
 import { departmentOptions as buildDepartmentOptions } from "@/lib/departments";
-import { PASSWORD_HINT, passwordRules, generateStrongPassword } from "@/lib/passwordPolicy";
+import {
+  PASSWORD_HINT,
+  passwordRules,
+  generateStrongPassword,
+} from "@/lib/passwordPolicy";
 
 // How the new user gets their password (WordPress-style)
 const PASSWORD_MODES = [
   {
     value: "email",
-    title: "Email a \"Set password\" link",
+    title: 'Email a "Set password" link',
     desc: "Recommended. They choose their own password from a secure link (valid 48 hours).",
   },
   {
@@ -47,7 +51,12 @@ const PASSWORD_MODES = [
  * 5. Uses unified Form Field Helpers (`AntInput` from `@/services/antdFields`).
  * 6. Compact, balanced form layout without bloated vertical margins.
  */
-export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) {
+export default function AddUserModal({
+  open,
+  onCancel,
+  onSuccess,
+  roles = [],
+}) {
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -60,14 +69,19 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
     try {
       const payload = {
         ...values,
-        password: values.passwordMode === "manual" ? values.password : undefined,
+        password:
+          values.passwordMode === "manual" ? values.password : undefined,
         avatar: avatarUrl || values.avatar || "",
       };
 
       const res = await HTTP("POST", "/users", payload);
       if (res && res.success) {
-        if (res.emailSent === false && values.passwordMode !== "manual") antdMsg.warning(res.message, 8);
-        else antdMsg.success(res.message || "New user account created successfully.");
+        if (res.emailSent === false && values.passwordMode !== "manual")
+          antdMsg.warning(res.message, 8);
+        else
+          antdMsg.success(
+            res.message || "New user account created successfully.",
+          );
         form.resetFields();
         setAvatarUrl("");
         if (typeof onSuccess === "function") {
@@ -96,7 +110,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
       centered
       title={
         <div className="flex items-center gap-3 pr-6 pb-2 border-b border-slate-100 dark:border-zinc-800">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 text-xl shadow-xs">
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 text-xl shadow-xs">
             <UserAddOutlined />
           </div>
           <div>
@@ -104,7 +118,8 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
               Create New User Account
             </div>
             <div className="text-xs text-slate-500 dark:text-zinc-400 font-normal">
-              Set up practice staff credentials, departmental affiliation, and RBAC permissions.
+              Set up practice staff credentials, departmental affiliation, and
+              RBAC permissions.
             </div>
           </div>
         </div>
@@ -154,7 +169,8 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 leading-relaxed">
-              Click the avatar circle or camera badge to choose, zoom, and crop. Recommended: Square portrait, PNG or JPG (Max 5MB).
+              Click the avatar circle or camera badge to choose, zoom, and crop.
+              Recommended: Square portrait, PNG or JPG (Max 5MB).
             </p>
             {avatarUrl && (
               <div className="mt-2 flex items-center justify-center sm:justify-start gap-2">
@@ -332,7 +348,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
               setAvatarUrl("");
               if (typeof onCancel === "function") onCancel();
             }}
-            className="rounded-xl px-5"
+            className="rounded-lg px-5"
           >
             Cancel
           </Button>
@@ -340,7 +356,7 @@ export default function AddUserModal({ open, onCancel, onSuccess, roles = [] }) 
             type="primary"
             htmlType="submit"
             loading={submitting}
-            className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white border-none font-semibold rounded-xl px-6 shadow-sm"
+            className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white border-none font-semibold rounded-lg px-6 shadow-sm"
           >
             Create Staff Account
           </Button>

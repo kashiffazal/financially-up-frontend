@@ -34,32 +34,44 @@ export default function WhoNeedsTrustServices() {
    */
   const accountingTriggers = [
     {
-      icon: <FundOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <FundOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       title: "Holds Investments",
       desc: "Shares, commercial property, residential portfolios or managed funds generating capital returns.",
     },
     {
-      icon: <ShopOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <ShopOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       title: "Operates a Business",
       desc: "Active commercial trading activities with revenue, payroll, supplier liabilities, and turnover.",
     },
     {
-      icon: <SwapOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <SwapOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       title: "Income & Expenses",
       desc: "Receiving income, incurring deductible outlays, and requiring proper balance-sheet classification.",
     },
     {
-      icon: <ApartmentOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      icon: (
+        <ApartmentOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       title: "Makes Distributions",
       desc: "Distributing net income or capital gains to individual, corporate, or trust beneficiaries.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      icon: (
+        <UsergroupAddOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       title: "Related-Entity Transactions",
       desc: "Inter-company loans, beneficiary draw accounts, or transactions involving related family entities.",
     },
     {
-      icon: <FolderOpenOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      icon: (
+        <FolderOpenOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       title: "Multi-Account Records",
       desc: "Records spread across separate bank accounts, broker portfolios, property files, and loan facilities.",
     },
@@ -84,18 +96,20 @@ export default function WhoNeedsTrustServices() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Trust accounting is relevant whenever a trust holds investments, operates a business,
-            receives income, incurs expenses, makes distributions or has transactions with
-            beneficiaries or related entities. The work is particularly important where records are
-            spread across bank accounts, investment statements, property records, loan accounts or
-            multiple entities.
+            Trust accounting is relevant whenever a trust holds investments,
+            operates a business, receives income, incurs expenses, makes
+            distributions or has transactions with beneficiaries or related
+            entities. The work is particularly important where records are
+            spread across bank accounts, investment statements, property
+            records, loan accounts or multiple entities.
           </p>
 
           {/* Exact Verbatim Paragraph 2 from Document */}
           <p className="mt-3 text-sm sm:text-base text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Financially Up can support a range of private trust arrangements. Two common examples are
-            family or discretionary trusts and unit trusts. Each has different practical
-            considerations, so the accounting approach should reflect the actual deed and transactions
+            Financially Up can support a range of private trust arrangements.
+            Two common examples are family or discretionary trusts and unit
+            trusts. Each has different practical considerations, so the
+            accounting approach should reflect the actual deed and transactions
             rather than rely on a generic template.
           </p>
         </div>
@@ -105,9 +119,9 @@ export default function WhoNeedsTrustServices() {
           {accountingTriggers.map((trig, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200"
+              className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs hover:border-teal-500/50 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-4">
                 {trig.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5">
@@ -123,10 +137,10 @@ export default function WhoNeedsTrustServices() {
         {/* Exact Verbatim Trust Pathway Guidance & Routing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Pathway 1: Family or Discretionary Trust */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/60 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/60 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                   <ApartmentOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
                 </div>
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
@@ -138,8 +152,9 @@ export default function WhoNeedsTrustServices() {
               </h3>
               {/* Exact Verbatim Sentence from Document */}
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-6 font-normal">
-                If your trust is discretionary and used within a family group, our Family Trust
-                Accountant page explains the annual accounting and distribution issues in more detail.
+                If your trust is discretionary and used within a family group,
+                our Family Trust Accountant page explains the annual accounting
+                and distribution issues in more detail.
               </p>
             </div>
             <Link href="/services/trusts/family-trust">
@@ -148,7 +163,7 @@ export default function WhoNeedsTrustServices() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-11 rounded-xl font-semibold shadow-sm hover:scale-[1.01] transition-all"
+                className="w-full h-11 rounded-lg font-semibold shadow-sm hover:scale-[1.01] transition-all"
               >
                 Explore Family Trust Accountant
               </Button>
@@ -156,10 +171,10 @@ export default function WhoNeedsTrustServices() {
           </div>
 
           {/* Pathway 2: Unit Trust */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-blue-500/60 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-blue-500/60 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center">
                   <LineChartOutlined className="text-blue-600 dark:text-blue-400 text-xl" />
                 </div>
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/60">
@@ -171,8 +186,8 @@ export default function WhoNeedsTrustServices() {
               </h3>
               {/* Exact Verbatim Sentence from Document */}
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-6 font-normal">
-                For trusts where interests are represented by units, see our Unit Trust Accountant
-                service.
+                For trusts where interests are represented by units, see our
+                Unit Trust Accountant service.
               </p>
             </div>
             <Link href="/services/trusts/unit-trust">
@@ -180,7 +195,7 @@ export default function WhoNeedsTrustServices() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-11 rounded-xl font-semibold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-slate-50 dark:hover:bg-zinc-800 hover:scale-[1.01] transition-all"
+                className="w-full h-11 rounded-lg font-semibold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-slate-50 dark:hover:bg-zinc-800 hover:scale-[1.01] transition-all"
               >
                 Explore Unit Trust Accountant
               </Button>

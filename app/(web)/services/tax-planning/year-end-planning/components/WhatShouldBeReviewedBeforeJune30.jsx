@@ -113,7 +113,7 @@ export default function WhatShouldBeReviewedBeforeJune30() {
           {reviewAreas.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-slate-50 dark:bg-zinc-800/60 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+              className={`bg-slate-50 dark:bg-zinc-800/60 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
                 item.number === "07"
                   ? "md:col-span-2 bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-200/70 dark:border-emerald-800/40"
                   : ""
@@ -121,7 +121,7 @@ export default function WhatShouldBeReviewedBeforeJune30() {
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-zinc-700 text-slate-700 dark:text-zinc-300">

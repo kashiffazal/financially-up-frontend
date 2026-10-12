@@ -47,7 +47,7 @@ export default function ForeignTaxPaidAndFito() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <CalculatorOutlined className="text-xl" />
                 </div>
                 <div>
@@ -67,7 +67,7 @@ export default function ForeignTaxPaidAndFito() {
                   generally non-refundable and unused amounts generally cannot
                   be carried forward.
                 </p>
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 space-y-2">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     The $1,000 Cap Rule:
                   </span>
@@ -90,7 +90,7 @@ export default function ForeignTaxPaidAndFito() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <GlobalOutlined className="text-xl" />
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export default function ForeignTaxPaidAndFito() {
                   They do not automatically make foreign income exempt in
                   Australia.
                 </p>
-                <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+                <div className="p-4 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                   <span className="font-bold block mb-1">
                     Treaty Determination:
                   </span>

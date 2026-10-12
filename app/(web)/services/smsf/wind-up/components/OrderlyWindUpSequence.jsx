@@ -20,17 +20,20 @@ export default function OrderlyWindUpSequence() {
   const closureSteps = [
     {
       step: "01",
-      title: "Check the trust deed and document the trustees’ decision to wind up the fund",
+      title:
+        "Check the trust deed and document the trustees’ decision to wind up the fund",
       desc: "Reviewing fund dissolution clauses and executing formal written trustee meeting minutes and resolutions.",
     },
     {
       step: "02",
-      title: "Identify each member’s benefit and arrange permitted payment or rollover in accordance with super law and the deed",
+      title:
+        "Identify each member’s benefit and arrange permitted payment or rollover in accordance with super law and the deed",
       desc: "Calculating final member account balances, preservation statuses, and authorized rollover destinations.",
     },
     {
       step: "03",
-      title: "Dispose of or transfer fund investments and settle outstanding liabilities",
+      title:
+        "Dispose of or transfer fund investments and settle outstanding liabilities",
       desc: "Liquidating equities, selling property, settling tax debts, paying accounting/audit fees, and resolving creditors.",
     },
     {
@@ -45,7 +48,8 @@ export default function OrderlyWindUpSequence() {
     },
     {
       step: "06",
-      title: "Arrange the final independent SMSF audit and any outstanding prior-year audits",
+      title:
+        "Arrange the final independent SMSF audit and any outstanding prior-year audits",
       desc: "Undergoing final statutory examination by an ASIC-registered approved SMSF auditor for the closure financial year.",
     },
     {
@@ -55,7 +59,8 @@ export default function OrderlyWindUpSequence() {
     },
     {
       step: "08",
-      title: "Notify relevant parties and retain the required records, including wind-up records, for at least 10 years after lodging the final SMSF annual return",
+      title:
+        "Notify relevant parties and retain the required records, including wind-up records, for at least 10 years after lodging the final SMSF annual return",
       desc: "Notifying financial institutions and safeguarding all historical fund, audit, and tax records for at least ten years.",
     },
   ];
@@ -65,14 +70,20 @@ export default function OrderlyWindUpSequence() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Orderly Closure Sequence
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What needs to happen before an SMSF can be closed?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The practical order depends on the fund, but trustees generally need to deal with member benefits, investments, liabilities and reporting before the SMSF can be finalized. A fund should not be treated as wound up while it still owns assets or has unresolved obligations.
+            The practical order depends on the fund, but trustees generally need
+            to deal with member benefits, investments, liabilities and reporting
+            before the SMSF can be finalized. A fund should not be treated as
+            wound up while it still owns assets or has unresolved obligations.
           </p>
         </div>
 
@@ -81,7 +92,7 @@ export default function OrderlyWindUpSequence() {
           {closureSteps.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-cyan-400/60 transition-colors"
+              className="flex items-start gap-4 p-5 rounded-lg bg-slate-50 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-cyan-400/60 transition-colors"
             >
               <div className="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                 {item.step}

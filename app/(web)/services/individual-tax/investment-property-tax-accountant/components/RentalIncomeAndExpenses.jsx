@@ -66,7 +66,7 @@ export default function RentalIncomeAndExpenses() {
           <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <DollarOutlined className="text-xl" />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ export default function RentalIncomeAndExpenses() {
                 {rentalIncomeTypes.map((type, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
                   >
                     <CheckCircleOutlined className="text-emerald-500 mt-0.5 shrink-0" />
                     <span>{type}</span>
@@ -112,7 +112,7 @@ export default function RentalIncomeAndExpenses() {
           <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <AuditOutlined className="text-xl" />
                 </div>
                 <div>
@@ -157,7 +157,7 @@ export default function RentalIncomeAndExpenses() {
           <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
                   <BankOutlined className="text-xl" />
                 </div>
                 <div>
@@ -183,7 +183,7 @@ export default function RentalIncomeAndExpenses() {
                   loan was used privately, the interest may need to be
                   apportioned.
                 </p>
-                <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+                <div className="p-3.5 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                   <span className="font-bold block mb-1">
                     Refinancing &amp; Redraws:
                   </span>

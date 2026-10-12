@@ -110,7 +110,7 @@ export default function HowFinanciallyUpCanAssist() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -163,7 +163,7 @@ export default function HowFinanciallyUpCanAssist() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11"
+                  className="w-full rounded-lg font-bold bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 border-none h-11"
                 >
                   View Individual Tax Return Services
                 </Button>

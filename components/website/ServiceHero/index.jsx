@@ -215,9 +215,24 @@ export default function ServiceHero({
   scopeStatus = "2024–25 Open",
   scopeItems = [],
   verificationBadges = [
-    { icon: <GlobalOutlined className="text-brand-primary dark:text-emerald-400" />, label: "Australia-Wide" },
-    { icon: <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400" />, label: "100% ATO Compliant" },
-    { icon: <TeamOutlined className="text-brand-primary dark:text-emerald-400" />, label: "Dedicated CPA Team" },
+    {
+      icon: (
+        <GlobalOutlined className="text-brand-primary dark:text-emerald-400" />
+      ),
+      label: "Australia-Wide",
+    },
+    {
+      icon: (
+        <SafetyCertificateOutlined className="text-brand-primary dark:text-emerald-400" />
+      ),
+      label: "100% ATO Compliant",
+    },
+    {
+      icon: (
+        <TeamOutlined className="text-brand-primary dark:text-emerald-400" />
+      ),
+      label: "Dedicated CPA Team",
+    },
   ],
   backgroundImage = "/images/services/page-hero-bg.jpg",
   backgroundAlt = "Australian Corporate Accounting & Tax Advisory",
@@ -344,7 +359,7 @@ export default function ServiceHero({
 
               {/* Scope Advisory Notice Callout */}
               {scopeNotice && (
-                <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-xs sm:text-sm text-emerald-50/90 flex items-start gap-3 shadow-xs">
+                <div className="p-3.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-xs sm:text-sm text-emerald-50/90 flex items-start gap-3 shadow-xs">
                   <InfoCircleOutlined className="text-emerald-300 text-base mt-0.5 shrink-0" />
                   <div className="m-0 leading-relaxed">{scopeNotice}</div>
                 </div>
@@ -404,7 +419,7 @@ export default function ServiceHero({
 
           {/* ── Right Column: Dual Light & Dark Executive Practice Scope Panel (Col 5) ── */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="relative h-full rounded-2xl overflow-hidden bg-white/95 dark:bg-slate-950/85 backdrop-blur-xl border border-emerald-100 dark:border-emerald-500/30 p-6 sm:p-7 shadow-2xl shadow-emerald-950/10 dark:shadow-[0_20px_50px_rgba(0,0,0,0.45)] flex flex-col justify-between transition-all duration-300">
+            <div className="relative h-full rounded-lg overflow-hidden bg-white/95 dark:bg-slate-950/85 backdrop-blur-xl border border-emerald-100 dark:border-emerald-500/30 p-6 sm:p-7 shadow-2xl shadow-emerald-950/10 dark:shadow-[0_20px_50px_rgba(0,0,0,0.45)] flex flex-col justify-between transition-all duration-300">
               {/* Top Accent Gradient Line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300" />
 
@@ -432,15 +447,16 @@ export default function ServiceHero({
               {/* 5 Core Scope Items with Vertical Middle Alignment & Scaled Typography/Icons */}
               <ul className="relative z-10 flex-1 flex flex-col justify-between divide-y divide-slate-200 dark:divide-emerald-500/15 my-2 text-xs sm:text-sm">
                 {scopeItems.map((item, idx) => {
-                  const theme = THEME_CLASSES[item.theme] || THEME_CLASSES.emerald;
+                  const theme =
+                    THEME_CLASSES[item.theme] || THEME_CLASSES.emerald;
                   return (
                     <li
                       key={idx}
-                      className="group flex-1 flex items-center justify-between gap-3 py-3.5 sm:py-4 first:pt-2 last:pb-2 px-3 -mx-3 rounded-xl hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-all duration-200"
+                      className="group flex-1 flex items-center justify-between gap-3 py-3.5 sm:py-4 first:pt-2 last:pb-2 px-3 -mx-3 rounded-lg hover:bg-slate-50/80 dark:hover:bg-white/[0.04] transition-all duration-200"
                     >
                       <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
                         <div
-                          className={`w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 text-lg shadow-xs group-hover:scale-105 transition-all ${theme.icon}`}
+                          className={`w-11 h-11 rounded-lg border flex items-center justify-center shrink-0 text-lg shadow-xs group-hover:scale-105 transition-all ${theme.icon}`}
                         >
                           {renderIcon(item.icon)}
                         </div>
@@ -475,7 +491,10 @@ export default function ServiceHero({
                       key={idx}
                       className="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap shrink-0 tracking-tight"
                     >
-                      {renderIcon(badge.icon, "text-brand-primary dark:text-emerald-400 text-xs sm:text-sm shrink-0")}
+                      {renderIcon(
+                        badge.icon,
+                        "text-brand-primary dark:text-emerald-400 text-xs sm:text-sm shrink-0",
+                      )}
                       <span>{badge.label}</span>
                     </span>
                   ))}

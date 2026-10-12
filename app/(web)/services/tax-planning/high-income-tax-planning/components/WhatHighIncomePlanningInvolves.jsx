@@ -104,11 +104,11 @@ export default function WhatHighIncomePlanningInvolves() {
           {scopeAreas.map((area, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {area.icon}
                   </div>
                   <span className="text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -132,7 +132,7 @@ export default function WhatHighIncomePlanningInvolves() {
         </div>
 
         {/* High-Intent Appointment Callout Banner */}
-        <div className="rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-emerald-800 to-teal-900 text-white shadow-lg border border-emerald-700/60 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg p-6 sm:p-8 bg-gradient-to-br from-emerald-800 to-teal-900 text-white shadow-lg border border-emerald-700/60 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 text-emerald-200 text-xs font-bold uppercase tracking-wider">
               <AuditOutlined className="text-base" />
@@ -154,7 +154,7 @@ export default function WhatHighIncomePlanningInvolves() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full md:w-auto rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 px-6 shadow-md"
+                className="w-full md:w-auto rounded-lg font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 px-6 shadow-md"
               >
                 Book an Appointment
               </Button>

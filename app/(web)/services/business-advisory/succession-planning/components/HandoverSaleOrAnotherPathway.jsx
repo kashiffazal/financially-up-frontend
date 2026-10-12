@@ -24,22 +24,30 @@ import {
 export default function HandoverSaleOrAnotherPathway() {
   const pathways = [
     {
-      icon: <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Family Handover",
       desc: "Intergenerational succession focusing on mentorship, leadership readiness, and fair equity division.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Co-Owner Buyout",
       desc: "Existing partners acquiring equity via partnership agreement clauses or buy-sell insurance mechanisms.",
     },
     {
-      icon: <UserSwitchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <UserSwitchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Management Buyout (MBO)",
       desc: "Key employees or managers stepping up into equity ownership backed by earn-outs or vendor finance.",
     },
     {
-      icon: <ShopOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "External Third-Party Sale",
       desc: "Marketing the business to trade buyers, competitors, or private investors for maximum market value.",
     },
@@ -74,9 +82,9 @@ export default function HandoverSaleOrAnotherPathway() {
           {pathways.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -90,18 +98,18 @@ export default function HandoverSaleOrAnotherPathway() {
         </div>
 
         {/* Gradual Transition vs Sale Narrative & Connected Service Cards */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
             Gradual Transition Arrangements vs Outright Sale
           </h3>
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-6">
             A gradual transition may allow responsibilities to move over time,
-            provided ownership and decision-making arrangements are clear. A sale
-            can involve preparing information for buyer due diligence and
+            provided ownership and decision-making arrangements are clear. A
+            sale can involve preparing information for buyer due diligence and
             negotiating what assets and liabilities transfer. Our business
             valuation services can address the financial basis for a proposed
-            value; our buying and selling a business advice addresses transaction
-            planning in more detail.
+            value; our buying and selling a business advice addresses
+            transaction planning in more detail.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -109,7 +117,7 @@ export default function HandoverSaleOrAnotherPathway() {
               <Button
                 type="default"
                 icon={<LineChartOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Valuation Services
               </Button>
@@ -119,7 +127,7 @@ export default function HandoverSaleOrAnotherPathway() {
               <Button
                 type="default"
                 icon={<ArrowRightOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Buying &amp; Selling a Business Advice
               </Button>

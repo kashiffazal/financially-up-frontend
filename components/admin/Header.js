@@ -85,7 +85,7 @@ export default function Header({ onOpenMobile }) {
           onClick={() => {
             if (typeof onOpenMobile === "function") onOpenMobile();
           }}
-          className="p-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer md:hidden"
+          className="p-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer md:hidden"
           aria-label="Open Navigation Menu"
         >
           <MenuUnfoldOutlined className="text-base" />
@@ -119,7 +119,7 @@ export default function Header({ onOpenMobile }) {
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
+          className="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
           aria-label="Toggle Dark Mode"
         >
           {isDark ? (

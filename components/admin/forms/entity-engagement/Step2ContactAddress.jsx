@@ -51,7 +51,7 @@ export default function Step2ContactAddress() {
           reqMsg="First name is required"
           preIconAnt={<UserOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
         <AntInput
@@ -66,7 +66,7 @@ export default function Step2ContactAddress() {
           reqMsg="Last name is required"
           preIconAnt={<UserOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
         <AntInput
@@ -87,7 +87,7 @@ export default function Step2ContactAddress() {
           emptyFirstVal="- Select Role -"
           reqMsg="Designation is required"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
@@ -105,7 +105,7 @@ export default function Step2ContactAddress() {
           reqMsg="Phone number is required"
           preIconAnt={<PhoneOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
         <AntInput
@@ -120,13 +120,13 @@ export default function Step2ContactAddress() {
           reqMsg="Email is required"
           preIconAnt={<MailOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
 
       {/* Address Details Box */}
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex items-center gap-2 mb-1">
           <EnvironmentOutlined className="text-brand-primary text-sm" />
           <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
@@ -146,7 +146,7 @@ export default function Step2ContactAddress() {
             placeholder="e.g. Suite 402 or 80"
             reqMsg="House number is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -160,7 +160,7 @@ export default function Step2ContactAddress() {
             placeholder="e.g. Castlereagh Street"
             reqMsg="Street is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -177,7 +177,7 @@ export default function Step2ContactAddress() {
             placeholder="e.g. Sydney"
             reqMsg="Suburb is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -194,7 +194,7 @@ export default function Step2ContactAddress() {
             patternMsg="Must be 4 digits"
             reqMsg="Postcode is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -209,7 +209,7 @@ export default function Step2ContactAddress() {
             emptyFirstVal="- Select State -"
             reqMsg="State is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

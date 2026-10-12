@@ -26,7 +26,8 @@ export const metadata = {
     "expat tax accountant Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/foreign-income-tax-accountant/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/foreign-income-tax-accountant/",
   },
   openGraph: {
     title: "Foreign Income Tax Accountant in Australia | Financially Up",
@@ -57,32 +58,38 @@ const foreignQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Expats, dual residents, temporary residents & Australian investors with overseas assets",
+    value:
+      "Expats, dual residents, temporary residents & Australian investors with overseas assets",
   },
   {
     icon: "file",
     label: "Tax Reporting Model",
-    value: "Worldwide assessable income in Australian dollars under domestic tax legislation",
+    value:
+      "Worldwide assessable income in Australian dollars under domestic tax legislation",
   },
   {
     icon: "percentage",
     label: "Offset Mechanics",
-    value: "Foreign Income Tax Offset (FITO) relief for qualifying taxes paid offshore",
+    value:
+      "Foreign Income Tax Offset (FITO) relief for qualifying taxes paid offshore",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "FX Translation",
-    value: "RBA & ATO official foreign currency translation rates applied to each receipt",
+    value:
+      "RBA & ATO official foreign currency translation rates applied to each receipt",
   },
 ];
 
@@ -95,7 +102,9 @@ const foreignFaqs = [
     label: "Do I need to declare foreign income in Australia?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Australian tax residents generally declare worldwide income. Different rules apply to foreign and temporary residents, so residency and the income type should be reviewed first.
+        Australian tax residents generally declare worldwide income. Different
+        rules apply to foreign and temporary residents, so residency and the
+        income type should be reviewed first.
       </p>
     ),
   },
@@ -104,7 +113,9 @@ const foreignFaqs = [
     label: "What if I already paid tax overseas?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        You may be eligible for a FITO if qualifying foreign tax was paid on income included in your Australian assessable income. The offset is subject to eligibility requirements and limits.
+        You may be eligible for a FITO if qualifying foreign tax was paid on
+        income included in your Australian assessable income. The offset is
+        subject to eligibility requirements and limits.
       </p>
     ),
   },
@@ -113,7 +124,9 @@ const foreignFaqs = [
     label: "Is foreign rental income taxable in Australia?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An Australian resident generally reports overseas rent and may claim eligible expenses under Australian rules. Private use, capital costs, foreign tax and currency conversion may affect the result.
+        An Australian resident generally reports overseas rent and may claim
+        eligible expenses under Australian rules. Private use, capital costs,
+        foreign tax and currency conversion may affect the result.
       </p>
     ),
   },
@@ -122,7 +135,9 @@ const foreignFaqs = [
     label: "Are foreign dividends and interest taxable?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Australian residents generally report foreign dividends and interest in Australian dollars, usually at the gross amount before foreign withholding tax.
+        Australian residents generally report foreign dividends and interest in
+        Australian dollars, usually at the gross amount before foreign
+        withholding tax.
       </p>
     ),
   },
@@ -131,7 +146,9 @@ const foreignFaqs = [
     label: "Does a tax treaty mean I do not pay Australian tax?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Not necessarily. A treaty may allocate taxing rights or provide double-tax relief, but the result depends on the agreement, your residency and the income type.
+        Not necessarily. A treaty may allocate taxing rights or provide
+        double-tax relief, but the result depends on the agreement, your
+        residency and the income type.
       </p>
     ),
   },
@@ -140,7 +157,9 @@ const foreignFaqs = [
     label: "How do I convert overseas income into Australian dollars?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Use the rate and translation method permitted for the relevant amount. Keep evidence of the foreign amount, transaction date, exchange-rate source and calculation.
+        Use the rate and translation method permitted for the relevant amount.
+        Keep evidence of the foreign amount, transaction date, exchange-rate
+        source and calculation.
       </p>
     ),
   },
@@ -149,7 +168,9 @@ const foreignFaqs = [
     label: "When should I use a foreign income tax accountant?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Professional assistance may help when you have several countries or currencies, foreign tax paid, overseas property or investments, a residency change, treaty questions or incomplete records.
+        Professional assistance may help when you have several countries or
+        currencies, foreign tax paid, overseas property or investments, a
+        residency change, treaty questions or incomplete records.
       </p>
     ),
   },
@@ -192,16 +213,29 @@ export default function ForeignIncomeTaxAccountantPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Foreign income can make an Australian tax return more complicated. Overseas salary, dividends, bank interest, rental income, pensions, investment accounts, property disposals and foreign tax already paid may all require review under Australian rules.
+              Foreign income can make an Australian tax return more complicated.
+              Overseas salary, dividends, bank interest, rental income,
+              pensions, investment accounts, property disposals and foreign tax
+              already paid may all require review under Australian rules.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides foreign income tax accountant services for Australian individuals who need help determining what to report and how to prepare their Australian return. We assist clients Australia-wide with foreign-income tax return preparation, review of overseas records and separately scoped tax advice where appropriate.
+              Financially Up Pty Ltd provides foreign income tax accountant
+              services for Australian individuals who need help determining what
+              to report and how to prepare their Australian return. We assist
+              clients Australia-wide with foreign-income tax return preparation,
+              review of overseas records and separately scoped tax advice where
+              appropriate.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              At your first appointment, we can discuss your tax residency circumstances, countries and income sources, foreign tax paid, overseas property or investments, available records and the next steps. Appointments can be booked online or by phone, with online meetings available Australia-wide and in-person meetings where available.
+              At your first appointment, we can discuss your tax residency
+              circumstances, countries and income sources, foreign tax paid,
+              overseas property or investments, available records and the next
+              steps. Appointments can be booked online or by phone, with online
+              meetings available Australia-wide and in-person meetings where
+              available.
             </div>
           </span>
         }

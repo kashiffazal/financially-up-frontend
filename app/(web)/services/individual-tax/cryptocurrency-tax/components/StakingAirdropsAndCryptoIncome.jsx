@@ -60,14 +60,19 @@ export default function StakingAirdropsAndCryptoIncome() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Yield, Rewards &amp; Smart Contracts
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Staking Rewards, Airdrops and Other Crypto Income
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Digital asset returns often generate dual tax obligations: assessable income upon receipt, followed by capital gains calculations on future disposals.
+            Digital asset returns often generate dual tax obligations:
+            assessable income upon receipt, followed by capital gains
+            calculations on future disposals.
           </p>
         </div>
 
@@ -80,7 +85,7 @@ export default function StakingAirdropsAndCryptoIncome() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <Tag className="m-0 font-semibold text-2xs uppercase tracking-wider py-0.5 px-2.5 rounded-full border-slate-300 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">
@@ -95,7 +100,7 @@ export default function StakingAirdropsAndCryptoIncome() {
                   {item.desc}
                 </p>
 
-                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-700/60 text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
+                <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-100 dark:border-zinc-700/60 text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
                   {item.detail}
                 </div>
               </div>

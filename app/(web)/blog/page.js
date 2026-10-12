@@ -6,7 +6,7 @@ import { getSettings } from "@/lib/getSettings";
 import { siteBaseUrl } from "@/lib/blog";
 
 /**
- * /blog — Blog & Tax Insights listing.
+ * /blog - Blog & Tax Insights listing.
  * Articles, categories and tags come from the database (managed at /admin/blog);
  * cached and refreshed automatically when posts change (see lib/blogFetch.js).
  */

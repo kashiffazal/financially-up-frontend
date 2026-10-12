@@ -32,27 +32,37 @@ export default function CommonAreasAndYearEnd() {
    */
   const reviewScopeAreas = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Timing & Character of Income",
       desc: "Evaluating when income is derived and its tax character.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Deductibility of Expenses",
       desc: "Assessing allowable business and personal deductions.",
     },
     {
-      icon: <BookOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BookOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Supporting Records",
       desc: "Verifying substantiation and record integrity.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Expected Payment Obligations",
       desc: "Forecasting PAYG, BAS, and upcoming tax liabilities.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Planned Transactions",
       desc: "Reviewing proposed asset disposals, acquisitions, or restructures.",
     },
@@ -87,10 +97,10 @@ export default function CommonAreasAndYearEnd() {
             {reviewScopeAreas.map((area, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
+                className="p-5 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center mb-3">
                     {area.icon}
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -105,9 +115,9 @@ export default function CommonAreasAndYearEnd() {
           </div>
 
           {/* Document Paragraph 2 - Verbatim Notice Box (Crucial Regulatory & Advisory Boundaries) */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/60 text-slate-800 dark:text-zinc-200">
+          <div className="p-6 sm:p-8 rounded-lg bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/60 text-slate-800 dark:text-zinc-200">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
                 <InfoCircleOutlined className="text-xl" />
               </div>
               <div className="space-y-2">
@@ -116,14 +126,14 @@ export default function CommonAreasAndYearEnd() {
                 </h4>
                 {/* Document Paragraph 2 - Verbatim */}
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-                  For businesses, structure can affect tax, registration and legal
-                  obligations, so changes should be considered before they are
-                  implemented. For individuals, capital gains, property income and
-                  superannuation may involve specific rules and timing
-                  requirements. Financial product advice and investment
+                  For businesses, structure can affect tax, registration and
+                  legal obligations, so changes should be considered before they
+                  are implemented. For individuals, capital gains, property
+                  income and superannuation may involve specific rules and
+                  timing requirements. Financial product advice and investment
                   recommendations are separate from tax planning and may require
-                  an appropriately authorised financial adviser. Legal advice may
-                  require an appropriately qualified legal adviser.
+                  an appropriately authorised financial adviser. Legal advice
+                  may require an appropriately qualified legal adviser.
                 </p>
               </div>
             </div>
@@ -145,10 +155,11 @@ export default function CommonAreasAndYearEnd() {
             {/* Document Paragraph 1 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
               Year-end planning is a practical checkpoint, but it should not be
-              treated as a last-minute exercise. A review before 30 June may help
-              identify incomplete records, expected tax liabilities, deductible
-              expenses that have already been incurred, planned transactions and
-              any actions that need to occur within the relevant financial year.
+              treated as a last-minute exercise. A review before 30 June may
+              help identify incomplete records, expected tax liabilities,
+              deductible expenses that have already been incurred, planned
+              transactions and any actions that need to occur within the
+              relevant financial year.
             </p>
           </div>
 
@@ -156,7 +167,7 @@ export default function CommonAreasAndYearEnd() {
           <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/40 dark:from-zinc-900 dark:via-zinc-900 dark:to-teal-950/20 border border-teal-200/80 dark:border-teal-800/80 shadow-sm">
             <div className="max-w-4xl mx-auto space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
                   <AlertOutlined className="text-2xl" />
                 </div>
                 <div>
@@ -191,7 +202,7 @@ export default function CommonAreasAndYearEnd() {
                     size="large"
                     icon={<ArrowRightOutlined />}
                     iconPlacement="end"
-                    className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
                   >
                     Schedule Pre-30 June Review
                   </Button>

@@ -30,7 +30,10 @@ export default function HowFinanciallyUpCanHelpScenario() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Verbatim Strategic Explanation */}
           <div className="lg:col-span-7">
-            <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Advisory Scoping
             </Tag>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -38,23 +41,40 @@ export default function HowFinanciallyUpCanHelpScenario() {
             </h2>
             <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               <p>
-                We review the financial information and the proposed decision, agree the scenarios worth testing, explain the calculations and document key assumptions and limitations. The scope might be a focused what-if financial analysis for one decision or a recurring review when the business faces changing conditions. We can revisit scenarios when actual results diverge from the baseline.
+                We review the financial information and the proposed decision,
+                agree the scenarios worth testing, explain the calculations and
+                document key assumptions and limitations. The scope might be a
+                focused what-if financial analysis for one decision or a
+                recurring review when the business faces changing conditions. We
+                can revisit scenarios when actual results diverge from the
+                baseline.
               </p>
             </div>
 
             {/* Verbatim Cross-Linking Box */}
-            <div className="mt-8 p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
+            <div className="mt-8 p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
               <p className="m-0">
                 Our{" "}
-                <Link href="/services/virtual-cfo/financial-modelling" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+                <Link
+                  href="/services/virtual-cfo/financial-modelling"
+                  className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+                >
                   financial modelling services
                 </Link>{" "}
                 address the construction of a model and its linked forecasts.{" "}
-                <Link href="/services/virtual-cfo/board-reporting" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+                <Link
+                  href="/services/virtual-cfo/board-reporting"
+                  className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+                >
                   Board reporting
                 </Link>{" "}
-                can summarize scenario results for directors considering a decision. Where the question is an expansion rather than a specific financial stress test,{" "}
-                <Link href="/services/business-advisory" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+                can summarize scenario results for directors considering a
+                decision. Where the question is an expansion rather than a
+                specific financial stress test,{" "}
+                <Link
+                  href="/services/business-advisory"
+                  className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+                >
                   business growth advice
                 </Link>{" "}
                 can examine the broader resources required.
@@ -64,7 +84,7 @@ export default function HowFinanciallyUpCanHelpScenario() {
 
           {/* Right Column: Key Delivery Items */}
           <div className="lg:col-span-5">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 shadow-sm space-y-3.5">
+            <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 shadow-sm space-y-3.5">
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-4">
                 What-If Analysis Deliverables
               </h3>

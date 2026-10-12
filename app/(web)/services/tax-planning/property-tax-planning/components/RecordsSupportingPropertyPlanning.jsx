@@ -66,14 +66,23 @@ export default function RecordsSupportingPropertyPlanning() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Documentation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Records That Support Property Tax Planning
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Useful records include purchase and settlement documents, loan statements, rental statements, invoices, rates and insurance records, property management statements, depreciation or quantity-surveyor information where relevant, renovation records and documents relating to any planned sale. Maintaining clear records from acquisition can make later rental and CGT calculations more reliable.
+            Useful records include purchase and settlement documents, loan
+            statements, rental statements, invoices, rates and insurance
+            records, property management statements, depreciation or
+            quantity-surveyor information where relevant, renovation records and
+            documents relating to any planned sale. Maintaining clear records
+            from acquisition can make later rental and CGT calculations more
+            reliable.
           </p>
         </div>
 
@@ -82,9 +91,9 @@ export default function RecordsSupportingPropertyPlanning() {
           {recordsChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-colors flex items-start gap-4"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-colors flex items-start gap-4"
             >
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
                 <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-base" />
               </div>
               <div className="flex-1 space-y-0.5">
@@ -105,10 +114,13 @@ export default function RecordsSupportingPropertyPlanning() {
         </div>
 
         {/* Tip Box */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-5 sm:p-6 flex items-start gap-3.5">
+        <div className="max-w-4xl mx-auto rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-5 sm:p-6 flex items-start gap-3.5">
           <FolderOpenOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
-            <strong>Acquisition-to-Disposal Discipline:</strong> Holding onto initial settlement sheets and building contracts ensures that when you eventually sell, every eligible cost-base dollar is substantiated to reduce your capital gains tax.
+            <strong>Acquisition-to-Disposal Discipline:</strong> Holding onto
+            initial settlement sheets and building contracts ensures that when
+            you eventually sell, every eligible cost-base dollar is
+            substantiated to reduce your capital gains tax.
           </p>
         </div>
       </div>

@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { BankOutlined, CloseCircleFilled, CheckCircleFilled, WarningOutlined } from "@ant-design/icons";
+import {
+  BankOutlined,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  WarningOutlined,
+} from "@ant-design/icons";
 
 /**
  * CompanyOwnershipCommercialDevelopment Component
@@ -20,7 +25,9 @@ export default function CompanyOwnershipCommercialDevelopment() {
             When Might a Company Be Considered?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            A corporate entity can be ideal for property development or active commercial projects where profits will be retained, but is often unsuitable for passive long-term capital growth.
+            A corporate entity can be ideal for property development or active
+            commercial projects where profits will be retained, but is often
+            unsuitable for passive long-term capital growth.
           </p>
         </div>
 
@@ -35,45 +42,63 @@ export default function CompanyOwnershipCommercialDevelopment() {
                 Corporate Tax Rates vs. CGT Discount Forfeiture
               </h3>
               <p className="text-slate-300 text-base leading-relaxed mb-4">
-                Companies benefit from a flat corporate tax rate (25% for base rate entities, 30% for general companies), making them effective vehicles for property trading, construction, or active property development where profits are retained for reinvestment into future projects.
+                Companies benefit from a flat corporate tax rate (25% for base
+                rate entities, 30% for general companies), making them effective
+                vehicles for property trading, construction, or active property
+                development where profits are retained for reinvestment into
+                future projects.
               </p>
               <p className="text-slate-300 text-base leading-relaxed">
-                However, a company-versus-trust analysis must look past headline tax rates. Withdrawing profits to shareholders triggers top-up personal tax via unfranked dividends or requires compliant Division 7A loan agreements.
+                However, a company-versus-trust analysis must look past headline
+                tax rates. Withdrawing profits to shareholders triggers top-up
+                personal tax via unfranked dividends or requires compliant
+                Division 7A loan agreements.
               </p>
             </div>
 
             <div className="space-y-4 flex flex-col justify-center">
-              <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <CheckCircleFilled className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Ideal for Active Trading & Development</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Ideal for Active Trading & Development
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Development profits taxed at the 25% corporate tax rate instead of individual marginal tax rates up to 47%.
+                      Development profits taxed at the 25% corporate tax rate
+                      instead of individual marginal tax rates up to 47%.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <CloseCircleFilled className="text-rose-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">NO General 50% CGT Discount</h4>
+                    <h4 className="font-bold text-white text-base">
+                      NO General 50% CGT Discount
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Companies are legally barred from claiming the 50% capital gains tax discount. Every dollar of long-term capital gain is taxed in full.
+                      Companies are legally barred from claiming the 50% capital
+                      gains tax discount. Every dollar of long-term capital gain
+                      is taxed in full.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <WarningOutlined className="text-amber-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Division 7A Compliance Burden</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Division 7A Compliance Burden
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Loans, advances, or private property use by shareholders or associates require formal loan agreements and minimum benchmark interest repayments.
+                      Loans, advances, or private property use by shareholders
+                      or associates require formal loan agreements and minimum
+                      benchmark interest repayments.
                     </p>
                   </div>
                 </div>

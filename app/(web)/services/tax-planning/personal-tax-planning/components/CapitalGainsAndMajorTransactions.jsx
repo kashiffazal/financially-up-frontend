@@ -24,7 +24,7 @@ export default function CapitalGainsAndMajorTransactions() {
   const cgtElements = [
     {
       title: "CGT Event A1: Contract Date Rule",
-      desc: "For assets disposed under a contract, the CGT event occurs on the date the contract is signed—not the settlement date. Signing in June incurs tax in that financial year.",
+      desc: "For assets disposed under a contract, the CGT event occurs on the date the contract is signed-not the settlement date. Signing in June incurs tax in that financial year.",
     },
     {
       title: "5-Element Cost Base Calculations",
@@ -74,7 +74,7 @@ export default function CapitalGainsAndMajorTransactions() {
           {cgtElements.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-colors"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-colors"
             >
               <div className="flex items-center gap-2.5 mb-2.5">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-sm shrink-0" />
@@ -90,7 +90,7 @@ export default function CapitalGainsAndMajorTransactions() {
         </div>
 
         {/* Deep Dive Action Card to CGT Service */}
-        <div className="rounded-2xl p-6 sm:p-8 bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/80 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg p-6 sm:p-8 bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/80 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               Planning to sell property, shares, or crypto?
@@ -109,7 +109,7 @@ export default function CapitalGainsAndMajorTransactions() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
+              className="rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
             >
               Explore Capital Gains Tax
             </Button>

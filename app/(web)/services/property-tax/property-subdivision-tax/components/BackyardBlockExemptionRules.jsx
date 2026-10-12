@@ -37,19 +37,23 @@ export default function BackyardBlockExemptionRules() {
         {/* 2 Context Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Card 1: Verbatim Paragraph 1 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-4">
               <StopOutlined />
               <span>No Automatic Main Residence Exemption</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Living in a home does not automatically exempt a vacant lot sold separately. The main-residence exemption generally requires the land to be sold as part of the same CGT event as the dwelling and the relevant conditions to be met. A separately sold backyard block will ordinarily require its own tax calculation.
+              Living in a home does not automatically exempt a vacant lot sold
+              separately. The main-residence exemption generally requires the
+              land to be sold as part of the same CGT event as the dwelling and
+              the relevant conditions to be met. A separately sold backyard
+              block will ordinarily require its own tax calculation.
             </p>
           </div>
 
           {/* Card 2: Verbatim Paragraph 2 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <AlertOutlined />
@@ -57,7 +61,11 @@ export default function BackyardBlockExemptionRules() {
               </div>
               {/* Verbatim text from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                If you intend to retain the existing home and sell the new lot, obtain subdivision tax advice before assuming the sale is exempt. Acquisition history, private and income-producing use, the allocation of cost base, development activity and the sale arrangement may all affect the outcome.
+                If you intend to retain the existing home and sell the new lot,
+                obtain subdivision tax advice before assuming the sale is
+                exempt. Acquisition history, private and income-producing use,
+                the allocation of cost base, development activity and the sale
+                arrangement may all affect the outcome.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800">
@@ -74,14 +82,18 @@ export default function BackyardBlockExemptionRules() {
         </div>
 
         {/* Crucial Advisory Warning Callout */}
-        <div className="bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 rounded-2xl p-6 sm:p-8 flex items-start gap-4">
+        <div className="bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 rounded-lg p-6 sm:p-8 flex items-start gap-4">
           <AlertOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1">
               Retaining Dwelling vs Selling Subdivided Backyard
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Under section 118-120 of the ITAA 1997, adjacent land used primarily for private domestic purposes qualifies for the main residence exemption only if disposed of to the same person and at the same time as the dwelling. Selling the subdivided lot on its own invalidates the exemption for that lot.
+              Under section 118-120 of the ITAA 1997, adjacent land used
+              primarily for private domestic purposes qualifies for the main
+              residence exemption only if disposed of to the same person and at
+              the same time as the dwelling. Selling the subdivided lot on its
+              own invalidates the exemption for that lot.
             </p>
           </div>
         </div>

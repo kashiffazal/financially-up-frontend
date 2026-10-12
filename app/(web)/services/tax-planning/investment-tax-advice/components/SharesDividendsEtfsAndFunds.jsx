@@ -20,15 +20,29 @@ export default function SharesDividendsEtfsAndFunds() {
   const assetTypes = [
     {
       title: "Direct Shares & Dividend Franking",
-      icon: <PieChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <PieChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       text: "Investment income can be reported differently depending on the asset. Dividends may be franked, partly franked or unfranked. Where franking credits are attached, the dividend and credit are generally taken into account in the tax return, subject to the relevant rules and eligibility requirements.",
-      tags: ["Franking Credits", "Unfranked Dividends", "Tax Offsets", "Dividend Imputation"],
+      tags: [
+        "Franking Credits",
+        "Unfranked Dividends",
+        "Tax Offsets",
+        "Dividend Imputation",
+      ],
     },
     {
       title: "ETFs & Managed Fund Distributions",
-      icon: <FileDoneOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       text: "ETFs and managed funds can distribute several tax components in one year, including ordinary income, capital gains, foreign income and franking credits. Annual tax statements or AMMA statements can also contain cost-base adjustment information that affects a later disposal.",
-      tags: ["AMMA Statements", "Capital Gain Components", "Foreign Income", "Cost-Base Adjustments"],
+      tags: [
+        "AMMA Statements",
+        "Capital Gain Components",
+        "Foreign Income",
+        "Cost-Base Adjustments",
+      ],
     },
   ];
 
@@ -50,10 +64,10 @@ export default function SharesDividendsEtfsAndFunds() {
           {assetTypes.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-6 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-6 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
@@ -82,19 +96,21 @@ export default function SharesDividendsEtfsAndFunds() {
         </div>
 
         {/* Cross-Service Callout Banner */}
-        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-zinc-800/80 dark:to-zinc-800/50 rounded-2xl p-6 sm:p-8 border border-emerald-200 dark:border-emerald-800/40 shadow-sm">
+        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-zinc-800/80 dark:to-zinc-800/50 rounded-lg p-6 sm:p-8 border border-emerald-200 dark:border-emerald-800/40 shadow-sm">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="max-w-3xl">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
                 Annual Tax-Return Compliance
               </span>
               <p className="text-slate-700 dark:text-zinc-200 text-base font-medium leading-relaxed">
-                If your main need is annual tax-return preparation for shares and investment income, our Share Trading &amp; Investment Accountant service covers that reporting work in more detail.
+                If your main need is annual tax-return preparation for shares
+                and investment income, our Share Trading &amp; Investment
+                Accountant service covers that reporting work in more detail.
               </p>
             </div>
             <Link
               href="/services/individual-tax/share-trading-investment-accountant"
-              className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white font-semibold text-sm transition-all shadow-sm hover:shadow shrink-0 group"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-brand-primary hover:bg-brand-secondary text-white font-semibold text-sm transition-all shadow-sm hover:shadow shrink-0 group"
             >
               Share Trading Service
               <ArrowRightOutlined className="ml-2 group-hover:translate-x-1 transition-transform" />

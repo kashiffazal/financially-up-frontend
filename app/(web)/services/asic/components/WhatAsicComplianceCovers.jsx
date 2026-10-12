@@ -32,32 +32,44 @@ export default function WhatAsicComplianceCovers() {
    */
   const supportInclusions = [
     {
-      icon: <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       text: "reviewing ASIC annual statements and checking the registered details",
       tag: "Annual Statements",
     },
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       text: "assisting with changes to registered office or principal place of business",
       tag: "Registered Office",
     },
     {
-      icon: <SolutionOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SolutionOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       text: "lodging changes involving directors or secretaries where the required company decisions and consents are in place",
       tag: "Officeholders",
     },
     {
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       text: "updating certain share, member or ultimate holding company information",
       tag: "Share Register",
     },
     {
-      icon: <MailOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <MailOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       text: "helping manage ASIC correspondence and common filing requirements",
       tag: "Correspondence",
     },
     {
-      icon: <SyncOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       text: "coordinating with the company’s accounting records where a corporate change also affects tax, payroll, bookkeeping or financial reporting.",
       tag: "Accounting Link",
     },
@@ -76,7 +88,12 @@ export default function WhatAsicComplianceCovers() {
           </h2>
           {/* Document Paragraph 1 - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            ASIC compliance work focuses on the company information and corporate filings that must be kept current with the Australian Securities and Investments Commission. It is different from preparing a company tax return. A company can be tax-compliant while still having overdue corporate changes, and the reverse can also occur.
+            ASIC compliance work focuses on the company information and
+            corporate filings that must be kept current with the Australian
+            Securities and Investments Commission. It is different from
+            preparing a company tax return. A company can be tax-compliant while
+            still having overdue corporate changes, and the reverse can also
+            occur.
           </p>
         </div>
 
@@ -84,7 +101,8 @@ export default function WhatAsicComplianceCovers() {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-teal-700 dark:text-teal-400">
-              Depending on the company and the work requested, support may include:
+              Depending on the company and the work requested, support may
+              include:
             </p>
           </div>
 
@@ -92,11 +110,11 @@ export default function WhatAsicComplianceCovers() {
             {supportInclusions.map((item, idx) => (
               <div
                 key={idx}
-                className="group p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center group-hover:scale-105 transition-transform">
                       {item.icon}
                     </div>
                     <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -116,7 +134,7 @@ export default function WhatAsicComplianceCovers() {
         </div>
 
         {/* Concluding Paragraph Callout - Verbatim */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold mb-3">
               <SafetyCertificateOutlined />
@@ -124,7 +142,11 @@ export default function WhatAsicComplianceCovers() {
             </div>
             {/* Document Concluding Paragraph - Verbatim */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0">
-              For companies that want an ongoing point of contact for ASIC administration, Financially Up can also assist with an ASIC registered agent service. Company directors remain responsible for their legal duties even where an agent or accountant assists with administration.
+              For companies that want an ongoing point of contact for ASIC
+              administration, Financially Up can also assist with an ASIC
+              registered agent service. Company directors remain responsible for
+              their legal duties even where an agent or accountant assists with
+              administration.
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-3">
@@ -134,7 +156,7 @@ export default function WhatAsicComplianceCovers() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
               >
                 Book an Appointment
               </Button>

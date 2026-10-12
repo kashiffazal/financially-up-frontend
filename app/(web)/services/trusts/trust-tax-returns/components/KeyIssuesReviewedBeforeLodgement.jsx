@@ -30,15 +30,19 @@ export default function KeyIssuesReviewedBeforeLodgement() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Quality Assurance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Key issues reviewed before lodgement
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Every trust tax return prepared by Financially Up undergoes a rigorous 10-point technical review to ensure
-            statutory accuracy, eliminate ATO audit exposure, and protect beneficiary tax outcomes.
+            Every trust tax return prepared by Financially Up undergoes a
+            rigorous 10-point technical review to ensure statutory accuracy,
+            eliminate ATO audit exposure, and protect beneficiary tax outcomes.
           </p>
         </div>
 
@@ -47,7 +51,7 @@ export default function KeyIssuesReviewedBeforeLodgement() {
           {issues.map((text, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm flex items-start gap-4"
+              className="p-5 sm:p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm flex items-start gap-4"
             >
               <div className="w-8 h-8 rounded-full bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800/60 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-sm" />

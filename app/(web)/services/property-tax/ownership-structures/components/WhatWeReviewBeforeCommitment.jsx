@@ -47,35 +47,49 @@ export default function WhatWeReviewBeforeCommitment() {
             What We Review Before You Commit
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            A property structuring review starts with the practical commercial and financial realities you actually face:
+            A property structuring review starts with the practical commercial
+            and financial realities you actually face:
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-12">
+        <div className="bg-white rounded-lg p-8 sm:p-10 border border-slate-200 shadow-sm mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {checklistQuestions.map((q, idx) => (
-              <div key={idx} className="flex items-start gap-3.5 p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <div
+                key={idx}
+                className="flex items-start gap-3.5 p-4 bg-slate-50 rounded-lg border border-slate-100"
+              >
                 <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   {idx + 1}
                 </span>
-                <span className="text-slate-800 text-sm sm:text-base font-medium">{q}</span>
+                <span className="text-slate-800 text-sm sm:text-base font-medium">
+                  {q}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Bring to the Meeting */}
-        <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-16">
+        <div className="bg-white rounded-lg p-8 sm:p-10 border border-slate-200 shadow-sm mb-16">
           <div className="flex items-center gap-3 mb-6">
             <FolderOpenOutlined className="text-2xl text-emerald-600" />
-            <h3 className="text-2xl font-bold text-slate-900">What to Bring to Your Structuring Review</h3>
+            <h3 className="text-2xl font-bold text-slate-900">
+              What to Bring to Your Structuring Review
+            </h3>
           </div>
           <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-            Bring the draft contract, proposed ownership details, borrowing information, and existing documents. We compare tax and accounting implications and coordinate seamlessly with your solicitor and lender:
+            Bring the draft contract, proposed ownership details, borrowing
+            information, and existing documents. We compare tax and accounting
+            implications and coordinate seamlessly with your solicitor and
+            lender:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {documentsNeeded.map((doc, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3.5 bg-slate-50 rounded-lg border border-slate-100"
+              >
                 <FileSearchOutlined className="text-emerald-600 text-base shrink-0 mt-0.5" />
                 <span className="text-slate-700 text-sm">{doc}</span>
               </div>
@@ -93,30 +107,42 @@ export default function WhatWeReviewBeforeCommitment() {
               Why Choose {company?.legalName || "Financially Up"}?
             </h3>
             <p className="text-emerald-200 text-sm sm:text-base mt-3 leading-relaxed">
-              {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience. Our professional accounting and tax team includes CPA and IPA members, supporting clients Australia-wide.
+              {company?.legalName || "Financially Up"} is a registered tax agent
+              with more than 10 years of experience. Our professional accounting
+              and tax team includes CPA and IPA members, supporting clients
+              Australia-wide.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <TeamOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">CPA & IPA Certified</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                CPA & IPA Certified
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Deep expertise in entity tax structuring, trust deeds, corporate tax, and CGT discounts.
+                Deep expertise in entity tax structuring, trust deeds, corporate
+                tax, and CGT discounts.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <SafetyCertificateOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">10+ Years Experience</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                10+ Years Experience
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Strategic advice across high-value residential portfolios, commercial assets & developments.
+                Strategic advice across high-value residential portfolios,
+                commercial assets & developments.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <GlobalOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">Australia-Wide Service</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                Australia-Wide Service
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Convenient online video consultations and in-person appointments for clients across all states.
+                Convenient online video consultations and in-person appointments
+                for clients across all states.
               </p>
             </div>
           </div>

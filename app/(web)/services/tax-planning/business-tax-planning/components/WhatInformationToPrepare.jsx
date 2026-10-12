@@ -21,37 +21,44 @@ export default function WhatInformationToPrepare() {
   const preparationItems = [
     {
       num: "01",
-      title: "Up-to-date profit and loss and balance sheet information where available.",
+      title:
+        "Up-to-date profit and loss and balance sheet information where available.",
       hint: "Interim management reports covering current financial year-to-date figures.",
     },
     {
       num: "02",
-      title: "Current bookkeeping, bank reconciliations and major account balances.",
+      title:
+        "Current bookkeeping, bank reconciliations and major account balances.",
       hint: "Reconciled bank statements, merchant gateway summaries, and credit card balances.",
     },
     {
       num: "03",
-      title: "Details of asset purchases, disposals and planned capital expenditure.",
+      title:
+        "Details of asset purchases, disposals and planned capital expenditure.",
       hint: "Invoices, hire purchase or chattel mortgage agreements, and proposed equipment quotes.",
     },
     {
       num: "04",
-      title: "BAS, GST, PAYG instalment and payroll information where relevant.",
+      title:
+        "BAS, GST, PAYG instalment and payroll information where relevant.",
       hint: "Quarterly activity statement lodgements and Single Touch Payroll (STP) year-to-date summaries.",
     },
     {
       num: "05",
-      title: "Details of shareholder, director, beneficiary or related-party balances where relevant.",
+      title:
+        "Details of shareholder, director, beneficiary or related-party balances where relevant.",
       hint: "Drawings, loan accounts, historical Division 7A agreements, and family trust allocations.",
     },
     {
       num: "06",
-      title: "Information about proposed sales, restructures, ownership changes or new investments.",
+      title:
+        "Information about proposed sales, restructures, ownership changes or new investments.",
       hint: "Draft term sheets, investor proposals, purchase contracts, or partnership transitions.",
     },
     {
       num: "07",
-      title: "Prior-year tax returns and notices where they help explain the current position.",
+      title:
+        "Prior-year tax returns and notices where they help explain the current position.",
       hint: "Previous ATO notices of assessment, carried-forward tax losses, and franking account balances.",
     },
   ];
@@ -61,14 +68,19 @@ export default function WhatInformationToPrepare() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Preparation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What Information Should You Prepare?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            To make your tax planning consultation as productive and actionable as possible, assemble the following business records and financial details prior to your session:
+            To make your tax planning consultation as productive and actionable
+            as possible, assemble the following business records and financial
+            details prior to your session:
           </p>
         </div>
 
@@ -77,9 +89,9 @@ export default function WhatInformationToPrepare() {
           {preparationItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex items-start gap-4 sm:gap-5 group"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex items-start gap-4 sm:gap-5 group"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                 <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-lg" />
               </div>
 
@@ -101,10 +113,13 @@ export default function WhatInformationToPrepare() {
         </div>
 
         {/* Tip Notice */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-5 sm:p-6 flex items-start gap-3.5">
+        <div className="max-w-4xl mx-auto rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-5 sm:p-6 flex items-start gap-3.5">
           <FolderOpenOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
-            <strong>Don’t worry if some records are incomplete:</strong> Financially Up will review the records you currently have, identify any information gaps, and advise you on what is required before finalising your tax planning strategy.
+            <strong>Don’t worry if some records are incomplete:</strong>{" "}
+            Financially Up will review the records you currently have, identify
+            any information gaps, and advise you on what is required before
+            finalising your tax planning strategy.
           </p>
         </div>
       </div>

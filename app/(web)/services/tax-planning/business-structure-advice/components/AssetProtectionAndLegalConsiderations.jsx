@@ -50,17 +50,24 @@ export default function AssetProtectionAndLegalConsiderations() {
 
         {/* Verbatim Content Paragraphs */}
         <div className="max-w-4xl mx-auto mb-14 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <SafetyCertificateOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
             <p>
-              Structure can affect liability and asset exposure, but asset protection is a legal issue as well as a tax and accounting issue. For example, a company is generally a separate legal entity, while directors can still have personal obligations and potential liabilities in some circumstances.
+              Structure can affect liability and asset exposure, but asset
+              protection is a legal issue as well as a tax and accounting issue.
+              For example, a company is generally a separate legal entity, while
+              directors can still have personal obligations and potential
+              liabilities in some circumstances.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <p>
-              Financially Up can explain tax and accounting implications, but legal advice should be obtained for shareholder agreements, partnership agreements, trust deeds, asset-protection strategies, contracts and other legal rights or obligations.
+              Financially Up can explain tax and accounting implications, but
+              legal advice should be obtained for shareholder agreements,
+              partnership agreements, trust deeds, asset-protection strategies,
+              contracts and other legal rights or obligations.
             </p>
           </div>
         </div>
@@ -68,9 +75,9 @@ export default function AssetProtectionAndLegalConsiderations() {
         {/* Clear Professional Scope Delineation Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Accounting Scope */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-emerald-200 dark:border-emerald-800/60 shadow-sm">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-emerald-200 dark:border-emerald-800/60 shadow-sm">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 flex items-center justify-center">
                 <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
               </div>
               <div>
@@ -84,7 +91,10 @@ export default function AssetProtectionAndLegalConsiderations() {
             </div>
             <ul className="space-y-3">
               {accountingScope.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300"
+                >
                   <CheckCircleOutlined className="text-emerald-500 mt-0.5 shrink-0" />
                   <span>{item}</span>
                 </li>
@@ -93,9 +103,9 @@ export default function AssetProtectionAndLegalConsiderations() {
           </div>
 
           {/* Legal Scope */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-sm">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                 <StopOutlined className="text-xl text-slate-600 dark:text-zinc-400" />
               </div>
               <div>
@@ -109,7 +119,10 @@ export default function AssetProtectionAndLegalConsiderations() {
             </div>
             <ul className="space-y-3">
               {legalScope.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-zinc-600 mt-2 shrink-0" />
                   <span>{item}</span>
                 </li>

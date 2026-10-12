@@ -23,42 +23,54 @@ export default function HowShouldReviewResponseBePrepared() {
       title: "Scope the Request",
       description:
         "Scope the request by entity, tax, period, transaction and due date.",
-      icon: <AimOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AimOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       num: "2",
       title: "Reconcile to Lodged Figures",
       description:
         "Reconcile lodged amounts to the accounting records and source documents.",
-      icon: <ReconciliationOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ReconciliationOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       num: "3",
       title: "Categorise Content",
       description:
         "Separate facts, calculations, assumptions and technical tax positions.",
-      icon: <BranchesOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BranchesOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
     },
     {
       num: "4",
       title: "Direct Answers & Labelled Files",
       description:
         "Answer each question directly and label the supporting attachments.",
-      icon: <CheckSquareOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CheckSquareOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
     },
     {
       num: "5",
       title: "Pre-Submission Consistency Check",
       description:
         "Review the complete response for consistency before it is submitted.",
-      icon: <EyeOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <EyeOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       num: "6",
       title: "Retain Exact Audit Copy",
       description:
         "Retain an exact copy of what was provided and note any next action.",
-      icon: <CopyOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CopyOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
   ];
 
@@ -73,7 +85,9 @@ export default function HowShouldReviewResponseBePrepared() {
             How should the response be prepared?
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            This approach gives the ATO a clear path through the evidence and helps identify unresolved issues before submission. It also reduces the risk of different people giving inconsistent explanations.
+            This approach gives the ATO a clear path through the evidence and
+            helps identify unresolved issues before submission. It also reduces
+            the risk of different people giving inconsistent explanations.
           </p>
         </div>
 
@@ -82,11 +96,11 @@ export default function HowShouldReviewResponseBePrepared() {
           {preparationSteps.map((step, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 transition-transform">
                     {step.icon}
                   </div>
                   <span className="text-sm font-black text-slate-300 dark:text-zinc-700 font-mono">

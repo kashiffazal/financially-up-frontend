@@ -23,8 +23,11 @@ export default function StructureTypesComparison() {
     {
       title: "Sole Trader",
       tag: "Direct Personal Trading",
-      icon: <UserOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
-      accentColor: "border-blue-200 dark:border-blue-800/60 bg-blue-50/50 dark:bg-blue-950/20",
+      icon: (
+        <UserOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
+      accentColor:
+        "border-blue-200 dark:border-blue-800/60 bg-blue-50/50 dark:bg-blue-950/20",
       description:
         "A sole trader operates the business personally and reports business income in the individual tax return.",
       keyPoints: [
@@ -37,8 +40,11 @@ export default function StructureTypesComparison() {
     {
       title: "Partnership",
       tag: "Joint Commercial Undertaking",
-      icon: <TeamOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
-      accentColor: "border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/50 dark:bg-emerald-950/20",
+      icon: (
+        <TeamOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      accentColor:
+        "border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/50 dark:bg-emerald-950/20",
       description:
         "A partnership carries on business with two or more partners and generally lodges a partnership return, with partners returning their shares of income or loss.",
       keyPoints: [
@@ -51,8 +57,11 @@ export default function StructureTypesComparison() {
     {
       title: "Company",
       tag: "Distinct Legal Entity",
-      icon: <BankOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
-      accentColor: "border-brand-primary/20 dark:border-emerald-800/60 bg-brand-primary/5 dark:bg-emerald-950/20",
+      icon: (
+        <BankOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
+      accentColor:
+        "border-brand-primary/20 dark:border-emerald-800/60 bg-brand-primary/5 dark:bg-emerald-950/20",
       description:
         "A company is a separate legal entity with its own tax and reporting obligations.",
       keyPoints: [
@@ -65,8 +74,11 @@ export default function StructureTypesComparison() {
     {
       title: "Trust",
       tag: "Fiduciary Structure",
-      icon: <ApartmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
-      accentColor: "border-purple-200 dark:border-purple-800/60 bg-purple-50/50 dark:bg-purple-950/20",
+      icon: (
+        <ApartmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
+      accentColor:
+        "border-purple-200 dark:border-purple-800/60 bg-purple-50/50 dark:bg-purple-950/20",
       description:
         "A trust is administered by a trustee under the trust arrangement and has separate tax-return and distribution considerations.",
       keyPoints: [
@@ -90,7 +102,9 @@ export default function StructureTypesComparison() {
             Sole Trader, Partnership, Company or Trust?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Each structure works differently. Understanding their fundamental characteristics ensures your business model is built on an appropriate foundation.
+            Each structure works differently. Understanding their fundamental
+            characteristics ensures your business model is built on an
+            appropriate foundation.
           </p>
         </div>
 
@@ -99,10 +113,10 @@ export default function StructureTypesComparison() {
           {structures.map((s, idx) => (
             <div
               key={idx}
-              className={`rounded-2xl p-7 sm:p-8 border shadow-sm transition-all duration-300 hover:shadow-md bg-white dark:bg-zinc-900 ${s.accentColor}`}
+              className={`rounded-lg p-7 sm:p-8 border shadow-sm transition-all duration-300 hover:shadow-md bg-white dark:bg-zinc-900 ${s.accentColor}`}
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {s.icon}
                 </div>
                 <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700">
@@ -117,7 +131,10 @@ export default function StructureTypesComparison() {
               </p>
               <div className="border-t border-slate-200/60 dark:border-zinc-800 pt-4 space-y-2.5">
                 {s.keyPoints.map((point, pIdx) => (
-                  <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
+                  <div
+                    key={pIdx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-400"
+                  >
                     <CheckCircleFilled className="text-emerald-500 mt-0.5 shrink-0" />
                     <span>{point}</span>
                   </div>
@@ -134,8 +151,10 @@ export default function StructureTypesComparison() {
             description="These are high-level differences only. Company or trust advice should also consider establishment documents, governance and legal consequences, which may require a lawyer in addition to tax advice."
             type="info"
             showIcon
-            icon={<InfoCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg" />}
-            className="rounded-2xl p-5 border border-brand-primary/20 bg-brand-primary/5 dark:bg-zinc-900 dark:border-emerald-500/30 text-slate-700 dark:text-zinc-300"
+            icon={
+              <InfoCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg" />
+            }
+            className="rounded-lg p-5 border border-brand-primary/20 bg-brand-primary/5 dark:bg-zinc-900 dark:border-emerald-500/30 text-slate-700 dark:text-zinc-300"
           />
         </div>
       </div>

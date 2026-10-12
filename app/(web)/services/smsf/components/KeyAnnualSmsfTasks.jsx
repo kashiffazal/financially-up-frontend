@@ -36,51 +36,70 @@ export default function KeyAnnualSmsfTasks() {
   const annualWorkflowSteps = [
     {
       step: "01",
-      icon: <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Reconciling Bank & Investments",
       description: "reconciling bank and investment activity",
     },
     {
       step: "02",
-      icon: <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Recording Contributions & Rollovers",
       description: "recording contributions and rollovers",
     },
     {
       step: "03",
-      icon: <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Allocating Member Transactions",
       description: "allocating member transactions",
     },
     {
       step: "04",
-      icon: <CalculatorOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Checking Income & Expenses",
       description: "checking income and expenses",
     },
     {
       step: "05",
-      icon: <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Reviewing Asset Values",
       description: "reviewing asset values at market value",
     },
     {
       step: "06",
-      icon: <FileDoneOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Preparing Financial Statements",
-      description: "preparing the financial statements (operating statement & balance sheet)",
+      description:
+        "preparing the financial statements (operating statement & balance sheet)",
     },
     {
       step: "07",
-      icon: <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Arranging Independent Audit",
-      description: "arranging the independent audit with an ASIC-approved auditor",
+      description:
+        "arranging the independent audit with an ASIC-approved auditor",
     },
     {
       step: "08",
-      icon: <SendOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SendOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Lodging SMSF Annual Return",
-      description: "lodging the SMSF annual return after the audit is finalized",
+      description:
+        "lodging the SMSF annual return after the audit is finalized",
     },
   ];
 
@@ -98,11 +117,23 @@ export default function KeyAnnualSmsfTasks() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            An SMSF is not simply an investment account. Each year the trustees need records that explain the fund&apos;s transactions and financial position. The ATO requires annual financial statements, including an operating statement and statement of financial position, and fund assets generally need to be reported at market value for annual reporting purposes.
+            An SMSF is not simply an investment account. Each year the trustees
+            need records that explain the fund&apos;s transactions and financial
+            position. The ATO requires annual financial statements, including an
+            operating statement and statement of financial position, and fund
+            assets generally need to be reported at market value for annual
+            reporting purposes.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            The annual workflow typically involves reconciling bank and investment activity, recording contributions and rollovers, allocating member transactions, checking income and expenses, reviewing asset values, preparing the financial statements, arranging the independent audit and then lodging the SMSF annual return after the audit is finalized. Trustees must appoint an approved SMSF auditor at least 45 days before the annual return is due.
+            The annual workflow typically involves reconciling bank and
+            investment activity, recording contributions and rollovers,
+            allocating member transactions, checking income and expenses,
+            reviewing asset values, preparing the financial statements,
+            arranging the independent audit and then lodging the SMSF annual
+            return after the audit is finalized. Trustees must appoint an
+            approved SMSF auditor at least 45 days before the annual return is
+            due.
           </p>
         </div>
 
@@ -111,11 +142,11 @@ export default function KeyAnnualSmsfTasks() {
           {annualWorkflowSteps.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/40">
@@ -134,8 +165,8 @@ export default function KeyAnnualSmsfTasks() {
         </div>
 
         {/* Statutory 45-Day Auditor Appointment Deadline Callout */}
-        <div className="rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 p-6 sm:p-8 mb-12 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <div className="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-2xl shrink-0">
+        <div className="rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 p-6 sm:p-8 mb-12 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-2xl shrink-0">
             <CalendarOutlined />
           </div>
           <div className="flex-1">
@@ -146,7 +177,10 @@ export default function KeyAnnualSmsfTasks() {
               The 45-Day Auditor Appointment Rule
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 m-0 leading-relaxed">
-              Superannuation law mandates that trustees must appoint an approved SMSF auditor at least 45 days before the annual return is due. Financially Up assists with timely audit workpaper packaging to ensure seamless handover to the independent auditor.
+              Superannuation law mandates that trustees must appoint an approved
+              SMSF auditor at least 45 days before the annual return is due.
+              Financially Up assists with timely audit workpaper packaging to
+              ensure seamless handover to the independent auditor.
             </p>
           </div>
         </div>

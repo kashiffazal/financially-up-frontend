@@ -20,11 +20,13 @@ import {
 export default function WhatIsAnLrbaAndStructure() {
   const lrbaAccountingTasks = [
     {
-      title: "Reconcile loan statements and separate principal, interest and fees",
+      title:
+        "Reconcile loan statements and separate principal, interest and fees",
       desc: "Distinguishing deductible interest costs and loan administrative charges from liability principal repayments.",
     },
     {
-      title: "Record acquisition and borrowing costs according to their treatment",
+      title:
+        "Record acquisition and borrowing costs according to their treatment",
       desc: "Bifurcating immediately deductible outgoings, 5-year borrowing write-offs, and capitalized acquisition costs.",
     },
     {
@@ -44,7 +46,8 @@ export default function WhatIsAnLrbaAndStructure() {
       desc: "Preparing 30 June market valuation schedules and loan balance confirmations for the independent auditor.",
     },
     {
-      title: "Identify inconsistencies between legal documents and actual transactions",
+      title:
+        "Identify inconsistencies between legal documents and actual transactions",
       desc: "Proactively catching title discrepancies or payment deviations before annual return lodgement.",
     },
   ];
@@ -54,17 +57,28 @@ export default function WhatIsAnLrbaAndStructure() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="purple"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Borrowing Structure & Overview
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What is a limited recourse borrowing arrangement?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A limited recourse borrowing arrangement, or LRBA, is a structure under which an SMSF borrows to acquire a permitted asset. A separate holding trust generally holds legal title while the SMSF holds the beneficial interest and has the right to acquire legal ownership after making the required payments. If the borrowing defaults, the lender&apos;s recourse against the SMSF must be limited in the manner required by superannuation law.
+            A limited recourse borrowing arrangement, or LRBA, is a structure
+            under which an SMSF borrows to acquire a permitted asset. A separate
+            holding trust generally holds legal title while the SMSF holds the
+            beneficial interest and has the right to acquire legal ownership
+            after making the required payments. If the borrowing defaults, the
+            lender&apos;s recourse against the SMSF must be limited in the
+            manner required by superannuation law.
           </p>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The asset, use of borrowed money, ownership documents, loan terms and security must satisfy the legislation throughout the arrangement.
+            The asset, use of borrowed money, ownership documents, loan terms
+            and security must satisfy the legislation throughout the
+            arrangement.
           </p>
         </div>
 
@@ -74,7 +88,10 @@ export default function WhatIsAnLrbaAndStructure() {
             Why LRBA accounting needs separate attention
           </h3>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
-            An LRBA creates records across the SMSF, lender and holding arrangement. The accounts generally recognize the asset and borrowing rather than treating the holding trust as an unrelated investment, helping the auditor trace ownership and loan movements.
+            An LRBA creates records across the SMSF, lender and holding
+            arrangement. The accounts generally recognize the asset and
+            borrowing rather than treating the holding trust as an unrelated
+            investment, helping the auditor trace ownership and loan movements.
           </p>
         </div>
 
@@ -83,7 +100,7 @@ export default function WhatIsAnLrbaAndStructure() {
           {lrbaAccountingTasks.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-purple-400/60 transition-all duration-300 flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-purple-400/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-400 font-bold text-xs flex items-center justify-center mb-4">
@@ -102,10 +119,18 @@ export default function WhatIsAnLrbaAndStructure() {
         </div>
 
         {/* Advisory Boundaries Notice */}
-        <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start sm:items-center gap-4 shadow-xs">
+        <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start sm:items-center gap-4 shadow-xs">
           <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400 shrink-0 mt-0.5 sm:mt-0" />
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-            <span className="font-bold text-slate-900 dark:text-white">Strict Advisory Notice:</span> Financially Up Pty Ltd provides accounting, tax and compliance support for existing and proposed LRBAs. We do not provide loan approval, credit assistance, legal documents or financial product advice about whether borrowing suits your retirement strategy. Those matters may require a lender, lawyer or authorized financial adviser.
+            <span className="font-bold text-slate-900 dark:text-white">
+              Strict Advisory Notice:
+            </span>{" "}
+            Financially Up Pty Ltd provides accounting, tax and compliance
+            support for existing and proposed LRBAs. We do not provide loan
+            approval, credit assistance, legal documents or financial product
+            advice about whether borrowing suits your retirement strategy. Those
+            matters may require a lender, lawyer or authorized financial
+            adviser.
           </p>
         </div>
       </div>

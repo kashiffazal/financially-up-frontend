@@ -43,7 +43,7 @@ export default function CashFlowTaxObligationsPaydaySuper() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Statutory Cash Pressure & Payday Super */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-400 mb-4">
                 <FileProtectOutlined className="text-base" />
@@ -56,23 +56,25 @@ export default function CashFlowTaxObligationsPaydaySuper() {
                 business, planning may need to allow for GST, PAYG withholding,
                 PAYG instalments, income tax and employee super. From 1 July
                 2026, employers generally need to make super guarantee
-                contributions for employee earnings on the Payday Super timetable.
-                The ATO says the fund must generally receive the contribution
-                within seven business days after payday, with exceptions
-                including some new employees. The business’s actual obligations
-                and dates should be checked against its entity, payroll and
-                reporting circumstances.
+                contributions for employee earnings on the Payday Super
+                timetable. The ATO says the fund must generally receive the
+                contribution within seven business days after payday, with
+                exceptions including some new employees. The business’s actual
+                obligations and dates should be checked against its entity,
+                payroll and reporting circumstances.
               </p>
             </div>
 
             <div className="mt-4 pt-4 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-zinc-400">
               <ClockCircleOutlined className="text-rose-600 dark:text-rose-400" />
-              <span>Super transitions from quarterly to 7 business days post-payday.</span>
+              <span>
+                Super transitions from quarterly to 7 business days post-payday.
+              </span>
             </div>
           </div>
 
           {/* Card 2: Overdue Lodgements Separation */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-4">
                 <AlertOutlined className="text-base" />
@@ -103,14 +105,16 @@ export default function CashFlowTaxObligationsPaydaySuper() {
         </div>
 
         {/* Payday Super 2026 Visual Diagnostic Box */}
-        <div className="bg-gradient-to-r from-rose-500/10 via-amber-500/10 to-emerald-500/10 dark:from-rose-950/30 dark:via-zinc-950 dark:to-emerald-950/30 rounded-2xl p-7 sm:p-9 border border-rose-200/80 dark:border-rose-900/40">
+        <div className="bg-gradient-to-r from-rose-500/10 via-amber-500/10 to-emerald-500/10 dark:from-rose-950/30 dark:via-zinc-950 dark:to-emerald-950/30 rounded-lg p-7 sm:p-9 border border-rose-200/80 dark:border-rose-900/40">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-800 dark:text-rose-400 mb-3">
             <CalendarOutlined />
-            <span>Payday Super Implementation Roadmap • Starting 1 July 2026</span>
+            <span>
+              Payday Super Implementation Roadmap • Starting 1 July 2026
+            </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-            <div className="bg-white/80 dark:bg-zinc-900/80 rounded-xl p-5 border border-slate-200/80 dark:border-zinc-800">
+            <div className="bg-white/80 dark:bg-zinc-900/80 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800">
               <div className="text-xs font-bold uppercase text-slate-500 dark:text-zinc-400 mb-1">
                 Phase 1: Current Rule
               </div>
@@ -118,11 +122,12 @@ export default function CashFlowTaxObligationsPaydaySuper() {
                 Quarterly Super Deadlines
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
-                Super is currently paid 28 days after each quarter-end, creating large seasonal quarterly cash outlays.
+                Super is currently paid 28 days after each quarter-end, creating
+                large seasonal quarterly cash outlays.
               </p>
             </div>
 
-            <div className="bg-white/80 dark:bg-zinc-900/80 rounded-xl p-5 border border-rose-300 dark:border-rose-800/60 shadow-xs">
+            <div className="bg-white/80 dark:bg-zinc-900/80 rounded-lg p-5 border border-rose-300 dark:border-rose-800/60 shadow-xs">
               <div className="text-xs font-bold uppercase text-rose-600 dark:text-rose-400 mb-1">
                 Phase 2: From 1 July 2026
               </div>
@@ -130,11 +135,12 @@ export default function CashFlowTaxObligationsPaydaySuper() {
                 Payday Super Timetable
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
-                Super contributions must generally reach the fund within 7 business days of each payroll cycle.
+                Super contributions must generally reach the fund within 7
+                business days of each payroll cycle.
               </p>
             </div>
 
-            <div className="bg-white/80 dark:bg-zinc-900/80 rounded-xl p-5 border border-emerald-300 dark:border-emerald-800/60 shadow-xs">
+            <div className="bg-white/80 dark:bg-zinc-900/80 rounded-lg p-5 border border-emerald-300 dark:border-emerald-800/60 shadow-xs">
               <div className="text-xs font-bold uppercase text-emerald-600 dark:text-emerald-400 mb-1">
                 Strategic Impact
               </div>
@@ -142,7 +148,8 @@ export default function CashFlowTaxObligationsPaydaySuper() {
                 Continuous Weekly Liquidity
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
-                Forecast models must synchronize weekly and fortnightly payroll cycles to prevent accidental SG shortfall penalties.
+                Forecast models must synchronize weekly and fortnightly payroll
+                cycles to prevent accidental SG shortfall penalties.
               </p>
             </div>
           </div>
@@ -156,7 +163,7 @@ export default function CashFlowTaxObligationsPaydaySuper() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Align Cash Flow with Tax Deadlines
             </Button>

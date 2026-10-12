@@ -60,7 +60,7 @@ export default function WhatIsAnEssAndHowItWorks() {
           <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
                   <ThunderboltOutlined className="text-xl" />
                 </div>
                 <div>
@@ -80,7 +80,7 @@ export default function WhatIsAnEssAndHowItWorks() {
                   is acquired. Some eligible schemes may provide a concession,
                   but this depends on statutory conditions and is not automatic.
                 </p>
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-amber-100 dark:border-zinc-700 space-y-1">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-amber-100 dark:border-zinc-700 space-y-1">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Concessional Reductions:
                   </span>
@@ -102,7 +102,7 @@ export default function WhatIsAnEssAndHowItWorks() {
           <div className="bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <ClockCircleOutlined className="text-xl" />
                 </div>
                 <div>
@@ -131,7 +131,7 @@ export default function WhatIsAnEssAndHowItWorks() {
                   including forfeiture risk and genuine disposal restrictions,
                   must be considered.
                 </p>
-                <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+                <div className="p-3.5 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                   <span className="font-bold block mb-1">
                     Crucial Legal Caution:
                   </span>

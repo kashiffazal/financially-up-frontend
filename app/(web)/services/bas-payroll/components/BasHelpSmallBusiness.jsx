@@ -73,7 +73,7 @@ export default function BasHelpSmallBusiness() {
         {/* 2-Column Showcase: Supporting Records vs Separately Scoped Advice */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
           {/* Left Column: Practical Routine Compliance Support (Paragraph 2 Part A) */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider mb-3">
                 <FileProtectOutlined /> Practical BAS Support
@@ -93,7 +93,7 @@ export default function BasHelpSmallBusiness() {
                 {practicalSupportItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-800"
+                    className="p-3.5 rounded-lg bg-slate-50/80 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-800"
                   >
                     <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white mb-1">
                       <CheckCircleOutlined className="text-teal-600 dark:text-teal-400" />
@@ -114,7 +114,7 @@ export default function BasHelpSmallBusiness() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                  className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
                 >
                   Book BAS Appointment
                 </Button>
@@ -122,7 +122,7 @@ export default function BasHelpSmallBusiness() {
               <Link href="/services/bas-payroll/bas-lodgement">
                 <Button
                   size="large"
-                  className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                  className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
                 >
                   BAS Lodgement Details
                 </Button>
@@ -131,7 +131,7 @@ export default function BasHelpSmallBusiness() {
           </div>
 
           {/* Right Column: Transparent Advisory Boundary (Paragraph 2 Part B) */}
-          <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-teal-50/40 dark:bg-teal-950/20 border border-teal-200/80 dark:border-teal-800/60 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-5 p-6 sm:p-8 rounded-lg bg-teal-50/40 dark:bg-teal-950/20 border border-teal-200/80 dark:border-teal-800/60 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-teal-800 dark:text-teal-300 font-bold text-xs uppercase tracking-wider mb-3">
                 <SafetyCertificateOutlined /> Clear Service Scoping
@@ -170,7 +170,7 @@ export default function BasHelpSmallBusiness() {
               </div>
             </div>
 
-            <div className="mt-8 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-teal-200/60 dark:border-teal-800/60 text-xs text-slate-600 dark:text-zinc-400">
+            <div className="mt-8 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-teal-200/60 dark:border-teal-800/60 text-xs text-slate-600 dark:text-zinc-400">
               <strong className="text-slate-900 dark:text-white block mb-1">
                 Transparent Professional Practice
               </strong>

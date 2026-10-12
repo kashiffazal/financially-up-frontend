@@ -82,7 +82,10 @@ export default function HowFinanciallyUpHelpsDeceasedEstates() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Practice Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -108,10 +111,10 @@ export default function HowFinanciallyUpHelpsDeceasedEstates() {
             {services.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
+                className="flex flex-col justify-between p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
                     {item.icon}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -128,7 +131,10 @@ export default function HowFinanciallyUpHelpsDeceasedEstates() {
           {/* Legal Scope Disclaimer Note */}
           <div className="mt-8 pt-6 border-t border-slate-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-400">
             <p className="m-0 max-w-2xl leading-relaxed">
-              Legal interpretation of wills, probate applications, estate administration, asset valuations and beneficiary disputes are outside routine tax-return preparation and may require assistance from another suitably qualified adviser.
+              Legal interpretation of wills, probate applications, estate
+              administration, asset valuations and beneficiary disputes are
+              outside routine tax-return preparation and may require assistance
+              from another suitably qualified adviser.
             </p>
             <Link
               href="/services/individual-tax"
@@ -149,7 +155,10 @@ export default function HowFinanciallyUpHelpsDeceasedEstates() {
               Managing Tax Responsibilities for an Estate?
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 mt-1 leading-relaxed">
-              Managing tax matters after a death can involve different returns, representatives and record requirements. We provide calm, structured guidance so executors and families can fulfill their tax obligations with clarity and confidence.
+              Managing tax matters after a death can involve different returns,
+              representatives and record requirements. We provide calm,
+              structured guidance so executors and families can fulfill their
+              tax obligations with clarity and confidence.
             </p>
           </div>
 

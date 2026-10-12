@@ -47,7 +47,7 @@ export default function WhatIsATaxReturnAmendment() {
           {/* Card 1: Tax Return Amendment */}
           <div className="p-7 rounded-3xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col justify-between shadow-2xs">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-5">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-5">
                 <FileTextOutlined className="text-xl" />
               </div>
               <Tag
@@ -77,7 +77,7 @@ export default function WhatIsATaxReturnAmendment() {
           {/* Card 2: Overdue / Unlodged Return */}
           <div className="p-7 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between shadow-2xs">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-amber-500 mb-5">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-amber-500 mb-5">
                 <ExclamationCircleOutlined className="text-xl" />
               </div>
               <Tag
@@ -112,7 +112,7 @@ export default function WhatIsATaxReturnAmendment() {
           {/* Card 3: Formal Objection */}
           <div className="p-7 rounded-3xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between shadow-2xs">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-500 mb-5">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-500 mb-5">
                 <QuestionCircleOutlined className="text-xl" />
               </div>
               <Tag

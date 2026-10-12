@@ -17,7 +17,13 @@
  * 4. Strict adherence to `@/services/antdFields` and Ant Design standards.
  */
 
-import React, { useState, useEffect, useCallback, useMemo, Suspense } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  Suspense,
+} from "react";
 import { useSearchParams } from "next/navigation";
 import {
   Form,
@@ -90,7 +96,9 @@ function ProfilePage() {
   const [sessions, setSessions] = useState([]);
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [activeTabKey, setActiveTabKey] = useState(() =>
-    PROFILE_TABS.includes(searchParams.get("tab")) ? searchParams.get("tab") : "profile"
+    PROFILE_TABS.includes(searchParams.get("tab"))
+      ? searchParams.get("tab")
+      : "profile",
   );
   const [permissionSearchText, setPermissionSearchText] = useState("");
 
@@ -173,7 +181,9 @@ function ProfilePage() {
       });
       if (res.success) {
         passwordForm.resetFields();
-        antdMsg.success("Security credentials updated. Other active sessions revoked.");
+        antdMsg.success(
+          "Security credentials updated. Other active sessions revoked.",
+        );
         loadSessions();
       }
     } finally {
@@ -203,9 +213,7 @@ function ProfilePage() {
   const filteredPermissions = useMemo(() => {
     if (!permissionSearchText.trim()) return userPermissions;
     const term = permissionSearchText.toLowerCase();
-    return userPermissions.filter((perm) =>
-      perm.toLowerCase().includes(term)
-    );
+    return userPermissions.filter((perm) => perm.toLowerCase().includes(term));
   }, [userPermissions, permissionSearchText]);
 
   // --------------------------------------------------------------------------
@@ -218,14 +226,17 @@ function ProfilePage() {
       key: "deviceName",
       render: (val, record) => (
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-slate-500 dark:text-zinc-400 text-base shrink-0 shadow-2xs">
+          <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-slate-500 dark:text-zinc-400 text-base shrink-0 shadow-2xs">
             <LaptopOutlined />
           </div>
           <div>
             <div className="font-bold text-xs text-slate-800 dark:text-zinc-100 flex items-center gap-1.5">
               <span>{val || "Web Browser Session"}</span>
               {record.isCurrent && (
-                <Tag color="success" className="text-[10px] font-semibold px-2 py-0.2 rounded-md m-0">
+                <Tag
+                  color="success"
+                  className="text-[10px] font-semibold px-2 py-0.2 rounded-md m-0"
+                >
                   Current Session
                 </Tag>
               )}
@@ -245,7 +256,9 @@ function ProfilePage() {
       render: (val) => (
         <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-zinc-400 font-mono">
           <FieldTimeOutlined className="text-slate-400 text-[11px]" />
-          <span>{val ? new Date(val).toLocaleString("en-AU") : "Active Now"}</span>
+          <span>
+            {val ? new Date(val).toLocaleString("en-AU") : "Active Now"}
+          </span>
         </div>
       ),
     },
@@ -260,7 +273,11 @@ function ProfilePage() {
             REVOKED
           </Tag>
         ) : (
-          <Tag color="success" icon={<CheckCircleOutlined />} className="text-[10px] font-semibold rounded-md">
+          <Tag
+            color="success"
+            icon={<CheckCircleOutlined />}
+            className="text-[10px] font-semibold rounded-md"
+          >
             AUTHORIZED
           </Tag>
         ),
@@ -279,7 +296,12 @@ function ProfilePage() {
             cancelText="Cancel"
             okButtonProps={{ danger: true }}
           >
-            <Button size="small" danger icon={<DeleteOutlined />} className="rounded-lg text-xs">
+            <Button
+              size="small"
+              danger
+              icon={<DeleteOutlined />}
+              className="rounded-lg text-xs"
+            >
               Revoke
             </Button>
           </Popconfirm>
@@ -310,7 +332,7 @@ function ProfilePage() {
             requiredMark={false}
           >
             {/* Card Section 1: Personal Information */}
-            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-xl p-4 sm:p-5 mb-4 space-y-4">
+            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-lg p-4 sm:p-5 mb-4 space-y-4">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-200/70 dark:border-zinc-800">
                 <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs shrink-0 font-bold">
                   <UserOutlined />
@@ -319,7 +341,9 @@ function ProfilePage() {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 m-0">
                     Personal Identity Details
                   </h4>
-                  <p className="text-[11px] text-slate-400 m-0">Legal identity for staff credentials and internal auditing.</p>
+                  <p className="text-[11px] text-slate-400 m-0">
+                    Legal identity for staff credentials and internal auditing.
+                  </p>
                 </div>
               </div>
 
@@ -344,7 +368,7 @@ function ProfilePage() {
             </div>
 
             {/* Card Section 2: Contact Channels */}
-            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-xl p-4 sm:p-5 mb-4 space-y-4">
+            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-lg p-4 sm:p-5 mb-4 space-y-4">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-200/70 dark:border-zinc-800">
                 <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs shrink-0 font-bold">
                   <MailOutlined />
@@ -353,7 +377,10 @@ function ProfilePage() {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 m-0">
                     Contact Channels & Communications
                   </h4>
-                  <p className="text-[11px] text-slate-400 m-0">Official email address and telephone contact for client assignments.</p>
+                  <p className="text-[11px] text-slate-400 m-0">
+                    Official email address and telephone contact for client
+                    assignments.
+                  </p>
                 </div>
               </div>
 
@@ -380,7 +407,7 @@ function ProfilePage() {
             </div>
 
             {/* Card Section 3: Organizational Role */}
-            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-xl p-4 sm:p-5 mb-4 space-y-4">
+            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-lg p-4 sm:p-5 mb-4 space-y-4">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-200/70 dark:border-zinc-800">
                 <div className="w-7 h-7 rounded-lg bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs shrink-0 font-bold">
                   <BankOutlined />
@@ -389,7 +416,9 @@ function ProfilePage() {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 m-0">
                     Practice Organization & Designation
                   </h4>
-                  <p className="text-[11px] text-slate-400 m-0">Assigned practice branch and professional role designation.</p>
+                  <p className="text-[11px] text-slate-400 m-0">
+                    Assigned practice branch and professional role designation.
+                  </p>
                 </div>
               </div>
 
@@ -399,7 +428,10 @@ function ProfilePage() {
                   type="select"
                   name="department"
                   label="Practice Department"
-                  options={departmentOptions(get("staff.departments"), user?.department)}
+                  options={departmentOptions(
+                    get("staff.departments"),
+                    user?.department,
+                  )}
                   placeholder="Select your department"
                   noRequired
                   className="rounded-lg"
@@ -417,7 +449,7 @@ function ProfilePage() {
             </div>
 
             {/* Card Section 4: Professional Scope & Bio */}
-            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-xl p-4 sm:p-5 mb-4 space-y-4">
+            <div className="bg-slate-50/60 dark:bg-zinc-800/30 border border-slate-200/70 dark:border-zinc-800 rounded-lg p-4 sm:p-5 mb-4 space-y-4">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-200/70 dark:border-zinc-800">
                 <div className="w-7 h-7 rounded-lg bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs shrink-0 font-bold">
                   <FileTextOutlined />
@@ -426,7 +458,10 @@ function ProfilePage() {
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 m-0">
                     Operational Scope & Professional Bio
                   </h4>
-                  <p className="text-[11px] text-slate-400 m-0">Professional background, certifications, and portfolio specializations.</p>
+                  <p className="text-[11px] text-slate-400 m-0">
+                    Professional background, certifications, and portfolio
+                    specializations.
+                  </p>
                 </div>
               </div>
 
@@ -481,11 +516,15 @@ function ProfilePage() {
       ),
       children: (
         <div className="pt-2 max-w-xl space-y-5">
-          <div className="p-3.5 rounded-xl border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/20 flex items-start gap-3">
+          <div className="p-3.5 rounded-lg border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/20 flex items-start gap-3">
             <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-base mt-0.5 shrink-0" />
             <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-              <strong className="text-slate-800 dark:text-zinc-100">Practice Password Policy: </strong>
-              Passwords must be at least 10 characters and include letters and numbers. Updating your password will automatically terminate all other active login sessions on other devices for security.
+              <strong className="text-slate-800 dark:text-zinc-100">
+                Practice Password Policy:{" "}
+              </strong>
+              Passwords must be at least 10 characters and include letters and
+              numbers. Updating your password will automatically terminate all
+              other active login sessions on other devices for security.
             </div>
           </div>
 
@@ -556,12 +595,13 @@ function ProfilePage() {
       ),
       children: (
         <div className="space-y-4 pt-2">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-800/20">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-800/20">
             <div className="flex items-center gap-2.5">
               <SafetyOutlined className="text-emerald-600 text-base" />
               <div className="text-xs text-slate-600 dark:text-zinc-300">
                 <strong>Real-Time Session Monitoring: </strong>
-                All active devices logged into your account are tracked with IP and last activity timestamp.
+                All active devices logged into your account are tracked with IP
+                and last activity timestamp.
               </div>
             </div>
             <Button
@@ -622,7 +662,7 @@ function ProfilePage() {
           />
 
           {filteredPermissions.length === 0 ? (
-            <div className="text-center py-10 text-slate-400 text-xs italic bg-slate-50/50 dark:bg-zinc-800/20 rounded-xl border border-dashed border-slate-200 dark:border-zinc-800">
+            <div className="text-center py-10 text-slate-400 text-xs italic bg-slate-50/50 dark:bg-zinc-800/20 rounded-lg border border-dashed border-slate-200 dark:border-zinc-800">
               {permissionSearchText
                 ? `No capabilities match "${permissionSearchText}"`
                 : "No granular capabilities assigned."}
@@ -712,22 +752,31 @@ function ProfilePage() {
                   showActionButtons={false}
                 />
                 {/* Live Online Presence Indicator */}
-                <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white dark:border-zinc-900 shadow-sm" title="Session Active"></span>
+                <span
+                  className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white dark:border-zinc-900 shadow-sm"
+                  title="Session Active"
+                ></span>
               </div>
 
               {/* Staff Full Name */}
               <h2 className="text-lg font-bold text-slate-900 dark:text-zinc-50 mt-3 mb-0.5">
-                {user?.fullName || `${user?.firstName || "Staff"} ${user?.lastName || "Member"}`}
+                {user?.fullName ||
+                  `${user?.firstName || "Staff"} ${user?.lastName || "Member"}`}
               </h2>
 
               {/* Status Badge */}
-              <Tag color="success" className="font-semibold text-[11px] rounded-md px-2.5 py-0.2 mt-1">
+              <Tag
+                color="success"
+                className="font-semibold text-[11px] rounded-md px-2.5 py-0.2 mt-1"
+              >
                 {user?.status || "Active"} Account
               </Tag>
 
               {/* Email & Designation */}
               <div className="text-xs text-slate-500 dark:text-zinc-400 mt-2 space-y-0.5">
-                <div className="font-mono text-slate-600 dark:text-zinc-300 font-medium">{user?.email}</div>
+                <div className="font-mono text-slate-600 dark:text-zinc-300 font-medium">
+                  {user?.email}
+                </div>
                 <div className="font-semibold text-slate-700 dark:text-zinc-200">
                   {user?.jobTitle || "Practice Administrator"}
                 </div>
@@ -743,7 +792,9 @@ function ProfilePage() {
                 {(user?.roles || []).map((r) => (
                   <Tag
                     key={r.id}
-                    icon={<SafetyCertificateOutlined className="text-[var(--brand-primary)]" />}
+                    icon={
+                      <SafetyCertificateOutlined className="text-[var(--brand-primary)]" />
+                    }
                     className="font-semibold text-[11px] px-2.5 py-0.5 rounded-md bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20"
                   >
                     {r.name}
@@ -754,16 +805,26 @@ function ProfilePage() {
 
             {/* Quick Metrics Strip */}
             <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 dark:border-zinc-800 mt-4">
-              <div className="bg-slate-50 dark:bg-zinc-800/40 rounded-xl p-2.5 text-center border border-slate-200/50 dark:border-zinc-800/80">
-                <div className="text-[10px] uppercase font-bold text-slate-400">Sessions</div>
-                <div className="text-base font-bold text-slate-800 dark:text-zinc-100 mt-0.5">{sessions.length}</div>
+              <div className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-2.5 text-center border border-slate-200/50 dark:border-zinc-800/80">
+                <div className="text-[10px] uppercase font-bold text-slate-400">
+                  Sessions
+                </div>
+                <div className="text-base font-bold text-slate-800 dark:text-zinc-100 mt-0.5">
+                  {sessions.length}
+                </div>
               </div>
-              <div className="bg-slate-50 dark:bg-zinc-800/40 rounded-xl p-2.5 text-center border border-slate-200/50 dark:border-zinc-800/80">
-                <div className="text-[10px] uppercase font-bold text-slate-400">Rights</div>
-                <div className="text-base font-bold text-purple-600 dark:text-purple-400 mt-0.5">{userPermissions.length}</div>
+              <div className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-2.5 text-center border border-slate-200/50 dark:border-zinc-800/80">
+                <div className="text-[10px] uppercase font-bold text-slate-400">
+                  Rights
+                </div>
+                <div className="text-base font-bold text-purple-600 dark:text-purple-400 mt-0.5">
+                  {userPermissions.length}
+                </div>
               </div>
-              <div className="bg-slate-50 dark:bg-zinc-800/40 rounded-xl p-2.5 text-center border border-slate-200/50 dark:border-zinc-800/80">
-                <div className="text-[10px] uppercase font-bold text-slate-400">Security</div>
+              <div className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-2.5 text-center border border-slate-200/50 dark:border-zinc-800/80">
+                <div className="text-[10px] uppercase font-bold text-slate-400">
+                  Security
+                </div>
                 <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-1 flex items-center justify-center gap-1">
                   <CheckCircleOutlined /> Strong
                 </div>
@@ -781,7 +842,12 @@ function ProfilePage() {
             <div className="text-xs space-y-2.5 text-slate-600 dark:text-zinc-300">
               <div className="flex items-center justify-between">
                 <span className="text-slate-400">Multi-Factor Auth:</span>
-                <Tag color="blue" className="text-[10px] rounded-md m-0 font-medium">Session Verified</Tag>
+                <Tag
+                  color="blue"
+                  className="text-[10px] rounded-md m-0 font-medium"
+                >
+                  Session Verified
+                </Tag>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400">Password Policy:</span>
@@ -791,7 +857,9 @@ function ProfilePage() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400">Active Devices:</span>
-                <span className="font-mono font-semibold">{sessions.length} Authorized</span>
+                <span className="font-mono font-semibold">
+                  {sessions.length} Authorized
+                </span>
               </div>
             </div>
 

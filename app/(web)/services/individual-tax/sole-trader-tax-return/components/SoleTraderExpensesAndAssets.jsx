@@ -63,7 +63,7 @@ export default function SoleTraderExpensesAndAssets() {
           {/* Card 1: Common Deductible Areas */}
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl mb-5">
                 <DollarOutlined />
               </div>
 
@@ -102,7 +102,7 @@ export default function SoleTraderExpensesAndAssets() {
           {/* Card 2: Depreciating Assets & Capital Expenses */}
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl mb-5">
                 <ToolOutlined />
               </div>
 
@@ -117,7 +117,7 @@ export default function SoleTraderExpensesAndAssets() {
                 that income year.
               </p>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2 text-xs text-slate-600 dark:text-zinc-300">
+              <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-2 text-xs text-slate-600 dark:text-zinc-300">
                 <div className="font-bold text-slate-900 dark:text-white">
                   Depreciation Considerations:
                 </div>
@@ -139,7 +139,7 @@ export default function SoleTraderExpensesAndAssets() {
           {/* Card 3: 5-Year Record Keeping & Bookkeeping */}
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl mb-5">
                 <HistoryOutlined />
               </div>
 
@@ -155,7 +155,7 @@ export default function SoleTraderExpensesAndAssets() {
                 retained longer.
               </p>
 
-              <div className="p-4 rounded-xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/50 text-xs text-emerald-900 dark:text-emerald-200">
+              <div className="p-4 rounded-lg bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/50 text-xs text-emerald-900 dark:text-emerald-200">
                 <p className="font-normal mb-2">
                   For ongoing record organization, see our Bookkeeping Services.
                 </p>

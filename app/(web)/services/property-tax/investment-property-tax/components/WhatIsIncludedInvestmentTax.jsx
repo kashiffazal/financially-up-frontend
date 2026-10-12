@@ -22,49 +22,65 @@ import {
 export default function WhatIsIncludedInvestmentTax() {
   const reviewItems = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "gross rent and other rental-related income",
       detail:
         "Declaration of gross rent from agent statements, direct tenant deposits, insurance payouts, retained tenant bonds, and booking platform receipts.",
       tag: "Income Schedule",
     },
     {
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "property management fees, rates, insurance and eligible running costs",
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "property management fees, rates, insurance and eligible running costs",
       detail:
         "Reconciliation of council rates, water charges, strata levies, letting fees, landlord insurance premiums, advertising, and pest control.",
       tag: "Operating Costs",
     },
     {
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "interest and the actual use of borrowed funds",
       detail:
         "Rigorous verification of loan statements, tracing redraws, refinancing arrangements, and separating private borrowings from income-producing debt.",
       tag: "Borrowing Costs",
     },
     {
-      icon: <ToolOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "repairs and maintenance compared with improvements or initial repairs",
+      icon: (
+        <ToolOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "repairs and maintenance compared with improvements or initial repairs",
       detail:
         "Detailed classification ensuring ordinary wear and tear is claimed immediately while substantial improvements and initial repairs are capitalized.",
       tag: "Maintenance vs Capital",
     },
     {
-      icon: <BarChartOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <BarChartOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "capital works and depreciating assets",
       detail:
         "Application of Division 43 construction allowances (2.5% / 4%) and Division 40 plant and equipment depreciation based on qualified surveyor schedules.",
       tag: "Depreciation Schedules",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <PercentageOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "ownership percentages and periods of private use",
       detail:
         "Proportional allocation aligned with certificate of title interests, with adjustments for personal holiday use, vacancy, and family rentals.",
       tag: "Ownership & Use",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "records relevant to the future CGT cost base",
       detail:
         "Tracking acquisition settlement costs, stamp duty, capital expenditure, and prior capital works deductions to establish the 5-element CGT cost base.",
@@ -88,7 +104,12 @@ export default function WhatIsIncludedInvestmentTax() {
           </h2>
           {/* Verbatim text from official document */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            For a residential rental property, rental income must generally be declared and expenses can only be claimed where the tax rules allow them. The ATO distinguishes between ordinary rental expenses, capital expenditure, depreciating assets and capital works. The correct category can affect both the current tax return and the eventual CGT calculation when the property is sold.
+            For a residential rental property, rental income must generally be
+            declared and expenses can only be claimed where the tax rules allow
+            them. The ATO distinguishes between ordinary rental expenses,
+            capital expenditure, depreciating assets and capital works. The
+            correct category can affect both the current tax return and the
+            eventual CGT calculation when the property is sold.
           </p>
           <p className="mt-3 text-sm sm:text-base text-slate-700 dark:text-zinc-200 font-semibold">
             Investment property tax work commonly involves reviewing:
@@ -100,16 +121,19 @@ export default function WhatIsIncludedInvestmentTax() {
           {reviewItems.map((item, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
+              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
-                  <Tag color="cyan" className="text-[11px] font-semibold uppercase">
+                  <Tag
+                    color="cyan"
+                    className="text-[11px] font-semibold uppercase"
+                  >
                     {item.tag}
                   </Tag>
                 </div>

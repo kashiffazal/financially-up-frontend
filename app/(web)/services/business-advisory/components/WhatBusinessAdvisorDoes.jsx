@@ -25,34 +25,52 @@ export default function WhatBusinessAdvisorDoes() {
   // Key operational facets described verbatim in the document
   const advisoryActivities = [
     {
-      icon: <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Analysing Financial Results",
-      description: "Evaluating past and current trading figures to understand what is truly happening in the business.",
+      description:
+        "Evaluating past and current trading figures to understand what is truly happening in the business.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Identifying Trends",
-      description: "Spotting commercial patterns in revenue, margins, expenses, and debtor collection over time.",
+      description:
+        "Spotting commercial patterns in revenue, margins, expenses, and debtor collection over time.",
     },
     {
-      icon: <CompassOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Testing Assumptions",
-      description: "Examining commercial expectations before committing to major expenses, hires, or pricing changes.",
+      description:
+        "Examining commercial expectations before committing to major expenses, hires, or pricing changes.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Preparing Budgets or Forecasts",
-      description: "Translating business plans and current trends into structured, reliable forward projections.",
+      description:
+        "Translating business plans and current trends into structured, reliable forward projections.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Clearer Decision Framework",
-      description: "Creating an ongoing, practical structure for owners and management to make informed choices.",
+      description:
+        "Creating an ongoing, practical structure for owners and management to make informed choices.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Regular Advisory Meetings",
-      description: "Comparing actual performance against plans and keeping management attention on the numbers that matter.",
+      description:
+        "Comparing actual performance against plans and keeping management attention on the numbers that matter.",
     },
   ];
 
@@ -68,7 +86,11 @@ export default function WhatBusinessAdvisorDoes() {
             What does a business advisor do?
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            A business advisor reviews the commercial and financial information behind your business and helps you use it more effectively. The work can include analysing financial results, identifying trends, testing assumptions, preparing budgets or forecasts and creating a clearer framework for ongoing decision-making.
+            A business advisor reviews the commercial and financial information
+            behind your business and helps you use it more effectively. The work
+            can include analysing financial results, identifying trends, testing
+            assumptions, preparing budgets or forecasts and creating a clearer
+            framework for ongoing decision-making.
           </p>
         </div>
 
@@ -77,10 +99,10 @@ export default function WhatBusinessAdvisorDoes() {
           {advisoryActivities.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -95,14 +117,17 @@ export default function WhatBusinessAdvisorDoes() {
         </div>
 
         {/* Narrative Callout: Exact Scope Paragraph from Document */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="max-w-3xl">
               <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 mb-3 inline-block">
                 Tailored Advisory Scope
               </span>
               <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal m-0">
-                The exact scope depends on what the business needs. Some clients need a focused review around a particular issue. Others benefit from regular advisory meetings that compare actual results with plans and keep management attention on the numbers that matter.
+                The exact scope depends on what the business needs. Some clients
+                need a focused review around a particular issue. Others benefit
+                from regular advisory meetings that compare actual results with
+                plans and keep management attention on the numbers that matter.
               </p>
             </div>
             <div className="shrink-0">
@@ -112,7 +137,7 @@ export default function WhatBusinessAdvisorDoes() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-7 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                  className="h-12 px-7 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
                 >
                   Book an Appointment
                 </Button>

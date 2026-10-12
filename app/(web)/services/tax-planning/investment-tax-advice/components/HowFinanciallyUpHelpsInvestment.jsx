@@ -59,11 +59,18 @@ export default function HowFinanciallyUpHelpsInvestment() {
 
         {/* Verbatim Explanatory Lead */}
         <div className="max-w-4xl mx-auto mb-12 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <p className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm">
-            Financially Up can review the tax implications of existing or proposed investment transactions, explain how income and CGT rules may apply, identify records needed for a reliable calculation and assist with separately scoped tax planning where appropriate.
+          <p className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+            Financially Up can review the tax implications of existing or
+            proposed investment transactions, explain how income and CGT rules
+            may apply, identify records needed for a reliable calculation and
+            assist with separately scoped tax planning where appropriate.
           </p>
-          <p className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm">
-            We can also prepare or review the related tax return information. Where you need a recommendation about which financial product to buy, sell or hold, or broader personal financial advice, that work sits outside ordinary tax advice and may require an appropriately authorized adviser.
+          <p className="bg-white dark:bg-zinc-900 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm">
+            We can also prepare or review the related tax return information.
+            Where you need a recommendation about which financial product to
+            buy, sell or hold, or broader personal financial advice, that work
+            sits outside ordinary tax advice and may require an appropriately
+            authorized adviser.
           </p>
         </div>
 
@@ -72,10 +79,10 @@ export default function HowFinanciallyUpHelpsInvestment() {
           {serviceCapabilities.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center mb-4 text-brand-primary dark:text-emerald-400">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center mb-4 text-brand-primary dark:text-emerald-400">
                   <CheckCircleOutlined className="text-lg" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -101,25 +108,33 @@ export default function HowFinanciallyUpHelpsInvestment() {
                 Why Choose Financially Up?
               </h3>
               <p className="text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed mb-4">
-                Financially Up Pty Ltd is a registered tax agent with more than 10 years of experience. Our team includes CPA and IPA members and provides Australia-wide tax and accounting support through online and in-person appointments.
+                Financially Up Pty Ltd is a registered tax agent with more than
+                10 years of experience. Our team includes CPA and IPA members
+                and provides Australia-wide tax and accounting support through
+                online and in-person appointments.
               </p>
               <p className="text-slate-600 dark:text-zinc-300 text-base leading-relaxed mb-6">
-                Our focus is to explain the tax consequences clearly, keep the advice connected to your records and circumstances, and distinguish tax planning from financial product advice.
+                Our focus is to explain the tax consequences clearly, keep the
+                advice connected to your records and circumstances, and
+                distinguish tax planning from financial product advice.
               </p>
 
               {/* Initial Discussion Scope */}
-              <div className="bg-slate-50 dark:bg-zinc-800/60 p-5 rounded-xl border border-slate-200/70 dark:border-zinc-700/60 text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
+              <div className="bg-slate-50 dark:bg-zinc-800/60 p-5 rounded-lg border border-slate-200/70 dark:border-zinc-700/60 text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
                 <span className="font-semibold text-slate-900 dark:text-white block mb-1">
                   Initial Consultation Focus:
                 </span>
-                An initial discussion can cover your existing investments, proposed transactions, income and distributions, capital gains or losses, ownership, records and the tax questions you want reviewed.
+                An initial discussion can cover your existing investments,
+                proposed transactions, income and distributions, capital gains
+                or losses, ownership, records and the tax questions you want
+                reviewed.
               </div>
             </div>
 
             {/* Right Column: Dynamic Contact & Credentials Card */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-zinc-900 text-white rounded-2xl p-7 sm:p-8 border border-slate-800 shadow-lg">
+            <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-zinc-900 text-white rounded-lg p-7 sm:p-8 border border-slate-800 shadow-lg">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
                   <SafetyCertificateOutlined className="text-2xl text-emerald-400" />
                 </div>
                 <div>
@@ -136,7 +151,9 @@ export default function HowFinanciallyUpHelpsInvestment() {
                 <div className="flex items-start space-x-3">
                   <PhoneOutlined className="text-emerald-400 mt-1 shrink-0" />
                   <div>
-                    <span className="text-xs text-zinc-400 block">Phone Support</span>
+                    <span className="text-xs text-zinc-400 block">
+                      Phone Support
+                    </span>
                     <a
                       href={`tel:${company?.phone?.replace(/\s/g, "") || "1300328316"}`}
                       className="text-white hover:text-emerald-400 font-medium transition-colors"
@@ -149,7 +166,9 @@ export default function HowFinanciallyUpHelpsInvestment() {
                 <div className="flex items-start space-x-3">
                   <MailOutlined className="text-emerald-400 mt-1 shrink-0" />
                   <div>
-                    <span className="text-xs text-zinc-400 block">Email Advisory</span>
+                    <span className="text-xs text-zinc-400 block">
+                      Email Advisory
+                    </span>
                     <a
                       href={`mailto:${company?.email || "info@financiallyup.com.au"}`}
                       className="text-white hover:text-emerald-400 font-medium transition-colors"
@@ -162,9 +181,12 @@ export default function HowFinanciallyUpHelpsInvestment() {
                 <div className="flex items-start space-x-3">
                   <EnvironmentOutlined className="text-emerald-400 mt-1 shrink-0" />
                   <div>
-                    <span className="text-xs text-zinc-400 block">National Office</span>
+                    <span className="text-xs text-zinc-400 block">
+                      National Office
+                    </span>
                     <span className="text-zinc-200">
-                      {company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                      {company?.address ||
+                        "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
                     </span>
                   </div>
                 </div>
@@ -183,7 +205,7 @@ export default function HowFinanciallyUpHelpsInvestment() {
 
               <Link
                 href="/book-an-appointment"
-                className="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg group"
+                className="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-brand-primary hover:bg-brand-secondary text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg group"
               >
                 Book an Appointment
                 <ArrowRightOutlined className="ml-2 group-hover:translate-x-1 transition-transform" />

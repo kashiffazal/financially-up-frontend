@@ -21,6 +21,13 @@ const nextConfig = {
   // 301 Redirects
   async redirects() {
     return [
+      // The admin panel's home is the Dashboard (handled here, before any page or
+      // layout runs, so it always happens - even mid sign-in)
+      {
+        source: "/admin",
+        destination: "/admin/dashboard",
+        permanent: false,
+      },
       {
         source: "/services/individual-tax/individual-tax-return",
         destination: "/services/individual-tax/individual-tax-returns",

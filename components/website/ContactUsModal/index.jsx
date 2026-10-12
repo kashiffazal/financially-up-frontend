@@ -5,8 +5,14 @@ import { Modal, Form, Button } from "antd";
 import { antdMsg, HTTP } from "@/services";
 import { AntInput } from "@/services/antdFields";
 
-const CONTACT_METHOD_LABELS = { email: "Email", phone: "Phone Call", whatsapp: "WhatsApp / SMS" };
-const CONTACT_METHOD_OPTIONS = Object.entries(CONTACT_METHOD_LABELS).map(([value, label]) => ({ value, label }));
+const CONTACT_METHOD_LABELS = {
+  email: "Email",
+  phone: "Phone Call",
+  whatsapp: "WhatsApp / SMS",
+};
+const CONTACT_METHOD_OPTIONS = Object.entries(CONTACT_METHOD_LABELS).map(
+  ([value, label]) => ({ value, label }),
+);
 import {
   SendOutlined,
   MailOutlined,
@@ -19,7 +25,7 @@ import styles from "./ContactUsModal.module.css";
 export default function ContactUsModal({ open, onClose }) {
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
-  // When the popup opened — very fast submissions are treated as bots
+  // When the popup opened - very fast submissions are treated as bots
   const formOpenedAtRef = useRef(null);
   useEffect(() => {
     if (open) formOpenedAtRef.current = Date.now();
@@ -35,7 +41,9 @@ export default function ContactUsModal({ open, onClose }) {
         preferredContact: CONTACT_METHOD_LABELS[contactMethod] || contactMethod,
         message: notes,
         source: "contact_modal",
-        formElapsedMs: formOpenedAtRef.current ? Date.now() - formOpenedAtRef.current : undefined,
+        formElapsedMs: formOpenedAtRef.current
+          ? Date.now() - formOpenedAtRef.current
+          : undefined,
       });
       if (res?.success) {
         antdMsg.success(
@@ -71,7 +79,9 @@ export default function ContactUsModal({ open, onClose }) {
       destroyOnHidden
     >
       {/* Header Banner inside Modal */}
-      <div className={`modal-flush ${styles.modalHeader} p-6 sm:p-7 text-white`}>
+      <div
+        className={`modal-flush ${styles.modalHeader} p-6 sm:p-7 text-white`}
+      >
         <div className={styles.bgCircle1} />
         <div className={styles.bgCircle2} />
 
@@ -103,21 +113,35 @@ export default function ContactUsModal({ open, onClose }) {
           {/* Anti-spam honeypot: display:none so browsers and password managers never autofill it; bots reading the HTML still do */}
           <div aria-hidden="true" hidden style={{ display: "none" }}>
             <Form.Item name="fu_contact_trap" noStyle>
-              <input type="text" tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore="true" />
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                data-lpignore="true"
+                data-1p-ignore="true"
+              />
             </Form.Item>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <AntInput
               name="firstName"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">First Name *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
+                  First Name *
+                </span>
+              }
               placeholder="John"
               reqMsg="First name is required"
               containerClassName="mb-0"
             />
             <AntInput
               name="lastName"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Last Name *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
+                  Last Name *
+                </span>
+              }
               placeholder="Doe"
               reqMsg="Last name is required"
               containerClassName="mb-0"
@@ -128,7 +152,11 @@ export default function ContactUsModal({ open, onClose }) {
             <AntInput
               type="email"
               name="email"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Email Address *</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
+                  Email Address *
+                </span>
+              }
               placeholder="john@example.com"
               preIconAnt={<MailOutlined className="text-slate-400 text-xs" />}
               reqMsg="Email is required"
@@ -139,7 +167,11 @@ export default function ContactUsModal({ open, onClose }) {
             <AntInput
               type="phone"
               name="phone"
-              label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Phone Number</span>}
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
+                  Phone Number
+                </span>
+              }
               placeholder="0400 000 000"
               preIconAnt={<PhoneOutlined className="text-slate-400 text-xs" />}
               noRequired
@@ -150,7 +182,11 @@ export default function ContactUsModal({ open, onClose }) {
           <AntInput
             type="select"
             name="contactMethod"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">How Would You Like Us To Contact? *</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
+                How Would You Like Us To Contact? *
+              </span>
+            }
             placeholder="Select preferred contact method"
             options={CONTACT_METHOD_OPTIONS}
             filter={false}
@@ -161,7 +197,11 @@ export default function ContactUsModal({ open, onClose }) {
           <AntInput
             type="textarea"
             name="notes"
-            label={<span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">Anything Else? (Optional)</span>}
+            label={
+              <span className="font-bold text-slate-800 dark:text-zinc-200 text-xs">
+                Anything Else? (Optional)
+              </span>
+            }
             placeholder="Tell us about your tax, accounting, or business enquiry..."
             minRows={3}
             noRequired
@@ -175,7 +215,7 @@ export default function ContactUsModal({ open, onClose }) {
               size="large"
               loading={submitting}
               icon={<SendOutlined />}
-              className="w-full h-12 rounded-xl font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20"
+              className="w-full h-12 rounded-lg font-bold text-base bg-brand-primary hover:bg-brand-primary-hover shadow-md shadow-emerald-600/20"
             >
               Submit Enquiry
             </Button>

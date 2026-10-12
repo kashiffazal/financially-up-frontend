@@ -60,7 +60,7 @@ export default function FinancialBudgetsAndPostApproval() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <DollarOutlined className="text-2xl" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -68,10 +68,11 @@ export default function FinancialBudgetsAndPostApproval() {
                 </h3>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                The business may need to demonstrate its capacity to deliver the project, contribute
-                its share of costs or manage approved funding. A useful budget separates eligible and
-                ineligible costs, identifies funding sources and explains the figures. It should match
-                the activities and timetable.
+                The business may need to demonstrate its capacity to deliver the
+                project, contribute its share of costs or manage approved
+                funding. A useful budget separates eligible and ineligible
+                costs, identifies funding sources and explains the figures. It
+                should match the activities and timetable.
               </p>
             </div>
           </div>
@@ -80,7 +81,7 @@ export default function FinancialBudgetsAndPostApproval() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-teal-600 dark:text-teal-400">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-teal-600 dark:text-teal-400">
                   <ProjectOutlined className="text-2xl" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -88,11 +89,14 @@ export default function FinancialBudgetsAndPostApproval() {
                 </h3>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                Financially Up can assist with relevant accounting information within the agreed
-                engagement. This may include reviewing existing financial records, organizing project
-                costs and checking that budget figures align with the supporting information. Where a
-                project also involves qualifying R&amp;D, R&amp;D Tax Incentive application support should be
-                considered separately because grant funding and the R&amp;D tax rules can interact.
+                Financially Up can assist with relevant accounting information
+                within the agreed engagement. This may include reviewing
+                existing financial records, organizing project costs and
+                checking that budget figures align with the supporting
+                information. Where a project also involves qualifying R&amp;D,
+                R&amp;D Tax Incentive application support should be considered
+                separately because grant funding and the R&amp;D tax rules can
+                interact.
               </p>
             </div>
             <Link href="/services/rd-tax-incentive/application-support">
@@ -123,42 +127,47 @@ export default function FinancialBudgetsAndPostApproval() {
 
         {/* 3 Detailed Verbatim Narrative Blocks */}
         <div className="space-y-6 mb-12">
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
               1. The Compliance Cycle &amp; Scope Variations
             </h4>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Approval is usually the beginning of a funded-project compliance cycle. Depending on the
-              program, the recipient may need to sign a funding agreement, meet milestones, maintain
-              evidence of eligible expenditure, submit progress reports, request payment in stages,
-              provide acquittals or demonstrate project outcomes. Variations may require written
-              approval before the business changes the scope, budget or timetable.
+              Approval is usually the beginning of a funded-project compliance
+              cycle. Depending on the program, the recipient may need to sign a
+              funding agreement, meet milestones, maintain evidence of eligible
+              expenditure, submit progress reports, request payment in stages,
+              provide acquittals or demonstrate project outcomes. Variations may
+              require written approval before the business changes the scope,
+              budget or timetable.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <FileSyncOutlined className="text-teal-600 dark:text-teal-400" />
               2. Maintaining the Ongoing Evidence Trail
             </h4>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Create the evidence trail as the project progresses. Keep the agreement, approved
-              budget, invoices, payment records, payroll support, contracts, milestone evidence and
-              reports together. Cost codes or a separate project ledger can make reporting and
-              acquittal easier and reduce the risk of claiming an unsupported or ineligible cost.
+              Create the evidence trail as the project progresses. Keep the
+              agreement, approved budget, invoices, payment records, payroll
+              support, contracts, milestone evidence and reports together. Cost
+              codes or a separate project ledger can make reporting and
+              acquittal easier and reduce the risk of claiming an unsupported or
+              ineligible cost.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <AuditOutlined className="text-blue-600 dark:text-blue-400" />
               3. Accounting, GST &amp; Income Tax Consequences
             </h4>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Grant receipts can also have accounting, GST and income-tax consequences. The treatment
-              depends on the nature of the payment, the recipient’s circumstances and whether
-              anything is supplied in return. It should be reviewed rather than assuming that every
+              Grant receipts can also have accounting, GST and income-tax
+              consequences. The treatment depends on the nature of the payment,
+              the recipient’s circumstances and whether anything is supplied in
+              return. It should be reviewed rather than assuming that every
               grant is taxable, GST-free or treated in the same period.
             </p>
           </div>
@@ -169,7 +178,7 @@ export default function FinancialBudgetsAndPostApproval() {
           {complianceSteps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-2xl p-6 border border-slate-200/60 dark:border-zinc-700/60"
+              className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-lg p-6 border border-slate-200/60 dark:border-zinc-700/60"
             >
               <span className="text-xs font-black text-slate-400 dark:text-zinc-500 font-mono block mb-2">
                 0{idx + 1}

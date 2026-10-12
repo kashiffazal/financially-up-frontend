@@ -32,42 +32,59 @@ export default function WhatInformationNeededTrusts() {
   const documentChecklist = [
     {
       title: "current trust deed and any amendments or variations",
-      icon: <BookOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <BookOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       tag: "Deed Terms",
     },
     {
       title: "bank, credit-card and investment statements",
-      icon: <BankOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <BankOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       tag: "Banking",
     },
     {
       title: "income records, invoices and expense documentation",
-      icon: <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       tag: "Income & Invoices",
     },
     {
       title: "property purchase, sale and loan documents where relevant",
-      icon: <HomeOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      icon: (
+        <HomeOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       tag: "Property & CGT",
     },
     {
       title: "dividend and managed-fund tax statements",
-      icon: <FileTextOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      icon: (
+        <FileTextOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       tag: "Investments",
     },
     {
       title: "asset registers and prior-year financial statements",
-      icon: <FolderOpenOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      icon: (
+        <FolderOpenOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       tag: "Prior Accounts",
     },
     {
       title: "trustee distribution resolutions and beneficiary information",
-      icon: <ScheduleOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <ScheduleOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       tag: "Resolutions",
     },
     {
-      title: "records of loans, reimbursements or transactions involving related entities.",
-      icon: <SyncOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      title:
+        "records of loans, reimbursements or transactions involving related entities.",
+      icon: (
+        <SyncOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       tag: "Related Entities",
     },
   ];
@@ -91,8 +108,8 @@ export default function WhatInformationNeededTrusts() {
 
           {/* Exact Verbatim Introductory Sentence from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Good trust accounting starts with complete records. The documents needed depend on what
-            the trust does, but may include:
+            Good trust accounting starts with complete records. The documents
+            needed depend on what the trust does, but may include:
           </p>
         </div>
 
@@ -101,11 +118,11 @@ export default function WhatInformationNeededTrusts() {
           {documentChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -121,8 +138,8 @@ export default function WhatInformationNeededTrusts() {
         </div>
 
         {/* Exact Verbatim Deed Note & Legal Disclaimer Box */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-amber-200/80 dark:border-amber-900/60 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-          <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-amber-200/80 dark:border-amber-900/60 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+          <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
             <InfoCircleOutlined className="text-xl" />
           </div>
           <div className="space-y-1">
@@ -131,10 +148,11 @@ export default function WhatInformationNeededTrusts() {
             </h3>
             {/* Exact Verbatim Concluding Note from Document */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-              A complete copy of the deed is especially important because accounting and tax
-              treatment cannot be considered in isolation from the trustee&apos;s powers and the
-              beneficiaries identified by the deed. Legal interpretation or deed amendments may
-              require an appropriately qualified legal adviser.
+              A complete copy of the deed is especially important because
+              accounting and tax treatment cannot be considered in isolation
+              from the trustee&apos;s powers and the beneficiaries identified by
+              the deed. Legal interpretation or deed amendments may require an
+              appropriately qualified legal adviser.
             </p>
           </div>
         </div>

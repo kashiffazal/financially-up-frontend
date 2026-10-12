@@ -23,14 +23,35 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Popover, Badge, Segmented, Button, Tag, Popconfirm, Tooltip } from "antd";
-import { BellOutlined, CheckOutlined, ArrowRightOutlined, ReloadOutlined, DeleteOutlined, ClearOutlined } from "@ant-design/icons";
+import {
+  Popover,
+  Badge,
+  Segmented,
+  Button,
+  Tag,
+  Popconfirm,
+  Tooltip,
+} from "antd";
+import {
+  BellOutlined,
+  CheckOutlined,
+  ArrowRightOutlined,
+  ReloadOutlined,
+  DeleteOutlined,
+  ClearOutlined,
+} from "@ant-design/icons";
 import { HTTP, antdMsg, antdNotify, API_BASE_URL, GetToken } from "@/services";
 import { statusTagColor } from "@/components/admin/GlobalSearch/searchConfig";
 import NotificationDetails from "./NotificationDetails";
 import { emitLiveNotification } from "./liveEvents";
 import styles from "./NotificationCenter.module.css";
-import { POLL_INTERVAL_MS, PAGE_SIZE, notificationVisual, relativeTime, groupByDay } from "./notificationConfig";
+import {
+  POLL_INTERVAL_MS,
+  PAGE_SIZE,
+  notificationVisual,
+  relativeTime,
+  groupByDay,
+} from "./notificationConfig";
 
 export default function NotificationCenter() {
   const router = useRouter();
@@ -63,14 +84,16 @@ export default function NotificationCenter() {
       "/notifications",
       { filter: nextFilter, limit: PAGE_SIZE, ...(before ? { before } : {}) },
       false,
-      true
+      true,
     );
     if (!res?.success) {
       setListState("error");
       return;
     }
     setNow(Date.now());
-    setItems((prev) => (before ? [...prev, ...res.data.items] : res.data.items));
+    setItems((prev) =>
+      before ? [...prev, ...res.data.items] : res.data.items,
+    );
     setHasMore(res.data.hasMore);
     setUnreadCount(res.data.unreadCount);
     setListState("ready");
@@ -81,7 +104,13 @@ export default function NotificationCenter() {
     setDetail(null);
     setDetailState("loading");
     setOpen(false);
-    const res = await HTTP("GET", `/notifications/${id}`, undefined, false, true);
+    const res = await HTTP(
+      "GET",
+      `/notifications/${id}`,
+      undefined,
+      false,
+      true,
+    );
     if (!res?.success) {
       setDetailState("error");
       return;
@@ -90,7 +119,9 @@ export default function NotificationCenter() {
     setDetail(res.data);
     setDetailState("ready");
     setUnreadCount(res.data.unreadCount);
-    setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)));
+    setItems((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, read: true } : n)),
+    );
   }, []);
 
   const showArrivalToast = useCallback(
@@ -107,7 +138,7 @@ export default function NotificationCenter() {
         onClick: () => openDetails(latest.id),
       });
     },
-    [openDetails]
+    [openDetails],
   );
 
   /** A notification arrived (live stream or poll): toast it and let open pages refresh. */
@@ -116,18 +147,27 @@ export default function NotificationCenter() {
       showArrivalToast(notification);
       emitLiveNotification(notification);
     },
-    [showArrivalToast]
+    [showArrivalToast],
   );
 
   const pollUnread = useCallback(async () => {
-    const res = await HTTP("GET", "/notifications/unread-count", undefined, false, true);
+    const res = await HTTP(
+      "GET",
+      "/notifications/unread-count",
+      undefined,
+      false,
+      true,
+    );
     if (!res?.success) return;
     const { unreadCount: count, latest } = res.data;
     setUnreadCount(count);
 
     const latestId = latest?.id || 0;
     // Fallback path (stream down): announce only what arrived after the first poll of this session
-    if (lastLatestIdRef.current !== null && latestId > lastLatestIdRef.current) {
+    if (
+      lastLatestIdRef.current !== null &&
+      latestId > lastLatestIdRef.current
+    ) {
       announceArrival(latest);
     }
     lastLatestIdRef.current = Math.max(lastLatestIdRef.current || 0, latestId);
@@ -138,15 +178,26 @@ export default function NotificationCenter() {
     (notification) => {
       if (!notification?.id) return;
       // Already seen (e.g. a poll got there first)
-      if (lastLatestIdRef.current !== null && notification.id <= lastLatestIdRef.current) return;
-      lastLatestIdRef.current = Math.max(lastLatestIdRef.current || 0, notification.id);
+      if (
+        lastLatestIdRef.current !== null &&
+        notification.id <= lastLatestIdRef.current
+      )
+        return;
+      lastLatestIdRef.current = Math.max(
+        lastLatestIdRef.current || 0,
+        notification.id,
+      );
 
       setNow(Date.now());
       setUnreadCount((count) => count + 1);
-      setItems((prev) => (prev.some((n) => n.id === notification.id) ? prev : [notification, ...prev]));
+      setItems((prev) =>
+        prev.some((n) => n.id === notification.id)
+          ? prev
+          : [notification, ...prev],
+      );
       announceArrival(notification);
     },
-    [announceArrival]
+    [announceArrival],
   );
 
   // Live stream (Server-Sent Events over fetch so the Bearer token can be sent).
@@ -179,19 +230,26 @@ export default function NotificationCenter() {
       try {
         const token = GetToken();
         const response = await fetch(`${API_BASE_URL}/notifications/stream`, {
-          headers: { Accept: "text/event-stream", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+          headers: {
+            Accept: "text/event-stream",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
           credentials: "include",
           cache: "no-store",
           signal: controller.signal,
         });
-        if (response.status === 401 || response.status === 403) stopRetrying = true;
-        if (!response.ok || !response.body) throw new Error(`Stream unavailable (${response.status})`);
+        if (response.status === 401 || response.status === 403)
+          stopRetrying = true;
+        if (!response.ok || !response.body)
+          throw new Error(`Stream unavailable (${response.status})`);
 
         retryMs = 2000;
         streamConnectedRef.current = true;
         // Catch up on anything that arrived while the stream was down
         pollUnread();
-        const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
+        const reader = response.body
+          .pipeThrough(new TextDecoderStream())
+          .getReader();
         let buffer = "";
         while (!cancelled) {
           const { value, done } = await reader.read();
@@ -229,7 +287,8 @@ export default function NotificationCenter() {
   useEffect(() => {
     const firstPoll = setTimeout(pollUnread, 0);
     const timer = setInterval(() => {
-      if (!streamConnectedRef.current && document.visibilityState === "visible") pollUnread();
+      if (!streamConnectedRef.current && document.visibilityState === "visible")
+        pollUnread();
     }, POLL_INTERVAL_MS);
     const onVisible = () => {
       if (document.visibilityState === "visible") pollUnread();
@@ -261,12 +320,20 @@ export default function NotificationCenter() {
     const res = await HTTP("POST", "/notifications/read-all", {}, false, true);
     if (!res?.success) return;
     setUnreadCount(res.data.unreadCount);
-    setItems((prev) => (filter === "unread" ? [] : prev.map((n) => ({ ...n, read: true }))));
+    setItems((prev) =>
+      filter === "unread" ? [] : prev.map((n) => ({ ...n, read: true })),
+    );
   };
 
   /** Undo a removal: the notification comes back (as read) in its original position. */
   const restoreNotification = async (notification) => {
-    const res = await HTTP("POST", `/notifications/${notification.id}/restore`, {}, false, true);
+    const res = await HTTP(
+      "POST",
+      `/notifications/${notification.id}/restore`,
+      {},
+      false,
+      true,
+    );
     if (!res?.success) {
       antdMsg.error("Couldn't restore the notification.");
       return;
@@ -276,7 +343,9 @@ export default function NotificationCenter() {
       setItems((prev) =>
         prev.some((n) => n.id === notification.id)
           ? prev
-          : [...prev, { ...notification, read: true }].sort((a, b) => b.id - a.id)
+          : [...prev, { ...notification, read: true }].sort(
+              (a, b) => b.id - a.id,
+            ),
       );
     }
   };
@@ -287,7 +356,13 @@ export default function NotificationCenter() {
     if (!notification.read) setUnreadCount((count) => Math.max(0, count - 1));
     if (detailId === notification.id) setDetailId(null);
 
-    const res = await HTTP("DELETE", `/notifications/${notification.id}`, undefined, false, true);
+    const res = await HTTP(
+      "DELETE",
+      `/notifications/${notification.id}`,
+      undefined,
+      false,
+      true,
+    );
     if (!res?.success) {
       antdMsg.error("Couldn't remove the notification.");
       loadList(filter);
@@ -310,7 +385,7 @@ export default function NotificationCenter() {
           Undo
         </button>
       </span>,
-      5
+      5,
     );
   };
 
@@ -325,7 +400,9 @@ export default function NotificationCenter() {
     setHasMore(false);
     setUnreadCount(res.data.unreadCount);
     antdMsg.success(
-      res.data.removed === 1 ? "1 notification cleared" : `${res.data.removed} notifications cleared`
+      res.data.removed === 1
+        ? "1 notification cleared"
+        : `${res.data.removed} notifications cleared`,
     );
   };
 
@@ -345,35 +422,52 @@ export default function NotificationCenter() {
         <button
           type="button"
           onClick={() => openDetails(n.id)}
-          className={`${styles.item} ${n.read ? "" : styles.unread} flex w-full items-start gap-3 rounded-xl py-2.5 pl-3 pr-9 text-left cursor-pointer`}
+          className={`${styles.item} ${n.read ? "" : styles.unread} flex w-full items-start gap-3 rounded-lg py-2.5 pl-3 pr-9 text-left cursor-pointer`}
         >
           <span
-            className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-[15px]"
-            style={{ backgroundColor: `${visual.color}1a`, color: visual.color }}
+            className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[15px]"
+            style={{
+              backgroundColor: `${visual.color}1a`,
+              color: visual.color,
+            }}
           >
             {visual.icon}
           </span>
           <span className="min-w-0 flex-1">
             <span
               className={`block truncate text-[13px] ${
-                n.read ? "font-medium text-slate-700 dark:text-zinc-300" : "font-semibold text-slate-900 dark:text-zinc-50"
+                n.read
+                  ? "font-medium text-slate-700 dark:text-zinc-300"
+                  : "font-semibold text-slate-900 dark:text-zinc-50"
               }`}
             >
               {n.title}
             </span>
             {n.type === "status_change" && n.meta?.toStatus ? (
               <span className="mt-1 flex flex-wrap items-center gap-1.5">
-                <Tag color={statusTagColor(n.meta.fromStatus)} className="!m-0 !text-[10px] !leading-4 !px-1.5">
-                  {n.meta.fromStatus || "—"}
+                <Tag
+                  color={statusTagColor(n.meta.fromStatus)}
+                  className="!m-0 !text-[10px] !leading-4 !px-1.5"
+                >
+                  {n.meta.fromStatus || "-"}
                 </Tag>
                 <ArrowRightOutlined className="text-[9px] text-slate-400" />
-                <Tag color={statusTagColor(n.meta.toStatus)} className="!m-0 !text-[10px] !leading-4 !px-1.5">
+                <Tag
+                  color={statusTagColor(n.meta.toStatus)}
+                  className="!m-0 !text-[10px] !leading-4 !px-1.5"
+                >
                   {n.meta.toStatus}
                 </Tag>
-                {n.actorName && <span className="text-[11px] text-slate-500 dark:text-zinc-400">by {n.actorName}</span>}
+                {n.actorName && (
+                  <span className="text-[11px] text-slate-500 dark:text-zinc-400">
+                    by {n.actorName}
+                  </span>
+                )}
               </span>
             ) : (
-              <span className={`${styles.clamp2} mt-0.5 text-[12px] leading-snug text-slate-500 dark:text-zinc-400`}>
+              <span
+                className={`${styles.clamp2} mt-0.5 text-[12px] leading-snug text-slate-500 dark:text-zinc-400`}
+              >
                 {n.message}
               </span>
             )}
@@ -409,7 +503,7 @@ export default function NotificationCenter() {
         <div className="space-y-3 px-4 py-3 animate-pulse" aria-busy="true">
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className="flex items-start gap-3">
-              <span className="h-9 w-9 shrink-0 rounded-xl bg-slate-100 dark:bg-zinc-800" />
+              <span className="h-9 w-9 shrink-0 rounded-lg bg-slate-100 dark:bg-zinc-800" />
               <span className="flex-1 space-y-2 pt-1">
                 <span className="block h-3 w-3/4 rounded bg-slate-100 dark:bg-zinc-800" />
                 <span className="block h-2.5 w-1/2 rounded bg-slate-100 dark:bg-zinc-800" />
@@ -422,8 +516,15 @@ export default function NotificationCenter() {
     if (listState === "error") {
       return (
         <div className="flex flex-col items-center px-6 py-10 text-center">
-          <p className="m-0 text-[13px] font-semibold text-slate-800 dark:text-zinc-100">Couldn&apos;t load notifications</p>
-          <Button size="small" icon={<ReloadOutlined />} className="mt-3" onClick={() => loadList(filter)}>
+          <p className="m-0 text-[13px] font-semibold text-slate-800 dark:text-zinc-100">
+            Couldn&apos;t load notifications
+          </p>
+          <Button
+            size="small"
+            icon={<ReloadOutlined />}
+            className="mt-3"
+            onClick={() => loadList(filter)}
+          >
             Retry
           </Button>
         </div>
@@ -432,10 +533,12 @@ export default function NotificationCenter() {
     if (!items.length) {
       return (
         <div className="flex flex-col items-center px-6 py-10 text-center">
-          <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-primary-soft text-xl text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400">
+          <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-brand-primary-soft text-xl text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400">
             <CheckOutlined />
           </span>
-          <p className="m-0 text-[14px] font-semibold text-slate-800 dark:text-zinc-100">You&apos;re all caught up</p>
+          <p className="m-0 text-[14px] font-semibold text-slate-800 dark:text-zinc-100">
+            You&apos;re all caught up
+          </p>
           <p className="m-0 mt-1 max-w-[260px] text-[12px] text-slate-500 dark:text-zinc-400">
             {filter === "unread"
               ? "No unread notifications. New submissions and status updates will appear here."
@@ -452,7 +555,9 @@ export default function NotificationCenter() {
             <h5 className="m-0 px-4 pt-3 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
               {group.label}
             </h5>
-            <ul className="m-0 list-none space-y-0.5 px-1.5 p-0">{group.items.map(renderItem)}</ul>
+            <ul className="m-0 list-none space-y-0.5 px-1.5 p-0">
+              {group.items.map(renderItem)}
+            </ul>
           </section>
         ))}
         {hasMore && (
@@ -475,9 +580,13 @@ export default function NotificationCenter() {
     <div className="w-[min(400px,calc(100vw-1.5rem))]">
       <div className="flex items-center justify-between gap-3 px-4 pt-3.5 pb-2.5">
         <div className="flex items-center gap-2">
-          <h4 className="m-0 text-[15px] font-bold text-slate-900 dark:text-zinc-50">Notifications</h4>
+          <h4 className="m-0 text-[15px] font-bold text-slate-900 dark:text-zinc-50">
+            Notifications
+          </h4>
           {unreadCount > 0 && (
-            <span className="rounded-pill bg-brand-primary px-1.5 text-[11px] font-semibold text-white">{unreadCount}</span>
+            <span className="rounded-pill bg-brand-primary px-1.5 text-[11px] font-semibold text-white">
+              {unreadCount}
+            </span>
           )}
         </div>
         <div className="flex items-center gap-0.5">
@@ -490,7 +599,11 @@ export default function NotificationCenter() {
             <CheckOutlined className="text-[11px]" /> Mark all as read
           </button>
           <Popconfirm
-            title={filter === "unread" ? "Clear all unread notifications?" : "Clear all notifications?"}
+            title={
+              filter === "unread"
+                ? "Clear all unread notifications?"
+                : "Clear all notifications?"
+            }
             description="They're removed from your list only. Colleagues keep theirs."
             okText="Clear"
             okButtonProps={{ danger: true }}
@@ -499,11 +612,18 @@ export default function NotificationCenter() {
             onConfirm={clearAll}
             disabled={!items.length}
           >
-            <Tooltip title={filter === "unread" ? "Clear unread" : "Clear all"} mouseEnterDelay={0.4}>
+            <Tooltip
+              title={filter === "unread" ? "Clear unread" : "Clear all"}
+              mouseEnterDelay={0.4}
+            >
               <button
                 type="button"
                 disabled={!items.length}
-                aria-label={filter === "unread" ? "Clear unread notifications" : "Clear all notifications"}
+                aria-label={
+                  filter === "unread"
+                    ? "Clear unread notifications"
+                    : "Clear all notifications"
+                }
                 className="flex h-6 w-6 items-center justify-center rounded-md text-[12px] text-slate-400 hover:bg-red-50 hover:text-red-600 disabled:cursor-not-allowed disabled:text-slate-300 disabled:hover:bg-transparent dark:text-zinc-500 dark:hover:bg-red-950/40 dark:hover:text-red-400 dark:disabled:text-zinc-700 cursor-pointer"
               >
                 <ClearOutlined />
@@ -521,11 +641,16 @@ export default function NotificationCenter() {
           onChange={handleFilterChange}
           options={[
             { label: "All", value: "all" },
-            { label: unreadCount > 0 ? `Unread (${unreadCount})` : "Unread", value: "unread" },
+            {
+              label: unreadCount > 0 ? `Unread (${unreadCount})` : "Unread",
+              value: "unread",
+            },
           ]}
         />
       </div>
-      <div className={`${styles.scroll} max-h-[min(65vh,480px)] overflow-y-auto border-t border-slate-100 dark:border-zinc-800`}>
+      <div
+        className={`${styles.scroll} max-h-[min(65vh,480px)] overflow-y-auto border-t border-slate-100 dark:border-zinc-800`}
+      >
         {renderList()}
       </div>
     </div>
@@ -544,13 +669,25 @@ export default function NotificationCenter() {
       >
         <button
           type="button"
-          className="p-2 rounded-xl text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 relative transition-all cursor-pointer"
-          aria-label={unreadCount ? `Notifications, ${unreadCount} unread` : "Notifications"}
+          className="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 relative transition-all cursor-pointer"
+          aria-label={
+            unreadCount
+              ? `Notifications, ${unreadCount} unread`
+              : "Notifications"
+          }
           aria-haspopup="dialog"
           aria-expanded={open}
         >
-          <Badge count={unreadCount} overflowCount={99} size="small" color="#008043" offset={[-2, 2]}>
-            <BellOutlined className={`text-base text-slate-600 dark:text-zinc-400 ${unreadCount ? styles.ring : ""}`} />
+          <Badge
+            count={unreadCount}
+            overflowCount={99}
+            size="small"
+            color="#008043"
+            offset={[-2, 2]}
+          >
+            <BellOutlined
+              className={`text-base text-slate-600 dark:text-zinc-400 ${unreadCount ? styles.ring : ""}`}
+            />
           </Badge>
         </button>
       </Popover>

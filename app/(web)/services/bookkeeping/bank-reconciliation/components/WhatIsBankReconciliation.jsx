@@ -28,11 +28,13 @@ export default function WhatIsBankReconciliation() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: What is bank reconciliation? */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="blue" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="blue"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <AuditOutlined className="mr-1.5" />
               Core Principle
             </Tag>
@@ -42,16 +44,25 @@ export default function WhatIsBankReconciliation() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A bank reconciliation is the process of matching the balance and transactions recorded in bookkeeping software to the corresponding bank statement or bank feed. Differences are investigated so that the bookkeeping file reflects the actual activity of the business as accurately as possible.
+              A bank reconciliation is the process of matching the balance and
+              transactions recorded in bookkeeping software to the corresponding
+              bank statement or bank feed. Differences are investigated so that
+              the bookkeeping file reflects the actual activity of the business
+              as accurately as possible.
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A bookkeeping bank reconciliation is not simply clicking &ldquo;reconcile&rdquo; in software. Transactions still need to be correctly identified, coded and matched. Unusual items, duplicates, transfers, merchant deposits, bank fees, refunds and personal transactions may require review before they are finalized.
+              A bookkeeping bank reconciliation is not simply clicking
+              &ldquo;reconcile&rdquo; in software. Transactions still need to be
+              correctly identified, coded and matched. Unusual items,
+              duplicates, transfers, merchant deposits, bank fees, refunds and
+              personal transactions may require review before they are
+              finalized.
             </p>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-5">
+            <div className="p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 shadow-xs space-y-5">
               <div className="flex items-center gap-3 text-brand-primary dark:text-emerald-400">
                 <FileDoneOutlined className="text-2xl" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -59,11 +70,17 @@ export default function WhatIsBankReconciliation() {
                 </h3>
               </div>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Automated bank rules can speed up reconciliations, but unverified rules often hide classification errors, misplaced personal drawings, and duplicate entries. A disciplined review protects ledger integrity.
+                Automated bank rules can speed up reconciliations, but
+                unverified rules often hide classification errors, misplaced
+                personal drawings, and duplicate entries. A disciplined review
+                protects ledger integrity.
               </p>
               <div className="pt-3 border-t border-slate-200 dark:border-zinc-700">
                 <p className="text-xs text-slate-500 dark:text-zinc-400 italic">
-                  &ldquo;A bookkeeping bank reconciliation is not simply clicking &lsquo;reconcile&rsquo; in software. Transactions still need to be correctly identified, coded and matched.&rdquo;
+                  &ldquo;A bookkeeping bank reconciliation is not simply
+                  clicking &lsquo;reconcile&rsquo; in software. Transactions
+                  still need to be correctly identified, coded and
+                  matched.&rdquo;
                 </p>
               </div>
             </div>
@@ -77,7 +94,13 @@ export default function WhatIsBankReconciliation() {
               Why regular bank reconciliation matters
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-              Reliable bookkeeping depends on complete transaction records. The ATO requires businesses to keep records that explain transactions and support tax reporting. Most business records must generally be kept for five years from when they are prepared or obtained, or when the relevant transaction is completed, whichever is later. Longer periods can apply. Regular reconciliation helps identify entries that do not agree with bank activity.
+              Reliable bookkeeping depends on complete transaction records. The
+              ATO requires businesses to keep records that explain transactions
+              and support tax reporting. Most business records must generally be
+              kept for five years from when they are prepared or obtained, or
+              when the relevant transaction is completed, whichever is later.
+              Longer periods can apply. Regular reconciliation helps identify
+              entries that do not agree with bank activity.
             </p>
           </div>
 
@@ -86,7 +109,7 @@ export default function WhatIsBankReconciliation() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 p-5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all"
+                className="flex items-start gap-4 p-5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all"
               >
                 <div className="shrink-0 w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold text-sm">
                   {index + 1}
@@ -99,14 +122,17 @@ export default function WhatIsBankReconciliation() {
           </div>
 
           {/* ATO Record-Keeping Callout */}
-          <div className="mt-8 p-6 rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 flex items-start gap-4">
+          <div className="mt-8 p-6 rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 flex items-start gap-4">
             <InfoCircleOutlined className="text-xl text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
             <div className="text-sm text-amber-900 dark:text-amber-200">
-              <span className="font-bold">ATO Compliance Note:</span> Most Australian business records must generally be retained for at least five years. Timely reconciliation prevents missing documentation and ensures transaction explanations are captured while fresh.
+              <span className="font-bold">ATO Compliance Note:</span> Most
+              Australian business records must generally be retained for at
+              least five years. Timely reconciliation prevents missing
+              documentation and ensures transaction explanations are captured
+              while fresh.
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

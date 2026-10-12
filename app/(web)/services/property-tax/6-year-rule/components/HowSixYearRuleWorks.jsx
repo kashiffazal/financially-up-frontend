@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Card } from "antd";
-import { ClockCircleOutlined, DollarOutlined, HomeOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
+import {
+  ClockCircleOutlined,
+  DollarOutlined,
+  HomeOutlined,
+  SafetyCertificateOutlined,
+} from "@ant-design/icons";
 
 /**
  * HowSixYearRuleWorks Component
@@ -26,7 +31,7 @@ export default function HowSixYearRuleWorks() {
       icon: <DollarOutlined className="text-2xl text-amber-600" />,
       title: "An Elective, Flexible Concession",
       description:
-        "The six-year rule is not automatic—it is an optional statutory choice made when lodging your tax return for the income year in which the CGT event (contract of sale) occurs.",
+        "The six-year rule is not automatic-it is an optional statutory choice made when lodging your tax return for the income year in which the CGT event (contract of sale) occurs.",
     },
     {
       icon: <SafetyCertificateOutlined className="text-2xl text-purple-600" />,
@@ -47,7 +52,9 @@ export default function HowSixYearRuleWorks() {
             How Does the Six-Year Rule Work?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            When a property stops being your actual home, you can choose to continue treating it as your main residence for CGT purposes under Australia’s capital gains tax legislation.
+            When a property stops being your actual home, you can choose to
+            continue treating it as your main residence for CGT purposes under
+            Australia’s capital gains tax legislation.
           </p>
         </div>
 
@@ -55,16 +62,20 @@ export default function HowSixYearRuleWorks() {
           {cards.map((card, idx) => (
             <Card
               key={idx}
-              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl"
+              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg"
               styles={{ body: { padding: "28px" } }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 shrink-0">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 shrink-0">
                   {card.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{card.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{card.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    {card.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             </Card>

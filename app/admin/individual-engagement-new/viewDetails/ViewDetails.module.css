@@ -1,4 +1,4 @@
-/* Individual Engagement — View Details modal */
+/* Individual Engagement - View Details modal */
 
 /*
  * Edge-to-edge layout. The container padding is removed by the app-wide
@@ -7,28 +7,46 @@
  * Selectors are anchored on .ant-modal-root + .ant-modal-container so they
  * outrank the global ":not(:has(.ant-modal-confirm))" spacing rules.
  */
-.modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-header) {
+.modal:global(.ant-modal-root)
+  :global(.ant-modal-container)
+  :global(.ant-modal-header) {
   margin: 0 !important;
   padding: 20px 64px 16px 24px !important;
   /* container clips the top corners to var(--radius-modal); keep the divider straight */
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-  background: linear-gradient(180deg, var(--brand-primary-light) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--brand-primary-light) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
-:global(.dark) .modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-header) {
+:global(.dark)
+  .modal:global(.ant-modal-root)
+  :global(.ant-modal-container)
+  :global(.ant-modal-header) {
   border-bottom-color: rgba(63, 63, 70, 0.8);
-  background: linear-gradient(180deg, rgba(6, 78, 59, 0.28) 0%, rgba(24, 24, 27, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(6, 78, 59, 0.28) 0%,
+    rgba(24, 24, 27, 0) 100%
+  );
 }
 
-.modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-footer) {
+.modal:global(.ant-modal-root)
+  :global(.ant-modal-container)
+  :global(.ant-modal-footer) {
   margin: 0 !important;
   padding: 12px 24px !important;
   border-top: 1px solid rgba(226, 232, 240, 0.9);
   background: #f8fafc;
 }
 
-:global(.dark) .modal:global(.ant-modal-root) :global(.ant-modal-container) :global(.ant-modal-footer) {
+:global(.dark)
+  .modal:global(.ant-modal-root)
+  :global(.ant-modal-container)
+  :global(.ant-modal-footer) {
   border-top-color: rgba(63, 63, 70, 0.8);
   background: rgba(24, 24, 27, 0.6);
 }
@@ -62,7 +80,7 @@
 /* Section card */
 .section {
   border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 14px;
+  border-radius: 8px;
   background: #ffffff;
 }
 
@@ -91,7 +109,7 @@
 .fact,
 .tile {
   border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 12px;
+  border-radius: 8px;
   background: #ffffff;
   transition:
     border-color 150ms ease,

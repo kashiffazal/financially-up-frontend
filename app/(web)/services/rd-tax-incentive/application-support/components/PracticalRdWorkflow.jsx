@@ -73,7 +73,8 @@ export default function PracticalRdWorkflow() {
             A Practical R&amp;D Application Workflow
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A coordinated workflow reduces gaps between the technical description and accounting calculation.
+            A coordinated workflow reduces gaps between the technical
+            description and accounting calculation.
           </p>
         </div>
 
@@ -82,7 +83,7 @@ export default function PracticalRdWorkflow() {
           {checkpoints.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:border-emerald-500/40 transition-colors group"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:border-emerald-500/40 transition-colors group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -103,15 +104,17 @@ export default function PracticalRdWorkflow() {
         </div>
 
         {/* First Claim Year-End Timing Tip */}
-        <div className="bg-emerald-50/60 dark:bg-emerald-950/30 rounded-2xl p-6 sm:p-7 border border-emerald-200/80 dark:border-emerald-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center shrink-0 text-emerald-800 dark:text-emerald-300">
+        <div className="bg-emerald-50/60 dark:bg-emerald-950/30 rounded-lg p-6 sm:p-7 border border-emerald-200/80 dark:border-emerald-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center shrink-0 text-emerald-800 dark:text-emerald-300">
             <CalendarOutlined className="text-lg" />
           </div>
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
             <strong className="font-semibold text-emerald-950 dark:text-emerald-100">
               Proactive Claim Advisory:
             </strong>{" "}
-            For a first claim, start before year-end. The company can improve records while work is under way, identify overseas activity in time and avoid a last-minute registration.
+            For a first claim, start before year-end. The company can improve
+            records while work is under way, identify overseas activity in time
+            and avoid a last-minute registration.
           </p>
         </div>
       </div>

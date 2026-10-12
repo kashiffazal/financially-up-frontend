@@ -66,7 +66,7 @@ export default function TransactionStructuresAndTaxGoingConcern() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Asset vs Share Sale */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
                 <SwapOutlined />
@@ -83,12 +83,13 @@ export default function TransactionStructuresAndTaxGoingConcern() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Asset sales allow selective acquisitions; share sales inherit company history.
+              Asset sales allow selective acquisitions; share sales inherit
+              company history.
             </div>
           </div>
 
           {/* Card 2: Headline Price vs Tax Outcome */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-400 mb-3">
                 <FileProtectOutlined />
@@ -96,19 +97,21 @@ export default function TransactionStructuresAndTaxGoingConcern() {
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
                 The tax outcome cannot be inferred from the headline purchase
-                price. Sellers may need to consider income tax, CGT and potential
-                small business CGT concessions, which have detailed eligibility
-                requirements. GST treatment depends on the transaction.
+                price. Sellers may need to consider income tax, CGT and
+                potential small business CGT concessions, which have detailed
+                eligibility requirements. GST treatment depends on the
+                transaction.
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Concessions require meticulous entity and asset eligibility reviews.
+              Concessions require meticulous entity and asset eligibility
+              reviews.
             </div>
           </div>
         </div>
 
         {/* Verbatim Feature Box: GST-Free Going Concern 4 Mandatory Requirements */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-10 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-10 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-2">
               <SafetyCertificateOutlined />
@@ -130,7 +133,7 @@ export default function TransactionStructuresAndTaxGoingConcern() {
             {goingConcernRules.map((rule, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+                className="bg-white dark:bg-zinc-900 p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
               >
                 <div className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 mb-1">
                   Condition {rule.num}
@@ -147,9 +150,9 @@ export default function TransactionStructuresAndTaxGoingConcern() {
         </div>
 
         {/* Verbatim Paragraph 3 Feature Banner: Legal Document Review */}
-        <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-950/70 border border-teal-200 dark:border-teal-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-11 h-11 rounded-lg bg-teal-50 dark:bg-teal-950/70 border border-teal-200 dark:border-teal-800/60 flex items-center justify-center shrink-0 mt-0.5">
               <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
             </div>
             <div>
@@ -174,7 +177,7 @@ export default function TransactionStructuresAndTaxGoingConcern() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Align Deal Structure with Tax
             </Button>

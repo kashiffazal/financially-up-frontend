@@ -22,37 +22,51 @@ import {
 export default function WhoNeedsDivision7APlanning() {
   const triggerScenarios = [
     {
-      icon: <BankOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Company Money Borrowed",
       text: "A shareholder or associate has borrowed money from a private company.",
     },
     {
-      icon: <ShoppingOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ShoppingOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Private Expenses Paid by Company",
       text: "Company funds have been used to pay private expenses.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Debit Balance Loan Accounts",
       text: "A director or shareholder loan account has a debit balance.",
     },
     {
-      icon: <CarOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CarOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Company Assets for Private Use",
       text: "The company has provided an asset or other benefit for private use.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Existing Loan Agreements & Repayments",
       text: "A Division 7A loan agreement already exists and minimum yearly repayments need to be reviewed.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Trust & Corporate Beneficiary Interactions",
       text: "There are transactions between a trust and a private company beneficiary.",
     },
     {
-      icon: <HistoryOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Unreconciled Prior-Year Balances",
       text: "Prior-year balances or journal entries need to be reconciled before deciding how Division 7A applies.",
     },
@@ -70,7 +84,9 @@ export default function WhoNeedsDivision7APlanning() {
             Who May Need Division 7A Planning?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Division 7A planning can be relevant where company funds or assets are used outside ordinary business transactions, or where loan balances with directors, shareholders or associates are building up.
+            Division 7A planning can be relevant where company funds or assets
+            are used outside ordinary business transactions, or where loan
+            balances with directors, shareholders or associates are building up.
           </p>
         </div>
 
@@ -79,13 +95,13 @@ export default function WhoNeedsDivision7APlanning() {
           {triggerScenarios.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+              className={`bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-11 h-11 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {item.icon}
                   </div>
                   <CheckCircleFilled className="text-emerald-500 text-lg" />

@@ -37,7 +37,7 @@ export default function BasAndBusinessTaxComplianceDev() {
         {/* 2 Context Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Card 1: Verbatim Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <CalculatorOutlined />
@@ -45,7 +45,11 @@ export default function BasAndBusinessTaxComplianceDev() {
               </div>
               {/* Verbatim copy from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                A development project can generate significant GST transactions before any property is sold. Construction invoices, professional fees, land acquisition treatment and settlements need to be reconciled carefully to the accounting records and activity statements.
+                A development project can generate significant GST transactions
+                before any property is sold. Construction invoices, professional
+                fees, land acquisition treatment and settlements need to be
+                reconciled carefully to the accounting records and activity
+                statements.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/70 dark:border-zinc-800">
@@ -61,7 +65,7 @@ export default function BasAndBusinessTaxComplianceDev() {
           </div>
 
           {/* Card 2: Verbatim Paragraph 2 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <FileProtectOutlined />
@@ -69,7 +73,11 @@ export default function BasAndBusinessTaxComplianceDev() {
               </div>
               {/* Verbatim copy from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                Our Business Tax Compliance service can support broader entity tax obligations, while GST Registration covers registration where that is separately required. This property-development page focuses on the project-specific tax and accounting issues rather than duplicating those services.
+                Our Business Tax Compliance service can support broader entity
+                tax obligations, while GST Registration covers registration
+                where that is separately required. This property-development
+                page focuses on the project-specific tax and accounting issues
+                rather than duplicating those services.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/70 dark:border-zinc-800">

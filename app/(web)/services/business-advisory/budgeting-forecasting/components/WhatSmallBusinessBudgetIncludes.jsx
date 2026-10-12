@@ -28,40 +28,58 @@ import {
 export default function WhatSmallBusinessBudgetIncludes() {
   const budgetLineItems = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Expected Revenue",
       tag: "Top Line",
-      detail: "Revenue forecasts modeled by volume, unit prices, product mix, and seasonality.",
+      detail:
+        "Revenue forecasts modeled by volume, unit prices, product mix, and seasonality.",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <PercentageOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Direct Costs & Gross Profit",
       tag: "Unit Economics",
-      detail: "Cost of goods sold, direct materials, and subcontractor expenses to establish true gross margins.",
+      detail:
+        "Cost of goods sold, direct materials, and subcontractor expenses to establish true gross margins.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Employment Costs",
       tag: "Labour & On-Costs",
-      detail: "Salaries, wages, overtime, superannuation guarantee, workers' compensation, and payroll tax.",
+      detail:
+        "Salaries, wages, overtime, superannuation guarantee, workers' compensation, and payroll tax.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Overheads & Operating Expenses",
       tag: "Fixed Base",
-      detail: "Premises rent, software subscriptions, insurance premiums, utilities, and marketing outlays.",
+      detail:
+        "Premises rent, software subscriptions, insurance premiums, utilities, and marketing outlays.",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Financing Costs",
       tag: "Debt Service",
-      detail: "Loan interest, overdraft fees, commercial hire purchases, and principal repayment commitments.",
+      detail:
+        "Loan interest, overdraft fees, commercial hire purchases, and principal repayment commitments.",
     },
     {
-      icon: <ToolOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Capital Expenditure & Cash Flow",
       tag: "Balance Sheet",
-      detail: "Equipment acquisitions, tech investments, and cash-flow implications relevant to planning.",
+      detail:
+        "Equipment acquisitions, tech investments, and cash-flow implications relevant to planning.",
     },
   ];
 
@@ -123,11 +141,11 @@ export default function WhatSmallBusinessBudgetIncludes() {
           {budgetLineItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-emerald-400/50 transition-all duration-300"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-emerald-400/50 transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <Tag color="green" className="text-[11px] font-semibold m-0">
@@ -152,7 +170,7 @@ export default function WhatSmallBusinessBudgetIncludes() {
         </div>
 
         {/* Verbatim Paragraph 2 Feature Card: The Assumptions are Just as Important */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-10 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-10 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
           <div className="max-w-3xl mb-8">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-2">
               <FileTextOutlined />
@@ -177,7 +195,7 @@ export default function WhatSmallBusinessBudgetIncludes() {
             {assumptionDrivers.map((driver, dIdx) => (
               <div
                 key={dIdx}
-                className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+                className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
               >
                 <div className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 tracking-wider mb-3">
                   {driver.category}
@@ -206,7 +224,7 @@ export default function WhatSmallBusinessBudgetIncludes() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Build an Assumption-Backed Budget
             </Button>

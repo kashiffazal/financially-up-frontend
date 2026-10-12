@@ -76,11 +76,13 @@ export default function AdvisoryReassuranceBanner({
 }) {
   const company = useCompany();
   const content = description || children;
-  const hasActions = Boolean(actions || primaryButton || secondaryButton || (showPhone && company.phone));
+  const hasActions = Boolean(
+    actions || primaryButton || secondaryButton || (showPhone && company.phone),
+  );
 
   return (
     <div
-      className={`rounded-2xl bg-gradient-to-r from-emerald-900 via-slate-900 to-zinc-900 p-7 sm:p-9 text-white shadow-xl border border-emerald-500/20 relative overflow-hidden ${className}`}
+      className={`rounded-lg bg-gradient-to-r from-emerald-900 via-slate-900 to-zinc-900 p-7 sm:p-9 text-white shadow-xl border border-emerald-500/20 relative overflow-hidden ${className}`}
     >
       {/* Subtle Luminous Ambient Light Reflections */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />

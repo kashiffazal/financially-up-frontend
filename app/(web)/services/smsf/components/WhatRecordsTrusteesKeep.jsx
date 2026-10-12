@@ -35,43 +35,57 @@ export default function WhatRecordsTrusteesKeep() {
   // 7 exact record items verbatim from 9th Pillar SMSF.docx
   const recordCategories = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Bank & Cash Accounts",
       text: "SMSF bank statements and cash-account records",
       badge: "Financial Records",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Investment Statements",
       text: "broker, platform, managed-fund and term-deposit statements",
       badge: "Portfolios",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Transaction Documents",
       text: "purchase, sale and corporate-action documents for investments",
       badge: "Corporate Actions",
     },
     {
-      icon: <HomeOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Property & Rental Invoices",
       text: "rental property income, expenses, leases, valuations and supporting invoices where relevant",
       badge: "Real Estate",
     },
     {
-      icon: <UserOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Member Contributions & Rollovers",
       text: "contribution, rollover and benefit-payment information for each member",
       badge: "Member Records",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Trustee Minutes & Decisions",
       text: "trustee minutes, pension documents and other fund decisions",
       badge: "Governance",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Professional & Fund Invoices",
       text: "invoices for accounting, audit, administration and investment-related expenses",
       badge: "Expenses",
@@ -118,7 +132,9 @@ export default function WhatRecordsTrusteesKeep() {
             What records should SMSF trustees keep?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Good records make annual accounting and audit work more efficient and reduce the risk of unexplained transactions. Depending on the fund, useful records can include:
+            Good records make annual accounting and audit work more efficient
+            and reduce the risk of unexplained transactions. Depending on the
+            fund, useful records can include:
           </p>
         </div>
 
@@ -127,13 +143,13 @@ export default function WhatRecordsTrusteesKeep() {
           {recordCategories.map((item, idx) => (
             <div
               key={idx}
-              className={`p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between ${
+              className={`p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between ${
                 idx === 6 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">
@@ -153,7 +169,7 @@ export default function WhatRecordsTrusteesKeep() {
         </div>
 
         {/* Statutory Retention Periods Section with Exact Copy */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider flex items-center justify-center gap-1.5 mb-2">
               <HourglassOutlined />
@@ -168,7 +184,7 @@ export default function WhatRecordsTrusteesKeep() {
             {retentionPeriods.map((rule, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between"
+                className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between"
               >
                 <div>
                   <div className="inline-block text-xs font-bold font-mono px-2.5 py-1 rounded-md bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60 mb-3">

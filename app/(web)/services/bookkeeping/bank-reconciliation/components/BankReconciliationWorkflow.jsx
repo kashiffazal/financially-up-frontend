@@ -83,14 +83,14 @@ export default function BankReconciliationWorkflow() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative p-7 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 flex flex-col justify-between"
+              className="relative p-7 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/80 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-3xl font-black text-brand-primary dark:text-emerald-400">
                     0{step.number}
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-700/60 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-700/60 flex items-center justify-center">
                     {step.icon}
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function BankReconciliationWorkflow() {
         </div>
 
         {/* Monthly Bookkeeping Cross-Link Card */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/40 dark:from-zinc-800/80 dark:via-zinc-900 dark:to-zinc-800/60 border border-emerald-200/80 dark:border-zinc-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="p-8 rounded-lg bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/40 dark:from-zinc-800/80 dark:via-zinc-900 dark:to-zinc-800/60 border border-emerald-200/80 dark:border-zinc-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <h4 className="text-lg font-bold text-slate-900 dark:text-white">
               Looking for Year-Round Consistency?

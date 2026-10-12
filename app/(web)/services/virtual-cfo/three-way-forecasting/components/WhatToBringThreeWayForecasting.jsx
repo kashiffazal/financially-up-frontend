@@ -2,10 +2,7 @@
 
 import React from "react";
 import { Tag } from "antd";
-import {
-  FileDoneOutlined,
-  CheckCircleFilled,
-} from "@ant-design/icons";
+import { FileDoneOutlined, CheckCircleFilled } from "@ant-design/icons";
 
 /**
  * WhatToBringThreeWayForecasting Component
@@ -15,27 +12,56 @@ import {
  */
 export default function WhatToBringThreeWayForecasting() {
   const prepList = [
-    { title: "recent financial statements & balance sheets", desc: "Past 12 to 24 months of reconciled financial reports." },
-    { title: "current management accounts", desc: "Year-to-date trading figures, profit margins, and overhead reports." },
-    { title: "operational budget if available", desc: "Approved targets, spending limits, and departmental plans." },
-    { title: "loan schedules & debt facilities", desc: "Interest rates, repayment timing, balloon payments, and covenants." },
-    { title: "description of the commercial decision", desc: "Summary of planned site openings, new equipment, hires, or acquisitions." },
-    { title: "pricing, payment terms & staffing", desc: "Customer debtor days, supplier credit terms, and recruitment plans." },
-    { title: "planned purchases & cash commitments", desc: "Quotes for capital assets, lease bonds, and scheduled tax runs." },
+    {
+      title: "recent financial statements & balance sheets",
+      desc: "Past 12 to 24 months of reconciled financial reports.",
+    },
+    {
+      title: "current management accounts",
+      desc: "Year-to-date trading figures, profit margins, and overhead reports.",
+    },
+    {
+      title: "operational budget if available",
+      desc: "Approved targets, spending limits, and departmental plans.",
+    },
+    {
+      title: "loan schedules & debt facilities",
+      desc: "Interest rates, repayment timing, balloon payments, and covenants.",
+    },
+    {
+      title: "description of the commercial decision",
+      desc: "Summary of planned site openings, new equipment, hires, or acquisitions.",
+    },
+    {
+      title: "pricing, payment terms & staffing",
+      desc: "Customer debtor days, supplier credit terms, and recruitment plans.",
+    },
+    {
+      title: "planned purchases & cash commitments",
+      desc: "Quotes for capital assets, lease bonds, and scheduled tax runs.",
+    },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Discovery Preparation
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What to bring to the first discussion
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Bring recent financial statements, current management accounts, a budget if available, loan schedules and a description of the decision. Information on pricing, customer payment terms, staffing, planned purchases and existing cash commitments will help establish realistic inputs. We can then agree whether a three way forecast or a more focused analysis is appropriate.
+            Bring recent financial statements, current management accounts, a
+            budget if available, loan schedules and a description of the
+            decision. Information on pricing, customer payment terms, staffing,
+            planned purchases and existing cash commitments will help establish
+            realistic inputs. We can then agree whether a three way forecast or
+            a more focused analysis is appropriate.
           </p>
         </div>
 
@@ -44,7 +70,7 @@ export default function WhatToBringThreeWayForecasting() {
           {prepList.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">

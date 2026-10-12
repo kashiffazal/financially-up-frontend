@@ -57,17 +57,20 @@ export default function HowFinanciallyUpHelpsTrusts() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Our trust accounting service can be structured around the trust&apos;s actual needs rather
-            than treating every trust the same. We can review the prior-year position, reconcile
-            records, prepare annual accounts, prepare or coordinate the trust tax return, compile
-            beneficiary information and identify matters that should be resolved before lodgement.
+            Our trust accounting service can be structured around the
+            trust&apos;s actual needs rather than treating every trust the same.
+            We can review the prior-year position, reconcile records, prepare
+            annual accounts, prepare or coordinate the trust tax return, compile
+            beneficiary information and identify matters that should be resolved
+            before lodgement.
           </p>
 
           {/* Exact Verbatim Paragraph 2 from Document */}
           <p className="mt-3 text-sm sm:text-base text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Where proactive tax planning is requested, we can clarify what can be considered within
-            the agreed scope. Where legal advice is needed about the trust deed, trustee powers, asset
-            protection or legal ownership, that work may need to be handled by an appropriately
+            Where proactive tax planning is requested, we can clarify what can
+            be considered within the agreed scope. Where legal advice is needed
+            about the trust deed, trustee powers, asset protection or legal
+            ownership, that work may need to be handled by an appropriately
             qualified legal adviser.
           </p>
         </div>
@@ -75,10 +78,10 @@ export default function HowFinanciallyUpHelpsTrusts() {
         {/* 2-Column Structured Overview */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Tailored Trust Accounting Scope */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                   <AuditOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
                 </div>
                 <div>
@@ -92,8 +95,9 @@ export default function HowFinanciallyUpHelpsTrusts() {
               </div>
 
               <p className="text-sm text-slate-600 dark:text-zinc-400 mb-6 font-normal leading-relaxed">
-                Rather than applying generic templates, we tailor our accounting workflow to match
-                the specific provisions of your deed and the real-world transactions of your trust.
+                Rather than applying generic templates, we tailor our accounting
+                workflow to match the specific provisions of your deed and the
+                real-world transactions of your trust.
               </p>
 
               <ul className="space-y-3.5 mb-6">
@@ -115,7 +119,7 @@ export default function HowFinanciallyUpHelpsTrusts() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-10 px-5 rounded-xl font-semibold shadow-xs"
+                  className="h-10 px-5 rounded-lg font-semibold shadow-xs"
                 >
                   Schedule Initial Trust Discussion
                 </Button>
@@ -124,10 +128,10 @@ export default function HowFinanciallyUpHelpsTrusts() {
           </div>
 
           {/* Card 2: Strategic Advisory & Professional Boundaries */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center">
                   <SafetyCertificateOutlined className="text-blue-600 dark:text-blue-400 text-xl" />
                 </div>
                 <div>
@@ -141,33 +145,35 @@ export default function HowFinanciallyUpHelpsTrusts() {
               </div>
 
               <div className="space-y-4 text-sm text-slate-600 dark:text-zinc-300 font-normal leading-relaxed mb-6">
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
                     Agreed Proactive Tax Planning Scope
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 m-0">
-                    Where proactive distribution planning or capital gains analysis is requested, we
-                    clearly establish what can be addressed within an agreed advisory scope before
-                    commitments are made.
+                    Where proactive distribution planning or capital gains
+                    analysis is requested, we clearly establish what can be
+                    addressed within an agreed advisory scope before commitments
+                    are made.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
                     Qualified Legal Adviser Collaboration
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 m-0">
-                    When decisions depend on formal deed amendments, trustee powers, asset
-                    protection strategies, or legal ownership structures, we coordinate smoothly
-                    with your legal advisers or provide specialist referral pathways.
+                    When decisions depend on formal deed amendments, trustee
+                    powers, asset protection strategies, or legal ownership
+                    structures, we coordinate smoothly with your legal advisers
+                    or provide specialist referral pathways.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Clear scope boundaries ensure your compliance is robust and professional costs are fully
-              transparent.
+              Clear scope boundaries ensure your compliance is robust and
+              professional costs are fully transparent.
             </div>
           </div>
         </div>

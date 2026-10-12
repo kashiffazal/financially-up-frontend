@@ -78,11 +78,11 @@ export default function OverdueVsUnlodgedExplanation() {
           {definitions.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-shadow"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-shadow"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-700/60 flex items-center justify-center text-lg">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-700/60 flex items-center justify-center text-lg">
                     {item.icon}
                   </div>
                   <Tag
@@ -176,7 +176,7 @@ export default function OverdueVsUnlodgedExplanation() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-            <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70">
+            <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70">
               <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2">
                 Year-by-Year Legislative Rules
               </h4>
@@ -189,7 +189,7 @@ export default function OverdueVsUnlodgedExplanation() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 flex flex-col justify-between">
+            <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 flex flex-col justify-between">
               <div>
                 <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2">
                   Sole Trader Income in Outstanding Years

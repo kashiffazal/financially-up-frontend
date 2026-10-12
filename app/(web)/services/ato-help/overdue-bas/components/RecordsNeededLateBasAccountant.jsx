@@ -26,7 +26,9 @@ export default function RecordsNeededLateBasAccountant() {
         "Business credit card transaction histories",
         "Commercial loan and chattel mortgage schedules",
       ],
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "Sales & Turnover Data",
@@ -35,7 +37,9 @@ export default function RecordsNeededLateBasAccountant() {
         "Tax invoices issued to customers and clients",
         "Cash sales records and bank deposit slips",
       ],
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       title: "Expense & Supplier Bills",
@@ -44,7 +48,9 @@ export default function RecordsNeededLateBasAccountant() {
         "Major asset purchase contracts and tax invoices",
         "Motor vehicle and equipment purchase agreements",
       ],
-      icon: <CloudServerOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CloudServerOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
     },
     {
       title: "Payroll & Single Touch Payroll",
@@ -53,7 +59,9 @@ export default function RecordsNeededLateBasAccountant() {
         "Single Touch Payroll (STP) year-to-date reports",
         "Superannuation guarantee payment confirmations",
       ],
-      icon: <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
     },
   ];
 
@@ -69,10 +77,19 @@ export default function RecordsNeededLateBasAccountant() {
           </h2>
           <div className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed space-y-4">
             <p>
-              Useful records can include bank and credit-card statements, accounting software access, sales and supplier invoices, point-of-sale reports, payroll and Single Touch Payroll records, prior BAS, loan statements and details of unusual transactions. Additional invoices or contracts may be needed where GST treatment is uncertain.
+              Useful records can include bank and credit-card statements,
+              accounting software access, sales and supplier invoices,
+              point-of-sale reports, payroll and Single Touch Payroll records,
+              prior BAS, loan statements and details of unusual transactions.
+              Additional invoices or contracts may be needed where GST treatment
+              is uncertain.
             </p>
             <p>
-              If the records are incomplete, a bookkeeping clean-up may be required before the BAS can be prepared reliably. Our bookkeeping service can bring the accounting records up to date, while this page focuses on the activity statements and related ATO lodgment position.
+              If the records are incomplete, a bookkeeping clean-up may be
+              required before the BAS can be prepared reliably. Our bookkeeping
+              service can bring the accounting records up to date, while this
+              page focuses on the activity statements and related ATO lodgment
+              position.
             </p>
           </div>
         </div>
@@ -82,10 +99,10 @@ export default function RecordsNeededLateBasAccountant() {
           {documentGroups.map((group, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                   {group.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-3">
@@ -108,18 +125,20 @@ export default function RecordsNeededLateBasAccountant() {
         </div>
 
         {/* Bookkeeping Clean-Up Callout */}
-        <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white">
               Behind on Bank Reconciliations and Software Data Entry?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 mt-1">
-              Our professional bookkeeping team can systematically clean up months or years of historical transactions before the BAS is calculated.
+              Our professional bookkeeping team can systematically clean up
+              months or years of historical transactions before the BAS is
+              calculated.
             </p>
           </div>
           <Link
             href="/services/business-accounting/bookkeeping"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm transition-colors whitespace-nowrap self-start sm:self-auto"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm transition-colors whitespace-nowrap self-start sm:self-auto"
           >
             <span>Explore Bookkeeping Service</span>
             <ArrowRightOutlined />

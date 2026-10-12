@@ -56,32 +56,38 @@ const smsfPropertyQuickSpecs = [
   {
     icon: "home",
     label: "Property Types",
-    value: "Commercial business real property & arm's-length third-party residential property",
+    value:
+      "Commercial business real property & arm's-length third-party residential property",
   },
   {
     icon: "team",
     label: "Related Party Rules",
-    value: "Residential acquisition from relatives prohibited; commercial business real property permitted",
+    value:
+      "Residential acquisition from relatives prohibited; commercial business real property permitted",
   },
   {
     icon: "lineChart",
     label: "Annual Valuation",
-    value: "Objective market value evidence required for 30 June reporting and independent audit",
+    value:
+      "Objective market value evidence required for 30 June reporting and independent audit",
   },
   {
     icon: "file",
     label: "Tax Deductibility",
-    value: "Division 43 capital works, Division 40 depreciation schedules & expense classification",
+    value:
+      "Division 43 capital works, Division 40 depreciation schedules & expense classification",
   },
   {
     icon: "bank",
     label: "LRBA Legislation",
-    value: "New borrowings from 10 Aug 2026 restricted to business real property only",
+    value:
+      "New borrowings from 10 Aug 2026 restricted to business real property only",
   },
   {
     icon: "safety",
     label: "Audit Assurance",
-    value: "Full workpaper file compiled for independent ASIC-registered approved SMSF auditor",
+    value:
+      "Full workpaper file compiled for independent ASIC-registered approved SMSF auditor",
   },
 ];
 
@@ -94,7 +100,10 @@ const smsfPropertyFaqs = [
     label: "Can my SMSF buy residential property from me or a relative?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Generally no. An SMSF is restricted from acquiring assets from related parties unless a specific exception applies. Residential property ordinarily does not satisfy the business real property exception. The transaction should be checked before any contract is signed.
+        Generally no. An SMSF is restricted from acquiring assets from related
+        parties unless a specific exception applies. Residential property
+        ordinarily does not satisfy the business real property exception. The
+        transaction should be checked before any contract is signed.
       </p>
     ),
   },
@@ -103,7 +112,10 @@ const smsfPropertyFaqs = [
     label: "Can my business rent commercial property from my SMSF?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It may be possible if the property qualifies as business real property and the lease complies with the relevant rules, including arm&apos;s-length and market-value requirements. The facts and documents should be reviewed before relying on this treatment.
+        It may be possible if the property qualifies as business real property
+        and the lease complies with the relevant rules, including
+        arm&apos;s-length and market-value requirements. The facts and documents
+        should be reviewed before relying on this treatment.
       </p>
     ),
   },
@@ -112,7 +124,10 @@ const smsfPropertyFaqs = [
     label: "Does an SMSF property need a valuation every year?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The property must be reported at market value each year in the fund&apos;s accounts and statements. Trustees need objective, supportable evidence for the value and should reassess whether earlier valuation evidence remains suitable.
+        The property must be reported at market value each year in the
+        fund&apos;s accounts and statements. Trustees need objective,
+        supportable evidence for the value and should reassess whether earlier
+        valuation evidence remains suitable.
       </p>
     ),
   },
@@ -121,7 +136,9 @@ const smsfPropertyFaqs = [
     label: "Does Financially Up perform the SMSF audit?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Financially Up can prepare the accounting records and audit file. The annual audit must be completed independently by an approved SMSF auditor who meets the applicable independence requirements.
+        Financially Up can prepare the accounting records and audit file. The
+        annual audit must be completed independently by an approved SMSF auditor
+        who meets the applicable independence requirements.
       </p>
     ),
   },
@@ -190,12 +207,20 @@ export default function SmsfPropertySubpage() {
         subtitle="Property held through a self-managed super fund brings together property records, superannuation rules, tax reporting, annual valuation and audit requirements. An SMSF property accountant helps trustees record the property correctly and prepare reliable information for the fund's financial statements, independent audit and SMSF annual return."
         bodyText={
           <span>
-            Financially Up Pty Ltd provides SMSF property accounting, tax-return preparation and compliance support Australia-wide. We prepare year-end schedules and identify matters requiring separately scoped tax, legal, lending or financial product advice. We do not recommend that you buy, sell or hold a particular property or financial product.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up Pty Ltd provides SMSF property accounting, tax-return
+            preparation and compliance support Australia-wide. We prepare
+            year-end schedules and identify matters requiring separately scoped
+            tax, legal, lending or financial product advice. We do not recommend
+            that you buy, sell or hold a particular property or financial
+            product.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Initial Appointment:
               </span>
-              If your fund owns property, is preparing to acquire property or has records that need to be brought up to date, the first appointment can clarify the relevant records, service scope and next steps.
+              If your fund owns property, is preparing to acquire property or
+              has records that need to be brought up to date, the first
+              appointment can clarify the relevant records, service scope and
+              next steps.
             </div>
           </span>
         }

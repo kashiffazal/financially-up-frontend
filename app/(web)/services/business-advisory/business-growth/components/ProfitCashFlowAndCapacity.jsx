@@ -27,19 +27,25 @@ import {
 export default function ProfitCashFlowAndCapacity() {
   const threePillars = [
     {
-      icon: <DollarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "1. Profit",
       subtitle: "Trading Results Over Time",
       desc: "Measures trading margin after accounting for revenue and earned expenses. However, paper profit cannot pay next week's wages without cleared funds.",
     },
     {
-      icon: <LineChartOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <LineChartOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "2. Cash Flow",
       subtitle: "Bank Balance Timing",
       desc: "Tracks exactly when customer money clears and supplier outlays leave the bank account. Slow-paying debtors or stock build-ups drain liquidity rapidly.",
     },
     {
-      icon: <ToolOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ToolOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "3. Capacity",
       subtitle: "Operational Bandwidth",
       desc: "Encompasses staffing, supervision, inventory systems, and premises throughput. Operating over capacity leads to errors, delays, and margin erosion.",
@@ -67,10 +73,10 @@ export default function ProfitCashFlowAndCapacity() {
           {threePillars.map((pil, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4">
                   {pil.icon}
                 </div>
                 <div className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 mb-1">
@@ -90,7 +96,7 @@ export default function ProfitCashFlowAndCapacity() {
         {/* 2 Verbatim Text Cards (Gov Guidance on Cash + Data Completeness) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
                 <LineChartOutlined />
@@ -99,19 +105,20 @@ export default function ProfitCashFlowAndCapacity() {
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
                 Profit measures the result of trading over a period; cash flow
                 tracks when money actually arrives and leaves. Both matter. A
-                business can report a profit while carrying slow-paying
-                debtors, large inventory or tax amounts due before receipts
-                arrive. The Australian Government&apos;s business guidance recommends
+                business can report a profit while carrying slow-paying debtors,
+                large inventory or tax amounts due before receipts arrive. The
+                Australian Government&apos;s business guidance recommends
                 forecasting cash flow when testing changes to operations.
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Cash flow forecasts test whether working capital survives the expansion.
+              Cash flow forecasts test whether working capital survives the
+              expansion.
             </div>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-3">
                 <CheckCircleOutlined />
@@ -132,7 +139,7 @@ export default function ProfitCashFlowAndCapacity() {
         </div>
 
         {/* Verbatim Paragraph 3 Feature Banner: Operational Demands of Growth */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
@@ -140,12 +147,11 @@ export default function ProfitCashFlowAndCapacity() {
                 <span>Managing Operational Demands</span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-                Growth also creates operational demands. Hiring may need
-                payroll processes and supervision; expanding locations may need
-                stock controls and consistent reporting. Financially Up can
-                address the accounting, tax and financial management
-                implications and help identify operational or legal questions
-                for other advisers.
+                Growth also creates operational demands. Hiring may need payroll
+                processes and supervision; expanding locations may need stock
+                controls and consistent reporting. Financially Up can address
+                the accounting, tax and financial management implications and
+                help identify operational or legal questions for other advisers.
               </p>
             </div>
 
@@ -155,7 +161,7 @@ export default function ProfitCashFlowAndCapacity() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="rounded-xl font-bold px-6 h-11"
+                  className="rounded-lg font-bold px-6 h-11"
                 >
                   Plan Capacity Scaling
                 </Button>

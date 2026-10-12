@@ -46,7 +46,7 @@ export default function PaygGstAndPsiRules() {
           <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl">
                   <ClockCircleOutlined />
                 </div>
                 <Tag
@@ -89,7 +89,7 @@ export default function PaygGstAndPsiRules() {
           <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl">
+                <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl">
                   <FileSyncOutlined />
                 </div>
                 <Tag
@@ -118,7 +118,7 @@ export default function PaygGstAndPsiRules() {
                 annual return reports taxable income for the financial year.
               </p>
 
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-300">
+              <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-300">
                 <p className="font-normal mb-2">
                   If you are registered for GST, the records used for both
                   lodgements should be consistent. Financially Up can review the
@@ -148,7 +148,7 @@ export default function PaygGstAndPsiRules() {
           <div className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">
                   <SafetyCertificateOutlined />
                 </div>
                 <Tag
@@ -176,7 +176,7 @@ export default function PaygGstAndPsiRules() {
                 relevant tests, not occupation alone.
               </p>
 
-              <div className="p-3.5 rounded-xl bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 text-xs text-blue-950 dark:text-blue-200 font-normal">
+              <div className="p-3.5 rounded-lg bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/50 text-xs text-blue-950 dark:text-blue-200 font-normal">
                 <strong>PSI Tests We Review:</strong> Results test, 80% rule,
                 unrelated clients test, employment test, and business premises
                 test.

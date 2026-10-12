@@ -47,7 +47,8 @@ export default function HowThreeWayForecastIsBuilt() {
     },
     {
       step: "06",
-      title: "Checking linked statements and explaining the resulting cash path",
+      title:
+        "Checking linked statements and explaining the resulting cash path",
       desc: "Reconciling all balance sheet ties, verifying that the cash statement reconciles, and framing key takeaways.",
     },
   ];
@@ -56,14 +57,23 @@ export default function HowThreeWayForecastIsBuilt() {
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Build Methodology
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How is the forecast built?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            We begin with recent accounts and establish an opening financial position. We then discuss operational assumptions such as sales, pricing, direct costs, payroll, payment terms and planned spending. Debt terms, tax-related cash payments and other commitments are considered where relevant to the agreed scope. We document significant assumptions and check that the projected statements reconcile.
+            We begin with recent accounts and establish an opening financial
+            position. We then discuss operational assumptions such as sales,
+            pricing, direct costs, payroll, payment terms and planned spending.
+            Debt terms, tax-related cash payments and other commitments are
+            considered where relevant to the agreed scope. We document
+            significant assumptions and check that the projected statements
+            reconcile.
           </p>
         </div>
 
@@ -72,7 +82,7 @@ export default function HowThreeWayForecastIsBuilt() {
           {buildSteps.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/60 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/60 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono font-bold text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded-md bg-teal-100/60 dark:bg-teal-950/40">
@@ -91,8 +101,8 @@ export default function HowThreeWayForecastIsBuilt() {
         </div>
 
         {/* Verbatim Three Statement Model Consultant Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/40 flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-amber-100/60 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/40 flex items-start gap-4">
+          <div className="w-12 h-12 rounded-lg bg-amber-100/60 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
             <WarningOutlined className="text-xl" />
           </div>
           <div>
@@ -100,7 +110,11 @@ export default function HowThreeWayForecastIsBuilt() {
               Three Statement Model Consultant Principle
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-              As a three statement model consultant, we distinguish estimates supported by contracts or recent results from assumptions that require more judgement. If the accounts are incomplete, we identify the work needed before relying on a detailed forecast. More formulae cannot compensate for an unreliable opening balance.
+              As a three statement model consultant, we distinguish estimates
+              supported by contracts or recent results from assumptions that
+              require more judgement. If the accounts are incomplete, we
+              identify the work needed before relying on a detailed forecast.
+              More formulae cannot compensate for an unreliable opening balance.
             </p>
           </div>
         </div>

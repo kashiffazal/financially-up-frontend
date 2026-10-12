@@ -24,22 +24,30 @@ import {
 export default function HowWeApproachBenchmarkReview() {
   const processSteps = [
     {
-      icon: <QuestionCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <QuestionCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "1. Clarify the Core Question",
       desc: "Is your concern falling margin, unusually high overhead, uneven branch results or setting a new annual budget?",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "2. Verify Data Classification",
       desc: "Checking your own accounts to confirm bookkeeping consistency before comparing periods or business units.",
     },
     {
-      icon: <SlidersOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SlidersOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "3. Select Comparison Sources",
       desc: "Selecting internal historical periods and evaluating whether external peer databases are suitable and reliable.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "4. Form Hypotheses & Action",
       desc: "Discussing differences with you, formulating hypotheses, collecting extra data, and setting monitoring measures.",
     },
@@ -74,9 +82,9 @@ export default function HowWeApproachBenchmarkReview() {
           {processSteps.map((step, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {step.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -90,7 +98,7 @@ export default function HowWeApproachBenchmarkReview() {
         </div>
 
         {/* Narrative Box: Transparent SME Tailored Guidance */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
           <div className="max-w-4xl mx-auto space-y-4">
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
               We discuss differences with you and consider factors the figures
@@ -111,7 +119,8 @@ export default function HowWeApproachBenchmarkReview() {
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
               <CheckCircleOutlined />
               <span>
-                Pragmatic commercial focus: comparison followed by decision and post-implementation review.
+                Pragmatic commercial focus: comparison followed by decision and
+                post-implementation review.
               </span>
             </div>
           </div>

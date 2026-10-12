@@ -43,7 +43,7 @@ export default function WhyAccurateSourceRecordsMatter() {
         {/* 2 Strategic Blocks */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Block 1: Statutory ATO Record Obligations */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/70 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-5">
                 <FileProtectOutlined className="text-sm" />
@@ -69,7 +69,7 @@ export default function WhyAccurateSourceRecordsMatter() {
               </div>
 
               {/* ATO 5-Year Requirement Callout */}
-              <div className="mt-6 p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex items-start gap-3">
+              <div className="mt-6 p-4 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 flex items-start gap-3">
                 <ClockCircleOutlined className="text-amber-600 dark:text-amber-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-normal">
                   <strong>5-Year Statutory Rule:</strong> Paper or digital
@@ -97,7 +97,7 @@ export default function WhyAccurateSourceRecordsMatter() {
           </div>
 
           {/* Block 2: Evidence-Based Clean-Up */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100/70 dark:bg-teal-950 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mb-5">
                 <AuditOutlined className="text-sm" />
@@ -119,7 +119,7 @@ export default function WhyAccurateSourceRecordsMatter() {
               </div>
 
               {/* Substantiation Callout */}
-              <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
+              <div className="mt-6 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
                   We verify source documents before committing general journal

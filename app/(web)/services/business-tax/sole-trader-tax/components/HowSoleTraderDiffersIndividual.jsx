@@ -45,10 +45,10 @@ export default function HowSoleTraderDiffersIndividual() {
         {/* 2 Comparative Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Active Business Sole Trader */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-teal-50/60 via-white to-emerald-50/40 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-teal-50/60 via-white to-emerald-50/40 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
                   <ShopOutlined className="text-xl" />
                 </div>
                 <div>
@@ -78,10 +78,10 @@ export default function HowSoleTraderDiffersIndividual() {
           </div>
 
           {/* Card 2: Basic Individual Tax Return */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col justify-between">
+          <div className="p-6 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
                   <UserOutlined className="text-xl" />
                 </div>
                 <div>
@@ -118,7 +118,7 @@ export default function HowSoleTraderDiffersIndividual() {
         </div>
 
         {/* Growth & Financial Statements Callout Strip */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/80 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50/80 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ApartmentOutlined className="text-teal-600 dark:text-teal-400" />
@@ -135,7 +135,7 @@ export default function HowSoleTraderDiffersIndividual() {
             <Link href="/services/business-tax/business-financial-statements">
               <Button
                 type="default"
-                className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-lg"
               >
                 Business Financial Statements
               </Button>
@@ -143,7 +143,7 @@ export default function HowSoleTraderDiffersIndividual() {
             <Link href="/services/business-tax">
               <Button
                 type="primary"
-                className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

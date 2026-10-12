@@ -18,25 +18,33 @@ import {
 export default function WhatBusinessStructureAdviceInvolves() {
   const corePrinciples = [
     {
-      icon: <ApartmentOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Legal & Operational Identity",
       description:
         "A business structure determines who owns and operates the business and affects tax obligations, registrations, legal responsibilities and administration.",
     },
     {
-      icon: <CompassOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CompassOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Commercial Alignment",
       description:
         "A business structure adviser can help compare these options against your commercial circumstances. The purpose is not to select a structure based on one tax rate or one perceived benefit.",
     },
     {
-      icon: <FileProtectOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <FileProtectOutlined className="text-2xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Combined Impact Analysis",
       description:
         "It is to understand the combined tax, compliance, control and practical consequences before you establish or change the business.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Recognised Australian Forms",
       description:
         "Common Australian structures include sole trader, partnership, company and trust, each carrying distinct regulatory, legal and accounting frameworks.",
@@ -58,11 +66,18 @@ export default function WhatBusinessStructureAdviceInvolves() {
 
         {/* Verbatim Content Body */}
         <div className="max-w-4xl mx-auto mb-14 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed text-center sm:text-left">
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            A business structure determines who owns and operates the business and affects tax obligations, registrations, legal responsibilities and administration. Common Australian structures include sole trader, partnership, company and trust.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            A business structure determines who owns and operates the business
+            and affects tax obligations, registrations, legal responsibilities
+            and administration. Common Australian structures include sole
+            trader, partnership, company and trust.
           </p>
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            A business structure adviser can help compare these options against your commercial circumstances. The purpose is not to select a structure based on one tax rate or one perceived benefit; it is to understand the combined tax, compliance, control and practical consequences before you establish or change the business.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            A business structure adviser can help compare these options against
+            your commercial circumstances. The purpose is not to select a
+            structure based on one tax rate or one perceived benefit; it is to
+            understand the combined tax, compliance, control and practical
+            consequences before you establish or change the business.
           </p>
         </div>
 
@@ -71,10 +86,10 @@ export default function WhatBusinessStructureAdviceInvolves() {
           {corePrinciples.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">

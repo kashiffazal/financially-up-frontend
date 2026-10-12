@@ -114,13 +114,13 @@ export default function WhoBenefitsFromPropertyTaxPlanning() {
           {investorScenarios.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between group ${
+              className={`bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between group ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -144,7 +144,7 @@ export default function WhoBenefitsFromPropertyTaxPlanning() {
         </div>
 
         {/* Bottom Booking Prompt Strip */}
-        <div className="rounded-2xl bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/80 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg bg-slate-100/80 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/80 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               Planning a property acquisition, refinance, or sale?
@@ -160,7 +160,7 @@ export default function WhoBenefitsFromPropertyTaxPlanning() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
+              className="rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11 px-6 shadow-xs"
             >
               Consult a Property Advisor
             </Button>

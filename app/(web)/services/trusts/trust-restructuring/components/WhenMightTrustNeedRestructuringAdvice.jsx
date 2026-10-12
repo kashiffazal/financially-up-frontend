@@ -2,10 +2,7 @@
 
 import React from "react";
 import { Tag } from "antd";
-import {
-  CheckCircleOutlined,
-  ClockCircleOutlined,
-} from "@ant-design/icons";
+import { CheckCircleOutlined, ClockCircleOutlined } from "@ant-design/icons";
 
 /**
  * WhenMightTrustNeedRestructuringAdvice Component
@@ -30,18 +27,23 @@ export default function WhenMightTrustNeedRestructuringAdvice() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Restructuring Triggers
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             When might a trust need restructuring advice?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Trust restructuring advice may be relevant when the current arrangement no longer matches the family,
-            business or investment circumstances. Common triggers include succession planning, retirement of a trustee
-            or appointer, moving to a corporate trustee, admitting or exiting unit holders, simplifying an older
-            structure, responding to a relationship or ownership change, or preparing for a transaction involving trust
-            assets.
+            Trust restructuring advice may be relevant when the current
+            arrangement no longer matches the family, business or investment
+            circumstances. Common triggers include succession planning,
+            retirement of a trustee or appointer, moving to a corporate trustee,
+            admitting or exiting unit holders, simplifying an older structure,
+            responding to a relationship or ownership change, or preparing for a
+            transaction involving trust assets.
           </p>
         </div>
 
@@ -50,7 +52,7 @@ export default function WhenMightTrustNeedRestructuringAdvice() {
           {triggers.map((text, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm flex items-start gap-4"
+              className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm flex items-start gap-4"
             >
               <div className="w-8 h-8 rounded-full bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800/60 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-sm" />

@@ -53,18 +53,20 @@ export default function TrustVsCompanyTaxation() {
             Trust Taxation vs Company Taxation
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Understanding how trust tax rules differ from corporate tax rules allows trustees and founders to make informed decisions regarding profit retention, asset growth, and capital distributions.
+            Understanding how trust tax rules differ from corporate tax rules
+            allows trustees and founders to make informed decisions regarding
+            profit retention, asset growth, and capital distributions.
           </p>
         </div>
 
         {/* 2-Column Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Left: Trust Taxation */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                     <ApartmentOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
                   </div>
                   <div>
@@ -83,7 +85,10 @@ export default function TrustVsCompanyTaxation() {
 
               <ul className="space-y-3.5 mb-6">
                 {trustFeatures.map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                     <span>{feat}</span>
                   </li>
@@ -92,16 +97,17 @@ export default function TrustVsCompanyTaxation() {
             </div>
 
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Optimal for: Long-term capital growth assets, property portfolios & flexible family distributions.
+              Optimal for: Long-term capital growth assets, property portfolios
+              & flexible family distributions.
             </div>
           </div>
 
           {/* Right: Company Taxation */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
                     <BankOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
                   </div>
                   <div>
@@ -120,7 +126,10 @@ export default function TrustVsCompanyTaxation() {
 
               <ul className="space-y-3.5 mb-6">
                 {companyFeatures.map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                     <span>{feat}</span>
                   </li>
@@ -129,19 +138,23 @@ export default function TrustVsCompanyTaxation() {
             </div>
 
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Optimal for: Active commercial trading, high operational risk & business working capital retention.
+              Optimal for: Active commercial trading, high operational risk &
+              business working capital retention.
             </div>
           </div>
         </div>
 
         {/* Integration Callout */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
               Coordinating Trusts and Companies in Family Groups
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1">
-              Many Australian family groups utilize both structures: a discretionary trust distributing business profits to a corporate beneficiary (&apos;bucket company&apos;) at 25%, managed with compliant Division 7A loan agreements.
+              Many Australian family groups utilize both structures: a
+              discretionary trust distributing business profits to a corporate
+              beneficiary (&apos;bucket company&apos;) at 25%, managed with
+              compliant Division 7A loan agreements.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -150,7 +163,7 @@ export default function TrustVsCompanyTaxation() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20"
             >
               Discuss Trust Strategy
             </Button>

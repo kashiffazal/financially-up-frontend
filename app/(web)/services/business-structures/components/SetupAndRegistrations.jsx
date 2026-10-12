@@ -33,7 +33,9 @@ export default function SetupAndRegistrations() {
    */
   const registrationElements = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Company Registration",
       tag: "ASIC Incorporation",
       description:
@@ -41,7 +43,9 @@ export default function SetupAndRegistrations() {
       href: "/services/business-structures/company-registration",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Australian Business Number (ABN)",
       tag: "ABR Identifier",
       description:
@@ -49,7 +53,9 @@ export default function SetupAndRegistrations() {
       href: "/services/business-structures/abn-registration",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Tax File Number (TFN)",
       tag: "Entity Tax File",
       description:
@@ -57,7 +63,9 @@ export default function SetupAndRegistrations() {
       href: "/services/business-structures/business-structure-advice",
     },
     {
-      icon: <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "GST Registration",
       tag: "Goods & Services Tax",
       description:
@@ -65,7 +73,9 @@ export default function SetupAndRegistrations() {
       href: "/services/business-structures/abn-registration",
     },
     {
-      icon: <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "PAYG Withholding & Business Names",
       tag: "Staffing & Trading",
       description:
@@ -99,7 +109,11 @@ export default function SetupAndRegistrations() {
             Business setup and registrations
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Once a structure is selected, the next step is making sure the entity and registrations are set up consistently. Depending on the structure and activities, this can involve a company registration, ABN, tax file number, GST registration, PAYG withholding and other business registrations.
+            Once a structure is selected, the next step is making sure the
+            entity and registrations are set up consistently. Depending on the
+            structure and activities, this can involve a company registration,
+            ABN, tax file number, GST registration, PAYG withholding and other
+            business registrations.
           </p>
         </div>
 
@@ -108,13 +122,13 @@ export default function SetupAndRegistrations() {
           {registrationElements.map((item, idx) => (
             <div
               key={idx}
-              className={`p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between ${
+              className={`p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between ${
                 idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
@@ -143,7 +157,7 @@ export default function SetupAndRegistrations() {
         </div>
 
         {/* Deep Dive Callout Box: Verbatim Paragraph 40 */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 lg:p-9 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 lg:p-9 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Narrative: Verbatim Paragraph 40 */}
             <div className="lg:col-span-7 space-y-4">
@@ -155,7 +169,11 @@ export default function SetupAndRegistrations() {
                 Assistance with the ABN Registration Process
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                If an ABN is required, Financially Up can help with the ABN registration process and the information needed for the application. Not everyone is entitled to an ABN; entitlement depends on matters such as carrying on or starting an enterprise, or being a Corporations Act company.
+                If an ABN is required, Financially Up can help with the ABN
+                registration process and the information needed for the
+                application. Not everyone is entitled to an ABN; entitlement
+                depends on matters such as carrying on or starting an
+                enterprise, or being a Corporations Act company.
               </p>
               <div className="pt-2">
                 <Link href="/book-an-appointment">
@@ -164,7 +182,7 @@ export default function SetupAndRegistrations() {
                     size="large"
                     icon={<ArrowRightOutlined />}
                     iconPlacement="end"
-                    className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
+                    className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20"
                   >
                     Discuss Your Registrations
                   </Button>
@@ -173,14 +191,17 @@ export default function SetupAndRegistrations() {
             </div>
 
             {/* Right Entitlement Checklist */}
-            <div className="lg:col-span-5 bg-slate-50 dark:bg-zinc-950/60 rounded-xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800/80">
+            <div className="lg:col-span-5 bg-slate-50 dark:bg-zinc-950/60 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800/80">
               <h4 className="text-xs font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider mb-4 flex items-center gap-2">
                 <CheckCircleOutlined className="text-teal-600 dark:text-teal-400" />
                 <span>ABN Entitlement Factors</span>
               </h4>
               <ul className="space-y-2.5">
                 {entitlementCriteria.map((criterion, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5 shrink-0" />
                     <span>{criterion}</span>
                   </li>

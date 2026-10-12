@@ -32,7 +32,9 @@ export default function WhatInformationAdvisorReviews() {
       title: "current and prior-year profit and loss statements",
     },
     {
-      icon: <AuditOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "balance sheets and cash flow reports",
     },
     {
@@ -56,8 +58,11 @@ export default function WhatInformationAdvisorReviews() {
       title: "current budgets or forecasts, if available",
     },
     {
-      icon: <CompassOutlined className="text-emerald-600 dark:text-emerald-400" />,
-      title: "details of planned investments, hiring, pricing or growth decisions",
+      icon: (
+        <CompassOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "details of planned investments, hiring, pricing or growth decisions",
     },
   ];
 
@@ -73,7 +78,8 @@ export default function WhatInformationAdvisorReviews() {
             What information will a business advisor usually review?
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            The records required depend on the question being addressed. Common information includes:
+            The records required depend on the question being addressed. Common
+            information includes:
           </p>
         </div>
 
@@ -82,10 +88,10 @@ export default function WhatInformationAdvisorReviews() {
           {reviewRecords.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center mb-4 text-lg">
+                <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center mb-4 text-lg">
                   {item.icon}
                 </div>
                 <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white mb-0 leading-snug">
@@ -101,8 +107,8 @@ export default function WhatInformationAdvisorReviews() {
         </div>
 
         {/* Cloud Accounting & Decision Focus Note (Exact Trailing Paragraph from Document) */}
-        <div className="rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center shrink-0 text-xl text-teal-600 dark:text-teal-400">
+        <div className="rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 flex items-start gap-4">
+          <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center shrink-0 text-xl text-teal-600 dark:text-teal-400">
             <CloudSyncOutlined />
           </div>
           <div>
@@ -110,7 +116,10 @@ export default function WhatInformationAdvisorReviews() {
               Cloud Accounting Systems & Practical Decision-Making
             </h4>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-              Where the business uses cloud accounting software, current data can make ongoing review more useful. The objective is not to create reports for their own sake, but to connect the numbers to decisions the owner or management team actually needs to make.
+              Where the business uses cloud accounting software, current data
+              can make ongoing review more useful. The objective is not to
+              create reports for their own sake, but to connect the numbers to
+              decisions the owner or management team actually needs to make.
             </p>
           </div>
         </div>

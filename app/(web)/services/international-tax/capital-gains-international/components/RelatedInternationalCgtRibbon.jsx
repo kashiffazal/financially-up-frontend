@@ -22,44 +22,62 @@ export default function RelatedInternationalCgtRibbon() {
   const siblingSubServices = [
     {
       title: "Foreign Income Tax",
-      description: "Reporting offshore employment salary, foreign bank interest, overseas dividends, and trusts.",
+      description:
+        "Reporting offshore employment salary, foreign bank interest, overseas dividends, and trusts.",
       href: "/services/international-tax/foreign-income-tax",
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Pillar 14.1",
     },
     {
       title: "Tax Residency Advice",
-      description: "Statutory determinations under the 4 residency tests, DTA tie-breakers, and timeline reviews.",
+      description:
+        "Statutory determinations under the 4 residency tests, DTA tie-breakers, and timeline reviews.",
       href: "/services/international-tax/tax-residency",
-      icon: <CompassOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Pillar 14.2",
     },
     {
       title: "New Migrants Tax",
-      description: "Tax rules for new arrivals, temporary visa holders, and first-year lodgements.",
+      description:
+        "Tax rules for new arrivals, temporary visa holders, and first-year lodgements.",
       href: "/services/international-tax/new-migrants-tax",
-      icon: <GlobalOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       tag: "Pillar 14.3",
     },
     {
       title: "Foreign Rental Property",
-      description: "Australian tax rules for offshore real estate, allowable deductions, and records.",
+      description:
+        "Australian tax rules for offshore real estate, allowable deductions, and records.",
       href: "/services/international-tax/foreign-rental-income",
-      icon: <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Pillar 14.4",
     },
     {
       title: "Foreign Tax Offsets (FITO)",
-      description: "Claiming foreign income tax offsets to relieve double taxation under Section 770-10.",
+      description:
+        "Claiming foreign income tax offsets to relieve double taxation under Section 770-10.",
       href: "/services/international-tax/foreign-tax-offset",
-      icon: <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Pillar 14.5",
     },
     {
       title: "Australians Overseas",
-      description: "Expat tax returns, managing Australian rental property, and non-resident CGT withholding.",
+      description:
+        "Expat tax returns, managing Australian rental property, and non-resident CGT withholding.",
       href: "/services/international-tax/australians-overseas",
-      icon: <TeamOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       tag: "Pillar 14.7",
     },
   ];
@@ -76,7 +94,8 @@ export default function RelatedInternationalCgtRibbon() {
               Explore Related International Tax Services
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-zinc-400 font-normal">
-              Specialist advice across all cross-border taxation, expat reporting, and foreign asset areas.
+              Specialist advice across all cross-border taxation, expat
+              reporting, and foreign asset areas.
             </p>
           </div>
           <div className="mt-4 md:mt-0">
@@ -94,11 +113,11 @@ export default function RelatedInternationalCgtRibbon() {
             <Link
               key={idx}
               href={sub.href}
-              className="group p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="group p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {sub.icon}
                   </div>
                   <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">

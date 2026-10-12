@@ -25,12 +25,16 @@ import {
 export default function WhenDoesCompanyChangeDirector() {
   const appointmentPrerequisites = [
     {
-      icon: <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Company Constitution & Rules",
       desc: "Check that the appointment is made strictly in accordance with the company constitution or applicable replaceable rules.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />
+      ),
       title: "Signed Written Consent",
       desc: "ASIC requires the company to obtain and keep the person&apos;s written and signed consent before formal appointment.",
     },
@@ -51,14 +55,22 @@ export default function WhenDoesCompanyChangeDirector() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Officeholder Governance & Compliance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             When does a company need to change director details with ASIC?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A director change usually arises when a new director is appointed, an existing director resigns or retires, members remove a director in accordance with the applicable rules, or an earlier notification needs to be corrected. ASIC states that a company must tell it within 28 days when a new director or secretary is appointed, or when an existing officeholder resigns or retires.
+            A director change usually arises when a new director is appointed,
+            an existing director resigns or retires, members remove a director
+            in accordance with the applicable rules, or an earlier notification
+            needs to be corrected. ASIC states that a company must tell it
+            within 28 days when a new director or secretary is appointed, or
+            when an existing officeholder resigns or retires.
           </p>
         </div>
 
@@ -69,7 +81,11 @@ export default function WhenDoesCompanyChangeDirector() {
               Adding or appointing a director
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal max-w-2xl mx-auto">
-              Before a person is appointed as a director, the company should check that the appointment is made in accordance with its constitution or applicable replaceable rules. ASIC also requires the company to obtain and keep the person&apos;s written and signed consent before appointment.
+              Before a person is appointed as a director, the company should
+              check that the appointment is made in accordance with its
+              constitution or applicable replaceable rules. ASIC also requires
+              the company to obtain and keep the person&apos;s written and
+              signed consent before appointment.
             </p>
           </div>
 
@@ -77,9 +93,9 @@ export default function WhenDoesCompanyChangeDirector() {
             {appointmentPrerequisites.map((p, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/50 transition-colors"
+                className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/50 transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-lg mb-3">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center text-lg mb-3">
                   {p.icon}
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -95,8 +111,10 @@ export default function WhenDoesCompanyChangeDirector() {
           <Alert
             type="info"
             showIcon
-            icon={<IdcardOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />}
-            className="rounded-2xl border border-emerald-200/80 dark:border-emerald-800/60 bg-emerald-50/70 dark:bg-emerald-950/30 p-4 sm:p-5"
+            icon={
+              <IdcardOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />
+            }
+            className="rounded-lg border border-emerald-200/80 dark:border-emerald-800/60 bg-emerald-50/70 dark:bg-emerald-950/30 p-4 sm:p-5"
             title={
               <span className="text-sm font-bold text-slate-900 dark:text-white">
                 Individual Director ID Application Rule
@@ -104,7 +122,11 @@ export default function WhenDoesCompanyChangeDirector() {
             }
             description={
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 mt-1 font-normal">
-                A proposed director must have a director identification number before being appointed. Director IDs are issued and administered by Australian Business Registry Services. The individual applies for their own director ID; the company or accountant does not apply for it on their behalf.
+                A proposed director must have a director identification number
+                before being appointed. Director IDs are issued and administered
+                by Australian Business Registry Services. The individual applies
+                for their own director ID; the company or accountant does not
+                apply for it on their behalf.
               </p>
             }
           />
@@ -117,16 +139,21 @@ export default function WhenDoesCompanyChangeDirector() {
               Adding or removing a director?
             </h3>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed m-0 font-normal">
-              If your company is adding or removing a director, an initial discussion can clarify the change date, company records, director ID position and what needs to be notified to ASIC.
+              If your company is adding or removing a director, an initial
+              discussion can clarify the change date, company records, director
+              ID position and what needs to be notified to ASIC.
             </p>
           </div>
-          <Link href="/book-an-appointment" className="shrink-0 w-full sm:w-auto">
+          <Link
+            href="/book-an-appointment"
+            className="shrink-0 w-full sm:w-auto"
+          >
             <Button
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
               iconPosition="end"
-              className="w-full sm:w-auto rounded-xl font-bold bg-white text-emerald-950 hover:bg-emerald-50 border-none h-11"
+              className="w-full sm:w-auto rounded-lg font-bold bg-white text-emerald-950 hover:bg-emerald-50 border-none h-11"
             >
               Book an Appointment
             </Button>

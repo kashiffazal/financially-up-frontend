@@ -90,9 +90,9 @@ export default function WhyFinanciallyUpCatchUp() {
           {trustBadges.map((badge, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 text-center flex flex-col items-center justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 text-center flex flex-col items-center justify-between"
             >
-              <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {badge.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -106,7 +106,7 @@ export default function WhyFinanciallyUpCatchUp() {
         </div>
 
         {/* Dynamic Contact Details Bar */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white dark:bg-zinc-950 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-900 text-white dark:bg-zinc-950 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <h4 className="text-lg font-bold text-white">
               Ready to Clear Your Overdue Bookkeeping?

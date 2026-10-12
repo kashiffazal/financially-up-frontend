@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Alert } from "antd";
-import { HistoryOutlined, LineChartOutlined, FileProtectOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import {
+  HistoryOutlined,
+  LineChartOutlined,
+  FileProtectOutlined,
+  QuestionCircleOutlined,
+} from "@ant-design/icons";
 
 /**
  * HomeFirstUsedToProduceIncomeRule Component
@@ -21,7 +26,9 @@ export default function HomeFirstUsedToProduceIncomeRule() {
             The Home First Used to Produce Income Rule
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Where a home first begins producing income after 20 August 1996, the statutory market-value reset rule can substantially alter your future CGT cost base.
+            Where a home first begins producing income after 20 August 1996, the
+            statutory market-value reset rule can substantially alter your
+            future CGT cost base.
           </p>
         </div>
 
@@ -36,45 +43,64 @@ export default function HomeFirstUsedToProduceIncomeRule() {
                 Deemed Acquisition at Market Value
               </h3>
               <p className="text-slate-200 text-base leading-relaxed mb-4">
-                Broadly, this rule applies where a later sale would be only partly exempt and a full main residence exemption would have been available if the home had been sold immediately before its first income-producing use.
+                Broadly, this rule applies where a later sale would be only
+                partly exempt and a full main residence exemption would have
+                been available if the home had been sold immediately before its
+                first income-producing use.
               </p>
               <p className="text-slate-200 text-base leading-relaxed">
-                When all statutory conditions are met, the property is treated for future CGT purposes as having been acquired at its <strong>market value on that exact change-of-use date</strong>, rather than its historical original purchase price.
+                When all statutory conditions are met, the property is treated
+                for future CGT purposes as having been acquired at its{" "}
+                <strong>market value on that exact change-of-use date</strong>,
+                rather than its historical original purchase price.
               </p>
             </div>
 
             <div className="space-y-4">
-              <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <LineChartOutlined className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Protects Prior Capital Growth</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Protects Prior Capital Growth
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      All capital growth accumulated while you lived in the home remains 100% tax-free. Only future capital growth above the market valuation is subject to CGT.
+                      All capital growth accumulated while you lived in the home
+                      remains 100% tax-free. Only future capital growth above
+                      the market valuation is subject to CGT.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <FileProtectOutlined className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Contemporaneous Valuation Essential</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Contemporaneous Valuation Essential
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Because this valuation materially sets the baseline for future CGT calculations, obtaining a professional valuation or kerbside market appraisal at the change date is critical.
+                      Because this valuation materially sets the baseline for
+                      future CGT calculations, obtaining a professional
+                      valuation or kerbside market appraisal at the change date
+                      is critical.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <QuestionCircleOutlined className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Does Not Apply to Initial Rentals</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Does Not Apply to Initial Rentals
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      This rule does not apply if the property was rented immediately upon purchase before you moved in, or if you validly continue full exemption under the 6-year rule.
+                      This rule does not apply if the property was rented
+                      immediately upon purchase before you moved in, or if you
+                      validly continue full exemption under the 6-year rule.
                     </p>
                   </div>
                 </div>
@@ -89,10 +115,14 @@ export default function HomeFirstUsedToProduceIncomeRule() {
           title="Timing is Critical"
           description={
             <div className="text-slate-700 text-sm leading-relaxed mt-1">
-              Attempting to reconstruct a retrospective property valuation many years later when the asset is finally sold can lead to ATO disputes and suboptimal cost base adjustments. Financially Up advises obtaining a formal valuation when the tenant first moves in.
+              Attempting to reconstruct a retrospective property valuation many
+              years later when the asset is finally sold can lead to ATO
+              disputes and suboptimal cost base adjustments. Financially Up
+              advises obtaining a formal valuation when the tenant first moves
+              in.
             </div>
           }
-          className="border border-blue-200 bg-blue-50/60 rounded-xl p-5"
+          className="border border-blue-200 bg-blue-50/60 rounded-lg p-5"
         />
       </div>
     </section>

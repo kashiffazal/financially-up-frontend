@@ -14,8 +14,14 @@ import {
 } from "@ant-design/icons";
 import IndividualEngagementMainLog from "./partial/mainLog";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
-import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
-import { useLiveNotifications, upsertIntoStatusMap, FRESH_ROW_MS } from "@/components/admin/NotificationCenter/liveEvents";
+import SearchFilterBanner, {
+  filterStatusMapByIds,
+} from "@/components/admin/SearchFilterBanner";
+import {
+  useLiveNotifications,
+  upsertIntoStatusMap,
+  FRESH_ROW_MS,
+} from "@/components/admin/NotificationCenter/liveEvents";
 import { HTTP, antdMsg } from "@/services";
 
 /**
@@ -89,13 +95,13 @@ export default function IndividualEngagementLogModule() {
   const [activeStatusKey, setActiveStatusKey] = useState("All");
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
-  // Record requested via `?open=<id>` (Global Search) — opened by the "All" tab log
+  // Record requested via `?open=<id>` (Global Search) - opened by the "All" tab log
   const [autoOpenRecord, setAutoOpenRecord] = useState(null);
-  // Global Search "View all" filter (?ids=…&q=…) — narrows every status tab
+  // Global Search "View all" filter (?ids=…&q=…) - narrows every status tab
   const [searchFilter, setSearchFilter] = useState(null);
   const visibleByStatus = useMemo(
     () => filterStatusMapByIds(listDataByStatus, searchFilter?.ids),
-    [listDataByStatus, searchFilter]
+    [listDataByStatus, searchFilter],
   );
 
   // --------------------------------------------------------------------------
@@ -156,7 +162,7 @@ export default function IndividualEngagementLogModule() {
   }, [fetchRecords]);
 
   // --------------------------------------------------------------------------
-  // DEEP LINK (?open=<id>) — OPEN A RECORD FROM GLOBAL SEARCH
+  // DEEP LINK (?open=<id>) - OPEN A RECORD FROM GLOBAL SEARCH
   // --------------------------------------------------------------------------
   // The list endpoint returns every engagement, so no fetch-by-id fallback is needed.
   const handleOpenFromUrl = useCallback((record) => {
@@ -182,16 +188,27 @@ export default function IndividualEngagementLogModule() {
       fetchRecords({ silent: true });
       return;
     }
-    const res = await HTTP("GET", "/new-individual-engagements", { id: notification.recordId }, false, true);
+    const res = await HTTP(
+      "GET",
+      "/new-individual-engagements",
+      { id: notification.recordId },
+      false,
+      true,
+    );
     const row = (Array.isArray(res?.data) ? res.data : [])[0];
     if (!row?.id) {
       fetchRecords({ silent: true }); // not readable → silent full refresh
       return;
     }
-    setListDataByStatus((prev) => upsertIntoStatusMap(prev, { ...row, key: row.id }, "Pending Review"));
+    setListDataByStatus((prev) =>
+      upsertIntoStatusMap(prev, { ...row, key: row.id }, "Pending Review"),
+    );
     const id = String(row.id);
     setFreshIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
-    setTimeout(() => setFreshIds((prev) => prev.filter((x) => x !== id)), FRESH_ROW_MS);
+    setTimeout(
+      () => setFreshIds((prev) => prev.filter((x) => x !== id)),
+      FRESH_ROW_MS,
+    );
   });
 
   // --------------------------------------------------------------------------
@@ -257,7 +274,14 @@ export default function IndividualEngagementLogModule() {
     });
 
     return [allTab, ...statusTabs];
-  }, [visibleByStatus, fetchRecords, loading, autoOpenRecord, handleAutoOpenHandled, freshIds]);
+  }, [
+    visibleByStatus,
+    fetchRecords,
+    loading,
+    autoOpenRecord,
+    handleAutoOpenHandled,
+    freshIds,
+  ]);
 
   // --------------------------------------------------------------------------
   // 4. RENDER TABS
@@ -270,7 +294,10 @@ export default function IndividualEngagementLogModule() {
         onOpen={handleOpenFromUrl}
         onFilter={handleSearchFilter}
       />
-      <SearchFilterBanner filter={searchFilter} shownCount={visibleByStatus.All?.length || 0} />
+      <SearchFilterBanner
+        filter={searchFilter}
+        shownCount={visibleByStatus.All?.length || 0}
+      />
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

@@ -24,7 +24,9 @@ export default function DifferentAtoLettersDifferentAction() {
       desc: "Default assessments, failure to lodge warnings, and demand for prior-year lodgements.",
       serviceName: "Overdue Tax Returns",
       href: "/services/ato-help/overdue-tax-returns",
-      icon: <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Pillar 11.3",
     },
     {
@@ -32,7 +34,9 @@ export default function DifferentAtoLettersDifferentAction() {
       desc: "Statement of Account balances, firmer collection warnings, and GIC statements.",
       serviceName: "ATO Payment Plan Help",
       href: "/services/ato-help/payment-plans",
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Pillar 11.6",
     },
     {
@@ -40,7 +44,9 @@ export default function DifferentAtoLettersDifferentAction() {
       desc: "Data-matching discrepancies, questionnaires, and requests for source records.",
       serviceName: "ATO Review Help",
       href: "/services/ato-help/ato-reviews",
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Pillar 11.7",
     },
     {
@@ -48,7 +54,9 @@ export default function DifferentAtoLettersDifferentAction() {
       desc: "Failure to lodge (FTL) penalty notifications, shortfall penalties, and GIC statements.",
       serviceName: "Penalty Remission",
       href: "/services/ato-help/penalty-remission",
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Pillar 11.4",
     },
   ];
@@ -65,10 +73,20 @@ export default function DifferentAtoLettersDifferentAction() {
           </h2>
           <div className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed space-y-4">
             <p>
-              A notice may concern an outstanding return or activity statement, an account balance, a proposed or imposed penalty, general interest charge, a request for records, a data-matching discrepancy, a review, an amended assessment or an objection decision. The correct response depends on the document’s legal and practical effect.
+              A notice may concern an outstanding return or activity statement,
+              an account balance, a proposed or imposed penalty, general
+              interest charge, a request for records, a data-matching
+              discrepancy, a review, an amended assessment or an objection
+              decision. The correct response depends on the document’s legal and
+              practical effect.
             </p>
             <p>
-              For an outstanding income tax return, see our overdue tax returns service. If the notice concerns a debt you cannot pay in full, our ATO payment plan help page explains instalment arrangements. A formal examination has a distinct response process covered under ATO review help. These pages explain the issue; they do not replace reading the particular notice.
+              For an outstanding income tax return, see our overdue tax returns
+              service. If the notice concerns a debt you cannot pay in full, our
+              ATO payment plan help page explains instalment arrangements. A
+              formal examination has a distinct response process covered under
+              ATO review help. These pages explain the issue; they do not
+              replace reading the particular notice.
             </p>
           </div>
         </div>
@@ -78,11 +96,11 @@ export default function DifferentAtoLettersDifferentAction() {
           {noticeTypes.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
                   <span className="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase">

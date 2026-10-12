@@ -31,43 +31,57 @@ export default function WhatInformationNeeded() {
   const documentItems = [
     {
       num: "01",
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Accounting & Payroll",
       text: "Current year-to-date income, accounting or payroll information.",
     },
     {
       num: "02",
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Tax History",
       text: "Prior-year tax returns and notices of assessment where relevant.",
     },
     {
       num: "03",
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Expenditure",
       text: "Details of business expenses, asset purchases and expected transactions.",
     },
     {
       num: "04",
-      icon: <HomeOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       tag: "Investments & CGT",
       text: "Investment, property or capital gains information where relevant.",
     },
     {
       num: "05",
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Business Compliance",
       text: "BAS, GST, PAYG instalment and other tax records for a business.",
     },
     {
       num: "06",
-      icon: <CalendarOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Superannuation",
       text: "Superannuation contribution information where it is part of the tax planning scope.",
     },
     {
       num: "07",
-      icon: <FolderOpenOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       tag: "Commercial Contracts",
       text: "Any contracts, transaction dates or supporting documents relevant to a planned sale, purchase or restructure.",
     },
@@ -96,11 +110,11 @@ export default function WhatInformationNeeded() {
           {documentItems.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-sm transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-sm transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <div className="flex items-center gap-2">
@@ -121,7 +135,7 @@ export default function WhatInformationNeeded() {
           ))}
 
           {/* Action Notice Card */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-zinc-900 dark:to-teal-950/30 border border-teal-200 dark:border-teal-800/80 flex flex-col justify-between">
+          <div className="p-6 sm:p-7 rounded-lg bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-zinc-900 dark:to-teal-950/30 border border-teal-200 dark:border-teal-800/80 flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center mb-3">
                 <CheckCircleFilled className="text-base" />
@@ -140,7 +154,7 @@ export default function WhatInformationNeeded() {
                 type="primary"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-10 rounded-xl font-semibold shadow-sm"
+                className="w-full h-10 rounded-lg font-semibold shadow-sm"
               >
                 Discuss Available Records
               </Button>

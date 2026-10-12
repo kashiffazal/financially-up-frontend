@@ -45,7 +45,7 @@ export default function ForeignRentalDividendsAndInterest() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <HomeOutlined className="text-xl" />
                 </div>
                 <div>
@@ -69,7 +69,7 @@ export default function ForeignRentalDividendsAndInterest() {
                   treatment.
                 </p>
 
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700 space-y-2">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Conversions &amp; Disposals:
                   </span>
@@ -104,7 +104,7 @@ export default function ForeignRentalDividendsAndInterest() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <DollarOutlined className="text-xl" />
                 </div>
                 <div>
@@ -127,7 +127,7 @@ export default function ForeignRentalDividendsAndInterest() {
                   Australian pre-fill information.
                 </p>
 
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700 space-y-2">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Offshore Entities &amp; Accounts:
                   </span>

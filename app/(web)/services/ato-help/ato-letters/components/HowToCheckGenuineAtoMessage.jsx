@@ -26,7 +26,7 @@ export default function HowToCheckGenuineAtoMessage() {
     {
       title: "Direct Access via Official Portals",
       description:
-        "Individuals with myGov linked to the ATO generally receive personal notices in their myGov Inbox. Always log in directly via my.gov.au or the official ATO app—never follow links in SMS or email.",
+        "Individuals with myGov linked to the ATO generally receive personal notices in their myGov Inbox. Always log in directly via my.gov.au or the official ATO app-never follow links in SMS or email.",
       icon: <MobileOutlined className="text-xl text-emerald-500" />,
     },
     {
@@ -55,13 +55,26 @@ export default function HowToCheckGenuineAtoMessage() {
           </h2>
           <div className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed space-y-4">
             <p>
-              Scammers impersonate the ATO through email, SMS, phone calls, social media and fake websites. If a message is unexpected or creates pressure to click a link, disclose identity information or pay immediately, stop and verify it through official ATO channels. Do not use the contact details supplied by an unverified sender.
+              Scammers impersonate the ATO through email, SMS, phone calls,
+              social media and fake websites. If a message is unexpected or
+              creates pressure to click a link, disclose identity information or
+              pay immediately, stop and verify it through official ATO channels.
+              Do not use the contact details supplied by an unverified sender.
             </p>
             <p>
-              Individuals with myGov linked to the ATO generally receive personal messages and reminders through their myGov Inbox or ATO online services, although the ATO may also send general SMS or email communications. Access the service directly through the official website or app rather than an unexpected link. The ATO also provides a scam-verification and reporting service and advises people not to engage if unsure.
+              Individuals with myGov linked to the ATO generally receive
+              personal messages and reminders through their myGov Inbox or ATO
+              online services, although the ATO may also send general SMS or
+              email communications. Access the service directly through the
+              official website or app rather than an unexpected link. The ATO
+              also provides a scam-verification and reporting service and
+              advises people not to engage if unsure.
             </p>
             <p>
-              Financially Up can help identify the tax issue shown in genuine correspondence, but suspected impersonation, identity compromise or unauthorized account activity should also be reported promptly through the ATO’s official security channels.
+              Financially Up can help identify the tax issue shown in genuine
+              correspondence, but suspected impersonation, identity compromise
+              or unauthorized account activity should also be reported promptly
+              through the ATO’s official security channels.
             </p>
           </div>
         </div>
@@ -71,9 +84,9 @@ export default function HowToCheckGenuineAtoMessage() {
           {securityRules.map((rule, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 flex gap-5"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 flex gap-5"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center flex-shrink-0">
                 {rule.icon}
               </div>
               <div>

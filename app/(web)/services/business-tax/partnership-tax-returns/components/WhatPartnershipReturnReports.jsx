@@ -82,11 +82,11 @@ export default function WhatPartnershipReturnReports() {
           {returnComponents.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold text-slate-400 dark:text-zinc-500">
@@ -105,9 +105,9 @@ export default function WhatPartnershipReturnReports() {
         </div>
 
         {/* Verbatim Editorial Box: Partner Share Statements & Non-Commercial Loss Rules */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm space-y-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm space-y-6">
           <div className="flex flex-col lg:flex-row items-start gap-6">
-            <div className="w-12 h-12 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-1">
+            <div className="w-12 h-12 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-1">
               <ExclamationCircleOutlined className="text-2xl" />
             </div>
             <div className="space-y-3 flex-1">
@@ -132,7 +132,7 @@ export default function WhatPartnershipReturnReports() {
               <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="default"
-                  className="brand-btn-outline w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                  className="brand-btn-outline w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
                 >

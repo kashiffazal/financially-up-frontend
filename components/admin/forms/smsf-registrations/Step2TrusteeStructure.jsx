@@ -45,7 +45,7 @@ export default function Step2TrusteeStructure() {
         emptyFirstVal="- Select Structure -"
         reqMsg="Trustee structure model is required"
         size="large"
-        className="rounded-xl"
+        className="rounded-lg"
         containerClassName="!mb-2"
       />
 
@@ -62,7 +62,7 @@ export default function Step2TrusteeStructure() {
           reqMsg="Trustee company name is required"
           preIconAnt={<BankOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
 
@@ -77,12 +77,12 @@ export default function Step2TrusteeStructure() {
           placeholder="e.g. 123456789"
           noRequired={true}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex items-center gap-2 mb-1">
           <EnvironmentOutlined className="text-brand-primary text-sm" />
           <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
@@ -102,7 +102,7 @@ export default function Step2TrusteeStructure() {
             placeholder="e.g. 12 or Suite 3"
             reqMsg="House number is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -116,7 +116,7 @@ export default function Step2TrusteeStructure() {
             placeholder="e.g. Flinders Lane"
             reqMsg="Street is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -133,7 +133,7 @@ export default function Step2TrusteeStructure() {
             placeholder="e.g. Melbourne"
             reqMsg="Suburb is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -150,7 +150,7 @@ export default function Step2TrusteeStructure() {
             patternMsg="Must be 4 digits"
             reqMsg="Postcode is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -165,7 +165,7 @@ export default function Step2TrusteeStructure() {
             emptyFirstVal="- Select State -"
             reqMsg="State is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

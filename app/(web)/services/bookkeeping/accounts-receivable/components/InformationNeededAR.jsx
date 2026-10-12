@@ -95,9 +95,9 @@ export default function InformationNeededAR() {
           {documentChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4 hover:border-emerald-400/60 transition-all duration-300"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4 hover:border-emerald-400/60 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 flex items-center justify-center shrink-0 shadow-xs">
                 {item.icon}
               </div>
               <div>
@@ -113,7 +113,7 @@ export default function InformationNeededAR() {
         </div>
 
         {/* Verbatim No-Guessing Guidance Box */}
-        <div className="p-6 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-6 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-start gap-3">
             <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">

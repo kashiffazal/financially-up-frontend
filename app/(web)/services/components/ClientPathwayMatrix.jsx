@@ -76,12 +76,12 @@ export default function ClientPathwayMatrix() {
           {CLIENT_PERSONAS.map((persona) => (
             <div
               key={persona.id}
-              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/90 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/50 transition-all duration-300"
+              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/90 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/50 transition-all duration-300"
             >
               <div>
                 {/* Header Row */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-100/60 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-800/40 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-100/60 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-800/40 flex items-center justify-center">
                     {renderPersonaIcon(persona.icon)}
                   </div>
                   <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-800 shadow-2xs">

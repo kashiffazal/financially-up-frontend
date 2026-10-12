@@ -29,7 +29,7 @@ export default function StepOfficeholder({ stepNumber, totalSteps }) {
         </p>
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <AntInput
             type="radio"
@@ -64,7 +64,7 @@ export default function StepOfficeholder({ stepNumber, totalSteps }) {
             emptyFirstVal="- Select Role -"
             reqMsg="Officeholder role is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -82,7 +82,7 @@ export default function StepOfficeholder({ stepNumber, totalSteps }) {
             reqMsg="Given names are required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -98,7 +98,7 @@ export default function StepOfficeholder({ stepNumber, totalSteps }) {
             reqMsg="Family name is required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -117,7 +117,7 @@ export default function StepOfficeholder({ stepNumber, totalSteps }) {
             reqMsg="Date of birth is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -133,7 +133,7 @@ export default function StepOfficeholder({ stepNumber, totalSteps }) {
             reqMsg="Effective date is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

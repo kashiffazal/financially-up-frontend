@@ -29,33 +29,50 @@ export default function HowFinanciallyUpHelpsAto() {
    */
   const assistanceScopeItems = [
     {
-      title: "reviewing ATO letters, account statements, tax periods and due dates",
-      icon: <FileSearchOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      title:
+        "reviewing ATO letters, account statements, tax periods and due dates",
+      icon: (
+        <FileSearchOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       tag: "Letters & Deadlines",
     },
     {
-      title: "checking lodged returns, activity statements and relevant account balances",
-      icon: <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      title:
+        "checking lodged returns, activity statements and relevant account balances",
+      icon: (
+        <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       tag: "Accounts & Balances",
     },
     {
       title: "preparing or correcting outstanding tax work within scope",
-      icon: <FormOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <FormOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       tag: "Lodgements & Corrections",
     },
     {
-      title: "assembling records, reconciliations and clear explanations requested by the ATO",
-      icon: <FolderOpenOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      title:
+        "assembling records, reconciliations and clear explanations requested by the ATO",
+      icon: (
+        <FolderOpenOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       tag: "Records & Workpapers",
     },
     {
-      title: "communicating with the ATO as your registered tax agent where authorised",
-      icon: <TeamOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      title:
+        "communicating with the ATO as your registered tax agent where authorised",
+      icon: (
+        <TeamOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       tag: "Agent Communication",
     },
     {
-      title: "identifying when a separate debt, audit, objection, legal or insolvency process may be required",
-      icon: <ExclamationCircleOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      title:
+        "identifying when a separate debt, audit, objection, legal or insolvency process may be required",
+      icon: (
+        <ExclamationCircleOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       tag: "Specialist Referrals",
     },
   ];
@@ -79,9 +96,10 @@ export default function HowFinanciallyUpHelpsAto() {
 
           {/* Exact Verbatim Introductory Paragraph from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            We first review the correspondence and available account information, identify what is
-            missing and separate the immediate response from any underlying accounting or tax work.
-            Depending on the matter and agreed scope, assistance may include:
+            We first review the correspondence and available account
+            information, identify what is missing and separate the immediate
+            response from any underlying accounting or tax work. Depending on
+            the matter and agreed scope, assistance may include:
           </p>
         </div>
 
@@ -90,11 +108,11 @@ export default function HowFinanciallyUpHelpsAto() {
           {assistanceScopeItems.map((item, index) => (
             <div
               key={index}
-              className="group p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="group p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400">

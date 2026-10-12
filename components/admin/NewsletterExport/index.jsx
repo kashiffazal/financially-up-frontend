@@ -12,7 +12,7 @@ import styles from "./NewsletterExport.module.css";
 /**
  * Newsletter subscriber export (Excel / CSV) for /admin/newsletter.
  * Exports by sign-up date: all time, one month of a year, a whole year, or a
- * custom date range — optionally only Subscribed or Unsubscribed people.
+ * custom date range - optionally only Subscribed or Unsubscribed people.
  * The rows are fetched fresh from the API at export time.
  *
  * @param {Array} columns - Export columns ({ header, key })
@@ -25,7 +25,10 @@ const PERIODS = [
   { label: "Date range", value: "range" },
 ];
 
-const MONTHS = Array.from({ length: 12 }, (_, i) => ({ value: i + 1, label: dayjs().month(i).format("MMMM") }));
+const MONTHS = Array.from({ length: 12 }, (_, i) => ({
+  value: i + 1,
+  label: dayjs().month(i).format("MMMM"),
+}));
 
 const STATUSES = [
   { value: "all", label: "Everyone" },
@@ -40,15 +43,24 @@ const FIRST_YEAR = 2026;
 const periodRange = ({ period, month, year, from, to }) => {
   if (period === "month" && month && year) {
     const start = dayjs(`${year}-${String(month).padStart(2, "0")}-01`);
-    return { from: start.format("YYYY-MM-DD"), to: start.endOf("month").format("YYYY-MM-DD"), label: start.format("MMM_YYYY") };
+    return {
+      from: start.format("YYYY-MM-DD"),
+      to: start.endOf("month").format("YYYY-MM-DD"),
+      label: start.format("MMM_YYYY"),
+    };
   }
-  if (period === "year" && year) return { from: `${year}-01-01`, to: `${year}-12-31`, label: String(year) };
+  if (period === "year" && year)
+    return { from: `${year}-01-01`, to: `${year}-12-31`, label: String(year) };
   if (period === "range" && from && to) {
     const a = dayjs(from);
     const b = dayjs(to);
     if (!a.isValid() || !b.isValid()) return null;
     const [start, end] = a.isAfter(b) ? [b, a] : [a, b];
-    return { from: start.format("YYYY-MM-DD"), to: end.format("YYYY-MM-DD"), label: `${start.format("DD-MM-YYYY")}_to_${end.format("DD-MM-YYYY")}` };
+    return {
+      from: start.format("YYYY-MM-DD"),
+      to: end.format("YYYY-MM-DD"),
+      label: `${start.format("DD-MM-YYYY")}_to_${end.format("DD-MM-YYYY")}`,
+    };
   }
   if (period === "all") return { from: null, to: null, label: "All_Time" };
   return null;
@@ -61,7 +73,10 @@ export default function NewsletterExport({ columns }) {
 
   const years = useMemo(() => {
     const current = dayjs().year();
-    return Array.from({ length: Math.max(1, current - FIRST_YEAR + 1) }, (_, i) => ({ value: current - i, label: String(current - i) }));
+    return Array.from(
+      { length: Math.max(1, current - FIRST_YEAR + 1) },
+      (_, i) => ({ value: current - i, label: String(current - i) }),
+    );
   }, []);
 
   const range = periodRange({ ...values, period });
@@ -73,7 +88,10 @@ export default function NewsletterExport({ columns }) {
     if (range.from) params.set("from", range.from);
     if (range.to) params.set("to", range.to);
     if (status !== "all") params.set("status", status);
-    const res = await HTTP("GET", `/newsletter-subscribers?${params.toString()}`);
+    const res = await HTTP(
+      "GET",
+      `/newsletter-subscribers?${params.toString()}`,
+    );
     return res?.data || [];
   };
 
@@ -95,7 +113,10 @@ export default function NewsletterExport({ columns }) {
         </span>
         <div>
           <h3 className={styles.title}>Export Subscribers</h3>
-          <p className={styles.subtitle}>Download the list as Excel or CSV — everything, or by sign-up month, year or date range.</p>
+          <p className={styles.subtitle}>
+            Download the list as Excel or CSV - everything, or by sign-up month,
+            year or date range.
+          </p>
         </div>
       </div>
 
@@ -103,34 +124,104 @@ export default function NewsletterExport({ columns }) {
         form={form}
         layout="vertical"
         requiredMark={false}
-        initialValues={{ period: "all", status: "all", year: dayjs().year(), month: dayjs().month() + 1 }}
+        initialValues={{
+          period: "all",
+          status: "all",
+          year: dayjs().year(),
+          month: dayjs().month() + 1,
+        }}
         className={styles.form}
       >
         {/* One aligned row: period, its date fields, status, then the download buttons */}
         <div className={styles.row}>
-          <AntInput type="radio" name="period" label="Period" optionType="button" radioOptions={PERIODS} size="middle" noRequired containerClassName={styles.period} />
+          <AntInput
+            type="radio"
+            name="period"
+            label="Period"
+            optionType="button"
+            radioOptions={PERIODS}
+            size="middle"
+            noRequired
+            containerClassName={styles.period}
+          />
 
           {period === "month" && (
             <>
-              <AntInput type="select" size="middle" name="month" label="Month" options={MONTHS} filter={false} noRequired containerClassName={styles.field} />
-              <AntInput type="select" size="middle" name="year" label="Year" options={years} filter={false} noRequired containerClassName={styles.fieldSm} />
+              <AntInput
+                type="select"
+                size="middle"
+                name="month"
+                label="Month"
+                options={MONTHS}
+                filter={false}
+                noRequired
+                containerClassName={styles.field}
+              />
+              <AntInput
+                type="select"
+                size="middle"
+                name="year"
+                label="Year"
+                options={years}
+                filter={false}
+                noRequired
+                containerClassName={styles.fieldSm}
+              />
             </>
           )}
           {period === "year" && (
-            <AntInput type="select" size="middle" name="year" label="Year" options={years} filter={false} noRequired containerClassName={styles.fieldSm} />
+            <AntInput
+              type="select"
+              size="middle"
+              name="year"
+              label="Year"
+              options={years}
+              filter={false}
+              noRequired
+              containerClassName={styles.fieldSm}
+            />
           )}
           {period === "range" && (
             <>
-              <AntInput type="datepicker" size="middle" name="from" label="From" disabledNextDate noRequired containerClassName={styles.field} />
-              <AntInput type="datepicker" size="middle" name="to" label="To" disabledNextDate noRequired containerClassName={styles.field} />
+              <AntInput
+                type="datepicker"
+                size="middle"
+                name="from"
+                label="From"
+                disabledNextDate
+                noRequired
+                containerClassName={styles.field}
+              />
+              <AntInput
+                type="datepicker"
+                size="middle"
+                name="to"
+                label="To"
+                disabledNextDate
+                noRequired
+                containerClassName={styles.field}
+              />
             </>
           )}
 
-          <AntInput type="select" size="middle" name="status" label="Status" options={STATUSES} filter={false} noRequired containerClassName={styles.field} />
+          <AntInput
+            type="select"
+            size="middle"
+            name="status"
+            label="Status"
+            options={STATUSES}
+            filter={false}
+            noRequired
+            containerClassName={styles.field}
+          />
 
           <div className={styles.actions}>
             {range ? (
-              <ExportButtons fetchData={fetchRows} columns={columns} filename={`Newsletter_Subscribers_${range.label}${status !== "all" ? `_${status}` : ""}`} />
+              <ExportButtons
+                fetchData={fetchRows}
+                columns={columns}
+                filename={`Newsletter_Subscribers_${range.label}${status !== "all" ? `_${status}` : ""}`}
+              />
             ) : null}
           </div>
         </div>

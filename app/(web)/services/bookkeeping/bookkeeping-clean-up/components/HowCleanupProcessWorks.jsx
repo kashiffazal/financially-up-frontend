@@ -76,11 +76,11 @@ export default function HowCleanupProcessWorks() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 flex items-center justify-center shadow-xs">
+                  <div className="w-14 h-14 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 flex items-center justify-center shadow-xs">
                     {step.icon}
                   </div>
                   <span className="text-2xl font-black text-slate-300 dark:text-zinc-700">

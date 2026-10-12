@@ -27,22 +27,30 @@ import {
 export default function EmployeesHandoverAndPostSettlement() {
   const handoverAspects = [
     {
-      icon: <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Employee Entitlements",
       desc: "Annual leave, long service leave accruals, and whether liabilities are adjusted off purchase price at settlement.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Payroll Registrations",
       desc: "Setting up new Single Touch Payroll (STP), worker compensation policies, and state payroll tax thresholds.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Seller Net Proceeds",
       desc: "Modeling gross transaction proceeds after paying debt discharges, staff payouts, trade payables, and CGT liabilities.",
     },
     {
-      icon: <BankOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Buyer Working Capital Plan",
       desc: "Opening balance sheet, initial inventory funding, and forward 13-week cash flow buffer for initial post-settlement months.",
     },
@@ -67,7 +75,7 @@ export default function EmployeesHandoverAndPostSettlement() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Entitlements and Legal Allocation */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
                 <TeamOutlined />
@@ -83,12 +91,13 @@ export default function EmployeesHandoverAndPostSettlement() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Early entitlement audits avoid tense last-minute settlement disputes.
+              Early entitlement audits avoid tense last-minute settlement
+              disputes.
             </div>
           </div>
 
           {/* Card 2: Seller Net Proceeds vs Buyer Capital Plans */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-3">
                 <DollarOutlined />
@@ -102,7 +111,8 @@ export default function EmployeesHandoverAndPostSettlement() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Ensuring the acquiring entity has sufficient working capital post-completion.
+              Ensuring the acquiring entity has sufficient working capital
+              post-completion.
             </div>
           </div>
         </div>
@@ -112,7 +122,7 @@ export default function EmployeesHandoverAndPostSettlement() {
           {handoverAspects.map((aspect, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="bg-white dark:bg-zinc-900 p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-3">
                 {aspect.icon}
@@ -128,7 +138,7 @@ export default function EmployeesHandoverAndPostSettlement() {
         </div>
 
         {/* Verbatim Supporting Cross-Link Banner: Business Growth Integration */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
@@ -153,7 +163,7 @@ export default function EmployeesHandoverAndPostSettlement() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="rounded-xl font-bold px-6 h-11 shadow-sm"
+                  className="rounded-lg font-bold px-6 h-11 shadow-sm"
                 >
                   Explore Business Growth
                 </Button>

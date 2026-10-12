@@ -28,49 +28,64 @@ import {
 export default function WhatGrowthReviewLooksAt() {
   const reviewDimensions = [
     {
-      icon: <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
-      title: "Trends by service, product, customer or location, where the data supports that detail",
+      icon: (
+        <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
+      title:
+        "Trends by service, product, customer or location, where the data supports that detail",
       category: "Revenue & Segment Trends",
       detail:
         "Granular performance breakdowns identifying which business units generate sustainable margins vs those draining resources.",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <PercentageOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Gross margin, pricing and the effect of rising input costs",
       category: "Margin & Pricing Health",
       detail:
         "Examining cost creep across materials, subcontractors, and direct labor to ensure price schedules protect profitability.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Staff, contractor and equipment capacity",
       category: "Delivery Bandwidth",
       detail:
         "Assessing internal productivity, utilization rates, and machinery bottlenecks before committing to new sales targets.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Debtors, inventory, working capital and cash conversion",
       category: "Working Capital Cycle",
       detail:
         "Evaluating customer debtor days, stock holding turns, and supplier payment cycles to quantify required cash buffers.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Upcoming tax, superannuation, loan and lease payments",
       category: "Fixed Commitments",
       detail:
         "Mapping BAS lodgements, superannuation guarantee deadlines, and commercial financing obligations alongside expansion outlays.",
     },
     {
-      icon: <SlidersOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SlidersOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Scenarios for slower sales, delayed customers or higher costs",
       category: "Stress Sensitivity",
       detail:
         "Modeling down-side assumptions to determine how resilient the business balance sheet remains under unexpected delays.",
     },
     {
-      icon: <FundViewOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FundViewOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "A few useful measures to review after implementation",
       category: "Execution Tracking",
       detail:
@@ -99,13 +114,13 @@ export default function WhatGrowthReviewLooksAt() {
           {reviewDimensions.map((item, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
+              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100/80 dark:bg-zinc-800/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <Tag
@@ -138,9 +153,9 @@ export default function WhatGrowthReviewLooksAt() {
         </div>
 
         {/* Verbatim Cautionary Note: Avoiding Blind Benchmark Faith */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-950/70 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-11 h-11 rounded-lg bg-amber-50 dark:bg-amber-950/70 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center shrink-0 mt-0.5">
               <WarningOutlined className="text-xl text-amber-600 dark:text-amber-400" />
             </div>
             <div>
@@ -164,7 +179,7 @@ export default function WhatGrowthReviewLooksAt() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Request a Growth Review
             </Button>

@@ -55,14 +55,17 @@ export default function ExpatResidencyAndInfoRequired() {
               Tax Residency Advice for Expats
             </h2>
             <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Australians working overseas and expatriates living in Australia often require expat tax residency advice because assumptions based on travel duration can produce incorrect tax outcomes. A residency review is particularly useful where:
+              Australians working overseas and expatriates living in Australia
+              often require expat tax residency advice because assumptions based
+              on travel duration can produce incorrect tax outcomes. A residency
+              review is particularly useful where:
             </p>
 
             <div className="mt-6 space-y-3">
               {expatTriggers.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3 shadow-xs"
+                  className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3 shadow-xs"
                 >
                   <ExclamationCircleOutlined className="text-teal-600 dark:text-teal-400 mt-0.5 shrink-0 text-base" />
                   <span className="text-xs sm:text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug">
@@ -86,14 +89,15 @@ export default function ExpatResidencyAndInfoRequired() {
               Information Needed for a Tax Residency Review
             </h2>
             <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A tax residency accountant Australia may request information about:
+              A tax residency accountant Australia may request information
+              about:
             </p>
 
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {infoNeeded.map((info, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-2.5 shadow-xs"
+                  className="p-3.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-2.5 shadow-xs"
                 >
                   <CheckCircleFilled className="text-blue-600 dark:text-blue-400 text-sm mt-0.5 shrink-0" />
                   <span className="text-xs font-medium text-slate-800 dark:text-zinc-200 leading-tight">
@@ -103,8 +107,9 @@ export default function ExpatResidencyAndInfoRequired() {
               ))}
             </div>
 
-            <div className="mt-6 p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium leading-relaxed">
-              The review becomes more reliable when the evidence supports the timeline and circumstances described.
+            <div className="mt-6 p-4 rounded-lg bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium leading-relaxed">
+              The review becomes more reliable when the evidence supports the
+              timeline and circumstances described.
             </div>
           </div>
         </div>

@@ -27,50 +27,68 @@ import {
 export default function WhenBusinessNeedsForecasting() {
   const situations = [
     {
-      icon: <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "sales are growing but the bank balance is under pressure",
       subtitle: "Working Capital Drag from Growth",
       detail:
         "Fast expansion consumes cash before collections occur, leaving profitable businesses struggling for liquidity.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "customer payment timing is unpredictable or debtors are increasing",
+      icon: (
+        <ClockCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "customer payment timing is unpredictable or debtors are increasing",
       subtitle: "Extended Debtor Days & Aged Receivables",
       detail:
         "Delayed customer settlements disrupt weekly payroll and supplier commitments without a forward buffer.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "the business has seasonal peaks and quiet periods",
       subtitle: "Seasonal Cash Cyclicality",
       detail:
         "Cash reserves built during peak trading periods must be strategically reserved to fund fixed off-season overheads.",
     },
     {
-      icon: <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "large BAS, tax, payroll, superannuation or supplier payments are approaching",
+      icon: (
+        <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "large BAS, tax, payroll, superannuation or supplier payments are approaching",
       subtitle: "Lumpy Compliance & Supplier Commitments",
       detail:
         "Statutory quarterly ATO lodgements and major trade accounts create immediate cash pinches if unmodeled.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      title: "new staff, equipment, premises or marketing spend is being considered",
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      title:
+        "new staff, equipment, premises or marketing spend is being considered",
       subtitle: "Major Capital & Operational Commitments",
       detail:
         "Testing the affordability of new hires, commercial leases, or machinery before entering binding agreements.",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "finance repayments or other fixed commitments are increasing",
       subtitle: "Debt Service & Fixed Cost Burden",
       detail:
         "Principal and interest schedules require dependable operational cash generation every single month.",
     },
     {
-      icon: <SlidersOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "the owner wants to understand how long available cash will last under different scenarios",
+      icon: (
+        <SlidersOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      title:
+        "the owner wants to understand how long available cash will last under different scenarios",
       subtitle: "Cash Runway & Sensitivity Analysis",
       detail:
         "Clear forward runway metrics reveal exactly how many weeks of operations existing reserves cover under stress.",
@@ -103,14 +121,14 @@ export default function WhenBusinessNeedsForecasting() {
           {situations.map((item, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
+              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 {/* Header with Icon and Subtitle */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100/80 dark:bg-zinc-800/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <Tag
@@ -151,7 +169,7 @@ export default function WhenBusinessNeedsForecasting() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Assess Your Cash Position
             </Button>

@@ -33,7 +33,9 @@ export default function WhatBusinessAccountantDoes() {
       title: "Company (Pty Ltd)",
       badge: "Separate Taxpayer",
       tagColor: "blue",
-      icon: <BankOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       bgGradient: "from-blue-500/10 via-blue-500/5 to-transparent",
       borderColor: "border-blue-200 dark:border-blue-900/60",
       description:
@@ -46,7 +48,9 @@ export default function WhatBusinessAccountantDoes() {
       title: "Trusts",
       badge: "Flow-Through Entity",
       tagColor: "purple",
-      icon: <ApartmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       bgGradient: "from-purple-500/10 via-purple-500/5 to-transparent",
       borderColor: "border-purple-200 dark:border-purple-900/60",
       description:
@@ -59,7 +63,9 @@ export default function WhatBusinessAccountantDoes() {
       title: "Partnerships",
       badge: "Shared Enterprise",
       tagColor: "amber",
-      icon: <SafetyCertificateOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       bgGradient: "from-amber-500/10 via-amber-500/5 to-transparent",
       borderColor: "border-amber-200 dark:border-amber-900/60",
       description:
@@ -72,7 +78,9 @@ export default function WhatBusinessAccountantDoes() {
       title: "Sole Traders",
       badge: "Individual Return",
       tagColor: "emerald",
-      icon: <UserOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <UserOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       bgGradient: "from-emerald-500/10 via-emerald-500/5 to-transparent",
       borderColor: "border-emerald-200 dark:border-emerald-900/60",
       description:
@@ -109,8 +117,8 @@ export default function WhatBusinessAccountantDoes() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-14">
           <div className="lg:col-span-7 space-y-4 text-slate-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
             <p className="m-0">
-              The exact work depends on the entity. A company, trust, partnership
-              and sole trader are{" "}
+              The exact work depends on the entity. A company, trust,
+              partnership and sole trader are{" "}
               <strong className="text-slate-900 dark:text-white font-semibold">
                 not taxed or reported in the same way
               </strong>
@@ -121,7 +129,7 @@ export default function WhatBusinessAccountantDoes() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-3">
+            <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center gap-2 text-brand-primary dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
                 <CheckCircleOutlined /> Structure-Based Approach
               </div>
@@ -129,9 +137,9 @@ export default function WhatBusinessAccountantDoes() {
                 Tailored to Your Entity
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed m-0 font-normal">
-                Whether you operate as a company, trust, partnership, or sole trader,
-                we align year-end accounts and tax returns to the statutory reporting
-                rules of your specific entity.
+                Whether you operate as a company, trust, partnership, or sole
+                trader, we align year-end accounts and tax returns to the
+                statutory reporting rules of your specific entity.
               </p>
             </div>
           </div>
@@ -142,14 +150,17 @@ export default function WhatBusinessAccountantDoes() {
           {entityStructures.map((entity) => (
             <div
               key={entity.id}
-              className={`rounded-2xl p-6 bg-gradient-to-b ${entity.bgGradient} bg-white dark:bg-zinc-900 border ${entity.borderColor} flex flex-col justify-between shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 group`}
+              className={`rounded-lg p-6 bg-gradient-to-b ${entity.bgGradient} bg-white dark:bg-zinc-900 border ${entity.borderColor} flex flex-col justify-between shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 group`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
                     {entity.icon}
                   </div>
-                  <Tag color={entity.tagColor} className="m-0 text-[11px] font-semibold">
+                  <Tag
+                    color={entity.tagColor}
+                    className="m-0 text-[11px] font-semibold"
+                  >
                     {entity.badge}
                   </Tag>
                 </div>
@@ -175,7 +186,7 @@ export default function WhatBusinessAccountantDoes() {
         </div>
 
         {/* Bottom Scope Assurance Note */}
-        <div className="rounded-xl p-4 sm:p-5 bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/40 flex items-start gap-3">
+        <div className="rounded-lg p-4 sm:p-5 bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/40 flex items-start gap-3">
           <InfoCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed m-0 font-normal">
             <strong>Structure-First Philosophy:</strong> Our business tax

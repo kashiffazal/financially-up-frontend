@@ -36,7 +36,7 @@ export default function PropertyDisposalCgtContext() {
         {/* 2 Context Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Card 1: Verbatim Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <LineChartOutlined />
@@ -44,7 +44,10 @@ export default function PropertyDisposalCgtContext() {
               </div>
               {/* Verbatim copy from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                The annual rental-property page does not replace a full capital gains tax review. Sale costs, acquisition costs, ownership history, capital improvements and previous capital works deductions can all affect the CGT calculation.
+                The annual rental-property page does not replace a full capital
+                gains tax review. Sale costs, acquisition costs, ownership
+                history, capital improvements and previous capital works
+                deductions can all affect the CGT calculation.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/70 dark:border-zinc-800">
@@ -60,7 +63,7 @@ export default function PropertyDisposalCgtContext() {
           </div>
 
           {/* Card 2: Verbatim Paragraph 2 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <CompassOutlined />
@@ -68,7 +71,10 @@ export default function PropertyDisposalCgtContext() {
               </div>
               {/* Verbatim copy from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                If a disposal is planned or has occurred, see our Capital Gains Tax service. If you are making decisions before a purchase, refinance or sale, our Property Tax Planning service covers separately scoped proactive planning.
+                If a disposal is planned or has occurred, see our Capital Gains
+                Tax service. If you are making decisions before a purchase,
+                refinance or sale, our Property Tax Planning service covers
+                separately scoped proactive planning.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/70 dark:border-zinc-800">

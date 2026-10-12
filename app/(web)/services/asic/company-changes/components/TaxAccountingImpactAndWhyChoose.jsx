@@ -28,17 +28,23 @@ export default function TaxAccountingImpactAndWhyChoose() {
 
   const impactCards = [
     {
-      icon: <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Director Changes",
       desc: "Can impact banking authorities, legal contracts, ATO authorized contacts, and payroll sign-offs.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Shareholdings & Transfers",
       desc: "Alters statutory ownership registers, dividend distributions, CGT records, and Division 7A accounts.",
     },
     {
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Corporate Restructures",
       desc: "Demands integrated tax planning, stamp duty consideration, accounting balance adjustments, and ATO alignments.",
     },
@@ -57,7 +63,10 @@ export default function TaxAccountingImpactAndWhyChoose() {
         {/* Subsection 1: Company changes can affect tax and accounting records */}
         <div className="w-full mb-16 sm:mb-20">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="purple"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Beyond the ASIC Register
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -67,7 +76,12 @@ export default function TaxAccountingImpactAndWhyChoose() {
 
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              An ASIC update does not automatically update the company’s accounting, payroll, ATO or contractual records. Depending on the event, related records may also need attention. A director change can affect authorities and payroll arrangements; a share change can affect ownership records; and a restructure can affect tax and accounting treatment.
+              An ASIC update does not automatically update the company’s
+              accounting, payroll, ATO or contractual records. Depending on the
+              event, related records may also need attention. A director change
+              can affect authorities and payroll arrangements; a share change
+              can affect ownership records; and a restructure can affect tax and
+              accounting treatment.
             </p>
 
             {/* 3 Impact Cards */}
@@ -75,7 +89,7 @@ export default function TaxAccountingImpactAndWhyChoose() {
               {impactCards.map((c, i) => (
                 <div
                   key={i}
-                  className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800"
+                  className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800"
                 >
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-3">
                     {c.icon}
@@ -91,8 +105,13 @@ export default function TaxAccountingImpactAndWhyChoose() {
             </div>
 
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal pt-2 border-t border-slate-100 dark:border-zinc-800">
-              Financially Up can coordinate the accounting and tax aspects where they fall within scope. For ongoing corporate administration beyond a single update, our{" "}
-              <Link href="/services/asic" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+              Financially Up can coordinate the accounting and tax aspects where
+              they fall within scope. For ongoing corporate administration
+              beyond a single update, our{" "}
+              <Link
+                href="/services/asic"
+                className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+              >
                 ASIC compliance services
               </Link>{" "}
               page explains the broader support available.
@@ -110,10 +129,15 @@ export default function TaxAccountingImpactAndWhyChoose() {
               Why choose Financially Up?
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-4">
-              Financially Up has more than 10 years of experience and a professional team including CPA and IPA members. We are a registered tax agent and support clients Australia-wide through online and in-person appointments.
+              Financially Up has more than 10 years of experience and a
+              professional team including CPA and IPA members. We are a
+              registered tax agent and support clients Australia-wide through
+              online and in-person appointments.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-emerald-200 leading-relaxed max-w-3xl font-normal mb-8">
-              Our focus is to make the company-change process practical while recognising when a filing has consequences beyond ASIC administration.
+              Our focus is to make the company-change process practical while
+              recognising when a filing has consequences beyond ASIC
+              administration.
             </p>
 
             {/* Credential Metrics Grid */}
@@ -138,7 +162,7 @@ export default function TaxAccountingImpactAndWhyChoose() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPosition="end"
-                  className="w-full sm:w-auto rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
+                  className="w-full sm:w-auto rounded-lg font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
                 >
                   Book an Appointment
                 </Button>
@@ -152,7 +176,7 @@ export default function TaxAccountingImpactAndWhyChoose() {
                   <Button
                     size="large"
                     icon={<PhoneOutlined />}
-                    className="w-full sm:w-auto rounded-xl font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
+                    className="w-full sm:w-auto rounded-lg font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
                   >
                     Call {company.phone}
                   </Button>

@@ -30,7 +30,10 @@ export default function HowFinanciallyUpHelpsDashboards() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Verbatim Strategic Explanation */}
           <div className="lg:col-span-7">
-            <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Service Delivery
             </Tag>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -38,25 +41,43 @@ export default function HowFinanciallyUpHelpsDashboards() {
             </h2>
             <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               <p>
-                Our business performance dashboard services can include reviewing current reporting, agreeing the measures and definitions, designing a concise view, checking source data, and discussing results at an agreed frequency. A one-off dashboard setup and an ongoing CFO-style review are different engagements, so we clarify the work, reporting dates and responsibilities at the outset.
+                Our business performance dashboard services can include
+                reviewing current reporting, agreeing the measures and
+                definitions, designing a concise view, checking source data, and
+                discussing results at an agreed frequency. A one-off dashboard
+                setup and an ongoing CFO-style review are different engagements,
+                so we clarify the work, reporting dates and responsibilities at
+                the outset.
               </p>
               <p>
-                Our KPI reporting services focus on selecting, defining and interpreting business measures in a regular reporting process. The finance dashboard provides the tailored visual view for decision makers. Where directors need a fuller narrative and supporting papers, our{" "}
-                <Link href="/services/virtual-cfo/board-reporting" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+                Our KPI reporting services focus on selecting, defining and
+                interpreting business measures in a regular reporting process.
+                The finance dashboard provides the tailored visual view for
+                decision makers. Where directors need a fuller narrative and
+                supporting papers, our{" "}
+                <Link
+                  href="/services/virtual-cfo/board-reporting"
+                  className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+                >
                   board reporting services
                 </Link>{" "}
-                address the board pack. For decisions about future cash and financial position,{" "}
-                <Link href="/services/virtual-cfo/three-way-forecasting" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+                address the board pack. For decisions about future cash and
+                financial position,{" "}
+                <Link
+                  href="/services/virtual-cfo/three-way-forecasting"
+                  className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+                >
                   three-way financial forecasting
                 </Link>{" "}
-                covers connected projections rather than current performance alone.
+                covers connected projections rather than current performance
+                alone.
               </p>
             </div>
           </div>
 
           {/* Right Column: Implementation Scope Card */}
           <div className="lg:col-span-5">
-            <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
+            <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-3.5">
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-4">
                 Dashboard Engagement Scope
               </h3>

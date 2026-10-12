@@ -53,7 +53,9 @@ export default function NotFound() {
 
   const isAdminPath = pathname?.startsWith("/admin");
   const webTheme = getWebThemeConfig ? getWebThemeConfig(isDark) : undefined;
-  const adminTheme = getAdminThemeConfig ? getAdminThemeConfig(isDark) : undefined;
+  const adminTheme = getAdminThemeConfig
+    ? getAdminThemeConfig(isDark)
+    : undefined;
 
   // --------------------------------------------------------------------------
   // ADMIN 404 VARIANT (When an administrative URL is not found)
@@ -105,7 +107,7 @@ export default function NotFound() {
             {/* Main Admin 404 Card */}
             <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-8 sm:p-12 shadow-sm text-center relative overflow-hidden">
               {/* Top Warning Icon Bubble */}
-              <div className="w-20 h-20 rounded-2xl bg-[var(--brand-primary-soft)] border border-[var(--brand-primary)]/20 text-[var(--brand-primary)] text-3xl flex items-center justify-center mx-auto mb-6 shadow-xs">
+              <div className="w-20 h-20 rounded-lg bg-[var(--brand-primary-soft)] border border-[var(--brand-primary)]/20 text-[var(--brand-primary)] text-3xl flex items-center justify-center mx-auto mb-6 shadow-xs">
                 <FileSearchOutlined />
               </div>
 
@@ -120,7 +122,9 @@ export default function NotFound() {
                 Admin Route Not Found
               </h1>
               <p className="text-sm text-slate-500 dark:text-zinc-400 max-w-md mx-auto mt-2 mb-8 leading-relaxed">
-                The administrative page, log record, or operational view you are attempting to access does not exist, has been archived, or requires elevated RBAC permissions.
+                The administrative page, log record, or operational view you are
+                attempting to access does not exist, has been archived, or
+                requires elevated RBAC permissions.
               </p>
 
               {/* Action Buttons */}
@@ -152,7 +156,7 @@ export default function NotFound() {
                     <Link
                       key={idx}
                       href={item.href}
-                      className="group p-3.5 rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-800/30 hover:border-[var(--brand-border-hover)] hover:bg-white dark:hover:bg-zinc-800 transition-all flex items-start gap-3 shadow-xs"
+                      className="group p-3.5 rounded-lg border border-slate-200/70 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-800/30 hover:border-[var(--brand-border-hover)] hover:bg-white dark:hover:bg-zinc-800 transition-all flex items-start gap-3 shadow-xs"
                     >
                       <div className="w-9 h-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                         {item.icon}
@@ -205,25 +209,33 @@ export default function NotFound() {
   const services = [
     {
       title: "Individual Tax Return",
-      description: "Fast individual lodgements, salary deductions & investment properties.",
+      description:
+        "Fast individual lodgements, salary deductions & investment properties.",
       href: "/individual-services/individual-tax-return",
-      icon: <CalculatorOutlined className="text-[var(--brand-primary)] text-xl" />,
+      icon: (
+        <CalculatorOutlined className="text-[var(--brand-primary)] text-xl" />
+      ),
     },
     {
       title: "Company Tax Return",
-      description: "Comprehensive corporate compliance for Pty Ltd, trusts & partnerships.",
+      description:
+        "Comprehensive corporate compliance for Pty Ltd, trusts & partnerships.",
       href: "/business-services/company-tax-return",
       icon: <BankOutlined className="text-[var(--brand-primary)] text-xl" />,
     },
     {
       title: "Business Registration",
-      description: "Instant online setup for ABN, GST, Company & Trust ASIC lodgement.",
+      description:
+        "Instant online setup for ABN, GST, Company & Trust ASIC lodgement.",
       href: "/resources/registration-forms/company-registration",
-      icon: <FileProtectOutlined className="text-[var(--brand-primary)] text-xl" />,
+      icon: (
+        <FileProtectOutlined className="text-[var(--brand-primary)] text-xl" />
+      ),
     },
     {
       title: "Bookkeeping & Payroll",
-      description: "Certified Xero, MYOB setup, payroll management & financial reporting.",
+      description:
+        "Certified Xero, MYOB setup, payroll management & financial reporting.",
       href: "/book-keeping",
       icon: <BookOutlined className="text-[var(--brand-primary)] text-xl" />,
     },
@@ -257,7 +269,9 @@ export default function NotFound() {
               Lost in the Ledger? We Can&#39;t Find That Page.
             </h1>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 max-w-xl mx-auto leading-relaxed mb-8">
-              The page you are searching for might have been moved, renamed, or is temporarily unavailable. Let&#39;s get your taxation and business advisory back on track.
+              The page you are searching for might have been moved, renamed, or
+              is temporarily unavailable. Let&#39;s get your taxation and
+              business advisory back on track.
             </p>
 
             {/* Action Buttons */}
@@ -296,7 +310,8 @@ export default function NotFound() {
                     Explore Popular Accounting &amp; Tax Services
                   </h2>
                   <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
-                    Navigate directly to our most frequently accessed Australian compliance services.
+                    Navigate directly to our most frequently accessed Australian
+                    compliance services.
                   </p>
                 </div>
                 <CompassOutlined className="text-2xl text-slate-300 dark:text-zinc-700 hidden sm:block" />
@@ -334,7 +349,8 @@ export default function NotFound() {
               <div className="flex items-center gap-2 text-center sm:text-left">
                 <EnvironmentOutlined className="text-[var(--brand-primary)] text-base shrink-0" />
                 <span>
-                  <strong>Head Office:</strong> Level 5, 100 Walker St, North Sydney NSW 2060, Australia
+                  <strong>Head Office:</strong> Level 5, 100 Walker St, North
+                  Sydney NSW 2060, Australia
                 </span>
               </div>
               <div className="flex items-center gap-5 shrink-0">

@@ -78,9 +78,24 @@ const UPLOAD_FIELDS = [
     step: 2,
     isRequired: (v) => v.isAustralianCitizen === "No",
   },
-  { name: "atoDocuments", label: "ATO Notices / Letters", step: 3, isRequired: () => false },
-  { name: "authorityDoc", label: "Legal Authority Document", step: 6, isRequired: () => false },
-  { name: "signatureUploadedFile", label: "Uploaded Signature", step: 9, isRequired: () => false },
+  {
+    name: "atoDocuments",
+    label: "ATO Notices / Letters",
+    step: 3,
+    isRequired: () => false,
+  },
+  {
+    name: "authorityDoc",
+    label: "Legal Authority Document",
+    step: 6,
+    isRequired: () => false,
+  },
+  {
+    name: "signatureUploadedFile",
+    label: "Uploaded Signature",
+    step: 9,
+    isRequired: () => false,
+  },
 ];
 
 const UPLOAD_FIELD_NAMES = UPLOAD_FIELDS.map((f) => f.name);
@@ -160,7 +175,8 @@ export default function IndividualEngagementClientForm() {
       const lost = Object.keys(expected).filter((field) => !restored[field]);
       if (lost.length > 0) {
         const labels = lost.map(
-          (field) => UPLOAD_FIELDS.find((f) => f.name === field)?.label || field,
+          (field) =>
+            UPLOAD_FIELDS.find((f) => f.name === field)?.label || field,
         );
         notification.warning({
           title: "Please re-attach your documents",
@@ -180,7 +196,7 @@ export default function IndividualEngagementClientForm() {
     try {
       // Validate current step fields
       const values = await form.validateFields();
-      
+
       // Preserve raw File objects so step unmounting or draft saving never loses them
       UPLOAD_FIELD_NAMES.forEach((key) => {
         if (values[key] !== undefined && values[key] !== null) {
@@ -229,7 +245,9 @@ export default function IndividualEngagementClientForm() {
             title: "Please re-attach your documents",
             description: `${missingDocuments
               .map((f) => f.label)
-              .join(", ")} could not be found. Uploaded files are not kept when a draft is reopened in some browsers, so please attach them again before submitting.`,
+              .join(
+                ", ",
+              )} could not be found. Uploaded files are not kept when a draft is reopened in some browsers, so please attach them again before submitting.`,
             duration: 10,
           });
           setCurrentStep(firstStep);
@@ -268,7 +286,7 @@ export default function IndividualEngagementClientForm() {
                 {/* Header Icon & Title */}
                 <div className="text-center space-y-2">
                   <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center shadow-inner">
-                    <CheckCircleFilled className="text-3xl text-emerald-600 dark:text-emerald-400" />
+                    <CheckCircleFilled className="text-3xl text-emerald-600! dark:text-emerald-400!" />
                   </div>
                   <h3 className="text-xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight">
                     Application Submitted Successfully
@@ -280,12 +298,12 @@ export default function IndividualEngagementClientForm() {
                 </div>
 
                 {/* Reference Details Box */}
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+                <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 space-y-3">
                   <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-zinc-800 pb-2.5">
                     <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">
                       Reference Number
                     </span>
-                    <span className="text-sm font-mono font-extrabold text-brand-primary dark:text-emerald-400 px-2.5 py-0.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-900">
+                    <span className="text-sm font-mono font-extrabold text-brand-primary dark:text-emerald-400 px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-900">
                       {res.referenceNumber || "NENG-2026-0001"}
                     </span>
                   </div>
@@ -311,7 +329,7 @@ export default function IndividualEngagementClientForm() {
                 </div>
 
                 {/* Next Steps Checklist */}
-                <div className="p-3.5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
+                <div className="p-3.5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-2 text-xs">
                   <div className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
                     <MailOutlined className="text-emerald-600 dark:text-emerald-400" />
                     <span>Next Steps</span>
@@ -332,7 +350,7 @@ export default function IndividualEngagementClientForm() {
             okText: "Return to Form Home",
             okButtonProps: {
               className:
-                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-xl border-none shadow-md shadow-emerald-600/20",
+                "bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-10 px-6 rounded-lg border-none shadow-md shadow-emerald-600/20",
             },
             onOk: () => window.scrollTo({ top: 0, behavior: "smooth" }),
             onCancel: () => window.scrollTo({ top: 0, behavior: "smooth" }),
@@ -364,7 +382,11 @@ export default function IndividualEngagementClientForm() {
   const handleSaveDraft = async () => {
     try {
       const currentFields = form.getFieldsValue(true);
-      const mergedData = { ...formData, ...currentFields, ...filesMapRef.current };
+      const mergedData = {
+        ...formData,
+        ...currentFields,
+        ...filesMapRef.current,
+      };
       const savedAt = new Date().toLocaleString("en-AU", {
         dateStyle: "medium",
         timeStyle: "short",
@@ -372,7 +394,8 @@ export default function IndividualEngagementClientForm() {
 
       // Files cannot be JSON-serialised: they are stored in IndexedDB instead,
       // and only their names are recorded in the localStorage draft.
-      const { files: draftFiles, names: attachedFileNames } = collectFileFields(mergedData);
+      const { files: draftFiles, names: attachedFileNames } =
+        collectFileFields(mergedData);
       const safeDataForStorage = { ...mergedData };
       UPLOAD_FIELD_NAMES.forEach((k) => {
         delete safeDataForStorage[k];
@@ -453,13 +476,13 @@ export default function IndividualEngagementClientForm() {
   return (
     <>
       {/* Wizard Card Container */}
-      <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-xl overflow-hidden dark:bg-zinc-950">
+      <Card className="shadow-lg border border-slate-200/80 dark:border-zinc-800 rounded-lg overflow-hidden dark:bg-zinc-950">
         {/* Executive 10-Step Progress Header */}
         <div className="p-5 sm:p-6 bg-slate-50/80 dark:bg-zinc-900/60 border mb-5 border-slate-200/80 dark:border-zinc-800 space-y-4">
           {/* Top Progress Row */}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
+              <div className="w-9 h-9 rounded-lg bg-brand-primary text-white font-extrabold text-sm flex items-center justify-center shadow-md shadow-emerald-600/20">
                 {currentStep + 1}
               </div>
               <div>
@@ -497,7 +520,7 @@ export default function IndividualEngagementClientForm() {
                   onClick={() => {
                     if (idx <= currentStep) setCurrentStep(idx);
                   }}
-                  className={`w-full py-2 px-1.5 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
+                  className={`w-full py-2 px-1.5 rounded-lg flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
                     isCurrent
                       ? "bg-brand-primary text-white font-extrabold shadow-md shadow-emerald-600/20 scale-[1.02]"
                       : isCompleted
@@ -571,13 +594,13 @@ export default function IndividualEngagementClientForm() {
         </Form>
 
         {/* Footer Actions Bar */}
-        <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-xl">
+        <div className="mt-10 pt-6 border-t border-slate-100 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 p-2 sm:p-6 bg-slate-50/50 dark:bg-zinc-900/40 rounded-lg">
           <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
             {currentStep > 0 && (
               <Button
                 icon={<ArrowLeftOutlined />}
                 onClick={handlePrev}
-                className="rounded-xl h-11 font-semibold text-slate-700 dark:text-zinc-200"
+                className="rounded-lg h-11 font-semibold text-slate-700 dark:text-zinc-200"
               >
                 Back
               </Button>
@@ -585,7 +608,7 @@ export default function IndividualEngagementClientForm() {
             <Button
               icon={<SaveOutlined />}
               onClick={handleSaveDraft}
-              className="rounded-xl h-11 font-semibold text-slate-700 dark:text-zinc-200 hover:border-brand-primary"
+              className="rounded-lg h-11 font-semibold text-slate-700 dark:text-zinc-200 hover:border-brand-primary"
             >
               Save Draft
             </Button>
@@ -594,7 +617,7 @@ export default function IndividualEngagementClientForm() {
               type="text"
               icon={<DeleteOutlined />}
               onClick={handleClearDraft}
-              className="rounded-xl h-11 font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+              className="rounded-lg h-11 font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
             >
               Reset Form
             </Button>
@@ -609,7 +632,7 @@ export default function IndividualEngagementClientForm() {
                 currentStep === 9 ? <CheckOutlined /> : <ArrowRightOutlined />
               }
               onClick={handleNext}
-              className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-xl font-extrabold text-sm shadow-md shadow-emerald-600/20"
+              className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover h-11 px-8 rounded-lg font-extrabold text-sm shadow-md shadow-emerald-600/20"
             >
               {currentStep === 9
                 ? "Submit Engagement Application"

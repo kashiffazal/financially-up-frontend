@@ -30,42 +30,55 @@ export default function CommonTrustAccountingIssues() {
   const diagnosticIssues = [
     {
       title: "unreconciled bank accounts",
-      icon: <BankOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <BankOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       tag: "Reconciliations",
       context:
         "Bank feeds or trust accounts left unreconciled until year-end, obscuring true trust earnings.",
     },
     {
       title: "unclear beneficiary balances",
-      icon: <SyncOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <SyncOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       tag: "Beneficiary Ledger",
       context:
         "Drawings and distributions mixed together without clear individual beneficiary ledger accounts.",
     },
     {
       title: "missing cost-base records",
-      icon: <FileSearchOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <FileSearchOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       tag: "CGT & Cost Base",
       context:
         "Incomplete records of purchase outlays, stamp duties, legal fees, or property improvements.",
     },
     {
       title: "inconsistent treatment of expenses",
-      icon: <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      icon: (
+        <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       tag: "Expense Treatment",
       context:
         "Private family living costs mixed with deductible trust expenses or capitalised items.",
     },
     {
       title: "late consideration of distribution decisions",
-      icon: <CalendarOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      icon: (
+        <CalendarOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       tag: "Resolution Timing",
       context:
         "Distribution resolutions delayed past 30 June, risking default trustee tax assessments.",
     },
     {
-      title: "mismatches between trust accounts and beneficiary tax information",
-      icon: <AuditOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      title:
+        "mismatches between trust accounts and beneficiary tax information",
+      icon: (
+        <AuditOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       tag: "Tax Mismatches",
       context:
         "Discrepancies between what the trust return lodges and what beneficiaries report on their individual returns.",
@@ -91,12 +104,14 @@ export default function CommonTrustAccountingIssues() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Trust records can become difficult when accounting is left until year-end, distributions
-            are considered without reliable figures, or transactions between related entities are
-            not clearly documented. Common issues include unreconciled bank accounts, unclear
-            beneficiary balances, missing cost-base records, inconsistent treatment of expenses,
-            late consideration of distribution decisions and mismatches between trust accounts and
-            beneficiary tax information.
+            Trust records can become difficult when accounting is left until
+            year-end, distributions are considered without reliable figures, or
+            transactions between related entities are not clearly documented.
+            Common issues include unreconciled bank accounts, unclear
+            beneficiary balances, missing cost-base records, inconsistent
+            treatment of expenses, late consideration of distribution decisions
+            and mismatches between trust accounts and beneficiary tax
+            information.
           </p>
         </div>
 
@@ -105,11 +120,11 @@ export default function CommonTrustAccountingIssues() {
           {diagnosticIssues.map((issue, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-amber-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-amber-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {issue.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
@@ -128,8 +143,8 @@ export default function CommonTrustAccountingIssues() {
         </div>
 
         {/* Exact Verbatim Private Company Guidance Box from Document */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-          <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+        <div className="rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+          <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
             <ApartmentOutlined className="text-xl" />
           </div>
           <div className="space-y-1">
@@ -138,9 +153,10 @@ export default function CommonTrustAccountingIssues() {
             </h3>
             {/* Exact Verbatim Paragraph 2 from Document */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-              Where a private company is involved in a trust group, additional tax rules may also need
-              review. Those issues are not automatically part of routine trust bookkeeping or return
-              preparation and may require a separately scoped tax review.
+              Where a private company is involved in a trust group, additional
+              tax rules may also need review. Those issues are not automatically
+              part of routine trust bookkeeping or return preparation and may
+              require a separately scoped tax review.
             </p>
           </div>
         </div>

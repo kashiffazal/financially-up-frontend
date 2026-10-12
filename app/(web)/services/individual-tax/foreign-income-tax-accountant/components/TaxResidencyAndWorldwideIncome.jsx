@@ -72,7 +72,7 @@ export default function TaxResidencyAndWorldwideIncome() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-lg">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-lg">
                     <GlobalOutlined className="text-brand-primary dark:text-emerald-400" />
                   </div>
                   <Tag className="m-0 font-bold text-2xs uppercase tracking-wider py-0.5 px-2.5 rounded-full border-slate-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-800/90 text-slate-800 dark:text-zinc-200">
@@ -126,7 +126,7 @@ export default function TaxResidencyAndWorldwideIncome() {
                 the outcome depends on your living arrangements, connections,
                 work, assets, family circumstances and intentions.
               </p>
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70">
                 <span className="font-bold text-slate-900 dark:text-white block mb-1">
                   Residency Transition Years:
                 </span>
@@ -143,7 +143,7 @@ export default function TaxResidencyAndWorldwideIncome() {
                 rules, treaty and dates of any residency change may all affect
                 the return.
               </p>
-              <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/40 text-xs text-emerald-950 dark:text-emerald-200">
+              <div className="p-4 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/40 text-xs text-emerald-950 dark:text-emerald-200">
                 <span className="font-bold block mb-1">
                   Our Professional Role:
                 </span>

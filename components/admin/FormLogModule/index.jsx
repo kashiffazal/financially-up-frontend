@@ -5,7 +5,9 @@ import { Tabs } from "antd";
 import { AppstoreOutlined } from "@ant-design/icons";
 import GenericMainLog from "./GenericMainLog";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
-import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
+import SearchFilterBanner, {
+  filterStatusMapByIds,
+} from "@/components/admin/SearchFilterBanner";
 import {
   useLiveNotifications,
   upsertIntoStatusMap,
@@ -26,7 +28,8 @@ const withSubmittedFields = (record) => {
   if (!fields || typeof fields !== "object") return record;
   const merged = { ...fields };
   Object.entries(record).forEach(([key, value]) => {
-    if (value !== null && value !== undefined && value !== "") merged[key] = value;
+    if (value !== null && value !== undefined && value !== "")
+      merged[key] = value;
   });
   return merged;
 };
@@ -70,66 +73,82 @@ export default function FormLogModule({
   const [activeStatusKey, setActiveStatusKey] = useState("All");
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
-  // Record requested via `?open=<id>` (Global Search) — opened by the "All" tab log
+  // Record requested via `?open=<id>` (Global Search) - opened by the "All" tab log
   const [autoOpenRecord, setAutoOpenRecord] = useState(null);
-  // Global Search "View all" filter (?ids=…&q=…) — narrows every status tab
+  // Global Search "View all" filter (?ids=…&q=…) - narrows every status tab
   const [searchFilter, setSearchFilter] = useState(null);
   const visibleByStatus = useMemo(
     () => filterStatusMapByIds(listDataByStatus, searchFilter?.ids),
-    [listDataByStatus, searchFilter]
+    [listDataByStatus, searchFilter],
   );
 
   // --------------------------------------------------------------------------
   // DATA FETCHING & BUCKETING LOGIC
   // --------------------------------------------------------------------------
-  const fetchRecords = useCallback(async ({ silent = false } = {}) => {
-    if (!endpoint) return;
-    // Silent refetch (live updates) keeps the table on screen without a spinner
-    if (!silent) setLoading(true);
-    try {
-      const res = await HTTP("GET", endpoint, {
-        limit: queryLimit,
-      });
+  const fetchRecords = useCallback(
+    async ({ silent = false } = {}) => {
+      if (!endpoint) return;
+      // Silent refetch (live updates) keeps the table on screen without a spinner
+      if (!silent) setLoading(true);
+      try {
+        const res = await HTTP("GET", endpoint, {
+          limit: queryLimit,
+        });
 
-      // Normalize array from response payload
-      const rawRecords = res?.data?.records || res?.records || res?.data || [];
-      const recordsArray = Array.isArray(rawRecords) ? rawRecords : [];
+        // Normalize array from response payload
+        const rawRecords =
+          res?.data?.records || res?.records || res?.data || [];
+        const recordsArray = Array.isArray(rawRecords) ? rawRecords : [];
 
-      const normalizedRecords = recordsArray.map((r, index) => {
-        const merged = withSubmittedFields(r);
-        const base = typeof normalizeRecord === "function" ? normalizeRecord(merged) : merged;
-        return {
-          ...base,
-          key: base.id || base._id || base.key || `rec-${index}`,
+        const normalizedRecords = recordsArray.map((r, index) => {
+          const merged = withSubmittedFields(r);
+          const base =
+            typeof normalizeRecord === "function"
+              ? normalizeRecord(merged)
+              : merged;
+          return {
+            ...base,
+            key: base.id || base._id || base.key || `rec-${index}`,
+          };
+        });
+
+        // Initialize empty array buckets for All and all defined statuses
+        const statusMap = {
+          All: normalizedRecords,
         };
-      });
 
-      // Initialize empty array buckets for All and all defined statuses
-      const statusMap = {
-        All: normalizedRecords,
-      };
+        statusList.forEach((st) => {
+          statusMap[st.key] = [];
+        });
 
-      statusList.forEach((st) => {
-        statusMap[st.key] = [];
-      });
+        // Push records into corresponding status buckets
+        normalizedRecords.forEach((item) => {
+          const itemStatus = item.status || defaultStatus;
+          if (!statusMap[itemStatus]) {
+            statusMap[itemStatus] = [];
+          }
+          statusMap[itemStatus].push(item);
+        });
 
-      // Push records into corresponding status buckets
-      normalizedRecords.forEach((item) => {
-        const itemStatus = item.status || defaultStatus;
-        if (!statusMap[itemStatus]) {
-          statusMap[itemStatus] = [];
-        }
-        statusMap[itemStatus].push(item);
-      });
-
-      setListDataByStatus(statusMap);
-    } catch (err) {
-      antdMsg.error(err?.message || `Failed to load ${filenamePrefix} records.`);
-    } finally {
-      setLoading(false);
-      setHasLoaded(true);
-    }
-  }, [endpoint, queryLimit, normalizeRecord, statusList, defaultStatus, filenamePrefix]);
+        setListDataByStatus(statusMap);
+      } catch (err) {
+        antdMsg.error(
+          err?.message || `Failed to load ${filenamePrefix} records.`,
+        );
+      } finally {
+        setLoading(false);
+        setHasLoaded(true);
+      }
+    },
+    [
+      endpoint,
+      queryLimit,
+      normalizeRecord,
+      statusList,
+      defaultStatus,
+      filenamePrefix,
+    ],
+  );
 
   // Fetch on mount or endpoint change
   useEffect(() => {
@@ -137,18 +156,27 @@ export default function FormLogModule({
   }, [fetchRecords]);
 
   // --------------------------------------------------------------------------
-  // DEEP LINK (?open=<id>) — OPEN A RECORD FROM GLOBAL SEARCH
+  // DEEP LINK (?open=<id>) - OPEN A RECORD FROM GLOBAL SEARCH
   // --------------------------------------------------------------------------
   const fetchRecordById = useCallback(
     async (id) => {
-      const res = await HTTP("GET", `${endpoint}/${id}`, undefined, false, true);
+      const res = await HTTP(
+        "GET",
+        `${endpoint}/${id}`,
+        undefined,
+        false,
+        true,
+      );
       const raw = res?.data;
       if (!raw || !raw.id) return null;
       const merged = withSubmittedFields(raw);
-      const base = typeof normalizeRecord === "function" ? normalizeRecord(merged) : merged;
+      const base =
+        typeof normalizeRecord === "function"
+          ? normalizeRecord(merged)
+          : merged;
       return { ...base, key: base.id || base._id };
     },
-    [endpoint, normalizeRecord]
+    [endpoint, normalizeRecord],
   );
 
   const handleOpenFromUrl = useCallback((record) => {
@@ -165,7 +193,7 @@ export default function FormLogModule({
   }, []);
 
   // --------------------------------------------------------------------------
-  // LIVE UPDATES — when another user's submission / status change for this
+  // LIVE UPDATES - when another user's submission / status change for this
   // module arrives, fetch ONLY that record and insert / replace it in place
   // (no full list reload), then briefly highlight the row
   // --------------------------------------------------------------------------
@@ -182,10 +210,15 @@ export default function FormLogModule({
       fetchRecords({ silent: true }); // not readable (deleted / network) → silent full refresh
       return;
     }
-    setListDataByStatus((prev) => upsertIntoStatusMap(prev, record, defaultStatus));
+    setListDataByStatus((prev) =>
+      upsertIntoStatusMap(prev, record, defaultStatus),
+    );
     const id = String(record.key);
     setFreshIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
-    setTimeout(() => setFreshIds((prev) => prev.filter((x) => x !== id)), FRESH_ROW_MS);
+    setTimeout(
+      () => setFreshIds((prev) => prev.filter((x) => x !== id)),
+      FRESH_ROW_MS,
+    );
   });
 
   // --------------------------------------------------------------------------
@@ -193,7 +226,8 @@ export default function FormLogModule({
   // --------------------------------------------------------------------------
   const handleUpdateListOnChangeStatus = useCallback(
     (row, targetStatus, oldStatus) => {
-      const targetStatusKey = targetStatus.key || targetStatus.label || targetStatus;
+      const targetStatusKey =
+        targetStatus.key || targetStatus.label || targetStatus;
       const updatedRow = { ...row, status: targetStatusKey };
 
       setListDataByStatus((prev) => {
@@ -201,14 +235,17 @@ export default function FormLogModule({
 
         // 1. Remove from old status bucket
         if (oldStatus && updatedMap[oldStatus]) {
-          updatedMap[oldStatus] = LogDeleteRow(updatedRow, updatedMap[oldStatus]);
+          updatedMap[oldStatus] = LogDeleteRow(
+            updatedRow,
+            updatedMap[oldStatus],
+          );
         }
 
         // 2. Prepend to new status bucket
         if (updatedMap[targetStatusKey]) {
           updatedMap[targetStatusKey] = LogResetList(
             updatedRow,
-            updatedMap[targetStatusKey]
+            updatedMap[targetStatusKey],
           );
         } else {
           updatedMap[targetStatusKey] = [updatedRow];
@@ -222,7 +259,7 @@ export default function FormLogModule({
         return updatedMap;
       });
     },
-    []
+    [],
   );
 
   // --------------------------------------------------------------------------
@@ -309,7 +346,7 @@ export default function FormLogModule({
             renderViewDetails={renderViewDetails}
             extraActions={extraActions}
             extraModals={extraModals}
-          freshIds={freshIds}
+            freshIds={freshIds}
           />
         ),
       };
@@ -351,7 +388,10 @@ export default function FormLogModule({
         onOpen={handleOpenFromUrl}
         onFilter={handleSearchFilter}
       />
-      <SearchFilterBanner filter={searchFilter} shownCount={visibleByStatus.All?.length || 0} />
+      <SearchFilterBanner
+        filter={searchFilter}
+        shownCount={visibleByStatus.All?.length || 0}
+      />
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

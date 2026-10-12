@@ -35,7 +35,7 @@ Best for large primary file attachments, consent letters, or prominent drag-and-
   msg="Passport or Australian Driver Licence"
   type="4"
   height={126}
-  className="rounded-xl"
+  className="rounded-lg"
 />
 ```
 
@@ -67,7 +67,7 @@ Best for single-row side-by-side placement with standard form inputs (`AntInput 
   placeholder="Choose signed occupier consent..."
   type="3"
   height={40}
-  className="rounded-xl"
+  className="rounded-lg"
 />
 ```
 
@@ -103,5 +103,5 @@ When `multiple={true}` and `maxCount={N}` (e.g. `maxCount={2}` or `maxCount={5}`
 | `reqMsg`             | `string`                   | `"Please upload a file"`           | Required validation error message.                                                                             |
 | `uploadedDocuments`  | `string \| string[]`       | `undefined`                        | Pre-uploaded document names/paths.                                                                             |
 | `filePath`           | `string`                   | `""`                               | Base URL / path prepended to view links.                                                                       |
-| `className`          | `string`                   | `""`                               | Applied to the inner interactive element / box (e.g. `"rounded-xl"`).                                          |
+| `className`          | `string`                   | `""`                               | Applied to the inner interactive element / box (e.g. `"rounded-lg"`).                                          |
 | `containerClassName` | `string`                   | `""`                               | Applied to the outer `<Form.Item>` / wrapper container (e.g. `"!mb-0"`).                                       |

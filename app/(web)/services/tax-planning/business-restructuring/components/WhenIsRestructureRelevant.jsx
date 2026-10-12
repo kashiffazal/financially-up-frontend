@@ -23,37 +23,51 @@ import {
 export default function WhenIsRestructureRelevant() {
   const scenarios = [
     {
-      icon: <UserSwitchOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <UserSwitchOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Sole Trader to Company Conversion",
       text: "A sole trader is considering operating through a company or another structure.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Partnership & Asset Ownership Changes",
       text: "A partnership is changing partners or the way business assets are held.",
     },
     {
-      icon: <RocketOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <RocketOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Supporting Growth & Capital Investment",
       text: "A growing business wants a structure that better supports new owners, investment or financing.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Separating Business Activities & Assets",
       text: "Owners want to separate particular business activities or assets.",
     },
     {
-      icon: <CompressOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CompressOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Simplifying Complex Entities",
       text: "A company or trust arrangement has become unnecessarily difficult to administer.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Succession & Enterprise Sale Preparation",
       text: "A business is preparing for succession, sale or a significant ownership change.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Reorganizing Loans, Entities & Assets",
       text: "Existing entities, loans and assets need to be reviewed before a broader reorganization.",
     },
@@ -71,7 +85,9 @@ export default function WhenIsRestructureRelevant() {
             When May a Business Restructure Be Relevant?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Business restructuring may be considered when the existing arrangement no longer matches how the business operates or where ownership and commercial objectives have changed.
+            Business restructuring may be considered when the existing
+            arrangement no longer matches how the business operates or where
+            ownership and commercial objectives have changed.
           </p>
         </div>
 
@@ -80,13 +96,13 @@ export default function WhenIsRestructureRelevant() {
           {scenarios.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-slate-50 dark:bg-zinc-800/40 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+              className={`bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {item.icon}
                   </div>
                   <CheckCircleFilled className="text-emerald-500 text-lg" />
@@ -103,14 +119,16 @@ export default function WhenIsRestructureRelevant() {
         </div>
 
         {/* Verbatim Concluding Principle Box */}
-        <div className="max-w-4xl mx-auto bg-brand-primary/5 dark:bg-emerald-950/20 rounded-2xl p-6 sm:p-7 border border-brand-primary/20 dark:border-emerald-800/40 flex items-start gap-4">
+        <div className="max-w-4xl mx-auto bg-brand-primary/5 dark:bg-emerald-950/20 rounded-lg p-6 sm:p-7 border border-brand-primary/20 dark:border-emerald-800/40 flex items-start gap-4">
           <InfoCircleOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
           <div className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
             <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">
               Holistic Commercial Alignment
             </h3>
             <p>
-              The right structure is not determined by tax alone. Administration, control, legal obligations, financing, risk, future growth and ownership goals can all matter.
+              The right structure is not determined by tax alone.
+              Administration, control, legal obligations, financing, risk,
+              future growth and ownership goals can all matter.
             </p>
           </div>
         </div>

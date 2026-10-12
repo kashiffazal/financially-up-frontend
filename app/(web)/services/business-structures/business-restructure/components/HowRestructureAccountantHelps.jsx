@@ -57,10 +57,12 @@ export default function HowRestructureAccountantHelps() {
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-
         {/* Section Header */}
         <div className="max-w-3xl">
-          <Tag color="cyan" className="brand-section-tag font-bold tracking-wider uppercase text-xs mb-3">
+          <Tag
+            color="cyan"
+            className="brand-section-tag font-bold tracking-wider uppercase text-xs mb-3"
+          >
             <AuditOutlined className="mr-1.5" />
             Accounting & Tax Support Scope
           </Tag>
@@ -68,7 +70,9 @@ export default function HowRestructureAccountantHelps() {
             How a business restructure accountant can help
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A business restructure accountant helps connect the proposed commercial change with its tax and accounting consequences. Within the agreed accounting and tax scope, Financially Up may assist with:
+            A business restructure accountant helps connect the proposed
+            commercial change with its tax and accounting consequences. Within
+            the agreed accounting and tax scope, Financially Up may assist with:
           </p>
         </div>
 
@@ -77,7 +81,7 @@ export default function HowRestructureAccountantHelps() {
           {scopePoints.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between hover:border-emerald-500/50 hover:shadow-sm transition-all"
+              className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between hover:border-emerald-500/50 hover:shadow-sm transition-all"
             >
               <div className="space-y-3">
                 <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center text-sm">
@@ -95,25 +99,29 @@ export default function HowRestructureAccountantHelps() {
         </div>
 
         {/* Ongoing Business Tax Compliance Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-50/80 to-teal-50/80 dark:from-emerald-950/20 dark:to-teal-950/20 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xs">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50/80 to-teal-50/80 dark:from-emerald-950/20 dark:to-teal-950/20 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xs">
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-400 font-bold text-base sm:text-lg">
               <FileDoneOutlined className="text-xl" />
               Continuing Obligations After Restructuring
             </div>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed max-w-3xl">
-              After implementation, ongoing obligations remain important. Our <strong className="text-slate-900 dark:text-white">Business Tax Compliance</strong> service covers continuing tax-compliance work rather than the one-off restructure process.
+              After implementation, ongoing obligations remain important. Our{" "}
+              <strong className="text-slate-900 dark:text-white">
+                Business Tax Compliance
+              </strong>{" "}
+              service covers continuing tax-compliance work rather than the
+              one-off restructure process.
             </p>
           </div>
           <Link
             href="/services/business-tax/business-tax-compliance"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold shadow-md transition-all shrink-0 text-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold shadow-md transition-all shrink-0 text-sm"
           >
             Business Tax Compliance
             <ArrowRightOutlined className="text-xs" />
           </Link>
         </div>
-
       </div>
     </section>
   );

@@ -31,25 +31,33 @@ export default function WhyChooseFinanciallyUpCfo() {
    */
   const firmStrengths = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description:
         "Statutory accounting rigor and registered tax agent oversight ensure that your financial models, balance sheets, and tax provisions stand up to scrutiny.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "10+ Years Multi-Disciplinary Experience",
       description:
         "Over a decade of hands-on expertise spanning commercial accounting, business taxation, bookkeeping, and strategic advisory for Australian enterprises.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Qualified Professionals",
       description:
         "Our team includes qualified members of CPA Australia and the Institute of Public Accountants (IPA), combining analytical discipline with executive reporting skills.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Support",
       description:
         "Accessible online and in-person appointments for businesses across Sydney, Melbourne, Brisbane, Perth, Adelaide, and regional Australia.",
@@ -72,7 +80,13 @@ export default function WhyChooseFinanciallyUpCfo() {
 
           {/* Exact Verbatim Paragraph from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of experience across accounting, taxation, bookkeeping and business advisory work. Our team includes CPA and IPA professionals, and we support clients Australia-wide through online and in-person appointments. The focus of our virtual CFO work is practical financial visibility: reliable numbers, useful analysis and a clear reporting rhythm that supports management decisions.
+            Financially Up is a registered tax agent with more than 10 years of
+            experience across accounting, taxation, bookkeeping and business
+            advisory work. Our team includes CPA and IPA professionals, and we
+            support clients Australia-wide through online and in-person
+            appointments. The focus of our virtual CFO work is practical
+            financial visibility: reliable numbers, useful analysis and a clear
+            reporting rhythm that supports management decisions.
           </p>
         </div>
 
@@ -81,9 +95,9 @@ export default function WhyChooseFinanciallyUpCfo() {
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
+              className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                 {item.icon}
               </div>
               <div className="space-y-2">
@@ -109,8 +123,12 @@ export default function WhyChooseFinanciallyUpCfo() {
             href: "/book-an-appointment",
           }}
           secondaryButton={{
-            text: company?.phone ? `Call ${company.phone}` : "Call 1300 328 316",
-            href: company?.phone ? `tel:${company.phone.replace(/\s/g, "")}` : "tel:1300328316",
+            text: company?.phone
+              ? `Call ${company.phone}`
+              : "Call 1300 328 316",
+            href: company?.phone
+              ? `tel:${company.phone.replace(/\s/g, "")}`
+              : "tel:1300328316",
           }}
         />
       </div>

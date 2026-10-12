@@ -56,14 +56,21 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section 1: How Financially Up Can Help */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Expert Accounting & Tax Advisory
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up can help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Our shareholder loan accountant service can include reviewing the general ledger and loan accounts, reconciling transactions, identifying potential Division 7A exposure, checking available documentation and preparing the accounting and tax-return information needed for the relevant year.
+            Our shareholder loan accountant service can include reviewing the
+            general ledger and loan accounts, reconciling transactions,
+            identifying potential Division 7A exposure, checking available
+            documentation and preparing the accounting and tax-return
+            information needed for the relevant year.
           </p>
         </div>
 
@@ -72,9 +79,9 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
           {servicesList.map((srv, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                 <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -88,7 +95,7 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
         </div>
 
         {/* Cross-Service Links & Scope Callout (Verbatim) */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 mb-16 space-y-4 shadow-sm">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 mb-16 space-y-4 shadow-sm">
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
             For the broader private-company rules, see our{" "}
             <Link
@@ -97,7 +104,8 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
             >
               Division 7A
             </Link>{" "}
-            service. Where the issue forms part of annual company compliance, our{" "}
+            service. Where the issue forms part of annual company compliance,
+            our{" "}
             <Link
               href="/services/business-tax/company-tax-returns"
               className="text-teal-600 dark:text-teal-400 font-semibold underline underline-offset-4 hover:text-teal-700"
@@ -113,13 +121,17 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
             </Link>{" "}
             pages explain the wider service scope.
           </p>
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
+          <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
             <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
               <SolutionOutlined className="text-teal-600 dark:text-teal-400" />
               Scope of Detailed Shareholder Loan Advice
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 font-normal leading-relaxed">
-              Where a complying loan is required, we can help calculate or review relevant repayment information and identify records needed for the tax work. More detailed restructuring, legal documentation or shareholder director loan advice may need to be separately scoped.
+              Where a complying loan is required, we can help calculate or
+              review relevant repayment information and identify records needed
+              for the tax work. More detailed restructuring, legal documentation
+              or shareholder director loan advice may need to be separately
+              scoped.
             </p>
           </div>
         </div>
@@ -127,14 +139,22 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
         {/* Section 2: Why Choose Financially Up? */}
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
           <div className="max-w-3xl mb-8">
-            <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Client Trust & Qualifications
             </Tag>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Why choose Financially Up?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company?.legalName || "Financially Up Pty Ltd"} is an Australian accounting, tax, bookkeeping and business advisory firm. We are a registered tax agent with 10+ years of experience, and our professional team includes CPA and IPA members. We support clients Australia-wide through online appointments, with in-person meetings available where preferred.
+              {company?.legalName || "Financially Up Pty Ltd"} is an Australian
+              accounting, tax, bookkeeping and business advisory firm. We are a
+              registered tax agent with 10+ years of experience, and our
+              professional team includes CPA and IPA members. We support clients
+              Australia-wide through online appointments, with in-person
+              meetings available where preferred.
             </p>
           </div>
 
@@ -154,7 +174,7 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
               <Button
                 type="primary"
                 size="large"
-                className="brand-btn-primary font-semibold rounded-xl"
+                className="brand-btn-primary font-semibold rounded-lg"
                 icon={<CalendarOutlined />}
               >
                 Book an Appointment
@@ -164,7 +184,7 @@ export default function HowFinanciallyUpHelpsShareholderLoans() {
               <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
                 <Button
                   size="large"
-                  className="font-semibold rounded-xl border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:border-teal-500 hover:text-teal-600"
+                  className="font-semibold rounded-lg border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:border-teal-500 hover:text-teal-600"
                   icon={<PhoneOutlined />}
                 >
                   Call {company.phone}

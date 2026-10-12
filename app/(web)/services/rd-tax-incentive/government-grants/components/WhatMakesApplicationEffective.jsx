@@ -71,12 +71,14 @@ export default function WhatMakesApplicationEffective() {
             Grant Writing Excellence
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Grant Writing Services Australia - What Makes an Application Effective?
+            Grant Writing Services Australia - What Makes an Application
+            Effective?
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            An effective application is tailored to the published criteria. Generic marketing
-            material may miss the current program’s objectives or evidence requirements. Assessors
-            also need a credible project, logical delivery plan and supporting evidence.
+            An effective application is tailored to the published criteria.
+            Generic marketing material may miss the current program’s objectives
+            or evidence requirements. Assessors also need a credible project,
+            logical delivery plan and supporting evidence.
           </p>
         </div>
 
@@ -89,14 +91,17 @@ export default function WhatMakesApplicationEffective() {
             {criteriaPoints.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between group hover:border-emerald-500/40 transition-colors"
+                className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between group hover:border-emerald-500/40 transition-colors"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 font-mono">
                       {item.num}
                     </span>
-                    <Tag color="default" className="m-0 text-[10px] font-semibold uppercase">
+                    <Tag
+                      color="default"
+                      className="m-0 text-[10px] font-semibold uppercase"
+                    >
                       {item.label}
                     </Tag>
                   </div>
@@ -114,12 +119,12 @@ export default function WhatMakesApplicationEffective() {
         </div>
 
         {/* Applicant Responsibility Callout */}
-        <div className="bg-slate-100/70 dark:bg-zinc-800/50 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 flex items-center gap-4">
+        <div className="bg-slate-100/70 dark:bg-zinc-800/50 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 flex items-center gap-4">
           <FileProtectOutlined className="text-2xl text-slate-500 shrink-0" />
           <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-            A grant application consultant can assist with structure and presentation, but the
-            applicant remains responsible for the truth, completeness and authority of the
-            information provided.
+            A grant application consultant can assist with structure and
+            presentation, but the applicant remains responsible for the truth,
+            completeness and authority of the information provided.
           </p>
         </div>
       </div>

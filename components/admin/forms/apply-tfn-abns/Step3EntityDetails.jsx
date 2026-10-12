@@ -35,7 +35,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
       </div>
 
       {selectedCategories.includes("Apply Tax File Number (TFN)") && (
-        <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+        <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
           <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
             TFN Residency & Purpose
           </span>
@@ -57,7 +57,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
               emptyFirstVal="- Select Tax Residency -"
               reqMsg="Residency status is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
 
@@ -78,7 +78,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
               emptyFirstVal="- Select Reason -"
               reqMsg="Reason for TFN application is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-0"
             />
           </div>
@@ -99,7 +99,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
               placeholder="e.g. Apex Consulting Services"
               reqMsg="Trading / Entity name is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-2"
             />
 
@@ -115,7 +115,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
               reqMsg="Business start date is required"
               preIconAnt={<CalendarOutlined className="text-slate-400" />}
               size="large"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               containerClassName="!mb-2"
             />
           </div>
@@ -132,7 +132,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
             reqMsg="Main business activity description is required"
             preIconAnt={<FileTextOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-2"
           />
 
@@ -158,7 +158,7 @@ export default function Step3EntityDetails({ selectedCategories = [] }) {
               emptyFirstVal="- Select Industry Category -"
               reqMsg="Industry category is required"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               containerClassName="!mb-2"
             />
 

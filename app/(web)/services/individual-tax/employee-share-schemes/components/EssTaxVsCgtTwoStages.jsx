@@ -24,14 +24,19 @@ export default function EssTaxVsCgtTwoStages() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Two-Stage Taxation Mechanism
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             ESS Tax and CGT Are Separate Calculations
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Australian tax legislation treats the initial employment discount and any subsequent market disposal as two distinct statutory calculations.
+            Australian tax legislation treats the initial employment discount
+            and any subsequent market disposal as two distinct statutory
+            calculations.
           </p>
         </div>
 
@@ -52,10 +57,13 @@ export default function EssTaxVsCgtTwoStages() {
                 The ESS Discount (Income Year Assessment)
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                The ESS discount is included in assessable income under the employee share scheme rules.
+                The ESS discount is included in assessable income under the
+                employee share scheme rules.
               </p>
-              <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Calculated as the market value of the shares or rights at the acquisition date or deferred taxing point, less any consideration paid.
+              <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
+                Calculated as the market value of the shares or rights at the
+                acquisition date or deferred taxing point, less any
+                consideration paid.
               </div>
             </div>
 
@@ -79,15 +87,18 @@ export default function EssTaxVsCgtTwoStages() {
                 Subsequent Disposal (CGT Provisions)
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                A later disposal may produce a capital gain or capital loss under the CGT rules.
+                A later disposal may produce a capital gain or capital loss
+                under the CGT rules.
               </p>
-              <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Measures only the growth (or decline) in value between the taxing point market value and the eventual disposal proceeds.
+              <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
+                Measures only the growth (or decline) in value between the
+                taxing point market value and the eventual disposal proceeds.
               </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-zinc-700/60 text-2xs text-slate-500 dark:text-zinc-400">
-              Prevents the same amount being double-taxed as discount and capital gain
+              Prevents the same amount being double-taxed as discount and
+              capital gain
             </div>
           </div>
         </div>
@@ -101,10 +112,17 @@ export default function EssTaxVsCgtTwoStages() {
             </h4>
             <div className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               <p>
-                For a tax-deferred interest, the CGT cost base and acquisition time are generally reset using the market value at the deferred taxing point. Later CGT ordinarily measures the change in value after that point.
+                For a tax-deferred interest, the CGT cost base and acquisition
+                time are generally reset using the market value at the deferred
+                taxing point. Later CGT ordinarily measures the change in value
+                after that point.
               </p>
               <p>
-                For an interest taxed upfront, the cost base generally reflects the market value taken into account under the ESS rules, with later value changes considered under CGT. These rules are intended to prevent the same amount being taxed as both an ESS discount and a capital gain.
+                For an interest taxed upfront, the cost base generally reflects
+                the market value taken into account under the ESS rules, with
+                later value changes considered under CGT. These rules are
+                intended to prevent the same amount being taxed as both an ESS
+                discount and a capital gain.
               </p>
             </div>
           </div>
@@ -117,24 +135,35 @@ export default function EssTaxVsCgtTwoStages() {
                 <span>The Special 30-Day Disposal Rule</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-3">
-                A special 30-day rule may apply if a tax-deferred interest is disposed of within 30 days after the taxing point that would otherwise apply. The disposal date may become the deferred taxing point, changing how the ESS discount and CGT consequences are calculated. Sale contracts and dates should therefore be reviewed before finalizing the return.
+                A special 30-day rule may apply if a tax-deferred interest is
+                disposed of within 30 days after the taxing point that would
+                otherwise apply. The disposal date may become the deferred
+                taxing point, changing how the ESS discount and CGT consequences
+                are calculated. Sale contracts and dates should therefore be
+                reviewed before finalizing the return.
               </p>
             </div>
 
             <div className="pt-3 border-t border-amber-200/60 dark:border-amber-800/60 text-2xs text-amber-900 dark:text-amber-200 font-medium">
-              The CGT discount is not automatic. Eligibility depends on the relevant acquisition time, holding period and other CGT conditions.
+              The CGT discount is not automatic. Eligibility depends on the
+              relevant acquisition time, holding period and other CGT
+              conditions.
             </div>
           </div>
         </div>
 
         {/* CGT Cross Link */}
-        <div className="p-4 sm:p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/70 dark:border-zinc-700/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
-          <span>For broader disposal rules, capital loss offsets and concession criteria:</span>
+        <div className="p-4 sm:p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/70 dark:border-zinc-700/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+          <span>
+            For broader disposal rules, capital loss offsets and concession
+            criteria:
+          </span>
           <Link
             href="/services/individual-tax/capital-gains-tax"
             className="text-brand-primary dark:text-emerald-400 font-bold hover:underline inline-flex items-center gap-1 shrink-0"
           >
-            Explore Capital Gains Tax Practice <ArrowRightOutlined className="text-xs" />
+            Explore Capital Gains Tax Practice{" "}
+            <ArrowRightOutlined className="text-xs" />
           </Link>
         </div>
       </div>

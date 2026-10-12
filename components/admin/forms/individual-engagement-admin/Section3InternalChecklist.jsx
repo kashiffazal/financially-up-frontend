@@ -19,7 +19,7 @@ const ADM_CHECKLIST_ITEMS = [
 
 export default function Section3InternalChecklist() {
   return (
-    <div className="rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
+    <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm p-6 space-y-4 hover:border-brand-primary/40 transition-all">
       <h4 className="text-sm font-extrabold text-slate-900 dark:text-zinc-100 flex items-center gap-2 text-brand-primary dark:text-emerald-400">
         <FileProtectOutlined className="text-brand-primary" /> Section 3:
         Internal Review Checklist (ADM-001 to ADM-010)

@@ -24,7 +24,7 @@ export default function ReportableFbtAndTiming() {
           {/* Card 1: Reportable Fringe Benefits and Payroll */}
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <SendOutlined className="text-2xl" />
               </div>
 
@@ -65,7 +65,7 @@ export default function ReportableFbtAndTiming() {
           {/* Card 2: FBT Timing and Lodgement */}
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <CalendarOutlined className="text-2xl" />
               </div>
 
@@ -83,7 +83,7 @@ export default function ReportableFbtAndTiming() {
                 assumed from a general rule.
               </p>
 
-              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
+              <div className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
                 <div className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
                   <ClockCircleOutlined className="text-brand-primary" />
                   Tax Agent Lodgement Extension

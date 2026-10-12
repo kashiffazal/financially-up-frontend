@@ -26,7 +26,9 @@ import {
 export default function HowIsABusinessValued() {
   const valuationApproaches = [
     {
-      icon: <LineChartOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "1. Earnings & Cash Flow Approach",
       subtitle: "Capitalisation of Maintainable Earnings (EBIT/EBITDA) & DCF",
       detail:
@@ -34,7 +36,9 @@ export default function HowIsABusinessValued() {
       tag: "Most Common",
     },
     {
-      icon: <BankOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "2. Net Assets-Based Approach",
       subtitle: "Adjusted Net Tangible Asset Value (ANTA)",
       detail:
@@ -42,7 +46,9 @@ export default function HowIsABusinessValued() {
       tag: "Asset Heavy",
     },
     {
-      icon: <SwapOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <SwapOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "3. Comparable Transactions Approach",
       subtitle: "Market Evidence & Industry Multiples",
       detail:
@@ -68,9 +74,9 @@ export default function HowIsABusinessValued() {
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             There is no one calculation suitable for every business. Common
             approaches consider earnings or cash flow, the value of net assets,
-            or evidence from comparable transactions. The method and
-            assumptions need to fit the business, its industry and the quality of
-            the available information.
+            or evidence from comparable transactions. The method and assumptions
+            need to fit the business, its industry and the quality of the
+            available information.
           </p>
         </div>
 
@@ -79,11 +85,11 @@ export default function HowIsABusinessValued() {
           {valuationApproaches.map((appr, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
                     {appr.icon}
                   </div>
                   <Tag color="green" className="text-[11px] font-semibold m-0">
@@ -111,9 +117,9 @@ export default function HowIsABusinessValued() {
         </div>
 
         {/* Verbatim Paragraph 3 Feature Banner: No Automatic Formula */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center shrink-0 mt-0.5">
               <InfoCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
             </div>
             <div>
@@ -121,10 +127,10 @@ export default function HowIsABusinessValued() {
                 Australian Government Valuation Guidance
               </h4>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-                No formula automatically converts annual profit into sale
-                price. The Australian Government advises gathering business
-                information and considering a suitable valuation method before
-                relying on a figure.
+                No formula automatically converts annual profit into sale price.
+                The Australian Government advises gathering business information
+                and considering a suitable valuation method before relying on a
+                figure.
               </p>
             </div>
           </div>
@@ -138,7 +144,7 @@ export default function HowIsABusinessValued() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Evaluate Valuation Methodology
             </Button>

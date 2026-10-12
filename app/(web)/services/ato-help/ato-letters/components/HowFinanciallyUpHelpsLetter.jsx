@@ -21,32 +21,44 @@ export default function HowFinanciallyUpHelpsLetter() {
     {
       title: "Notice & Entity Verification",
       desc: "read the complete notice and identify the relevant entity and tax account",
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "Action & Deadline Confirmation",
       desc: "confirm the requested action, due date and supporting records",
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       title: "Lodgement & Account Cross-Check",
       desc: "compare the correspondence with lodged returns, BAS and account transactions",
-      icon: <ReconciliationOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ReconciliationOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
     },
     {
       title: "Structured Response Preparation",
       desc: "prepare or coordinate a clear response within the agreed scope",
-      icon: <SendOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SendOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       title: "Authorized ATO Communication",
       desc: "communicate with the ATO where properly authorized",
-      icon: <CommentOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CommentOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
     },
     {
       title: "Reply Translation & Next Steps",
       desc: "explain the ATO’s reply and identify the next procedural step",
-      icon: <CompassOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
   ];
 
@@ -61,7 +73,11 @@ export default function HowFinanciallyUpHelpsLetter() {
             How Financially Up helps
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Bring every page of the letter, attachments, earlier related notices, the relevant return or BAS and records connected to the issue. If several entities or periods are mentioned, keep the documents grouped but provide them together so the sequence can be understood.
+            Bring every page of the letter, attachments, earlier related
+            notices, the relevant return or BAS and records connected to the
+            issue. If several entities or periods are mentioned, keep the
+            documents grouped but provide them together so the sequence can be
+            understood.
           </p>
         </div>
 
@@ -70,10 +86,10 @@ export default function HowFinanciallyUpHelpsLetter() {
           {servicePoints.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">

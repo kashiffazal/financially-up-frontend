@@ -64,7 +64,7 @@ export default function TheTwoDifferentTaxReturns() {
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <UserOutlined className="text-xl" />
                 </div>
                 <div>
@@ -86,7 +86,7 @@ export default function TheTwoDifferentTaxReturns() {
                 {finalReturnItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium"
                   >
                     <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 text-xs" />
                     <span>{item}</span>
@@ -128,7 +128,7 @@ export default function TheTwoDifferentTaxReturns() {
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <BankOutlined className="text-xl" />
                 </div>
                 <div>
@@ -150,7 +150,7 @@ export default function TheTwoDifferentTaxReturns() {
                 {estateReturnItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium"
                   >
                     <CheckCircleOutlined className="text-blue-500 mt-1 shrink-0 text-xs" />
                     <span>{item}</span>
@@ -164,7 +164,7 @@ export default function TheTwoDifferentTaxReturns() {
                   generally needs its own TFN. The estate&apos;s TFN is separate
                   from the deceased person&apos;s TFN.
                 </p>
-                <div className="p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-blue-950 dark:text-blue-200 text-xs leading-relaxed">
+                <div className="p-3.5 rounded-lg bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-blue-950 dark:text-blue-200 text-xs leading-relaxed">
                   <span className="font-bold block mb-1">
                     Timing of Derivation:
                   </span>

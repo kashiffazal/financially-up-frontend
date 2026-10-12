@@ -28,18 +28,22 @@ import {
 export default function WhichDocumentsAreUsefulValuation() {
   const documentList = [
     {
-      icon: <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Financial statements and tax returns for relevant recent years",
       desc: "3 to 5 years of balance sheets, profit and loss statements, and company tax returns.",
     },
     {
       icon: <AuditOutlined className="text-teal-600 dark:text-teal-400" />,
-      title: "Current management accounts and a breakdown of significant revenue streams",
+      title:
+        "Current management accounts and a breakdown of significant revenue streams",
       desc: "Up-to-date year-to-date trading reports by service line, client type, and business division.",
     },
     {
       icon: <UserOutlined className="text-blue-600 dark:text-blue-400" />,
-      title: "Details of owner wages, related-party payments and unusual transactions",
+      title:
+        "Details of owner wages, related-party payments and unusual transactions",
       desc: "Discretionary perks, non-market proprietor salaries, and non-recurring one-off expenses.",
     },
     {
@@ -48,7 +52,9 @@ export default function WhichDocumentsAreUsefulValuation() {
       desc: "Depreciation registers, commercial debt agreements, stock valuations, and aged debtors.",
     },
     {
-      icon: <FileDoneOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileDoneOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       title: "Material contracts, leases and licences",
       desc: "Customer MSAs, premises lease deeds, key supplier terms, and operational regulatory licences.",
     },
@@ -58,7 +64,9 @@ export default function WhichDocumentsAreUsefulValuation() {
       desc: "Forward commercial projections documenting revenue volume expectations and margin assumptions.",
     },
     {
-      icon: <CheckCircleOutlined className="text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-rose-600 dark:text-rose-400" />
+      ),
       title: "The proposed sale terms or purpose of the valuation",
       desc: "Draft terms of sale, shareholder agreement context, partnership buy-in, or planning brief.",
     },
@@ -85,13 +93,13 @@ export default function WhichDocumentsAreUsefulValuation() {
           {documentList.map((doc, idx) => (
             <div
               key={idx}
-              className={`bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between ${
+              className={`bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
                     {doc.icon}
                   </div>
                   <Tag
@@ -119,9 +127,9 @@ export default function WhichDocumentsAreUsefulValuation() {
         </div>
 
         {/* Verbatim Note Card: Integrity Against Inventing Normalized Earnings */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-950/70 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-11 h-11 rounded-lg bg-amber-50 dark:bg-amber-950/70 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center shrink-0 mt-0.5">
               <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />
             </div>
             <div>
@@ -146,7 +154,7 @@ export default function WhichDocumentsAreUsefulValuation() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Start Document Review
             </Button>

@@ -44,7 +44,7 @@ export default function WhatIsCashFlowForecasting() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Card 1: Forward Estimations vs P&L */}
-          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <LineChartOutlined className="text-base" />
@@ -63,12 +63,15 @@ export default function WhatIsCashFlowForecasting() {
 
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-3 text-xs text-slate-500 dark:text-zinc-400">
               <ClockCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
-              <span>Focuses on actual receipt and disbursement dates, not invoice dates.</span>
+              <span>
+                Focuses on actual receipt and disbursement dates, not invoice
+                dates.
+              </span>
             </div>
           </div>
 
           {/* Card 2: The Profit vs Cash Disconnect */}
-          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <SwapOutlined className="text-base" />
@@ -85,56 +88,63 @@ export default function WhatIsCashFlowForecasting() {
 
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-3 text-xs text-slate-500 dark:text-zinc-400">
               <WarningOutlined className="text-amber-600 dark:text-amber-400" />
-              <span>Accounting profit does not guarantee bank liquidity on payroll day.</span>
+              <span>
+                Accounting profit does not guarantee bank liquidity on payroll
+                day.
+              </span>
             </div>
           </div>
         </div>
 
         {/* Visual Diagnostic Strip: 4 Friction Points that Cause Cash Pressure */}
-        <div className="bg-gradient-to-r from-emerald-500/5 via-teal-500/5 to-cyan-500/5 dark:from-emerald-950/20 dark:via-zinc-900/40 dark:to-teal-950/20 rounded-2xl p-6 sm:p-8 border border-emerald-500/20 dark:border-emerald-500/20">
+        <div className="bg-gradient-to-r from-emerald-500/5 via-teal-500/5 to-cyan-500/5 dark:from-emerald-950/20 dark:via-zinc-900/40 dark:to-teal-950/20 rounded-lg p-6 sm:p-8 border border-emerald-500/20 dark:border-emerald-500/20">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-4">
             <CheckCircleOutlined />
             <span>Key Factors Driving The Timing Gap</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
                 <CalendarOutlined className="text-emerald-600 dark:text-emerald-400" />
                 <span>Debtor Payment Lag</span>
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Sales invoiced on credit today may not convert to cleared bank funds for 30, 60 or 90 days.
+                Sales invoiced on credit today may not convert to cleared bank
+                funds for 30, 60 or 90 days.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
                 <DollarOutlined className="text-teal-600 dark:text-teal-400" />
                 <span>Inventory &amp; Work in Progress</span>
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Stock purchases and labour outlays tie up working capital long before revenue is realized.
+                Stock purchases and labour outlays tie up working capital long
+                before revenue is realized.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
                 <ClockCircleOutlined className="text-blue-600 dark:text-blue-400" />
                 <span>Statutory Tax &amp; Super</span>
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Quarterly BAS, PAYG instalments and payroll superannuation accumulate as large fixed liabilities.
+                Quarterly BAS, PAYG instalments and payroll superannuation
+                accumulate as large fixed liabilities.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
                 <LineChartOutlined className="text-amber-600 dark:text-amber-400" />
                 <span>Debt Principal &amp; Capex</span>
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Equipment purchases and loan principal repayments consume bank funds without reducing taxable profit.
+                Equipment purchases and loan principal repayments consume bank
+                funds without reducing taxable profit.
               </p>
             </div>
           </div>
@@ -148,7 +158,7 @@ export default function WhatIsCashFlowForecasting() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book a Cash Flow Diagnostic
             </Button>

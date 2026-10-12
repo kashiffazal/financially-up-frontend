@@ -17,36 +17,46 @@ export default function CommonGstRegistrationIssues() {
   const issues = [
     {
       title: "Registering late after the threshold has been met",
-      detail: "Missing the 21-day statutory notice period, risking backdated assessments and potential ATO failure-to-notify penalties.",
+      detail:
+        "Missing the 21-day statutory notice period, risking backdated assessments and potential ATO failure-to-notify penalties.",
     },
     {
-      title: "Charging GST before registration is in place or without understanding the rules",
-      detail: "Illegally collecting GST from customers prior to effective registration or failing to remit collected amounts.",
+      title:
+        "Charging GST before registration is in place or without understanding the rules",
+      detail:
+        "Illegally collecting GST from customers prior to effective registration or failing to remit collected amounts.",
     },
     {
       title: "Assuming every sale is subject to GST in the same way",
-      detail: "Overlooking GST-free supplies, input taxed sales (like residential property), and overseas export exemptions.",
+      detail:
+        "Overlooking GST-free supplies, input taxed sales (like residential property), and overseas export exemptions.",
     },
     {
       title: "Assuming every business purchase gives rise to a GST credit",
-      detail: "Attempting to claim credits without valid tax invoices, on private expenses, or on purchases from unregistered suppliers.",
+      detail:
+        "Attempting to claim credits without valid tax invoices, on private expenses, or on purchases from unregistered suppliers.",
     },
     {
       title: "Using the wrong effective registration date",
-      detail: "Selecting an arbitrary date that misaligns with actual turnover achievement, causing messy retrospective adjustments.",
+      detail:
+        "Selecting an arbitrary date that misaligns with actual turnover achievement, causing messy retrospective adjustments.",
     },
     {
-      title: "Failing to update accounting software, invoices and BAS processes after registration",
-      detail: "Neglecting to enable GST tax rates on invoice templates, which leaves customers with non-compliant paperwork.",
+      title:
+        "Failing to update accounting software, invoices and BAS processes after registration",
+      detail:
+        "Neglecting to enable GST tax rates on invoice templates, which leaves customers with non-compliant paperwork.",
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <Tag color="volcano" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="volcano"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <WarningOutlined className="mr-1.5" />
             Common Pitfalls
           </Tag>
@@ -56,7 +66,9 @@ export default function CommonGstRegistrationIssues() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Navigating GST registration involves more than ticking a box. Avoid these common compliance mistakes that often lead to retrospective ATO adjustments and audit queries:
+            Navigating GST registration involves more than ticking a box. Avoid
+            these common compliance mistakes that often lead to retrospective
+            ATO adjustments and audit queries:
           </p>
         </div>
 
@@ -65,7 +77,7 @@ export default function CommonGstRegistrationIssues() {
           {issues.map((item, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-rose-400/60 transition-all flex items-start gap-4"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-rose-400/60 transition-all flex items-start gap-4"
             >
               <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
                 <CloseCircleOutlined />
@@ -81,7 +93,6 @@ export default function CommonGstRegistrationIssues() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

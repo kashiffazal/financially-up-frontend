@@ -241,7 +241,7 @@ export default function ServicesDirectory({
                 key={cat.id}
                 type={isActive ? "primary" : "default"}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`rounded-xl text-xs sm:text-sm font-semibold h-10 px-3.5 sm:px-4.5 transition-all flex items-center gap-2 ${
+                className={`rounded-lg text-xs sm:text-sm font-semibold h-10 px-3.5 sm:px-4.5 transition-all flex items-center gap-2 ${
                   isActive
                     ? "shadow-md shadow-brand-primary/25 scale-[1.02]"
                     : "bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-200 border-slate-200 dark:border-zinc-800 hover:border-emerald-400 hover:text-brand-primary dark:hover:text-emerald-300 shadow-2xs"
@@ -301,7 +301,7 @@ export default function ServicesDirectory({
               return (
                 <div
                   key={service.id}
-                  className="group relative flex flex-col justify-between bg-white dark:bg-zinc-900/90 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs hover:shadow-xl hover:border-emerald-400/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300"
+                  className="group relative flex flex-col justify-between bg-white dark:bg-zinc-900/90 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800/80 shadow-xs hover:shadow-xl hover:border-emerald-400/60 dark:hover:border-emerald-500/50 hover:-translate-y-1.5 transition-all duration-300"
                 >
                   <div>
                     {/* Top Meta: Pillar Number & Tag Badge */}
@@ -319,7 +319,7 @@ export default function ServicesDirectory({
                     {/* Icon & Title */}
                     <div className="flex items-start gap-3.5 mb-3">
                       <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-800 shadow-2xs transition-transform group-hover:scale-105 ${accent.iconBox}`}
+                        className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-800 shadow-2xs transition-transform group-hover:scale-105 ${accent.iconBox}`}
                       >
                         {renderDirectoryIcon(service.icon, "text-2xl")}
                       </div>
@@ -390,7 +390,7 @@ export default function ServicesDirectory({
           </div>
         ) : (
           /* Empty Search State */
-          <div className="text-center py-16 px-4 bg-white dark:bg-zinc-900 rounded-2xl border border-dashed border-slate-300 dark:border-zinc-800 max-w-lg mx-auto">
+          <div className="text-center py-16 px-4 bg-white dark:bg-zinc-900 rounded-lg border border-dashed border-slate-300 dark:border-zinc-800 max-w-lg mx-auto">
             <div className="w-16 h-16 rounded-full bg-emerald-50 dark:bg-emerald-950 flex items-center justify-center mx-auto mb-4 text-brand-primary dark:text-emerald-400 text-2xl">
               <SearchOutlined />
             </div>
@@ -405,7 +405,7 @@ export default function ServicesDirectory({
               type="primary"
               size="large"
               onClick={handleResetFilters}
-              className="rounded-xl font-semibold shadow-sm"
+              className="rounded-lg font-semibold shadow-sm"
             >
               Show All 15 Services
             </Button>

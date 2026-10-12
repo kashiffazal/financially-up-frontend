@@ -26,17 +26,23 @@ import {
 export default function ValueAndTaxConnectedDistinct() {
   const taxConsiderations = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Transaction Structure (Assets vs Shares vs Trust)",
       desc: "Asset sales require apportioning purchase price between stock, depreciating assets, and goodwill, while share sales transfer the entire entity with historic liabilities.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Small Business CGT Concessions Eligibility",
       desc: "Concessions such as the 15-year exemption, 50% active asset reduction, retirement exemption, and rollover depend on strict net asset value and active asset tests.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "GST & Going Concern Rules",
       desc: "A sale is GST-free only if all going concern statutory requirements are met in writing prior to settlement.",
     },
@@ -61,7 +67,7 @@ export default function ValueAndTaxConnectedDistinct() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Negotiated Price vs Tax Outcomes */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-400 mb-3">
                 <FileProtectOutlined />
@@ -78,12 +84,13 @@ export default function ValueAndTaxConnectedDistinct() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Tax treatment requires separate transaction review before contracts are signed.
+              Tax treatment requires separate transaction review before
+              contracts are signed.
             </div>
           </div>
 
           {/* Card 2: Legal Coordination & Market Reality */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-3">
                 <TeamOutlined />
@@ -97,7 +104,8 @@ export default function ValueAndTaxConnectedDistinct() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Valuations establish reasoned benchmarks; market negotiations finalize the price.
+              Valuations establish reasoned benchmarks; market negotiations
+              finalize the price.
             </div>
           </div>
         </div>
@@ -107,9 +115,9 @@ export default function ValueAndTaxConnectedDistinct() {
           {taxConsiderations.map((tc, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="bg-white dark:bg-zinc-900 p-6 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                 {tc.icon}
               </div>
               <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -130,7 +138,7 @@ export default function ValueAndTaxConnectedDistinct() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Review Tax &amp; Value Alignment
             </Button>

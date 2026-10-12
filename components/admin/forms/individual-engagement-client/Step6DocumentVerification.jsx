@@ -50,12 +50,17 @@ const SUPPORTING_ID_TYPES = [
   { value: "Medicare Card", label: "Medicare Card" },
   { value: "Bank Card / Statement", label: "Bank Card or Statement" },
   { value: "Utility Bill", label: "Utility Bill" },
-  { value: "Centrelink / Government Card", label: "Centrelink or Government Card" },
+  {
+    value: "Centrelink / Government Card",
+    label: "Centrelink or Government Card",
+  },
 ];
 
 /* Passports are captured as photo page + back page; cards as front + back */
 const sideLabels = (docType) =>
-  String(docType || "").toLowerCase().includes("passport")
+  String(docType || "")
+    .toLowerCase()
+    .includes("passport")
     ? { front: "Photo Page", back: "Back / Signature Page" }
     : { front: "Front Side", back: "Back Side" };
 
@@ -65,7 +70,8 @@ export default function Step6DocumentVerification({ form }) {
   const supportingIdType = Form.useWatch("supportingIdType", form);
   const primarySides = sideLabels(primaryIdType);
   const supportingSides = sideLabels(supportingIdType);
-  const supportingHasBack = SUPPORTING_TYPES_WITH_BACK.includes(supportingIdType);
+  const supportingHasBack =
+    SUPPORTING_TYPES_WITH_BACK.includes(supportingIdType);
 
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -92,7 +98,7 @@ export default function Step6DocumentVerification({ form }) {
       </div>
 
       {/* ID-001: Verification Method Selection */}
-      <div className="p-6 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
+      <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm space-y-4">
         <AntInput
           type="radio"
           name="identityMethod"
@@ -113,7 +119,7 @@ export default function Step6DocumentVerification({ form }) {
           Electronic (eID) verification is satisfied by the selfie and the DVS
           biometric consent below, so it must not ask for licence/passport scans. */}
       {(identityMethod === "Upload ID" || !identityMethod) && (
-        <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+        <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
             <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
               <IdcardOutlined className="text-brand-primary" /> Required Photo
@@ -135,7 +141,7 @@ export default function Step6DocumentVerification({ form }) {
               options={PRIMARY_ID_TYPES}
               placeholder="Select the document you are uploading"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Please select your primary photo ID type."
               containerClassName="!mb-4 max-w-md"
             />
@@ -153,7 +159,7 @@ export default function Step6DocumentVerification({ form }) {
                 accept=".pdf,.jpg,.jpeg,.png"
                 reqMsg={`Please upload the ${primarySides.front.toLowerCase()} of your primary photo ID.`}
                 height={170}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -169,7 +175,7 @@ export default function Step6DocumentVerification({ form }) {
                 accept=".pdf,.jpg,.jpeg,.png"
                 reqMsg={`Please upload the ${primarySides.back.toLowerCase()} of your primary photo ID.`}
                 height={170}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
             </div>
@@ -188,7 +194,7 @@ export default function Step6DocumentVerification({ form }) {
               options={SUPPORTING_ID_TYPES}
               placeholder="Select the supporting document"
               size="large"
-              className="rounded-xl"
+              className="rounded-lg"
               reqMsg="Please select your supporting ID type."
               containerClassName="!mb-4 max-w-md"
             />
@@ -210,7 +216,7 @@ export default function Step6DocumentVerification({ form }) {
                 accept=".pdf,.jpg,.jpeg,.png"
                 reqMsg={`Please upload the ${supportingSides.front.toLowerCase()} of your supporting ID.`}
                 height={170}
-                className="rounded-xl"
+                className="rounded-lg"
                 containerClassName="!mb-0"
               />
 
@@ -227,20 +233,19 @@ export default function Step6DocumentVerification({ form }) {
                   accept=".pdf,.jpg,.jpeg,.png"
                   noRequired={true}
                   height={170}
-                  className="rounded-xl"
+                  className="rounded-lg"
                   containerClassName="!mb-0"
                 />
               )}
             </div>
           </div>
-
         </div>
       )}
 
       {/* Electronic (eID) Verification: selfie + DVS biometric consent only.
           No licence or passport scans are required on this path. */}
       {identityMethod === "Electronic Verification" && (
-        <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
+        <div className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
             <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2 m-0">
               <IdcardOutlined className="text-brand-primary" /> Electronic
@@ -256,51 +261,51 @@ export default function Step6DocumentVerification({ form }) {
           </p>
 
           <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-3">
-                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">
-                  Biometric Identity Verification Notice:
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-3">
+              <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">
+                Biometric Identity Verification Notice:
+              </span>
+              <PrivacyCollectionNoticeTrigger category="biometric" />
+            </div>
+            <UploadFile
+              name="selfie"
+              label={
+                <span className="font-bold text-slate-800 dark:text-zinc-200">
+                  Selfie / Photo Identification (Holding ID)
                 </span>
-                <PrivacyCollectionNoticeTrigger category="biometric" />
-              </div>
-              <UploadFile
-                name="selfie"
-                label={
-                  <span className="font-bold text-slate-800 dark:text-zinc-200">
-                    Selfie / Photo Identification (Holding ID)
-                  </span>
-                }
-                title="Upload Live Selfie Photo"
-                msg="Selfie holding primary ID for automated verification"
-                accept=".jpg,.jpeg,.png"
-                reqMsg="Please upload selfie photo."
-                type="1"
-                height={170}
-                className="rounded-xl"
-              />
+              }
+              title="Upload Live Selfie Photo"
+              msg="Selfie holding primary ID for automated verification"
+              accept=".jpg,.jpeg,.png"
+              reqMsg="Please upload selfie photo."
+              type="1"
+              height={170}
+              className="rounded-lg"
+            />
 
-              <AntInput
-                type="checkbox"
-                name="biometricConsent"
-                text="BIOMETRIC CONSENT: I consent to automated facial matching and biometric verification against government DVS identity databases."
-                className="text-xs font-bold text-slate-900 dark:text-zinc-100"
-                validator={(_, v) =>
-                  v
-                    ? Promise.resolve()
-                    : Promise.reject(
-                        new Error(
-                          "Biometric consent is required for electronic verification.",
-                        ),
-                      )
-                }
-                containerClassName="!mb-0"
-              />
+            <AntInput
+              type="checkbox"
+              name="biometricConsent"
+              text="BIOMETRIC CONSENT: I consent to automated facial matching and biometric verification against government DVS identity databases."
+              className="text-xs font-bold text-slate-900 dark:text-zinc-100"
+              validator={(_, v) =>
+                v
+                  ? Promise.resolve()
+                  : Promise.reject(
+                      new Error(
+                        "Biometric consent is required for electronic verification.",
+                      ),
+                    )
+              }
+              containerClassName="!mb-0"
+            />
           </div>
         </div>
       )}
 
       {/* No Photo ID Path (ID-004) */}
       {identityMethod === "No Photo ID" && (
-        <div className="p-6 rounded-xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 space-y-4">
+        <div className="p-6 rounded-lg bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 space-y-4">
           <AntInput
             type="textarea"
             name="noPhotoIdReason"
@@ -311,7 +316,7 @@ export default function Step6DocumentVerification({ form }) {
             }
             placeholder="Explain why you do not possess an Australian Driver's License or Passport..."
             rows={3}
-            className="rounded-xl"
+            className="rounded-lg"
             reqMsg="Please explain why no photo ID is available."
             containerClassName="!mb-0"
           />

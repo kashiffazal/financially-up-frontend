@@ -9,10 +9,13 @@ import {
   NotificationOutlined,
   BellOutlined,
 } from "@ant-design/icons";
-import { MODULE_META, statusTagColor } from "@/components/admin/GlobalSearch/searchConfig";
+import {
+  MODULE_META,
+  statusTagColor,
+} from "@/components/admin/GlobalSearch/searchConfig";
 
 /**
- * Notification Center — presentation helpers.
+ * Notification Center - presentation helpers.
  * Module names/colours come from the API (backend search registry).
  */
 
@@ -47,13 +50,21 @@ const TONE_COLORS = {
 
 /** { icon, color } for a notification's leading chip. */
 export const notificationVisual = (n) => {
-  if (n.type === "contact_enquiry") return { icon: <MailOutlined />, color: n.color || "#0ea5e9" };
-  if (n.type === "newsletter_subscriber") return { icon: <NotificationOutlined />, color: n.color || "#8b5cf6" };
+  if (n.type === "contact_enquiry")
+    return { icon: <MailOutlined />, color: n.color || "#0ea5e9" };
+  if (n.type === "newsletter_subscriber")
+    return { icon: <NotificationOutlined />, color: n.color || "#8b5cf6" };
   if (n.type === "status_change") {
-    return { icon: statusIcon(n.meta?.toStatus), color: TONE_COLORS[statusTagColor(n.meta?.toStatus)] || n.color };
+    return {
+      icon: statusIcon(n.meta?.toStatus),
+      color: TONE_COLORS[statusTagColor(n.meta?.toStatus)] || n.color,
+    };
   }
   if (n.type === "submission") {
-    return { icon: MODULE_META[n.moduleKey]?.icon || <FileAddOutlined />, color: n.color || "#008043" };
+    return {
+      icon: MODULE_META[n.moduleKey]?.icon || <FileAddOutlined />,
+      color: n.color || "#008043",
+    };
   }
   return { icon: <BellOutlined />, color: "#64748b" };
 };
@@ -62,7 +73,10 @@ export const notificationVisual = (n) => {
 // Time helpers (all take an explicit `now` so render stays pure)
 // ============================
 
-const rtf = typeof Intl !== "undefined" ? new Intl.RelativeTimeFormat("en-AU", { numeric: "auto" }) : null;
+const rtf =
+  typeof Intl !== "undefined"
+    ? new Intl.RelativeTimeFormat("en-AU", { numeric: "auto" })
+    : null;
 
 export const relativeTime = (value, now) => {
   const date = new Date(value);
@@ -74,7 +88,11 @@ export const relativeTime = (value, now) => {
   if (abs < 3600) return rtf.format(Math.round(seconds / 60), "minute");
   if (abs < 86400) return rtf.format(Math.round(seconds / 3600), "hour");
   if (abs < 7 * 86400) return rtf.format(Math.round(seconds / 86400), "day");
-  return date.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
+  return date.toLocaleDateString("en-AU", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 };
 
 export const formatDateTime = (value) => {

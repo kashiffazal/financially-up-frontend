@@ -77,9 +77,9 @@ export default function PartnerProfitSharesDrawingsTax() {
           {taxPrinciples.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center shrink-0">
                 {item.icon}
               </div>
               <div>
@@ -95,7 +95,7 @@ export default function PartnerProfitSharesDrawingsTax() {
         </div>
 
         {/* Advisory Scoping Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               Routine Return Preparation &amp; Separately Scoped Advice
@@ -110,7 +110,7 @@ export default function PartnerProfitSharesDrawingsTax() {
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

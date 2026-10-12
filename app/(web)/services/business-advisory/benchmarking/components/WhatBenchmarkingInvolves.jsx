@@ -24,22 +24,30 @@ import {
 export default function WhatBenchmarkingInvolves() {
   const comparisonTypes = [
     {
-      icon: <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Internal Benchmarks",
       desc: "Comparing current results with prior-year performance, approved budgets, regional branches, or distinct product lines.",
     },
     {
-      icon: <CompassOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "External Benchmarks",
       desc: "Referencing published industry data where reliable, relevant, and properly standardized definitions exist.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Financial Benchmarks",
       desc: "Evaluating gross margin percentages, wage-to-turnover ratios, overhead shares, and debtor collection days.",
     },
     {
-      icon: <DashboardOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <DashboardOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Operational Measures",
       desc: "Assessing labour hours expended, billable milestones completed, and inventory stock velocity.",
     },
@@ -60,12 +68,12 @@ export default function WhatBenchmarkingInvolves() {
             What Does Business Performance Benchmarking Involve?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Benchmarking begins by deciding which decision the comparison
-            should inform. An internal benchmark may compare current results
-            with the previous year, budget, another location or another product
-            line. External benchmarks may use published industry data where
-            relevant and available. Both approaches need consistent definitions
-            and a clear period.
+            Benchmarking begins by deciding which decision the comparison should
+            inform. An internal benchmark may compare current results with the
+            previous year, budget, another location or another product line.
+            External benchmarks may use published industry data where relevant
+            and available. Both approaches need consistent definitions and a
+            clear period.
           </p>
         </div>
 
@@ -74,9 +82,9 @@ export default function WhatBenchmarkingInvolves() {
           {comparisonTypes.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -90,7 +98,7 @@ export default function WhatBenchmarkingInvolves() {
         </div>
 
         {/* Financial & Operational Scope Narrative */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs mb-8">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs mb-8">
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
             Financial benchmarking services may look at gross margin, wage
             costs, overhead ratios, debtor collection or other financial
@@ -101,13 +109,14 @@ export default function WhatBenchmarkingInvolves() {
           <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
             <CheckCircleOutlined />
             <span>
-              Action-driven metrics: selected indicators directly inform commercial next steps.
+              Action-driven metrics: selected indicators directly inform
+              commercial next steps.
             </span>
           </div>
         </div>
 
         {/* Australian Government Guidance Callout */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4">
+        <div className="p-5 sm:p-6 rounded-lg bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4">
           <BankOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div>
             <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1">

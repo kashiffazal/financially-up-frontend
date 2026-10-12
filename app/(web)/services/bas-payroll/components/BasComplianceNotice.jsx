@@ -31,7 +31,9 @@ export default function BasComplianceNotice() {
    */
   const connectedAreas = [
     {
-      icon: <BranchesOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BranchesOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "GST Registration",
       description:
         "Determines whether a business generally needs to account for GST on taxable sales and may claim GST credits on eligible purchases.",
@@ -40,7 +42,9 @@ export default function BasComplianceNotice() {
       actionText: "GST Registration",
     },
     {
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "BAS Preparation",
       description:
         "The reporting process used for GST and other activity-statement obligations, reconciling transaction figures for ATO submission.",
@@ -49,7 +53,9 @@ export default function BasComplianceNotice() {
       actionText: "BAS Lodgement",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Payroll Processing",
       description:
         "Involves paying employees and maintaining payroll records; parts of payroll, such as PAYG withholding, may feed into the BAS.",
@@ -86,11 +92,11 @@ export default function BasComplianceNotice() {
           {connectedAreas.map((area, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-xs flex items-center justify-center">
                     {area.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
@@ -119,7 +125,7 @@ export default function BasComplianceNotice() {
         </div>
 
         {/* Highlight Narrative Box: Paragraphs 2 & 3 - Verbatim */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="max-w-4xl mx-auto space-y-4">
             {/* Document Paragraph 2 - Verbatim */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0">
@@ -138,9 +144,9 @@ export default function BasComplianceNotice() {
               >
                 Bookkeeping services
               </Link>{" "}
-              can help keep transactions and reconciliations current. For a
-              page focused specifically on preparing and lodging activity
-              statements, see our{" "}
+              can help keep transactions and reconciliations current. For a page
+              focused specifically on preparing and lodging activity statements,
+              see our{" "}
               <Link
                 href="/services/bas-payroll/bas-lodgement"
                 className="font-semibold text-teal-600 dark:text-teal-400 hover:underline"
@@ -154,7 +160,7 @@ export default function BasComplianceNotice() {
               <Link href="/services/bookkeeping">
                 <Button
                   icon={<BookOutlined />}
-                  className="h-10 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all text-xs sm:text-sm"
+                  className="h-10 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all text-xs sm:text-sm"
                 >
                   Bookkeeping Services
                 </Button>
@@ -163,7 +169,7 @@ export default function BasComplianceNotice() {
                 <Button
                   icon={<FileTextOutlined />}
                   type="primary"
-                  className="h-10 rounded-xl font-semibold shadow-xs hover:scale-[1.02] active:scale-[0.99] transition-all text-xs sm:text-sm"
+                  className="h-10 rounded-lg font-semibold shadow-xs hover:scale-[1.02] active:scale-[0.99] transition-all text-xs sm:text-sm"
                 >
                   BAS Lodgement Service
                 </Button>

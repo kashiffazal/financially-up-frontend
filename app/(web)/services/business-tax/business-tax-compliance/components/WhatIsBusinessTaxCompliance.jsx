@@ -68,7 +68,7 @@ export default function WhatIsBusinessTaxCompliance() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
           {/* Left Column: Verbatim Editorial Explanation */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="bg-slate-50/80 dark:bg-zinc-800/80 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm space-y-4">
+            <div className="bg-slate-50/80 dark:bg-zinc-800/80 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm space-y-4">
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
                 <FileProtectOutlined className="text-teal-600 dark:text-teal-400" />
                 Coordinated Business Tax Obligations
@@ -95,7 +95,7 @@ export default function WhatIsBusinessTaxCompliance() {
               <Link href="/book-an-appointment">
                 <Button
                   type="primary"
-                  className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
+                  className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-lg"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
                 >
@@ -105,7 +105,7 @@ export default function WhatIsBusinessTaxCompliance() {
               <Link href="/services/business-tax">
                 <Button
                   type="default"
-                  className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-xl"
+                  className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-lg"
                 >
                   Explore Business Tax Hub
                 </Button>
@@ -118,9 +118,9 @@ export default function WhatIsBusinessTaxCompliance() {
             {compliancePillars.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md group flex items-start gap-4"
+                className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md group flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                   {item.icon}
                 </div>
                 <div>

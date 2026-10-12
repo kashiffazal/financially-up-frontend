@@ -77,12 +77,12 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
   // Resolve which pillar corresponds to the current page route
   const currentRoutePillar = useMemo(
     () => findPillarByPath(activePath),
-    [activePath]
+    [activePath],
   );
 
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [activePillarId, setActivePillarId] = useState(
-    () => currentRoutePillar?.id || "individual-tax"
+    () => currentRoutePillar?.id || "individual-tax",
   );
 
   // Adjust active pillar during render when route or menu open state changes
@@ -187,7 +187,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
     const updateHeight = () => {
       if (contentRef.current) {
         const measured = Math.ceil(
-          contentRef.current.getBoundingClientRect().height
+          contentRef.current.getBoundingClientRect().height,
         );
         if (measured > 0) {
           // Add 2px to account for container top and bottom border
@@ -216,7 +216,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
   const filteredPillars = useMemo(() => {
     if (selectedCategory === "all") return MAIN_SERVICES_MEGA_MENU;
     return MAIN_SERVICES_MEGA_MENU.filter(
-      (pillar) => pillar.category === selectedCategory
+      (pillar) => pillar.category === selectedCategory,
     );
   }, [selectedCategory]);
 
@@ -262,7 +262,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
       {/* Main Container - Strictly Zero Scroll with Animated Height */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">
         <div
-          className={`bg-white/98 dark:bg-zinc-900/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200/90 dark:border-zinc-800 overflow-hidden ${
+          className={`bg-white/98 dark:bg-zinc-900/98 backdrop-blur-xl rounded-lg shadow-2xl border border-slate-200/90 dark:border-zinc-800 overflow-hidden ${
             isMeasured
               ? "transition-[height] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
               : ""
@@ -283,7 +283,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                     <button
                       key={cat.id}
                       onClick={() => handleCategorySelect(cat.id)}
-                      className={`px-2.5 py-1 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                         isActive
                           ? "bg-brand-primary text-white shadow-sm shadow-emerald-700/20 font-bold"
                           : "text-slate-600 dark:text-zinc-300 hover:text-brand-primary dark:hover:text-emerald-400 hover:bg-white dark:hover:bg-zinc-900"
@@ -324,7 +324,8 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                   <div className="grid grid-cols-2 gap-2.5">
                     {filteredPillars.map((pillar) => {
                       const isSelected = activePillarId === pillar.id;
-                      const isCurrentPillar = currentRoutePillar?.id === pillar.id;
+                      const isCurrentPillar =
+                        currentRoutePillar?.id === pillar.id;
 
                       return (
                         <Link
@@ -332,12 +333,12 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                           href={pillar.href}
                           onClick={onClose}
                           onMouseEnter={() => handlePillarHover(pillar.id)}
-                          className={`group relative py-2 px-2.5 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-between border ${
+                          className={`group relative py-2 px-2.5 rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-between border ${
                             isSelected
                               ? "bg-white dark:bg-zinc-900 border-emerald-500/40 dark:border-emerald-500/30 shadow-sm shadow-emerald-500/5 ring-1 ring-emerald-500/25"
                               : isCurrentPillar
-                              ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-300/70 dark:border-emerald-800/60 shadow-2xs"
-                              : "border-transparent hover:bg-white/70 dark:hover:bg-zinc-900/70 hover:border-slate-200/60 dark:hover:border-zinc-800"
+                                ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-300/70 dark:border-emerald-800/60 shadow-2xs"
+                                : "border-transparent hover:bg-white/70 dark:hover:bg-zinc-900/70 hover:border-slate-200/60 dark:hover:border-zinc-800"
                           }`}
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
@@ -384,7 +385,8 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                   <div className="space-y-2.5">
                     {filteredPillars.map((pillar) => {
                       const isSelected = activePillarId === pillar.id;
-                      const isCurrentPillar = currentRoutePillar?.id === pillar.id;
+                      const isCurrentPillar =
+                        currentRoutePillar?.id === pillar.id;
 
                       return (
                         <Link
@@ -392,17 +394,17 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                           href={pillar.href}
                           onClick={onClose}
                           onMouseEnter={() => handlePillarHover(pillar.id)}
-                          className={`group relative p-3 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-between border ${
+                          className={`group relative p-3 rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-between border ${
                             isSelected
                               ? "bg-white dark:bg-zinc-900 border-emerald-500/40 dark:border-emerald-500/30 shadow-md shadow-emerald-500/5 ring-1 ring-emerald-500/20"
                               : isCurrentPillar
-                              ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-300/70 dark:border-emerald-800/60 shadow-2xs"
-                              : "border-transparent hover:bg-white/60 dark:hover:bg-zinc-900/60 hover:border-slate-200/50 dark:hover:border-zinc-800"
+                                ? "bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-300/70 dark:border-emerald-800/60 shadow-2xs"
+                                : "border-transparent hover:bg-white/60 dark:hover:bg-zinc-900/60 hover:border-slate-200/50 dark:hover:border-zinc-800"
                           }`}
                         >
                           <div className="flex items-center gap-3 min-w-0">
                             <div
-                              className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                              className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
                                 isSelected || isCurrentPillar
                                   ? "bg-brand-primary text-white shadow-sm shadow-emerald-700/20"
                                   : "bg-emerald-50 text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400 group-hover:bg-brand-primary-soft"
@@ -467,7 +469,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
               >
                 <div key={activePillar.id} className={styles.pillarTransition}>
                   {/* Pillar Header Card */}
-                  <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50/70 to-teal-50/30 dark:from-zinc-950 dark:to-zinc-900 border border-emerald-100 dark:border-zinc-800 mb-4 flex items-center justify-between gap-4 shadow-sm">
+                  <div className="p-4 rounded-lg bg-gradient-to-r from-emerald-50/70 to-teal-50/30 dark:from-zinc-950 dark:to-zinc-900 border border-emerald-100 dark:border-zinc-800 mb-4 flex items-center justify-between gap-4 shadow-sm">
                     <div className="space-y-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs font-mono font-bold text-brand-primary dark:text-emerald-400 bg-white dark:bg-zinc-800 px-2 py-0.5 rounded-md border border-emerald-200/50 dark:border-zinc-700">
@@ -496,7 +498,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                     <Link
                       href={activePillar.href}
                       onClick={onClose}
-                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-brand-primary hover:bg-brand-primary-hover text-white shadow-sm shadow-emerald-700/20 shrink-0 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold bg-brand-primary hover:bg-brand-primary-hover text-white shadow-sm shadow-emerald-700/20 shrink-0 transition-all hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>View Hub</span>
                       <ArrowRightOutlined className="text-[10px]" />
@@ -517,14 +519,17 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
 
                     <div className="grid grid-cols-2 gap-2.5 content-start">
                       {activePillar.subServices.map((sub, idx) => {
-                        const isCurrentSub = isServicePathMatch(sub.href, activePath);
+                        const isCurrentSub = isServicePathMatch(
+                          sub.href,
+                          activePath,
+                        );
 
                         return (
                           <Link
                             key={idx}
                             href={sub.href}
                             onClick={onClose}
-                            className={`group flex items-center justify-between py-2 px-3 rounded-xl border transition-all ${
+                            className={`group flex items-center justify-between py-2 px-3 rounded-lg border transition-all ${
                               isCurrentSub
                                 ? "bg-emerald-500/10 dark:bg-emerald-950/60 border-brand-primary dark:border-emerald-500 shadow-xs ring-1 ring-brand-primary/40"
                                 : "border-slate-100 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-950/50 hover:bg-white dark:hover:bg-zinc-800/90 hover:border-emerald-300 dark:hover:border-emerald-600 hover:shadow-sm"
@@ -598,7 +603,7 @@ export default function ServicesMegaMenu({ isOpen, onClose, activePath }) {
                     <Link
                       href="/book-an-appointment"
                       onClick={onClose}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-black text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 shadow-sm transition-all"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 hover:bg-black text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 shadow-sm transition-all"
                     >
                       <span>Book Appointment</span>
                       <ArrowRightOutlined className="text-[10px]" />

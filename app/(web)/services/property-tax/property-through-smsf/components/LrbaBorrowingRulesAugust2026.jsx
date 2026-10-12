@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { ClockCircleOutlined, CheckCircleFilled, ExclamationCircleFilled, BankOutlined } from "@ant-design/icons";
+import {
+  ClockCircleOutlined,
+  CheckCircleFilled,
+  ExclamationCircleFilled,
+  BankOutlined,
+} from "@ant-design/icons";
 
 /**
  * LrbaBorrowingRulesAugust2026 Component
@@ -20,7 +25,9 @@ export default function LrbaBorrowingRulesAugust2026() {
             What Changed for SMSF Property Borrowing in August 2026?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Superannuation law strictly prohibits fund borrowing, with limited exceptions under Limited Recourse Borrowing Arrangements (LRBAs). Major statutory amendments took effect on 10 August 2026.
+            Superannuation law strictly prohibits fund borrowing, with limited
+            exceptions under Limited Recourse Borrowing Arrangements (LRBAs).
+            Major statutory amendments took effect on 10 August 2026.
           </p>
         </div>
 
@@ -35,45 +42,68 @@ export default function LrbaBorrowingRulesAugust2026() {
                 LRBA Borrowing Restricted to Business Real Property
               </h3>
               <p className="text-slate-300 text-base leading-relaxed mb-4">
-                For an LRBA entered into on or after <strong className="text-white font-semibold">10 August 2026</strong> to finance real property acquired after that date, the property <strong>must be business real property</strong>.
+                For an LRBA entered into on or after{" "}
+                <strong className="text-white font-semibold">
+                  10 August 2026
+                </strong>{" "}
+                to finance real property acquired after that date, the property{" "}
+                <strong>must be business real property</strong>.
               </p>
               <p className="text-slate-300 text-base leading-relaxed">
-                This reform materially ends new financed residential property acquisitions by SMSFs. Trustees cannot assume an older example of an SMSF borrowing to buy a residential investment unit remains available today.
+                This reform materially ends new financed residential property
+                acquisitions by SMSFs. Trustees cannot assume an older example
+                of an SMSF borrowing to buy a residential investment unit
+                remains available today.
               </p>
             </div>
 
             <div className="flex flex-col justify-center space-y-4">
-              <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <CheckCircleFilled className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Grandfathered Pre-10 August 2026 Contracts</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Grandfathered Pre-10 August 2026 Contracts
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      Does not apply where the SMSF exchanged a binding contract to acquire the real property before 10 August 2026. Existing pre-August 2026 LRBAs and refinancing retain transitional protection.
+                      Does not apply where the SMSF exchanged a binding contract
+                      to acquire the real property before 10 August 2026.
+                      Existing pre-August 2026 LRBAs and refinancing retain
+                      transitional protection.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <CheckCircleFilled className="text-emerald-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Unencumbered Cash Residential Purchases</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Unencumbered Cash Residential Purchases
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      An SMSF may still acquire residential property <em>outright with 100% fund cash</em> (without borrowing), provided it adheres to arm's length third-party tenant rules.
+                      An SMSF may still acquire residential property{" "}
+                      <em>outright with 100% fund cash</em> (without borrowing),
+                      provided it adheres to arm's length third-party tenant
+                      rules.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-lg p-5">
                 <div className="flex items-start gap-3">
                   <BankOutlined className="text-amber-400 text-xl mt-0.5 shrink-0" />
                   <div>
-                    <h4 className="font-bold text-white text-base">Business Real Property LRBAs Permitted</h4>
+                    <h4 className="font-bold text-white text-base">
+                      Business Real Property LRBAs Permitted
+                    </h4>
                     <p className="text-slate-300 text-sm mt-1">
-                      SMSF borrowing remains lawful to purchase eligible commercial premises, medical suites, factories, and commercial farms using compliant bare trust / holding trust structures.
+                      SMSF borrowing remains lawful to purchase eligible
+                      commercial premises, medical suites, factories, and
+                      commercial farms using compliant bare trust / holding
+                      trust structures.
                     </p>
                   </div>
                 </div>

@@ -15,8 +15,10 @@ export const filterStatusMapByIds = (statusMap, ids) => {
   return Object.fromEntries(
     Object.entries(statusMap).map(([key, list]) => [
       key,
-      Array.isArray(list) ? list.filter((r) => allowed.has(String(r.id))) : list,
-    ])
+      Array.isArray(list)
+        ? list.filter((r) => allowed.has(String(r.id)))
+        : list,
+    ]),
   );
 };
 
@@ -37,16 +39,24 @@ export default function SearchFilterBanner({ filter, shownCount }) {
   return (
     <div
       role="status"
-      className={`${styles.banner} mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl px-4 py-2.5`}
+      className={`${styles.banner} mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg px-4 py-2.5`}
     >
       <span className="flex items-center gap-2.5 min-w-0 text-[13px] text-slate-700 dark:text-zinc-200">
         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/80 dark:bg-zinc-900/60 text-brand-primary dark:text-emerald-400">
           <FilterOutlined />
         </span>
         <span className="min-w-0">
-          Showing <strong>{shownCount}</strong> application{shownCount === 1 ? "" : "s"} matching{" "}
-          {filter.query ? <strong className="break-all">&ldquo;{filter.query}&rdquo;</strong> : "your search"}
-          <span className="text-slate-500 dark:text-zinc-400"> from Global Search</span>
+          Showing <strong>{shownCount}</strong> application
+          {shownCount === 1 ? "" : "s"} matching{" "}
+          {filter.query ? (
+            <strong className="break-all">&ldquo;{filter.query}&rdquo;</strong>
+          ) : (
+            "your search"
+          )}
+          <span className="text-slate-500 dark:text-zinc-400">
+            {" "}
+            from Global Search
+          </span>
         </span>
       </span>
       <button

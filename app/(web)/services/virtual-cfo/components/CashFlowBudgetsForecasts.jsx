@@ -30,29 +30,44 @@ export default function CashFlowBudgetsForecasts() {
    */
   const cashPressureFactors = [
     {
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Customers Pay Slowly",
-      description: "Debtor delays lock up earned cash even when recorded on the P&L as revenue.",
+      description:
+        "Debtor delays lock up earned cash even when recorded on the P&L as revenue.",
     },
     {
-      icon: <InboxOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <InboxOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Inventory Absorbs Cash",
-      description: "Stock purchases deplete liquid bank reserves prior to being sold and collected.",
+      description:
+        "Stock purchases deplete liquid bank reserves prior to being sold and collected.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Tax Liabilities Fall Due",
-      description: "Quarterly BAS, PAYG, and corporate income tax payments create lump-sum outflows.",
+      description:
+        "Quarterly BAS, PAYG, and corporate income tax payments create lump-sum outflows.",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Loan Repayments Increase",
-      description: "Principal debt amortisation reduces bank balance without appearing as an operating expense.",
+      description:
+        "Principal debt amortisation reduces bank balance without appearing as an operating expense.",
     },
     {
-      icon: <RocketOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <RocketOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Growth Requires Upfront Spending",
-      description: "Expansion requires wages, materials, and marketing before new revenue is collected.",
+      description:
+        "Expansion requires wages, materials, and marketing before new revenue is collected.",
     },
   ];
 
@@ -75,7 +90,12 @@ export default function CashFlowBudgetsForecasts() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Profit and cash are not the same thing. A business can report accounting profit while still experiencing cash pressure because customers pay slowly, inventory absorbs cash, tax liabilities fall due, loan repayments increase or growth requires spending before revenue is collected. Regular cash flow forecasting helps management see timing pressure earlier.
+            Profit and cash are not the same thing. A business can report
+            accounting profit while still experiencing cash pressure because
+            customers pay slowly, inventory absorbs cash, tax liabilities fall
+            due, loan repayments increase or growth requires spending before
+            revenue is collected. Regular cash flow forecasting helps management
+            see timing pressure earlier.
           </p>
         </div>
 
@@ -90,10 +110,10 @@ export default function CashFlowBudgetsForecasts() {
             {cashPressureFactors.map((factor, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 shadow-2xs hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
+                className="p-5 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 shadow-2xs hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center mb-3.5 shadow-2xs">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center mb-3.5 shadow-2xs">
                     {factor.icon}
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1.5">
@@ -109,7 +129,7 @@ export default function CashFlowBudgetsForecasts() {
         </div>
 
         {/* Budget vs Actual & Forecast Management Card (Exact Verbatim Paragraph 2) */}
-        <div className="rounded-2xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 lg:p-10">
+        <div className="rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 lg:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-4">
@@ -122,20 +142,37 @@ export default function CashFlowBudgetsForecasts() {
               </h3>
               {/* Exact Verbatim Paragraph 2 from Document */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal m-0">
-                Financially Up can help build and maintain cash flow forecasts using assumptions that management can understand and update. Budgets can then be compared with actual results to identify where sales, gross margin, overheads or timing have moved away from plan. Forecasts are estimates rather than guarantees, so they should be revisited when assumptions change.
+                Financially Up can help build and maintain cash flow forecasts
+                using assumptions that management can understand and update.
+                Budgets can then be compared with actual results to identify
+                where sales, gross margin, overheads or timing have moved away
+                from plan. Forecasts are estimates rather than guarantees, so
+                they should be revisited when assumptions change.
               </p>
             </div>
 
             {/* Right Pillars List */}
-            <div className="lg:col-span-5 bg-white dark:bg-zinc-950 rounded-xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs space-y-3">
+            <div className="lg:col-span-5 bg-white dark:bg-zinc-950 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs space-y-3">
               <div className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
                 What Budget Comparisons Reveal
               </div>
               {[
-                { title: "Sales Performance", text: "Volume vs pricing movements compared to plan" },
-                { title: "Gross Margins", text: "Cost of goods sold and direct labour drift" },
-                { title: "Operating Overheads", text: "Fixed operational expenditure changes" },
-                { title: "Timing Differences", text: "Collection lags and deferred billing cycles" },
+                {
+                  title: "Sales Performance",
+                  text: "Volume vs pricing movements compared to plan",
+                },
+                {
+                  title: "Gross Margins",
+                  text: "Cost of goods sold and direct labour drift",
+                },
+                {
+                  title: "Operating Overheads",
+                  text: "Fixed operational expenditure changes",
+                },
+                {
+                  title: "Timing Differences",
+                  text: "Collection lags and deferred billing cycles",
+                },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0 text-sm" />

@@ -91,10 +91,10 @@ export default function WhatRecordsPartnershipNeeds() {
           {recordCategories.map((cat, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center shrink-0">
                   {cat.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
@@ -117,7 +117,7 @@ export default function WhatRecordsPartnershipNeeds() {
         </div>
 
         {/* Record Retention Statutory Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ClockCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
@@ -125,8 +125,8 @@ export default function WhatRecordsPartnershipNeeds() {
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               Businesses generally need to keep tax records for five years,
-              although some records—such as those relating to assets, capital
-              gains or carried-forward losses—may need to be retained for
+              although some records-such as those relating to assets, capital
+              gains or carried-forward losses-may need to be retained for
               longer. Complete records make it easier to reconcile the
               partnership accounts and prepare the return correctly.
             </p>
@@ -135,7 +135,7 @@ export default function WhatRecordsPartnershipNeeds() {
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

@@ -62,7 +62,7 @@ export default function HowFinanciallyUpHelpsResidency() {
               {servicesScope.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 shadow-xs"
+                  className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 shadow-xs"
                 >
                   <CheckCircleFilled className="text-teal-600 dark:text-teal-400 text-lg mt-0.5 shrink-0" />
                   <span className="text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug">
@@ -72,12 +72,15 @@ export default function HowFinanciallyUpHelpsResidency() {
               ))}
             </div>
 
-            <div className="mt-8 p-6 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+            <div className="mt-8 p-6 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-4">
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                Where determination of foreign-country residency or interpretation of overseas law is required, advice from a qualified professional in that country may also be necessary.
+                Where determination of foreign-country residency or
+                interpretation of overseas law is required, advice from a
+                qualified professional in that country may also be necessary.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-                Where the matter involves wider cross-border income, assets or entities, our{" "}
+                Where the matter involves wider cross-border income, assets or
+                entities, our{" "}
                 <Link
                   href="/services/international-tax"
                   className="font-semibold text-teal-600 dark:text-teal-400 hover:underline"
@@ -92,20 +95,26 @@ export default function HowFinanciallyUpHelpsResidency() {
           {/* Right Column: Why Choose Financially Up? */}
           <div className="lg:col-span-5">
             <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm relative overflow-hidden">
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-6">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl mb-6">
                 <SafetyCertificateOutlined />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Why Choose Financially Up?
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                {company.legalName || "Financially Up Pty Ltd"} is a registered tax agent assisting clients with Australian taxation, accounting and international tax matters. Our team includes CPA and IPA members and has more than 10 years of experience.
+                {company.legalName || "Financially Up Pty Ltd"} is a registered
+                tax agent assisting clients with Australian taxation, accounting
+                and international tax matters. Our team includes CPA and IPA
+                members and has more than 10 years of experience.
               </p>
 
               {/* Verbatim Bullet Points */}
               <div className="space-y-3 mb-8">
                 {whyChoosePoints.map((pt, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-sm text-slate-700 dark:text-zinc-300">
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckOutlined className="text-teal-600 dark:text-teal-400 shrink-0 font-bold" />
                     <span>{pt}</span>
                   </div>
@@ -116,12 +125,18 @@ export default function HowFinanciallyUpHelpsResidency() {
               <div className="pt-6 border-t border-slate-200 dark:border-zinc-800 space-y-3">
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
                   <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />
-                  <span>Registered Tax Agent: <strong>TPB #{company.abn || "26234055"}</strong></span>
+                  <span>
+                    Registered Tax Agent:{" "}
+                    <strong>TPB #{company.abn || "26234055"}</strong>
+                  </span>
                 </div>
                 {company.phone && (
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
                     <PhoneOutlined className="text-teal-600 dark:text-teal-400" />
-                    <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="hover:underline font-medium text-slate-900 dark:text-white">
+                    <a
+                      href={`tel:${company.phone.replace(/\s/g, "")}`}
+                      className="hover:underline font-medium text-slate-900 dark:text-white"
+                    >
                       {company.phone}
                     </a>
                   </div>
@@ -129,7 +144,10 @@ export default function HowFinanciallyUpHelpsResidency() {
                 {company.email && (
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
                     <MailOutlined className="text-teal-600 dark:text-teal-400" />
-                    <a href={`mailto:${company.email}`} className="hover:underline font-medium text-slate-900 dark:text-white">
+                    <a
+                      href={`mailto:${company.email}`}
+                      className="hover:underline font-medium text-slate-900 dark:text-white"
+                    >
                       {company.email}
                     </a>
                   </div>
@@ -139,7 +157,7 @@ export default function HowFinanciallyUpHelpsResidency() {
               <div className="mt-8">
                 <Link
                   href="/book-an-appointment"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-colors shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-colors shadow-sm"
                 >
                   <CalendarOutlined /> Book an Appointment
                 </Link>

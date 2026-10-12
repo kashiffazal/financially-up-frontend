@@ -69,11 +69,11 @@ export default function RecordsSupportingInvestmentTaxAdvice() {
           {recordsChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-700">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-700">
                     <FileTextOutlined className="text-brand-primary dark:text-emerald-400 text-lg" />
                   </div>
                   <span className="text-xs font-bold text-slate-400 dark:text-zinc-500">
@@ -98,8 +98,8 @@ export default function RecordsSupportingInvestmentTaxAdvice() {
 
         {/* Verbatim Concluding Note */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-amber-50/70 dark:bg-amber-950/30 p-6 sm:p-7 rounded-2xl border border-amber-200 dark:border-amber-800/40 shadow-sm flex items-start space-x-4">
-            <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-amber-200 dark:border-amber-700/60 shrink-0">
+          <div className="bg-amber-50/70 dark:bg-amber-950/30 p-6 sm:p-7 rounded-lg border border-amber-200 dark:border-amber-800/40 shadow-sm flex items-start space-x-4">
+            <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-amber-200 dark:border-amber-700/60 shrink-0">
               <FolderOpenOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
             </div>
             <div>
@@ -108,7 +108,8 @@ export default function RecordsSupportingInvestmentTaxAdvice() {
                 <span>Multi-Year &amp; Migration Continuity</span>
               </div>
               <p className="text-slate-800 dark:text-zinc-200 text-base sm:text-lg font-medium leading-relaxed">
-                Good records are particularly important where investments have been held for many years or moved between brokers or platforms.
+                Good records are particularly important where investments have
+                been held for many years or moved between brokers or platforms.
               </p>
             </div>
           </div>

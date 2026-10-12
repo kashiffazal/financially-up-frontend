@@ -26,17 +26,23 @@ export default function HowFinanciallyUpHelpsCgt() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       subtitle: "TPB Registered Agent #26234055",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Specialists",
       subtitle: "Qualified Accounting & Tax Team",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Australia-Wide Support",
       subtitle: "100% Online & In-Person Appointments",
     },
@@ -61,19 +67,24 @@ export default function HowFinanciallyUpHelpsCgt() {
         {/* 2 Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>Full Evidence Review &amp; Reporting</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              As your property capital gains tax accountant, Financially Up can review the available evidence, calculate the gain or loss, assess potentially relevant exemptions and discounts, and prepare the tax-return reporting. Pre-sale advice, complex residency analysis, valuations, objections and related legal work may require separate scope or another qualified professional.
+              As your property capital gains tax accountant, Financially Up can
+              review the available evidence, calculate the gain or loss, assess
+              potentially relevant exemptions and discounts, and prepare the
+              tax-return reporting. Pre-sale advice, complex residency analysis,
+              valuations, objections and related legal work may require separate
+              scope or another qualified professional.
             </p>
           </div>
 
           {/* Paragraph 2 & GST Link */}
-          <div className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <CheckCircleOutlined />
@@ -81,7 +92,9 @@ export default function HowFinanciallyUpHelpsCgt() {
               </div>
               {/* Verbatim text from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                GST uses different tests. If the property is new residential premises, commercial property or part of a development, see our GST on Property service before contracts are finalized.
+                GST uses different tests. If the property is new residential
+                premises, commercial property or part of a development, see our
+                GST on Property service before contracts are finalized.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/70 dark:border-zinc-800">
@@ -102,9 +115,9 @@ export default function HowFinanciallyUpHelpsCgt() {
           {credentials.map((cred, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-4 bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-emerald-400/60 transition-all duration-300"
+              className="flex items-center gap-4 bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-emerald-400/60 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/60 dark:border-zinc-700/60 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/60 dark:border-zinc-700/60 flex items-center justify-center shrink-0">
                 {cred.icon}
               </div>
               <div>
@@ -120,14 +133,18 @@ export default function HowFinanciallyUpHelpsCgt() {
         </div>
 
         {/* Dynamic Contact Banner utilizing useCompany() */}
-        <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white rounded-2xl p-7 sm:p-10 shadow-lg border border-emerald-900/40 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white rounded-lg p-7 sm:p-10 shadow-lg border border-emerald-900/40 flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="text-center lg:text-left">
             <h3 className="text-lg sm:text-xl font-bold mb-2">
-              Review Your Property Sale with {company?.legalName || "Financially Up"}
+              Review Your Property Sale with{" "}
+              {company?.legalName || "Financially Up"}
             </h3>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl font-normal">
-              Bring your contracts, ownership and use history, prior rental schedules and major expense records. Financially Up can identify gaps, prepare a supported calculation and explain the reporting steps.
+              Bring your contracts, ownership and use history, prior rental
+              schedules and major expense records. Financially Up can identify
+              gaps, prepare a supported calculation and explain the reporting
+              steps.
             </p>
             {company?.phone && (
               <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm">

@@ -39,8 +39,13 @@ export default function Division7AIssuesIdentified() {
         </div>
 
         {/* Verbatim Paragraph 1 */}
-        <div className="max-w-4xl mx-auto mb-12 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          The appropriate response depends on the facts. It may involve correcting accounting records, confirming whether an amount was repaid, putting an eligible loan on complying terms before the relevant deadline, reviewing minimum yearly repayments, considering whether an exclusion applies or assessing whether a deemed dividend has arisen.
+        <div className="max-w-4xl mx-auto mb-12 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          The appropriate response depends on the facts. It may involve
+          correcting accounting records, confirming whether an amount was
+          repaid, putting an eligible loan on complying terms before the
+          relevant deadline, reviewing minimum yearly repayments, considering
+          whether an exclusion applies or assessing whether a deemed dividend
+          has arisen.
         </div>
 
         {/* Action Options Grid */}
@@ -48,7 +53,7 @@ export default function Division7AIssuesIdentified() {
           {correctiveOptions.map((opt, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 p-4 sm:p-5 rounded-xl border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3 shadow-xs"
+              className="bg-white dark:bg-zinc-900 p-4 sm:p-5 rounded-lg border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3 shadow-xs"
             >
               <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0" />
               <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-zinc-300">
@@ -59,7 +64,7 @@ export default function Division7AIssuesIdentified() {
         </div>
 
         {/* Verbatim Paragraph 2 on Commissioner Discretion & Legal Counsel Boundaries */}
-        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-8 border border-amber-200/80 dark:border-amber-800/50">
+        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-8 border border-amber-200/80 dark:border-amber-800/50">
           <div className="flex items-start gap-4">
             <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <div className="space-y-3 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
@@ -67,7 +72,12 @@ export default function Division7AIssuesIdentified() {
                 Commissioner Discretions &amp; Legal Boundaries
               </h3>
               <p>
-                The Commissioner has limited discretions in some circumstances, but relief is not automatic and Financially Up does not promise that penalties, interest or deemed dividends can be removed. Some arrangements may also require legal advice, particularly where documents, trust law, loan enforceability or contractual rights are in issue.
+                The Commissioner has limited discretions in some circumstances,
+                but relief is not automatic and Financially Up does not promise
+                that penalties, interest or deemed dividends can be removed.
+                Some arrangements may also require legal advice, particularly
+                where documents, trust law, loan enforceability or contractual
+                rights are in issue.
               </p>
             </div>
           </div>

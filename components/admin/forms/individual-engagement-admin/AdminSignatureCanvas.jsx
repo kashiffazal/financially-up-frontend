@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * AdminSignatureCanvas — Staff/Admin signature wrapper
+ * AdminSignatureCanvas - Staff/Admin signature wrapper
  * Uses the shared SignatureCanvas component with admin-specific defaults
  * (brand green pen color, staff-specific placeholder text).
  */

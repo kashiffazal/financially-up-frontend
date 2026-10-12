@@ -34,10 +34,30 @@ import styles from "./WelcomeDashboard.module.css";
  */
 
 const SHORTCUTS = [
-  { href: "/admin/users", label: "Users", desc: "Staff accounts", icon: <TeamOutlined /> },
-  { href: "/admin/roles", label: "Roles", desc: "Roles & permissions", icon: <KeyOutlined /> },
-  { href: "/admin/audit-logs", label: "Audit Logs", desc: "Activity history", icon: <HistoryOutlined /> },
-  { href: "/admin/settings", label: "Settings", desc: "Company details", icon: <SettingOutlined /> },
+  {
+    href: "/admin/users",
+    label: "Users",
+    desc: "Staff accounts",
+    icon: <TeamOutlined />,
+  },
+  {
+    href: "/admin/roles",
+    label: "Roles",
+    desc: "Roles & permissions",
+    icon: <KeyOutlined />,
+  },
+  {
+    href: "/admin/audit-logs",
+    label: "Audit Logs",
+    desc: "Activity history",
+    icon: <HistoryOutlined />,
+  },
+  {
+    href: "/admin/settings",
+    label: "Settings",
+    desc: "Company details",
+    icon: <SettingOutlined />,
+  },
 ];
 
 const POST_STATUS = {
@@ -52,13 +72,24 @@ const Stat = ({ value, label, tone = "" }) => (
   </div>
 );
 
-export default function WelcomeDashboard({ user, isAdministrator, greeting, dateString, modules = {}, loading }) {
+export default function WelcomeDashboard({
+  user,
+  isAdministrator,
+  greeting,
+  dateString,
+  modules = {},
+  loading,
+}) {
   const permissions = user?.permissions || [];
   const can = (href) => canAccessAdminPath(user, isAdministrator, href);
   const canBlog = can("/admin/blog");
   const canWriteBlog = permissions.includes("blog.manage") || isAdministrator;
   const shortcuts = SHORTCUTS.filter((s) => can(s.href));
-  const hasAnything = canBlog || can("/admin/enquiries") || can("/admin/newsletter") || shortcuts.length > 0;
+  const hasAnything =
+    canBlog ||
+    can("/admin/enquiries") ||
+    can("/admin/newsletter") ||
+    shortcuts.length > 0;
 
   return (
     <div className="space-y-6 pb-12">
@@ -70,12 +101,17 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
           <p className={styles.heroText}>
             {dateString}
             {dateString && <span className={styles.dot}>•</span>}
-            Here&apos;s your workspace — only the areas your role gives you access to.
+            Here&apos;s your workspace - only the areas your role gives you
+            access to.
           </p>
         </div>
         {canBlog && canWriteBlog && (
           <Link href="/admin/blog/new">
-            <Button type="primary" icon={<PlusOutlined />} className="bg-brand-primary!">
+            <Button
+              type="primary"
+              icon={<PlusOutlined />}
+              className="bg-brand-primary!"
+            >
               Add New Post
             </Button>
           </Link>
@@ -86,7 +122,10 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
         <div className={`${styles.card} ${styles.empty}`}>
           <LockOutlined className={styles.emptyIcon} />
           <h3 className={styles.cardTitle}>No areas assigned yet</h3>
-          <p className={styles.muted}>Ask an administrator to give your role access to the parts of the portal you need.</p>
+          <p className={styles.muted}>
+            Ask an administrator to give your role access to the parts of the
+            portal you need.
+          </p>
         </div>
       ) : (
         <div className={styles.grid}>
@@ -107,9 +146,21 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
               ) : (
                 <>
                   <div className={styles.stats}>
-                    <Stat value={modules.blog?.published} label="Published" tone={styles.green} />
-                    <Stat value={modules.blog?.scheduled} label="Scheduled" tone={styles.blue} />
-                    <Stat value={modules.blog?.drafts} label="Drafts" tone={styles.amber} />
+                    <Stat
+                      value={modules.blog?.published}
+                      label="Published"
+                      tone={styles.green}
+                    />
+                    <Stat
+                      value={modules.blog?.scheduled}
+                      label="Scheduled"
+                      tone={styles.blue}
+                    />
+                    <Stat
+                      value={modules.blog?.drafts}
+                      label="Drafts"
+                      tone={styles.amber}
+                    />
                     <Stat value={modules.blog?.trash} label="In Trash" />
                   </div>
 
@@ -117,16 +168,29 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
                     <div className={styles.list}>
                       <span className={styles.listLabel}>Recently updated</span>
                       {modules.blog.recent.map((post) => {
-                        const scheduled = post.status === "published" && post.publishedAt && dayjs(post.publishedAt).isAfter(dayjs());
-                        const meta = scheduled ? { label: "Scheduled", color: "processing" } : POST_STATUS[post.status] || POST_STATUS.draft;
+                        const scheduled =
+                          post.status === "published" &&
+                          post.publishedAt &&
+                          dayjs(post.publishedAt).isAfter(dayjs());
+                        const meta = scheduled
+                          ? { label: "Scheduled", color: "processing" }
+                          : POST_STATUS[post.status] || POST_STATUS.draft;
                         return (
-                          <Link key={post.id} href={`/admin/blog/${post.id}`} className={styles.listRow}>
+                          <Link
+                            key={post.id}
+                            href={`/admin/blog/${post.id}`}
+                            className={styles.listRow}
+                          >
                             <EditOutlined className={styles.listIcon} />
-                            <span className={styles.listTitle}>{post.title}</span>
+                            <span className={styles.listTitle}>
+                              {post.title}
+                            </span>
                             <Tag color={meta.color} className="m-0!">
                               {meta.label}
                             </Tag>
-                            <span className={styles.listDate}>{dayjs(post.updatedAt).format("D MMM YYYY")}</span>
+                            <span className={styles.listDate}>
+                              {dayjs(post.updatedAt).format("D MMM YYYY")}
+                            </span>
                           </Link>
                         );
                       })}
@@ -161,7 +225,11 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
                 </div>
               </div>
               <div className={styles.stats}>
-                <Stat value={modules.enquiries?.new} label="New" tone={styles.blue} />
+                <Stat
+                  value={modules.enquiries?.new}
+                  label="New"
+                  tone={styles.blue}
+                />
                 <Stat value={modules.enquiries?.total} label="Total" />
               </div>
               <div className={styles.actions}>
@@ -184,7 +252,11 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
                 </div>
               </div>
               <div className={styles.stats}>
-                <Stat value={modules.newsletter?.subscribed} label="Subscribed" tone={styles.green} />
+                <Stat
+                  value={modules.newsletter?.subscribed}
+                  label="Subscribed"
+                  tone={styles.green}
+                />
                 <Stat value={modules.newsletter?.total} label="Total" />
               </div>
               <div className={styles.actions}>
@@ -196,7 +268,11 @@ export default function WelcomeDashboard({ user, isAdministrator, greeting, date
           )}
 
           {shortcuts.map((s) => (
-            <Link key={s.href} href={s.href} className={`${styles.card} ${styles.shortcut}`}>
+            <Link
+              key={s.href}
+              href={s.href}
+              className={`${styles.card} ${styles.shortcut}`}
+            >
               <span className={styles.cardIcon}>{s.icon}</span>
               <div>
                 <h3 className={styles.cardTitle}>{s.label}</h3>

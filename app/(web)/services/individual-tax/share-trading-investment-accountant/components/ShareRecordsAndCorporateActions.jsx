@@ -64,7 +64,7 @@ export default function ShareRecordsAndCorporateActions() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <FileProtectOutlined className="text-xl" />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ export default function ShareRecordsAndCorporateActions() {
                 {coreRecords.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs text-slate-700 dark:text-zinc-200 font-medium"
+                    className="flex items-start gap-2.5 p-2 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs text-slate-700 dark:text-zinc-200 font-medium"
                   >
                     <CheckCircleOutlined className="text-emerald-500 mt-0.5 shrink-0" />
                     <span>{item}</span>
@@ -113,7 +113,7 @@ export default function ShareRecordsAndCorporateActions() {
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400">
                   <BranchesOutlined className="text-xl" />
                 </div>
                 <div>
@@ -137,14 +137,14 @@ export default function ShareRecordsAndCorporateActions() {
                 {corporateActions.map((action, idx) => (
                   <div
                     key={idx}
-                    className="p-2.5 rounded-xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200/60 dark:border-purple-900/40 text-xs text-purple-950 dark:text-purple-200 font-medium"
+                    className="p-2.5 rounded-lg bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200/60 dark:border-purple-900/40 text-xs text-purple-950 dark:text-purple-200 font-medium"
                   >
                     {action}
                   </div>
                 ))}
               </div>
 
-              <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+              <div className="p-4 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                 <span className="font-bold block mb-1">
                   Dividend Reinvestment Plan (DRP) Rule:
                 </span>

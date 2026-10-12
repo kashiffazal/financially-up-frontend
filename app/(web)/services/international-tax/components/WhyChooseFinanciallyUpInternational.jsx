@@ -34,31 +34,41 @@ export default function WhyChooseFinanciallyUpInternational() {
    */
   const valuePillars = [
     {
-      icon: <GlobalOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Australia-wide service",
       description:
         "Comprehensive cross-border taxation and accounting services accessible to individuals, expatriates, and businesses across all Australian states and territories.",
     },
     {
-      icon: <VideoCameraOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <VideoCameraOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Online appointments",
       description:
         "Secure virtual consultations via video conference, providing seamless tax advice no matter your international time zone or location.",
     },
     {
-      icon: <EnvironmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <EnvironmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "In-person appointments where available",
       description:
         "Face-to-face meetings available at our primary office in North Sydney for clients seeking in-person consultations.",
     },
     {
-      icon: <CommentOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CommentOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Practical explanations of complex tax matters",
       description:
         "Demystifying cross-border double tax treaties, residency statutory tests, and foreign tax credits into clear, actionable advice.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Assistance tailored to the actual facts of your circumstances",
       description:
         "Personalised reviews based strictly on the genuine facts of your cross-border connection, residency timing, and foreign asset portfolio.",
@@ -79,7 +89,11 @@ export default function WhyChooseFinanciallyUpInternational() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent providing taxation, accounting and advisory services to clients across Australia. Our team includes CPA and IPA members and brings more than 10 years of experience across taxation and accounting matters.
+            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
+            agent providing taxation, accounting and advisory services to
+            clients across Australia. Our team includes CPA and IPA members and
+            brings more than 10 years of experience across taxation and
+            accounting matters.
           </p>
         </div>
 
@@ -88,12 +102,12 @@ export default function WhyChooseFinanciallyUpInternational() {
           {valuePillars.map((item, idx) => (
             <div
               key={idx}
-              className={`p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between ${
+              className={`p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between ${
                 idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-5">
                   {item.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">

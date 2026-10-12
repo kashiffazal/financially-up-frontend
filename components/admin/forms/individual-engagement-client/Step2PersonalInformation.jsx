@@ -92,7 +92,7 @@ export default function Step2PersonalInformation({ form }) {
           placeholder="e.g. John"
           preIconAnt={<UserOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           reqMsg="Please enter your first name."
           containerClassName="!mb-2"
         />
@@ -108,7 +108,7 @@ export default function Step2PersonalInformation({ form }) {
           placeholder="e.g. Smith"
           preIconAnt={<UserOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           reqMsg="Please enter your last name."
           containerClassName="!mb-2"
         />
@@ -125,14 +125,14 @@ export default function Step2PersonalInformation({ form }) {
           placeholder="DD/MM/YYYY"
           format="DD/MM/YYYY"
           size="large"
-          className="w-full rounded-xl"
+          className="w-full rounded-lg"
           reqMsg="Please select your date of birth."
           containerClassName="!mb-2 md:col-span-2"
         />
       </div>
 
       {/* PI-002 & PI-003: Previous Name Question */}
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <AntInput
           type="radio"
           name="hasPreviousName"
@@ -159,7 +159,7 @@ export default function Step2PersonalInformation({ form }) {
             }
             placeholder="Enter previous legal names or maiden name"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             reqMsg="Please enter previous name."
             containerClassName="!mb-2 !mt-2"
           />
@@ -167,7 +167,7 @@ export default function Step2PersonalInformation({ form }) {
       </div>
 
       {/* TFN Section (PI-005, PI-006, PI-007) */}
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/60 dark:border-zinc-800 pb-2">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 dark:text-zinc-100 m-0">
@@ -208,7 +208,7 @@ export default function Step2PersonalInformation({ form }) {
             preIconAnt={<IdcardOutlined className="text-slate-400" />}
             size="large"
             maxLength={11}
-            className="rounded-xl font-mono tracking-widest"
+            className="rounded-lg font-mono tracking-widest"
             rules={[
               { required: true, message: "Please enter your TFN." },
               {
@@ -229,7 +229,7 @@ export default function Step2PersonalInformation({ form }) {
             }
             placeholder="Please provide details regarding your TFN application or exemption status..."
             rows={2}
-            className="rounded-xl"
+            className="rounded-lg"
             reqMsg="Please explain your TFN status."
             containerClassName="!mb-0"
           />
@@ -248,7 +248,7 @@ export default function Step2PersonalInformation({ form }) {
           }
           placeholder="e.g. Sydney, London, Mumbai"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           noRequired={true}
           containerClassName="!mb-2"
         />
@@ -265,7 +265,7 @@ export default function Step2PersonalInformation({ form }) {
           options={COUNTRIES}
           placeholder="Select Country"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           filter={true}
           reqMsg="Please select your country of birth."
           containerClassName="!mb-2"
@@ -286,7 +286,7 @@ export default function Step2PersonalInformation({ form }) {
           placeholder="0400 000 000"
           preIconAnt={<PhoneOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           reqMsg="Please enter your mobile number."
           containerClassName="!mb-2"
         />
@@ -303,7 +303,7 @@ export default function Step2PersonalInformation({ form }) {
           placeholder="client@example.com.au"
           preIconAnt={<MailOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           reqMsg="Please enter a valid email address."
           containerClassName="!mb-2"
         />
@@ -319,7 +319,7 @@ export default function Step2PersonalInformation({ form }) {
         }
         placeholder="Start typing your address, e.g. 12 Harbour St Sydney"
         size="large"
-        className="rounded-xl"
+        className="rounded-lg"
         reqMsg="Please enter your residential address."
         containerClassName="!mb-4"
       />
@@ -337,7 +337,7 @@ export default function Step2PersonalInformation({ form }) {
           placeholder="e.g. Software Engineer, Nurse, Electrician"
           preIconAnt={<SolutionOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           reqMsg="Please enter your occupation."
           containerClassName="!mb-2"
         />
@@ -354,7 +354,7 @@ export default function Step2PersonalInformation({ form }) {
           options={EMPLOYMENT_STATUS_OPTIONS}
           placeholder="Select Employment Status"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           reqMsg="Please select employment status."
           containerClassName="!mb-2"
         />
@@ -373,7 +373,7 @@ export default function Step2PersonalInformation({ form }) {
         maxLength={500}
         showCount={true}
         rows={3}
-        className="rounded-xl"
+        className="rounded-lg"
         noRequired={true}
         containerClassName="!mb-2"
       />

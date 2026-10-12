@@ -1,7 +1,11 @@
 "use client";
 
 import React from "react";
-import { ToolOutlined, HomeOutlined, ApartmentOutlined } from "@ant-design/icons";
+import {
+  ToolOutlined,
+  HomeOutlined,
+  ApartmentOutlined,
+} from "@ant-design/icons";
 
 /**
  * RepairsVsCapitalWorksGearing Component
@@ -62,7 +66,10 @@ export default function RepairsVsCapitalWorksGearing() {
             Repairs, Capital Works and Depreciating Assets
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            The ATO actively audits property claims for misclassified capital expenditure. Incorrectly claiming initial repairs or improvements as immediate deductions can overstate rental losses and trigger severe penalties.
+            The ATO actively audits property claims for misclassified capital
+            expenditure. Incorrectly claiming initial repairs or improvements as
+            immediate deductions can overstate rental losses and trigger severe
+            penalties.
           </p>
         </div>
 
@@ -70,17 +77,25 @@ export default function RepairsVsCapitalWorksGearing() {
           {categories.map((cat, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">{cat.icon}</div>
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${cat.badgeColor}`}>
+                  <div className="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                    {cat.icon}
+                  </div>
+                  <span
+                    className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${cat.badgeColor}`}
+                  >
                     {cat.badge}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{cat.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">{cat.description}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  {cat.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  {cat.description}
+                </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100">
@@ -101,7 +116,9 @@ export default function RepairsVsCapitalWorksGearing() {
         </div>
 
         <div className="mt-12 text-center text-slate-600 text-sm sm:text-base max-w-3xl mx-auto">
-          Financially Up conducts item-by-item invoice reviews of major property expenditure to ensure deductions are claimed strictly under their compliant legislative category.
+          Financially Up conducts item-by-item invoice reviews of major property
+          expenditure to ensure deductions are claimed strictly under their
+          compliant legislative category.
         </div>
       </div>
     </section>

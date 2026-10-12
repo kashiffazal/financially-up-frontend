@@ -60,7 +60,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
 
             {/* 3 Pillar Summary Points */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200/70 dark:border-zinc-800">
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
+              <div className="flex items-start gap-3 p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
                 <BellOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5" />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
@@ -72,7 +72,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
+              <div className="flex items-start gap-3 p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
                 <DollarOutlined className="text-teal-600 dark:text-teal-400 text-lg mt-0.5" />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
@@ -84,7 +84,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
+              <div className="flex items-start gap-3 p-3 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800">
                 <SafetyCertificateOutlined className="text-blue-600 dark:text-blue-400 text-lg mt-0.5" />
                 <div>
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
@@ -168,7 +168,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-brand-primary hover:bg-brand-primary/90 text-white h-11"
+                  className="w-full rounded-lg font-bold bg-brand-primary hover:bg-brand-primary/90 text-white h-11"
                 >
                   Appoint Registered Agent
                 </Button>
@@ -224,7 +224,7 @@ export default function AnnualStatementsAndAgentVsOneOff() {
                     size="large"
                     icon={<ArrowRightOutlined />}
                     iconPlacement="end"
-                    className="w-full rounded-xl font-bold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-white hover:border-emerald-500 hover:text-emerald-600 h-11"
+                    className="w-full rounded-lg font-bold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-white hover:border-emerald-500 hover:text-emerald-600 h-11"
                   >
                     View Company Changes (Form 484)
                   </Button>

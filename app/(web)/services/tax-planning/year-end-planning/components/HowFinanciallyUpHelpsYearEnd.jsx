@@ -56,10 +56,10 @@ export default function HowFinanciallyUpHelpsYearEnd() {
           {keyStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center mb-4 text-brand-primary dark:text-emerald-400">
+                <div className="w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center mb-4 text-brand-primary dark:text-emerald-400">
                   <CheckCircleOutlined className="text-lg" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -84,10 +84,16 @@ export default function HowFinanciallyUpHelpsYearEnd() {
                 Why Choose Financially Up?
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Financially Up Pty Ltd is a registered tax agent with more than 10 years of experience. Our professional tax and accounting team includes CPA and IPA members, and we support clients Australia-wide through online appointments as well as in-person meetings where preferred.
+                Financially Up Pty Ltd is a registered tax agent with more than
+                10 years of experience. Our professional tax and accounting team
+                includes CPA and IPA members, and we support clients
+                Australia-wide through online appointments as well as in-person
+                meetings where preferred.
               </p>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Our focus is practical planning based on the facts, current tax rules and the client’s broader accounting position, without promising a particular tax saving or outcome.
+                Our focus is practical planning based on the facts, current tax
+                rules and the client’s broader accounting position, without
+                promising a particular tax saving or outcome.
               </p>
 
               {/* Dynamic Company Details from Context */}
@@ -128,7 +134,7 @@ export default function HowFinanciallyUpHelpsYearEnd() {
                   type="primary"
                   size="large"
                   icon={<CalendarOutlined />}
-                  className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 border-none font-bold text-slate-950 px-8 h-12 rounded-xl text-base shadow-lg shadow-emerald-500/20"
+                  className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 border-none font-bold text-slate-950 px-8 h-12 rounded-lg text-base shadow-lg shadow-emerald-500/20"
                 >
                   Book an Appointment
                 </Button>

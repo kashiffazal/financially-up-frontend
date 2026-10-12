@@ -20,24 +20,36 @@ import {
 export default function IsGstPayableOnPropertySale() {
   const taxableSupplyElements = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Made for Consideration",
-      description: "The transfer of real estate occurs for monetary payment, asset exchange, or debt extinguishment.",
+      description:
+        "The transfer of real estate occurs for monetary payment, asset exchange, or debt extinguishment.",
     },
     {
-      icon: <ShopOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Course or Furtherance of Enterprise",
-      description: "Conducted as part of an active business, commercial adventure, or one-off profit-making venture.",
+      description:
+        "Conducted as part of an active business, commercial adventure, or one-off profit-making venture.",
     },
     {
-      icon: <GlobalOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Connected with Australia",
-      description: "The land or real property asset is geographically situated within Australia.",
+      description:
+        "The land or real property asset is geographically situated within Australia.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Registered or Required to Register",
-      description: "The seller holds active GST registration or exceeds statutory turnover thresholds ($75k / $150k non-profit).",
+      description:
+        "The seller holds active GST registration or exceeds statutory turnover thresholds ($75k / $150k non-profit).",
     },
   ];
 
@@ -57,7 +69,11 @@ export default function IsGstPayableOnPropertySale() {
           </h2>
           {/* Verbatim Paragraph 1 */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A property sale is generally taxable only when made for consideration in the course or furtherance of an enterprise, connected with Australia, and the seller is registered or required to be registered for GST. An exemption or input-taxed treatment may alter the result.
+            A property sale is generally taxable only when made for
+            consideration in the course or furtherance of an enterprise,
+            connected with Australia, and the seller is registered or required
+            to be registered for GST. An exemption or input-taxed treatment may
+            alter the result.
           </p>
         </div>
 
@@ -66,9 +82,9 @@ export default function IsGstPayableOnPropertySale() {
           {taxableSupplyElements.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
+              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
             >
-              <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
+              <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -84,26 +100,35 @@ export default function IsGstPayableOnPropertySale() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
           {/* Paragraph 2 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>Private Sale vs One-Off Enterprise</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              A private sale of a family home will ordinarily be different from a sale made through a property-development enterprise. However, a single project can still amount to an enterprise. The owner's purpose, activities, organization, scale and commercial character must be considered rather than relying only on the number of transactions.
+              A private sale of a family home will ordinarily be different from
+              a sale made through a property-development enterprise. However, a
+              single project can still amount to an enterprise. The owner's
+              purpose, activities, organization, scale and commercial character
+              must be considered rather than relying only on the number of
+              transactions.
             </p>
           </div>
 
           {/* Paragraph 3 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-4">
               <AlertOutlined />
               <span>Projected GST Turnover Analysis</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              GST registration and turnover require careful analysis for property projects. The sale price can be significant, but not every property disposal is treated identically for projected GST turnover. Obtain advice before assuming that being unregistered means GST cannot apply.
+              GST registration and turnover require careful analysis for
+              property projects. The sale price can be significant, but not
+              every property disposal is treated identically for projected GST
+              turnover. Obtain advice before assuming that being unregistered
+              means GST cannot apply.
             </p>
           </div>
         </div>

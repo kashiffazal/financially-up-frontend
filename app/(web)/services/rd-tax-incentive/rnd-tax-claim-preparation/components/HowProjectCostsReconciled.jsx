@@ -77,8 +77,9 @@ export default function HowProjectCostsReconciled() {
             How are project costs reconciled?
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Converting development invoices into a supportable R&amp;D tax claim requires
-            transparent reconciliations against the ATO notional deduction rules.
+            Converting development invoices into a supportable R&amp;D tax claim
+            requires transparent reconciliations against the ATO notional
+            deduction rules.
           </p>
         </div>
 
@@ -87,11 +88,11 @@ export default function HowProjectCostsReconciled() {
           {reconciliationPillars.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 shadow-xs">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 shadow-xs">
                     {item.icon}
                   </div>
                   <Tag
@@ -124,16 +125,17 @@ export default function HowProjectCostsReconciled() {
         </div>
 
         {/* Professional Standard Callout */}
-        <div className="bg-emerald-50/50 dark:bg-emerald-950/20 rounded-2xl p-6 sm:p-7 border border-emerald-200/70 dark:border-emerald-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center shrink-0 text-emerald-700 dark:text-emerald-300">
+        <div className="bg-emerald-50/50 dark:bg-emerald-950/20 rounded-lg p-6 sm:p-7 border border-emerald-200/70 dark:border-emerald-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center shrink-0 text-emerald-700 dark:text-emerald-300">
             <AlertOutlined className="text-lg" />
           </div>
           <p className="text-xs sm:text-sm text-emerald-900 dark:text-emerald-200 leading-relaxed font-normal">
             <strong className="font-semibold text-emerald-950 dark:text-emerald-100">
               Prudent Accounting Principle:
             </strong>{" "}
-            An amount in the company accounts is not automatically a notional R&amp;D deduction.
-            Every claimed dollar must be defended by contemporaneous activity records and documented allocation formulas.
+            An amount in the company accounts is not automatically a notional
+            R&amp;D deduction. Every claimed dollar must be defended by
+            contemporaneous activity records and documented allocation formulas.
           </p>
         </div>
       </div>

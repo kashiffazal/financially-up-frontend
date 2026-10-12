@@ -14,21 +14,33 @@ import {
 } from "@ant-design/icons";
 
 /**
- * Global Search — module presentation config.
+ * Global Search - module presentation config.
  * Keys match `moduleKey` returned by `GET /api/search` (backend SEARCH_REGISTRY).
  */
 export const MODULE_META = {
   "new-company": { icon: <BankOutlined />, label: "Company Registration" },
   "new-individual": { icon: <UserOutlined />, label: "Individual Engagement" },
-  "legacy-company": { icon: <BankOutlined />, label: "Company Registration (Legacy)" },
-  "legacy-individual": { icon: <UserOutlined />, label: "Individual Engagement (Legacy)" },
+  "legacy-company": {
+    icon: <BankOutlined />,
+    label: "Company Registration (Legacy)",
+  },
+  "legacy-individual": {
+    icon: <UserOutlined />,
+    label: "Individual Engagement (Legacy)",
+  },
   "entity-engagements": { icon: <TeamOutlined />, label: "Entity Engagements" },
-  "changes-company": { icon: <FormOutlined />, label: "Changes to Company Details" },
+  "changes-company": {
+    icon: <FormOutlined />,
+    label: "Changes to Company Details",
+  },
   gst: { icon: <FileProtectOutlined />, label: "GST Registrations" },
   medicare: { icon: <SafetyCertificateOutlined />, label: "Medicare Claims" },
   trust: { icon: <ApartmentOutlined />, label: "Trust Registrations" },
   smsf: { icon: <AuditOutlined />, label: "SMSF Registrations" },
-  "business-names": { icon: <ShopOutlined />, label: "Business Name Registrations" },
+  "business-names": {
+    icon: <ShopOutlined />,
+    label: "Business Name Registrations",
+  },
   "apply-tfn": { icon: <IdcardOutlined />, label: "Apply TFN / ABNs" },
   blog: { icon: <ReadOutlined />, label: "Blog Posts" },
 };
@@ -38,16 +50,36 @@ export const MODULE_META = {
  * Shown only when the user may open the page (lib/adminAccess.js).
  */
 export const QUICK_LINKS = [
-  { key: "new-company", href: "/admin/company-registration-new", color: "#008043" },
-  { key: "new-individual", href: "/admin/individual-engagement-new", color: "#10b981" },
+  {
+    key: "new-company",
+    href: "/admin/company-registration-new",
+    color: "#008043",
+  },
+  {
+    key: "new-individual",
+    href: "/admin/individual-engagement-new",
+    color: "#10b981",
+  },
   { key: "gst", href: "/admin/gst-registrations", color: "#f59e0b" },
   { key: "medicare", href: "/admin/medicare", color: "#ef4444" },
   { key: "trust", href: "/admin/trust-registrations", color: "#06b6d4" },
   { key: "smsf", href: "/admin/smsf-registrations", color: "#8b5cf6" },
-  { key: "business-names", href: "/admin/business-name-registrations", color: "#ec4899" },
+  {
+    key: "business-names",
+    href: "/admin/business-name-registrations",
+    color: "#ec4899",
+  },
   { key: "apply-tfn", href: "/admin/apply-tfn-abns", color: "#6366f1" },
-  { key: "entity-engagements", href: "/admin/entity-engagements", color: "#3b82f6" },
-  { key: "changes-company", href: "/admin/changes-to-company-details", color: "#14b8a6" },
+  {
+    key: "entity-engagements",
+    href: "/admin/entity-engagements",
+    color: "#3b82f6",
+  },
+  {
+    key: "changes-company",
+    href: "/admin/changes-to-company-details",
+    color: "#14b8a6",
+  },
   { key: "blog", href: "/admin/blog", color: "#0d9488" },
 ];
 
@@ -67,20 +99,41 @@ export const statusTagColor = (status) => {
   if (s === "published") return "success";
   if (s === "scheduled") return "processing";
   if (s === "trash") return "error";
-  if (s.includes("disapprove") || s.includes("decline") || s.includes("reject") || s.includes("escalate")) return "error";
+  if (
+    s.includes("disapprove") ||
+    s.includes("decline") ||
+    s.includes("reject") ||
+    s.includes("escalate")
+  )
+    return "error";
   if (s.includes("condition")) return "orange";
-  if (s.includes("approve") || s.includes("accept") || s.includes("complete") || s.includes("lodged")) return "success";
+  if (
+    s.includes("approve") ||
+    s.includes("accept") ||
+    s.includes("complete") ||
+    s.includes("lodged")
+  )
+    return "success";
   if (s.includes("hold")) return "purple";
-  if (s.includes("pending") || s.includes("information") || s.includes("submitted")) return "warning";
+  if (
+    s.includes("pending") ||
+    s.includes("information") ||
+    s.includes("submitted")
+  )
+    return "warning";
   return "processing";
 };
 
-/** "7 Oct 2026" — matches the dashboard's en-AU date style. */
+/** "7 Oct 2026" - matches the dashboard's en-AU date style. */
 export const formatDate = (value) => {
   if (!value) return "";
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
+  return d.toLocaleDateString("en-AU", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 };
 
 // ============================
@@ -90,8 +143,14 @@ export const formatDate = (value) => {
 export const readRecentSearches = () => {
   if (typeof window === "undefined") return [];
   try {
-    const parsed = JSON.parse(window.localStorage.getItem(RECENT_SEARCHES_KEY) || "[]");
-    return Array.isArray(parsed) ? parsed.filter((v) => typeof v === "string").slice(0, MAX_RECENT_SEARCHES) : [];
+    const parsed = JSON.parse(
+      window.localStorage.getItem(RECENT_SEARCHES_KEY) || "[]",
+    );
+    return Array.isArray(parsed)
+      ? parsed
+          .filter((v) => typeof v === "string")
+          .slice(0, MAX_RECENT_SEARCHES)
+      : [];
   } catch {
     return [];
   }
@@ -99,8 +158,11 @@ export const readRecentSearches = () => {
 
 export const writeRecentSearches = (list) => {
   try {
-    window.localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(list.slice(0, MAX_RECENT_SEARCHES)));
+    window.localStorage.setItem(
+      RECENT_SEARCHES_KEY,
+      JSON.stringify(list.slice(0, MAX_RECENT_SEARCHES)),
+    );
   } catch {
-    // Storage unavailable (private mode / blocked) — recent searches are optional.
+    // Storage unavailable (private mode / blocked) - recent searches are optional.
   }
 };

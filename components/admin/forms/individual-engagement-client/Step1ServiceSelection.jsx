@@ -181,7 +181,7 @@ export default function Step1ServiceSelection({
       />
 
       {/* SRV-002: Entity Related Work Question using AntInput helper */}
-      <div className="p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <h3 className="text-base font-bold text-slate-900 dark:text-zinc-100">
@@ -215,7 +215,7 @@ export default function Step1ServiceSelection({
             showIcon
             title="Linked Entity Engagement Notice"
             description="Notice: Entity services (Company, Trust, Partnership) require a separate Entity Engagement. You can proceed with your Individual Engagement form now, and our team will automatically set up the linked Entity Engagement for you."
-            className="rounded-xl border-emerald-200 dark:border-emerald-900 bg-emerald-50/80 dark:bg-emerald-950/60 text-slate-800 dark:text-zinc-200 !mt-4"
+            className="rounded-lg border-emerald-200 dark:border-emerald-900 bg-emerald-50/80 dark:bg-emerald-950/60 text-slate-800 dark:text-zinc-200 !mt-4"
           />
         )}
       </div>

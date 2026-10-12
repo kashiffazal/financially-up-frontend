@@ -60,13 +60,13 @@ export default function ChoosingOrChangingStructure() {
 
         {/* Verbatim Paragraphs 1 & 2 */}
         <div className="max-w-4xl mx-auto mb-14 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
             A restructure often starts with a question about entity choice: sole
             trader, partnership, company or trust. Each structure has different
             tax, control, compliance and legal characteristics. No structure is
             universally better.
           </p>
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
             Our Business Structure Advice service focuses on comparing
             structures before establishment or change. Business restructuring
             advice goes further where an existing business needs to move assets,
@@ -94,7 +94,7 @@ export default function ChoosingOrChangingStructure() {
             {serviceCards.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-white/10 dark:bg-zinc-800/60 backdrop-blur-sm rounded-2xl p-6 border border-white/10 dark:border-zinc-700 flex flex-col justify-between hover:bg-white/15 transition-all duration-300"
+                className="bg-white/10 dark:bg-zinc-800/60 backdrop-blur-sm rounded-lg p-6 border border-white/10 dark:border-zinc-700 flex flex-col justify-between hover:bg-white/15 transition-all duration-300"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-4">

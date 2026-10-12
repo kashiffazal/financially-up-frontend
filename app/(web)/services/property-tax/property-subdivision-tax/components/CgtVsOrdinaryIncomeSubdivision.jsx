@@ -20,19 +20,23 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
   const assessmentFactors = [
     {
       title: "Original & Evolving Purpose",
-      description: "Did the owner buy the land to live in or hold for long-term rental, or with a profit-making scheme in mind?",
+      description:
+        "Did the owner buy the land to live in or hold for long-term rental, or with a profit-making scheme in mind?",
     },
     {
       title: "Level of Physical Development",
-      description: "Did works merely satisfy minimum council subdivision conditions, or did they involve extensive civil enhancements?",
+      description:
+        "Did works merely satisfy minimum council subdivision conditions, or did they involve extensive civil enhancements?",
     },
     {
       title: "Borrowed Funds & Leverage",
-      description: "Was the project financed using high-risk debt facilities or commercial development lending?",
+      description:
+        "Was the project financed using high-risk debt facilities or commercial development lending?",
     },
     {
       title: "Professional Organization & Marketing",
-      description: "Was a project manager appointed, display suites created, or an aggressive promotional campaign launched?",
+      description:
+        "Was a project manager appointed, display suites created, or an aggressive promotional campaign launched?",
     },
   ];
 
@@ -55,8 +59,8 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
         {/* 2 Comparison Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: CGT Treatment */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs relative overflow-hidden">
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs relative overflow-hidden">
+            <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
               <LineChartOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
@@ -64,17 +68,23 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
             </h3>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-              Where subdivided land remains a capital asset, CGT generally applies when a lot is sold. The original land's cost base must be allocated between the new lots on a reasonable basis. Relevant subdivision and sale costs must also be classified and allocated appropriately.
+              Where subdivided land remains a capital asset, CGT generally
+              applies when a lot is sold. The original land's cost base must be
+              allocated between the new lots on a reasonable basis. Relevant
+              subdivision and sale costs must also be classified and allocated
+              appropriately.
             </p>
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
               <CheckCircleOutlined />
-              <span>Potential 50% CGT Discount for Individuals &amp; Trusts</span>
+              <span>
+                Potential 50% CGT Discount for Individuals &amp; Trusts
+              </span>
             </div>
           </div>
 
           {/* Card 2: Ordinary Income */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs relative overflow-hidden">
-            <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-6">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs relative overflow-hidden">
+            <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-6">
               <DollarOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
@@ -82,7 +92,12 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
             </h3>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-              Ordinary income treatment may apply where the activities amount to a business operation or commercial transaction entered into with a profit-making purpose. Relevant facts can include the original and later purpose for holding the land, the change in plans, the level of development, borrowed funds, professional organization, marketing and the owner's involvement.
+              Ordinary income treatment may apply where the activities amount to
+              a business operation or commercial transaction entered into with a
+              profit-making purpose. Relevant facts can include the original and
+              later purpose for holding the land, the change in plans, the level
+              of development, borrowed funds, professional organization,
+              marketing and the owner's involvement.
             </p>
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center gap-2 text-xs text-teal-600 dark:text-teal-400 font-semibold">
               <AlertOutlined />
@@ -96,7 +111,7 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
           {assessmentFactors.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 shadow-2xs"
             >
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">
                 {item.title}
@@ -109,8 +124,8 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
         </div>
 
         {/* Verbatim Paragraph 3 Banner (Anti-Double Taxation) */}
-        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
             <SafetyCertificateOutlined className="text-2xl" />
           </div>
           <div>
@@ -119,7 +134,11 @@ export default function CgtVsOrdinaryIncomeSubdivision() {
             </span>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm md:text-base text-slate-200 dark:text-zinc-200 leading-relaxed font-normal">
-              No single factor decides the result. A change of intention after acquisition can also be important. If an amount is included as ordinary income and a CGT event also arises, the CGT rules contain mechanisms intended to prevent the same economic gain being taxed twice.
+              No single factor decides the result. A change of intention after
+              acquisition can also be important. If an amount is included as
+              ordinary income and a CGT event also arises, the CGT rules contain
+              mechanisms intended to prevent the same economic gain being taxed
+              twice.
             </p>
           </div>
         </div>

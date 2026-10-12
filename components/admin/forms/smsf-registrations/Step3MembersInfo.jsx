@@ -51,11 +51,11 @@ export default function Step3MembersInfo() {
         emptyFirstVal="- Select Member Count -"
         reqMsg="Please select number of members"
         size="large"
-        className="rounded-xl"
+        className="rounded-lg"
         containerClassName="!mb-2"
       />
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
           Primary Member & Trustee (Member 1)
         </span>
@@ -72,7 +72,7 @@ export default function Step3MembersInfo() {
             placeholder="First Name"
             reqMsg="First name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -86,7 +86,7 @@ export default function Step3MembersInfo() {
             placeholder="Last Name"
             reqMsg="Last name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -104,7 +104,7 @@ export default function Step3MembersInfo() {
             emptyFirstVal="- Select Gender -"
             reqMsg="Gender is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -120,7 +120,7 @@ export default function Step3MembersInfo() {
             reqMsg="Date of birth is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -135,7 +135,7 @@ export default function Step3MembersInfo() {
             maxLength={9}
             reqMsg="TFN is required for super fund registration"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -153,7 +153,7 @@ export default function Step3MembersInfo() {
             reqMsg="Phone is required"
             preIconAnt={<PhoneOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -168,7 +168,7 @@ export default function Step3MembersInfo() {
             reqMsg="Email is required"
             preIconAnt={<MailOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

@@ -28,7 +28,8 @@ function AdminLayoutContent({ children }) {
   const { isDark, getAdminThemeConfig } = useTheme();
 
   // Pages that work without signing in: login and the emailed "set password" link
-  const isLoginPage = pathname === "/admin/login" || pathname === "/admin/set-password";
+  const isLoginPage =
+    pathname === "/admin/login" || pathname === "/admin/set-password";
   const adminTheme = getAdminThemeConfig
     ? getAdminThemeConfig(isDark)
     : undefined;
@@ -105,10 +106,14 @@ function AdminLayoutContent({ children }) {
             {/* Top toolbar header */}
             <Header onOpenMobile={() => setMobileOpen(true)} />
 
-            {/* Dynamic page content container — pages the user has no permission
+            {/* Dynamic page content container - pages the user has no permission
                 for (e.g. a typed URL) show "Access denied" instead (lib/adminAccess.js) */}
             <main className="flex-grow p-4 sm:p-6 md:p-8 space-y-6 overflow-y-auto overflow-x-hidden">
-              {canAccessAdminPath(user, hasRole("administrator"), pathname) ? children : <AccessDenied />}
+              {canAccessAdminPath(user, hasRole("administrator"), pathname) ? (
+                children
+              ) : (
+                <AccessDenied />
+              )}
             </main>
 
             {/* Standard copyright and credits footer */}

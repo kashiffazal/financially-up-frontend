@@ -49,17 +49,29 @@ export default function WhatSmsfPropertyAccountantDoes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="purple"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             SMSF Real Estate Accounting
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What does an SMSF property accountant do?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            An SMSF property accountant focuses on the accounting and tax treatment of property held by the fund. This is different from property investment advice, loan or credit advice, legal conveyancing and the independent SMSF audit. The work usually begins with the fund&apos;s bank, property-manager, loan and settlement records and follows those transactions through to the annual accounts, tax calculations and audit file.
+            An SMSF property accountant focuses on the accounting and tax
+            treatment of property held by the fund. This is different from
+            property investment advice, loan or credit advice, legal
+            conveyancing and the independent SMSF audit. The work usually begins
+            with the fund&apos;s bank, property-manager, loan and settlement
+            records and follows those transactions through to the annual
+            accounts, tax calculations and audit file.
           </p>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The work may cover rental income, expenses, loans, acquisition and disposal costs, capital works, depreciating assets, valuations and related-party dealings. Treatment depends on the transaction, fund circumstances and applicable rules.
+            The work may cover rental income, expenses, loans, acquisition and
+            disposal costs, capital works, depreciating assets, valuations and
+            related-party dealings. Treatment depends on the transaction, fund
+            circumstances and applicable rules.
           </p>
         </div>
 
@@ -68,10 +80,10 @@ export default function WhatSmsfPropertyAccountantDoes() {
           {propertyWorkAreas.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-purple-400/60 transition-all duration-300 group flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-purple-400/60 transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-100 dark:border-purple-800/40 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-100 dark:border-purple-800/40 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                   <HomeOutlined className="text-xl text-purple-600 dark:text-purple-400" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
@@ -87,10 +99,17 @@ export default function WhatSmsfPropertyAccountantDoes() {
         </div>
 
         {/* Regulatory Distinction Callout */}
-        <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start sm:items-center gap-4 shadow-xs">
+        <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start sm:items-center gap-4 shadow-xs">
           <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400 shrink-0 mt-0.5 sm:mt-0" />
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
-            <span className="font-bold text-slate-900 dark:text-white">Strict Advisory Boundaries:</span> Financially Up Pty Ltd provides accounting, tax reporting, and compliance support for property held within superannuation. We do not provide credit assistance, mortgage broking, conveyancing, or financial product advice recommending the acquisition or disposal of real estate.
+            <span className="font-bold text-slate-900 dark:text-white">
+              Strict Advisory Boundaries:
+            </span>{" "}
+            Financially Up Pty Ltd provides accounting, tax reporting, and
+            compliance support for property held within superannuation. We do
+            not provide credit assistance, mortgage broking, conveyancing, or
+            financial product advice recommending the acquisition or disposal of
+            real estate.
           </p>
         </div>
       </div>

@@ -26,19 +26,25 @@ export default function WhyChooseFinanciallyUpCfoSub() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       subtitle: `TPB Agent #${company.tpbNumber || "26234055"}`,
       desc: "Recognised professional standards across all reporting and compliance frameworks.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Specialists",
       subtitle: "Qualified Senior Advisors",
       desc: "Extensive hands-on experience in commercial financial management and management accounting.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Australia-Wide Support",
       subtitle: "Online & In-Person",
       desc: "Convenient video consultations via Outlook Calendar or in-person meetings by appointment.",
@@ -50,14 +56,22 @@ export default function WhyChooseFinanciallyUpCfoSub() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Trusted Advisors
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Why Financially Up?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company.legalName || "Financially Up Pty Ltd"} is a registered tax agent with more than 10 years of experience. Our team includes CPA and IPA professionals and supports clients Australia-wide through online and in-person appointments. Our outsourced CFO work is designed to connect accurate accounting information with practical, recurring management insight.
+            {company.legalName || "Financially Up Pty Ltd"} is a registered tax
+            agent with more than 10 years of experience. Our team includes CPA
+            and IPA professionals and supports clients Australia-wide through
+            online and in-person appointments. Our outsourced CFO work is
+            designed to connect accurate accounting information with practical,
+            recurring management insight.
           </p>
         </div>
 
@@ -66,9 +80,9 @@ export default function WhyChooseFinanciallyUpCfoSub() {
           {credentials.map((card, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 text-center flex flex-col items-center"
+              className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 text-center flex flex-col items-center"
             >
-              <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                 {card.icon}
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
@@ -85,7 +99,7 @@ export default function WhyChooseFinanciallyUpCfoSub() {
         </div>
 
         {/* Dynamic Contact Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-emerald-500/10 dark:bg-emerald-950/30 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div className="p-6 sm:p-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-950/30 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="space-y-1">
             <h4 className="text-lg font-bold text-slate-900 dark:text-white m-0">
               Need to Discuss CFO Support for Your Business?

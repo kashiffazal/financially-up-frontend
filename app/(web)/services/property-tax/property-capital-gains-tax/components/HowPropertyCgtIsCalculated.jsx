@@ -66,26 +66,36 @@ export default function HowPropertyCgtIsCalculated() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CalculatorOutlined />
               <span>Calculation Order &amp; Loss Offsets</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Broadly, sale proceeds are compared with the property's cost base. The calculation then applies the relevant CGT rules, including capital losses and any available discount. It is important to follow the correct order: eligible current-year capital losses and carried-forward net capital losses are generally applied before an eligible CGT discount.
+              Broadly, sale proceeds are compared with the property's cost base.
+              The calculation then applies the relevant CGT rules, including
+              capital losses and any available discount. It is important to
+              follow the correct order: eligible current-year capital losses and
+              carried-forward net capital losses are generally applied before an
+              eligible CGT discount.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <BuildOutlined />
               <span>Eligible Cost Base Components</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              The cost base can include eligible amounts paid to acquire, hold, improve, preserve and sell the property. Common examples include the purchase price, stamp duty, conveyancing costs, agent commission and qualifying capital improvements. The treatment depends on the facts, and an amount is not included simply because it appears on an invoice.
+              The cost base can include eligible amounts paid to acquire, hold,
+              improve, preserve and sell the property. Common examples include
+              the purchase price, stamp duty, conveyancing costs, agent
+              commission and qualifying capital improvements. The treatment
+              depends on the facts, and an amount is not included simply because
+              it appears on an invoice.
             </p>
           </div>
         </div>
@@ -99,7 +109,7 @@ export default function HowPropertyCgtIsCalculated() {
             {costBaseElements.map((el, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
+                className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
               >
                 <span className="text-xl font-black text-emerald-600/40 dark:text-emerald-400/40 block mb-2">
                   {el.num}
@@ -116,8 +126,8 @@ export default function HowPropertyCgtIsCalculated() {
         </div>
 
         {/* Verbatim Paragraph 3 Banner (Capital Works & Depreciation Adjustments) */}
-        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="w-12 h-12 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
             <AlertOutlined className="text-2xl" />
           </div>
           <div>
@@ -126,7 +136,12 @@ export default function HowPropertyCgtIsCalculated() {
             </span>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm md:text-base text-slate-200 dark:text-zinc-200 leading-relaxed font-normal">
-              Capital works deductions can reduce the cost base or reduced cost base where the law requires an adjustment. This can include deductions already claimed and, in some circumstances, amounts that could still be claimed. Depreciating assets may also require separate treatment rather than being included in the property CGT calculation.
+              Capital works deductions can reduce the cost base or reduced cost
+              base where the law requires an adjustment. This can include
+              deductions already claimed and, in some circumstances, amounts
+              that could still be claimed. Depreciating assets may also require
+              separate treatment rather than being included in the property CGT
+              calculation.
             </p>
           </div>
         </div>

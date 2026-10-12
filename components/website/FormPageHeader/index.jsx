@@ -98,8 +98,8 @@ export default function FormPageHeader({
 
           {/* Right Side Glassmorphism Security & Live Status Card */}
           <div className="shrink-0 pt-2 md:pt-0">
-            <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl flex items-center gap-3.5 text-white hover:bg-white/15 transition-all">
-              <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-xl text-emerald-200 shrink-0 shadow-inner">
+            <div className="p-4 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 shadow-xl flex items-center gap-3.5 text-white hover:bg-white/15 transition-all">
+              <div className="w-11 h-11 rounded-lg bg-white/15 border border-white/25 flex items-center justify-center text-xl text-emerald-200 shrink-0 shadow-inner">
                 <LockOutlined />
               </div>
               <div className="space-y-0.5">

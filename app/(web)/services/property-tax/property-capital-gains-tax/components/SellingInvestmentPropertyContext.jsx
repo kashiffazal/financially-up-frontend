@@ -20,19 +20,28 @@ import {
 export default function SellingInvestmentPropertyContext() {
   const auditPoints = [
     {
-      icon: <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Acquisition & Disposal Timeline",
-      description: "Examining exchange dates, settlement adjustments, and continuous tenure history.",
+      description:
+        "Examining exchange dates, settlement adjustments, and continuous tenure history.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Legal Ownership & Co-Owner Interests",
-      description: "Reporting gains strictly per title percentages regardless of which co-owner paid costs.",
+      description:
+        "Reporting gains strictly per title percentages regardless of which co-owner paid costs.",
     },
     {
-      icon: <BarChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BarChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Depreciation & Prior Deductions",
-      description: "Recalculating capital works deductions claimed and adjusting final cost base accordingly.",
+      description:
+        "Recalculating capital works deductions claimed and adjusting final cost base accordingly.",
     },
   ];
 
@@ -57,9 +66,9 @@ export default function SellingInvestmentPropertyContext() {
           {auditPoints.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
+              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -75,19 +84,24 @@ export default function SellingInvestmentPropertyContext() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>Investment Disposal Scope</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              For an investment property, we review acquisition and sale dates, legal ownership, rental history, capital improvements, depreciation and capital works schedules, and prior deductions. Joint owners generally calculate and report their respective interests; payment of expenses by one owner does not necessarily change legal ownership.
+              For an investment property, we review acquisition and sale dates,
+              legal ownership, rental history, capital improvements,
+              depreciation and capital works schedules, and prior deductions.
+              Joint owners generally calculate and report their respective
+              interests; payment of expenses by one owner does not necessarily
+              change legal ownership.
             </p>
           </div>
 
           {/* Paragraph 2 & Cross-Link */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <HomeOutlined />
@@ -95,7 +109,9 @@ export default function SellingInvestmentPropertyContext() {
               </div>
               {/* Verbatim text from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-                This page focuses on the sale. For rental income and deductions while the property is held, see our Investment Property Tax service.
+                This page focuses on the sale. For rental income and deductions
+                while the property is held, see our Investment Property Tax
+                service.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200/70 dark:border-zinc-800">

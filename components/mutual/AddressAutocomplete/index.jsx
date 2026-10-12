@@ -41,7 +41,14 @@ const toAddressParts = (item) => {
     houseNumber: streetNumber,
     street: [streetNumber, street].filter(Boolean).join(" ").trim(),
     streetName: street,
-    suburb: a.suburb || a.city || a.town || a.village || a.municipality || a.hamlet || "",
+    suburb:
+      a.suburb ||
+      a.city ||
+      a.town ||
+      a.village ||
+      a.municipality ||
+      a.hamlet ||
+      "",
     state: a.state || "",
     postcode: a.postcode || "",
     country: a.country || "Australia",
@@ -51,7 +58,11 @@ const toAddressParts = (item) => {
 
 /** Builds the single-line address stored in the field */
 const formatAddressLine = (parts) => {
-  const line = [parts.street, parts.suburb, [parts.state, parts.postcode].filter(Boolean).join(" ")]
+  const line = [
+    parts.street,
+    parts.suburb,
+    [parts.state, parts.postcode].filter(Boolean).join(" "),
+  ]
     .filter(Boolean)
     .join(", ");
   return line || parts.fullAddress;
@@ -149,7 +160,9 @@ const AddressAutocompleteControl = ({
 
   const handleSelect = (selectedValue) => {
     // Matched by value, which survives Ant Design's internal option handling
-    const match = resultsRef.current.find((item) => item.__optionValue === selectedValue);
+    const match = resultsRef.current.find(
+      (item) => item.__optionValue === selectedValue,
+    );
     if (match && onAddressSelect) {
       onAddressSelect(toAddressParts(match));
     }
@@ -169,17 +182,31 @@ const AddressAutocompleteControl = ({
         className={`w-full ${className}`}
         popupMatchSelectWidth={false}
         notFoundContent={
-          searching ? "Searching addresses…" : value && value.length >= MIN_QUERY_LENGTH ? "No match — you can type the address manually" : null
+          searching
+            ? "Searching addresses…"
+            : value && value.length >= MIN_QUERY_LENGTH
+              ? "No match - you can type the address manually"
+              : null
         }
       >
         {textarea ? (
-          <Input.TextArea rows={2} placeholder={placeholder} className={className} />
+          <Input.TextArea
+            rows={2}
+            placeholder={placeholder}
+            className={className}
+          />
         ) : (
-          <Input size={size} placeholder={placeholder} prefix={<EnvironmentOutlined className="text-slate-400" />} className={className} />
+          <Input
+            size={size}
+            placeholder={placeholder}
+            prefix={<EnvironmentOutlined className="text-slate-400" />}
+            className={className}
+          />
         )}
       </AutoComplete>
       <span className={styles.attribution}>
-        Address suggestions © OpenStreetMap contributors — you can also type the address manually.
+        Address suggestions © OpenStreetMap contributors - you can also type the
+        address manually.
       </span>
     </div>
   );
@@ -202,7 +229,10 @@ export default function AddressAutocomplete({
   }
 
   const validationRules =
-    rules || (noRequired ? [] : [{ required: true, message: reqMsg || "Please enter an address." }]);
+    rules ||
+    (noRequired
+      ? []
+      : [{ required: true, message: reqMsg || "Please enter an address." }]);
 
   return (
     <Form.Item

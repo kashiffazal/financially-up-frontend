@@ -87,11 +87,11 @@ export default function TrustIncomeVsCashPaid() {
           {contrastPoints.map((card, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center">
                     {card.icon}
                   </div>
                   <Tag
@@ -121,7 +121,7 @@ export default function TrustIncomeVsCashPaid() {
         </div>
 
         {/* Why Pre-Year-End Review Is Essential */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
               <div className="flex items-center gap-2">
@@ -152,7 +152,7 @@ export default function TrustIncomeVsCashPaid() {
               <Link href="/contact">
                 <Button
                   type="primary"
-                  className="brand-btn-primary w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                  className="brand-btn-primary w-full sm:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
                 >

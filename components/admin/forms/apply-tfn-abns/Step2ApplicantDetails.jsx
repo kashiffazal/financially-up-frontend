@@ -47,7 +47,7 @@ export default function Step2ApplicantDetails() {
           placeholder="First Name"
           reqMsg="First name is required"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
         <AntInput
@@ -61,7 +61,7 @@ export default function Step2ApplicantDetails() {
           placeholder="Last Name"
           reqMsg="Last name is required"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
@@ -79,7 +79,7 @@ export default function Step2ApplicantDetails() {
           emptyFirstVal="- Select Gender -"
           reqMsg="Gender is required"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
         <AntInput
@@ -95,7 +95,7 @@ export default function Step2ApplicantDetails() {
           reqMsg="Date of birth is required"
           preIconAnt={<CalendarOutlined className="text-slate-400" />}
           size="large"
-          className="w-full rounded-xl"
+          className="w-full rounded-lg"
           containerClassName="!mb-2"
         />
         <AntInput
@@ -110,7 +110,7 @@ export default function Step2ApplicantDetails() {
           reqMsg="Phone number is required"
           preIconAnt={<PhoneOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
@@ -127,11 +127,11 @@ export default function Step2ApplicantDetails() {
         reqMsg="Email is required"
         preIconAnt={<MailOutlined className="text-slate-400" />}
         size="large"
-        className="rounded-xl"
+        className="rounded-lg"
         containerClassName="!mb-2"
       />
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex items-center gap-2 mb-1">
           <EnvironmentOutlined className="text-brand-primary text-sm" />
           <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
@@ -151,7 +151,7 @@ export default function Step2ApplicantDetails() {
             placeholder="e.g. 18 or Suite 2"
             reqMsg="House number is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -165,7 +165,7 @@ export default function Step2ApplicantDetails() {
             placeholder="e.g. Victoria Avenue"
             reqMsg="Street is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -182,7 +182,7 @@ export default function Step2ApplicantDetails() {
             placeholder="e.g. Chatswood"
             reqMsg="Suburb is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -199,7 +199,7 @@ export default function Step2ApplicantDetails() {
             patternMsg="Must be 4 digits"
             reqMsg="Postcode is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -214,7 +214,7 @@ export default function Step2ApplicantDetails() {
             emptyFirstVal="- Select State -"
             reqMsg="State is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

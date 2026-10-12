@@ -80,10 +80,10 @@ export default function WhatStpReportingCanHelpWith() {
           {capabilities.map((item, index) => (
             <div
               key={index}
-              className="p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all flex flex-col justify-between"
+              className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
                   <CheckCircleOutlined className="text-lg" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -98,7 +98,7 @@ export default function WhatStpReportingCanHelpWith() {
         </div>
 
         {/* Cross-Link Card to Payroll Services */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/40 dark:from-zinc-800/80 dark:via-zinc-900 dark:to-zinc-800/60 border border-emerald-200/80 dark:border-zinc-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="p-8 rounded-lg bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/40 dark:from-zinc-800/80 dark:via-zinc-900 dark:to-zinc-800/60 border border-emerald-200/80 dark:border-zinc-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-sm">
               <ThunderboltOutlined />

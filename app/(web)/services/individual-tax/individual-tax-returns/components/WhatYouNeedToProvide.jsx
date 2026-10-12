@@ -99,7 +99,7 @@ export default function WhatYouNeedToProvide() {
         </div>
 
         {/* Verbatim Paragraph 1 Card */}
-        <div className="w-full bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+        <div className="w-full bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             The documents required depend on your tax situation. Common records
             include income statements, bank interest, dividend and managed fund
@@ -116,7 +116,7 @@ export default function WhatYouNeedToProvide() {
           {commonRecords.map((rec, i) => (
             <div
               key={i}
-              className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex items-start gap-3"
+              className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs flex items-start gap-3"
             >
               <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 shrink-0">
                 {rec.icon}
@@ -134,7 +134,7 @@ export default function WhatYouNeedToProvide() {
         </div>
 
         {/* Verbatim Paragraph 2 Guidance Box */}
-        <div className="w-full rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 p-6 sm:p-7 flex items-start gap-4 mb-10">
+        <div className="w-full rounded-lg bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 p-6 sm:p-7 flex items-start gap-4 mb-10">
           <InfoCircleOutlined className="text-emerald-700 dark:text-emerald-400 text-xl mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
             Information shown in ATO systems may not contain everything needed
@@ -153,7 +153,7 @@ export default function WhatYouNeedToProvide() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-semibold px-7 shadow-md"
+              className="rounded-lg font-semibold px-7 shadow-md"
             >
               Book an Appointment
             </Button>

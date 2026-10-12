@@ -48,35 +48,45 @@ export default function HowFinanciallyUpHelpsInternational() {
   const whatToExpectSteps = [
     {
       stepNumber: "01",
-      icon: <CompassOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "1. Initial discussion",
       description:
         "We first establish the countries involved, your Australian connection, the type of income or assets involved and what outcome or compliance matter needs to be addressed.",
     },
     {
       stepNumber: "02",
-      icon: <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "2. Information review",
       description:
         "We review the relevant Australian and overseas information and identify any missing records.",
     },
     {
       stepNumber: "03",
-      icon: <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "3. Tax analysis",
       description:
         "The Australian tax treatment is considered based on your circumstances, including residency, income type, timing and applicable international tax rules.",
     },
     {
       stepNumber: "04",
-      icon: <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "4. Tax return or advisory work",
       description:
         "Where included within the agreed scope, we can assist with tax-return preparation, calculations and supporting schedules.",
     },
     {
       stepNumber: "05",
-      icon: <GlobalOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "5. Further advice where required",
       description:
         "Complex cross-border arrangements can involve foreign tax law, legal matters, migration law or specialist international structuring. These matters may require separate professional advice.",
@@ -97,7 +107,9 @@ export default function HowFinanciallyUpHelpsInternational() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up can assist with Australian tax matters involving international circumstances by providing structured, practical guidance tailored to your specific cross-border position.
+            Financially Up can assist with Australian tax matters involving
+            international circumstances by providing structured, practical
+            guidance tailored to your specific cross-border position.
           </p>
         </div>
 
@@ -106,7 +118,7 @@ export default function HowFinanciallyUpHelpsInternational() {
           {assistanceAreas.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-sm transition-all flex items-start gap-3.5"
+              className="p-5 sm:p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-sm transition-all flex items-start gap-3.5"
             >
               <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-sm" />
@@ -119,14 +131,17 @@ export default function HowFinanciallyUpHelpsInternational() {
         </div>
 
         {/* Professional Role & Jurisdiction Disclaimer Box (Verbatim from doc) */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-teal-50/60 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-800/60 mb-16 flex items-start gap-4">
+        <div className="p-5 sm:p-6 rounded-lg bg-teal-50/60 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-800/60 mb-16 flex items-start gap-4">
           <InfoCircleOutlined className="text-teal-600 dark:text-teal-400 text-xl mt-0.5 shrink-0" />
           <div className="space-y-1">
             <h4 className="text-sm font-bold text-teal-950 dark:text-teal-200 m-0">
               Australian Tax & Accounting Jurisdiction
             </h4>
             <p className="text-xs sm:text-sm text-teal-900 dark:text-teal-300 m-0 leading-relaxed">
-              Our role is to advise on and assist with Australian taxation and accounting matters. Where advice is required on the domestic law of another country, we may recommend that you obtain advice from a qualified adviser in that jurisdiction.
+              Our role is to advise on and assist with Australian taxation and
+              accounting matters. Where advice is required on the domestic law
+              of another country, we may recommend that you obtain advice from a
+              qualified adviser in that jurisdiction.
             </p>
           </div>
         </div>
@@ -134,14 +149,18 @@ export default function HowFinanciallyUpHelpsInternational() {
         {/* What to Expect (5 Steps) */}
         <div className="mb-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <Tag color="cyan" className="font-semibold px-2.5 py-0.5 rounded-full mb-3">
+            <Tag
+              color="cyan"
+              className="font-semibold px-2.5 py-0.5 rounded-full mb-3"
+            >
               Client Journey
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What to Expect
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
-              A structured 5-step approach to managing your international tax obligations.
+              A structured 5-step approach to managing your international tax
+              obligations.
             </p>
           </div>
 
@@ -149,11 +168,11 @@ export default function HowFinanciallyUpHelpsInternational() {
             {whatToExpectSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-teal-500/40 hover:shadow-sm transition-all"
+                className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-teal-500/40 hover:shadow-sm transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs">
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs">
                       {step.icon}
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-400 dark:text-zinc-500">

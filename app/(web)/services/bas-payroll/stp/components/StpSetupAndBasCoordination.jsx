@@ -24,7 +24,7 @@ export default function StpSetupAndBasCoordination() {
           {/* Card 1: STP Setup for New or Changing Payroll Systems */}
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <SettingOutlined className="text-2xl" />
               </div>
 
@@ -61,7 +61,7 @@ export default function StpSetupAndBasCoordination() {
           {/* Card 2: STP, PAYG Withholding and Activity Statements */}
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <FileDoneOutlined className="text-2xl" />
               </div>
 

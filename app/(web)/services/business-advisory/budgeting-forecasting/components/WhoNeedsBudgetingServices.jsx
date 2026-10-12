@@ -27,50 +27,67 @@ import {
 export default function WhoNeedsBudgetingServices() {
   const situations = [
     {
-      icon: <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "planning the next financial year and setting realistic targets",
       subtitle: "Annual Financial Blueprint",
       detail:
         "Translating broad business objectives into concrete revenue, cost, margin, and profit expectations for the financial year.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "preparing for growth, hiring, new locations or major purchases",
       subtitle: "Capital & Operational Expansion",
       detail:
         "Quantifying the financial commitments, payback periods, and margin impacts before signing leases or adding headcount.",
     },
     {
-      icon: <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <AlertOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "costs are rising and margins need closer monitoring",
       subtitle: "Cost Inflation & Margin Defense",
       detail:
         "Tracking direct materials, contractor fees, and supplier cost creep against price points to safeguard operating margins.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
-      title: "sales are volatile, seasonal or changing by product or service line",
+      icon: (
+        <SwapOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
+      title:
+        "sales are volatile, seasonal or changing by product or service line",
       subtitle: "Revenue Volatility & Product Mix",
       detail:
         "Modeling seasonality shifts and product line profitability to allocate working capital efficiently across the year.",
     },
     {
-      icon: <FundViewOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      title: "actual results regularly differ from expectations and the business needs better variance analysis",
+      icon: (
+        <FundViewOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      title:
+        "actual results regularly differ from expectations and the business needs better variance analysis",
       subtitle: "Variance Diagnostics & Course Correction",
       detail:
         "Pinpointing exactly why actual performance diverges from targets so managers can take timely, data-backed corrective action.",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "finance discussions require clearer projections and assumptions",
       subtitle: "Lender & Investor Projections",
       detail:
         "Providing credible, assumption-backed financial models and debt service coverage calculations to support commercial borrowing.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "management wants a regular reporting cycle rather than relying only on year-end accounts",
+      icon: (
+        <ClockCircleOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      title:
+        "management wants a regular reporting cycle rather than relying only on year-end accounts",
       subtitle: "Ongoing Monthly Management Cadence",
       detail:
         "Transitioning from historical tax compliance to an active monthly or quarterly performance rhythm that empowers leadership.",
@@ -104,13 +121,13 @@ export default function WhoNeedsBudgetingServices() {
           {situations.map((item, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
+              className={`flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100/80 dark:bg-zinc-800/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <Tag
@@ -151,7 +168,7 @@ export default function WhoNeedsBudgetingServices() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Discuss Your Planning Needs
             </Button>

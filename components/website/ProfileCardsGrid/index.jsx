@@ -24,7 +24,10 @@ import {
 /**
  * Universal Icon Resolver for ProfileCardsGrid
  */
-const renderProfileIcon = (icon, defaultClasses = "text-xl text-brand-primary dark:text-emerald-400") => {
+const renderProfileIcon = (
+  icon,
+  defaultClasses = "text-xl text-brand-primary dark:text-emerald-400",
+) => {
   if (!icon) return <UserOutlined className={defaultClasses} />;
   if (React.isValidElement(icon)) return icon;
   if (typeof icon === "string") {
@@ -158,12 +161,12 @@ export default function ProfileCardsGrid({
             return (
               <div
                 key={cardKey}
-                className="p-6 sm:p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
+                className="p-6 sm:p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-brand-primary/40 dark:hover:border-emerald-600/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
               >
                 <div>
                   {/* Top Row: Icon Container and Optional Micro-Tag */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
                       {renderProfileIcon(profile.icon)}
                     </div>
                     {profile.tag && (

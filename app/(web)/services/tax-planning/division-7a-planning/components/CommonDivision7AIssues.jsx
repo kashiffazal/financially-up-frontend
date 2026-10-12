@@ -23,49 +23,65 @@ export default function CommonDivision7AIssues() {
   const issues = [
     {
       number: "01",
-      icon: <ShoppingOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <ShoppingOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Private Expenses Paid by Company",
       text: "Private company payments made for a shareholder’s or associate’s private expenses.",
     },
     {
       number: "02",
-      icon: <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Unrepaid Loans at Lodgement Date",
       text: "Loan balances that have not been fully repaid by the relevant lodgement date.",
     },
     {
       number: "03",
-      icon: <FileProtectOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Agreement Timing & Statutory Terms",
       text: "Whether a written loan agreement was entered into on time and meets the statutory requirements.",
     },
     {
       number: "04",
-      icon: <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Minimum Yearly Repayments Verification",
       text: "Whether minimum yearly repayments have actually been made and correctly recorded.",
     },
     {
       number: "05",
-      icon: <FileDoneOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Non-Cash Journal Entries",
       text: "Journal entries that do not reflect a genuine repayment or cash movement.",
     },
     {
       number: "06",
-      icon: <CarOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <CarOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Company Assets Used Privately",
       text: "Use of company-owned assets for private purposes.",
     },
     {
       number: "07",
-      icon: <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Interposed Entities & Trust Structures",
       text: "Interposed entity or trust arrangements that require more detailed review.",
     },
     {
       number: "08",
-      icon: <HistoryOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Older Unreconciled Loan Accounts",
       text: "Older loan accounts where the underlying transactions are unclear.",
     },
@@ -89,11 +105,11 @@ export default function CommonDivision7AIssues() {
           {issues.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/40 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-zinc-700 text-slate-700 dark:text-zinc-300">

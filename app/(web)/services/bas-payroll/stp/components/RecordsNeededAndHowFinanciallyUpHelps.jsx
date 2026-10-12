@@ -22,37 +22,51 @@ export default function RecordsNeededAndHowFinanciallyUpHelps() {
   const records = [
     {
       title: "Detailed payroll reports & summary registers",
-      icon: <TableOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <TableOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
     },
     {
       title: "Employee setup details & TFN declarations",
-      icon: <FileDoneOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <FileDoneOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
     },
     {
       title: "Prior STP submission summaries & pay event IDs",
-      icon: <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <AuditOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
     },
     {
       title: "Year-to-date payroll earnings data & leave logs",
-      icon: <TableOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />,
+      icon: (
+        <TableOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />
+      ),
     },
     {
       title: "Payroll clearing accounts & general ledger reconciliations",
-      icon: <CheckCircleOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      icon: (
+        <CheckCircleOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
     },
     {
       title: "Activity statements (BAS/IAS) & ATO error notices",
-      icon: <MailOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      icon: (
+        <MailOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: Records and Information We May Need */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <FolderOpenOutlined className="mr-1.5" />
             Information Checklist
           </Tag>
@@ -62,7 +76,12 @@ export default function RecordsNeededAndHowFinanciallyUpHelps() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Depending on the issue, useful information may include payroll reports, employee setup details, prior STP submission summaries, year-to-date payroll data, payroll clearing accounts, activity statements and any ATO messages or error notices. The aim is to reconcile the underlying records before submitting or correcting reported figures.
+            Depending on the issue, useful information may include payroll
+            reports, employee setup details, prior STP submission summaries,
+            year-to-date payroll data, payroll clearing accounts, activity
+            statements and any ATO messages or error notices. The aim is to
+            reconcile the underlying records before submitting or correcting
+            reported figures.
           </p>
         </div>
 
@@ -71,9 +90,9 @@ export default function RecordsNeededAndHowFinanciallyUpHelps() {
           {records.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
+              className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
             >
-              <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center shrink-0 mt-0.5">
                 {item.icon}
               </div>
               <p className="text-sm font-medium text-slate-800 dark:text-zinc-200 leading-snug pt-2">
@@ -93,16 +112,22 @@ export default function RecordsNeededAndHowFinanciallyUpHelps() {
             How Financially Up Can Help
           </h3>
           <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can provide STP payroll services for businesses needing practical support with setup, recurring reporting, corrections and year-end finalization. We can also coordinate STP with broader payroll, bookkeeping and BAS work where those services are included in the engagement.
+            Financially Up can provide STP payroll services for businesses
+            needing practical support with setup, recurring reporting,
+            corrections and year-end finalization. We can also coordinate STP
+            with broader payroll, bookkeeping and BAS work where those services
+            are included in the engagement.
           </p>
           <div className="pt-2 flex items-start gap-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 border-t border-slate-200 dark:border-zinc-700">
             <InfoCircleOutlined className="text-base text-brand-primary shrink-0 mt-0.5" />
             <span>
-              Our role is to help with payroll-related accounting and tax reporting. Employment contracts, award interpretation and legal workplace matters are outside routine STP compliance work and may require separate advice.
+              Our role is to help with payroll-related accounting and tax
+              reporting. Employment contracts, award interpretation and legal
+              workplace matters are outside routine STP compliance work and may
+              require separate advice.
             </span>
           </div>
         </div>
-
       </div>
     </section>
   );

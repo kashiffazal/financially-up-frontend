@@ -32,40 +32,61 @@ export default function WhatInformationNeededCfo() {
    */
   const informationItems = [
     {
-      icon: <CloudServerOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CloudServerOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Accounting & Software",
       title: "current accounting software access or recent financial reports",
-      description: "Read-only or advisor access to cloud ledgers (Xero, MYOB, QuickBooks) or recent year-to-date financial statements.",
+      description:
+        "Read-only or advisor access to cloud ledgers (Xero, MYOB, QuickBooks) or recent year-to-date financial statements.",
     },
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Liquidity & Debt",
       title: "bank and finance information relevant to cash flow",
-      description: "Statements for active operating accounts, overdrafts, credit facilities, and term loan schedules.",
+      description:
+        "Statements for active operating accounts, overdrafts, credit facilities, and term loan schedules.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Historical Forecasts",
       title: "existing budgets, forecasts or board packs, if any",
-      description: "Any current-year operational budgets, historical projections, or prior director reporting packs.",
+      description:
+        "Any current-year operational budgets, historical projections, or prior director reporting packs.",
     },
     {
-      icon: <CompassOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Strategic Direction",
-      title: "the business plan, current priorities and major upcoming decisions",
-      description: "Overview of your strategic targets, capital investments, key milestones, and planned organizational changes.",
+      title:
+        "the business plan, current priorities and major upcoming decisions",
+      description:
+        "Overview of your strategic targets, capital investments, key milestones, and planned organizational changes.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Operational Drivers",
-      title: "sales pipeline, staffing plans or other operational information that affects the forecast",
-      description: "CRM sales forecasts, upcoming hires, wage updates, or inventory lead-time adjustments.",
+      title:
+        "sales pipeline, staffing plans or other operational information that affects the forecast",
+      description:
+        "CRM sales forecasts, upcoming hires, wage updates, or inventory lead-time adjustments.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       tag: "Stakeholder Governance",
-      title: "details of lenders, investors or reporting obligations where relevant.",
-      description: "Bank covenant benchmarks, investor disclosure timetables, or advisory board presentation deadlines.",
+      title:
+        "details of lenders, investors or reporting obligations where relevant.",
+      description:
+        "Bank covenant benchmarks, investor disclosure timetables, or advisory board presentation deadlines.",
     },
   ];
 
@@ -87,7 +108,9 @@ export default function WhatInformationNeededCfo() {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            To tailor your virtual CFO engagement and build dependable forecasts, gathering the following key records provides an ideal baseline.
+            To tailor your virtual CFO engagement and build dependable
+            forecasts, gathering the following key records provides an ideal
+            baseline.
           </p>
         </div>
 
@@ -96,11 +119,11 @@ export default function WhatInformationNeededCfo() {
           {informationItems.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
@@ -119,10 +142,10 @@ export default function WhatInformationNeededCfo() {
         </div>
 
         {/* Reassurance Banner */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs p-6 sm:p-8">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircleOutlined className="text-xl" />
               </div>
               <div>
@@ -130,17 +153,22 @@ export default function WhatInformationNeededCfo() {
                   Don&apos;t have every document fully assembled?
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1 font-normal">
-                  We can start with what you have, establish your accounting access, and identify any gaps during our initial discovery discussion.
+                  We can start with what you have, establish your accounting
+                  access, and identify any gaps during our initial discovery
+                  discussion.
                 </p>
               </div>
             </div>
-            <Link href="/book-an-appointment" className="shrink-0 w-full sm:w-auto">
+            <Link
+              href="/book-an-appointment"
+              className="shrink-0 w-full sm:w-auto"
+            >
               <Button
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full sm:w-auto h-11 px-6 rounded-xl font-semibold shadow-xs hover:scale-[1.01] transition-all"
+                className="w-full sm:w-auto h-11 px-6 rounded-lg font-semibold shadow-xs hover:scale-[1.01] transition-all"
               >
                 Book an Appointment
               </Button>

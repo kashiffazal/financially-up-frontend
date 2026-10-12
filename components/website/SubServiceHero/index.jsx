@@ -150,8 +150,14 @@ export default function SubServiceHero({
 }) {
   const company = useCompany();
 
-  const lightBg = backgroundImageLight || backgroundImage || "/images/services/page-hero-light-bg.jpg";
-  const darkBg = backgroundImageDark || backgroundImage || "/images/services/page-hero-bg.jpg";
+  const lightBg =
+    backgroundImageLight ||
+    backgroundImage ||
+    "/images/services/page-hero-light-bg.jpg";
+  const darkBg =
+    backgroundImageDark ||
+    backgroundImage ||
+    "/images/services/page-hero-bg.jpg";
   const displayDescription = description || bodyText;
 
   // Default Quick Specs if not supplied
@@ -159,7 +165,8 @@ export default function SubServiceHero({
     {
       icon: <TeamOutlined />,
       label: "Suitable For",
-      value: "Wage earners, investment property owners, CGT, crypto & standard returns",
+      value:
+        "Wage earners, investment property owners, CGT, crypto & standard returns",
     },
     {
       icon: <DesktopOutlined />,
@@ -174,7 +181,8 @@ export default function SubServiceHero({
     {
       icon: <ClockCircleOutlined />,
       label: "Client Protection",
-      value: "Draft explained and authorized by you before electronic submission",
+      value:
+        "Draft explained and authorized by you before electronic submission",
     },
   ];
 
@@ -331,7 +339,7 @@ export default function SubServiceHero({
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-12 px-7 rounded-xl font-bold shadow-lg shadow-emerald-900/20 dark:shadow-emerald-900/40 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                  className="h-12 px-7 rounded-lg font-bold shadow-lg shadow-emerald-900/20 dark:shadow-emerald-900/40 hover:scale-[1.02] active:scale-[0.99] transition-all"
                 >
                   {primaryCta.label}
                 </Button>
@@ -341,8 +349,10 @@ export default function SubServiceHero({
                 <a href={`tel:${company.phone.replace(/\s+/g, "")}`}>
                   <Button
                     size="large"
-                    icon={<PhoneOutlined className="text-brand-primary dark:text-emerald-400" />}
-                    className="h-12 px-6 rounded-xl font-bold text-sm bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 shadow-sm hover:border-brand-primary hover:text-brand-primary transition-all flex items-center gap-2"
+                    icon={
+                      <PhoneOutlined className="text-brand-primary dark:text-emerald-400" />
+                    }
+                    className="h-12 px-6 rounded-lg font-bold text-sm bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 shadow-sm hover:border-brand-primary hover:text-brand-primary transition-all flex items-center gap-2"
                   >
                     Call {company.phone}
                   </Button>
@@ -353,7 +363,7 @@ export default function SubServiceHero({
 
           {/* Right Column: "Service at a Glance" Specification Card */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="relative h-full flex flex-col justify-between rounded-2xl bg-white/95 dark:bg-white/[0.04] backdrop-blur-xl border border-emerald-500/25 dark:border-emerald-500/30 p-5 sm:p-6 shadow-xl shadow-emerald-900/10 dark:shadow-2xl dark:shadow-emerald-950/60 overflow-hidden">
+            <div className="relative h-full flex flex-col justify-between rounded-lg bg-white/95 dark:bg-white/[0.04] backdrop-blur-xl border border-emerald-500/25 dark:border-emerald-500/30 p-5 sm:p-6 shadow-xl shadow-emerald-900/10 dark:shadow-2xl dark:shadow-emerald-950/60 overflow-hidden">
               {/* Subtle Card Accent Gradient */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 dark:bg-emerald-500/15 rounded-full blur-2xl pointer-events-none" />
 
@@ -380,7 +390,7 @@ export default function SubServiceHero({
                   {specs.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05]"
+                      className="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50/90 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05]"
                     >
                       <div className="w-7 h-7 rounded-lg bg-emerald-100/70 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center shrink-0 text-xs mt-0.5 text-emerald-700 dark:text-emerald-400">
                         {resolveIcon(item.icon)}
@@ -398,11 +408,15 @@ export default function SubServiceHero({
                 </div>
 
                 {/* Professional Practice Commitment & Guarantee Box */}
-                <div className="p-3.5 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-500/20 dark:border-emerald-500/30 text-xs">
+                <div className="p-3.5 rounded-lg bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-500/20 dark:border-emerald-500/30 text-xs">
                   <div className="flex items-center justify-between gap-2 font-bold text-emerald-950 dark:text-emerald-200 mb-2">
                     <div className="flex items-center gap-1.5">
                       <SafetyCertificateOutlined className="text-emerald-600 dark:text-emerald-400" />
-                      <span>{company?.taxAgentNumber ? `Registered Tax Agent #${company.taxAgentNumber}` : "Registered Tax Agent"}</span>
+                      <span>
+                        {company?.taxAgentNumber
+                          ? `Registered Tax Agent #${company.taxAgentNumber}`
+                          : "Registered Tax Agent"}
+                      </span>
                     </div>
                     <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-emerald-200/60 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300">
                       Guaranteed
@@ -411,20 +425,30 @@ export default function SubServiceHero({
                   <ul className="space-y-1.5 text-[11px] text-slate-700 dark:text-zinc-300 font-normal mb-2.5">
                     <li className="flex items-center gap-1.5">
                       <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0" />
-                      <span>Pre-lodgement draft walkthrough &amp; written client sign-off</span>
+                      <span>
+                        Pre-lodgement draft walkthrough &amp; written client
+                        sign-off
+                      </span>
                     </li>
                     <li className="flex items-center gap-1.5">
                       <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0" />
-                      <span>Extended ATO tax agent lodgement deadlines available</span>
+                      <span>
+                        Extended ATO tax agent lodgement deadlines available
+                      </span>
                     </li>
                     <li className="flex items-center gap-1.5">
                       <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0" />
-                      <span>Transparent upfront quoting &amp; zero lodgement without approval</span>
+                      <span>
+                        Transparent upfront quoting &amp; zero lodgement without
+                        approval
+                      </span>
                     </li>
                   </ul>
                   <div className="pt-2 border-t border-emerald-500/20 dark:border-emerald-500/20 flex items-center gap-1.5 text-[11px] text-emerald-900 dark:text-emerald-200 font-medium">
                     <CalendarOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0" />
-                    <span>Online Outlook video meetings or in-person consultations</span>
+                    <span>
+                      Online Outlook video meetings or in-person consultations
+                    </span>
                   </div>
                 </div>
               </div>
@@ -451,16 +475,16 @@ export default function SubServiceHero({
               metrics.length === 3
                 ? "sm:grid-cols-3"
                 : metrics.length === 2
-                ? "sm:grid-cols-2"
-                : metrics.length === 1
-                ? "sm:grid-cols-1"
-                : "md:grid-cols-4"
+                  ? "sm:grid-cols-2"
+                  : metrics.length === 1
+                    ? "sm:grid-cols-1"
+                    : "md:grid-cols-4"
             } gap-4 pt-6 border-t border-slate-200/80 dark:border-white/10 w-full`}
           >
             {metrics.map((metric, idx) => (
               <div
                 key={idx}
-                className="p-3.5 sm:p-4 rounded-xl bg-white/90 dark:bg-white/[0.03] border border-slate-200/90 dark:border-white/[0.07] text-center shadow-2xs dark:shadow-none"
+                className="p-3.5 sm:p-4 rounded-lg bg-white/90 dark:bg-white/[0.03] border border-slate-200/90 dark:border-white/[0.07] text-center shadow-2xs dark:shadow-none"
               >
                 <div className="text-base sm:text-lg font-black text-slate-950 dark:text-white font-mono">
                   {metric.value}

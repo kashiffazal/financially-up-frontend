@@ -57,17 +57,20 @@ const smsfEstablishmentQuickSpecs = [
   {
     icon: "team",
     label: "Membership Limit",
-    value: "Up to six members; all members act as trustees or corporate directors",
+    value:
+      "Up to six members; all members act as trustees or corporate directors",
   },
   {
     icon: "bank",
     label: "Trustee Models",
-    value: "Individual trustees or proprietary special-purpose corporate trustee",
+    value:
+      "Individual trustees or proprietary special-purpose corporate trustee",
   },
   {
     icon: "calendar",
     label: "Declaration Window",
-    value: "Signed ATO trustee declaration required within 21 days of appointment",
+    value:
+      "Signed ATO trustee declaration required within 21 days of appointment",
   },
   {
     icon: "clock",
@@ -82,7 +85,8 @@ const smsfEstablishmentQuickSpecs = [
   {
     icon: "safety",
     label: "Rollover Protocol",
-    value: "Dedicated bank account & SuperStream ESA verification before transfers",
+    value:
+      "Dedicated bank account & SuperStream ESA verification before transfers",
   },
 ];
 
@@ -95,7 +99,9 @@ const smsfEstablishmentFaqs = [
     label: "How many members can an SMSF have?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An SMSF can generally have up to six members. The trustee/director requirements and limited exceptions should be checked for the proposed membership before establishment.
+        An SMSF can generally have up to six members. The trustee/director
+        requirements and limited exceptions should be checked for the proposed
+        membership before establishment.
       </p>
     ),
   },
@@ -104,7 +110,9 @@ const smsfEstablishmentFaqs = [
     label: "Do SMSF trustees need to sign a declaration?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Each new trustee or director of a corporate trustee must sign the ATO trustee declaration within 21 days of becoming a trustee or director and retain it as required.
+        Yes. Each new trustee or director of a corporate trustee must sign the
+        ATO trustee declaration within 21 days of becoming a trustee or director
+        and retain it as required.
       </p>
     ),
   },
@@ -113,7 +121,9 @@ const smsfEstablishmentFaqs = [
     label: "How long do I have to register a new SMSF?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The ATO states that once the fund is legally established and trustees are appointed, the SMSF has 60 days to register by applying for an ABN and completing the related registration steps.
+        The ATO states that once the fund is legally established and trustees
+        are appointed, the SMSF has 60 days to register by applying for an ABN
+        and completing the related registration steps.
       </p>
     ),
   },
@@ -122,7 +132,10 @@ const smsfEstablishmentFaqs = [
     label: "Can Financially Up advise whether an SMSF is right for me?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        We can explain the accounting, tax and administration implications of operating an SMSF. A recommendation about whether you should establish an SMSF can involve regulated financial product advice and may require an appropriately authorized financial adviser.
+        We can explain the accounting, tax and administration implications of
+        operating an SMSF. A recommendation about whether you should establish
+        an SMSF can involve regulated financial product advice and may require
+        an appropriately authorized financial adviser.
       </p>
     ),
   },
@@ -191,12 +204,20 @@ export default function SmsfEstablishmentSubpage() {
         subtitle="SMSF setup is the legal and administrative process of establishing a self-managed super fund, appointing its trustees, putting the governing documents in place and registering the fund so it can operate. The sequence matters because a fund should be properly established before contributions, rollovers and investments are handled through it."
         bodyText={
           <span>
-            Financially Up can assist with the accounting and registration side of SMSF establishment and coordinate the practical setup steps. Deciding whether an SMSF is suitable for you can involve regulated financial product advice, which is separate from accounting and tax services and may require an appropriately authorized financial adviser.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up can assist with the accounting and registration side
+            of SMSF establishment and coordinate the practical setup steps.
+            Deciding whether an SMSF is suitable for you can involve regulated
+            financial product advice, which is separate from accounting and tax
+            services and may require an appropriately authorized financial
+            adviser.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Initial Discussion:
               </span>
-              If you are planning to set up an SMSF, an initial discussion can clarify the proposed members and trustee structure, the registration steps, what information is needed and whether legal or financial advice should be separately arranged.
+              If you are planning to set up an SMSF, an initial discussion can
+              clarify the proposed members and trustee structure, the
+              registration steps, what information is needed and whether legal
+              or financial advice should be separately arranged.
             </div>
           </span>
         }

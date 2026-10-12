@@ -106,11 +106,11 @@ export default function WhatAsicRegisteredAgentDoes() {
           {scopeItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -133,7 +133,7 @@ export default function WhatAsicRegisteredAgentDoes() {
           ))}
 
           {/* 6th Card: Consultation Call to Action */}
-          <div className="flex flex-col justify-between rounded-2xl p-6 sm:p-7 bg-gradient-to-br from-emerald-800 to-teal-900 text-white shadow-lg border border-emerald-700/60 relative overflow-hidden group">
+          <div className="flex flex-col justify-between rounded-lg p-6 sm:p-7 bg-gradient-to-br from-emerald-800 to-teal-900 text-white shadow-lg border border-emerald-700/60 relative overflow-hidden group">
             <div className="relative z-10">
               <span className="text-[11px] font-extrabold text-emerald-200 uppercase tracking-widest block mb-2">
                 Initial Discussion
@@ -155,7 +155,7 @@ export default function WhatAsicRegisteredAgentDoes() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 transition-all"
+                  className="w-full rounded-lg font-bold bg-white text-emerald-900 hover:bg-emerald-50 hover:text-emerald-950 border-none h-11 transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -171,7 +171,7 @@ export default function WhatAsicRegisteredAgentDoes() {
           icon={
             <SafetyCertificateOutlined className="text-lg text-emerald-600 dark:text-emerald-400" />
           }
-          className="rounded-2xl border border-emerald-200/80 dark:border-emerald-800/60 bg-emerald-50/80 dark:bg-emerald-950/40 p-4 sm:p-5"
+          className="rounded-lg border border-emerald-200/80 dark:border-emerald-800/60 bg-emerald-50/80 dark:bg-emerald-950/40 p-4 sm:p-5"
           title={
             <span className="text-sm font-bold text-slate-900 dark:text-white">
               Official ASIC Appointment Process (Form 362)

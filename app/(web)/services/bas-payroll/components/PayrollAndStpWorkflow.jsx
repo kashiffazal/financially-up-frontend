@@ -49,17 +49,19 @@ export default function PayrollAndStpWorkflow() {
             Payroll, STP Phase 2 & Superannuation Guarantee
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Australian employer compliance requires precision. We ensure your payroll is processed on time, STP data is lodged with the ATO every pay run, and superannuation obligations are met without penalty.
+            Australian employer compliance requires precision. We ensure your
+            payroll is processed on time, STP data is lodged with the ATO every
+            pay run, and superannuation obligations are met without penalty.
           </p>
         </div>
 
         {/* 2 Major Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* STP Phase 2 Column */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 transition-all flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-lg bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
                   <SolutionOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
@@ -70,12 +72,16 @@ export default function PayrollAndStpWorkflow() {
                 Single Touch Payroll (STP)
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 leading-relaxed mb-6">
-                Direct ATO transmission of gross salary, allowances, paid leave, overtime, and PAYG withholding every single pay cycle.
+                Direct ATO transmission of gross salary, allowances, paid leave,
+                overtime, and PAYG withholding every single pay cycle.
               </p>
 
               <div className="space-y-3 mb-8">
                 {stpPoints.map((point, index) => (
-                  <div key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <div
+                    key={index}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
                     <span>{point}</span>
                   </div>
@@ -89,7 +95,7 @@ export default function PayrollAndStpWorkflow() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-12 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
+                className="w-full h-12 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
               >
                 Explore STP Reporting
               </Button>
@@ -97,10 +103,10 @@ export default function PayrollAndStpWorkflow() {
           </div>
 
           {/* Superannuation Guarantee Column */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-emerald-500/50 transition-all flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-emerald-500/50 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
                   <DollarCircleOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
@@ -111,12 +117,17 @@ export default function PayrollAndStpWorkflow() {
                 Super Guarantee Compliance
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 leading-relaxed mb-6">
-                Timely electronic clearing of employee super contributions to comply with SuperStream standards and avoid non-deductible penalties.
+                Timely electronic clearing of employee super contributions to
+                comply with SuperStream standards and avoid non-deductible
+                penalties.
               </p>
 
               <div className="space-y-3 mb-8">
                 {superPoints.map((point, index) => (
-                  <div key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
+                  <div
+                    key={index}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                  >
                     <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
                     <span>{point}</span>
                   </div>
@@ -124,13 +135,16 @@ export default function PayrollAndStpWorkflow() {
               </div>
             </div>
 
-            <Link href="/services/bas-payroll/super-processing" className="w-full block">
+            <Link
+              href="/services/bas-payroll/super-processing"
+              className="w-full block"
+            >
               <Button
                 type="primary"
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-12 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
+                className="w-full h-12 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
               >
                 Explore Super Processing
               </Button>

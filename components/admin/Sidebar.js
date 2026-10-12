@@ -40,6 +40,7 @@ import {
   CheckCircleFilled,
   MessageOutlined,
   NotificationOutlined,
+  SendOutlined,
   ReadOutlined,
   EditOutlined,
   FolderOutlined,
@@ -49,7 +50,10 @@ import { useTheme } from "../../app/ThemeProvider";
 import { useAuth } from "../../context/AuthContext";
 import { canAccessAdminPath } from "../../lib/adminAccess";
 
-export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }) {
+export default function Sidebar({
+  mobileOpen = false,
+  setMobileOpen = () => {},
+}) {
   const { isDark, toggleTheme } = useTheme();
   const { user, hasRole } = useAuth();
   const pathname = usePathname();
@@ -96,7 +100,8 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
           href: "/admin/company-registration-new",
           icon: <BankOutlined />,
           tag: "Flagship",
-          tagColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300",
+          tagColor:
+            "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300",
         },
         {
           key: "company-legacy",
@@ -125,7 +130,8 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
           href: "/admin/individual-engagement-new",
           icon: <UserOutlined />,
           tag: "Flagship",
-          tagColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300",
+          tagColor:
+            "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300",
         },
         {
           key: "indiv-legacy",
@@ -208,10 +214,31 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       icon: <ReadOutlined />,
       href: "/admin/blog",
       subItems: [
-        { key: "blog-posts", label: "All Posts", href: "/admin/blog", icon: <ReadOutlined />, exact: true },
-        { key: "blog-new", label: "Add New Post", href: "/admin/blog/new", icon: <EditOutlined /> },
-        { key: "blog-categories", label: "Categories", href: "/admin/blog/categories", icon: <FolderOutlined /> },
-        { key: "blog-tags", label: "Tags", href: "/admin/blog/tags", icon: <TagsOutlined /> },
+        {
+          key: "blog-posts",
+          label: "All Posts",
+          href: "/admin/blog",
+          icon: <ReadOutlined />,
+          exact: true,
+        },
+        {
+          key: "blog-new",
+          label: "Add New Post",
+          href: "/admin/blog/new",
+          icon: <EditOutlined />,
+        },
+        {
+          key: "blog-categories",
+          label: "Categories",
+          href: "/admin/blog/categories",
+          icon: <FolderOutlined />,
+        },
+        {
+          key: "blog-tags",
+          label: "Tags",
+          href: "/admin/blog/tags",
+          icon: <TagsOutlined />,
+        },
       ],
     },
     {
@@ -241,10 +268,25 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       fullTitle: "System & Portal Settings",
       icon: <SettingOutlined />,
       href: "/admin/settings",
+      subItems: [
+        {
+          key: "settings-general",
+          label: "General Settings",
+          href: "/admin/settings",
+          icon: <SettingOutlined />,
+          exact: true,
+        },
+        {
+          key: "settings-email",
+          label: "Email Sending",
+          href: "/admin/settings/email",
+          icon: <SendOutlined />,
+        },
+      ],
     },
   ];
 
-  // Show only pages the user may open — the same rules that block typed URLs
+  // Show only pages the user may open - the same rules that block typed URLs
   // (lib/adminAccess.js). A group shows when any of its pages is allowed, and
   // opens on the first allowed one.
   const canOpen = (href) => canAccessAdminPath(user, isSuperAdmin, href);
@@ -252,13 +294,23 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
     .map((item) => {
       if (!item.subItems) return item;
       const subItems = item.subItems.filter((sub) => canOpen(sub.href));
-      return { ...item, subItems, href: subItems.some((sub) => sub.href === item.href) ? item.href : subItems[0]?.href };
+      return {
+        ...item,
+        subItems,
+        href: subItems.some((sub) => sub.href === item.href)
+          ? item.href
+          : subItems[0]?.href,
+      };
     })
-    .filter((item) => (item.subItems ? item.subItems.length > 0 : canOpen(item.href)));
+    .filter((item) =>
+      item.subItems ? item.subItems.length > 0 : canOpen(item.href),
+    );
 
   // A sub-item is active on its page (and its child pages unless `exact`)
   const isSubItemActive = (sub) =>
-    sub.exact ? pathname === sub.href : pathname === sub.href || pathname?.startsWith(`${sub.href}/`);
+    sub.exact
+      ? pathname === sub.href
+      : pathname === sub.href || pathname?.startsWith(`${sub.href}/`);
 
   // Determine if a rail item or any of its sub-items is currently active
   const checkIsItemActive = (item) => {
@@ -266,9 +318,7 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
       return true;
     }
     if (item.subItems) {
-      return item.subItems.some(
-        (sub) => isSubItemActive(sub)
-      );
+      return item.subItems.some((sub) => isSubItemActive(sub));
     }
     return false;
   };
@@ -293,8 +343,7 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
 
         <div className="pt-1.5 space-y-0.5">
           {item.subItems.map((sub) => {
-            const isSubActive =
-              isSubItemActive(sub);
+            const isSubActive = isSubItemActive(sub);
             return (
               <Link
                 key={sub.key}
@@ -323,7 +372,8 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
                   {sub.tag && (
                     <span
                       className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full ${
-                        sub.tagColor || "bg-slate-100 text-slate-600 dark:bg-zinc-800 dark:text-zinc-300"
+                        sub.tagColor ||
+                        "bg-slate-100 text-slate-600 dark:bg-zinc-800 dark:text-zinc-300"
                       }`}
                     >
                       {sub.tag}
@@ -400,7 +450,9 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
           trigger={["hover", "click"]}
           placement="rightTop"
           open={activePopover === item.key ? true : undefined}
-          onOpenChange={(visible) => setActivePopover(visible ? item.key : null)}
+          onOpenChange={(visible) =>
+            setActivePopover(visible ? item.key : null)
+          }
           overlayClassName="admin-rail-popover"
         >
           {buttonNode}
@@ -520,17 +572,21 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
                     key={item.key}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition-colors ${
+                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${
                       isActive
                         ? "bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] font-bold dark:bg-emerald-950/40"
                         : "text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800"
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <span className="text-base text-[var(--brand-primary)]">{item.icon}</span>
+                      <span className="text-base text-[var(--brand-primary)]">
+                        {item.icon}
+                      </span>
                       <span>{item.fullTitle}</span>
                     </div>
-                    {isActive && <CheckCircleFilled className="text-[var(--brand-primary)] text-xs" />}
+                    {isActive && (
+                      <CheckCircleFilled className="text-[var(--brand-primary)] text-xs" />
+                    )}
                   </Link>
                 );
               }
@@ -539,7 +595,7 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
               return (
                 <div
                   key={item.key}
-                  className="rounded-xl overflow-hidden border border-slate-200/70 dark:border-zinc-800"
+                  className="rounded-lg overflow-hidden border border-slate-200/70 dark:border-zinc-800"
                 >
                   {/* Accordion Group Header */}
                   <div
@@ -551,7 +607,9 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <span className="text-base text-[var(--brand-primary)]">{item.icon}</span>
+                      <span className="text-base text-[var(--brand-primary)]">
+                        {item.icon}
+                      </span>
                       <span>{item.fullTitle}</span>
                     </div>
                     <DownOutlined
@@ -565,8 +623,7 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
                   {isExpanded && (
                     <div className="py-1 px-1 bg-white dark:bg-zinc-900 border-t border-slate-100 dark:border-zinc-800 space-y-0.5">
                       {item.subItems.map((sub) => {
-                        const isSubActive =
-                          isSubItemActive(sub);
+                        const isSubActive = isSubItemActive(sub);
                         return (
                           <Link
                             key={sub.key}
@@ -579,7 +636,9 @@ export default function Sidebar({ mobileOpen = false, setMobileOpen = () => {} }
                             }`}
                           >
                             <div className="flex items-center gap-2 truncate">
-                              <span className="text-xs text-slate-400">{sub.icon}</span>
+                              <span className="text-xs text-slate-400">
+                                {sub.icon}
+                              </span>
                               <span className="truncate">{sub.label}</span>
                             </div>
                             <div className="flex items-center gap-1.5 shrink-0">

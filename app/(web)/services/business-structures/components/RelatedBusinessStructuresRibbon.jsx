@@ -73,7 +73,6 @@ export default function RelatedBusinessStructuresRibbon({ currentSlug = "" }) {
       className="border-b border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 py-3 sm:py-4 px-4 sm:px-6 lg:px-8 shadow-xs"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
-        
         {/* Label */}
         <div className="flex items-center gap-2 shrink-0">
           <span className="w-2 h-2 rounded-full bg-brand-primary dark:bg-emerald-400 animate-pulse" />
@@ -88,7 +87,7 @@ export default function RelatedBusinessStructuresRibbon({ currentSlug = "" }) {
             <Link
               key={service.slug}
               href={service.href}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-brand-primary dark:bg-zinc-800 dark:hover:bg-zinc-700/80 dark:text-zinc-300 dark:hover:text-emerald-400 border border-slate-200/60 dark:border-zinc-700 transition-colors shadow-2xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-brand-primary dark:bg-zinc-800 dark:hover:bg-zinc-700/80 dark:text-zinc-300 dark:hover:text-emerald-400 border border-slate-200/60 dark:border-zinc-700 transition-colors shadow-2xs"
             >
               <span>{service.label}</span>
               <span className="text-[10px] opacity-60 font-normal hidden xl:inline">
@@ -107,12 +106,12 @@ export default function RelatedBusinessStructuresRibbon({ currentSlug = "" }) {
                 size="small"
                 className="text-xs font-semibold text-brand-primary dark:text-emerald-400 p-0 flex items-center gap-1 hover:underline"
               >
-                All Structure Services <ArrowRightOutlined className="text-[10px]" />
+                All Structure Services{" "}
+                <ArrowRightOutlined className="text-[10px]" />
               </Button>
             </Link>
           </div>
         )}
-
       </div>
     </nav>
   );

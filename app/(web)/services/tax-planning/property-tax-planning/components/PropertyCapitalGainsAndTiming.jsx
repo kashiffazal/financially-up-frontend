@@ -89,10 +89,10 @@ export default function PropertyCapitalGainsAndTiming() {
           {crossServices.map((card, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:border-emerald-400/60 transition-all duration-300 group"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
                   {card.icon}
                 </div>
 
@@ -112,7 +112,7 @@ export default function PropertyCapitalGainsAndTiming() {
                     size="large"
                     icon={<ArrowRightOutlined />}
                     iconPlacement="end"
-                    className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-10 text-xs sm:text-sm"
+                    className="w-full rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-10 text-xs sm:text-sm"
                   >
                     {card.btnText}
                   </Button>

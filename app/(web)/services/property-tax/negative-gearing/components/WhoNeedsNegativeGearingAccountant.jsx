@@ -46,7 +46,9 @@ export default function WhoNeedsNegativeGearingAccountant() {
             Who May Need a Negative Gearing Accountant?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Professional support is crucial when loan structures, property history, or renovations make your actual tax position look very different from your bank account balance.
+            Professional support is crucial when loan structures, property
+            history, or renovations make your actual tax position look very
+            different from your bank account balance.
           </p>
         </div>
 
@@ -54,22 +56,28 @@ export default function WhoNeedsNegativeGearingAccountant() {
           {investorScenarios.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:border-emerald-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-lg p-6 border border-slate-200 shadow-sm hover:border-emerald-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <CheckCircleOutlined className="text-emerald-600 text-lg shrink-0" />
-                  <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {item.title}
+                  </h3>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 bg-white rounded-xl p-6 sm:p-8 border border-emerald-200/80 shadow-sm text-center max-w-4xl mx-auto">
+        <div className="mt-12 bg-white rounded-lg p-6 sm:p-8 border border-emerald-200/80 shadow-sm text-center max-w-4xl mx-auto">
           <p className="text-slate-700 font-medium text-base sm:text-lg">
-            Professional accounting ensures that every single dollar claimed as a rental deduction is substantiated, defendable under ATO scrutiny, and correctly reported across all co-owners.
+            Professional accounting ensures that every single dollar claimed as
+            a rental deduction is substantiated, defendable under ATO scrutiny,
+            and correctly reported across all co-owners.
           </p>
         </div>
       </div>

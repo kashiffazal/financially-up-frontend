@@ -61,27 +61,32 @@ const smsfLrbaQuickSpecs = [
   {
     icon: "bank",
     label: "Holding Trust",
-    value: "Separate bare trust holding legal title; SMSF holds beneficial interest",
+    value:
+      "Separate bare trust holding legal title; SMSF holds beneficial interest",
   },
   {
     icon: "calendar",
     label: "2026 Reforms",
-    value: "Borrowings from 10 Aug 2026 restricted to business real property only",
+    value:
+      "Borrowings from 10 Aug 2026 restricted to business real property only",
   },
   {
     icon: "stock",
     label: "Single Asset",
-    value: "Single acquirable asset only; borrowed funds cannot fund improvements",
+    value:
+      "Single acquirable asset only; borrowed funds cannot fund improvements",
   },
   {
     icon: "percentage",
     label: "Related Party Loans",
-    value: "ATO PCG 2016/5 safe harbor benchmarking preventing 45% NALI penalty tax",
+    value:
+      "ATO PCG 2016/5 safe harbor benchmarking preventing 45% NALI penalty tax",
   },
   {
     icon: "file",
     label: "Audit File Pack",
-    value: "Executed loan deeds, bare trust records, interest schedules & valuations",
+    value:
+      "Executed loan deeds, bare trust records, interest schedules & valuations",
   },
 ];
 
@@ -94,7 +99,10 @@ const smsfLrbaFaqs = [
     label: "Can an SMSF borrow to buy property after 10 August 2026?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A new LRBA can still be used to acquire real property, but the property generally must be business real property at the time the arrangement is entered into and throughout the LRBA. Transitional rules apply to certain earlier arrangements and binding contracts.
+        A new LRBA can still be used to acquire real property, but the property
+        generally must be business real property at the time the arrangement is
+        entered into and throughout the LRBA. Transitional rules apply to
+        certain earlier arrangements and binding contracts.
       </p>
     ),
   },
@@ -103,7 +111,10 @@ const smsfLrbaFaqs = [
     label: "Can an existing residential-property LRBA continue?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An LRBA entered into before 10 August 2026 is generally unaffected by the new business real property restriction, and refinancing that earlier arrangement may also be unaffected. The documents and timing should be reviewed before any variation or refinance.
+        An LRBA entered into before 10 August 2026 is generally unaffected by
+        the new business real property restriction, and refinancing that earlier
+        arrangement may also be unaffected. The documents and timing should be
+        reviewed before any variation or refinance.
       </p>
     ),
   },
@@ -112,7 +123,10 @@ const smsfLrbaFaqs = [
     label: "Can borrowed money be used to renovate the property?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Borrowed money may be used for certain acquisition expenses and to maintain or repair the asset, but not to improve it. The distinction depends on the work proposed, so advice should be obtained before funds are committed.
+        Borrowed money may be used for certain acquisition expenses and to
+        maintain or repair the asset, but not to improve it. The distinction
+        depends on the work proposed, so advice should be obtained before funds
+        are committed.
       </p>
     ),
   },
@@ -121,7 +135,10 @@ const smsfLrbaFaqs = [
     label: "Can a family member lend money to the SMSF?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A related-party loan may be possible, but the arrangement must satisfy the LRBA rules and its terms and conduct need appropriate arm&apos;s-length support. Tax and legal implications should be reviewed before the loan is implemented.
+        A related-party loan may be possible, but the arrangement must satisfy
+        the LRBA rules and its terms and conduct need appropriate
+        arm&apos;s-length support. Tax and legal implications should be reviewed
+        before the loan is implemented.
       </p>
     ),
   },
@@ -130,7 +147,10 @@ const smsfLrbaFaqs = [
     label: "Does Financially Up arrange SMSF loans?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Financially Up provides accounting, tax and compliance support. Loan approval, credit assistance, legal documentation and financial product advice are separate services requiring the relevant authorized or qualified professional.
+        No. Financially Up provides accounting, tax and compliance support. Loan
+        approval, credit assistance, legal documentation and financial product
+        advice are separate services requiring the relevant authorized or
+        qualified professional.
       </p>
     ),
   },
@@ -207,12 +227,20 @@ export default function SmsfLrbaSubpage() {
         subtitle="An SMSF is generally prohibited from borrowing, but a limited recourse borrowing arrangement can provide an exception where the statutory conditions are met. An SMSF LRBA accountant records the asset, holding arrangement, borrowing, repayments, income and expenses consistently and prepares the information required for the fund's annual accounts, audit and SMSF annual return."
         bodyText={
           <span>
-            Financially Up Pty Ltd provides accounting, tax and compliance support for existing and proposed LRBAs. We do not provide loan approval, credit assistance, legal documents or financial product advice about whether borrowing suits your retirement strategy. Those matters may require a lender, lawyer or authorized financial adviser.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up Pty Ltd provides accounting, tax and compliance
+            support for existing and proposed LRBAs. We do not provide loan
+            approval, credit assistance, legal documents or financial product
+            advice about whether borrowing suits your retirement strategy. Those
+            matters may require a lender, lawyer or authorized financial
+            adviser.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Initial Discussion:
               </span>
-              If your SMSF has an LRBA or is considering one, the first appointment can identify the arrangement date, asset, lender, records, compliance work and specialist input that may be required.
+              If your SMSF has an LRBA or is considering one, the first
+              appointment can identify the arrangement date, asset, lender,
+              records, compliance work and specialist input that may be
+              required.
             </div>
           </span>
         }

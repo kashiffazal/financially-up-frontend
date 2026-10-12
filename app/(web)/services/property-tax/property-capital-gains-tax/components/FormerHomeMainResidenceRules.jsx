@@ -34,14 +34,18 @@ export default function FormerHomeMainResidenceRules() {
           </h2>
           {/* Verbatim Paragraph 1 */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A dwelling can qualify for a full or partial main-residence exemption, depending on ownership, occupancy, income-producing use and other circumstances. Renting out all or part of the property, operating a business from it, delaying occupation or treating another dwelling as a main residence can change the outcome.
+            A dwelling can qualify for a full or partial main-residence
+            exemption, depending on ownership, occupancy, income-producing use
+            and other circumstances. Renting out all or part of the property,
+            operating a business from it, delaying occupation or treating
+            another dwelling as a main residence can change the outcome.
           </p>
         </div>
 
         {/* 2 Core Rules Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: 6-Year Absence Rule */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <ClockCircleOutlined />
@@ -49,7 +53,12 @@ export default function FormerHomeMainResidenceRules() {
               </div>
               {/* Verbatim text from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal mb-6">
-                The absence rule may allow a former home to continue being treated as a main residence for up to six years while it is used to produce income, or indefinitely during an absence when it is not used to produce income. Conditions and choices about another home apply; it is not an automatic six-year exemption for every rental property.
+                The absence rule may allow a former home to continue being
+                treated as a main residence for up to six years while it is used
+                to produce income, or indefinitely during an absence when it is
+                not used to produce income. Conditions and choices about another
+                home apply; it is not an automatic six-year exemption for every
+                rental property.
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800">
@@ -65,7 +74,7 @@ export default function FormerHomeMainResidenceRules() {
           </div>
 
           {/* Card 2: Market Value Reset Rule */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <RiseOutlined />
@@ -73,7 +82,12 @@ export default function FormerHomeMainResidenceRules() {
               </div>
               {/* Verbatim text from official document */}
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal mb-6">
-                If a home is first used to produce income, the market-value rule may reset the relevant acquisition value at that time, but only if its conditions are satisfied. In broad terms, the property must have qualified for a full main-residence exemption immediately before that first income-producing use. The original cost must not automatically be replaced by a valuation.
+                If a home is first used to produce income, the market-value rule
+                may reset the relevant acquisition value at that time, but only
+                if its conditions are satisfied. In broad terms, the property
+                must have qualified for a full main-residence exemption
+                immediately before that first income-producing use. The original
+                cost must not automatically be replaced by a valuation.
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 dark:border-zinc-800">

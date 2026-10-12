@@ -22,7 +22,7 @@ import { antdMsg } from "@/services";
  *
  * Features:
  * 1. Left Section:
- *    - Large icon badge (`w-16 h-16 rounded-xl bg-emerald-50 text-[26px]`).
+ *    - Large icon badge (`w-16 h-16 rounded-lg bg-emerald-50 text-[26px]`).
  *    - Main page heading (`h1 text-2xl sm:text-3xl font-bold`).
  *    - Subtitle description paragraph.
  * 2. Right Section:

@@ -25,22 +25,30 @@ import {
 export default function HowFinanciallyUpHelpsKpiReporting() {
   const advisorySteps = [
     {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Review Source Records",
       desc: "Examining general ledger integrity, reconciliations, and bookkeeping classification consistency.",
     },
     {
-      icon: <SlidersOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SlidersOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Select Relevant KPIs",
       desc: "Collaborating with owners and managers to isolate high-impact commercial indicators.",
     },
     {
-      icon: <LayoutOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <LayoutOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Design Reporting Format",
       desc: "Crafting intuitive executive dashboards tailored to your management team and cadence.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Establish Review Cycle",
       desc: "Setting up a regular monthly or quarterly rhythm to interrogate variances and trends.",
     },
@@ -75,9 +83,9 @@ export default function HowFinanciallyUpHelpsKpiReporting() {
           {advisorySteps.map((step, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {step.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -91,16 +99,16 @@ export default function HowFinanciallyUpHelpsKpiReporting() {
         </div>
 
         {/* Interconnected Advisory Pathways Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-50/60 via-slate-50/50 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-emerald-50/60 via-slate-50/50 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
             Translating Findings into Strategic Action
           </h3>
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-            A report may reveal that a product&apos;s margin has fallen; the next
-            step might be a deeper profitability analysis. If you are using the
-            measures to guide an expansion, our business growth planning focuses
-            on the broader decision and its cash needs. For comparisons with
-            other businesses, see our business benchmarking services.
+            A report may reveal that a product&apos;s margin has fallen; the
+            next step might be a deeper profitability analysis. If you are using
+            the measures to guide an expansion, our business growth planning
+            focuses on the broader decision and its cash needs. For comparisons
+            with other businesses, see our business benchmarking services.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -108,7 +116,7 @@ export default function HowFinanciallyUpHelpsKpiReporting() {
               <Button
                 type="default"
                 icon={<LineChartOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Explore Profitability Analysis
               </Button>
@@ -118,7 +126,7 @@ export default function HowFinanciallyUpHelpsKpiReporting() {
               <Button
                 type="default"
                 icon={<ArrowRightOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Growth Planning
               </Button>
@@ -128,7 +136,7 @@ export default function HowFinanciallyUpHelpsKpiReporting() {
               <Button
                 type="default"
                 icon={<ArrowRightOutlined />}
-                className="rounded-xl font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
+                className="rounded-lg font-semibold bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-xs sm:text-sm"
               >
                 Business Benchmarking Services
               </Button>

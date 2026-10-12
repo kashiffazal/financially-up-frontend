@@ -16,7 +16,15 @@
  *   module page with `?open=<id>`, which opens that record's details modal.
  */
 
-import React, { useCallback, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { useRouter } from "next/navigation";
 import { Input, Modal, Button } from "antd";
 import {
@@ -44,12 +52,18 @@ import {
 } from "./searchConfig";
 
 const noopSubscribe = () => () => {};
-const detectMac = () => /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent || "");
+const detectMac = () =>
+  /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent || "");
 
 // ============================================================================
 // Search box + results panel (used inline in the header and inside the mobile modal)
 // ============================================================================
-function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }) {
+function SearchBox({
+  variant = "dropdown",
+  inputRef,
+  shortcutLabel,
+  onNavigate,
+}) {
   const router = useRouter();
   const { user, hasRole } = useAuth();
   const listboxId = useId();
@@ -70,14 +84,18 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   const quickLinks = useMemo(() => {
     const isSuperAdmin = hasRole("administrator");
     // Same rules as the sidebar / page guard (lib/adminAccess.js)
-    return QUICK_LINKS.filter((l) => canAccessAdminPath(user, isSuperAdmin, l.href));
+    return QUICK_LINKS.filter((l) =>
+      canAccessAdminPath(user, isSuperAdmin, l.href),
+    );
   }, [user, hasRole]);
 
   const groups = useMemo(() => {
     const raw = status === "success" ? data?.groups || [] : [];
     return raw.map((g, i) => ({
       ...g,
-      offset: raw.slice(0, i).reduce((sum, prev) => sum + prev.results.length, 0),
+      offset: raw
+        .slice(0, i)
+        .reduce((sum, prev) => sum + prev.results.length, 0),
     }));
   }, [status, data]);
 
@@ -88,7 +106,9 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
         ...quickLinks.map((link) => ({ type: "module", link })),
       ];
     }
-    return groups.flatMap((group) => group.results.map((item) => ({ type: "result", item, group })));
+    return groups.flatMap((group) =>
+      group.results.map((item) => ({ type: "result", item, group })),
+    );
   }, [term, recent, quickLinks, groups]);
 
   // Reset the highlighted row whenever the list changes (adjusted during render)
@@ -104,7 +124,9 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   // Keep the highlighted row in view while arrowing through results
   useEffect(() => {
     if (!panelOpen) return;
-    document.getElementById(optionId(activeIndex))?.scrollIntoView({ block: "nearest" });
+    document
+      .getElementById(optionId(activeIndex))
+      ?.scrollIntoView({ block: "nearest" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex, panelOpen]);
 
@@ -112,7 +134,8 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   useEffect(() => {
     if (isInline || !open) return undefined;
     const onPointerDown = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) setOpen(false);
+      if (containerRef.current && !containerRef.current.contains(e.target))
+        setOpen(false);
     };
     document.addEventListener("mousedown", onPointerDown);
     return () => document.removeEventListener("mousedown", onPointerDown);
@@ -123,14 +146,14 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   // --------------------------------------------------------------------------
   const rememberSearch = useCallback(
     (value) => {
-      const next = [value, ...recent.filter((r) => r.toLowerCase() !== value.toLowerCase())].slice(
-        0,
-        MAX_RECENT_SEARCHES
-      );
+      const next = [
+        value,
+        ...recent.filter((r) => r.toLowerCase() !== value.toLowerCase()),
+      ].slice(0, MAX_RECENT_SEARCHES);
       setRecent(next);
       writeRecentSearches(next);
     },
-    [recent]
+    [recent],
   );
 
   const clearRecent = () => {
@@ -192,7 +215,9 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   // --------------------------------------------------------------------------
   const sectionTitle = (label, action) => (
     <div className="flex items-center justify-between px-4 pt-3 pb-1.5">
-      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">{label}</span>
+      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
+        {label}
+      </span>
       {action}
     </div>
   );
@@ -210,7 +235,7 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
               className="text-[11px] font-medium text-slate-400 hover:text-brand-primary dark:hover:text-emerald-400 cursor-pointer"
             >
               Clear
-            </button>
+            </button>,
           )}
           <ul className="pb-1">
             {recent.map((value, idx) => (
@@ -222,8 +247,10 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => selectItem({ type: "recent", value })}
                 onMouseMove={() => setActiveIndex(idx)}
-                className={`${styles.item} flex items-center gap-3 px-3 py-2 mx-1.5 rounded-xl cursor-pointer text-[13px] text-slate-700 dark:text-zinc-200 ${
-                  activeIndex === idx ? "bg-brand-primary-soft dark:bg-emerald-950/40" : ""
+                className={`${styles.item} flex items-center gap-3 px-3 py-2 mx-1.5 rounded-lg cursor-pointer text-[13px] text-slate-700 dark:text-zinc-200 ${
+                  activeIndex === idx
+                    ? "bg-brand-primary-soft dark:bg-emerald-950/40"
+                    : ""
                 }`}
               >
                 <HistoryOutlined className="text-slate-400" />
@@ -250,17 +277,24 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => selectItem({ type: "module", link })}
                   onMouseMove={() => setActiveIndex(idx)}
-                  className={`${styles.item} flex items-center gap-2.5 px-2.5 py-2 rounded-xl cursor-pointer ${
-                    activeIndex === idx ? "bg-brand-primary-soft dark:bg-emerald-950/40" : ""
+                  className={`${styles.item} flex items-center gap-2.5 px-2.5 py-2 rounded-lg cursor-pointer ${
+                    activeIndex === idx
+                      ? "bg-brand-primary-soft dark:bg-emerald-950/40"
+                      : ""
                   }`}
                 >
                   <span
                     className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[13px]"
-                    style={{ backgroundColor: `${link.color}1a`, color: link.color }}
+                    style={{
+                      backgroundColor: `${link.color}1a`,
+                      color: link.color,
+                    }}
                   >
                     {meta.icon}
                   </span>
-                  <span className="truncate text-[12px] font-medium text-slate-700 dark:text-zinc-200">{meta.label}</span>
+                  <span className="truncate text-[12px] font-medium text-slate-700 dark:text-zinc-200">
+                    {meta.label}
+                  </span>
                 </li>
               );
             })}
@@ -271,14 +305,24 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   );
 
   const renderLoading = () => (
-    <div className="px-4 py-3 space-y-4 animate-pulse" aria-live="polite" aria-busy="true">
+    <div
+      className="px-4 py-3 space-y-4 animate-pulse"
+      aria-live="polite"
+      aria-busy="true"
+    >
       <span className="sr-only">Searching…</span>
       {[0, 1, 2].map((i) => (
         <div key={i} className="flex items-center gap-3">
           <span className="h-8 w-8 shrink-0 rounded-lg bg-slate-100 dark:bg-zinc-800" />
           <span className="flex-1 space-y-2">
-            <span className="block h-3 rounded bg-slate-100 dark:bg-zinc-800" style={{ width: `${55 - i * 8}%` }} />
-            <span className="block h-2.5 rounded bg-slate-100/80 dark:bg-zinc-800/70" style={{ width: `${78 - i * 6}%` }} />
+            <span
+              className="block h-3 rounded bg-slate-100 dark:bg-zinc-800"
+              style={{ width: `${55 - i * 8}%` }}
+            />
+            <span
+              className="block h-2.5 rounded bg-slate-100/80 dark:bg-zinc-800/70"
+              style={{ width: `${78 - i * 6}%` }}
+            />
           </span>
           <span className="h-4 w-14 rounded bg-slate-100 dark:bg-zinc-800" />
         </div>
@@ -287,12 +331,21 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
   );
 
   const renderMessage = (icon, title, body, action) => (
-    <div className="flex flex-col items-center text-center px-6 py-8" aria-live="polite">
-      <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 dark:bg-zinc-800 text-lg text-slate-400 dark:text-zinc-500">
+    <div
+      className="flex flex-col items-center text-center px-6 py-8"
+      aria-live="polite"
+    >
+      <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-slate-100 dark:bg-zinc-800 text-lg text-slate-400 dark:text-zinc-500">
         {icon}
       </span>
-      <p className="text-[13px] font-semibold text-slate-800 dark:text-zinc-100">{title}</p>
-      {body && <p className="mt-1 max-w-xs text-[12px] leading-relaxed text-slate-500 dark:text-zinc-400">{body}</p>}
+      <p className="text-[13px] font-semibold text-slate-800 dark:text-zinc-100">
+        {title}
+      </p>
+      {body && (
+        <p className="mt-1 max-w-xs text-[12px] leading-relaxed text-slate-500 dark:text-zinc-400">
+          {body}
+        </p>
+      )}
       {action}
     </div>
   );
@@ -303,12 +356,17 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
         <section key={group.moduleKey} aria-label={group.moduleName}>
           <div className="flex items-center justify-between gap-2 px-4 pt-3 pb-1.5">
             <span className="flex items-center gap-2 min-w-0">
-              <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: group.color }} />
+              <span
+                className="h-2 w-2 shrink-0 rounded-full"
+                style={{ backgroundColor: group.color }}
+              />
               <span className="truncate text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">
                 {group.moduleName}
               </span>
               <span className="shrink-0 text-[10px] font-mono px-1.5 rounded-pill bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400">
-                {group.count > group.results.length ? `${group.results.length} of ${group.count}` : group.count}
+                {group.count > group.results.length
+                  ? `${group.results.length} of ${group.count}`
+                  : group.count}
               </span>
             </span>
             {/* Only when matches are hidden: opens the module filtered to exactly these IDs */}
@@ -321,12 +379,13 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
                   navigate(
                     group.matchIds?.length
                       ? `${group.route}?ids=${group.matchIds.join(",")}&q=${encodeURIComponent(term)}`
-                      : group.route
+                      : group.route,
                   );
                 }}
                 className="shrink-0 flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[11px] font-semibold text-brand-primary dark:text-emerald-400 hover:bg-brand-primary-soft dark:hover:bg-emerald-950/40 cursor-pointer"
               >
-                View all {group.count} <ArrowRightOutlined className="text-[9px]" />
+                View all {group.count}{" "}
+                <ArrowRightOutlined className="text-[9px]" />
               </button>
             )}
           </div>
@@ -358,7 +417,7 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
       return renderMessage(
         <SearchOutlined />,
         "Keep typing…",
-        `Enter at least ${MIN_QUERY_LENGTH} characters. Search by name, email, phone, ABN/ACN or reference.`
+        `Enter at least ${MIN_QUERY_LENGTH} characters. Search by name, email, phone, ABN/ACN or reference.`,
       );
     }
     if (status === "loading") return renderLoading();
@@ -367,16 +426,21 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
         <ExclamationCircleOutlined />,
         "Search is unavailable right now",
         "Check your connection and try again.",
-        <Button size="small" className="mt-3" onMouseDown={(e) => e.preventDefault()} onClick={retry}>
+        <Button
+          size="small"
+          className="mt-3"
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={retry}
+        >
           Retry
-        </Button>
+        </Button>,
       );
     }
     if (!groups.length) {
       return renderMessage(
         <FileSearchOutlined />,
         <>No applications match &ldquo;{term}&rdquo;</>,
-        "Try a reference like GST-12 or CREG-2026-…, a full email address, or the last digits of a phone number."
+        "Try a reference like GST-12 or CREG-2026-…, a full email address, or the last digits of a phone number.",
       );
     }
     return renderResults();
@@ -409,7 +473,9 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
         aria-expanded={panelOpen}
         aria-controls={listboxId}
         aria-autocomplete="list"
-        aria-activedescendant={panelOpen && navItems.length ? optionId(activeIndex) : undefined}
+        aria-activedescendant={
+          panelOpen && navItems.length ? optionId(activeIndex) : undefined
+        }
         prefix={
           loading ? (
             <LoadingOutlined className="text-brand-primary mr-1.5" />
@@ -432,11 +498,16 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
               <CloseCircleFilled />
             </button>
           ) : shortcutLabel ? (
-            <span className={`${styles.kbd} hidden md:inline-flex !h-5 !px-1.5`}>{shortcutLabel}</span>
+            <span
+              className={`${styles.kbd} hidden md:inline-flex !h-5 !px-1.5`}
+            >
+              {shortcutLabel}
+            </span>
           ) : null
         }
-        className={`h-9 border-slate-200 dark:border-zinc-800 dark:bg-zinc-800/40 text-xs font-medium dark:text-zinc-200 ${
-          isInline ? "rounded-xl !h-11 !text-sm" : "rounded-full"
+        className={`border-slate-200 dark:border-zinc-800 dark:bg-zinc-800/40 text-xs font-medium dark:text-zinc-200 ${
+          // Header: 40px, same as the "New application" button next to it
+          isInline ? "rounded-lg h-11! text-sm!" : "h-10! rounded-full"
         }`}
       />
 
@@ -445,7 +516,7 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
           className={
             isInline
               ? "mt-3 overflow-hidden"
-              : `${styles.panel} absolute left-0 top-[calc(100%+8px)] z-50 w-[min(580px,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900`
+              : `${styles.panel} absolute left-0 top-[calc(100%+8px)] z-50 w-[min(580px,calc(100vw-2rem))] overflow-hidden rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900`
           }
         >
           <div
@@ -473,7 +544,8 @@ function SearchBox({ variant = "dropdown", inputRef, shortcutLabel, onNavigate }
             </span>
             {status === "success" && total > 0 && (
               <span className="truncate">
-                {total} result{total === 1 ? "" : "s"} across {totalModules} module{totalModules === 1 ? "" : "s"}
+                {total} result{total === 1 ? "" : "s"} across {totalModules}{" "}
+                module{totalModules === 1 ? "" : "s"}
               </span>
             )}
           </div>
@@ -512,14 +584,18 @@ export default function GlobalSearch() {
     <>
       {/* Desktop / tablet */}
       <div className="relative w-full max-w-xs md:max-w-md hidden sm:block">
-        <SearchBox variant="dropdown" inputRef={desktopInputRef} shortcutLabel={isMac ? "⌘K" : "Ctrl K"} />
+        <SearchBox
+          variant="dropdown"
+          inputRef={desktopInputRef}
+          shortcutLabel={isMac ? "⌘K" : "Ctrl K"}
+        />
       </div>
 
       {/* Mobile trigger */}
       <button
         type="button"
         onClick={() => setMobileOpen(true)}
-        className="sm:hidden p-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
+        className="sm:hidden p-2 text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all cursor-pointer"
         aria-label="Search applications"
       >
         <SearchOutlined className="text-base" />
@@ -528,7 +604,9 @@ export default function GlobalSearch() {
       <Modal
         open={mobileOpen}
         onCancel={() => setMobileOpen(false)}
-        afterOpenChange={(visible) => visible && mobileInputRef.current?.focus()}
+        afterOpenChange={(visible) =>
+          visible && mobileInputRef.current?.focus()
+        }
         footer={null}
         closable={false}
         destroyOnHidden
@@ -536,7 +614,11 @@ export default function GlobalSearch() {
         style={{ top: 12, maxWidth: 640 }}
         rootClassName={styles.mobileModal}
       >
-        <SearchBox variant="inline" inputRef={mobileInputRef} onNavigate={() => setMobileOpen(false)} />
+        <SearchBox
+          variant="inline"
+          inputRef={mobileInputRef}
+          onNavigate={() => setMobileOpen(false)}
+        />
       </Modal>
     </>
   );

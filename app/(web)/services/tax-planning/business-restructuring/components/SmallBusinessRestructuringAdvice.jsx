@@ -53,8 +53,13 @@ export default function SmallBusinessRestructuringAdvice() {
         </div>
 
         {/* Verbatim Paragraph 1 */}
-        <div className="max-w-4xl mx-auto mb-10 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          For an eligible small business, tax restructuring advice may include reviewing whether the small business restructure roll-over or another roll-over is potentially relevant. The conditions are technical and can depend on matters such as the nature of the business, eligible assets, residency, ownership and whether the transaction is genuinely part of an ongoing business restructure.
+        <div className="max-w-4xl mx-auto mb-10 bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          For an eligible small business, tax restructuring advice may include
+          reviewing whether the small business restructure roll-over or another
+          roll-over is potentially relevant. The conditions are technical and
+          can depend on matters such as the nature of the business, eligible
+          assets, residency, ownership and whether the transaction is genuinely
+          part of an ongoing business restructure.
         </div>
 
         {/* 5 Technical Criteria Cards */}
@@ -62,8 +67,10 @@ export default function SmallBusinessRestructuringAdvice() {
           {criteria.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-slate-50 dark:bg-zinc-800/40 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm flex flex-col justify-between ${
-                idx === 4 ? "md:col-span-2 lg:col-span-2 bg-brand-primary/5 dark:bg-emerald-950/20 border-brand-primary/20 dark:border-emerald-800/40" : ""
+              className={`bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm flex flex-col justify-between ${
+                idx === 4
+                  ? "md:col-span-2 lg:col-span-2 bg-brand-primary/5 dark:bg-emerald-950/20 border-brand-primary/20 dark:border-emerald-800/40"
+                  : ""
               }`}
             >
               <div>
@@ -82,7 +89,7 @@ export default function SmallBusinessRestructuringAdvice() {
         </div>
 
         {/* Verbatim Paragraph 2 on Full Implementation Path */}
-        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
+        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
           <div className="flex items-start gap-4">
             <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <div className="space-y-2 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
@@ -90,7 +97,11 @@ export default function SmallBusinessRestructuringAdvice() {
                 Full Implementation Path vs Isolated Provisions
               </h3>
               <p>
-                Even where income-tax roll-over relief is available, GST, duty, financing and legal consequences can remain. That is why small business restructuring advice should consider the full implementation path rather than a single tax provision in isolation.
+                Even where income-tax roll-over relief is available, GST, duty,
+                financing and legal consequences can remain. That is why small
+                business restructuring advice should consider the full
+                implementation path rather than a single tax provision in
+                isolation.
               </p>
             </div>
           </div>

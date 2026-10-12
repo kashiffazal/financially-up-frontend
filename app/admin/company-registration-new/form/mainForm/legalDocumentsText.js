@@ -9,7 +9,7 @@
  */
 
 export const TERMS_OF_ENGAGEMENT_TEXT = {
-  title: "Financially Up — Company Registration Terms of Engagement",
+  title: "Financially Up - Company Registration Terms of Engagement",
   version: "1.0",
   effectiveDate: "28 June 2026",
   summary:
@@ -28,7 +28,8 @@ export const TERMS_OF_ENGAGEMENT_TEXT = {
       text: "The Client warrants that all identity records, dates of birth, residential addresses, Director Identification Numbers (Director IDs), share structures, and beneficial ownership disclosures are accurate, complete, and true. Providing false or misleading information to ASIC or a registered tax agent is a serious criminal offence under the Corporations Act 2001 and Commonwealth Criminal Code.",
     },
     {
-      title: "4. AML/CTF Compliance, Identity Verification & Sanctions Screening",
+      title:
+        "4. AML/CTF Compliance, Identity Verification & Sanctions Screening",
       text: "Under the Anti-Money Laundering and Counter-Terrorism Financing Act 2006 (AML/CTF Act) and TASA 2009 Code of Professional Conduct, Financially Up conducts Customer Due Diligence (CDD), Politically Exposed Person (PEP) screening, and Targeted Financial Sanctions checks. Financially Up reserves the right to decline or suspend lodgement if verification requirements are unmet.",
     },
     {
@@ -59,7 +60,7 @@ export const TERMS_OF_ENGAGEMENT_TEXT = {
 };
 
 export const PRIVACY_NOTICE_TEXT = {
-  title: "Financially Up — Privacy Collection Notice",
+  title: "Financially Up - Privacy Collection Notice",
   version: "1.0",
   effectiveDate: "28 June 2026",
   overview:

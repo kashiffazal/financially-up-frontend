@@ -36,35 +36,51 @@ export default function WhatInternationalTaxCovers() {
    */
   const statutoryFactors = [
     {
-      icon: <CompassOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <CompassOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       text: "Your Australian tax residency status",
     },
     {
-      icon: <GlobalOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <GlobalOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       text: "Where income is sourced",
     },
     {
-      icon: <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       text: "The type of income or transaction",
     },
     {
-      icon: <FileProtectOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      icon: (
+        <FileProtectOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       text: "Whether foreign tax has been paid",
     },
     {
-      icon: <BankOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      icon: (
+        <BankOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       text: "Whether Australia has a tax treaty with the relevant country",
     },
     {
-      icon: <ShopOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      icon: (
+        <ShopOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       text: "The ownership structure involved",
     },
     {
-      icon: <AuditOutlined className="text-cyan-600 dark:text-cyan-400 text-lg" />,
+      icon: (
+        <AuditOutlined className="text-cyan-600 dark:text-cyan-400 text-lg" />
+      ),
       text: "Whether any exemptions or special rules apply",
     },
     {
-      icon: <HistoryOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />,
+      icon: (
+        <HistoryOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />
+      ),
       text: "The timing of changes in residency or ownership",
     },
   ];
@@ -84,44 +100,51 @@ export default function WhatInternationalTaxCovers() {
             What Is International Tax?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            International tax deals with situations where more than one country may be connected to a person, transaction, investment, business or source of income.
+            International tax deals with situations where more than one country
+            may be connected to a person, transaction, investment, business or
+            source of income.
           </p>
         </div>
 
         {/* Individual & Business Scope Cards (Verbatim text from doc) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
           {/* Card 1: Individuals */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all">
-            <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center mb-5">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all">
+            <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center mb-5">
               <UserOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
               For Individuals & Expatriates
             </h3>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-              For an individual, this can include earning income overseas while living in Australia, moving to or from Australia, owning foreign investments or receiving an overseas pension.
+              For an individual, this can include earning income overseas while
+              living in Australia, moving to or from Australia, owning foreign
+              investments or receiving an overseas pension.
             </p>
           </div>
 
           {/* Card 2: Businesses */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center mb-5">
+          <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all">
+            <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center mb-5">
               <ShopOutlined className="text-blue-600 dark:text-blue-400 text-xl" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
               For Businesses & Cross-Border Enterprises
             </h3>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-              For a business, cross-border issues may arise when operating internationally, dealing with overseas entities, receiving foreign income or expanding business activities beyond Australia.
+              For a business, cross-border issues may arise when operating
+              internationally, dealing with overseas entities, receiving foreign
+              income or expanding business activities beyond Australia.
             </p>
           </div>
         </div>
 
         {/* The 8 Factors Grid */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 mb-12">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 mb-12">
           <div className="mb-6">
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              The correct Australian tax treatment can depend on several factors, including:
+              The correct Australian tax treatment can depend on several
+              factors, including:
             </h3>
           </div>
 
@@ -129,7 +152,7 @@ export default function WhatInternationalTaxCovers() {
             {statutoryFactors.map((factor, idx) => (
               <div
                 key={idx}
-                className="p-4 sm:p-5 rounded-xl bg-slate-50/80 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800/80 flex items-start gap-3 hover:border-teal-500/40 transition-colors"
+                className="p-4 sm:p-5 rounded-lg bg-slate-50/80 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800/80 flex items-start gap-3 hover:border-teal-500/40 transition-colors"
               >
                 <div className="w-9 h-9 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   {factor.icon}
@@ -142,10 +165,11 @@ export default function WhatInternationalTaxCovers() {
           </div>
 
           {/* Key Principle Box (Verbatim text) */}
-          <div className="p-4 sm:p-5 rounded-xl bg-teal-50/60 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-800/60 flex items-start gap-3.5">
+          <div className="p-4 sm:p-5 rounded-lg bg-teal-50/60 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-800/60 flex items-start gap-3.5">
             <InfoCircleOutlined className="text-teal-600 dark:text-teal-400 text-lg mt-0.5 shrink-0" />
             <p className="text-xs sm:text-sm font-semibold text-teal-900 dark:text-teal-200 m-0 leading-relaxed">
-              International tax is therefore rarely determined simply by where money is received or where a bank account is located.
+              International tax is therefore rarely determined simply by where
+              money is received or where a bank account is located.
             </p>
           </div>
         </div>

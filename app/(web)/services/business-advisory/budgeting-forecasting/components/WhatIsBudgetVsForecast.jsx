@@ -42,7 +42,7 @@ export default function WhatIsBudgetVsForecast() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Card 1: The Budget */}
-          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">
@@ -66,12 +66,14 @@ export default function WhatIsBudgetVsForecast() {
 
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
               <CheckCircleOutlined className="text-teal-600 dark:text-teal-400" />
-              <span>Sets the benchmarks and directs resources for the period ahead.</span>
+              <span>
+                Sets the benchmarks and directs resources for the period ahead.
+              </span>
             </div>
           </div>
 
           {/* Card 2: Business.gov.au Official Distinction */}
-          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
@@ -96,43 +98,48 @@ export default function WhatIsBudgetVsForecast() {
 
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-zinc-800 flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
               <SyncOutlined className="text-emerald-600 dark:text-emerald-400" />
-              <span>Living model continually updated with live trading results.</span>
+              <span>
+                Living model continually updated with live trading results.
+              </span>
             </div>
           </div>
         </div>
 
         {/* Strategic Value Proposition Strip */}
-        <div className="bg-gradient-to-r from-emerald-500/5 via-teal-500/5 to-cyan-500/5 dark:from-emerald-950/20 dark:via-zinc-900/40 dark:to-teal-950/20 rounded-2xl p-6 sm:p-8 border border-emerald-500/20 dark:border-emerald-500/20">
+        <div className="bg-gradient-to-r from-emerald-500/5 via-teal-500/5 to-cyan-500/5 dark:from-emerald-950/20 dark:via-zinc-900/40 dark:to-teal-950/20 rounded-lg p-6 sm:p-8 border border-emerald-500/20 dark:border-emerald-500/20">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-4">
             <BulbOutlined />
             <span>Why Combining Budget &amp; Forecast Unlocks Growth</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                 1. Set Clear Objectives
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Establish revenue targets, gross margin expectations, and operational expense limits for the team.
+                Establish revenue targets, gross margin expectations, and
+                operational expense limits for the team.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                 2. Measure Variances Early
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Spot divergence between actual performance and plans weeks before it affects cash flow.
+                Spot divergence between actual performance and plans weeks
+                before it affects cash flow.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
               <div className="text-xs font-bold text-slate-900 dark:text-white mb-1">
                 3. Adapt Confidently
               </div>
               <p className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Adjust assumptions, spending, and pricing quickly rather than waiting for year-end accounts.
+                Adjust assumptions, spending, and pricing quickly rather than
+                waiting for year-end accounts.
               </p>
             </div>
           </div>
@@ -146,7 +153,7 @@ export default function WhatIsBudgetVsForecast() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Discuss Your Budgeting Strategy
             </Button>

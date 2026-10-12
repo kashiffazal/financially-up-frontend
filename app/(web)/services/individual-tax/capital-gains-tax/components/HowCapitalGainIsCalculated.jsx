@@ -82,7 +82,7 @@ export default function HowCapitalGainIsCalculated() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="w-9 h-9 rounded-xl bg-brand-primary/10 dark:bg-emerald-500/20 text-brand-primary dark:text-emerald-400 font-black text-sm flex items-center justify-center font-mono">
+                  <span className="w-9 h-9 rounded-lg bg-brand-primary/10 dark:bg-emerald-500/20 text-brand-primary dark:text-emerald-400 font-black text-sm flex items-center justify-center font-mono">
                     {step.num}
                   </span>
                   <span className="text-2xs font-semibold text-slate-400 dark:text-zinc-500 uppercase tracking-wider">
@@ -142,7 +142,7 @@ export default function HowCapitalGainIsCalculated() {
                 costs, certain disposal costs, eligible ownership costs, capital
                 improvements and other qualifying amounts.
               </p>
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70">
                 <span className="font-bold text-slate-900 dark:text-white block mb-1">
                   Permitted Elements Include:
                 </span>
@@ -161,7 +161,7 @@ export default function HowCapitalGainIsCalculated() {
                 CGT can review the available records and determine which amounts
                 should be considered.
               </p>
-              <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200">
+              <div className="p-4 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200">
                 <span className="font-bold block mb-1">
                   Division 43 Adjustment Warning:
                 </span>

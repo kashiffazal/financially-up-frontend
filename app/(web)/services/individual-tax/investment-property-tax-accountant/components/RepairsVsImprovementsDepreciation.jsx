@@ -47,7 +47,7 @@ export default function RepairsVsImprovementsDepreciation() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <ToolOutlined className="text-xl" />
                 </div>
                 <div>
@@ -61,7 +61,7 @@ export default function RepairsVsImprovementsDepreciation() {
               </div>
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-zinc-700">
                   <div className="flex items-center gap-2 font-bold text-emerald-800 dark:text-emerald-300 text-sm mb-1.5">
                     <CheckCircleOutlined />
                     <span>
@@ -76,7 +76,7 @@ export default function RepairsVsImprovementsDepreciation() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-amber-100 dark:border-zinc-700">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-amber-100 dark:border-zinc-700">
                   <div className="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300 text-sm mb-1.5">
                     <CloseCircleOutlined />
                     <span>
@@ -105,7 +105,7 @@ export default function RepairsVsImprovementsDepreciation() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <BuildOutlined className="text-xl" />
                 </div>
                 <div>
@@ -119,7 +119,7 @@ export default function RepairsVsImprovementsDepreciation() {
               </div>
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-blue-100 dark:border-zinc-700">
                   <div className="flex items-center gap-2 font-bold text-blue-800 dark:text-blue-300 text-sm mb-1.5">
                     <BuildOutlined />
                     <span>Capital Works (Structural Improvements)</span>
@@ -132,7 +132,7 @@ export default function RepairsVsImprovementsDepreciation() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-purple-100 dark:border-zinc-700">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-purple-100 dark:border-zinc-700">
                   <div className="flex items-center gap-2 font-bold text-purple-800 dark:text-purple-300 text-sm mb-1.5">
                     <AppstoreOutlined />
                     <span>Depreciating Assets (Plant &amp; Equipment)</span>
@@ -161,7 +161,7 @@ export default function RepairsVsImprovementsDepreciation() {
         </div>
 
         {/* Action Bar */}
-        <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-zinc-800/90 dark:via-zinc-850 dark:to-zinc-800/90 border border-emerald-200/80 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-6 rounded-lg bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-zinc-800/90 dark:via-zinc-850 dark:to-zinc-800/90 border border-emerald-200/80 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 m-0 text-center sm:text-left">
             Have an existing quantity surveyor depreciation schedule? We verify
             second-hand asset restrictions and apply eligible claims accurately.

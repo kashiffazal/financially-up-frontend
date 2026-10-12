@@ -24,44 +24,69 @@ import {
 export default function RecordsToBringCgtAppointment() {
   const records = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Purchase and sale contracts and settlement statements",
-      detail: "Both initial contract of sale & purchase settlement sheet, plus disposal contract & final settlement statement.",
+      detail:
+        "Both initial contract of sale & purchase settlement sheet, plus disposal contract & final settlement statement.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Stamp duty, conveyancing and selling-cost records",
-      detail: "State revenue stamp duty receipts, legal conveyancing accounts, real estate marketing and agent sales commissions.",
+      detail:
+        "State revenue stamp duty receipts, legal conveyancing accounts, real estate marketing and agent sales commissions.",
     },
     {
-      icon: <BuildOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BuildOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Invoices for renovations, extensions and other capital work",
-      detail: "Receipts and contractor invoices for major additions, kitchen/bathroom modernizations, structural walls, and pools.",
+      detail:
+        "Receipts and contractor invoices for major additions, kitchen/bathroom modernizations, structural walls, and pools.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Rental dates, property schedules and prior tax returns",
-      detail: "Logs of all periods the property was rented vs occupied privately, plus previous years' rental tax return schedules.",
+      detail:
+        "Logs of all periods the property was rented vs occupied privately, plus previous years' rental tax return schedules.",
     },
     {
-      icon: <BarChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BarChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Capital works and depreciation schedules",
-      detail: "Quantity Surveyor reports showing Division 43 claims to calculate mandatory reductions to the CGT cost base.",
+      detail:
+        "Quantity Surveyor reports showing Division 43 claims to calculate mandatory reductions to the CGT cost base.",
     },
     {
-      icon: <RiseOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Market valuations prepared for a relevant tax purpose",
-      detail: "Valuations obtained when a home was first rented out, upon inheriting an estate, or for non-arm's-length transfers.",
+      detail:
+        "Valuations obtained when a home was first rented out, upon inheriting an estate, or for non-arm's-length transfers.",
     },
     {
-      icon: <GlobalOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
-      title: "Details of ownership, residency, capital gains and capital losses",
-      detail: "Proof of Australian residency tenure, passport departure stamps, and carried-forward capital loss tax return schedules.",
+      icon: (
+        <GlobalOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
+      title:
+        "Details of ownership, residency, capital gains and capital losses",
+      detail:
+        "Proof of Australian residency tenure, passport departure stamps, and carried-forward capital loss tax return schedules.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "ATO clearance certificates or withholding documentation",
-      detail: "Approved ATO Foreign Resident Capital Gains Clearance Certificates or Purchaser Withholding Payment notification receipts.",
+      detail:
+        "Approved ATO Foreign Resident Capital Gains Clearance Certificates or Purchaser Withholding Payment notification receipts.",
     },
   ];
 
@@ -90,10 +115,10 @@ export default function RecordsToBringCgtAppointment() {
           {records.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50/70 dark:bg-zinc-900/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
+                <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700/60 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <div className="flex items-start gap-2 mb-2">
@@ -111,8 +136,8 @@ export default function RecordsToBringCgtAppointment() {
         </div>
 
         {/* Verbatim Paragraph 2 Banner (5-Year Record Retention) */}
-        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="w-12 h-12 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
             <ClockCircleOutlined className="text-2xl" />
           </div>
           <div>
@@ -121,7 +146,10 @@ export default function RecordsToBringCgtAppointment() {
             </span>
             {/* Verbatim text from official document */}
             <p className="text-xs sm:text-sm md:text-base text-slate-200 dark:text-zinc-200 leading-relaxed font-normal">
-              Identify missing older documents before lodgment. Records relevant to a property CGT calculation should generally be retained for at least five years after the CGT event, and longer while they are needed to establish the cost base before disposal.
+              Identify missing older documents before lodgment. Records relevant
+              to a property CGT calculation should generally be retained for at
+              least five years after the CGT event, and longer while they are
+              needed to establish the cost base before disposal.
             </p>
           </div>
         </div>

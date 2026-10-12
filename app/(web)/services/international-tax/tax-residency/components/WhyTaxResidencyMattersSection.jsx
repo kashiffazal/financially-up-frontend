@@ -45,13 +45,38 @@ export default function WhyTaxResidencyMattersSection() {
   ];
 
   const worldwideIncomeStreams = [
-    { label: "Employment income", icon: <DollarOutlined className="text-teal-600 dark:text-teal-400" /> },
-    { label: "Interest", icon: <BankOutlined className="text-blue-600 dark:text-blue-400" /> },
-    { label: "Dividends", icon: <LineChartOutlined className="text-indigo-600 dark:text-indigo-400" /> },
-    { label: "Rental income", icon: <HomeOutlined className="text-amber-600 dark:text-amber-400" /> },
-    { label: "Business income", icon: <TeamOutlined className="text-purple-600 dark:text-purple-400" /> },
-    { label: "Pensions", icon: <SafetyCertificateOutlined className="text-cyan-600 dark:text-cyan-400" /> },
-    { label: "Investment gains", icon: <LineChartOutlined className="text-rose-600 dark:text-rose-400" /> },
+    {
+      label: "Employment income",
+      icon: <DollarOutlined className="text-teal-600 dark:text-teal-400" />,
+    },
+    {
+      label: "Interest",
+      icon: <BankOutlined className="text-blue-600 dark:text-blue-400" />,
+    },
+    {
+      label: "Dividends",
+      icon: (
+        <LineChartOutlined className="text-indigo-600 dark:text-indigo-400" />
+      ),
+    },
+    {
+      label: "Rental income",
+      icon: <HomeOutlined className="text-amber-600 dark:text-amber-400" />,
+    },
+    {
+      label: "Business income",
+      icon: <TeamOutlined className="text-purple-600 dark:text-purple-400" />,
+    },
+    {
+      label: "Pensions",
+      icon: (
+        <SafetyCertificateOutlined className="text-cyan-600 dark:text-cyan-400" />
+      ),
+    },
+    {
+      label: "Investment gains",
+      icon: <LineChartOutlined className="text-rose-600 dark:text-rose-400" />,
+    },
   ];
 
   return (
@@ -67,12 +92,14 @@ export default function WhyTaxResidencyMattersSection() {
               Why Does Tax Residency Matter?
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Tax residency can significantly affect your Australian tax obligations. In broad terms:
+              Tax residency can significantly affect your Australian tax
+              obligations. In broad terms:
             </p>
 
-            <div className="mt-8 p-6 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 space-y-4">
+            <div className="mt-8 p-6 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 space-y-4">
               <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-                Residency should therefore be reviewed before deciding whether overseas income needs to be declared.
+                Residency should therefore be reviewed before deciding whether
+                overseas income needs to be declared.
               </p>
               <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
                 Once residency is established, our{" "}
@@ -80,9 +107,11 @@ export default function WhyTaxResidencyMattersSection() {
                   href="/services/international-tax/foreign-income-tax"
                   className="font-semibold text-teal-600 dark:text-teal-400 hover:underline inline-flex items-center gap-1"
                 >
-                  Foreign Income Tax service <ArrowRightOutlined className="text-xs" />
+                  Foreign Income Tax service{" "}
+                  <ArrowRightOutlined className="text-xs" />
                 </Link>{" "}
-                can address which overseas amounts and foreign tax information belong in the Australian return.
+                can address which overseas amounts and foreign tax information
+                belong in the Australian return.
               </p>
             </div>
           </div>
@@ -92,7 +121,7 @@ export default function WhyTaxResidencyMattersSection() {
             {broadTerms.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4 hover:border-teal-500/40 dark:hover:border-teal-500/40 transition-colors"
+                className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4 hover:border-teal-500/40 dark:hover:border-teal-500/40 transition-colors"
               >
                 <CheckCircleFilled className="text-teal-600 dark:text-teal-400 text-lg mt-0.5 shrink-0" />
                 <div>
@@ -115,7 +144,9 @@ export default function WhyTaxResidencyMattersSection() {
               Australian Tax Residency and Worldwide Income
             </h3>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Residency is important because Australian residents are generally required to report assessable worldwide income. This can include foreign:
+              Residency is important because Australian residents are generally
+              required to report assessable worldwide income. This can include
+              foreign:
             </p>
           </div>
 
@@ -123,7 +154,7 @@ export default function WhyTaxResidencyMattersSection() {
             {worldwideIncomeStreams.map((s, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white dark:bg-zinc-800/90 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col items-center text-center justify-center gap-2 shadow-xs"
+                className="p-4 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col items-center text-center justify-center gap-2 shadow-xs"
               >
                 <div className="text-xl">{s.icon}</div>
                 <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200">
@@ -133,9 +164,12 @@ export default function WhyTaxResidencyMattersSection() {
             ))}
           </div>
 
-          <div className="p-4 rounded-xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60">
+          <div className="p-4 rounded-lg bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60">
             <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-medium">
-              Foreign residents are generally subject to Australian tax on Australian-sourced income instead. Special rules can apply, so residency should be resolved before determining which overseas amounts belong in an Australian return.
+              Foreign residents are generally subject to Australian tax on
+              Australian-sourced income instead. Special rules can apply, so
+              residency should be resolved before determining which overseas
+              amounts belong in an Australian return.
             </p>
           </div>
         </div>

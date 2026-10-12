@@ -37,7 +37,10 @@ export default function WhyRegisterMaintenanceMattersAndCommonProblems() {
         {/* Subsection 1: Why company register maintenance matters */}
         <div className="w-full mb-16 sm:mb-20">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Due Diligence & Audit Readiness
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -47,10 +50,19 @@ export default function WhyRegisterMaintenanceMattersAndCommonProblems() {
 
           <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              Good corporate records provide a reliable history of the company. They can help directors understand ownership and decisions, support future transactions, make annual reviews easier and reduce confusion when the company changes advisers. They may also be important when a shareholder, auditor, lawyer, lender or regulator needs evidence of particular corporate information.
+              Good corporate records provide a reliable history of the company.
+              They can help directors understand ownership and decisions,
+              support future transactions, make annual reviews easier and reduce
+              confusion when the company changes advisers. They may also be
+              important when a shareholder, auditor, lawyer, lender or regulator
+              needs evidence of particular corporate information.
             </p>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              ASIC makes clear that directors remain responsible for company records even where another person, such as an accountant, physically holds them. Outsourcing company register management therefore supports administration but does not transfer the officeholders&apos; legal responsibilities.
+              ASIC makes clear that directors remain responsible for company
+              records even where another person, such as an accountant,
+              physically holds them. Outsourcing company register management
+              therefore supports administration but does not transfer the
+              officeholders&apos; legal responsibilities.
             </p>
           </div>
         </div>
@@ -58,7 +70,10 @@ export default function WhyRegisterMaintenanceMattersAndCommonProblems() {
         {/* Subsection 2: Common problems with company records and registers */}
         <div className="w-full">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <Tag color="volcano" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="volcano"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Common Corporate Deficiencies
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -71,7 +86,7 @@ export default function WhyRegisterMaintenanceMattersAndCommonProblems() {
               {commonProblems.map((prob, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-3.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800"
+                  className="flex items-start gap-3 p-3.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800"
                 >
                   <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400 mt-1 shrink-0 text-sm" />
                   <span className="text-xs sm:text-sm text-slate-800 dark:text-zinc-200 font-medium">
@@ -82,14 +97,23 @@ export default function WhyRegisterMaintenanceMattersAndCommonProblems() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal pt-3 border-t border-slate-200/70 dark:border-zinc-800 m-0">
-              Where the issue is a current ASIC update rather than internal record maintenance, our{" "}
-              <Link href="/services/asic/company-changes" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+              Where the issue is a current ASIC update rather than internal
+              record maintenance, our{" "}
+              <Link
+                href="/services/asic/company-changes"
+                className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+              >
                 Company Changes service
               </Link>{" "}
-              may be the more appropriate starting point. For yearly compliance around the ASIC statement, fee and solvency process, see{" "}
-              <Link href="/services/asic/annual-reviews" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+              may be the more appropriate starting point. For yearly compliance
+              around the ASIC statement, fee and solvency process, see{" "}
+              <Link
+                href="/services/asic/annual-reviews"
+                className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+              >
                 ASIC Annual Reviews
-              </Link>.
+              </Link>
+              .
             </p>
           </div>
         </div>

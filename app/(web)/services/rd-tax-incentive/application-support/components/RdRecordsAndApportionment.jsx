@@ -23,35 +23,51 @@ import {
 export default function RdRecordsAndApportionment() {
   const evidenceCategories = [
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       text: "project plans, technical specifications and work scopes",
     },
     {
-      icon: <ExperimentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ExperimentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       text: "hypotheses, experiment plans, design notes and development logs",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       text: "test results, failures, iterations and conclusions",
     },
     {
-      icon: <MailOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <MailOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       text: "emails, meeting notes, source-control history and issue-tracking records",
     },
     {
-      icon: <FieldTimeOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FieldTimeOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       text: "staff timesheets or other reasonable labour-allocation records",
     },
     {
-      icon: <SolutionOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SolutionOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       text: "payroll reports, contractor agreements and invoices",
     },
     {
-      icon: <BookOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <BookOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       text: "general-ledger transactions and project cost reports",
     },
     {
-      icon: <PieChartOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <PieChartOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       text: "records explaining how shared costs were apportioned to R&D activities",
     },
   ];
@@ -71,8 +87,9 @@ export default function RdRecordsAndApportionment() {
             What Records Should Be Kept for an R&amp;D Claim?
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Records should be created before, during and after the activities. The company should be
-            able to demonstrate what happened, why it was undertaken and how the expenditure was calculated.
+            Records should be created before, during and after the activities.
+            The company should be able to demonstrate what happened, why it was
+            undertaken and how the expenditure was calculated.
           </p>
         </div>
 
@@ -85,10 +102,10 @@ export default function RdRecordsAndApportionment() {
             {evidenceCategories.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:border-emerald-500/40 transition-colors"
+                className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between hover:border-emerald-500/40 transition-colors"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-4 border border-slate-200/60 dark:border-zinc-800">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-4 border border-slate-200/60 dark:border-zinc-800">
                     {item.icon}
                   </div>
                   <p className="text-sm text-slate-800 dark:text-zinc-200 leading-relaxed font-normal capitalize">
@@ -104,14 +121,15 @@ export default function RdRecordsAndApportionment() {
         </div>
 
         {/* Apportionment Methodology & Ineligible Costs Callout */}
-        <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-2xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center shrink-0 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200">
+        <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-lg p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center shrink-0 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200">
             <AlertOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
           </div>
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-            An allocation method should suit the cost, be fair and reasonable, and be documented.
-            Retrospective estimates may be less persuasive than contemporaneous records. Not every
-            project cost is eligible, and adviser fees for preparing the registration or claim are not
+            An allocation method should suit the cost, be fair and reasonable,
+            and be documented. Retrospective estimates may be less persuasive
+            than contemporaneous records. Not every project cost is eligible,
+            and adviser fees for preparing the registration or claim are not
             automatically R&amp;D expenditure.
           </p>
         </div>

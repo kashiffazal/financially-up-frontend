@@ -80,7 +80,7 @@ export default function AdminNotFound() {
       {/* Main Admin 404 Card Shell */}
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 rounded-card p-8 sm:p-12 shadow-sm text-center relative overflow-hidden">
         {/* Top Warning Icon Bubble */}
-        <div className="w-20 h-20 rounded-2xl bg-[var(--brand-primary-soft)] border border-[var(--brand-primary)]/20 text-[var(--brand-primary)] text-3xl flex items-center justify-center mx-auto mb-6 shadow-xs">
+        <div className="w-20 h-20 rounded-lg bg-[var(--brand-primary-soft)] border border-[var(--brand-primary)]/20 text-[var(--brand-primary)] text-3xl flex items-center justify-center mx-auto mb-6 shadow-xs">
           <FileSearchOutlined />
         </div>
 
@@ -95,7 +95,9 @@ export default function AdminNotFound() {
           Admin Route Not Found
         </h1>
         <p className="text-sm text-slate-500 dark:text-zinc-400 max-w-md mx-auto mt-2 mb-8 leading-relaxed">
-          The administrative page, log record, or operational view you are attempting to access does not exist, has been archived, or requires elevated RBAC permissions.
+          The administrative page, log record, or operational view you are
+          attempting to access does not exist, has been archived, or requires
+          elevated RBAC permissions.
         </p>
 
         {/* Action Controls */}
@@ -131,7 +133,7 @@ export default function AdminNotFound() {
               <Link
                 key={idx}
                 href={item.href}
-                className="group p-3.5 rounded-xl border border-slate-200/70 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-800/30 hover:border-[var(--brand-border-hover)] hover:bg-white dark:hover:bg-zinc-800 transition-all flex items-start gap-3 shadow-xs"
+                className="group p-3.5 rounded-lg border border-slate-200/70 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-800/30 hover:border-[var(--brand-border-hover)] hover:bg-white dark:hover:bg-zinc-800 transition-all flex items-start gap-3 shadow-xs"
               >
                 <div className="w-9 h-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   {item.icon}

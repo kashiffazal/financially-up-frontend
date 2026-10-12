@@ -38,33 +38,38 @@ import CallToActionBanner from "@/components/website/CallToActionBanner";
 export default function AboutContent() {
   const company = useCompany();
 
-  const breadcrumbs = [
-    { label: "Home", href: "/" },
-    { label: "About Us" },
-  ];
+  const breadcrumbs = [{ label: "Home", href: "/" }, { label: "About Us" }];
 
   // 4 Core Practice Value Pillars
   const coreValues = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Uncompromising Compliance",
       description:
         "Every return, BAS, and advisory paper is prepared with strict adherence to ATO legislation, TPB ethical codes, and Australian Corporations Law. We protect your position with precision.",
     },
     {
-      icon: <DollarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Transparent Fixed Pricing",
       description:
         "We believe in zero billing surprises. Our services are priced upfront with transparent scopes, so you always know your exact investment before any work begins.",
     },
     {
-      icon: <ThunderboltOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ThunderboltOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Cloud-First Speed & Simplicity",
       description:
         "100% online, paperless, and secure. We leverage smart digital portals, bank-grade encryption, and seamless e-signatures to deliver prompt turnarounds without office queues.",
     },
     {
-      icon: <RocketOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <RocketOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Strategic Forward Advisory",
       description:
         "We do more than look backward at tax time. Our team proactively identifies deduction opportunities, optimizes corporate structures, and builds pathways for wealth creation.",
@@ -148,15 +153,22 @@ export default function AboutContent() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              At <strong className="text-slate-900 dark:text-white font-semibold">{company.legalName}</strong>, 
-              we believe managing your taxation, business compliance, and financial growth should never be overwhelming. 
-              Traditional accounting is often bogged down by slow turnarounds, confusing jargon, and unexpected invoices.
+              At{" "}
+              <strong className="text-slate-900 dark:text-white font-semibold">
+                {company.legalName}
+              </strong>
+              , we believe managing your taxation, business compliance, and
+              financial growth should never be overwhelming. Traditional
+              accounting is often bogged down by slow turnarounds, confusing
+              jargon, and unexpected invoices.
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              We reimagined the entire experience. By combining certified Australian CPA expertise with seamless cloud-based 
-              technology, we deliver personal, highly responsive accounting services to individuals, founders, and growing enterprises 
-              in Sydney, Melbourne, Brisbane, Perth, and across regional Australia.
+              We reimagined the entire experience. By combining certified
+              Australian CPA expertise with seamless cloud-based technology, we
+              deliver personal, highly responsive accounting services to
+              individuals, founders, and growing enterprises in Sydney,
+              Melbourne, Brisbane, Perth, and across regional Australia.
             </p>
 
             {/* Value Highlights List */}
@@ -182,14 +194,14 @@ export default function AboutContent() {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link
                 href="/book-an-appointment"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white text-sm font-bold shadow-md shadow-emerald-700/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white text-sm font-bold shadow-md shadow-emerald-700/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Book a Free Consultation</span>
                 <ArrowRightOutlined className="text-xs" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary text-slate-700 dark:text-zinc-200 text-sm font-bold shadow-2xs transition-all hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary text-slate-700 dark:text-zinc-200 text-sm font-bold shadow-2xs transition-all hover:scale-[1.02]"
               >
                 <span>Contact Our Practice</span>
               </Link>
@@ -221,20 +233,26 @@ export default function AboutContent() {
                     {company.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-                    Delivering strategic accounting clarity, rigorous ATO compliance, and proactive financial stewardship for ambitious Australians.
+                    Delivering strategic accounting clarity, rigorous ATO
+                    compliance, and proactive financial stewardship for
+                    ambitious Australians.
                   </p>
                 </div>
 
                 {/* Highlight Cards */}
                 <div className="space-y-3 pt-2">
-                  <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-between">
+                  <div className="p-3.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-base">
                         <SafetyCertificateOutlined />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-white">Registered Tax Agent</div>
-                        <div className="text-[11px] text-emerald-200">Tax Practitioners Board #25992004</div>
+                        <div className="text-xs font-bold text-white">
+                          Registered Tax Agent
+                        </div>
+                        <div className="text-[11px] text-emerald-200">
+                          Tax Practitioners Board #25992004
+                        </div>
                       </div>
                     </div>
                     <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/30 text-emerald-200">
@@ -242,14 +260,18 @@ export default function AboutContent() {
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-between">
+                  <div className="p-3.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-base">
                         <BankOutlined />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-white">CPA Australia Firm</div>
-                        <div className="text-[11px] text-emerald-200">Certified Practising Accountants</div>
+                        <div className="text-xs font-bold text-white">
+                          CPA Australia Firm
+                        </div>
+                        <div className="text-[11px] text-emerald-200">
+                          Certified Practising Accountants
+                        </div>
                       </div>
                     </div>
                     <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/30 text-emerald-200">
@@ -257,14 +279,18 @@ export default function AboutContent() {
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-between">
+                  <div className="p-3.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-base">
                         <ClockCircleOutlined />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-white">100% Online Consultations</div>
-                        <div className="text-[11px] text-emerald-200">Sydney Head Office + Australia-Wide</div>
+                        <div className="text-xs font-bold text-white">
+                          100% Online Consultations
+                        </div>
+                        <div className="text-[11px] text-emerald-200">
+                          Sydney Head Office + Australia-Wide
+                        </div>
                       </div>
                     </div>
                     <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/30 text-emerald-200">
@@ -293,7 +319,8 @@ export default function AboutContent() {
               Values That Drive Every Client Engagement
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300">
-              We hold ourselves to the highest standards of financial accuracy, confidentiality, and proactive care.
+              We hold ourselves to the highest standards of financial accuracy,
+              confidentiality, and proactive care.
             </p>
           </div>
 
@@ -301,10 +328,10 @@ export default function AboutContent() {
             {coreValues.map((val, idx) => (
               <div
                 key={idx}
-                className="group p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-brand-primary dark:hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     {val.icon}
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight">
@@ -353,7 +380,9 @@ export default function AboutContent() {
             Tailored Accounting for Every Life Stage &amp; Business
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300">
-            Whether you are filing your first individual return or managing a multi-million dollar corporate group, our CPA team provides targeted support.
+            Whether you are filing your first individual return or managing a
+            multi-million dollar corporate group, our CPA team provides targeted
+            support.
           </p>
         </div>
 
@@ -362,10 +391,10 @@ export default function AboutContent() {
             <Link
               key={idx}
               href={persona.href}
-              className="group p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500 shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between"
+              className="group p-6 rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-primary dark:hover:border-emerald-500 shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 flex items-center justify-center font-bold">
                   {persona.icon}
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-emerald-400 transition-colors">

@@ -122,9 +122,9 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
           {credentials.map((cred, i) => (
             <div
               key={i}
-              className="text-center p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-sm transition-all"
+              className="text-center p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-sm transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
                 {cred.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -138,7 +138,7 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
         </div>
 
         {/* Contact Strip */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+        <div className="rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           <div className="text-center sm:text-left">
             <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1">
               Ready to Prepare Your Sole Trader Return?
@@ -154,7 +154,7 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
                 <Button
                   size="large"
                   icon={<PhoneOutlined />}
-                  className="font-bold rounded-xl text-slate-800 dark:text-white border-slate-300 dark:border-zinc-700 h-11"
+                  className="font-bold rounded-lg text-slate-800 dark:text-white border-slate-300 dark:border-zinc-700 h-11"
                 >
                   {company.phone}
                 </Button>
@@ -166,7 +166,7 @@ export default function WhyChooseFinanciallyUpSoleTrader() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="font-bold rounded-xl bg-brand-primary hover:bg-brand-primary-dark border-none h-11 px-6"
+                className="font-bold rounded-lg bg-brand-primary hover:bg-brand-primary-dark border-none h-11 px-6"
               >
                 Book Appointment
               </Button>

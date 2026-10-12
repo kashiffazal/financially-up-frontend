@@ -67,10 +67,10 @@ export default function BusinessVsPersonalPlanning() {
         {/* 2 Major Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Business Tax Planning Column */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 transition-all flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-lg bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 flex items-center justify-center">
                   <BankOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
@@ -82,8 +82,8 @@ export default function BusinessVsPersonalPlanning() {
               </h3>
               {/* Document Paragraph 2 - Verbatim */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 leading-relaxed mb-6">
-                For business owners, our Business Tax Planning service focuses on
-                business income, deductions, cash flow, structures, GST/BAS
+                For business owners, our Business Tax Planning service focuses
+                on business income, deductions, cash flow, structures, GST/BAS
                 considerations and planning around business decisions.
               </p>
 
@@ -109,7 +109,7 @@ export default function BusinessVsPersonalPlanning() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-12 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
+                className="w-full h-12 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
               >
                 Explore Business Tax Planning
               </Button>
@@ -117,10 +117,10 @@ export default function BusinessVsPersonalPlanning() {
           </div>
 
           {/* Personal Tax Planning Column */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-emerald-500/50 transition-all flex flex-col justify-between">
+          <div className="p-8 sm:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-emerald-500/50 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center">
                   <UserOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
@@ -160,7 +160,7 @@ export default function BusinessVsPersonalPlanning() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="w-full h-12 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
+                className="w-full h-12 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center"
               >
                 Explore Personal Tax Planning
               </Button>

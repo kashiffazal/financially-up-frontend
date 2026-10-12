@@ -1,7 +1,11 @@
 "use client";
 
 import React from "react";
-import { FolderOpenOutlined, SafetyCertificateOutlined, FileDoneOutlined } from "@ant-design/icons";
+import {
+  FolderOpenOutlined,
+  SafetyCertificateOutlined,
+  FileDoneOutlined,
+} from "@ant-design/icons";
 
 /**
  * RecordsAndAuditorRequirementsSmsf Component
@@ -51,29 +55,38 @@ export default function RecordsAndAuditorRequirementsSmsf() {
             Records an SMSF Property Accountant May Need
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Every SMSF is subject to a mandatory annual independent audit. Robust documentation protects your fund from auditor contravention reports (ACRs) and ATO penalties.
+            Every SMSF is subject to a mandatory annual independent audit.
+            Robust documentation protects your fund from auditor contravention
+            reports (ACRs) and ATO penalties.
           </p>
         </div>
 
-        <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-12">
+        <div className="bg-slate-50 rounded-lg p-8 sm:p-10 border border-slate-200 shadow-sm mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {records.map((item, idx) => (
-              <div key={idx} className="bg-white p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+              <div
+                key={idx}
+                className="bg-white p-5 rounded-lg border border-slate-200 flex flex-col justify-between"
+              >
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-emerald-700 font-bold text-sm">
                     <FileDoneOutlined />
                     <span>{item.title}</span>
                   </div>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-emerald-50/50 border border-emerald-200 rounded-xl p-6 text-center max-w-3xl mx-auto">
+        <div className="bg-emerald-50/50 border border-emerald-200 rounded-lg p-6 text-center max-w-3xl mx-auto">
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-            The fund's annual financial statements, SMSF annual return, and independent audit must reflect the property accurately. Assets must be valued annually in accordance with ATO valuation guidelines.
+            The fund's annual financial statements, SMSF annual return, and
+            independent audit must reflect the property accurately. Assets must
+            be valued annually in accordance with ATO valuation guidelines.
           </p>
         </div>
       </div>

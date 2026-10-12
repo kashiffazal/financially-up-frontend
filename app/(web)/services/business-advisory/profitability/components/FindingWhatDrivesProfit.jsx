@@ -26,7 +26,9 @@ import {
 export default function FindingWhatDrivesProfit() {
   const analysisVectors = [
     {
-      icon: <DollarOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Price Realization",
       desc: "Discounting habits, quotation accuracy, and effective realized rates.",
     },
@@ -36,12 +38,16 @@ export default function FindingWhatDrivesProfit() {
       desc: "High-margin offerings versus volume products absorbing overhead.",
     },
     {
-      icon: <ClockCircleOutlined className="text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-blue-600 dark:text-blue-400" />
+      ),
       title: "Direct Labour Time",
       desc: "True productive staff hours expended versus quoted baseline estimates.",
     },
     {
-      icon: <ShoppingCartOutlined className="text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ShoppingCartOutlined className="text-amber-600 dark:text-amber-400" />
+      ),
       title: "Purchasing & Materials",
       desc: "Supplier pricing, batch quantities, freight, and procurement leakage.",
     },
@@ -56,7 +62,9 @@ export default function FindingWhatDrivesProfit() {
       desc: "Fixed administrative, software, and occupancy costs creeping upward.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Customer Concentration",
       desc: "Revenue dependency and disproportionate service demands across major clients.",
     },
@@ -94,9 +102,9 @@ export default function FindingWhatDrivesProfit() {
             {analysisVectors.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+                className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
               >
-                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700 flex items-center justify-center mb-3 text-lg">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200/70 dark:border-zinc-700 flex items-center justify-center mb-3 text-lg">
                   {item.icon}
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -109,7 +117,7 @@ export default function FindingWhatDrivesProfit() {
             ))}
 
             {/* Explanatory Case Study Card */}
-            <div className="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 flex flex-col justify-center">
+            <div className="p-5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 flex flex-col justify-center">
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-400 mb-1">
                 Practical Insight
               </span>
@@ -123,9 +131,9 @@ export default function FindingWhatDrivesProfit() {
 
         {/* Missing Records & Period Comparison Dual Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+          <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center text-amber-600 dark:text-amber-400">
+              <span className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/60 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center text-amber-600 dark:text-amber-400">
                 <WarningOutlined className="text-xl" />
               </span>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -134,14 +142,15 @@ export default function FindingWhatDrivesProfit() {
             </div>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
               Where time or cost records are missing, we can flag the
-              uncertainty and help establish a better way to capture it. We don&apos;t
-              guess; we implement sensible record-keeping so subsequent analysis is rock-solid.
+              uncertainty and help establish a better way to capture it. We
+              don&apos;t guess; we implement sensible record-keeping so
+              subsequent analysis is rock-solid.
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+          <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400">
+              <span className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 dark:text-blue-400">
                 <FileSearchOutlined className="text-xl" />
               </span>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white m-0">

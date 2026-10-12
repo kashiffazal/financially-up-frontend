@@ -24,22 +24,30 @@ import {
 export default function WhenToStartSuccessionPlanning() {
   const triggerEvents = [
     {
-      icon: <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Planned Retirement",
       desc: "Setting a deliberate timeline to step back, monetize equity, and secure post-transition lifestyle income.",
     },
     {
-      icon: <HeartOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HeartOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Health or Personal Shifts",
       desc: "Protecting business continuity, family wealth, and staff stability against unexpected personal events.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Family Conversations",
       desc: "Navigating next-generation aspirations, equity sharing, and commercial capability across family members.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Buyer or Co-Owner Inquiries",
       desc: "Responding with confidence to third-party acquisition inquiries or internal partner buyouts.",
     },
@@ -74,9 +82,9 @@ export default function WhenToStartSuccessionPlanning() {
           {triggerEvents.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -90,7 +98,7 @@ export default function WhenToStartSuccessionPlanning() {
         </div>
 
         {/* Owner Reliance & Knowledge Transfer Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs mb-8">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs mb-8">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
               De-risking Owner Reliance
@@ -105,14 +113,15 @@ export default function WhenToStartSuccessionPlanning() {
             <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
               <CheckCircleOutlined />
               <span>
-                Systematizing commercial goodwill increases transferable enterprise value.
+                Systematizing commercial goodwill increases transferable
+                enterprise value.
               </span>
             </div>
           </div>
         </div>
 
         {/* business.gov.au Operational Readiness Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-emerald-50/60 via-slate-50/40 to-white dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50">
           <div className="flex items-start gap-4">
             <BankOutlined className="text-2xl sm:text-3xl text-emerald-600 dark:text-emerald-400 shrink-0 mt-1" />
             <div>

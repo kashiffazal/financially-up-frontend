@@ -3,7 +3,7 @@ import BlogAccessGuard from "@/components/admin/blog/BlogAccessGuard";
 import PostEditor from "@/components/admin/blog/PostEditor";
 
 /**
- * /admin/blog/new — Add New Post.
+ * /admin/blog/new - Add New Post.
  */
 export default function NewBlogPostPage() {
   return (

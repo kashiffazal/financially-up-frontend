@@ -26,7 +26,9 @@ export default function WhatRecordsShouldKeep() {
     {
       title: "Technical Evidence Trail",
       tag: "What & Why",
-      icon: <ExperimentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <ExperimentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       description:
         "Records should show what was unknown, the hypothesis, the experiments performed, observations, evaluation and conclusions. Project plans, test results, dated technical notes and decisions may help.",
       items: [
@@ -41,7 +43,9 @@ export default function WhatRecordsShouldKeep() {
     {
       title: "Financial Connection & Costs",
       tag: "Traceable Spend",
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       description:
         "Financial records should connect wages, timesheets, invoices and other expenditure to the relevant activities.",
       items: [
@@ -88,12 +92,16 @@ export default function WhatRecordsShouldKeep() {
             What records should the company keep?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Records should show what was unknown, the hypothesis, the experiments performed, observations, evaluation and conclusions. Project plans, test results, dated technical notes and decisions may help. Financial records should connect wages, timesheets, invoices and other expenditure to the relevant activities.
+            Records should show what was unknown, the hypothesis, the
+            experiments performed, observations, evaluation and conclusions.
+            Project plans, test results, dated technical notes and decisions may
+            help. Financial records should connect wages, timesheets, invoices
+            and other expenditure to the relevant activities.
           </p>
         </div>
 
         {/* 3-Phase Timeline: Before, During, and After (Verbatim Principle) */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 shadow-sm mb-12">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 shadow-sm mb-12">
           <div className="flex items-center gap-2 mb-4">
             <ClockCircleOutlined className="text-teal-600 dark:text-teal-400" />
             <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -101,14 +109,16 @@ export default function WhatRecordsShouldKeep() {
             </h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-6">
-            The Department&apos;s guidance expects records from before, during and after the activities, rather than a technical story reconstructed only when a tax return is due.
+            The Department&apos;s guidance expects records from before, during
+            and after the activities, rather than a technical story
+            reconstructed only when a tax return is due.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {timelinePhases.map((phase, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800/80 flex flex-col justify-between"
+                className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/80 dark:border-zinc-800/80 flex flex-col justify-between"
               >
                 <div>
                   <span className="text-[11px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider font-mono block mb-1">
@@ -131,12 +141,12 @@ export default function WhatRecordsShouldKeep() {
           {recordCategories.map((cat, idx) => (
             <div
               key={idx}
-              className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
+              className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                       {cat.icon}
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -152,10 +162,13 @@ export default function WhatRecordsShouldKeep() {
                   {cat.description}
                 </p>
 
-                <div className="bg-slate-50 dark:bg-zinc-950/60 rounded-xl p-4 border border-slate-200/80 dark:border-zinc-800/80">
+                <div className="bg-slate-50 dark:bg-zinc-950/60 rounded-lg p-4 border border-slate-200/80 dark:border-zinc-800/80">
                   <ul className="space-y-2">
                     {cat.items.map((item, iIdx) => (
-                      <li key={iIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
+                      <li
+                        key={iIdx}
+                        className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400"
+                      >
                         <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 mt-1 shrink-0 text-xs" />
                         <span>{item}</span>
                       </li>
@@ -168,7 +181,7 @@ export default function WhatRecordsShouldKeep() {
         </div>
 
         {/* First Review & Missing Evidence Callout (Verbatim from docx) */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <InfoCircleOutlined className="text-teal-600 dark:text-teal-400" />
@@ -177,16 +190,23 @@ export default function WhatRecordsShouldKeep() {
               </h4>
             </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed m-0 max-w-3xl">
-              A useful first review asks whether those records can support each activity and whether costs can be allocated on a reasonable basis. Where evidence is missing, we explain the limitation. Our R&amp;D tax claim preparation service addresses the expenditure analysis, reconciliations and tax return stage in more detail.
+              A useful first review asks whether those records can support each
+              activity and whether costs can be allocated on a reasonable basis.
+              Where evidence is missing, we explain the limitation. Our R&amp;D
+              tax claim preparation service addresses the expenditure analysis,
+              reconciliations and tax return stage in more detail.
             </p>
           </div>
-          <Link href="/services/rd-tax-incentive/rnd-tax-claim-preparation" className="shrink-0">
+          <Link
+            href="/services/rd-tax-incentive/rnd-tax-claim-preparation"
+            className="shrink-0"
+          >
             <Button
               type="primary"
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md"
             >
               Claim Preparation
             </Button>

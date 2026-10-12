@@ -57,32 +57,38 @@ const smsfAccountingQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Established SMSFs requiring annual accounts, financial statements, and tax returns",
+    value:
+      "Established SMSFs requiring annual accounts, financial statements, and tax returns",
   },
   {
     icon: "file",
     label: "Core Statements",
-    value: "Annual operating statement and statement of financial position with market values",
+    value:
+      "Annual operating statement and statement of financial position with market values",
   },
   {
     icon: "calendar",
     label: "Audit Deadline",
-    value: "Approved auditor appointed at least 45 days prior to annual return due date",
+    value:
+      "Approved auditor appointed at least 45 days prior to annual return due date",
   },
   {
     icon: "percentage",
     label: "Tax Reporting",
-    value: "Comprehensive SMSF annual return (SAR) incorporating deductibility & member balances",
+    value:
+      "Comprehensive SMSF annual return (SAR) incorporating deductibility & member balances",
   },
   {
     icon: "lineChart",
     label: "Asset Valuations",
-    value: "Objective market-value evidence required at 30 June for property, shares, and assets",
+    value:
+      "Objective market-value evidence required at 30 June for property, shares, and assets",
   },
   {
     icon: "safety",
     label: "Professional Scope",
-    value: "Registered Tax Agent #26242127 lodgement with independent audit file preparation",
+    value:
+      "Registered Tax Agent #26242127 lodgement with independent audit file preparation",
   },
 ];
 
@@ -95,7 +101,9 @@ const smsfAccountingFaqs = [
     label: "What financial statements does an SMSF need each year?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        SMSFs generally prepare an operating statement and a statement of financial position each year. The fund&apos;s accounting records must support those statements and allow them to be properly audited.
+        SMSFs generally prepare an operating statement and a statement of
+        financial position each year. The fund&apos;s accounting records must
+        support those statements and allow them to be properly audited.
       </p>
     ),
   },
@@ -104,7 +112,8 @@ const smsfAccountingFaqs = [
     label: "Does the SMSF annual return get lodged before the audit?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. The annual audit needs to be finalized first, and the SMSF annual return includes auditor information from the completed audit.
+        No. The annual audit needs to be finalized first, and the SMSF annual
+        return includes auditor information from the completed audit.
       </p>
     ),
   },
@@ -113,7 +122,9 @@ const smsfAccountingFaqs = [
     label: "Do SMSF assets need to be valued every year?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The ATO requires SMSF assets to be reported at market value for annual accounts and reporting. The type of evidence required depends on the asset and the circumstances.
+        The ATO requires SMSF assets to be reported at market value for annual
+        accounts and reporting. The type of evidence required depends on the
+        asset and the circumstances.
       </p>
     ),
   },
@@ -122,7 +133,10 @@ const smsfAccountingFaqs = [
     label: "Can accounting fees be deductible to an SMSF?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Some accounting and tax-administration costs may be deductible, but the treatment depends on the nature of the expense. Capital establishment or structural costs are different and may not be deductible under the general rules.
+        Some accounting and tax-administration costs may be deductible, but the
+        treatment depends on the nature of the expense. Capital establishment or
+        structural costs are different and may not be deductible under the
+        general rules.
       </p>
     ),
   },
@@ -191,12 +205,19 @@ export default function SmsfAccountingSubpage() {
         subtitle="SMSF accounting turns the fund's bank, investment and member activity into the annual financial statements and tax information needed for compliance. Accurate records also give trustees and the independent auditor a clear view of the fund's financial position at year end."
         bodyText={
           <span>
-            Financially Up provides SMSF accounting support for established funds that need annual accounts preparation, reconciliations, member reporting and SMSF tax accounting. This page focuses on the accounting work itself. For broader SMSF support, see our SMSF accountant services; for a new fund, see SMSF setup.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up provides SMSF accounting support for established
+            funds that need annual accounts preparation, reconciliations, member
+            reporting and SMSF tax accounting. This page focuses on the
+            accounting work itself. For broader SMSF support, see our SMSF
+            accountant services; for a new fund, see SMSF setup.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Initial Discussion:
               </span>
-              If your SMSF records are ready for year-end processing, or you are unsure what is missing, an initial discussion can identify the accounting records required and the next steps before audit and lodgement.
+              If your SMSF records are ready for year-end processing, or you are
+              unsure what is missing, an initial discussion can identify the
+              accounting records required and the next steps before audit and
+              lodgement.
             </div>
           </span>
         }

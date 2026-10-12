@@ -7,7 +7,7 @@
  * WordPress-style visual editor (TinyMCE 8, self-hosted under its GPL licence:
  * bundled into the app, no API key or cloud service).
  *
- * Load it with next/dynamic and `ssr: false` — TinyMCE needs the browser.
+ * Load it with next/dynamic and `ssr: false` - TinyMCE needs the browser.
  *
  * Props:
  *   value / onChange(html)   controlled HTML
@@ -70,7 +70,14 @@ const CONTENT_STYLE = `
   blockquote { border-left: 4px solid #008043; margin-left: 0; padding-left: 14px; color: #475569; }
 `;
 
-export default function RichTextEditor({ value, onChange, onReady, onImageUpload, isDark = false, height = 520 }) {
+export default function RichTextEditor({
+  value,
+  onChange,
+  onReady,
+  onImageUpload,
+  isDark = false,
+  height = 520,
+}) {
   return (
     <div className={styles.wrapper}>
       <Editor
@@ -96,7 +103,8 @@ export default function RichTextEditor({ value, onChange, onReady, onImageUpload
           resize: true,
           browser_spellcheck: true,
           contextmenu: false,
-          block_formats: "Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4; Preformatted=pre",
+          block_formats:
+            "Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4; Preformatted=pre",
           // Keep absolute image / link URLs exactly as inserted
           convert_urls: false,
           relative_urls: false,
@@ -109,9 +117,12 @@ export default function RichTextEditor({ value, onChange, onReady, onImageUpload
           file_picker_types: "image",
           images_file_types: "jpg,jpeg,png,webp,gif",
           images_upload_handler: async (blobInfo) => {
-            if (!onImageUpload) throw { message: "Image upload is not available.", remove: true };
+            if (!onImageUpload)
+              throw { message: "Image upload is not available.", remove: true };
             const blob = blobInfo.blob();
-            const file = new File([blob], blobInfo.filename(), { type: blob.type });
+            const file = new File([blob], blobInfo.filename(), {
+              type: blob.type,
+            });
             const url = await onImageUpload(file);
             if (!url) throw { message: "Image upload failed.", remove: true };
             return url;

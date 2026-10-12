@@ -28,7 +28,9 @@ export default function PropertyTaxPillarsComparison() {
   const pillars = [
     {
       id: "rental-reporting",
-      icon: <HomeOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <HomeOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Annual Compliance",
       title: "Rental property tax and annual reporting",
       paragraphs: [
@@ -45,7 +47,9 @@ export default function PropertyTaxPillarsComparison() {
     },
     {
       id: "capital-gains",
-      icon: <LineChartOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Disposal Calculations",
       title: "Capital gains tax on property",
       paragraphs: [
@@ -62,7 +66,9 @@ export default function PropertyTaxPillarsComparison() {
     },
     {
       id: "planning-vs-compliance",
-      icon: <CompassOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CompassOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Proactive Advisory",
       title: "Property tax planning versus tax compliance",
       paragraphs: [
@@ -91,7 +97,9 @@ export default function PropertyTaxPillarsComparison() {
             Rental Reporting, Capital Gains & Strategic Planning
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Understanding how annual rental compliance, capital gains tax events, and proactive tax planning interact ensures every property transaction is backed by clear facts and appropriate service scopes.
+            Understanding how annual rental compliance, capital gains tax
+            events, and proactive tax planning interact ensures every property
+            transaction is backed by clear facts and appropriate service scopes.
           </p>
         </div>
 
@@ -100,12 +108,12 @@ export default function PropertyTaxPillarsComparison() {
           {pillars.map((pillar) => (
             <div
               key={pillar.id}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 dark:hover:border-teal-500/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 dark:hover:border-teal-500/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Header with Icon and Tag */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {pillar.icon}
                   </div>
                   <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 font-mono">
@@ -159,14 +167,17 @@ export default function PropertyTaxPillarsComparison() {
         </div>
 
         {/* Separately Scoped Service Clarification Banner */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 shadow-sm">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
                 Need Help Clarifying the Appropriate Service Scope?
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 m-0 mt-1">
-                Whether you need routine annual rental return lodgement, a transaction-specific CGT calculation, or separately scoped tax planning before purchase, book an appointment to discuss your portfolio.
+                Whether you need routine annual rental return lodgement, a
+                transaction-specific CGT calculation, or separately scoped tax
+                planning before purchase, book an appointment to discuss your
+                portfolio.
               </p>
             </div>
             <Link href="/book-an-appointment" className="shrink-0">
@@ -175,7 +186,7 @@ export default function PropertyTaxPillarsComparison() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
+                className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20"
               >
                 Book an Appointment
               </Button>

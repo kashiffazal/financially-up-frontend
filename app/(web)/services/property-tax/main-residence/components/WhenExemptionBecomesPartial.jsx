@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { ExclamationCircleOutlined, CalendarOutlined, PercentageOutlined, AppstoreOutlined } from "@ant-design/icons";
+import {
+  ExclamationCircleOutlined,
+  CalendarOutlined,
+  PercentageOutlined,
+  AppstoreOutlined,
+} from "@ant-design/icons";
 
 /**
  * WhenExemptionBecomesPartial Component
@@ -46,7 +51,9 @@ export default function WhenExemptionBecomesPartial() {
             When Can the Main Residence Exemption Become Partial?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            If your property timeline involves mixed private and income-producing usage, statutory apportionment applies. Calculating the taxable portion requires precision.
+            If your property timeline involves mixed private and
+            income-producing usage, statutory apportionment applies. Calculating
+            the taxable portion requires precision.
           </p>
         </div>
 
@@ -54,42 +61,55 @@ export default function WhenExemptionBecomesPartial() {
           {triggerScenarios.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:border-emerald-500/50 hover:shadow-md transition-all duration-300"
+              className="bg-white rounded-lg p-6 border border-slate-200 shadow-sm hover:border-emerald-500/50 hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-3">
                 <ExclamationCircleOutlined className="text-amber-500 text-lg shrink-0" />
-                <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
+                <h3 className="text-lg font-bold text-slate-900">
+                  {item.title}
+                </h3>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Calculation Formula Mechanics */}
-        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+        <div className="bg-white rounded-lg p-8 border border-slate-200 shadow-sm">
           <h3 className="text-xl font-bold text-slate-900 mb-6 text-center">
             How the ATO Calculates Partial CGT
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="p-5 bg-slate-50 rounded-xl border border-slate-100">
+            <div className="p-5 bg-slate-50 rounded-lg border border-slate-100">
               <CalendarOutlined className="text-2xl text-emerald-600 mb-2" />
-              <h4 className="font-bold text-slate-900 mb-1">Non-Main-Residence Days</h4>
+              <h4 className="font-bold text-slate-900 mb-1">
+                Non-Main-Residence Days
+              </h4>
               <p className="text-slate-600 text-xs sm:text-sm">
-                The exact number of days the property was used for income or not treated as your home divided by total ownership days.
+                The exact number of days the property was used for income or not
+                treated as your home divided by total ownership days.
               </p>
             </div>
-            <div className="p-5 bg-slate-50 rounded-xl border border-slate-100">
+            <div className="p-5 bg-slate-50 rounded-lg border border-slate-100">
               <PercentageOutlined className="text-2xl text-blue-600 mb-2" />
-              <h4 className="font-bold text-slate-900 mb-1">Floorspace Percentage</h4>
+              <h4 className="font-bold text-slate-900 mb-1">
+                Floorspace Percentage
+              </h4>
               <p className="text-slate-600 text-xs sm:text-sm">
-                The proportion of the internal square metre floor area set aside for business, tenancy, or commercial activities.
+                The proportion of the internal square metre floor area set aside
+                for business, tenancy, or commercial activities.
               </p>
             </div>
-            <div className="p-5 bg-slate-50 rounded-xl border border-slate-100">
+            <div className="p-5 bg-slate-50 rounded-lg border border-slate-100">
               <AppstoreOutlined className="text-2xl text-purple-600 mb-2" />
-              <h4 className="font-bold text-slate-900 mb-1">Statutory Cost Base Reset</h4>
+              <h4 className="font-bold text-slate-900 mb-1">
+                Statutory Cost Base Reset
+              </h4>
               <p className="text-slate-600 text-xs sm:text-sm">
-                Special rules (e.g. section 118-192) that substitute market valuation at the date of first income production.
+                Special rules (e.g. section 118-192) that substitute market
+                valuation at the date of first income production.
               </p>
             </div>
           </div>

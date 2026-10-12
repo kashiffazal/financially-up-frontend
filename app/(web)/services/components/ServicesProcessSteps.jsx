@@ -90,7 +90,7 @@ export default function ServicesProcessSteps() {
           {PROCESS_STEPS.map((step, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/50 transition-all duration-300"
+              className="relative flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/50 transition-all duration-300"
             >
               <div>
                 {/* Step Number & Icon */}
@@ -98,7 +98,7 @@ export default function ServicesProcessSteps() {
                   <span className="text-2xl font-black text-brand-primary dark:text-emerald-400 tracking-tight">
                     {step.step}
                   </span>
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center">
                     {step.icon}
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function ServicesProcessSteps() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-semibold text-sm h-12 px-6 shadow-md shadow-brand-primary/20 hover:scale-[1.02] transition-transform"
+              className="rounded-lg font-semibold text-sm h-12 px-6 shadow-md shadow-brand-primary/20 hover:scale-[1.02] transition-transform"
             >
               Start Your Engagement Today
             </Button>

@@ -49,7 +49,11 @@ export default function EntityRoutingBanner({
   children,
   buttons = [
     { label: "Business Tax", href: "/services/business-tax", type: "primary" },
-    { label: "Trust Services", href: "/services/business-tax/trust-tax-returns", type: "secondary" },
+    {
+      label: "Trust Services",
+      href: "/services/business-tax/trust-tax-returns",
+      type: "secondary",
+    },
   ],
   actions,
   className = "",
@@ -58,7 +62,7 @@ export default function EntityRoutingBanner({
 
   return (
     <div
-      className={`rounded-2xl bg-gradient-to-r from-emerald-900/90 via-slate-900 to-zinc-900 p-6 md:p-8 text-white shadow-xl border border-emerald-500/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 ${className}`}
+      className={`rounded-lg bg-gradient-to-r from-emerald-900/90 via-slate-900 to-zinc-900 p-6 md:p-8 text-white shadow-xl border border-emerald-500/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 ${className}`}
     >
       {/* Left: Tag + Description */}
       <div className="space-y-2 max-w-2xl">

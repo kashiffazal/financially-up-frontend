@@ -31,22 +31,30 @@ export default function HowFinanciallyUpHelpsBudgeting() {
 
   const deliverables = [
     {
-      icon: <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Annual Business Budgets",
       desc: "Comprehensive 12-month financial blueprints establishing revenue targets, margins, and expense limits.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Rolling Dynamic Forecasts",
       desc: "Continually refreshed 3-to-12 month models updating forward expectations as actual results unfold.",
     },
     {
-      icon: <ExperimentOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ExperimentOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Scenario & Stress Models",
       desc: "Testing sensitivity to pricing shifts, headcount expansion, customer churn, and major capital outlays.",
     },
     {
-      icon: <BarChartOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <BarChartOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Budget-Versus-Actual Reviews",
       desc: "Decision-focused monthly variance analysis highlighting exactly where performance diverges from plan.",
     },
@@ -95,7 +103,7 @@ export default function HowFinanciallyUpHelpsBudgeting() {
         {/* 2 Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1: Collaborative Modeling */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <CheckCircleOutlined />
@@ -115,7 +123,7 @@ export default function HowFinanciallyUpHelpsBudgeting() {
           </div>
 
           {/* Paragraph 2: Professional Scope Notice */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <CheckCircleOutlined />
@@ -139,9 +147,9 @@ export default function HowFinanciallyUpHelpsBudgeting() {
           {deliverables.map((deliv, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-all group"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                 {deliv.icon}
               </div>
               <div className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 mb-1">
@@ -184,9 +192,9 @@ export default function HowFinanciallyUpHelpsBudgeting() {
           {credentials.map((cred, i) => (
             <div
               key={i}
-              className="text-center p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="text-center p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mx-auto mb-3">
                 {cred.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -207,7 +215,7 @@ export default function HowFinanciallyUpHelpsBudgeting() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book an Appointment
             </Button>
@@ -218,7 +226,7 @@ export default function HowFinanciallyUpHelpsBudgeting() {
               <Button
                 size="large"
                 icon={<PhoneOutlined />}
-                className="rounded-xl font-bold px-6 h-12 bg-white dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20"
+                className="rounded-lg font-bold px-6 h-12 bg-white dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20"
               >
                 Call {company.phone}
               </Button>

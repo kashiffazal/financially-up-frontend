@@ -46,9 +46,9 @@ export default function PlanningThroughoutTheYear() {
         {/* 2 Comparative Pillars */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Column 1: Ongoing Obligations & Cash Flow Integration */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
                 <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
               </div>
 
@@ -92,9 +92,9 @@ export default function PlanningThroughoutTheYear() {
           </div>
 
           {/* Column 2: When Compliance vs Planning is the Priority */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-6">
                 <FileProtectOutlined className="text-xl text-teal-600 dark:text-teal-400" />
               </div>
 
@@ -107,7 +107,7 @@ export default function PlanningThroughoutTheYear() {
                 than planning, see our Business Tax Compliance service.
               </p>
 
-              <div className="rounded-xl bg-white dark:bg-zinc-900 p-5 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
+              <div className="rounded-lg bg-white dark:bg-zinc-900 p-5 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">
                   <ClockCircleOutlined className="text-brand-primary" />
                   <span>Key Distinction</span>
@@ -129,7 +129,7 @@ export default function PlanningThroughoutTheYear() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full rounded-xl font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
+                  className="w-full rounded-lg font-bold bg-brand-primary dark:bg-emerald-500 text-white hover:bg-brand-primary/90 h-11"
                 >
                   Explore Business Tax Compliance
                 </Button>

@@ -27,20 +27,29 @@ export default function RepresentationDuringReviewsAuditsDisputes() {
           </h2>
           <div className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed space-y-4">
             <p>
-              If the ATO is reviewing or auditing an issue, representation can help keep requests, deadlines, records and responses organized. Financially Up can assist with accounting and tax information, review the factual background, prepare supporting schedules within scope and communicate with the ATO as authorized. Our ATO audit service covers audit-specific support in more detail.
+              If the ATO is reviewing or auditing an issue, representation can
+              help keep requests, deadlines, records and responses organized.
+              Financially Up can assist with accounting and tax information,
+              review the factual background, prepare supporting schedules within
+              scope and communicate with the ATO as authorized. Our ATO audit
+              service covers audit-specific support in more detail.
             </p>
             <p>
-              A formal objection, tribunal or court proceeding is different from routine ATO representation. We can identify when specialist tax advice or legal representation may be appropriate, but we do not present routine tax-agent representation as a substitute for legal advice in contested legal proceedings.
+              A formal objection, tribunal or court proceeding is different from
+              routine ATO representation. We can identify when specialist tax
+              advice or legal representation may be appropriate, but we do not
+              present routine tax-agent representation as a substitute for legal
+              advice in contested legal proceedings.
             </p>
           </div>
         </div>
 
         {/* 2 Comparative Focus Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                   <AuditOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
@@ -53,7 +62,9 @@ export default function RepresentationDuringReviewsAuditsDisputes() {
                 </div>
               </div>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                Keeping requests, deadlines, and source records structured. Reviewing factual backgrounds, assembling audit schedules, and communicating with case officers as an authorized tax agent.
+                Keeping requests, deadlines, and source records structured.
+                Reviewing factual backgrounds, assembling audit schedules, and
+                communicating with case officers as an authorized tax agent.
               </p>
             </div>
 
@@ -68,10 +79,10 @@ export default function RepresentationDuringReviewsAuditsDisputes() {
             </div>
           </div>
 
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                   <FileProtectOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
@@ -84,7 +95,10 @@ export default function RepresentationDuringReviewsAuditsDisputes() {
                 </div>
               </div>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-                A formal objection, AAT/tribunal, or Federal Court proceeding requires distinct legal framing. We identify when specialist tax counsel or legal representation is required, maintaining honest professional boundaries.
+                A formal objection, AAT/tribunal, or Federal Court proceeding
+                requires distinct legal framing. We identify when specialist tax
+                counsel or legal representation is required, maintaining honest
+                professional boundaries.
               </p>
             </div>
 

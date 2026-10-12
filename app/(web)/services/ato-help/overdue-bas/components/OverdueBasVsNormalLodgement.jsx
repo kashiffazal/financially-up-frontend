@@ -28,17 +28,21 @@ export default function OverdueBasVsNormalLodgement() {
             Overdue BAS versus normal BAS lodgement
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            A standard BAS lodgement service usually covers a current period supported by up-to-date bookkeeping. Overdue BAS work may require historical reconstruction, multiple reconciliations and review of earlier periods. Once the backlog is cleared, ongoing BAS support can help keep future statements on schedule.
+            A standard BAS lodgement service usually covers a current period
+            supported by up-to-date bookkeeping. Overdue BAS work may require
+            historical reconstruction, multiple reconciliations and review of
+            earlier periods. Once the backlog is cleared, ongoing BAS support
+            can help keep future statements on schedule.
           </p>
         </div>
 
         {/* 2 Comparative Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Column 1: Routine BAS */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                   <SyncOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
@@ -53,15 +57,23 @@ export default function OverdueBasVsNormalLodgement() {
               <ul className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 flex-shrink-0" />
-                  <span>Covers single current quarter with live up-to-date bank feeds.</span>
+                  <span>
+                    Covers single current quarter with live up-to-date bank
+                    feeds.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 flex-shrink-0" />
-                  <span>Lodged under standard 4-week agent extension deadlines.</span>
+                  <span>
+                    Lodged under standard 4-week agent extension deadlines.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 flex-shrink-0" />
-                  <span>Routine cash flow planning with zero accumulated GIC interest.</span>
+                  <span>
+                    Routine cash flow planning with zero accumulated GIC
+                    interest.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -78,10 +90,10 @@ export default function OverdueBasVsNormalLodgement() {
           </div>
 
           {/* Column 2: Overdue BAS */}
-          <div className="p-7 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
+          <div className="p-7 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                   <HistoryOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
@@ -96,15 +108,24 @@ export default function OverdueBasVsNormalLodgement() {
               <ul className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 flex-shrink-0" />
-                  <span>Requires multi-period reconstruction and ledger forensic review.</span>
+                  <span>
+                    Requires multi-period reconstruction and ledger forensic
+                    review.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 flex-shrink-0" />
-                  <span>Addresses active ATO warning notices, default assessments and FTL risks.</span>
+                  <span>
+                    Addresses active ATO warning notices, default assessments
+                    and FTL risks.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 flex-shrink-0" />
-                  <span>Integrates with subsequent ATO debt and payment plan negotiations.</span>
+                  <span>
+                    Integrates with subsequent ATO debt and payment plan
+                    negotiations.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -118,7 +139,7 @@ export default function OverdueBasVsNormalLodgement() {
         </div>
 
         {/* Section: When ATO activity statements have already been finalized */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/40 border border-slate-200/80 dark:border-zinc-700/80">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/40 border border-slate-200/80 dark:border-zinc-700/80">
           <div className="flex items-start sm:items-center gap-3 mb-3">
             <WarningOutlined className="text-2xl text-amber-500 flex-shrink-0" />
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -126,7 +147,12 @@ export default function OverdueBasVsNormalLodgement() {
             </h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Single Touch Payroll amounts may already appear on an activity statement as ATO processed, or the statement may have been finalized in ATO systems. Review the history before lodging. The ATO says incorrect PAYG withholding on a finalized statement should be revised; if it is not finalized, the figures can generally be edited when lodging.
+            Single Touch Payroll amounts may already appear on an activity
+            statement as ATO processed, or the statement may have been finalized
+            in ATO systems. Review the history before lodging. The ATO says
+            incorrect PAYG withholding on a finalized statement should be
+            revised; if it is not finalized, the figures can generally be edited
+            when lodging.
           </p>
         </div>
       </div>

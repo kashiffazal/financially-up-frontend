@@ -12,8 +12,13 @@
  */
 
 import React, { useMemo, useState } from "react";
-import { Popover, Tooltip } from "antd";
-import { PlusOutlined, LinkOutlined, SendOutlined, ExportOutlined } from "@ant-design/icons";
+import { Button, Popover, Tooltip } from "antd";
+import {
+  PlusOutlined,
+  LinkOutlined,
+  SendOutlined,
+  ExportOutlined,
+} from "@ant-design/icons";
 import { useAuth } from "@/context/AuthContext";
 import { antdMsg } from "@/services";
 import ShareFormModal from "@/components/admin/ShareFormModal";
@@ -32,7 +37,8 @@ const FORM_GROUPS = [
         description: "Register a new Pty Ltd company with ASIC",
         color: "#008043",
         path: "/resources/registration-forms/company-registration",
-        message: "Dear client, please complete your Australian Company Registration application using the secure link below.",
+        message:
+          "Dear client, please complete your Australian Company Registration application using the secure link below.",
       },
       {
         key: "changes-company",
@@ -40,7 +46,8 @@ const FORM_GROUPS = [
         description: "Officeholder, address or share changes",
         color: "#14b8a6",
         path: "/resources/registration-forms/changes-to-company-details",
-        message: "Dear client, please complete your Changes to Company Details application using the secure link below.",
+        message:
+          "Dear client, please complete your Changes to Company Details application using the secure link below.",
       },
     ],
   },
@@ -54,7 +61,8 @@ const FORM_GROUPS = [
         description: "Onboard an individual tax client",
         color: "#10b981",
         path: "/resources/engagement-forms/individual-engagement-form",
-        message: "Dear client, please complete your Individual Client Engagement application using the secure link below.",
+        message:
+          "Dear client, please complete your Individual Client Engagement application using the secure link below.",
       },
       {
         key: "entity-engagements",
@@ -62,7 +70,8 @@ const FORM_GROUPS = [
         description: "Onboard a company, trust or partnership",
         color: "#3b82f6",
         path: "/resources/engagement-forms/entity-engagements-form",
-        message: "Dear client, please complete your Entity Client Engagement form using the secure link below.",
+        message:
+          "Dear client, please complete your Entity Client Engagement form using the secure link below.",
       },
     ],
   },
@@ -76,7 +85,8 @@ const FORM_GROUPS = [
         description: "Register for GST & PAYG withholding",
         color: "#f59e0b",
         path: "/resources/registration-forms/gst-registrations",
-        message: "Dear client, please complete your Australian GST Registration application using the secure link below.",
+        message:
+          "Dear client, please complete your Australian GST Registration application using the secure link below.",
       },
       {
         key: "medicare",
@@ -84,7 +94,8 @@ const FORM_GROUPS = [
         description: "Medicare levy exemption certificate",
         color: "#ef4444",
         path: "/resources/medicare-forms/medicare-exemption-form",
-        message: "Dear client, please complete your Australian Medicare Exemption application using the secure link below.",
+        message:
+          "Dear client, please complete your Australian Medicare Exemption application using the secure link below.",
       },
       {
         key: "trust",
@@ -92,7 +103,8 @@ const FORM_GROUPS = [
         description: "Establish a family or unit trust",
         color: "#06b6d4",
         path: "/resources/registration-forms/trust-registrations",
-        message: "Dear client, please complete your Australian Trust Registration application using the secure link below.",
+        message:
+          "Dear client, please complete your Australian Trust Registration application using the secure link below.",
       },
       {
         key: "smsf",
@@ -100,7 +112,8 @@ const FORM_GROUPS = [
         description: "Set up a self-managed super fund",
         color: "#8b5cf6",
         path: "/resources/registration-forms/smsf-registrations",
-        message: "Dear client, please complete your Australian Self-Managed Super Fund (SMSF) application using the secure link below.",
+        message:
+          "Dear client, please complete your Australian Self-Managed Super Fund (SMSF) application using the secure link below.",
       },
       {
         key: "business-names",
@@ -108,7 +121,8 @@ const FORM_GROUPS = [
         description: "Register a business name with ASIC",
         color: "#ec4899",
         path: "/resources/registration-forms/business-name-registrations",
-        message: "Dear client, please complete your Australian Business Name Registration application using the secure link below.",
+        message:
+          "Dear client, please complete your Australian Business Name Registration application using the secure link below.",
       },
       {
         key: "apply-tfn",
@@ -116,14 +130,17 @@ const FORM_GROUPS = [
         description: "Apply for a TFN or ABN",
         color: "#6366f1",
         path: "/resources/registration-forms/apply-tfn-abns",
-        message: "Dear client, please complete your TFN or ABN application using the secure link below.",
+        message:
+          "Dear client, please complete your TFN or ABN application using the secure link below.",
       },
     ],
   },
 ];
 
 const publicUrl = (path) =>
-  typeof window !== "undefined" ? `${window.location.origin}${path}` : `https://financiallyup.com.au${path}`;
+  typeof window !== "undefined"
+    ? `${window.location.origin}${path}`
+    : `https://financiallyup.com.au${path}`;
 
 export default function NewApplicationMenu() {
   const { user, hasRole } = useAuth();
@@ -136,7 +153,9 @@ export default function NewApplicationMenu() {
     const permissions = user?.permissions || [];
     return FORM_GROUPS.map((g) => ({
       ...g,
-      forms: g.forms.filter((f) => isSuperAdmin || canViewModule(permissions, f.key)),
+      forms: g.forms.filter(
+        (f) => isSuperAdmin || canViewModule(permissions, f.key),
+      ),
     })).filter((g) => g.forms.length > 0);
   }, [user, hasRole]);
 
@@ -167,14 +186,18 @@ export default function NewApplicationMenu() {
     <div className="w-[min(560px,calc(100vw-2rem))]">
       <div className="flex items-center justify-between gap-3 px-4 pt-3.5 pb-2">
         <div>
-          <p className="m-0 text-[14px] font-semibold text-slate-900 dark:text-zinc-50">Start a new application</p>
+          <p className="m-0 text-[14px] font-semibold text-slate-900 dark:text-zinc-50">
+            Start a new application
+          </p>
           <p className="m-0 text-[12px] text-slate-500 dark:text-zinc-400">
             Open a form to fill in, or send the link to your client.
           </p>
         </div>
       </div>
 
-      <div className={`${styles.scroll} max-h-[min(70vh,520px)] overflow-y-auto px-2 pb-2`}>
+      <div
+        className={`${styles.scroll} max-h-[min(70vh,520px)] overflow-y-auto px-2 pb-2`}
+      >
         {groups.map((group) => (
           <section key={group.key} className="pt-2">
             <h5 className="m-0 px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
@@ -193,11 +216,14 @@ export default function NewApplicationMenu() {
                         openForm(form);
                       }
                     }}
-                    className={`${styles.row} group flex cursor-pointer items-center gap-3 rounded-xl px-2.5 py-2 outline-none`}
+                    className={`${styles.row} group flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 outline-none`}
                   >
                     <span
                       className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[15px]"
-                      style={{ backgroundColor: `${form.color}1a`, color: form.color }}
+                      style={{
+                        backgroundColor: `${form.color}1a`,
+                        color: form.color,
+                      }}
                     >
                       {MODULE_META[form.key]?.icon}
                     </span>
@@ -209,7 +235,9 @@ export default function NewApplicationMenu() {
                         {form.description}
                       </span>
                     </span>
-                    <span className={`${styles.actions} flex shrink-0 items-center gap-0.5`}>
+                    <span
+                      className={`${styles.actions} flex shrink-0 items-center gap-0.5`}
+                    >
                       <Tooltip title="Copy link">
                         <button
                           type="button"
@@ -240,7 +268,8 @@ export default function NewApplicationMenu() {
       </div>
 
       <div className="flex items-center gap-1.5 border-t border-slate-100 bg-slate-50/70 px-4 py-2 text-[11px] text-slate-400 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-500">
-        <ExportOutlined /> Forms open in a new tab. Submissions appear in the matching module.
+        <ExportOutlined /> Forms open in a new tab. Submissions appear in the
+        matching module.
       </div>
     </div>
   );
@@ -256,16 +285,11 @@ export default function NewApplicationMenu() {
         content={panel}
         rootClassName={styles.popover}
       >
-        <button
-          type="button"
-          aria-haspopup="dialog"
-          aria-expanded={open}
-          className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-brand-primary px-3.5 text-[13px] font-semibold text-white shadow-sm transition-colors hover:bg-brand-primary-hover cursor-pointer"
-        >
-          <PlusOutlined className="text-[12px]" />
+        {/* h-10: same 40px height as the header search box (GlobalSearch) */}
+        <Button type="primary" icon={<PlusOutlined />} aria-haspopup="dialog" aria-expanded={open} className="h-10! shrink-0">
           <span className="hidden xl:inline">New application</span>
           <span className="xl:hidden">New</span>
-        </button>
+        </Button>
       </Popover>
 
       {shareForm && (

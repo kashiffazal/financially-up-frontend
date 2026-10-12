@@ -26,7 +26,9 @@ export default function FitoCalculationAndOffsetLimit() {
             How the Offset Amount Is Calculated
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The offset is not always equal to the foreign tax paid. Australian tax law establishes a structured two-tier threshold for calculating relief from double taxation.
+            The offset is not always equal to the foreign tax paid. Australian
+            tax law establishes a structured two-tier threshold for calculating
+            relief from double taxation.
           </p>
         </div>
 
@@ -36,7 +38,7 @@ export default function FitoCalculationAndOffsetLimit() {
           <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl">
+                <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl">
                   <DollarOutlined />
                 </div>
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-950/80 dark:text-teal-300">
@@ -47,11 +49,16 @@ export default function FitoCalculationAndOffsetLimit() {
                 $1,000 Simplified Method
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                If the total FITO claimed is $1,000 or less, the claim can generally use the actual qualifying foreign income tax paid, up to $1,000, without calculating the FITO limit. This is not an automatic $1,000 entitlement; the taxpayer must still have paid qualifying tax connected with assessable income.
+                If the total FITO claimed is $1,000 or less, the claim can
+                generally use the actual qualifying foreign income tax paid, up
+                to $1,000, without calculating the FITO limit. This is not an
+                automatic $1,000 entitlement; the taxpayer must still have paid
+                qualifying tax connected with assessable income.
               </p>
             </div>
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs text-slate-600 dark:text-zinc-400">
-              Note: Capping a larger claim at $1,000 to avoid the limit formula forfeits any remaining unclaimed foreign tax indefinitely.
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs text-slate-600 dark:text-zinc-400">
+              Note: Capping a larger claim at $1,000 to avoid the limit formula
+              forfeits any remaining unclaimed foreign tax indefinitely.
             </div>
           </div>
 
@@ -59,7 +66,7 @@ export default function FitoCalculationAndOffsetLimit() {
           <div className="p-8 rounded-3xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl">
                   <CalculatorOutlined />
                 </div>
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300">
@@ -70,11 +77,18 @@ export default function FitoCalculationAndOffsetLimit() {
                 The Statutory FITO Limit Formula
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                If the claim is more than $1,000, the foreign income tax offset limit must be calculated. Broadly, that limit reflects the Australian tax otherwise payable on the relevant foreign income under the statutory calculation. Related deductions, losses, tax rates and other components of the Australian return can affect it. We complete the full calculation rather than comparing headline foreign and Australian tax rates.
+                If the claim is more than $1,000, the foreign income tax offset
+                limit must be calculated. Broadly, that limit reflects the
+                Australian tax otherwise payable on the relevant foreign income
+                under the statutory calculation. Related deductions, losses, tax
+                rates and other components of the Australian return can affect
+                it. We complete the full calculation rather than comparing
+                headline foreign and Australian tax rates.
               </p>
             </div>
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs text-slate-600 dark:text-zinc-400">
-              Calculates the precise difference between Australian tax payable with foreign income vs without foreign income.
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 text-xs text-slate-600 dark:text-zinc-400">
+              Calculates the precise difference between Australian tax payable
+              with foreign income vs without foreign income.
             </div>
           </div>
         </div>
@@ -87,7 +101,12 @@ export default function FitoCalculationAndOffsetLimit() {
               Critical Rule: Excess Offset Cannot Be Carried Forward
             </h4>
             <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              An amount above the allowable FITO is not automatically refundable or available to carry into a later year. Choosing to claim only $1,000 to avoid the limit calculation can also mean the remaining foreign tax cannot be claimed in a future income year. The available evidence and complete Australian tax position should be reviewed before the claim is finalized.
+              An amount above the allowable FITO is not automatically refundable
+              or available to carry into a later year. Choosing to claim only
+              $1,000 to avoid the limit calculation can also mean the remaining
+              foreign tax cannot be claimed in a future income year. The
+              available evidence and complete Australian tax position should be
+              reviewed before the claim is finalized.
             </p>
           </div>
         </div>

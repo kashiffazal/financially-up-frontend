@@ -30,7 +30,9 @@ export default function WhoNeedsPropertyTaxSupport() {
   const propertyProfiles = [
     {
       id: "first-time-investors",
-      icon: <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "First-Time Investors",
       title: "First-Time Property Investors",
       description:
@@ -40,7 +42,9 @@ export default function WhoNeedsPropertyTaxSupport() {
     },
     {
       id: "portfolio-owners",
-      icon: <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Portfolios",
       title: "Multi-Property Portfolio Owners",
       description:
@@ -50,7 +54,9 @@ export default function WhoNeedsPropertyTaxSupport() {
     },
     {
       id: "property-developers",
-      icon: <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Developers",
       title: "Property Developers & Builders",
       description:
@@ -60,7 +66,9 @@ export default function WhoNeedsPropertyTaxSupport() {
     },
     {
       id: "property-entities",
-      icon: <CalculatorOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Entities",
       title: "Property-Owning Entities",
       description:
@@ -70,7 +78,9 @@ export default function WhoNeedsPropertyTaxSupport() {
     },
     {
       id: "renovating-refinancing",
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Refinance & Renos",
       title: "Refinancing & Renovating Owners",
       description:
@@ -80,7 +90,9 @@ export default function WhoNeedsPropertyTaxSupport() {
     },
     {
       id: "transaction-planning",
-      icon: <ShopOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       tag: "Disposals & Planning",
       title: "Sellers & Pre-Transaction Planners",
       description:
@@ -107,11 +119,20 @@ export default function WhoNeedsPropertyTaxSupport() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            This service is for property investors, landlords, developers and property-owning entities whose tax position extends beyond entering rent and expenses into a return. It can be especially relevant where several properties, mixed private and income-producing use, entity ownership, refinancing, substantial renovations, development activity or a sale create connected accounting and tax questions.
+            This service is for property investors, landlords, developers and
+            property-owning entities whose tax position extends beyond entering
+            rent and expenses into a return. It can be especially relevant where
+            several properties, mixed private and income-producing use, entity
+            ownership, refinancing, substantial renovations, development
+            activity or a sale create connected accounting and tax questions.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            A first-time investor may need help establishing reliable records and understanding annual reporting. An experienced investor or developer may instead need coordinated entity accounts, GST and BAS work, transaction review or separately scoped planning before a commercial decision is finalized.
+            A first-time investor may need help establishing reliable records
+            and understanding annual reporting. An experienced investor or
+            developer may instead need coordinated entity accounts, GST and BAS
+            work, transaction review or separately scoped planning before a
+            commercial decision is finalized.
           </p>
         </div>
 
@@ -120,11 +141,11 @@ export default function WhoNeedsPropertyTaxSupport() {
           {propertyProfiles.map((profile, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-teal-500/40 dark:hover:border-teal-500/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between hover:border-teal-500/40 dark:hover:border-teal-500/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
                     {profile.icon}
                   </div>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 font-mono">

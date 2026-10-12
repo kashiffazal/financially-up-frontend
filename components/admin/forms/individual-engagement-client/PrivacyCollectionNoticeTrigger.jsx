@@ -133,7 +133,8 @@ export default function PrivacyCollectionNoticeTrigger({
 
   // Live company details are interpolated into the stored legal text
   const catData = applyCompanyVars(
-    PRIVACY_COLLECTION_CATEGORIES[category] || PRIVACY_COLLECTION_CATEGORIES.tfn,
+    PRIVACY_COLLECTION_CATEGORIES[category] ||
+      PRIVACY_COLLECTION_CATEGORIES.tfn,
     settings,
   );
   const fullNoticeText = applyCompanyVars(
@@ -152,7 +153,7 @@ export default function PrivacyCollectionNoticeTrigger({
         <button
           type="button"
           onClick={handleOpen}
-          className="inline-flex items-center gap-1 text-xs font-bold text-brand-primary hover:text-emerald-700 dark:text-emerald-400 underline cursor-pointer bg-emerald-50/80 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-xl border border-emerald-200/80 dark:border-emerald-800 transition-all hover:scale-105"
+          className="inline-flex items-center gap-1 text-xs font-bold text-brand-primary hover:text-emerald-700 dark:text-emerald-400 underline cursor-pointer bg-emerald-50/80 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-lg border border-emerald-200/80 dark:border-emerald-800 transition-all hover:scale-105"
         >
           <InfoCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
           <span>Why do we collect this?</span>
@@ -181,7 +182,7 @@ export default function PrivacyCollectionNoticeTrigger({
             <Button
               icon={<PrinterOutlined />}
               onClick={() => window.print()}
-              className="rounded-xl font-bold border-slate-300"
+              className="rounded-lg font-bold border-slate-300"
             >
               Print / Save as PDF
             </Button>
@@ -189,7 +190,7 @@ export default function PrivacyCollectionNoticeTrigger({
             <div className="flex items-center gap-2">
               <Button
                 onClick={() => setShowFull(!showFull)}
-                className="rounded-xl font-semibold border-brand-primary text-brand-primary"
+                className="rounded-lg font-semibold border-brand-primary text-brand-primary"
               >
                 {showFull
                   ? "Show Category Summary"
@@ -201,7 +202,7 @@ export default function PrivacyCollectionNoticeTrigger({
                   setModalVisible(false);
                   setShowFull(false);
                 }}
-                className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-5"
+                className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-5"
               >
                 Understood
               </Button>
@@ -216,7 +217,10 @@ export default function PrivacyCollectionNoticeTrigger({
               <div>
                 <h2 className="text-base font-extrabold text-slate-900 dark:text-zinc-50 m-0">
                   {showFull
-                    ? applyCompanyVars(FULL_PRIVACY_COLLECTION_NOTICE_TEXT.title, settings)
+                    ? applyCompanyVars(
+                        FULL_PRIVACY_COLLECTION_NOTICE_TEXT.title,
+                        settings,
+                      )
                     : catData.title}
                 </h2>
                 <span className="text-xs text-slate-500">
@@ -228,7 +232,7 @@ export default function PrivacyCollectionNoticeTrigger({
 
           {!showFull ? (
             <div className="space-y-4 text-xs leading-relaxed">
-              <div className="p-4 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800 space-y-1">
+              <div className="p-4 rounded-lg bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800 space-y-1">
                 <span className="font-extrabold text-emerald-800 dark:text-emerald-300 block text-xs uppercase tracking-wider">
                   Purpose of Collection
                 </span>
@@ -250,7 +254,7 @@ export default function PrivacyCollectionNoticeTrigger({
             </div>
           ) : (
             <div className="space-y-4 text-xs leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2">
                 <h4 className="font-bold text-slate-900 dark:text-zinc-100 text-xs m-0 text-brand-primary dark:text-emerald-400">
                   Full Statutory Privacy Collection Notice (APP 5)
                 </h4>

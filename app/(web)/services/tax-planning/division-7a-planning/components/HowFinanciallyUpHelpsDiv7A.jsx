@@ -57,10 +57,10 @@ export default function HowFinanciallyUpHelpsDiv7A() {
           {keyStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center mb-4 text-brand-primary dark:text-emerald-400">
+                <div className="w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-emerald-950/40 flex items-center justify-center mb-4 text-brand-primary dark:text-emerald-400">
                   <CheckCircleOutlined className="text-lg" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -85,10 +85,15 @@ export default function HowFinanciallyUpHelpsDiv7A() {
                 Why Choose Financially Up?
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Financially Up Pty Ltd is a registered tax agent with more than 10 years of experience. Our professional team includes CPA and IPA members and supports private companies and business owners Australia-wide through online and in-person appointments.
+                Financially Up Pty Ltd is a registered tax agent with more than
+                10 years of experience. Our professional team includes CPA and
+                IPA members and supports private companies and business owners
+                Australia-wide through online and in-person appointments.
               </p>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                We focus on practical, current-law analysis and clearly separate accounting work, tax compliance, tax planning and matters that require legal or other specialist advice.
+                We focus on practical, current-law analysis and clearly separate
+                accounting work, tax compliance, tax planning and matters that
+                require legal or other specialist advice.
               </p>
 
               {/* Dynamic Company Details from Context */}
@@ -129,7 +134,7 @@ export default function HowFinanciallyUpHelpsDiv7A() {
                   type="primary"
                   size="large"
                   icon={<CalendarOutlined />}
-                  className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 border-none font-bold text-slate-950 px-8 h-12 rounded-xl text-base shadow-lg shadow-emerald-500/20"
+                  className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 border-none font-bold text-slate-950 px-8 h-12 rounded-lg text-base shadow-lg shadow-emerald-500/20"
                 >
                   Book an Appointment
                 </Button>

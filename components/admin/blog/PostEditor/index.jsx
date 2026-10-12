@@ -11,7 +11,13 @@
  *          Featured Image
  */
 
-import React, { useEffect, useMemo, useState, useCallback, useRef } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+  useRef,
+} from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -81,7 +87,9 @@ const EMPTY_POST = {
 /** Editor state from an API post. */
 const fromApi = (p) => ({
   ...EMPTY_POST,
-  ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== null && v !== undefined)),
+  ...Object.fromEntries(
+    Object.entries(p).filter(([, v]) => v !== null && v !== undefined),
+  ),
   categoryIds: p.categoryIds || [],
   tagIds: p.tagIds || [],
 });
@@ -112,7 +120,11 @@ export default function PostEditor({ postId = null }) {
   const site = useMemo(() => {
     const url = siteBaseUrl(get("url.website"));
     const logo = get("company.logoUrl");
-    return { url, name: get("company.name") || "Financially Up", logo: logo ? (logo.startsWith("http") ? logo : `${url}${logo}`) : "" };
+    return {
+      url,
+      name: get("company.name") || "Financially Up",
+      logo: logo ? (logo.startsWith("http") ? logo : `${url}${logo}`) : "",
+    };
   }, [get]);
 
   // ---------------------------------------------------------------------------
@@ -150,7 +162,13 @@ export default function PostEditor({ postId = null }) {
   if (!isEdit && !authorDefaulted && user?.id && authors.length) {
     setAuthorDefaulted(true);
     const me = authors.find((a) => a.id === user.id);
-    if (me) setPost((p) => ({ ...p, authorUserId: me.id, authorName: me.name, authorRole: p.authorRole || me.jobTitle || "" }));
+    if (me)
+      setPost((p) => ({
+        ...p,
+        authorUserId: me.id,
+        authorName: me.name,
+        authorRole: p.authorRole || me.jobTitle || "",
+      }));
   }
 
   // Warn before leaving with unsaved changes
@@ -177,7 +195,7 @@ export default function PostEditor({ postId = null }) {
         return next;
       });
     },
-    [slugTouched]
+    [slugTouched],
   );
 
   const uploadEditorImage = useCallback(async (file) => {
@@ -215,16 +233,26 @@ export default function PostEditor({ postId = null }) {
       tagIds: post.tagIds,
     };
     // Imported posts keep their original layout unless the content was edited
-    if (isEdit && post.isImportedLayout && !dirtyContent) delete payload.content;
+    if (isEdit && post.isImportedLayout && !dirtyContent)
+      delete payload.content;
 
-    const res = isEdit ? await blogApi.updatePost(postId, payload) : await blogApi.createPost(payload);
+    const res = isEdit
+      ? await blogApi.updatePost(postId, payload)
+      : await blogApi.createPost(payload);
     setSaving(null);
     if (!res?.success) return;
 
     setDirty(false);
     setDirtyContent(false);
     const saved = fromApi(res.data);
-    const label = saved.displayStatus === "Scheduled" ? "Post scheduled." : saved.status === "draft" ? "Draft saved." : isEdit ? "Post updated." : "Post published.";
+    const label =
+      saved.displayStatus === "Scheduled"
+        ? "Post scheduled."
+        : saved.status === "draft"
+          ? "Draft saved."
+          : isEdit
+            ? "Post updated."
+            : "Post published.";
     antdMsg.success(label);
     if (!isEdit) {
       router.replace(`/admin/blog/${res.data.id}`);
@@ -235,7 +263,7 @@ export default function PostEditor({ postId = null }) {
     }
   };
 
-  // Content changes: TinyMCE re-formats the HTML when it loads — that is stored
+  // Content changes: TinyMCE re-formats the HTML when it loads - that is stored
   // silently; only real edits mark the post as changed (imported posts keep
   // their original layout unless their content is actually edited).
   const onEditorReady = useCallback((html) => {
@@ -280,7 +308,13 @@ export default function PostEditor({ postId = null }) {
     setField("slug", slugify(post.title));
   };
 
-  const selectedTagNames = useMemo(() => post.tagIds.map((id) => tags.find((t) => t.id === id)?.name).filter(Boolean), [post.tagIds, tags]);
+  const selectedTagNames = useMemo(
+    () =>
+      post.tagIds
+        .map((id) => tags.find((t) => t.id === id)?.name)
+        .filter(Boolean),
+    [post.tagIds, tags],
+  );
   const words = useMemo(() => countWords(post.content), [post.content]);
   const viewUrl = post.slug ? `${site.url}/blog/${post.slug}` : null;
 
@@ -297,7 +331,13 @@ export default function PostEditor({ postId = null }) {
       href: "/admin/dashboard",
     },
     { title: <Link href="/admin/blog">Blog Posts</Link> },
-    { title: <span className="font-semibold text-brand-primary dark:text-emerald-400">{isEdit ? "Edit Post" : "Add New"}</span> },
+    {
+      title: (
+        <span className="font-semibold text-brand-primary dark:text-emerald-400">
+          {isEdit ? "Edit Post" : "Add New"}
+        </span>
+      ),
+    },
   ];
 
   if (loadState === "notfound") {
@@ -350,7 +390,8 @@ export default function PostEditor({ postId = null }) {
               <label className={styles.titleLabel}>
                 Article Title <span className="text-red-500">*</span>
               </label>
-              <Input size="large"
+              <Input
+                size="large"
                 value={post.title}
                 onChange={(e) => setField("title", e.target.value)}
                 placeholder="Enter article headline here..."
@@ -358,25 +399,53 @@ export default function PostEditor({ postId = null }) {
                 disabled={!canManage}
               />
               <div className={styles.permalink}>
-                <span className="text-slate-500 dark:text-zinc-400">Permalink:</span>
-                <span className="text-slate-400 dark:text-zinc-500">{site.url.replace(/^https?:\/\//, "")}/blog/</span>
+                <span className="text-slate-500 dark:text-zinc-400">
+                  Permalink:
+                </span>
+                <span className="text-slate-400 dark:text-zinc-500">
+                  {site.url.replace(/^https?:\/\//, "")}/blog/
+                </span>
                 {editingSlug ? (
                   <>
-                    <Input size="small" className="w-64!" value={slugDraft} onChange={(e) => setSlugDraft(e.target.value)} onPressEnter={confirmSlug} autoFocus />
-                    <Button size="small" type="primary" className="bg-brand-primary!" icon={<CheckOutlined />} onClick={confirmSlug}>
+                    <Input
+                      size="small"
+                      className="w-64!"
+                      value={slugDraft}
+                      onChange={(e) => setSlugDraft(e.target.value)}
+                      onPressEnter={confirmSlug}
+                      autoFocus
+                    />
+                    <Button
+                      size="small"
+                      type="primary"
+                      className="bg-brand-primary!"
+                      icon={<CheckOutlined />}
+                      onClick={confirmSlug}
+                    >
                       OK
                     </Button>
-                    <Button size="small" icon={<CloseOutlined />} onClick={() => setEditingSlug(false)} />
+                    <Button
+                      size="small"
+                      icon={<CloseOutlined />}
+                      onClick={() => setEditingSlug(false)}
+                    />
                   </>
                 ) : (
                   <>
-                    <span className={styles.slugPill}>{post.slug || "auto-generated-from-title"}</span>
+                    <span className={styles.slugPill}>
+                      {post.slug || "auto-generated-from-title"}
+                    </span>
                     {canManage && (
                       <>
                         <Button size="small" onClick={startSlugEdit}>
                           Edit
                         </Button>
-                        <Button size="small" icon={<SyncOutlined />} onClick={syncSlug} title="Rebuild from the title">
+                        <Button
+                          size="small"
+                          icon={<SyncOutlined />}
+                          onClick={syncSlug}
+                          title="Rebuild from the title"
+                        >
                           Sync
                         </Button>
                       </>
@@ -391,7 +460,9 @@ export default function PostEditor({ postId = null }) {
               title={
                 <span className="flex items-center gap-3">
                   Article Content
-                  <span className="text-[12px] font-normal text-slate-400 border-l border-slate-200 dark:border-zinc-700 pl-3">{words} words</span>
+                  <span className="text-[12px] font-normal text-slate-400 border-l border-slate-200 dark:border-zinc-700 pl-3">
+                    {words} words
+                  </span>
                 </span>
               }
               icon={<EditOutlined />}
@@ -401,8 +472,22 @@ export default function PostEditor({ postId = null }) {
                   value={mode}
                   onChange={setMode}
                   options={[
-                    { value: "Visual", label: <span className="flex items-center gap-1.5"><EyeOutlined /> Visual</span> },
-                    { value: "HTML", label: <span className="flex items-center gap-1.5"><CodeOutlined /> Code (HTML)</span> },
+                    {
+                      value: "Visual",
+                      label: (
+                        <span className="flex items-center gap-1.5">
+                          <EyeOutlined /> Visual
+                        </span>
+                      ),
+                    },
+                    {
+                      value: "HTML",
+                      label: (
+                        <span className="flex items-center gap-1.5">
+                          <CodeOutlined /> Code (HTML)
+                        </span>
+                      ),
+                    },
                   ]}
                 />
               }
@@ -430,9 +515,11 @@ export default function PostEditor({ postId = null }) {
 
             <EditorCard title="Excerpt / Summary">
               <p className="m-0 mb-2 text-[12px] text-slate-500 dark:text-zinc-400">
-                Short summary shown on blog cards, in search results and on social media cards.
+                Short summary shown on blog cards, in search results and on
+                social media cards.
               </p>
-              <Input.TextArea size="large"
+              <Input.TextArea
+                size="large"
                 value={post.excerpt}
                 onChange={(e) => setField("excerpt", e.target.value)}
                 placeholder="Write a concise excerpt..."
@@ -443,7 +530,12 @@ export default function PostEditor({ postId = null }) {
               />
             </EditorCard>
 
-            <SeoPanel post={{ ...post, tags: selectedTagNames }} onChange={setField} site={site} canManage={canManage} />
+            <SeoPanel
+              post={{ ...post, tags: selectedTagNames }}
+              onChange={setField}
+              site={site}
+              canManage={canManage}
+            />
           </div>
 
           {/* ── Right column ── */}
@@ -458,22 +550,42 @@ export default function PostEditor({ postId = null }) {
               isEdit={isEdit}
               canManage={canManage}
             />
-            <AuthorBox post={post} authors={authors} onChange={setField} disabled={!canManage} />
+            <AuthorBox
+              post={post}
+              authors={authors}
+              onChange={setField}
+              disabled={!canManage}
+            />
             <CategoryChecklist
               categories={categories}
               selectedIds={post.categoryIds}
               onChange={(ids) => setField("categoryIds", ids)}
-              onCreated={async () => setCategories((await blogApi.listCategories())?.data || [])}
+              onCreated={async () =>
+                setCategories((await blogApi.listCategories())?.data || [])
+              }
               canManage={canManage}
             />
             <TagPicker
               tags={tags}
               selectedIds={post.tagIds}
               onChange={(ids) => setField("tagIds", ids)}
-              onCreated={(tag) => setTags((prev) => (prev.some((t) => t.id === tag.id) ? prev : [...prev, tag].sort((a, b) => a.name.localeCompare(b.name))))}
+              onCreated={(tag) =>
+                setTags((prev) =>
+                  prev.some((t) => t.id === tag.id)
+                    ? prev
+                    : [...prev, tag].sort((a, b) =>
+                        a.name.localeCompare(b.name),
+                      ),
+                )
+              }
               canManage={canManage}
             />
-            <FeaturedImagePicker value={post.featuredImage} badge={post.badge} onChange={setField} canManage={canManage} />
+            <FeaturedImagePicker
+              value={post.featuredImage}
+              badge={post.badge}
+              onChange={setField}
+              canManage={canManage}
+            />
           </div>
         </div>
       )}

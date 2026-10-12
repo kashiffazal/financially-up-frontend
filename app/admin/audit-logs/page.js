@@ -78,43 +78,50 @@ const ACTION_EXPLANATIONS = {
     label: "Staff Sign-In",
     color: "blue",
     icon: <LockOutlined />,
-    plainSummary: "A staff member entered their credentials and signed into the practice portal.",
+    plainSummary:
+      "A staff member entered their credentials and signed into the practice portal.",
   },
   LOGIN_SUCCESS: {
     label: "Staff Sign-In",
     color: "success",
     icon: <CheckCircleOutlined />,
-    plainSummary: "A staff member entered valid credentials and successfully signed into the portal.",
+    plainSummary:
+      "A staff member entered valid credentials and successfully signed into the portal.",
   },
   LOGIN_FAILED: {
     label: "Blocked Sign-In Attempt",
     color: "error",
     icon: <CloseCircleOutlined />,
-    plainSummary: "A sign-in attempt was rejected due to an incorrect password, inactive account, or unauthorized access.",
+    plainSummary:
+      "A sign-in attempt was rejected due to an incorrect password, inactive account, or unauthorized access.",
   },
   LOGOUT: {
     label: "Staff Sign-Out",
     color: "blue",
     icon: <UserOutlined />,
-    plainSummary: "A staff member safely concluded their active work session and signed out.",
+    plainSummary:
+      "A staff member safely concluded their active work session and signed out.",
   },
   TOKEN_REFRESH: {
     label: "Session Kept Active",
     color: "default",
     icon: <ReloadOutlined />,
-    plainSummary: "The active session was securely refreshed to maintain continuous access without logging out.",
+    plainSummary:
+      "The active session was securely refreshed to maintain continuous access without logging out.",
   },
   UPDATE: {
     label: "Practice Record Updated",
     color: "gold",
     icon: <EditOutlined />,
-    plainSummary: "An authorized user modified configuration settings, profile information, or record details.",
+    plainSummary:
+      "An authorized user modified configuration settings, profile information, or record details.",
   },
   CREATE: {
     label: "New Record Created",
     color: "green",
     icon: <UserAddOutlined />,
-    plainSummary: "A new record, user profile, or service entry was registered in the system.",
+    plainSummary:
+      "A new record, user profile, or service entry was registered in the system.",
   },
   DELETE: {
     label: "Record Removed",
@@ -126,13 +133,15 @@ const ACTION_EXPLANATIONS = {
     label: "Team Member Added",
     color: "green",
     icon: <UserAddOutlined />,
-    plainSummary: "A new practice staff member account was created by an administrator.",
+    plainSummary:
+      "A new practice staff member account was created by an administrator.",
   },
   USER_UPDATE: {
     label: "Staff Details Updated",
     color: "gold",
     icon: <EditOutlined />,
-    plainSummary: "A staff member's profile information, department, or contact details were edited.",
+    plainSummary:
+      "A staff member's profile information, department, or contact details were edited.",
   },
   USER_STATUS: {
     label: "Account Status Changed",
@@ -150,25 +159,29 @@ const ACTION_EXPLANATIONS = {
     label: "Permissions Assigned",
     color: "purple",
     icon: <SafetyCertificateOutlined />,
-    plainSummary: "Practice capabilities and access permissions were assigned to a team member.",
+    plainSummary:
+      "Practice capabilities and access permissions were assigned to a team member.",
   },
   ROLE_CREATE: {
     label: "New Staff Role Created",
     color: "purple",
     icon: <SafetyCertificateOutlined />,
-    plainSummary: "A new custom role profile was created in the practice permission matrix.",
+    plainSummary:
+      "A new custom role profile was created in the practice permission matrix.",
   },
   ROLE_UPDATE: {
     label: "Role Permissions Modified",
     color: "gold",
     icon: <SafetyCertificateOutlined />,
-    plainSummary: "Granular capabilities and service access levels for a role were modified.",
+    plainSummary:
+      "Granular capabilities and service access levels for a role were modified.",
   },
   FORM_SUBMIT: {
     label: "Client Application Submitted",
     color: "cyan",
     icon: <DatabaseOutlined />,
-    plainSummary: "A client registration or engagement form was officially submitted.",
+    plainSummary:
+      "A client registration or engagement form was officially submitted.",
   },
   FORM_UPDATE: {
     label: "Form Record Updated",
@@ -180,44 +193,55 @@ const ACTION_EXPLANATIONS = {
     label: "Practice Settings Changed",
     color: "blue",
     icon: <SettingOutlined />,
-    plainSummary: "Practice-wide details (e.g. Tax Agent Number, contact info, or branding) were updated.",
+    plainSummary:
+      "Practice-wide details (e.g. Tax Agent Number, contact info, or branding) were updated.",
   },
 };
 
 const TAB_EXPLANATIONS = {
   All: {
     title: "Master Practice Activity Feed",
-    subtitle: "A complete chronological timeline recording every action, staff sign-in, practice configuration update, and client form lodgement.",
+    subtitle:
+      "A complete chronological timeline recording every action, staff sign-in, practice configuration update, and client form lodgement.",
     badge: "Complete Activity History",
-    color: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300",
+    color:
+      "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300",
     icon: <HistoryOutlined className="text-emerald-600 text-xl" />,
   },
   Auth: {
     title: "Staff Logins & Sign-Ins",
-    subtitle: "Tracks when staff members sign in, end sessions, or stay active. Verifies who is logged into the practice portal and confirms access security.",
+    subtitle:
+      "Tracks when staff members sign in, end sessions, or stay active. Verifies who is logged into the practice portal and confirms access security.",
     badge: "Staff Sign-Ins & Sessions",
-    color: "bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300",
+    color:
+      "bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300",
     icon: <LockOutlined className="text-blue-600 text-xl" />,
   },
   Users: {
     title: "Team Accounts & Practice Settings",
-    subtitle: "Records administrative actions: creating team accounts, updating practice settings (like Tax Agent Number), assigning roles, and changing passwords.",
+    subtitle:
+      "Records administrative actions: creating team accounts, updating practice settings (like Tax Agent Number), assigning roles, and changing passwords.",
     badge: "Team Accounts & Settings",
-    color: "bg-purple-50 dark:bg-purple-950/40 border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300",
+    color:
+      "bg-purple-50 dark:bg-purple-950/40 border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300",
     icon: <UserOutlined className="text-purple-600 text-xl" />,
   },
   Forms: {
     title: "Client Forms & Lodgements",
-    subtitle: "Monitors activity across all client tax and registration services (Company, GST, Trust, SMSF, Medicare). Shows when clients submit new forms or when staff edit lodgement details.",
+    subtitle:
+      "Monitors activity across all client tax and registration services (Company, GST, Trust, SMSF, Medicare). Shows when clients submit new forms or when staff edit lodgement details.",
     badge: "Client Form Lodgements",
-    color: "bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300",
+    color:
+      "bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300",
     icon: <DatabaseOutlined className="text-amber-600 text-xl" />,
   },
   Failures: {
     title: "Security Warnings & Blocked Logins",
-    subtitle: "Highlights rejected sign-in attempts, incorrect passwords, and security access warnings. Helps practice managers identify compromised passwords or assist locked-out staff.",
+    subtitle:
+      "Highlights rejected sign-in attempts, incorrect passwords, and security access warnings. Helps practice managers identify compromised passwords or assist locked-out staff.",
     badge: "Security Alerts & Warnings",
-    color: "bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300",
+    color:
+      "bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300",
     icon: <SecurityScanOutlined className="text-rose-600 text-xl" />,
   },
 };
@@ -408,9 +432,12 @@ export default function AuditLogsPage() {
     let color = "purple";
     let friendlyLabel = action.replace(/_/g, " ");
     if (actKey.includes("CREATE") || actKey.includes("INSERT")) color = "green";
-    else if (actKey.includes("UPDATE") || actKey.includes("EDIT")) color = "gold";
-    else if (actKey.includes("DELETE") || actKey.includes("FAIL")) color = "red";
-    else if (actKey.includes("LOGIN") || actKey.includes("AUTH")) color = "blue";
+    else if (actKey.includes("UPDATE") || actKey.includes("EDIT"))
+      color = "gold";
+    else if (actKey.includes("DELETE") || actKey.includes("FAIL"))
+      color = "red";
+    else if (actKey.includes("LOGIN") || actKey.includes("AUTH"))
+      color = "blue";
 
     return (
       <Tooltip title={`System Event: ${action}`}>
@@ -535,7 +562,9 @@ export default function AuditLogsPage() {
                 <div className="text-[11px] text-slate-500 dark:text-zinc-400 flex items-start gap-1.5 bg-slate-50 dark:bg-zinc-800/40 p-1.5 rounded-md border border-slate-200/50 dark:border-zinc-800">
                   <InfoCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0 mt-0.5" />
                   <span className="leading-tight">
-                    <strong className="text-slate-700 dark:text-zinc-300">Plain Meaning: </strong>
+                    <strong className="text-slate-700 dark:text-zinc-300">
+                      Plain Meaning:{" "}
+                    </strong>
                     {info.plainSummary}
                   </span>
                 </div>
@@ -558,7 +587,7 @@ export default function AuditLogsPage() {
         render: (ip) => (
           <span className="text-xs text-slate-500 dark:text-zinc-400 font-mono flex items-center gap-1.5">
             <GlobalOutlined className="text-slate-400 text-[11px]" />
-            {ip || "—"}
+            {ip || "-"}
           </span>
         ),
       },
@@ -757,7 +786,7 @@ export default function AuditLogsPage() {
               All logged practice events on file
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
             <HistoryOutlined />
           </div>
         </div>
@@ -775,7 +804,7 @@ export default function AuditLogsPage() {
               Login, logout & active sessions
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
             <LockOutlined />
           </div>
         </div>
@@ -793,7 +822,7 @@ export default function AuditLogsPage() {
               Client submissions & filings
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
             <DatabaseOutlined />
           </div>
         </div>
@@ -836,7 +865,7 @@ export default function AuditLogsPage() {
                 : "Click to filter blocked logins"}
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl shrink-0">
             <SecurityScanOutlined />
           </div>
         </div>
@@ -923,7 +952,7 @@ export default function AuditLogsPage() {
 
         {/* Dynamic Category Plain-English Explanation Banner (For Non-Technical Users) */}
         {TAB_EXPLANATIONS[activeTabKey] && (
-          <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-zinc-800 bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div className="p-3.5 rounded-lg border border-slate-200/90 dark:border-zinc-800 bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
             <div className="flex items-start sm:items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 shadow-2xs">
                 {TAB_EXPLANATIONS[activeTabKey].icon}
@@ -938,7 +967,9 @@ export default function AuditLogsPage() {
                   </Tag>
                 </div>
                 <p className="text-[12px] text-slate-500 dark:text-zinc-400 m-0 mt-0.5 leading-normal">
-                  <strong className="text-slate-700 dark:text-zinc-300 font-semibold">What is this? </strong>
+                  <strong className="text-slate-700 dark:text-zinc-300 font-semibold">
+                    What is this?{" "}
+                  </strong>
                   {TAB_EXPLANATIONS[activeTabKey].subtitle}
                 </p>
               </div>
@@ -1050,21 +1081,26 @@ export default function AuditLogsPage() {
         ) : (
           <div className="space-y-5 pt-3 max-h-[66vh] overflow-y-auto pr-1">
             {/* Non-Technical Plain English Summary Card */}
-            <div className="bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-800/80 rounded-xl p-4 space-y-1.5 shadow-2xs">
+            <div className="bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-800/80 rounded-lg p-4 space-y-1.5 shadow-2xs">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
                 <InfoCircleOutlined className="text-emerald-600 text-sm" />
-                <span>Plain-English Event Explanation (For Non-Technical Staff)</span>
+                <span>
+                  Plain-English Event Explanation (For Non-Technical Staff)
+                </span>
               </div>
               <p className="text-xs text-slate-700 dark:text-zinc-200 leading-relaxed m-0 font-normal">
-                {ACTION_EXPLANATIONS[selectedLog.action?.toUpperCase()]?.plainSummary || "A recorded practice activity took place in the portal."}
-                {" "}
+                {ACTION_EXPLANATIONS[selectedLog.action?.toUpperCase()]
+                  ?.plainSummary ||
+                  "A recorded practice activity took place in the portal."}{" "}
                 {selectedLog.status === "SUCCESS"
                   ? `The operation completed safely with full authorization.`
                   : `Notice: This operation failed or was blocked by security policies.`}
               </p>
               {selectedLog.description && (
                 <div className="text-[11px] text-slate-500 dark:text-zinc-400 pt-1.5 border-t border-emerald-200/50 dark:border-emerald-900/50 flex items-center gap-1.5">
-                  <span className="font-semibold text-slate-600 dark:text-zinc-300">Recorded Detail:</span>
+                  <span className="font-semibold text-slate-600 dark:text-zinc-300">
+                    Recorded Detail:
+                  </span>
                   <span>{selectedLog.description}</span>
                 </div>
               )}
@@ -1100,7 +1136,10 @@ export default function AuditLogsPage() {
                 </span>
               </Descriptions.Item>
 
-              <Descriptions.Item label="Performed By (Staff)" span={{ xs: 1, sm: 2 }}>
+              <Descriptions.Item
+                label="Performed By (Staff)"
+                span={{ xs: 1, sm: 2 }}
+              >
                 {selectedLog.actor ? (
                   <div className="flex items-center gap-2">
                     <Avatar
@@ -1129,7 +1168,10 @@ export default function AuditLogsPage() {
               </Descriptions.Item>
 
               {selectedLog.target && (
-                <Descriptions.Item label="Affected Staff Member" span={{ xs: 1, sm: 2 }}>
+                <Descriptions.Item
+                  label="Affected Staff Member"
+                  span={{ xs: 1, sm: 2 }}
+                >
                   <div className="flex items-center gap-2">
                     <Avatar
                       size={20}
@@ -1161,27 +1203,36 @@ export default function AuditLogsPage() {
 
               <Descriptions.Item label="Network Location (IP)">
                 <span className="font-mono text-xs text-slate-700 dark:text-zinc-300">
-                  {selectedLog.ipAddress || "—"}
+                  {selectedLog.ipAddress || "-"}
                 </span>
               </Descriptions.Item>
 
-              <Descriptions.Item label="Activity Description" span={{ xs: 1, sm: 2 }}>
+              <Descriptions.Item
+                label="Activity Description"
+                span={{ xs: 1, sm: 2 }}
+              >
                 <span className="text-slate-700 dark:text-zinc-300 font-medium">
                   {selectedLog.description}
                 </span>
               </Descriptions.Item>
 
               {selectedLog.errorMessage && (
-                <Descriptions.Item label="Warning / Error Note" span={{ xs: 1, sm: 2 }}>
+                <Descriptions.Item
+                  label="Warning / Error Note"
+                  span={{ xs: 1, sm: 2 }}
+                >
                   <span className="text-rose-600 dark:text-rose-400 font-mono text-xs">
                     {selectedLog.errorMessage}
                   </span>
                 </Descriptions.Item>
               )}
 
-              <Descriptions.Item label="Browser & Device Info" span={{ xs: 1, sm: 2 }}>
+              <Descriptions.Item
+                label="Browser & Device Info"
+                span={{ xs: 1, sm: 2 }}
+              >
                 <span className="text-[10px] text-slate-500 font-mono break-all leading-tight">
-                  {selectedLog.userAgent || "—"}
+                  {selectedLog.userAgent || "-"}
                 </span>
               </Descriptions.Item>
             </Descriptions>
@@ -1220,7 +1271,7 @@ export default function AuditLogsPage() {
                   }
                 >
                   {/* Before State Payload */}
-                  <div className="border border-rose-200 dark:border-rose-900/60 rounded-2xl p-3.5 bg-rose-50/30 dark:bg-rose-950/20">
+                  <div className="border border-rose-200 dark:border-rose-900/60 rounded-lg p-3.5 bg-rose-50/30 dark:bg-rose-950/20">
                     <div className="flex items-center justify-between pb-2 border-b border-rose-200/60 dark:border-rose-900/40 mb-2">
                       <span className="font-bold text-xs text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-rose-500"></span>
@@ -1255,7 +1306,7 @@ export default function AuditLogsPage() {
                   </div>
 
                   {/* After State Payload */}
-                  <div className="border border-emerald-200 dark:border-emerald-900/60 rounded-2xl p-3.5 bg-emerald-50/30 dark:bg-emerald-950/20">
+                  <div className="border border-emerald-200 dark:border-emerald-900/60 rounded-lg p-3.5 bg-emerald-50/30 dark:bg-emerald-950/20">
                     <div className="flex items-center justify-between pb-2 border-b border-emerald-200/60 dark:border-emerald-900/40 mb-2">
                       <span className="font-bold text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
@@ -1291,7 +1342,8 @@ export default function AuditLogsPage() {
                 </div>
               ) : (
                 <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/40 border border-slate-200 dark:border-zinc-800 text-slate-400 dark:text-zinc-500 text-xs text-center">
-                  No database record fields were altered during this sign-in or view event.
+                  No database record fields were altered during this sign-in or
+                  view event.
                 </div>
               )}
             </div>

@@ -26,27 +26,37 @@ import {
 export default function WhenBusinessValuationIsNeeded() {
   const commonReasons = [
     {
-      icon: <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Preparing for a Business Sale",
       desc: "Establishing a realistic, evidence-backed commercial valuation range before bringing the business to market.",
     },
     {
-      icon: <CheckCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Considering an Acquisition",
       desc: "Testing an asking price, verifying maintainable earnings, and evaluating transaction terms for a prospective purchase.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Bringing in a New Owner or Partner",
       desc: "Valuing an equity stake, partnership interest, or share issue for incoming directors and executive shareholders.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Succession & Transition Planning",
       desc: "Establishing a fair commercial benchmark for intergenerational handovers, management buy-outs, or phased exits.",
     },
     {
-      icon: <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Investor or Lender Discussions",
       desc: "Informing external discussions with private equity, angel investors, or commercial lenders requiring structured figures.",
     },
@@ -68,11 +78,10 @@ export default function WhenBusinessValuationIsNeeded() {
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
             Common reasons include preparing for a sale, considering an
-            acquisition, bringing in a new owner, succession planning or
-            testing whether a proposed price is reasonable. A valuation can also
-            inform discussions with investors or lenders. Each purpose can
-            require a different basis, date, level of investigation and
-            documentation.
+            acquisition, bringing in a new owner, succession planning or testing
+            whether a proposed price is reasonable. A valuation can also inform
+            discussions with investors or lenders. Each purpose can require a
+            different basis, date, level of investigation and documentation.
           </p>
         </div>
 
@@ -81,11 +90,11 @@ export default function WhenBusinessValuationIsNeeded() {
           {commonReasons.map((reason, idx) => (
             <div
               key={idx}
-              className={`bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 ${
+              className={`bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 ${
                 idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-4">
                 {reason.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -99,7 +108,7 @@ export default function WhenBusinessValuationIsNeeded() {
         </div>
 
         {/* Verbatim Paragraph 2 Feature Card: The First Question */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-10 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-10 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-2">
               <QuestionCircleOutlined />
@@ -109,10 +118,11 @@ export default function WhenBusinessValuationIsNeeded() {
               Beyond “What is My Business Worth?”
             </h3>
             <p className="mt-3 text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              The first question is therefore not simply &ldquo;What is my business
-              worth?&rdquo; It is &ldquo;What interest or assets are being valued, for
-              whom, at what date and for what decision?&rdquo; We agree these points
-              before selecting an approach or requesting extensive records.
+              The first question is therefore not simply &ldquo;What is my
+              business worth?&rdquo; It is &ldquo;What interest or assets are
+              being valued, for whom, at what date and for what decision?&rdquo;
+              We agree these points before selecting an approach or requesting
+              extensive records.
             </p>
           </div>
 
@@ -140,7 +150,7 @@ export default function WhenBusinessValuationIsNeeded() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Discuss Valuation Purpose
             </Button>

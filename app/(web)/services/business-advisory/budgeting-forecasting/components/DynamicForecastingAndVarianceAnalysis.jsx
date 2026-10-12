@@ -27,7 +27,9 @@ import {
 export default function DynamicForecastingAndVarianceAnalysis() {
   const varianceDrivers = [
     {
-      icon: <DollarOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Revenue & Sales Volume",
       desc: "Distinguishing pricing variances from delivery volume or customer churn.",
     },
@@ -42,7 +44,9 @@ export default function DynamicForecastingAndVarianceAnalysis() {
       desc: "Comparing actual wage spend against productive output and recovery rates.",
     },
     {
-      icon: <ClockCircleOutlined className="text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Overheads & Cash Timing",
       desc: "Tracking fixed expense drift, debtor collections, and available bank buffers.",
     },
@@ -67,7 +71,7 @@ export default function DynamicForecastingAndVarianceAnalysis() {
         {/* 2 Verbatim Text Cards (Forecasting as an Estimate & The Revenue Diagnostic) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Card 1: Not a Fixed Promise */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <SyncOutlined />
@@ -87,7 +91,7 @@ export default function DynamicForecastingAndVarianceAnalysis() {
           </div>
 
           {/* Card 2: The Practical Diagnostic Example */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <FundViewOutlined />
@@ -102,13 +106,14 @@ export default function DynamicForecastingAndVarianceAnalysis() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Immediate impact visibility across bottom-line profit and bank balances.
+              Immediate impact visibility across bottom-line profit and bank
+              balances.
             </div>
           </div>
         </div>
 
         {/* Section 2: Budget-Versus-Actual Reporting Makes the Plan Useful */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="max-w-3xl mb-8">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2">
               <BarChartOutlined />
@@ -138,7 +143,7 @@ export default function DynamicForecastingAndVarianceAnalysis() {
             {varianceDrivers.map((driver, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800/80"
+                className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800/80"
               >
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white mb-1.5">
                   <span className="text-base">{driver.icon}</span>
@@ -155,14 +160,17 @@ export default function DynamicForecastingAndVarianceAnalysis() {
           <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
               <CheckCircleOutlined className="text-emerald-500" />
-              <span>Replaces lengthy unread spreadsheets with actionable monthly insight.</span>
+              <span>
+                Replaces lengthy unread spreadsheets with actionable monthly
+                insight.
+              </span>
             </div>
             <Link href="/book-an-appointment">
               <Button
                 type="primary"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="rounded-xl font-bold px-6 h-11 shadow-sm"
+                className="rounded-lg font-bold px-6 h-11 shadow-sm"
               >
                 Set Up Variance Reporting
               </Button>

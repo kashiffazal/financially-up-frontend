@@ -19,25 +19,33 @@ import {
 export default function RentalDeductionsConditions() {
   const deductionCriteria = [
     {
-      icon: <LinkOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LinkOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Sufficient Connection to Income",
       description:
         "The expenditure must have a direct nexus with earning assessable rental income during the relevant financial year.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Rented or Genuinely Available for Rent",
       description:
         "Expenses generally qualify only while tenants occupy the premises or while the property is actively marketed on commercial terms.",
     },
     {
-      icon: <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Non-Private & Non-Capital Nature",
       description:
         "Costs cannot be private living expenses or capital alterations. Where partly private, only the apportioned income-producing portion is deductible.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Substance Over Invoice Label",
       description:
         "The label written on an invoice is not decisive. The underlying nature of the work and factual circumstances determine ATO tax deductibility.",
@@ -63,24 +71,31 @@ export default function RentalDeductionsConditions() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <CheckCircleOutlined />
               <span>Core Statutory Principles</span>
             </div>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              A deduction generally requires a sufficient connection with earning rental income. For many expenses, the property must be rented or genuinely available for rent and the cost cannot be private or capital in nature. Where an expense relates partly to private use, only the income-producing portion may be deductible.
+              A deduction generally requires a sufficient connection with
+              earning rental income. For many expenses, the property must be
+              rented or genuinely available for rent and the cost cannot be
+              private or capital in nature. Where an expense relates partly to
+              private use, only the income-producing portion may be deductible.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <CheckCircleOutlined />
               <span>Eligible Costs &amp; Invoice Classification</span>
             </div>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Common examples can include property-agent fees, council rates, insurance, eligible interest and certain repairs or maintenance. However, the label on an invoice is not decisive. The underlying work and circumstances determine the tax treatment.
+              Common examples can include property-agent fees, council rates,
+              insurance, eligible interest and certain repairs or maintenance.
+              However, the label on an invoice is not decisive. The underlying
+              work and circumstances determine the tax treatment.
             </p>
           </div>
         </div>
@@ -90,7 +105,7 @@ export default function RentalDeductionsConditions() {
           {deductionCriteria.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-3">
                 {item.icon}

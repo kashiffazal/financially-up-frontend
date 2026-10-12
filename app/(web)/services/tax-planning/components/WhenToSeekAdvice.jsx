@@ -31,32 +31,44 @@ export default function WhenToSeekAdvice() {
    */
   const advisorScenarios = [
     {
-      icon: <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <RiseOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Business Growth",
       desc: "When a business is growing and operations expand.",
     },
     {
-      icon: <AlertOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AlertOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Cash Flow Changes",
       desc: "When cash flow has changed materially during the year.",
     },
     {
-      icon: <ShopOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "New Investments",
       desc: "When a new investment is being considered.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Income Increases",
       desc: "When personal or business income has increased.",
     },
     {
-      icon: <ApartmentOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Major Events",
       desc: "When you expect a property sale, business restructure or change in ownership.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Year-Round Review",
       desc: "Planning can also be reviewed during the year rather than waiting until June.",
     },
@@ -77,9 +89,9 @@ export default function WhenToSeekAdvice() {
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
             The most useful time to seek advice is generally before the
             transaction or financial year has finished. Once an asset has been
-            sold, income has been derived or a contract has been entered into, the
-            tax consequences may already be determined or the available options
-            may be narrower.
+            sold, income has been derived or a contract has been entered into,
+            the tax consequences may already be determined or the available
+            options may be narrower.
           </p>
         </div>
 
@@ -93,10 +105,10 @@ export default function WhenToSeekAdvice() {
             <p className="text-base sm:text-lg text-slate-800 dark:text-zinc-200 font-medium leading-relaxed m-0">
               A tax planning advisor may also be useful when a business is
               growing, cash flow has changed materially, a new investment is
-              being considered, income has increased, or you expect an event such
-              as a property sale, business restructure or change in ownership.
-              Planning can also be reviewed during the year rather than waiting
-              until June.
+              being considered, income has increased, or you expect an event
+              such as a property sale, business restructure or change in
+              ownership. Planning can also be reviewed during the year rather
+              than waiting until June.
             </p>
           </div>
 
@@ -105,9 +117,9 @@ export default function WhenToSeekAdvice() {
             {advisorScenarios.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-2xs transition-all flex items-start gap-4"
+                className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-2xs transition-all flex items-start gap-4"
               >
-                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0">
                   {item.icon}
                 </div>
                 <div>

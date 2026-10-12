@@ -112,10 +112,10 @@ export default function CommonYearEndIssuesReviewed() {
           {commonIssues.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
@@ -130,7 +130,7 @@ export default function CommonYearEndIssuesReviewed() {
         </div>
 
         {/* Division 7A Warning & Cross-Service Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-amber-50 via-rose-50/40 to-white dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-amber-200/80 dark:border-amber-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-amber-50 via-rose-50/40 to-white dark:from-zinc-900 dark:via-zinc-850 dark:to-zinc-900 border border-amber-200/80 dark:border-amber-800/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ExclamationCircleOutlined className="text-amber-600 dark:text-amber-400" />
@@ -149,7 +149,7 @@ export default function CommonYearEndIssuesReviewed() {
             <Link href="/services/business-tax/division-7a">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

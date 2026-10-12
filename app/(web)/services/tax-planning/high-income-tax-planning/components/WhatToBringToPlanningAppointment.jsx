@@ -61,14 +61,22 @@ export default function WhatToBringToPlanningAppointment() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Preparation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What to Bring to a Planning Appointment
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Useful information can include recent payslips or income summaries, details of bonuses or expected changes in pay, investment and dividend statements, rental property records, details of planned asset sales, super contribution information and any relevant ATO correspondence. You do not need every document before making an initial appointment; the first review can identify what is required.
+            Useful information can include recent payslips or income summaries,
+            details of bonuses or expected changes in pay, investment and
+            dividend statements, rental property records, details of planned
+            asset sales, super contribution information and any relevant ATO
+            correspondence. You do not need every document before making an
+            initial appointment; the first review can identify what is required.
           </p>
         </div>
 
@@ -77,9 +85,9 @@ export default function WhatToBringToPlanningAppointment() {
           {documentsList.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-colors flex items-start gap-4"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:border-emerald-400/60 transition-colors flex items-start gap-4"
             >
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0">
                 <CheckCircleFilled className="text-brand-primary dark:text-emerald-400 text-base" />
               </div>
               <div className="flex-1 space-y-0.5">
@@ -100,10 +108,13 @@ export default function WhatToBringToPlanningAppointment() {
         </div>
 
         {/* Reassurance Notice */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-5 sm:p-6 flex items-start gap-3.5">
+        <div className="max-w-4xl mx-auto rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/50 p-5 sm:p-6 flex items-start gap-3.5">
           <FolderOpenOutlined className="text-brand-primary dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed font-normal">
-            <strong>Incomplete Records Are Okay:</strong> You do not need every document before making an initial appointment; the first review can identify what is required and help you assemble missing records efficiently.
+            <strong>Incomplete Records Are Okay:</strong> You do not need every
+            document before making an initial appointment; the first review can
+            identify what is required and help you assemble missing records
+            efficiently.
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
  * Live notification events (admin portal).
  * The header NotificationCenter receives notifications in real time (SSE stream,
  * with polling as a fallback) and re-broadcasts each one as a window event so any
- * page can react — e.g. a module log refetches when a new submission for its
+ * page can react - e.g. a module log refetches when a new submission for its
  * module arrives, without a page refresh.
  */
 
@@ -15,7 +15,9 @@ export const LIVE_NOTIFICATION_EVENT = "fu:live-notification";
 /** Broadcast a notification object to every listening page. */
 export const emitLiveNotification = (notification) => {
   if (typeof window === "undefined" || !notification) return;
-  window.dispatchEvent(new CustomEvent(LIVE_NOTIFICATION_EVENT, { detail: notification }));
+  window.dispatchEvent(
+    new CustomEvent(LIVE_NOTIFICATION_EVENT, { detail: notification }),
+  );
 };
 
 /**
@@ -70,7 +72,10 @@ export const upsertIntoStatusMap = (statusMap, record, defaultStatus) => {
   Object.entries(statusMap).forEach(([bucket, rows]) => {
     if (bucket === "All" || bucket === status) {
       const index = rows.findIndex((r) => String(r.key) === key);
-      next[bucket] = index >= 0 ? rows.map((r, i) => (i === index ? record : r)) : [record, ...rows];
+      next[bucket] =
+        index >= 0
+          ? rows.map((r, i) => (i === index ? record : r))
+          : [record, ...rows];
     } else {
       next[bucket] = rows.filter((r) => String(r.key) !== key);
     }

@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Card } from "antd";
-import { SafetyCertificateOutlined, LineChartOutlined, DollarOutlined, AuditOutlined } from "@ant-design/icons";
+import {
+  SafetyCertificateOutlined,
+  LineChartOutlined,
+  DollarOutlined,
+  AuditOutlined,
+} from "@ant-design/icons";
 
 /**
  * CanSmsfBuyPropertySolePurpose Component
@@ -48,7 +53,9 @@ export default function CanSmsfBuyPropertySolePurpose() {
             Can an SMSF Buy Property?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Yes, subject to the fund's trust deed, written investment strategy, and Australian superannuation law. The acquisition must be executed solely for retirement wealth accumulation.
+            Yes, subject to the fund's trust deed, written investment strategy,
+            and Australian superannuation law. The acquisition must be executed
+            solely for retirement wealth accumulation.
           </p>
         </div>
 
@@ -56,16 +63,20 @@ export default function CanSmsfBuyPropertySolePurpose() {
           {requirements.map((item, idx) => (
             <Card
               key={idx}
-              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl"
+              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg"
               styles={{ body: { padding: "28px" } }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 shrink-0">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 shrink-0">
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{item.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             </Card>

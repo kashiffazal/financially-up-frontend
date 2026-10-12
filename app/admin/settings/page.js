@@ -52,22 +52,52 @@ import DepartmentsManager from "@/components/admin/DepartmentsManager";
 
 /* Field icons mapping for contextual guidance */
 const FIELD_ICONS = {
-  "company.name": <BankOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "company.legalName": <IdcardOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "company.abn": <SafetyCertificateOutlined className="text-blue-600 dark:text-blue-400" />,
-  "company.taxAgentNumber": <FileTextOutlined className="text-purple-600 dark:text-purple-400" />,
-  "company.phone": <PhoneOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "company.email": <MailOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "company.address": <CompassOutlined className="text-amber-600 dark:text-amber-400" />,
-  "company.tagline": <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "company.logoUrl": <GlobalOutlined className="text-blue-600 dark:text-blue-400" />,
+  "company.name": (
+    <BankOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "company.legalName": (
+    <IdcardOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "company.abn": (
+    <SafetyCertificateOutlined className="text-blue-600 dark:text-blue-400" />
+  ),
+  "company.taxAgentNumber": (
+    <FileTextOutlined className="text-purple-600 dark:text-purple-400" />
+  ),
+  "company.phone": (
+    <PhoneOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "company.email": (
+    <MailOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "company.address": (
+    <CompassOutlined className="text-amber-600 dark:text-amber-400" />
+  ),
+  "company.tagline": (
+    <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "company.logoUrl": (
+    <GlobalOutlined className="text-blue-600 dark:text-blue-400" />
+  ),
   "email.info": <MailOutlined className="text-blue-600 dark:text-blue-400" />,
-  "email.admin": <MailOutlined className="text-purple-600 dark:text-purple-400" />,
-  "email.privacy": <LockOutlined className="text-amber-600 dark:text-amber-400" />,
-  "email.support": <MailOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "url.website": <GlobalOutlined className="text-emerald-600 dark:text-emerald-400" />,
-  "url.api": <LaptopOutlined className="text-purple-600 dark:text-purple-400" />,
-  "url.adminPortal": <AppstoreOutlined className="text-blue-600 dark:text-blue-400" />,
+  "email.admin": (
+    <MailOutlined className="text-purple-600 dark:text-purple-400" />
+  ),
+  "email.privacy": (
+    <LockOutlined className="text-amber-600 dark:text-amber-400" />
+  ),
+  "email.support": (
+    <MailOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "url.website": (
+    <GlobalOutlined className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  "url.api": (
+    <LaptopOutlined className="text-purple-600 dark:text-purple-400" />
+  ),
+  "url.adminPortal": (
+    <AppstoreOutlined className="text-blue-600 dark:text-blue-400" />
+  ),
 };
 
 /* Ant Design field type mapper */
@@ -77,6 +107,9 @@ const INPUT_TYPES = {
   url: "text",
   text: "text",
 };
+
+// These tabs save their own changes, so the page's Save / Discard bar is hidden on them
+const SELF_SAVING_TABS = ["departments"];
 
 export default function GlobalSettingsPage() {
   const [form] = Form.useForm();
@@ -104,7 +137,7 @@ export default function GlobalSettingsPage() {
             // "list" settings (e.g. Departments) are stored as JSON arrays
             if (row.inputType !== "list") values[row.key] = row.value || "";
             return values;
-          }, {})
+          }, {}),
         );
       }
     } catch (err) {
@@ -129,12 +162,15 @@ export default function GlobalSettingsPage() {
   const handleSave = async () => {
     try {
       const values = await form.validateFields();
-      // Departments are saved by their own tab, never by this button
+      // Departments and email routing are saved by their own tabs, never by this button
       delete values["staff.departments"];
+      delete values["mail.routing"];
       setSaving(true);
       const res = await HTTP("PUT", "/settings/manage", { settings: values });
       if (res && res.success) {
-        antdMsg.success(res.message || "Global practice settings saved successfully.");
+        antdMsg.success(
+          res.message || "Global practice settings saved successfully.",
+        );
         await refreshSettings();
         await loadSettings();
       }
@@ -161,16 +197,28 @@ export default function GlobalSettingsPage() {
       taxAgent: getValue("company.taxAgentNumber", "25800000"),
       phone: getValue("company.phone", "1300 328 316"),
       email: getValue("company.email", "info@financiallyup.com.au"),
-      address: getValue("company.address", "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"),
+      address: getValue(
+        "company.address",
+        "Level 5, 100 Walker St, North Sydney NSW 2060, Australia",
+      ),
       website: getValue("url.website", "https://financiallyup.com.au"),
     };
   }, [rows]);
 
   // Group rows by category
-  const companyRows = useMemo(() => rows.filter((r) => r.group === "company"), [rows]);
-  const emailRows = useMemo(() => rows.filter((r) => r.group === "email"), [rows]);
+  const companyRows = useMemo(
+    () => rows.filter((r) => r.group === "company"),
+    [rows],
+  );
+  const emailRows = useMemo(
+    () => rows.filter((r) => r.group === "email"),
+    [rows],
+  );
   const urlRows = useMemo(() => rows.filter((r) => r.group === "url"), [rows]);
-  const staffRows = useMemo(() => rows.filter((r) => r.group === "staff"), [rows]);
+  const staffRows = useMemo(
+    () => rows.filter((r) => r.group === "staff"),
+    [rows],
+  );
 
   // --------------------------------------------------------------------------
   // TAB ITEMS CONFIGURATION
@@ -189,11 +237,15 @@ export default function GlobalSettingsPage() {
       ),
       children: (
         <div className="pt-2 space-y-4">
-          <div className="p-3.5 rounded-xl border border-emerald-200/80 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 flex items-start gap-3">
+          <div className="p-3.5 rounded-lg border border-emerald-200/80 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 flex items-start gap-3">
             <InfoCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-base mt-0.5" />
             <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-              <strong className="text-slate-800 dark:text-zinc-100">Practice Identity & Legal Registration: </strong>
-              These details are published across the official website, client registration portals, and printed on every generated PDF engagement and tax lodgement document.
+              <strong className="text-slate-800 dark:text-zinc-100">
+                Practice Identity & Legal Registration:{" "}
+              </strong>
+              These details are published across the official website, client
+              registration portals, and printed on every generated PDF
+              engagement and tax lodgement document.
             </div>
           </div>
 
@@ -209,7 +261,9 @@ export default function GlobalSettingsPage() {
                     <span>{row.label}</span>
                   </span>
                 }
-                preIconAnt={row.inputType !== "textarea" ? FIELD_ICONS[row.key] : null}
+                preIconAnt={
+                  row.inputType !== "textarea" ? FIELD_ICONS[row.key] : null
+                }
                 help={row.helpText || undefined}
                 reqMsg={`${row.label} is required`}
                 className="rounded-lg"
@@ -235,11 +289,15 @@ export default function GlobalSettingsPage() {
       ),
       children: (
         <div className="pt-2 space-y-4">
-          <div className="p-3.5 rounded-xl border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/20 flex items-start gap-3">
+          <div className="p-3.5 rounded-lg border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/20 flex items-start gap-3">
             <InfoCircleOutlined className="text-blue-600 dark:text-blue-400 text-base mt-0.5" />
             <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-              <strong className="text-slate-800 dark:text-zinc-100">Official Correspondence Channels: </strong>
-              Addresses used for automated notification dispatches, client engagement receipts, and official regulatory privacy correspondence.
+              <strong className="text-slate-800 dark:text-zinc-100">
+                Official Correspondence Channels:{" "}
+              </strong>
+              Addresses used for automated notification dispatches, client
+              engagement receipts, and official regulatory privacy
+              correspondence.
             </div>
           </div>
 
@@ -279,11 +337,14 @@ export default function GlobalSettingsPage() {
       ),
       children: (
         <div className="pt-2 space-y-4">
-          <div className="p-3.5 rounded-xl border border-purple-200/80 dark:border-purple-900/60 bg-purple-50/50 dark:bg-purple-950/20 flex items-start gap-3">
+          <div className="p-3.5 rounded-lg border border-purple-200/80 dark:border-purple-900/60 bg-purple-50/50 dark:bg-purple-950/20 flex items-start gap-3">
             <InfoCircleOutlined className="text-purple-600 dark:text-purple-400 text-base mt-0.5" />
             <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-              <strong className="text-slate-800 dark:text-zinc-100">Public & Internal Architecture Endpoints: </strong>
-              Base URLs used to construct client email invitation links, embed document preview hyperlinks, and route API endpoints.
+              <strong className="text-slate-800 dark:text-zinc-100">
+                Public & Internal Architecture Endpoints:{" "}
+              </strong>
+              Base URLs used to construct client email invitation links, embed
+              document preview hyperlinks, and route API endpoints.
             </div>
           </div>
 
@@ -320,26 +381,32 @@ export default function GlobalSettingsPage() {
       ),
       children: (
         <div className="pt-2 space-y-6">
-          <div className="p-3.5 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 flex items-center justify-between">
+          <div className="p-3.5 rounded-lg border border-emerald-200 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <CheckCircleOutlined className="text-emerald-600 text-lg" />
               <div className="text-xs text-slate-700 dark:text-zinc-200">
                 <strong>Real-Time Integration Preview: </strong>
-                See how changes in the form dynamically reflect in client correspondence and generated PDF documents.
+                See how changes in the form dynamically reflect in client
+                correspondence and generated PDF documents.
               </div>
             </div>
-            <Tag color="success" className="font-semibold text-[11px] rounded-md m-0">
+            <Tag
+              color="success"
+              className="font-semibold text-[11px] rounded-md m-0"
+            >
               Live Preview
             </Tag>
           </div>
 
           {/* Scenario 1: Official Website Footer Bar */}
-          <div className="border border-slate-200 dark:border-zinc-800 rounded-xl overflow-hidden shadow-xs bg-slate-900 text-slate-100">
+          <div className="border border-slate-200 dark:border-zinc-800 rounded-lg overflow-hidden shadow-xs bg-slate-900 text-slate-100">
             <div className="px-4 py-2 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
                 <GlobalOutlined /> Public Website Footer Integration
               </span>
-              <span className="text-[10px] text-emerald-400 font-mono">Live Component</span>
+              <span className="text-[10px] text-emerald-400 font-mono">
+                Live Component
+              </span>
             </div>
             <div className="p-5 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
               <div>
@@ -347,59 +414,87 @@ export default function GlobalSettingsPage() {
                   {formValues["company.legalName"] || "Financially Up Pty Ltd"}
                 </h4>
                 <p className="text-slate-400 text-[11px] mb-2">
-                  {formValues["company.tagline"] || "Accounting | Taxation | Advisory"}
+                  {formValues["company.tagline"] ||
+                    "Accounting | Taxation | Advisory"}
                 </p>
                 <div className="text-[11px] text-slate-400 font-mono space-y-0.5">
-                  <div>ABN: {formValues["company.abn"] || "84 659 717 263"}</div>
-                  <div>Tax Agent: {formValues["company.taxAgentNumber"] || "25800000"}</div>
+                  <div>
+                    ABN: {formValues["company.abn"] || "84 659 717 263"}
+                  </div>
+                  <div>
+                    Tax Agent:{" "}
+                    {formValues["company.taxAgentNumber"] || "25800000"}
+                  </div>
                 </div>
               </div>
               <div className="space-y-1 text-slate-300">
-                <div className="font-bold text-slate-200 uppercase text-[10px] tracking-wider mb-1">Head Office</div>
+                <div className="font-bold text-slate-200 uppercase text-[10px] tracking-wider mb-1">
+                  Head Office
+                </div>
                 <p className="text-[11px] text-slate-400 leading-relaxed">
-                  {formValues["company.address"] || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                  {formValues["company.address"] ||
+                    "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
                 </p>
               </div>
               <div className="space-y-1 text-slate-300">
-                <div className="font-bold text-slate-200 uppercase text-[10px] tracking-wider mb-1">Client Inquiries</div>
+                <div className="font-bold text-slate-200 uppercase text-[10px] tracking-wider mb-1">
+                  Client Inquiries
+                </div>
                 <div className="text-[11px] flex items-center gap-1.5 text-slate-300">
                   <PhoneOutlined className="text-emerald-400" />
                   <span>{formValues["company.phone"] || "1300 328 316"}</span>
                 </div>
                 <div className="text-[11px] flex items-center gap-1.5 text-slate-300 font-mono">
                   <MailOutlined className="text-emerald-400" />
-                  <span>{formValues["company.email"] || "info@financiallyup.com.au"}</span>
+                  <span>
+                    {formValues["company.email"] || "info@financiallyup.com.au"}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Scenario 2: Official PDF Document Header & Letterhead */}
-          <div className="border border-slate-200 dark:border-zinc-800 rounded-xl overflow-hidden shadow-xs bg-white dark:bg-zinc-900">
+          <div className="border border-slate-200 dark:border-zinc-800 rounded-lg overflow-hidden shadow-xs bg-white dark:bg-zinc-900">
             <div className="px-4 py-2 bg-slate-50 dark:bg-zinc-800/80 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between">
               <span className="text-xs font-bold text-slate-600 dark:text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
                 <FileTextOutlined /> Generated Registration PDF Document Header
               </span>
-              <span className="text-[10px] text-purple-600 dark:text-purple-400 font-mono">ATO Letterhead Mockup</span>
+              <span className="text-[10px] text-purple-600 dark:text-purple-400 font-mono">
+                ATO Letterhead Mockup
+              </span>
             </div>
-            <div className="p-6 bg-slate-50/50 dark:bg-zinc-950/40 border border-dashed border-slate-300 dark:border-zinc-700 m-4 rounded-xl">
+            <div className="p-6 bg-slate-50/50 dark:bg-zinc-950/40 border border-dashed border-slate-300 dark:border-zinc-700 m-4 rounded-lg">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-zinc-800">
                 <div>
                   <h3 className="text-base font-bold text-slate-900 dark:text-zinc-50 m-0">
-                    {formValues["company.legalName"] || "Financially Up Pty Ltd"}
+                    {formValues["company.legalName"] ||
+                      "Financially Up Pty Ltd"}
                   </h3>
                   <div className="text-xs text-slate-500 font-mono mt-0.5">
-                    Registered Tax Agent No: <strong className="text-purple-600 dark:text-purple-400">{formValues["company.taxAgentNumber"] || "25800000"}</strong>
+                    Registered Tax Agent No:{" "}
+                    <strong className="text-purple-600 dark:text-purple-400">
+                      {formValues["company.taxAgentNumber"] || "25800000"}
+                    </strong>
                   </div>
                 </div>
                 <div className="text-right text-xs text-slate-500 font-mono space-y-0.5">
-                  <div>ABN: {formValues["company.abn"] || "84 659 717 263"}</div>
-                  <div>Phone: {formValues["company.phone"] || "1300 328 316"}</div>
-                  <div>Email: {formValues["company.email"] || "info@financiallyup.com.au"}</div>
+                  <div>
+                    ABN: {formValues["company.abn"] || "84 659 717 263"}
+                  </div>
+                  <div>
+                    Phone: {formValues["company.phone"] || "1300 328 316"}
+                  </div>
+                  <div>
+                    Email:{" "}
+                    {formValues["company.email"] || "info@financiallyup.com.au"}
+                  </div>
                 </div>
               </div>
               <div className="pt-3 text-[11px] text-slate-400 text-center italic">
-                * Official company letterhead format rendered on client registration receipts, engagement letters, and trust declarations.
+                * Official company letterhead format rendered on client
+                registration receipts, engagement letters, and trust
+                declarations.
               </div>
             </div>
           </div>
@@ -419,12 +514,16 @@ export default function GlobalSettingsPage() {
       ),
       children: (
         <div className="pt-2 space-y-4">
-          <div className="p-3.5 rounded-xl border border-violet-200/80 dark:border-violet-900/60 bg-violet-50/50 dark:bg-violet-950/20 flex items-start gap-3">
+          <div className="p-3.5 rounded-lg border border-violet-200/80 dark:border-violet-900/60 bg-violet-50/50 dark:bg-violet-950/20 flex items-start gap-3">
             <InfoCircleOutlined className="text-violet-600 dark:text-violet-400 text-base mt-0.5" />
             <div className="text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
-              <strong className="text-slate-800 dark:text-zinc-100">Staff Departments: </strong>
-              The choices in the Department dropdown when adding or editing a staff member and on each person&apos;s profile.
-              Renaming a department updates everyone in it; removing one asks where to move its staff.
+              <strong className="text-slate-800 dark:text-zinc-100">
+                Staff Departments:{" "}
+              </strong>
+              The choices in the Department dropdown when adding or editing a
+              staff member and on each person&apos;s profile. Renaming a
+              department updates everyone in it; removing one asks where to move
+              its staff.
             </div>
           </div>
           <DepartmentsManager onCountChange={setDepartmentCount} />
@@ -485,7 +584,7 @@ export default function GlobalSettingsPage() {
               ABN: {quickStats.abn}
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
             <BankOutlined />
           </div>
         </div>
@@ -503,7 +602,7 @@ export default function GlobalSettingsPage() {
               Toll-Free Client Enquiries
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
             <PhoneOutlined />
           </div>
         </div>
@@ -521,7 +620,7 @@ export default function GlobalSettingsPage() {
               Central Practice Inbox
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
             <MailOutlined />
           </div>
         </div>
@@ -539,7 +638,7 @@ export default function GlobalSettingsPage() {
               North Sydney NSW 2060
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
             <CompassOutlined />
           </div>
         </div>
@@ -561,7 +660,9 @@ export default function GlobalSettingsPage() {
         {loading ? (
           <div className="bg-white dark:bg-zinc-900 p-12 rounded-card border border-slate-200/80 dark:border-zinc-800 flex flex-col items-center justify-center space-y-3">
             <Spin size="large" />
-            <span className="text-xs text-slate-500 font-medium">Loading practice configurations...</span>
+            <span className="text-xs text-slate-500 font-medium">
+              Loading practice configurations...
+            </span>
           </div>
         ) : (
           <Form form={form} layout="vertical" requiredMark={false}>
@@ -575,35 +676,40 @@ export default function GlobalSettingsPage() {
                 className="user-status-tabs"
               />
 
-              {/* Sticky / Dedicated Action Bar */}
-              <PermissionGuard permission="settings.update">
-                <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div className="text-xs text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
-                    <CheckCircleOutlined className="text-emerald-600" />
-                    <span>Saved updates propagate instantly to the website, client forms, and PDF documents.</span>
-                  </div>
+              {/* Sticky / Dedicated Action Bar - not on tabs that save their own changes */}
+              {!SELF_SAVING_TABS.includes(activeTabKey) && (
+                <PermissionGuard permission="settings.update">
+                  <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div className="text-xs text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
+                      <CheckCircleOutlined className="text-emerald-600" />
+                      <span>
+                        Saved updates propagate instantly to the website, client
+                        forms, and PDF documents.
+                      </span>
+                    </div>
 
-                  <div className="flex items-center gap-2.5 w-full sm:w-auto">
-                    <Button
-                      onClick={handleReload}
-                      disabled={loading || saving}
-                      className="rounded-lg h-10 px-4 text-xs font-semibold"
-                    >
-                      Discard Unsaved
-                    </Button>
+                    <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                      <Button
+                        onClick={handleReload}
+                        disabled={loading || saving}
+                        className="rounded-lg h-10 px-4 text-xs font-semibold"
+                      >
+                        Discard Unsaved
+                      </Button>
 
-                    <Button
-                      type="primary"
-                      icon={<SaveOutlined />}
-                      loading={saving}
-                      onClick={handleSave}
-                      className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white font-semibold rounded-lg h-10 px-7 border-none shadow-sm flex items-center gap-2 cursor-pointer transition-all active:scale-[0.98]"
-                    >
-                      Save Global Settings
-                    </Button>
+                      <Button
+                        type="primary"
+                        icon={<SaveOutlined />}
+                        loading={saving}
+                        onClick={handleSave}
+                        className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white font-semibold rounded-lg h-10 px-7 border-none shadow-sm flex items-center gap-2 cursor-pointer transition-all active:scale-[0.98]"
+                      >
+                        Save Global Settings
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </PermissionGuard>
+                </PermissionGuard>
+              )}
             </div>
           </Form>
         )}

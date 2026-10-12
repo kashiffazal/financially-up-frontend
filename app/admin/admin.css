@@ -73,8 +73,10 @@
 /* Modern Rail Popover Customization */
 .admin-rail-popover .ant-popover-inner {
   padding: 6px !important;
-  border-radius: 16px !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+  /* border-radius: 16px !important; */
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
 }
 
 .dark .admin-rail-popover .ant-popover-inner {
@@ -82,7 +84,6 @@
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
 }
-
 
 /* Live updates: a row that just arrived or changed (another user's action).
    Highlight is removed after a few seconds; antd's cell transition fades it out. */

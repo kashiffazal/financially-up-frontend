@@ -35,22 +35,33 @@ export default function PreYearEndPlanningAndChanges() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Pre-30 June Strategy
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Year-End Planning and Major Changes
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A useful time for high income tax planning is before 30 June or before a major transaction rather than after the event. A review may look at expected income, deductible expenses, current-year capital gains and losses, proposed asset disposals, property activity, contribution records and upcoming changes in employment or investment holdings.
+            A useful time for high income tax planning is before 30 June or
+            before a major transaction rather than after the event. A review may
+            look at expected income, deductible expenses, current-year capital
+            gains and losses, proposed asset disposals, property activity,
+            contribution records and upcoming changes in employment or
+            investment holdings.
           </p>
           <p className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            The purpose is to understand the tax position before decisions become irreversible. Some actions have strict eligibility conditions or timing rules, so planning should not be based on assumptions or last-minute transactions without proper review.
+            The purpose is to understand the tax position before decisions
+            become irreversible. Some actions have strict eligibility conditions
+            or timing rules, so planning should not be based on assumptions or
+            last-minute transactions without proper review.
           </p>
         </div>
 
         {/* 8 Checkpoints Grid */}
-        <div className="rounded-2xl bg-slate-50/80 dark:bg-zinc-950/80 border border-slate-200/80 dark:border-zinc-800 p-7 sm:p-10 mb-10">
+        <div className="rounded-lg bg-slate-50/80 dark:bg-zinc-950/80 border border-slate-200/80 dark:border-zinc-800 p-7 sm:p-10 mb-10">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200/80 dark:border-zinc-800">
             <ClockCircleOutlined className="text-brand-primary dark:text-emerald-400 text-lg" />
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -62,7 +73,7 @@ export default function PreYearEndPlanningAndChanges() {
             {reviewCheckpoints.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/90 flex items-start gap-3 hover:border-emerald-400/60 transition-colors"
+                className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/90 flex items-start gap-3 hover:border-emerald-400/60 transition-colors"
               >
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-sm mt-0.5 shrink-0" />
                 <span className="text-xs font-medium text-slate-700 dark:text-zinc-300 leading-snug">
@@ -74,10 +85,13 @@ export default function PreYearEndPlanningAndChanges() {
         </div>
 
         {/* Irreversible Decisions Warning Box */}
-        <div className="rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
+        <div className="rounded-lg bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-5 sm:p-6 flex items-start gap-3.5 w-full">
           <WarningOutlined className="text-amber-600 dark:text-amber-400 text-lg mt-0.5 shrink-0" />
           <p className="text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed font-normal">
-            <strong>Avoid Irreversible Tax Consequences:</strong> Once a contract of sale is executed or 30 June passes, options to manage CGT timing, make deductible super contributions, or substantiate deductions become locked. Planning ahead preserves strategic choice.
+            <strong>Avoid Irreversible Tax Consequences:</strong> Once a
+            contract of sale is executed or 30 June passes, options to manage
+            CGT timing, make deductible super contributions, or substantiate
+            deductions become locked. Planning ahead preserves strategic choice.
           </p>
         </div>
       </div>

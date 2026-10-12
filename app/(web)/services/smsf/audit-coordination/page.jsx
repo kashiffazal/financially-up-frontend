@@ -56,32 +56,38 @@ const smsfAuditQuickSpecs = [
   {
     icon: "audit",
     label: "Statutory Mandate",
-    value: "Annual financial and SISA compliance audit required for all registered SMSFs",
+    value:
+      "Annual financial and SISA compliance audit required for all registered SMSFs",
   },
   {
     icon: "calendar",
     label: "Appointment Rule",
-    value: "Auditor must be appointed at least 45 days before the SAR lodgement due date",
+    value:
+      "Auditor must be appointed at least 45 days before the SAR lodgement due date",
   },
   {
     icon: "safety",
     label: "Independence",
-    value: "Conducted independently by an ASIC-approved auditor; accountant cannot audit own file",
+    value:
+      "Conducted independently by an ASIC-approved auditor; accountant cannot audit own file",
   },
   {
     icon: "file",
     label: "Audit Workpapers",
-    value: "7 verified schedules covering bank reconciliations, valuations, and member records",
+    value:
+      "7 verified schedules covering bank reconciliations, valuations, and member records",
   },
   {
     icon: "clock",
     label: "Sequencing Rule",
-    value: "Audit report must be completed and signed prior to lodging the SMSF annual return",
+    value:
+      "Audit report must be completed and signed prior to lodging the SMSF annual return",
   },
   {
     icon: "team",
     label: "Query Support",
-    value: "Direct liaison with independent auditor to clarify accounting schedules and evidence",
+    value:
+      "Direct liaison with independent auditor to clarify accounting schedules and evidence",
   },
 ];
 
@@ -94,7 +100,10 @@ const smsfAuditFaqs = [
     label: "Does Financially Up perform the independent SMSF audit?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. Under this service, Financially Up prepares the accounts and coordinates the audit process. The statutory audit is completed by an approved SMSF auditor who satisfies the applicable independence requirements.
+        No. Under this service, Financially Up prepares the accounts and
+        coordinates the audit process. The statutory audit is completed by an
+        approved SMSF auditor who satisfies the applicable independence
+        requirements.
       </p>
     ),
   },
@@ -103,7 +112,8 @@ const smsfAuditFaqs = [
     label: "Can the SMSF annual return be lodged before the audit is finished?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        No. The financial and compliance audit must be completed before the SMSF annual return is lodged.
+        No. The financial and compliance audit must be completed before the SMSF
+        annual return is lodged.
       </p>
     ),
   },
@@ -112,7 +122,10 @@ const smsfAuditFaqs = [
     label: "How early should I start SMSF audit preparation?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Trustees must appoint the approved auditor no later than 45 days before the annual return due date. In practice, starting earlier is sensible if the fund has property, related-party arrangements, complex investments or missing records.
+        Trustees must appoint the approved auditor no later than 45 days before
+        the annual return due date. In practice, starting earlier is sensible if
+        the fund has property, related-party arrangements, complex investments
+        or missing records.
       </p>
     ),
   },
@@ -121,7 +134,9 @@ const smsfAuditFaqs = [
     label: "What if our previous SMSF audit is still outstanding?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Outstanding audits and annual returns should be addressed promptly. The work required depends on which years are outstanding and what records remain available.
+        Outstanding audits and annual returns should be addressed promptly. The
+        work required depends on which years are outstanding and what records
+        remain available.
       </p>
     ),
   },
@@ -190,12 +205,19 @@ export default function SmsfAuditCoordinationSubpage() {
         subtitle="Every self-managed super fund must have an annual financial and compliance audit completed by an approved SMSF auditor before the fund lodges its SMSF annual return. SMSF audit coordination is the work of getting the fund records, financial statements and supporting evidence ready, responding to audit queries and keeping the accounting, audit and lodgement process moving in the right order."
         bodyText={
           <span>
-            Financially Up can prepare the accounting records and audit file, coordinate with an independent approved SMSF auditor and assist trustees with accounting or tax matters raised during the process. The statutory audit is not included as work performed by Financially Up under this service; it must be completed by an appropriately registered auditor who satisfies the independence requirements.
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            Financially Up can prepare the accounting records and audit file,
+            coordinate with an independent approved SMSF auditor and assist
+            trustees with accounting or tax matters raised during the process.
+            The statutory audit is not included as work performed by Financially
+            Up under this service; it must be completed by an appropriately
+            registered auditor who satisfies the independence requirements.
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Initial Consultation:
               </span>
-              If your SMSF accounts are being prepared for year-end or you have an audit approaching, we can review what is ready, what is missing and what needs to happen before lodgement.
+              If your SMSF accounts are being prepared for year-end or you have
+              an audit approaching, we can review what is ready, what is missing
+              and what needs to happen before lodgement.
             </div>
           </span>
         }

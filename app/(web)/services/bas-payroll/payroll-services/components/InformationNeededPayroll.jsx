@@ -24,42 +24,56 @@ export default function InformationNeededPayroll() {
     {
       title: "Employee Details & Onboarding",
       desc: "Full legal names, TFN declarations, contact details, date of birth, and emergency contacts.",
-      icon: <IdcardOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <IdcardOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
     },
     {
       title: "Tax & Superannuation Records",
       desc: "Super choice forms, fund USI/ABN details, member numbers, and employee withholding variations.",
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
     },
     {
       title: "Approved Pay Rates & Hours",
       desc: "Signed employment agreements, approved hourly/salary rates, timesheets, and overtime records.",
-      icon: <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
     },
     {
       title: "Leave Accruals & Requests",
       desc: "Annual leave, personal/carer's leave, unpaid absences, and statutory public holiday arrangements.",
-      icon: <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
     },
     {
       title: "Allowances & Deductions",
       desc: "Authorized tool/travel allowances, child support garnishees, and voluntary salary sacrifice entries.",
-      icon: <FileTextOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
     },
     {
       title: "Prior-Period Payroll Ledgers",
       desc: "Year-to-date earnings summaries, prior STP pay events, and clearing account reconciliations.",
-      icon: <CheckCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: What Information May Be Needed? */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <FolderOpenOutlined className="mr-1.5" />
             Checklist
           </Tag>
@@ -69,7 +83,12 @@ export default function InformationNeededPayroll() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The information required depends on your payroll system and workforce. It may include employee details, tax and super information, employment status, approved pay rates, timesheets, leave records, allowances, deductions, payroll adjustments and previous payroll reports. Employers should also keep the records required under workplace and tax rules.
+            The information required depends on your payroll system and
+            workforce. It may include employee details, tax and super
+            information, employment status, approved pay rates, timesheets,
+            leave records, allowances, deductions, payroll adjustments and
+            previous payroll reports. Employers should also keep the records
+            required under workplace and tax rules.
           </p>
         </div>
 
@@ -78,10 +97,10 @@ export default function InformationNeededPayroll() {
           {items.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex flex-col justify-between"
+              className="p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center mb-5">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -105,16 +124,21 @@ export default function InformationNeededPayroll() {
             How Financially Up Can Help
           </h3>
           <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up can provide payroll processing services as a defined ongoing or periodic service. We can help review your payroll workflow, process approved payroll information, coordinate STP reporting and support payroll-related bookkeeping and employer reporting where included in scope.
+            Financially Up can provide payroll processing services as a defined
+            ongoing or periodic service. We can help review your payroll
+            workflow, process approved payroll information, coordinate STP
+            reporting and support payroll-related bookkeeping and employer
+            reporting where included in scope.
           </p>
           <div className="pt-2 flex items-start gap-3 text-xs sm:text-sm text-slate-500 dark:text-zinc-400 border-t border-slate-200 dark:border-zinc-700">
             <InfoCircleOutlined className="text-base text-brand-primary shrink-0 mt-0.5" />
             <span>
-              Where an issue requires employment-law interpretation, award advice or another specialist service outside our accounting and tax scope, that work may need to be obtained separately.
+              Where an issue requires employment-law interpretation, award
+              advice or another specialist service outside our accounting and
+              tax scope, that work may need to be obtained separately.
             </span>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -128,10 +128,10 @@ export default function IndividualEngagementAdminForm({
   return (
     <div>
       {/* 10-Step Matching Header Progress Box */}
-      <div className="p-5 sm:p-6 rounded-xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
+      <div className="p-5 sm:p-6 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 space-y-3 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-brand-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-600/20 shrink-0">
               <AuditOutlined />
             </div>
             <div>
@@ -245,7 +245,7 @@ export default function IndividualEngagementAdminForm({
             <Button
               onClick={onCancel}
               disabled={isSubmitting}
-              className="h-11 px-6 rounded-xl font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
+              className="h-11 px-6 rounded-lg font-bold border-slate-300 hover:border-brand-primary hover:text-brand-primary transition-all"
             >
               Cancel
             </Button>
@@ -255,7 +255,7 @@ export default function IndividualEngagementAdminForm({
               loading={isSubmitting}
               disabled={isSubmitting}
               icon={<CheckCircleOutlined />}
-              className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-xl shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
+              className="bg-brand-primary hover:bg-brand-primary-hover text-white font-extrabold h-11 px-8 rounded-lg shadow-md shadow-emerald-600/20 border-none flex items-center gap-2 transition-all"
             >
               {isSubmitting
                 ? "Executing Decision..."

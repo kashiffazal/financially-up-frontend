@@ -214,7 +214,9 @@ export default function UploadAndCropImage({
   const displayH = height || displayW;
 
   return (
-    <div className={`upload-and-crop-wrapper inline-flex flex-col items-center ${className}`}>
+    <div
+      className={`upload-and-crop-wrapper inline-flex flex-col items-center ${className}`}
+    >
       {/* -------------------------------------------------------------------- */}
       {/* 1. VISUAL TRIGGER BUTTON (EXECUTIVE AVATAR BADGE)                    */}
       {/* -------------------------------------------------------------------- */}
@@ -231,7 +233,7 @@ export default function UploadAndCropImage({
           }}
           style={{ width: `${displayW}px`, height: `${displayH}px` }}
           className={`relative overflow-hidden transition-all duration-300 shadow-sm border-2 border-[var(--brand-primary)] ring-4 ring-[var(--brand-primary-soft)] hover:ring-[var(--brand-border-hover)] ${
-            isCircle ? "rounded-full" : "rounded-2xl"
+            isCircle ? "rounded-full" : "rounded-lg"
           } ${disabled ? "opacity-60 cursor-not-allowed" : "hover:shadow-md hover:scale-[1.02]"}`}
         >
           {currentImage ? (
@@ -242,7 +244,9 @@ export default function UploadAndCropImage({
             />
           ) : (
             <div className="w-full h-full bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex flex-col items-center justify-center">
-              <UserOutlined style={{ fontSize: `${Math.round(displayW * 0.44)}px` }} />
+              <UserOutlined
+                style={{ fontSize: `${Math.round(displayW * 0.44)}px` }}
+              />
             </div>
           )}
 
@@ -250,7 +254,7 @@ export default function UploadAndCropImage({
           {!disabled && (
             <div
               className={`absolute inset-0 bg-black/55 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center text-white ${
-                isCircle ? "rounded-full" : "rounded-2xl"
+                isCircle ? "rounded-full" : "rounded-lg"
               }`}
             >
               <CameraOutlined className="text-xl" />
@@ -350,13 +354,16 @@ export default function UploadAndCropImage({
         width={680}
         destroyOnHidden
         footer={[
-          <div key="footer-row" className="flex items-center justify-between pt-2">
+          <div
+            key="footer-row"
+            className="flex items-center justify-between pt-2"
+          >
             <div>
               {rawImageSrc && (
                 <Button
                   onClick={() => fileInputRef.current?.click()}
                   size="middle"
-                  className="rounded-xl text-xs hover:border-[var(--brand-border-hover)]"
+                  className="rounded-lg text-xs hover:border-[var(--brand-border-hover)]"
                 >
                   Choose Another Image
                 </Button>
@@ -368,7 +375,7 @@ export default function UploadAndCropImage({
                   setModalOpen(false);
                   setRawImageSrc(null);
                 }}
-                className="rounded-xl px-5"
+                className="rounded-lg px-5"
               >
                 Cancel
               </Button>
@@ -376,7 +383,7 @@ export default function UploadAndCropImage({
                 type="primary"
                 onClick={handleApplyCrop}
                 disabled={!rawImageSrc}
-                className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white border-none font-semibold rounded-xl px-6 shadow-sm"
+                className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white border-none font-semibold rounded-lg px-6 shadow-sm"
               >
                 Apply & Save Avatar
               </Button>
@@ -403,21 +410,22 @@ export default function UploadAndCropImage({
                   reader.readAsDataURL(file);
                 }
               }}
-              className="border-2 border-dashed border-slate-300 dark:border-zinc-700 hover:border-[var(--brand-border-hover)] rounded-2xl p-10 text-center cursor-pointer transition-colors bg-slate-50/60 dark:bg-zinc-800/20"
+              className="border-2 border-dashed border-slate-300 dark:border-zinc-700 hover:border-[var(--brand-border-hover)] rounded-lg p-10 text-center cursor-pointer transition-colors bg-slate-50/60 dark:bg-zinc-800/20"
             >
-              <div className="w-16 h-16 rounded-2xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center text-3xl mx-auto mb-4 border border-[var(--brand-primary)]/20 shadow-xs">
+              <div className="w-16 h-16 rounded-lg bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] flex items-center justify-center text-3xl mx-auto mb-4 border border-[var(--brand-primary)]/20 shadow-xs">
                 <InboxOutlined />
               </div>
               <h4 className="text-sm font-bold text-slate-800 dark:text-zinc-100 mb-1">
                 Click or drag portrait photo here to upload
               </h4>
               <p className="text-xs text-slate-400 dark:text-zinc-500 max-w-sm mx-auto mb-4">
-                Supported formats: PNG, JPG, JPEG, or WebP (Max 5MB). Optimal resolution 400x400px.
+                Supported formats: PNG, JPG, JPEG, or WebP (Max 5MB). Optimal
+                resolution 400x400px.
               </p>
               <Button
                 type="primary"
                 icon={<UploadOutlined />}
-                className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white font-semibold rounded-xl border-none shadow-xs"
+                className="bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white font-semibold rounded-lg border-none shadow-xs"
               >
                 Select Image File
               </Button>
@@ -435,14 +443,16 @@ export default function UploadAndCropImage({
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleMouseUp}
                   style={{ width: "260px", height: "260px" }}
-                  className="relative overflow-hidden bg-white rounded-2xl shadow-inner cursor-grab active:cursor-grabbing select-none shrink-0 border border-slate-700/80"
+                  className="relative overflow-hidden bg-white rounded-lg shadow-inner cursor-grab active:cursor-grabbing select-none shrink-0 border border-slate-700/80"
                 >
                   {/* Image to be transformed */}
                   <div
                     style={{
                       transform: `translate(${offset.x}px, ${offset.y}px) rotate(${rotation}deg) scale(${zoom})`,
                       transformOrigin: "center center",
-                      transition: isDragging ? "none" : "transform 0.05s ease-out",
+                      transition: isDragging
+                        ? "none"
+                        : "transform 0.05s ease-out",
                     }}
                     className="w-full h-full flex items-center justify-center pointer-events-none"
                   >
@@ -450,16 +460,25 @@ export default function UploadAndCropImage({
                       ref={imageRef}
                       src={rawImageSrc}
                       alt="Crop Source"
-                      onLoad={(e) => setImgSize({ w: e.currentTarget.naturalWidth || 1, h: e.currentTarget.naturalHeight || 1 })}
+                      onLoad={(e) =>
+                        setImgSize({
+                          w: e.currentTarget.naturalWidth || 1,
+                          h: e.currentTarget.naturalHeight || 1,
+                        })
+                      }
                       className="max-w-none select-none pointer-events-none"
-                      style={{ width: `${baseW}px`, height: `${baseH}px`, flexShrink: 0 }}
+                      style={{
+                        width: `${baseW}px`,
+                        height: `${baseH}px`,
+                        flexShrink: 0,
+                      }}
                     />
                   </div>
 
                   {/* Darkened Mask Overlay with Clear Center Frame */}
                   <div
                     className={`absolute inset-0 pointer-events-none border-[3px] border-[var(--brand-border-hover)] shadow-[0_0_0_9999px_rgba(0,0,0,0.65)] ${
-                      isCircle ? "rounded-full" : "rounded-xl"
+                      isCircle ? "rounded-full" : "rounded-lg"
                     }`}
                   >
                     {/* Subtle Alignment Grid */}
@@ -480,11 +499,11 @@ export default function UploadAndCropImage({
                 {/* Controls and Real-time Preview Panel */}
                 <div className="flex-1 w-full space-y-4">
                   {/* Live Preview Card */}
-                  <div className="p-3.5 rounded-xl border border-slate-200/80 dark:border-zinc-800 bg-slate-50/60 dark:bg-zinc-800/30 flex items-center gap-4">
+                  <div className="p-3.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-slate-50/60 dark:bg-zinc-800/30 flex items-center gap-4">
                     <div
                       style={{ width: "64px", height: "64px" }}
                       className={`overflow-hidden border-2 border-[var(--brand-primary)] shadow-xs shrink-0 ${
-                        isCircle ? "rounded-full" : "rounded-xl"
+                        isCircle ? "rounded-full" : "rounded-lg"
                       }`}
                     >
                       <div
@@ -507,7 +526,11 @@ export default function UploadAndCropImage({
                             src={rawImageSrc}
                             alt="Mini Preview"
                             className="max-w-none"
-                            style={{ width: `${baseW}px`, height: `${baseH}px`, flexShrink: 0 }}
+                            style={{
+                              width: `${baseW}px`,
+                              height: `${baseH}px`,
+                              flexShrink: 0,
+                            }}
                           />
                         </div>
                       </div>
@@ -537,7 +560,9 @@ export default function UploadAndCropImage({
                       <Button
                         size="small"
                         icon={<ZoomOutOutlined />}
-                        onClick={() => setZoom((prev) => clampZoom(prev - 0.25))}
+                        onClick={() =>
+                          setZoom((prev) => clampZoom(prev - 0.25))
+                        }
                       />
                       <Slider
                         min={Number(minZoom.toFixed(2))}
@@ -545,13 +570,17 @@ export default function UploadAndCropImage({
                         step={0.05}
                         value={zoom}
                         onChange={setZoom}
-                        tooltip={{ formatter: (v) => `${Math.round(v * 100)}%` }}
+                        tooltip={{
+                          formatter: (v) => `${Math.round(v * 100)}%`,
+                        }}
                         className="flex-1 my-1"
                       />
                       <Button
                         size="small"
                         icon={<ZoomInOutlined />}
-                        onClick={() => setZoom((prev) => clampZoom(prev + 0.25))}
+                        onClick={() =>
+                          setZoom((prev) => clampZoom(prev + 0.25))
+                        }
                       />
                     </div>
                   </div>

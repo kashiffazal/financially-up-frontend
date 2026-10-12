@@ -52,23 +52,30 @@ export default function ChoosingBetweenStructures() {
     },
     {
       number: "03",
-      question: "Will the business employ staff or take on significant contracts?",
-      icon: <FileDoneOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      question:
+        "Will the business employ staff or take on significant contracts?",
+      icon: (
+        <FileDoneOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Commercial Risk",
       detail:
         "Hiring employees and entering high-value supply or client contracts increases commercial exposure and limited liability considerations.",
     },
     {
       number: "04",
-      question: "Will the business hold valuable assets or intellectual property?",
-      icon: <PropertySafetyOutlined className="text-purple-600 dark:text-purple-400" />,
+      question:
+        "Will the business hold valuable assets or intellectual property?",
+      icon: (
+        <PropertySafetyOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Asset Protection",
       detail:
         "Protecting core intellectual property, plant, vehicles, or business premises from operating trade liabilities.",
     },
     {
       number: "05",
-      question: "How important are flexibility, simplicity and ongoing administration?",
+      question:
+        "How important are flexibility, simplicity and ongoing administration?",
       icon: <SettingOutlined className="text-amber-600 dark:text-amber-400" />,
       tag: "Administration",
       detail:
@@ -76,7 +83,8 @@ export default function ChoosingBetweenStructures() {
     },
     {
       number: "06",
-      question: "Could new investors, partners or family members become involved later?",
+      question:
+        "Could new investors, partners or family members become involved later?",
       icon: <UserAddOutlined className="text-cyan-600 dark:text-cyan-400" />,
       tag: "Future Scaling",
       detail:
@@ -84,7 +92,8 @@ export default function ChoosingBetweenStructures() {
     },
     {
       number: "07",
-      question: "Are there tax, legal or commercial consequences if the structure changes later?",
+      question:
+        "Are there tax, legal or commercial consequences if the structure changes later?",
       icon: <SwapOutlined className="text-rose-600 dark:text-rose-400" />,
       tag: "Restructure Impact",
       detail:
@@ -106,7 +115,11 @@ export default function ChoosingBetweenStructures() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            There is no single structure that is automatically best for every business. A useful review usually considers who owns the business, how profits may be used or distributed, expected growth, financing, administration, tax consequences, liability exposure and future changes in ownership.
+            There is no single structure that is automatically best for every
+            business. A useful review usually considers who owns the business,
+            how profits may be used or distributed, expected growth, financing,
+            administration, tax consequences, liability exposure and future
+            changes in ownership.
           </p>
         </div>
 
@@ -115,14 +128,14 @@ export default function ChoosingBetweenStructures() {
           {evaluationQuestions.map((item, idx) => (
             <div
               key={idx}
-              className={`p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between group ${
+              className={`p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between group ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center text-lg">
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center text-lg">
                       {item.icon}
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-400 dark:text-zinc-500">

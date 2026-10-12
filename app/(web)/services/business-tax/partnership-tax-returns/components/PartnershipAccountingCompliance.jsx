@@ -101,9 +101,9 @@ export default function PartnershipAccountingCompliance() {
           {accountingScopes.map((scope, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                 {scope.icon}
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -117,7 +117,7 @@ export default function PartnershipAccountingCompliance() {
         </div>
 
         {/* Employer & Statutory Obligations Panel */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm mb-12">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm mb-12">
           <div className="max-w-3xl mb-6">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
               GST, BAS &amp; Employer Obligations
@@ -134,7 +134,7 @@ export default function PartnershipAccountingCompliance() {
             {employerObligations.map((obl, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white dark:bg-zinc-800 border border-slate-200/80 dark:border-zinc-700"
+                className="p-4 rounded-lg bg-white dark:bg-zinc-800 border border-slate-200/80 dark:border-zinc-700"
               >
                 <div className="flex items-center gap-2 mb-1.5">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-xs shrink-0" />
@@ -151,7 +151,7 @@ export default function PartnershipAccountingCompliance() {
         </div>
 
         {/* Cross-Service Reference Strip */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/80 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50/80 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <ApartmentOutlined className="text-teal-600 dark:text-teal-400" />
@@ -167,7 +167,7 @@ export default function PartnershipAccountingCompliance() {
             <Link href="/services/business-tax/business-financial-statements">
               <Button
                 type="default"
-                className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-outline text-xs sm:text-sm font-semibold rounded-lg"
               >
                 Business Financial Statements
               </Button>
@@ -175,7 +175,7 @@ export default function PartnershipAccountingCompliance() {
             <Link href="/services/business-tax">
               <Button
                 type="primary"
-                className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

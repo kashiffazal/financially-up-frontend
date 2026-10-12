@@ -28,25 +28,33 @@ export default function WhyChooseFinanciallyUpProperty() {
 
   const firmStrengths = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description:
         "Financially Up is officially registered with the Tax Practitioners Board (TPB #26234055), legally authorised to lodge property returns, development BAS, and represent clients before the ATO.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "CPA & IPA Qualified Team",
       description:
         "Our team includes accredited members of CPA Australia and the Institute of Public Accountants (IPA), combining rigorous technical standards with practical property tax insights.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "10+ Years of Experience",
       description:
         "Over a decade supporting property investors, landlords, developers, and business entities with property-related accounting, CGT calculations, and GST compliance.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide & In-Person Appointments",
       description:
         "We support property owners across all states and territories through secure online appointments, as well as offering in-person consultations at our offices.",
@@ -67,11 +75,18 @@ export default function WhyChooseFinanciallyUpProperty() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up can review the property activity, identify the relevant accounting and tax issues, prepare or reconcile records, assist with returns and reporting within scope, and explain where further planning or specialist legal or financial advice may be needed.
+            Financially Up can review the property activity, identify the
+            relevant accounting and tax issues, prepare or reconcile records,
+            assist with returns and reporting within scope, and explain where
+            further planning or specialist legal or financial advice may be
+            needed.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            We are a registered tax agent with more than 10 years of experience, and our team includes CPA and IPA professionals. We support clients Australia-wide through online appointments and also offer in-person appointments.
+            We are a registered tax agent with more than 10 years of experience,
+            and our team includes CPA and IPA professionals. We support clients
+            Australia-wide through online appointments and also offer in-person
+            appointments.
           </p>
         </div>
 
@@ -80,9 +95,9 @@ export default function WhyChooseFinanciallyUpProperty() {
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-teal-500/40 dark:hover:border-teal-500/40 hover:shadow-md transition-all duration-200"
+              className="p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900/80 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-teal-500/40 dark:hover:border-teal-500/40 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                 {item.icon}
               </div>
               <div className="space-y-2">

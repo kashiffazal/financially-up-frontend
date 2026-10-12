@@ -47,10 +47,16 @@ export default function DoubleTaxAndFitoSection() {
                 What If Foreign Tax Has Already Been Paid?
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Paying tax overseas does not necessarily remove the Australian reporting requirement. Where qualifying foreign income tax has been paid on income or gains included for Australian tax purposes, a foreign income tax offset, commonly called a FITO, may be available. Entitlement depends on the Australian rules and evidence of the foreign tax paid.
+                Paying tax overseas does not necessarily remove the Australian
+                reporting requirement. Where qualifying foreign income tax has
+                been paid on income or gains included for Australian tax
+                purposes, a foreign income tax offset, commonly called a FITO,
+                may be available. Entitlement depends on the Australian rules
+                and evidence of the foreign tax paid.
               </p>
               <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                The FITO system is designed to provide relief from double taxation in eligible cases. However:
+                The FITO system is designed to provide relief from double
+                taxation in eligible cases. However:
               </p>
 
               <div className="mt-5 space-y-3">
@@ -64,9 +70,10 @@ export default function DoubleTaxAndFitoSection() {
                 ))}
               </div>
 
-              <div className="mt-6 p-4 rounded-xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60">
+              <div className="mt-6 p-4 rounded-lg bg-teal-50/80 dark:bg-teal-950/40 border border-teal-200/80 dark:border-teal-800/60">
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium">
-                  For this reason, both the gross foreign income and the tax paid overseas should be reviewed.
+                  For this reason, both the gross foreign income and the tax
+                  paid overseas should be reviewed.
                 </p>
               </div>
             </div>
@@ -76,7 +83,8 @@ export default function DoubleTaxAndFitoSection() {
                 href="/services/international-tax/foreign-tax-offset"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:underline"
               >
-                Learn more in our Foreign Tax Offset (FITO) specialist guide <ArrowRightOutlined />
+                Learn more in our Foreign Tax Offset (FITO) specialist guide{" "}
+                <ArrowRightOutlined />
               </Link>
             </div>
           </div>
@@ -91,7 +99,11 @@ export default function DoubleTaxAndFitoSection() {
                 What Is a Foreign Income Tax Offset?
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                A foreign income tax offset is an Australian tax offset that may provide relief where eligible foreign income tax has been paid on income or gains included for Australian tax purposes. It is not a deduction from income, and the claim may be limited by the Australian FITO calculation.
+                A foreign income tax offset is an Australian tax offset that may
+                provide relief where eligible foreign income tax has been paid
+                on income or gains included for Australian tax purposes. It is
+                not a deduction from income, and the claim may be limited by the
+                Australian FITO calculation.
               </p>
 
               <h3 className="mt-8 text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200 mb-4">
@@ -101,7 +113,7 @@ export default function DoubleTaxAndFitoSection() {
                 {supportingRecords.map((rec, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 flex items-center gap-3"
+                    className="p-3.5 rounded-lg bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 flex items-center gap-3"
                   >
                     <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 shrink-0 text-base" />
                     <span className="text-xs sm:text-sm font-medium text-slate-800 dark:text-zinc-200">
@@ -112,8 +124,10 @@ export default function DoubleTaxAndFitoSection() {
               </div>
             </div>
 
-            <div className="mt-8 p-4 rounded-xl bg-slate-100/80 dark:bg-zinc-800/50 text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
-              Unlike a tax deduction which simply lowers assessable income, a tax offset directly reduces your final Australian tax payable dollar-for-dollar up to the statutory limit.
+            <div className="mt-8 p-4 rounded-lg bg-slate-100/80 dark:bg-zinc-800/50 text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-normal">
+              Unlike a tax deduction which simply lowers assessable income, a
+              tax offset directly reduces your final Australian tax payable
+              dollar-for-dollar up to the statutory limit.
             </div>
           </div>
         </div>

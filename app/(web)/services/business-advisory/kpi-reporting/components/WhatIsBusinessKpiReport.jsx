@@ -23,7 +23,9 @@ import {
 export default function WhatIsBusinessKpiReport() {
   const reportingExamples = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Core Financial Rhythm",
       items: [
         "Monthly gross sales and gross profit margins",
@@ -33,7 +35,9 @@ export default function WhatIsBusinessKpiReport() {
       tag: "Financial Fundamentals",
     },
     {
-      icon: <AppstoreOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AppstoreOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Service Business Metrics",
       items: [
         "Productive billable work and staff utilization",
@@ -43,7 +47,9 @@ export default function WhatIsBusinessKpiReport() {
       tag: "Professional Services",
     },
     {
-      icon: <ShopOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Retail & Product Metrics",
       items: [
         "Inventory and stock turnover velocity",
@@ -77,12 +83,12 @@ export default function WhatIsBusinessKpiReport() {
         </div>
 
         {/* Lead Narrative Box */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 mb-12">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800 mb-12">
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-            A monthly report might show sales, gross margin, outstanding invoices
-            and cash alongside budget or prior-period figures. An owner of a
-            service business might also monitor billable work, job margins or
-            work in progress, if those records are dependable. A retailer may
+            A monthly report might show sales, gross margin, outstanding
+            invoices and cash alongside budget or prior-period figures. An owner
+            of a service business might also monitor billable work, job margins
+            or work in progress, if those records are dependable. A retailer may
             need stock turnover and sales by product category. More measures do
             not automatically make a better report: each one should prompt a
             useful question or action.
@@ -90,7 +96,8 @@ export default function WhatIsBusinessKpiReport() {
           <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
             <CheckCircleOutlined />
             <span>
-              Clarity over complexity: every metric must drive actionable commercial insight.
+              Clarity over complexity: every metric must drive actionable
+              commercial insight.
             </span>
           </div>
         </div>
@@ -100,11 +107,11 @@ export default function WhatIsBusinessKpiReport() {
           {reportingExamples.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <Tag className="font-semibold text-2xs m-0">{item.tag}</Tag>

@@ -6,7 +6,7 @@ import { getSettings } from "@/lib/getSettings";
 import { buildBlogSchema, resolveBlogImage, siteBaseUrl } from "@/lib/blog";
 
 /**
- * /blog/[slug] — single article, from the database (managed at /admin/blog).
+ * /blog/[slug] - single article, from the database (managed at /admin/blog).
  * Per-article SEO: meta title / description, Open Graph image, canonical URL
  * and BlogPosting JSON-LD (custom from the editor, or generated automatically).
  */
@@ -88,7 +88,7 @@ const structuredData = (post, site) => {
       tags: post.tags,
       focusKeyword: post.seo.focusKeyword,
     },
-    site
+    site,
   );
 };
 
@@ -96,15 +96,24 @@ export default async function SingleBlogPostPage({ params }) {
   const { slug } = await params;
   const { post, recentPosts, notFound: missing } = await getBlogPost(slug);
   if (missing) notFound();
-  if (!post) throw new Error("The blog is temporarily unavailable. Please try again shortly.");
+  if (!post)
+    throw new Error(
+      "The blog is temporarily unavailable. Please try again shortly.",
+    );
 
   const site = siteInfo(await getSettings());
   // "<" escaped so the JSON can never close the script tag early
-  const jsonLd = JSON.stringify(structuredData(post, site)).replace(/</g, "\\u003c");
+  const jsonLd = JSON.stringify(structuredData(post, site)).replace(
+    /</g,
+    "\\u003c",
+  );
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
+      />
       <BlogArticle post={post} recentPosts={recentPosts} />
     </>
   );

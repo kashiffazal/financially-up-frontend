@@ -26,7 +26,9 @@ import {
 export default function WhatToBringToGrowthDiscussion() {
   const preparationItems = [
     {
-      icon: <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Recent Financial Statements",
       desc: "Profit & Loss statements and balance sheets for recent trading years.",
     },
@@ -85,9 +87,9 @@ export default function WhatToBringToGrowthDiscussion() {
           {preparationItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                 {item.icon}
               </div>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -108,7 +110,7 @@ export default function WhatToBringToGrowthDiscussion() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book an Initial Discussion
             </Button>

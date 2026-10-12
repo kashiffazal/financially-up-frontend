@@ -22,38 +22,50 @@ export default function WhatArePaygServices() {
     {
       title: "New Employers",
       desc: "New employers setting up payroll for the first time.",
-      icon: <UserAddOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />,
+      icon: (
+        <UserAddOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />
+      ),
     },
     {
       title: "Contractor Transitions",
       desc: "Growing businesses moving from contractors-only arrangements to employees.",
-      icon: <RiseOutlined className="text-teal-600 dark:text-teal-400 text-xl" />,
+      icon: (
+        <RiseOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
+      ),
     },
     {
       title: "Director Remuneration",
       desc: "Companies starting to pay directors or other office holders.",
-      icon: <ApartmentOutlined className="text-blue-600 dark:text-blue-400 text-xl" />,
+      icon: (
+        <ApartmentOutlined className="text-blue-600 dark:text-blue-400 text-xl" />
+      ),
     },
     {
       title: "Acquisitions & Restructures",
       desc: "Businesses taking over payroll after an acquisition or restructure.",
-      icon: <BranchesOutlined className="text-indigo-600 dark:text-indigo-400 text-xl" />,
+      icon: (
+        <BranchesOutlined className="text-indigo-600 dark:text-indigo-400 text-xl" />
+      ),
     },
     {
       title: "Retrospective Corrections",
       desc: "Employers that discover they should have registered earlier and need to correct their position.",
-      icon: <WarningOutlined className="text-amber-600 dark:text-amber-400 text-xl" />,
+      icon: (
+        <WarningOutlined className="text-amber-600 dark:text-amber-400 text-xl" />
+      ),
     },
   ];
 
   return (
     <section className="py-16 sm:py-24 bg-white dark:bg-zinc-900 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: What are PAYG withholding services? */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <Tag color="green" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               <FileTextOutlined className="mr-1.5" />
               Employer Compliance
             </Tag>
@@ -63,11 +75,20 @@ export default function WhatArePaygServices() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              PAYG withholding services cover the registration, calculation support, reconciliation and reporting processes associated with amounts a payer is required to withhold and pay to the ATO. The exact obligations depend on the type of payments being made and the business circumstances.
+              PAYG withholding services cover the registration, calculation
+              support, reconciliation and reporting processes associated with
+              amounts a payer is required to withhold and pay to the ATO. The
+              exact obligations depend on the type of payments being made and
+              the business circumstances.
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For employers, PAYG withholding commonly applies to salary and wages and may also apply to other payments under specific rules. A business must generally register for PAYG withholding before the first payment from which it is required to withhold, and the withheld amounts must be reported and paid to the ATO through the relevant activity statement cycle.
+              For employers, PAYG withholding commonly applies to salary and
+              wages and may also apply to other payments under specific rules. A
+              business must generally register for PAYG withholding before the
+              first payment from which it is required to withhold, and the
+              withheld amounts must be reported and paid to the ATO through the
+              relevant activity statement cycle.
             </p>
           </div>
 
@@ -80,7 +101,10 @@ export default function WhatArePaygServices() {
                 </h3>
               </div>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                You must register with the Australian Taxation Office prior to initiating payments from which tax must be withheld. Proactive registration avoids processing blocks on your Single Touch Payroll and activity statement filings.
+                You must register with the Australian Taxation Office prior to
+                initiating payments from which tax must be withheld. Proactive
+                registration avoids processing blocks on your Single Touch
+                Payroll and activity statement filings.
               </p>
             </div>
           </div>
@@ -93,7 +117,11 @@ export default function WhatArePaygServices() {
               Who may need a PAYG withholding registration service?
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              A business may need to register when it begins making payments from which tax is required to be withheld. This commonly arises when a business hires employees, appoints directors who receive remuneration, or makes other payments covered by PAYG withholding rules.
+              A business may need to register when it begins making payments
+              from which tax is required to be withheld. This commonly arises
+              when a business hires employees, appoints directors who receive
+              remuneration, or makes other payments covered by PAYG withholding
+              rules.
             </p>
           </div>
 
@@ -101,10 +129,10 @@ export default function WhatArePaygServices() {
             {registrationScenarios.map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center mb-5">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center mb-5">
                     {item.icon}
                   </div>
                   <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -119,10 +147,11 @@ export default function WhatArePaygServices() {
           </div>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 italic">
-            A PAYG registration accountant can help review the starting date, registration details and reporting cycle before payroll reporting becomes routine.
+            A PAYG registration accountant can help review the starting date,
+            registration details and reporting cycle before payroll reporting
+            becomes routine.
           </p>
         </div>
-
       </div>
     </section>
   );

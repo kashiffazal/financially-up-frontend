@@ -61,7 +61,11 @@ export default function CapitalWorksDepreciation() {
           </h2>
           {/* Verbatim text from official document */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Some construction expenditure may be deductible over time as capital works. Certain depreciating assets can also be dealt with under decline-in-value rules, although restrictions can apply to second-hand assets in residential rental properties. These rules differ from immediate rental deductions.
+            Some construction expenditure may be deductible over time as capital
+            works. Certain depreciating assets can also be dealt with under
+            decline-in-value rules, although restrictions can apply to
+            second-hand assets in residential rental properties. These rules
+            differ from immediate rental deductions.
           </p>
         </div>
 
@@ -70,10 +74,13 @@ export default function CapitalWorksDepreciation() {
           {depreciationStreams.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg transition-all"
             >
               <div className="flex items-center justify-between mb-4">
-                <Tag color="cyan" className="text-xs font-bold uppercase tracking-wider">
+                <Tag
+                  color="cyan"
+                  className="text-xs font-bold uppercase tracking-wider"
+                >
                   {item.badge}
                 </Tag>
                 <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
@@ -88,7 +95,10 @@ export default function CapitalWorksDepreciation() {
               </p>
               <ul className="space-y-2.5 pt-4 border-t border-slate-100 dark:border-zinc-800">
                 {item.details.map((detail, dIdx) => (
-                  <li key={dIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
+                  <li
+                    key={dIdx}
+                    className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-400"
+                  >
                     <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0" />
                     <span>{detail}</span>
                   </li>
@@ -99,8 +109,8 @@ export default function CapitalWorksDepreciation() {
         </div>
 
         {/* Verbatim Paragraph 2 Banner */}
-        <div className="bg-slate-50/90 dark:bg-zinc-900/90 rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+        <div className="bg-slate-50/90 dark:bg-zinc-900/90 rounded-lg p-6 sm:p-8 border border-slate-200/80 dark:border-zinc-800 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
             <InfoCircleOutlined className="text-2xl" />
           </div>
           <div>
@@ -109,7 +119,10 @@ export default function CapitalWorksDepreciation() {
             </span>
             {/* Verbatim copy from official document */}
             <p className="text-xs sm:text-sm md:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              A depreciation or quantity-surveyor report can be useful in appropriate circumstances, but it should be applied together with the actual tax rules and property history rather than treated as a substitute for reviewing the records.
+              A depreciation or quantity-surveyor report can be useful in
+              appropriate circumstances, but it should be applied together with
+              the actual tax rules and property history rather than treated as a
+              substitute for reviewing the records.
             </p>
           </div>
         </div>

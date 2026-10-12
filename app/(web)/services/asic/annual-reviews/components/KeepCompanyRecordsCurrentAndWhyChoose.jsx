@@ -37,7 +37,10 @@ export default function KeepCompanyRecordsCurrentAndWhyChoose() {
         {/* Subsection 1: Keep the company’s own records current */}
         <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-10">
-            <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="purple"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Statutory Record-Keeping
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -47,7 +50,7 @@ export default function KeepCompanyRecordsCurrentAndWhyChoose() {
 
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-100 dark:border-purple-800/40 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-100 dark:border-purple-800/40 flex items-center justify-center">
                 <BookOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -55,11 +58,18 @@ export default function KeepCompanyRecordsCurrentAndWhyChoose() {
               </h3>
             </div>
             <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
-              The ASIC annual statement is not the company&apos;s complete corporate record. Companies are required to maintain their own records, including company resolutions and a register of members. Our{" "}
-              <Link href="/services/asic/corporate-registers" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+              The ASIC annual statement is not the company&apos;s complete
+              corporate record. Companies are required to maintain their own
+              records, including company resolutions and a register of members.
+              Our{" "}
+              <Link
+                href="/services/asic/corporate-registers"
+                className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+              >
                 Corporate Registers service
               </Link>{" "}
-              can assist with maintaining those records where ongoing support is required.
+              can assist with maintaining those records where ongoing support is
+              required.
             </p>
           </div>
         </div>
@@ -74,7 +84,12 @@ export default function KeepCompanyRecordsCurrentAndWhyChoose() {
               Why choose Financially Up
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up provides company compliance support with the benefit of accounting and tax context. We are a registered tax agent with more than 10 years of experience, and our professional team includes CPA and IPA members. We assist clients Australia-wide through online appointments, with in-person appointments also available.
+              Financially Up provides company compliance support with the
+              benefit of accounting and tax context. We are a registered tax
+              agent with more than 10 years of experience, and our professional
+              team includes CPA and IPA members. We assist clients
+              Australia-wide through online appointments, with in-person
+              appointments also available.
             </p>
 
             {/* Metrics */}
@@ -99,7 +114,7 @@ export default function KeepCompanyRecordsCurrentAndWhyChoose() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPosition="end"
-                  className="w-full sm:w-auto rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
+                  className="w-full sm:w-auto rounded-lg font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
                 >
                   Book an Appointment
                 </Button>
@@ -113,7 +128,7 @@ export default function KeepCompanyRecordsCurrentAndWhyChoose() {
                   <Button
                     size="large"
                     icon={<PhoneOutlined />}
-                    className="w-full sm:w-auto rounded-xl font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
+                    className="w-full sm:w-auto rounded-lg font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
                   >
                     Call {company.phone}
                   </Button>

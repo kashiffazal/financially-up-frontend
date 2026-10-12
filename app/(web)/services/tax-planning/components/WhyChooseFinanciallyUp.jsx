@@ -33,22 +33,30 @@ export default function WhyChooseFinanciallyUp() {
 
   const firmCredentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       desc: "Registered tax agent operating under the regulatory standards of the Tax Practitioners Board (TPB).",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       desc: "Our professional team includes CPA and IPA members with extensive taxation expertise.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "10+ Years of Experience",
       desc: "More than a decade assisting Australian businesses and individuals with proactive planning.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CalendarOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Appointments",
       desc: "Online appointments via secure calendar links Australia-wide, with in-person consultations also available.",
     },
@@ -57,25 +65,33 @@ export default function WhyChooseFinanciallyUp() {
   const approachSteps = [
     {
       step: "01",
-      icon: <CompassOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <CompassOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       title: "Identify Decision or Concern",
       desc: "Financially Up starts by identifying the decision or tax concern that needs attention.",
     },
     {
       step: "02",
-      icon: <AuditOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <AuditOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       title: "Review Facts & Agree Scope",
       desc: "We review the relevant facts and records, clarify which issues fall within tax planning, and agree the scope before detailed advisory work is undertaken.",
     },
     {
       step: "03",
-      icon: <FileDoneOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <FileDoneOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       title: "Plain-Language Advice",
       desc: "We explain the practical tax implications in plain language so you understand the consequences before choices are locked in.",
     },
     {
       step: "04",
-      icon: <CheckCircleOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      icon: (
+        <CheckCircleOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       title: "Planning vs Compliance",
       desc: "Planning informs future decisions; compliance work records and reports the outcome of transactions that have already occurred.",
     },
@@ -108,18 +124,18 @@ export default function WhyChooseFinanciallyUp() {
           </div>
 
           {/* Document Paragraph 2 - Verbatim Callout */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-10">
+          <div className="p-6 sm:p-8 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-10">
             <div className="max-w-4xl mx-auto text-center">
               <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 block mb-2">
                 Forward Planning vs Historical Compliance
               </span>
               {/* Document Paragraph 2 - Verbatim */}
               <p className="text-sm sm:text-base text-slate-800 dark:text-zinc-200 font-medium leading-relaxed m-0">
-                Our tax planning support can sit alongside tax return preparation,
-                accounting and bookkeeping, but those services are not
-                interchangeable. Planning is intended to inform future decisions;
-                compliance work records and reports the outcome of transactions
-                that have already occurred.
+                Our tax planning support can sit alongside tax return
+                preparation, accounting and bookkeeping, but those services are
+                not interchangeable. Planning is intended to inform future
+                decisions; compliance work records and reports the outcome of
+                transactions that have already occurred.
               </p>
             </div>
           </div>
@@ -129,11 +145,11 @@ export default function WhyChooseFinanciallyUp() {
             {approachSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-teal-500/50 transition-all flex flex-col justify-between"
+                className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-teal-500/50 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                       {step.icon}
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-400 dark:text-zinc-500">
@@ -168,9 +184,9 @@ export default function WhyChooseFinanciallyUp() {
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
               {legalName} is an Australian accounting, tax, bookkeeping and
               business advisory firm. We are a registered tax agent with more
-              than 10 years of experience, and our professional team includes CPA
-              and IPA members. We support clients Australia-wide through online
-              appointments, with in-person appointments also available.
+              than 10 years of experience, and our professional team includes
+              CPA and IPA members. We support clients Australia-wide through
+              online appointments, with in-person appointments also available.
             </p>
           </div>
 
@@ -179,9 +195,9 @@ export default function WhyChooseFinanciallyUp() {
             {firmCredentials.map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-2xl bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4 hover:border-teal-500/50 shadow-2xs transition-all"
+                className="p-6 sm:p-7 rounded-lg bg-slate-50/70 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-4 hover:border-teal-500/50 shadow-2xs transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                   {item.icon}
                 </div>
                 <div className="space-y-1.5">

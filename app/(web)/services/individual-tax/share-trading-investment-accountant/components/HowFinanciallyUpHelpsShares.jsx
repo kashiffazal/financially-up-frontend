@@ -61,14 +61,20 @@ export default function HowFinanciallyUpHelpsShares() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Professional Scope
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent, registration number {company?.taxAgentNumber || "26242127"}. We provide share and investment tax services to clients Australia-wide.
+            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
+            agent, registration number {company?.taxAgentNumber || "26242127"}.
+            We provide share and investment tax services to clients
+            Australia-wide.
           </p>
         </div>
 
@@ -87,9 +93,9 @@ export default function HowFinanciallyUpHelpsShares() {
             {services.map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
+                className="flex items-start gap-3 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
               >
-                <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700">
+                <div className="w-9 h-9 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700">
                   {item.icon}
                 </div>
                 <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-zinc-200 pt-1 leading-snug">
@@ -102,13 +108,17 @@ export default function HowFinanciallyUpHelpsShares() {
           {/* Scope Note */}
           <div className="mt-8 pt-6 border-t border-slate-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-400">
             <p className="m-0 max-w-2xl leading-relaxed">
-              Tax-return preparation, calculation work and tax advice are not always the same service. Advice before selling investments, changing how you trade or dealing with complex transactions is scoped separately where required.
+              Tax-return preparation, calculation work and tax advice are not
+              always the same service. Advice before selling investments,
+              changing how you trade or dealing with complex transactions is
+              scoped separately where required.
             </p>
             <Link
               href="/services/individual-tax/individual-tax-returns"
               className="text-brand-primary dark:text-emerald-400 font-bold hover:underline inline-flex items-center gap-1 shrink-0"
             >
-              Standard Tax Return Service <ArrowRightOutlined className="text-xs" />
+              Standard Tax Return Service{" "}
+              <ArrowRightOutlined className="text-xs" />
             </Link>
           </div>
         </div>
@@ -122,8 +132,12 @@ export default function HowFinanciallyUpHelpsShares() {
           >
             <PhoneOutlined /> {company.phone}
           </a>
-          <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">•</span>
-          <span>Registered Tax Agent #{company?.taxAgentNumber || "26242127"}</span>
+          <span className="text-slate-300 dark:text-zinc-700 hidden sm:inline">
+            •
+          </span>
+          <span>
+            Registered Tax Agent #{company?.taxAgentNumber || "26242127"}
+          </span>
         </div>
       </div>
     </section>

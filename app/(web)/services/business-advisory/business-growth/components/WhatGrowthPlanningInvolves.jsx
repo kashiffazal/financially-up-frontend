@@ -63,7 +63,7 @@ export default function WhatGrowthPlanningInvolves() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Grounded in Accounts & Operating Facts */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <AuditOutlined />
@@ -83,7 +83,7 @@ export default function WhatGrowthPlanningInvolves() {
           </div>
 
           {/* Card 2: The Contract Growth Lag Example */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <DollarOutlined />
@@ -105,7 +105,7 @@ export default function WhatGrowthPlanningInvolves() {
         </div>
 
         {/* Verbatim Paragraph 3 Feature Card: Focused Decisions, Not Unread Documents */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="max-w-3xl mb-8">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2">
               <CheckCircleOutlined />
@@ -117,9 +117,9 @@ export default function WhatGrowthPlanningInvolves() {
             <p className="mt-3 text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
               Your plan might include a small number of decisions: which
               products or customers to focus on, what capacity needs to be
-              added, what return is expected and when to review the results.
-              The detail should match the size and complexity of the business
-              rather than become a document no one uses.
+              added, what return is expected and when to review the results. The
+              detail should match the size and complexity of the business rather
+              than become a document no one uses.
             </p>
           </div>
 
@@ -128,7 +128,7 @@ export default function WhatGrowthPlanningInvolves() {
             {planElements.map((el, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800/80"
+                className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800/80"
               >
                 <div className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 mb-1">
                   Focus 0{idx + 1}
@@ -152,7 +152,7 @@ export default function WhatGrowthPlanningInvolves() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Build a Practical Growth Plan
             </Button>

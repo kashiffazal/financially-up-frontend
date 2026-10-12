@@ -23,7 +23,9 @@ export default function RelatedFamilyTrustRibbon() {
       title: "Trust Distribution Planning",
       desc: "Proactive 30 June resolution advice, beneficiary tax modeling & Section 100A compliance.",
       href: "/services/trusts/distribution-planning",
-      icon: <CalendarOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       badge: "Pillar 8.10",
       badgeColor: "green",
     },
@@ -39,7 +41,9 @@ export default function RelatedFamilyTrustRibbon() {
       title: "Trust Tax Returns",
       desc: "Annual compliance, Section 95 net income calculation, and statements of distribution.",
       href: "/services/trusts/trust-tax-returns",
-      icon: <FileTextOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileTextOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       badge: "Pillar 8.5",
       badgeColor: "purple",
     },
@@ -47,7 +51,9 @@ export default function RelatedFamilyTrustRibbon() {
       title: "Division 7A Advisory",
       desc: "Private company loans, unpaid present entitlements, Bendel ruling, and complying agreements.",
       href: "/services/business-tax/division-7a",
-      icon: <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-teal-600 dark:text-teal-400" />
+      ),
       badge: "Pillar 2.8",
       badgeColor: "cyan",
     },
@@ -58,7 +64,10 @@ export default function RelatedFamilyTrustRibbon() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
           <div>
-            <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Related Services
             </Tag>
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -66,7 +75,8 @@ export default function RelatedFamilyTrustRibbon() {
             </h2>
           </div>
           <p className="mt-2 md:mt-0 text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
-            Connect your family trust accounting with specialized advisory services.
+            Connect your family trust accounting with specialized advisory
+            services.
           </p>
         </div>
 
@@ -75,14 +85,17 @@ export default function RelatedFamilyTrustRibbon() {
             <Link
               key={idx}
               href={item.href}
-              className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group"
+              className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center">
                     {item.icon}
                   </div>
-                  <Tag color={item.badgeColor} className="text-xs font-semibold">
+                  <Tag
+                    color={item.badgeColor}
+                    className="text-xs font-semibold"
+                  >
                     {item.badge}
                   </Tag>
                 </div>

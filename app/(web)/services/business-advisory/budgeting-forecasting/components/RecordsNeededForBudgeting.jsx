@@ -28,7 +28,9 @@ import {
 export default function RecordsNeededForBudgeting() {
   const recordItems = [
     {
-      icon: <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Current & Prior-Year P&L Statements",
       desc: "Revealing multi-year revenue trends, gross margin stability, and overhead patterns.",
     },
@@ -48,7 +50,9 @@ export default function RecordsNeededForBudgeting() {
       desc: "Staff schedules, wage rates, award classifications, superannuation, and planned hires.",
     },
     {
-      icon: <FileProtectOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileProtectOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       title: "Major Contracts or Commitments",
       desc: "Commercial lease agreements, major customer master service agreements, and tenders.",
     },
@@ -97,9 +101,9 @@ export default function RecordsNeededForBudgeting() {
           {recordItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-3">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-3">
                 {item.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -113,7 +117,7 @@ export default function RecordsNeededForBudgeting() {
         </div>
 
         {/* Verbatim Paragraph 2 Card: Historical Results Context */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
             <CheckCircleOutlined />
             <span>Forward Vision Beyond Last Year’s Numbers</span>
@@ -127,7 +131,7 @@ export default function RecordsNeededForBudgeting() {
         </div>
 
         {/* Verbatim Paragraph 3 Cross-Link Banner: Data Reliability */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
@@ -154,7 +158,7 @@ export default function RecordsNeededForBudgeting() {
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="rounded-xl font-bold px-6 h-11"
+                  className="rounded-lg font-bold px-6 h-11"
                 >
                   Financial Statements Service
                 </Button>

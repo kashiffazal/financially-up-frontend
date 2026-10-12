@@ -24,27 +24,39 @@ export default function HowFinanciallyUpApproachesAdvisory() {
   const steps = [
     {
       stepNumber: "01",
-      icon: <CompassOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Understanding Objectives",
-      description: "Beginning by understanding the business, the owner's objectives, and the immediate decision or problem.",
+      description:
+        "Beginning by understanding the business, the owner's objectives, and the immediate decision or problem.",
     },
     {
       stepNumber: "02",
-      icon: <SearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Reviewing Financial Data",
-      description: "Reviewing the available financial information, checking data quality, and identifying key commercial drivers.",
+      description:
+        "Reviewing the available financial information, checking data quality, and identifying key commercial drivers.",
     },
     {
       stepNumber: "03",
-      icon: <AppstoreOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AppstoreOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Agreeing on Practical Scope",
-      description: "Determining whether the engagement involves a one-off review, budget or forecast, scenario modelling, management reporting, or recurring meetings.",
+      description:
+        "Determining whether the engagement involves a one-off review, budget or forecast, scenario modelling, management reporting, or recurring meetings.",
     },
     {
       stepNumber: "04",
-      icon: <FundOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FundOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Structured Execution",
-      description: "Delivering actionable insights, forward projections, and ongoing variance monitoring grounded in reliable numbers.",
+      description:
+        "Delivering actionable insights, forward projections, and ongoing variance monitoring grounded in reliable numbers.",
     },
   ];
 
@@ -68,7 +80,12 @@ export default function HowFinanciallyUpApproachesAdvisory() {
             How Financially Up approaches business advisory
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Financially Up begins by understanding the business, the owner’s objectives and the immediate decision or problem. We then review the available financial information, identify the key drivers and agree on a practical scope. Depending on the engagement, this may involve a one-off review, a budget or forecast, scenario modelling, management reporting or recurring advisory meetings.
+            Financially Up begins by understanding the business, the owner’s
+            objectives and the immediate decision or problem. We then review the
+            available financial information, identify the key drivers and agree
+            on a practical scope. Depending on the engagement, this may involve
+            a one-off review, a budget or forecast, scenario modelling,
+            management reporting or recurring advisory meetings.
           </p>
         </div>
 
@@ -77,11 +94,11 @@ export default function HowFinanciallyUpApproachesAdvisory() {
           {steps.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-xs font-bold text-slate-400 dark:text-zinc-500 font-mono">
@@ -100,7 +117,7 @@ export default function HowFinanciallyUpApproachesAdvisory() {
         </div>
 
         {/* Flexible Engagement Formats List */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 mb-10 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 mb-10 shadow-sm">
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-4">
             Flexible Advisory Engagement Formats
           </h3>
@@ -108,7 +125,7 @@ export default function HowFinanciallyUpApproachesAdvisory() {
             {engagementTypes.map((eng, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-xl bg-slate-50/80 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium flex items-center gap-2.5"
+                className="p-3.5 rounded-lg bg-slate-50/80 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium flex items-center gap-2.5"
               >
                 <div className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
                 <span>{eng}</span>
@@ -118,8 +135,8 @@ export default function HowFinanciallyUpApproachesAdvisory() {
         </div>
 
         {/* Professional Scope Boundary Disclaimer (Exact Paragraph 2 from Document) */}
-        <div className="rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-6 sm:p-8 flex items-start gap-4">
-          <div className="w-11 h-11 rounded-xl bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center shrink-0 text-amber-700 dark:text-amber-400 text-xl">
+        <div className="rounded-lg bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 p-6 sm:p-8 flex items-start gap-4">
+          <div className="w-11 h-11 rounded-lg bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center shrink-0 text-amber-700 dark:text-amber-400 text-xl">
             <SafetyCertificateOutlined />
           </div>
           <div>
@@ -127,7 +144,11 @@ export default function HowFinanciallyUpApproachesAdvisory() {
               Professional Scope & Qualified Advisory Coordination
             </h4>
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
-              Our role is accounting, tax and business advisory support within the agreed scope. Legal advice, lending decisions, investment recommendations and regulated financial product advice are separate matters and may require an appropriately qualified or authorised professional.
+              Our role is accounting, tax and business advisory support within
+              the agreed scope. Legal advice, lending decisions, investment
+              recommendations and regulated financial product advice are
+              separate matters and may require an appropriately qualified or
+              authorised professional.
             </p>
           </div>
         </div>

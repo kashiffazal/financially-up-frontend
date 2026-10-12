@@ -24,14 +24,20 @@ export default function PriorYearLodgmentAndRefunds() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Electronic Lodgment &amp; Assessment Outcomes
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Can Prior-Year Tax Returns Still Be Lodged?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Yes. Prior-year returns can generally still be lodged. The available method depends on the income year and may include electronic lodgment through a registered tax agent or another ATO-approved method.
+            Yes. Prior-year returns can generally still be lodged. The available
+            method depends on the income year and may include electronic
+            lodgment through a registered tax agent or another ATO-approved
+            method.
           </p>
         </div>
 
@@ -41,7 +47,7 @@ export default function PriorYearLodgmentAndRefunds() {
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <SendOutlined className="text-xl" />
                 </div>
                 <div>
@@ -54,20 +60,31 @@ export default function PriorYearLodgmentAndRefunds() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                Prior-year returns can generally still be lodged. The available method depends on the income year and may include electronic lodgment through a registered tax agent or another ATO-approved method.
+                Prior-year returns can generally still be lodged. The available
+                method depends on the income year and may include electronic
+                lodgment through a registered tax agent or another ATO-approved
+                method.
               </p>
               <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
                 <li className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 text-xs" />
-                  <span>Access to multi-year historical ATO pre-fill data and payment summaries</span>
+                  <span>
+                    Access to multi-year historical ATO pre-fill data and
+                    payment summaries
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 text-xs" />
-                  <span>Electronic validation reducing manual paperwork and correspondence delays</span>
+                  <span>
+                    Electronic validation reducing manual paperwork and
+                    correspondence delays
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 text-xs" />
-                  <span>Immediate digital lodgment confirmation receipt from the ATO</span>
+                  <span>
+                    Immediate digital lodgment confirmation receipt from the ATO
+                  </span>
                 </li>
               </ul>
             </div>
@@ -82,7 +99,7 @@ export default function PriorYearLodgmentAndRefunds() {
           <div className="p-7 sm:p-9 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <DollarOutlined className="text-xl" />
                 </div>
                 <div>
@@ -95,16 +112,22 @@ export default function PriorYearLodgmentAndRefunds() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                Lodging late does not automatically mean that you owe tax. Depending on the information for that year, the assessment may result in a refund, an amount payable or no further amount payable.
+                Lodging late does not automatically mean that you owe tax.
+                Depending on the information for that year, the assessment may
+                result in a refund, an amount payable or no further amount
+                payable.
               </p>
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/60 dark:border-zinc-700/60 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
                 <span className="font-bold text-slate-900 dark:text-white block mb-1">
                   Debt Offsetting Rule:
                 </span>
-                Any refund remains subject to ATO processing and may be applied against existing tax or other eligible government debts.
+                Any refund remains subject to ATO processing and may be applied
+                against existing tax or other eligible government debts.
               </div>
               <p className="text-xs text-slate-500 dark:text-zinc-400 italic leading-relaxed">
-                A late tax return accountant can help identify the relevant records, but cannot determine or guarantee the outcome before the return is properly prepared.
+                A late tax return accountant can help identify the relevant
+                records, but cannot determine or guarantee the outcome before
+                the return is properly prepared.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-100 dark:border-zinc-800">
@@ -117,7 +140,7 @@ export default function PriorYearLodgmentAndRefunds() {
 
         {/* 3 Possible Outcomes Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 text-center">
+          <div className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 text-center">
             <span className="inline-block px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold mb-2">
               Outcome A
             </span>
@@ -125,10 +148,11 @@ export default function PriorYearLodgmentAndRefunds() {
               A Tax Refund
             </h4>
             <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
-              If more tax was withheld than your assessed liability, subject to any existing debts.
+              If more tax was withheld than your assessed liability, subject to
+              any existing debts.
             </p>
           </div>
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 text-center">
+          <div className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 text-center">
             <span className="inline-block px-3 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300 text-xs font-bold mb-2">
               Outcome B
             </span>
@@ -136,10 +160,11 @@ export default function PriorYearLodgmentAndRefunds() {
               No Further Amount Payable
             </h4>
             <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
-              A nil balance where withheld tax exactly matched your calculated liability.
+              A nil balance where withheld tax exactly matched your calculated
+              liability.
             </p>
           </div>
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 text-center">
+          <div className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-800 text-center">
             <span className="inline-block px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-xs font-bold mb-2">
               Outcome C
             </span>
@@ -147,7 +172,8 @@ export default function PriorYearLodgmentAndRefunds() {
               An Amount Payable
             </h4>
             <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
-              A remaining tax liability where tax withheld was insufficient to cover taxable income.
+              A remaining tax liability where tax withheld was insufficient to
+              cover taxable income.
             </p>
           </div>
         </div>

@@ -31,7 +31,7 @@ export default function Step12DeclarationSignatures({ form }) {
         </p>
       </div>
 
-      {/* 6 Mandatory Statutory Declarations — Unified Emerald Box */}
+      {/* 6 Mandatory Statutory Declarations - Unified Emerald Box */}
       <div className="p-4 sm:p-5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 space-y-4">
         {/* Declaration 1: Accuracy of Information */}
         <div className="space-y-2">
@@ -292,7 +292,7 @@ export default function Step12DeclarationSignatures({ form }) {
                 2
               </div>
               <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-zinc-300">
-                Secondary Authorised Signatory (Signatory 2 — Optional / Joint
+                Secondary Authorised Signatory (Signatory 2 - Optional / Joint
                 Director)
               </span>
             </div>

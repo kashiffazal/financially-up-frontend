@@ -21,11 +21,14 @@ export default function OutsourcedCfoVsBookkeeping() {
   const tiers = [
     {
       name: "Bookkeeping Services",
-      icon: <BookOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <BookOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       focus: "Historical Data Integrity",
       tag: "Foundation",
       color: "blue",
-      description: "Records transactions and keeps the accounting system current.",
+      description:
+        "Records transactions and keeps the accounting system current.",
       bulletPoints: [
         "Bank feed reconciliation",
         "Accounts payable & receivable entry",
@@ -37,11 +40,14 @@ export default function OutsourcedCfoVsBookkeeping() {
     },
     {
       name: "Year-End Accounting",
-      icon: <FileProtectOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileProtectOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       focus: "Compliance & Statutory Accounts",
       tag: "Statutory",
       color: "gold",
-      description: "Focus on annual financial statements, tax returns and other obligations.",
+      description:
+        "Focus on annual financial statements, tax returns and other obligations.",
       bulletPoints: [
         "Special purpose financial reports",
         "Company income tax returns",
@@ -53,12 +59,15 @@ export default function OutsourcedCfoVsBookkeeping() {
     },
     {
       name: "Outsourced CFO Services",
-      icon: <RocketOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <RocketOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       focus: "Forward-Looking Strategy",
       tag: "Strategic",
       color: "green",
       isPrimary: true,
-      description: "Use reliable accounting information for ongoing management decisions and forward planning.",
+      description:
+        "Use reliable accounting information for ongoing management decisions and forward planning.",
       bulletPoints: [
         "Monthly management packs & KPIs",
         "Rolling cash flow & liquidity visibility",
@@ -75,14 +84,21 @@ export default function OutsourcedCfoVsBookkeeping() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="orange" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="orange"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Role Comparison
           </Tag>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Outsourced CFO versus bookkeeping and year-end accounting
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Bookkeeping records transactions and keeps the accounting system current. Year-end accounting and tax compliance focus on annual financial statements, tax returns and other obligations. Outsourced CFO services use reliable accounting information for ongoing management decisions and forward planning.
+            Bookkeeping records transactions and keeps the accounting system
+            current. Year-end accounting and tax compliance focus on annual
+            financial statements, tax returns and other obligations. Outsourced
+            CFO services use reliable accounting information for ongoing
+            management decisions and forward planning.
           </p>
         </div>
 
@@ -91,7 +107,7 @@ export default function OutsourcedCfoVsBookkeeping() {
           {tiers.map((tier, idx) => (
             <div
               key={idx}
-              className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
+              className={`p-6 sm:p-8 rounded-lg border transition-all duration-300 flex flex-col justify-between ${
                 tier.isPrimary
                   ? "bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-300 dark:border-emerald-700 shadow-md ring-1 ring-emerald-500/20"
                   : "bg-slate-50/80 dark:bg-zinc-800/50 border-slate-200/80 dark:border-zinc-700/60 hover:bg-white dark:hover:bg-zinc-800"
@@ -99,7 +115,7 @@ export default function OutsourcedCfoVsBookkeeping() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-700 shadow-sm flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-700 shadow-sm flex items-center justify-center">
                     {tier.icon}
                   </div>
                   <Tag color={tier.color} className="font-semibold text-xs m-0">
@@ -117,7 +133,10 @@ export default function OutsourcedCfoVsBookkeeping() {
                 </p>
                 <ul className="space-y-2.5 pt-4 border-t border-slate-200/60 dark:border-zinc-700/60 mb-6">
                   {tier.bulletPoints.map((pt, pIdx) => (
-                    <li key={pIdx} className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 flex items-center gap-2">
+                    <li
+                      key={pIdx}
+                      className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 flex items-center gap-2"
+                    >
                       <CheckOutlined className="text-emerald-600 dark:text-emerald-400 text-xs shrink-0" />
                       <span>{pt}</span>
                     </li>
@@ -140,14 +159,22 @@ export default function OutsourcedCfoVsBookkeeping() {
         </div>
 
         {/* Verbatim Cross-Linking Guidance */}
-        <div className="mt-8 p-6 rounded-2xl bg-slate-50 dark:bg-zinc-800/40 border border-slate-200/80 dark:border-zinc-700/60 text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
+        <div className="mt-8 p-6 rounded-lg bg-slate-50 dark:bg-zinc-800/40 border border-slate-200/80 dark:border-zinc-700/60 text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
           <p className="m-0">
-            If your records are not yet current enough for meaningful monthly reporting,{" "}
-            <Link href="/services/bookkeeping" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+            If your records are not yet current enough for meaningful monthly
+            reporting,{" "}
+            <Link
+              href="/services/bookkeeping"
+              className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+            >
               bookkeeping services
             </Link>{" "}
-            may need to be addressed first. If the immediate requirement is closing the financial year and preparing annual accounts, see{" "}
-            <Link href="/services/business-tax" className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline">
+            may need to be addressed first. If the immediate requirement is
+            closing the financial year and preparing annual accounts, see{" "}
+            <Link
+              href="/services/business-tax"
+              className="text-emerald-700 dark:text-emerald-400 font-bold hover:underline"
+            >
               year-end accounting
             </Link>
             .

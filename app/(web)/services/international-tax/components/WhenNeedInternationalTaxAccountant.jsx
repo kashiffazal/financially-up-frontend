@@ -61,7 +61,8 @@ export default function WhenNeedInternationalTaxAccountant() {
             When Might You Need an International Tax Accountant?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Professional international tax advice may be useful when your affairs involve both Australia and another country.
+            Professional international tax advice may be useful when your
+            affairs involve both Australia and another country.
           </p>
         </div>
 
@@ -70,13 +71,16 @@ export default function WhenNeedInternationalTaxAccountant() {
           {/* Row 1: Scenarios 1 & 2 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Scenario 1: You have moved to Australia */}
-            <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center">
                     <CompassOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
                   </div>
-                  <Tag color="cyan" className="font-semibold px-2.5 py-0.5 rounded-full">
+                  <Tag
+                    color="cyan"
+                    className="font-semibold px-2.5 py-0.5 rounded-full"
+                  >
                     Arriving in Australia
                   </Tag>
                 </div>
@@ -84,7 +88,11 @@ export default function WhenNeedInternationalTaxAccountant() {
                   You have moved to Australia
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                  If you have recently arrived in Australia, determining when you became an Australian resident for tax purposes can affect what income must be reported. Tax residency is different from citizenship or immigration status. Our dedicated Tax Residency service explains this area in more detail.
+                  If you have recently arrived in Australia, determining when
+                  you became an Australian resident for tax purposes can affect
+                  what income must be reported. Tax residency is different from
+                  citizenship or immigration status. Our dedicated Tax Residency
+                  service explains this area in more detail.
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-100 dark:border-zinc-800">
@@ -99,13 +107,16 @@ export default function WhenNeedInternationalTaxAccountant() {
             </div>
 
             {/* Scenario 2: You are leaving Australia or living overseas */}
-            <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center">
                     <GlobalOutlined className="text-blue-600 dark:text-blue-400 text-xl" />
                   </div>
-                  <Tag color="blue" className="font-semibold px-2.5 py-0.5 rounded-full">
+                  <Tag
+                    color="blue"
+                    className="font-semibold px-2.5 py-0.5 rounded-full"
+                  >
                     Departing or Living Overseas
                   </Tag>
                 </div>
@@ -113,7 +124,11 @@ export default function WhenNeedInternationalTaxAccountant() {
                   You are leaving Australia or living overseas
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                  Moving overseas does not automatically mean that you stop being an Australian resident for tax purposes. Your living arrangements, intentions, family, assets and other connections may need to be reviewed. A change in residency can also affect the Australian tax treatment of income and some assets.
+                  Moving overseas does not automatically mean that you stop
+                  being an Australian resident for tax purposes. Your living
+                  arrangements, intentions, family, assets and other connections
+                  may need to be reviewed. A change in residency can also affect
+                  the Australian tax treatment of income and some assets.
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-100 dark:border-zinc-800">
@@ -129,14 +144,17 @@ export default function WhenNeedInternationalTaxAccountant() {
           </div>
 
           {/* Scenario 3: You receive income from overseas (Featured Card with 8 income items) */}
-          <div className="p-7 sm:p-8 lg:p-10 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all">
+          <div className="p-7 sm:p-8 lg:p-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-6 space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center">
                     <DollarOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />
                   </div>
-                  <Tag color="green" className="font-semibold px-2.5 py-0.5 rounded-full">
+                  <Tag
+                    color="green"
+                    className="font-semibold px-2.5 py-0.5 rounded-full"
+                  >
                     Worldwide Assessable Income
                   </Tag>
                 </div>
@@ -144,18 +162,21 @@ export default function WhenNeedInternationalTaxAccountant() {
                   You receive income from overseas
                 </h3>
                 <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed">
-                  Australian residents for tax purposes are generally required to report assessable income from Australian and foreign sources, subject to applicable exemptions and special rules.
+                  Australian residents for tax purposes are generally required
+                  to report assessable income from Australian and foreign
+                  sources, subject to applicable exemptions and special rules.
                 </p>
                 <div className="pt-2">
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 m-0 mb-3">
-                    For detailed assistance with reporting overseas income, see our Foreign Income Tax service.
+                    For detailed assistance with reporting overseas income, see
+                    our Foreign Income Tax service.
                   </p>
                   <Link href="/services/international-tax/foreign-income-tax">
                     <Button
                       type="primary"
                       icon={<ArrowRightOutlined />}
                       iconPlacement="end"
-                      className="font-semibold h-10 px-5 rounded-xl shadow-xs"
+                      className="font-semibold h-10 px-5 rounded-lg shadow-xs"
                     >
                       Foreign Income Tax Service
                     </Button>
@@ -164,7 +185,7 @@ export default function WhenNeedInternationalTaxAccountant() {
               </div>
 
               {/* Right: The 8 Income Types */}
-              <div className="lg:col-span-6 bg-slate-50/80 dark:bg-zinc-950/60 rounded-xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800/80">
+              <div className="lg:col-span-6 bg-slate-50/80 dark:bg-zinc-950/60 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800/80">
                 <h4 className="text-xs font-bold text-slate-800 dark:text-zinc-200 uppercase tracking-wider mb-4 flex items-center gap-2">
                   <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400" />
                   <span>Reportable Foreign Income Sources</span>
@@ -187,13 +208,16 @@ export default function WhenNeedInternationalTaxAccountant() {
           {/* Row 3: Scenarios 4 & 5 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Scenario 4: You have paid tax in another country */}
-            <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center">
                     <CreditCardOutlined className="text-amber-600 dark:text-amber-400 text-xl" />
                   </div>
-                  <Tag color="gold" className="font-semibold px-2.5 py-0.5 rounded-full">
+                  <Tag
+                    color="gold"
+                    className="font-semibold px-2.5 py-0.5 rounded-full"
+                  >
                     Double Tax Relief
                   </Tag>
                 </div>
@@ -201,10 +225,16 @@ export default function WhenNeedInternationalTaxAccountant() {
                   You have paid tax in another country
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-3">
-                  Paying tax overseas does not necessarily mean the income can be excluded from an Australian tax return. Depending on the circumstances, a foreign income tax offset may be available in Australia for qualifying foreign tax paid on income that is also included for Australian tax purposes.
+                  Paying tax overseas does not necessarily mean the income can
+                  be excluded from an Australian tax return. Depending on the
+                  circumstances, a foreign income tax offset may be available in
+                  Australia for qualifying foreign tax paid on income that is
+                  also included for Australian tax purposes.
                 </p>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed mb-4">
-                  The amount that can be recognised depends on the applicable Australian rules and, where relevant, the tax treaty between Australia and the foreign country.
+                  The amount that can be recognised depends on the applicable
+                  Australian rules and, where relevant, the tax treaty between
+                  Australia and the foreign country.
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-100 dark:border-zinc-800">
@@ -219,13 +249,16 @@ export default function WhenNeedInternationalTaxAccountant() {
             </div>
 
             {/* Scenario 5: You own overseas investments or property */}
-            <div className="p-7 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="p-7 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/50 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/50 flex items-center justify-center">
                     <HomeOutlined className="text-purple-600 dark:text-purple-400 text-xl" />
                   </div>
-                  <Tag color="purple" className="font-semibold px-2.5 py-0.5 rounded-full">
+                  <Tag
+                    color="purple"
+                    className="font-semibold px-2.5 py-0.5 rounded-full"
+                  >
                     Global Assets & Holdings
                   </Tag>
                 </div>
@@ -233,7 +266,12 @@ export default function WhenNeedInternationalTaxAccountant() {
                   You own overseas investments or property
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-4">
-                  Foreign shares, bank accounts, investment funds, rental properties and other assets can create Australian tax reporting considerations. The tax treatment may depend on your residency status, the nature of the asset, when it was acquired, how it is held and whether you are entitled to any special treatment.
+                  Foreign shares, bank accounts, investment funds, rental
+                  properties and other assets can create Australian tax
+                  reporting considerations. The tax treatment may depend on your
+                  residency status, the nature of the asset, when it was
+                  acquired, how it is held and whether you are entitled to any
+                  special treatment.
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-100 dark:border-zinc-800 flex items-center gap-4">

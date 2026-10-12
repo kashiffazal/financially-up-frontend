@@ -20,7 +20,9 @@ export default function TimingMattersInCgtPlanning() {
   const timelineStages = [
     {
       step: "01",
-      icon: <FileDoneOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Contract Signed (CGT Event A1)",
       desc: "For disposals under contract, CGT event A1 occurs when the contract is entered into, locking in the income year.",
       badge: "Tax Liability Trigger",
@@ -28,7 +30,9 @@ export default function TimingMattersInCgtPlanning() {
     },
     {
       step: "02",
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Settlement Completed",
       desc: "Legal title transfers and documentation is finalised, often 30-90 days later in a completely different financial year.",
       badge: "Legal Transfer",
@@ -36,7 +40,9 @@ export default function TimingMattersInCgtPlanning() {
     },
     {
       step: "03",
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Cash Proceeds Received",
       desc: "Funds cleared in bank account. Cash receipt does not dictate the tax year for CGT event A1 under Australian law.",
       badge: "Cash Movement",
@@ -58,8 +64,12 @@ export default function TimingMattersInCgtPlanning() {
         </div>
 
         {/* Verbatim Paragraph 1 */}
-        <div className="max-w-4xl mx-auto mb-12 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          The date you receive the money is not always the date of the CGT event. For a disposal under a contract, CGT event A1 generally occurs when the contract is entered into rather than at settlement. Other CGT events can have different timing, so the transaction and documents should be reviewed.
+        <div className="max-w-4xl mx-auto mb-12 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          The date you receive the money is not always the date of the CGT
+          event. For a disposal under a contract, CGT event A1 generally occurs
+          when the contract is entered into rather than at settlement. Other CGT
+          events can have different timing, so the transaction and documents
+          should be reviewed.
         </div>
 
         {/* Interactive Timeline Visual */}
@@ -67,7 +77,7 @@ export default function TimingMattersInCgtPlanning() {
           {timelineStages.map((stage, idx) => (
             <div
               key={idx}
-              className={`rounded-2xl p-6 sm:p-7 border shadow-sm transition-all duration-300 flex flex-col justify-between ${
+              className={`rounded-lg p-6 sm:p-7 border shadow-sm transition-all duration-300 flex flex-col justify-between ${
                 stage.highlight
                   ? "bg-white dark:bg-zinc-900 border-brand-primary/30 dark:border-emerald-500/40 ring-2 ring-brand-primary/10 dark:ring-emerald-500/20"
                   : "bg-white dark:bg-zinc-900 border-slate-200/80 dark:border-zinc-800"
@@ -75,7 +85,7 @@ export default function TimingMattersInCgtPlanning() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {stage.icon}
                   </div>
                   <span
@@ -100,7 +110,7 @@ export default function TimingMattersInCgtPlanning() {
         </div>
 
         {/* Verbatim Paragraph 2 on Pre-Transaction Planning */}
-        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
+        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
           <div className="flex items-start gap-4">
             <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <div className="space-y-2 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
@@ -108,7 +118,11 @@ export default function TimingMattersInCgtPlanning() {
                 Why Planning Must Precede Contract Execution
               </h3>
               <p>
-                This is why planning should ideally happen before a transaction is signed or completed. The correct date can determine the income year in which the gain or loss is reported and can affect which losses, exemptions or other rules are available at that time.
+                This is why planning should ideally happen before a transaction
+                is signed or completed. The correct date can determine the
+                income year in which the gain or loss is reported and can affect
+                which losses, exemptions or other rules are available at that
+                time.
               </p>
             </div>
           </div>

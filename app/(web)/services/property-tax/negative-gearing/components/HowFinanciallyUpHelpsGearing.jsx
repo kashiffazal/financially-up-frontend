@@ -60,7 +60,8 @@ export default function HowFinanciallyUpHelpsGearing() {
             How {company?.legalName || "Financially Up"} Can Help
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Our aim is to report the property correctly rather than assume every cash shortfall is automatically deductible.
+            Our aim is to report the property correctly rather than assume every
+            cash shortfall is automatically deductible.
           </p>
         </div>
 
@@ -68,29 +69,40 @@ export default function HowFinanciallyUpHelpsGearing() {
           {services.map((svc, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="p-3 bg-slate-50 w-fit rounded-xl border border-slate-100 mb-5">
+              <div className="p-3 bg-slate-50 w-fit rounded-lg border border-slate-100 mb-5">
                 {svc.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{svc.title}</h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{svc.desc}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {svc.title}
+              </h3>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {svc.desc}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Records to Have Ready */}
-        <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-16">
+        <div className="bg-white rounded-lg p-8 sm:p-10 border border-slate-200 shadow-sm mb-16">
           <div className="flex items-center gap-3 mb-6">
             <FolderOpenOutlined className="text-2xl text-emerald-600" />
-            <h3 className="text-2xl font-bold text-slate-900">Records to Have Ready</h3>
+            <h3 className="text-2xl font-bold text-slate-900">
+              Records to Have Ready
+            </h3>
           </div>
           <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-            Organised property documentation ensures accurate tax reporting and preserves vital records for future Capital Gains Tax calculations when the property is sold:
+            Organised property documentation ensures accurate tax reporting and
+            preserves vital records for future Capital Gains Tax calculations
+            when the property is sold:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {recordsList.map((rec, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100"
+              >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
                 <span className="text-slate-700 text-sm">{rec}</span>
               </div>
@@ -108,30 +120,42 @@ export default function HowFinanciallyUpHelpsGearing() {
               Why Choose {company?.legalName || "Financially Up"}?
             </h3>
             <p className="text-emerald-200 text-sm sm:text-base mt-3 leading-relaxed">
-              {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience across taxation, accounting, bookkeeping, and business advisory work. Our team includes CPA and IPA professionals, supporting clients Australia-wide.
+              {company?.legalName || "Financially Up"} is a registered tax agent
+              with more than 10 years of experience across taxation, accounting,
+              bookkeeping, and business advisory work. Our team includes CPA and
+              IPA professionals, supporting clients Australia-wide.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <TeamOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">CPA & IPA Qualified</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                CPA & IPA Qualified
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Senior Australian property tax accountants with rigorous technical knowledge.
+                Senior Australian property tax accountants with rigorous
+                technical knowledge.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <SafetyCertificateOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">10+ Years Experience</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                10+ Years Experience
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Registered Tax Agent handling complex portfolios, debt restructuring & ATO compliance.
+                Registered Tax Agent handling complex portfolios, debt
+                restructuring & ATO compliance.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <GlobalOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">Australia-Wide Support</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                Australia-Wide Support
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Accessible via secure online video consultations and in-person appointments.
+                Accessible via secure online video consultations and in-person
+                appointments.
               </p>
             </div>
           </div>

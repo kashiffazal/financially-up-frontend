@@ -29,7 +29,9 @@ export default function HowFinanciallyUpHelps() {
   const steps = [
     {
       stepNumber: "01",
-      icon: <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Review Bookkeeping & GST Coding",
       description:
         "Review bookkeeping and GST coding relevant to the reporting period.",
@@ -37,15 +39,18 @@ export default function HowFinanciallyUpHelps() {
     },
     {
       stepNumber: "02",
-      icon: <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Prepare BAS Figures from Records",
-      description:
-        "Prepare BAS figures from available business records.",
+      description: "Prepare BAS figures from available business records.",
       tag: "Figure Preparation",
     },
     {
       stepNumber: "03",
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Assist with Activity-Statement Labels",
       description:
         "Assist with GST, PAYG withholding and other applicable activity-statement labels.",
@@ -53,7 +58,9 @@ export default function HowFinanciallyUpHelps() {
     },
     {
       stepNumber: "04",
-      icon: <CheckCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Identify Missing Information or Unusual Items",
       description:
         "Identify missing information or unusual transactions for clarification.",
@@ -61,7 +68,9 @@ export default function HowFinanciallyUpHelps() {
     },
     {
       stepNumber: "05",
-      icon: <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Assist with BAS Lodgement & ATO Liaison",
       description:
         "Assist with BAS lodgement and ATO correspondence relating to the work performed.",
@@ -69,7 +78,9 @@ export default function HowFinanciallyUpHelps() {
     },
     {
       stepNumber: "06",
-      icon: <ToolOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Coordinate Separately Scoped Services",
       description:
         "Coordinate separately scoped bookkeeping, payroll or tax advice where required.",
@@ -100,11 +111,11 @@ export default function HowFinanciallyUpHelps() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-xs flex items-center justify-center">
                     {step.icon}
                   </div>
                   <span className="text-xs font-bold text-slate-400 dark:text-zinc-500">

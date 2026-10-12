@@ -61,10 +61,10 @@ export default function WhoIsPartnershipServiceFor() {
         {/* 2-Card Comparative Breakdown */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Active Business Partnerships */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+          <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
                   <ShopOutlined className="text-xl" />
                 </div>
                 <div>
@@ -104,10 +104,10 @@ export default function WhoIsPartnershipServiceFor() {
           </div>
 
           {/* Card 2: Jointly Owned Investments / Co-Owners */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+          <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-800/90 border border-slate-200/90 dark:border-zinc-700/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
                   <HomeOutlined className="text-xl" />
                 </div>
                 <div>
@@ -150,7 +150,7 @@ export default function WhoIsPartnershipServiceFor() {
         </div>
 
         {/* Critical Distinction Notice */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-teal-50/80 via-emerald-50/60 to-white dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/70 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-teal-50/80 via-emerald-50/60 to-white dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-teal-200/70 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <InfoCircleOutlined className="text-teal-600 dark:text-teal-400" />
@@ -169,7 +169,7 @@ export default function WhoIsPartnershipServiceFor() {
             <Link href="/contact">
               <Button
                 type="primary"
-                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-xl"
+                className="brand-btn-primary w-full md:w-auto text-xs sm:text-sm font-semibold rounded-lg"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
               >

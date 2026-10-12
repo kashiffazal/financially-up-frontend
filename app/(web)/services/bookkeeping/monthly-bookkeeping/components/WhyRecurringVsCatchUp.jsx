@@ -43,9 +43,9 @@ export default function WhyRecurringVsCatchUp() {
         {/* 2 Strategic Blocks */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Block 1: Why recurring bookkeeping can be more useful than catch-up work */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-emerald-100/70 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 flex items-center justify-center mb-5 text-xl">
+              <div className="w-12 h-12 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/60 text-brand-primary dark:text-emerald-400 flex items-center justify-center mb-5 text-xl">
                 <ThunderboltOutlined />
               </div>
 
@@ -72,10 +72,10 @@ export default function WhyRecurringVsCatchUp() {
               </div>
 
               {/* Memory & Records Callout */}
-              <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
+              <div className="mt-6 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
-                  Queries are answered within days—not 9 months later when
+                  Queries are answered within days-not 9 months later when
                   receipts are lost and transaction context is forgotten.
                 </p>
               </div>
@@ -99,9 +99,9 @@ export default function WhyRecurringVsCatchUp() {
           </div>
 
           {/* Block 2: Monthly bookkeeping with Xero */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-blue-100/70 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-5 text-xl">
+              <div className="w-12 h-12 rounded-lg bg-blue-100/70 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-5 text-xl">
                 <CloudSyncOutlined />
               </div>
 
@@ -125,7 +125,7 @@ export default function WhyRecurringVsCatchUp() {
               </div>
 
               {/* Cloud Workflow Callout */}
-              <div className="mt-6 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
+              <div className="mt-6 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3">
                 <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 text-base mt-0.5 shrink-0" />
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 font-normal">
                   Full cloud integration: direct electronic bank feeds, invoice

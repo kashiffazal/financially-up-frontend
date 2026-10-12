@@ -28,25 +28,33 @@ export default function WhyChooseFinanciallyUpAto() {
 
   const firmStrengths = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description:
         "Officially registered with the Tax Practitioners Board (TPB #26234055), authorized to represent taxpayers and manage formal ATO correspondence.",
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Professionals",
       description:
         "Our team includes qualified members of CPA Australia and the Institute of Public Accountants (IPA), ensuring rigorous tax technical accuracy.",
     },
     {
-      icon: <IdcardOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <IdcardOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "10+ Years of Experience",
       description:
         "More than a decade of hands-on expertise across Australian taxation, accounting, bookkeeping, and business advisory services.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Delivery",
       description:
         "Supporting individuals, businesses, and trustees nationwide through secure online digital appointments as well as in-person consultations.",
@@ -72,12 +80,14 @@ export default function WhyChooseFinanciallyUpAto() {
 
           {/* Exact Verbatim Paragraph from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up"} is a registered tax agent with more than 10
-            years of experience across taxation, accounting, bookkeeping and business advisory work.
-            Our team includes CPA and IPA professionals, and we assist clients Australia-wide through
-            online appointments as well as in-person appointments. Our focus is practical: understand
-            the issue, organise the records, complete the required tax work and communicate clearly
-            with the ATO within the agreed scope.
+            {company?.legalName || "Financially Up"} is a registered tax agent
+            with more than 10 years of experience across taxation, accounting,
+            bookkeeping and business advisory work. Our team includes CPA and
+            IPA professionals, and we assist clients Australia-wide through
+            online appointments as well as in-person appointments. Our focus is
+            practical: understand the issue, organise the records, complete the
+            required tax work and communicate clearly with the ATO within the
+            agreed scope.
           </p>
         </div>
 
@@ -86,9 +96,9 @@ export default function WhyChooseFinanciallyUpAto() {
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-teal-500/50 hover:shadow-md transition-all duration-200"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-5 hover:border-teal-500/50 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center shrink-0 shadow-2xs">
                 {item.icon}
               </div>
               <div className="space-y-1.5">
@@ -104,9 +114,9 @@ export default function WhyChooseFinanciallyUpAto() {
         </div>
 
         {/* Centralized Dynamic Company Verification Callout */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
               <SyncOutlined className="text-xl" />
             </div>
             <div>
@@ -114,7 +124,10 @@ export default function WhyChooseFinanciallyUpAto() {
                 Direct Tax Agent Communication & ATO Resolution
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 font-normal mt-1">
-                {company?.legalName || "Financially Up Pty Ltd"} • ABN: {company?.abn || "84 659 717 263"} • Head Office: {company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                {company?.legalName || "Financially Up Pty Ltd"} • ABN:{" "}
+                {company?.abn || "84 659 717 263"} • Head Office:{" "}
+                {company?.address ||
+                  "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
               </p>
             </div>
           </div>
@@ -122,7 +135,7 @@ export default function WhyChooseFinanciallyUpAto() {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href={`tel:${company?.phone?.replace(/\s/g, "") || "1300328316"}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:text-teal-600 dark:hover:text-teal-400 text-sm font-semibold shadow-2xs hover:shadow-xs transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:text-teal-600 dark:hover:text-teal-400 text-sm font-semibold shadow-2xs hover:shadow-xs transition-all"
             >
               <PhoneOutlined />
               <span>{company?.phone || "1300 328 316"}</span>

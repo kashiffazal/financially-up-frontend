@@ -26,22 +26,30 @@ import {
 export default function WhatBuyersShouldCheckDueDiligence() {
   const buyerChecklist = [
     {
-      icon: <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Triangulating Financial Records",
       desc: "Cross-referencing reported profit with BAS lodgements, tax returns, and merchant bank account statements.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Working Capital & Cash Flow",
       desc: "Checking debtor collection patterns, creditor terms, seasonal capital swings, and outstanding tax debts.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Owner Replacement Costs",
       desc: "Quantifying what commercial salary a replacement general manager or skilled operator would require.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileProtectOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Legal & Regulatory Due Diligence",
       desc: "Coordinating with transaction lawyers regarding title to assets, lease assignment, licences, and warranties.",
     },
@@ -66,7 +74,7 @@ export default function WhatBuyersShouldCheckDueDiligence() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Verifying the Numbers */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
                 <AuditOutlined />
@@ -87,7 +95,7 @@ export default function WhatBuyersShouldCheckDueDiligence() {
           </div>
 
           {/* Card 2: True Maintainable Earnings & Seller Forecasts */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-3">
                 <WarningOutlined />
@@ -113,7 +121,7 @@ export default function WhatBuyersShouldCheckDueDiligence() {
           {buyerChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+              className="bg-white dark:bg-zinc-900 p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-3">
                 {item.icon}
@@ -129,9 +137,9 @@ export default function WhatBuyersShouldCheckDueDiligence() {
         </div>
 
         {/* Verbatim Paragraph 3 Feature Banner: Legal Due Diligence Collaboration */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-11 h-11 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center shrink-0 mt-0.5">
               <FileProtectOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
             </div>
             <div>
@@ -157,7 +165,7 @@ export default function WhatBuyersShouldCheckDueDiligence() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Book Buyer Due Diligence Support
             </Button>

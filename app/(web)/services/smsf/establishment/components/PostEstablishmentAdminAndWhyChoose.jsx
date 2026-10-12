@@ -36,17 +36,23 @@ export default function PostEstablishmentAdminAndWhyChoose() {
 
   const trustPillars = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       desc: `${company.legalName || "Financially Up Pty Ltd"} (TPB #${company.tpbNumber || "26242127"}) brings more than 10 years of professional superannuation and tax expertise.`,
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       desc: "Our qualified specialists hold memberships with CPA Australia and the Institute of Public Accountants (IPA), ensuring rigorous professional accounting standards.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Support",
       desc: "We provide comprehensive SMSF establishment assistance across Australia through online appointments as well as in-person consultations.",
     },
@@ -58,14 +64,22 @@ export default function PostEstablishmentAdminAndWhyChoose() {
         {/* Post-Establishment Transition Section */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <Tag color="purple" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="purple"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Lifecycle Transition
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What happens after establishment?
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Once established, the SMSF moves into ongoing administration. Trustees need to keep proper records, maintain the fund&apos;s investment strategy, record contributions and benefits, prepare annual financial statements, obtain an independent audit each year and lodge the SMSF annual return. Our SMSF accounting service can assist with the recurring accounting and tax work after setup.
+              Once established, the SMSF moves into ongoing administration.
+              Trustees need to keep proper records, maintain the fund&apos;s
+              investment strategy, record contributions and benefits, prepare
+              annual financial statements, obtain an independent audit each year
+              and lodge the SMSF annual return. Our SMSF accounting service can
+              assist with the recurring accounting and tax work after setup.
             </p>
           </div>
 
@@ -74,7 +88,7 @@ export default function PostEstablishmentAdminAndWhyChoose() {
               {postSetupTasks.map((task, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/60 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium"
+                  className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/60 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium"
                 >
                   <CheckCircleOutlined className="text-emerald-500 text-base mt-0.5 shrink-0" />
                   <span>{task}</span>
@@ -82,9 +96,17 @@ export default function PostEstablishmentAdminAndWhyChoose() {
               ))}
             </div>
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-400">
-              <span>Transition smoothly from establishment into routine compliance.</span>
+              <span>
+                Transition smoothly from establishment into routine compliance.
+              </span>
               <Link href="/services/smsf/accounting">
-                <Button type="link" size="small" className="p-0 text-emerald-600 dark:text-emerald-400 font-semibold" icon={<ArrowRightOutlined />} iconPlacement="end">
+                <Button
+                  type="link"
+                  size="small"
+                  className="p-0 text-emerald-600 dark:text-emerald-400 font-semibold"
+                  icon={<ArrowRightOutlined />}
+                  iconPlacement="end"
+                >
                   Explore Recurring SMSF Accounting
                 </Button>
               </Link>
@@ -95,14 +117,23 @@ export default function PostEstablishmentAdminAndWhyChoose() {
         {/* Why Choose Financially Up Section */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Professional Expertise
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Why choose Financially Up?
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up is a registered tax agent with more than 10 years of experience and a team that includes CPA and IPA members. We provide Australia-wide support through online and in-person appointments. Our role in SMSF establishment is to make the accounting, registration and ongoing compliance requirements clear, while recognizing where legal or licensed financial advice sits outside that scope.
+              Financially Up is a registered tax agent with more than 10 years
+              of experience and a team that includes CPA and IPA members. We
+              provide Australia-wide support through online and in-person
+              appointments. Our role in SMSF establishment is to make the
+              accounting, registration and ongoing compliance requirements
+              clear, while recognizing where legal or licensed financial advice
+              sits outside that scope.
             </p>
           </div>
 
@@ -110,10 +141,10 @@ export default function PostEstablishmentAdminAndWhyChoose() {
             {trustPillars.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
                   <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -134,7 +165,8 @@ export default function PostEstablishmentAdminAndWhyChoose() {
                 Planning to set up an Australian SMSF?
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 dark:text-zinc-400 max-w-xl font-normal">
-                Book an appointment to discuss trustee structures, registrations, and establishment records.
+                Book an appointment to discuss trustee structures,
+                registrations, and establishment records.
               </p>
             </div>
             <div className="flex items-center gap-3 shrink-0">

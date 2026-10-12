@@ -3,7 +3,7 @@ import BlogAccessGuard from "@/components/admin/blog/BlogAccessGuard";
 import TaxonomyManager from "@/components/admin/blog/TaxonomyManager";
 
 /**
- * /admin/blog/tags — add / edit / delete blog tags.
+ * /admin/blog/tags - add / edit / delete blog tags.
  */
 export default function BlogTagsPage() {
   return (

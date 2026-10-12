@@ -30,21 +30,27 @@ export default function AtoNoticesAndDeadlines() {
   const threeEssentials = [
     {
       step: "01",
-      icon: <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "What the ATO Has Asked For",
       description:
         "Clarifying whether the request is administrative, compliance, debt, data-matching, or audit-related.",
     },
     {
       step: "02",
-      icon: <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "When a Response is Due",
       description:
         "Establishing statutory cut-off dates and requesting formal extension of time before deadlines expire.",
     },
     {
       step: "03",
-      icon: <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CheckCircleOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "What Records Support the Position",
       description:
         "Gathering verified source documents, ledgers, and workpapers before submitting answers to the ATO.",
@@ -70,18 +76,20 @@ export default function AtoNoticesAndDeadlines() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The fastest way to make progress is usually to establish three things: what the ATO has
-            asked for, when a response is due and what records support the tax position. Ignoring
-            correspondence can make a manageable issue harder. Responding before the facts are checked
-            can also create inconsistencies or leave important questions unanswered.
+            The fastest way to make progress is usually to establish three
+            things: what the ATO has asked for, when a response is due and what
+            records support the tax position. Ignoring correspondence can make a
+            manageable issue harder. Responding before the facts are checked can
+            also create inconsistencies or leave important questions unanswered.
           </p>
 
           {/* Exact Verbatim Paragraph 2 from Document */}
           <p className="mt-3 text-sm sm:text-base text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            Do not assume every ATO contact means something is wrong. Some matters are resolved by
-            confirming information, lodging a missing document or reconciling an account. Others
-            reveal an underlying return, BAS or record-keeping problem. The correct response depends on
-            the notice and the facts—not on a generic template.
+            Do not assume every ATO contact means something is wrong. Some
+            matters are resolved by confirming information, lodging a missing
+            document or reconciling an account. Others reveal an underlying
+            return, BAS or record-keeping problem. The correct response depends
+            on the notice and the facts-not on a generic template.
           </p>
         </div>
 
@@ -90,11 +98,11 @@ export default function AtoNoticesAndDeadlines() {
           {threeEssentials.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold text-teal-600 dark:text-teal-400">
@@ -113,7 +121,7 @@ export default function AtoNoticesAndDeadlines() {
         </div>
 
         {/* Exact Verbatim Cross-Service Referral Pathways (Overdue Returns & Amendments) */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8">
+        <div className="rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8">
           <div className="mb-4">
             <span className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
               Connected Tax Services
@@ -127,7 +135,8 @@ export default function AtoNoticesAndDeadlines() {
               >
                 prior-year and overdue tax return service
               </Link>{" "}
-              may be relevant. If a lodged individual return is wrong rather than overdue, see{" "}
+              may be relevant. If a lodged individual return is wrong rather
+              than overdue, see{" "}
               <Link
                 href="/services/individual-tax/tax-return-amendments"
                 className="text-teal-600 dark:text-teal-400 hover:underline font-bold"
@@ -143,7 +152,7 @@ export default function AtoNoticesAndDeadlines() {
               <Button
                 block
                 icon={<HistoryOutlined />}
-                className="h-11 rounded-xl font-semibold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800"
+                className="h-11 rounded-lg font-semibold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800"
               >
                 Prior-Year & Overdue Tax Returns
               </Button>
@@ -152,7 +161,7 @@ export default function AtoNoticesAndDeadlines() {
               <Button
                 block
                 icon={<FormOutlined />}
-                className="h-11 rounded-xl font-semibold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800"
+                className="h-11 rounded-lg font-semibold border-slate-300 dark:border-zinc-700 text-slate-800 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800"
               >
                 Tax Return Amendments
               </Button>

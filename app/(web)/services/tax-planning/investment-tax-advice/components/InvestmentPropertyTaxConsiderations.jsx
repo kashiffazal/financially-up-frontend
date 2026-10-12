@@ -18,12 +18,30 @@ import {
  */
 export default function InvestmentPropertyTaxConsiderations() {
   const propertyAspects = [
-    { title: "Rental Income & Deductions", desc: "Gross rental receipts, tenant payments, and allowable holding expenses." },
-    { title: "Borrowing Purpose & Interest", desc: "Interest deductibility based on loan purpose rather than security asset." },
-    { title: "Repairs vs Capital Expenditure", desc: "Immediate repairs deduction versus initial repairs or structural capital improvements." },
-    { title: "Depreciation & Capital Works", desc: "Division 40 plant & equipment and Division 43 structural capital works deductions." },
-    { title: "Ownership Arrangements", desc: "Individual, joint tenants, tenants-in-common, trust or company ownership." },
-    { title: "Future Disposal & CGT", desc: "Main residence exemption limits, partial CGT calculations, and capital proceeds." },
+    {
+      title: "Rental Income & Deductions",
+      desc: "Gross rental receipts, tenant payments, and allowable holding expenses.",
+    },
+    {
+      title: "Borrowing Purpose & Interest",
+      desc: "Interest deductibility based on loan purpose rather than security asset.",
+    },
+    {
+      title: "Repairs vs Capital Expenditure",
+      desc: "Immediate repairs deduction versus initial repairs or structural capital improvements.",
+    },
+    {
+      title: "Depreciation & Capital Works",
+      desc: "Division 40 plant & equipment and Division 43 structural capital works deductions.",
+    },
+    {
+      title: "Ownership Arrangements",
+      desc: "Individual, joint tenants, tenants-in-common, trust or company ownership.",
+    },
+    {
+      title: "Future Disposal & CGT",
+      desc: "Main residence exemption limits, partial CGT calculations, and capital proceeds.",
+    },
   ];
 
   return (
@@ -41,8 +59,8 @@ export default function InvestmentPropertyTaxConsiderations() {
 
         {/* Verbatim Lead Paragraph */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start space-x-4">
-            <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-700 shrink-0">
+          <div className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm flex items-start space-x-4">
+            <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-700 shrink-0">
               <HomeOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
             </div>
             <div>
@@ -50,7 +68,11 @@ export default function InvestmentPropertyTaxConsiderations() {
                 Dual Income-Tax &amp; CGT Dimension
               </h3>
               <p className="text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-                Property can involve both annual income-tax issues and future CGT consequences. Rental income, deductible expenses, borrowing purpose, repairs versus capital expenditure, depreciation or capital works and ownership all need to be considered under the relevant rules.
+                Property can involve both annual income-tax issues and future
+                CGT consequences. Rental income, deductible expenses, borrowing
+                purpose, repairs versus capital expenditure, depreciation or
+                capital works and ownership all need to be considered under the
+                relevant rules.
               </p>
             </div>
           </div>
@@ -61,7 +83,7 @@ export default function InvestmentPropertyTaxConsiderations() {
           {propertyAspects.map((aspect, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/40 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-700/60 flex items-start space-x-3.5"
+              className="bg-slate-50 dark:bg-zinc-800/40 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-700/60 flex items-start space-x-3.5"
             >
               <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
               <div>
@@ -77,7 +99,7 @@ export default function InvestmentPropertyTaxConsiderations() {
         </div>
 
         {/* Verbatim Comparison & Cross-Service Banner */}
-        <div className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-zinc-800/90 dark:to-zinc-800/50 rounded-2xl p-6 sm:p-8 border border-teal-200 dark:border-teal-800/40 shadow-sm">
+        <div className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-zinc-800/90 dark:to-zinc-800/50 rounded-lg p-6 sm:p-8 border border-teal-200 dark:border-teal-800/40 shadow-sm">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="max-w-3xl">
               <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mb-1">
@@ -85,12 +107,16 @@ export default function InvestmentPropertyTaxConsiderations() {
                 <span>Annual Tax Compliance vs Strategic Advisory</span>
               </div>
               <p className="text-slate-700 dark:text-zinc-200 text-base font-medium leading-relaxed">
-                If the main issue is preparing the annual rental property tax position, our Investment Property Tax service covers those compliance matters. Investment tax advice is more appropriate where you are considering a transaction or want to understand the broader tax consequences before acting.
+                If the main issue is preparing the annual rental property tax
+                position, our Investment Property Tax service covers those
+                compliance matters. Investment tax advice is more appropriate
+                where you are considering a transaction or want to understand
+                the broader tax consequences before acting.
               </p>
             </div>
             <Link
               href="/services/individual-tax/investment-property-tax-accountant"
-              className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-all shadow-sm hover:shadow shrink-0 group"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm transition-all shadow-sm hover:shadow shrink-0 group"
             >
               Property Tax Service
               <ArrowRightOutlined className="ml-2 group-hover:translate-x-1 transition-transform" />

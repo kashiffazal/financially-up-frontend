@@ -50,7 +50,7 @@ export default function Step1BusinessContact() {
           emptyFirstVal="- Select Structure -"
           reqMsg="Please select your business structure"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
 
@@ -69,7 +69,7 @@ export default function Step1BusinessContact() {
           reqMsg="ABN is required"
           preIconAnt={<IdcardOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
@@ -87,7 +87,7 @@ export default function Step1BusinessContact() {
           reqMsg="Legal Business Name is required"
           preIconAnt={<ShopOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
 
@@ -103,13 +103,13 @@ export default function Step1BusinessContact() {
           noRequired={true}
           preIconAnt={<ShopOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
 
       {/* Contact Person Box */}
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <div className="flex items-center gap-2 mb-2">
           <UserOutlined className="text-brand-primary text-sm" />
           <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
@@ -129,7 +129,7 @@ export default function Step1BusinessContact() {
             placeholder="e.g. Jonathan Alexander Smith"
             reqMsg="Contact name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -145,7 +145,7 @@ export default function Step1BusinessContact() {
             emptyFirstVal="- Select Gender -"
             reqMsg="Gender is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -163,7 +163,7 @@ export default function Step1BusinessContact() {
             reqMsg="Phone number is required"
             preIconAnt={<PhoneOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -179,7 +179,7 @@ export default function Step1BusinessContact() {
             reqMsg="Email is required"
             preIconAnt={<MailOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

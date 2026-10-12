@@ -29,7 +29,8 @@ export const metadata = {
     "depreciation schedule tax accountant",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/investment-property-tax-accountant/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/investment-property-tax-accountant/",
   },
   openGraph: {
     title: "Investment Property Tax Accountant Australia | Financially Up",
@@ -60,32 +61,38 @@ const propertyQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "First-time landlords, joint owners & multi-property residential investors",
+    value:
+      "First-time landlords, joint owners & multi-property residential investors",
   },
   {
     icon: "file",
     label: "Tax Reporting Model",
-    value: "Rental property schedule integrated into individual tax return (no separate return)",
+    value:
+      "Rental property schedule integrated into individual tax return (no separate return)",
   },
   {
     icon: "bank",
     label: "Loan & Interest",
-    value: "Deductibility determined by use of borrowed funds, redraws & mixed-use apportionment",
+    value:
+      "Deductibility determined by use of borrowed funds, redraws & mixed-use apportionment",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "Depreciation & CGT",
-    value: "Division 43 capital works, Division 40 plant & equipment, and CGT cost-base adjustments",
+    value:
+      "Division 43 capital works, Division 40 plant & equipment, and CGT cost-base adjustments",
   },
 ];
 
@@ -98,7 +105,10 @@ const propertyFaqs = [
     label: "Is interest on my investment property loan tax deductible?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        It may be deductible to the extent the borrowed funds were used for an income-producing rental purpose. The property used as loan security does not determine deductibility. Private or mixed-purpose borrowing may require apportionment.
+        It may be deductible to the extent the borrowed funds were used for an
+        income-producing rental purpose. The property used as loan security does
+        not determine deductibility. Private or mixed-purpose borrowing may
+        require apportionment.
       </p>
     ),
   },
@@ -107,7 +117,9 @@ const propertyFaqs = [
     label: "How does joint ownership affect rental property tax?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Joint owners generally report rental income and expenses according to their legal ownership interests. A separate private agreement does not necessarily change the tax treatment.
+        Joint owners generally report rental income and expenses according to
+        their legal ownership interests. A separate private agreement does not
+        necessarily change the tax treatment.
       </p>
     ),
   },
@@ -116,7 +128,10 @@ const propertyFaqs = [
     label: "Can I claim depreciation on my investment property?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        You may be able to claim the decline in value of eligible depreciating assets and capital works deductions where the requirements are met. Restrictions can apply to second-hand assets and certain property-related costs.
+        You may be able to claim the decline in value of eligible depreciating
+        assets and capital works deductions where the requirements are met.
+        Restrictions can apply to second-hand assets and certain
+        property-related costs.
       </p>
     ),
   },
@@ -125,7 +140,10 @@ const propertyFaqs = [
     label: "How long should I keep investment property records?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Rental income and expense records generally need to be kept for at least five years. Acquisition, ownership and CGT records should generally be kept throughout ownership and for at least five years after the property is sold.
+        Rental income and expense records generally need to be kept for at least
+        five years. Acquisition, ownership and CGT records should generally be
+        kept throughout ownership and for at least five years after the property
+        is sold.
       </p>
     ),
   },
@@ -134,7 +152,10 @@ const propertyFaqs = [
     label: "What rental property expenses can I claim?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Eligible claims may include property management fees, rates, insurance, certain repairs and interest on funds used for a rental purpose. Private, capital or mixed-use amounts may need to be excluded, apportioned or claimed over time.
+        Eligible claims may include property management fees, rates, insurance,
+        certain repairs and interest on funds used for a rental purpose.
+        Private, capital or mixed-use amounts may need to be excluded,
+        apportioned or claimed over time.
       </p>
     ),
   },
@@ -143,7 +164,9 @@ const propertyFaqs = [
     label: "What is the difference between repairs and improvements?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A repair generally restores an existing item. An improvement adds to or substantially changes the property. Initial repairs, improvements and whole-item replacements may receive capital treatment.
+        A repair generally restores an existing item. An improvement adds to or
+        substantially changes the property. Initial repairs, improvements and
+        whole-item replacements may receive capital treatment.
       </p>
     ),
   },
@@ -152,7 +175,10 @@ const propertyFaqs = [
     label: "What happens if I move out of my home and start renting it?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Rental income and eligible expenses generally need to be reported from the relevant period. The change in use may also affect future CGT calculations, so valuation, ownership and occupancy records can be important.
+        Rental income and eligible expenses generally need to be reported from
+        the relevant period. The change in use may also affect future CGT
+        calculations, so valuation, ownership and occupancy records can be
+        important.
       </p>
     ),
   },
@@ -161,7 +187,9 @@ const propertyFaqs = [
     label: "What happens for tax purposes when I sell an investment property?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A capital gain or loss may arise. The calculation depends on the sale contract, cost base, ownership history, capital expenditure, prior deductions and any exemptions or concessions that apply.
+        A capital gain or loss may arise. The calculation depends on the sale
+        contract, cost base, ownership history, capital expenditure, prior
+        deductions and any exemptions or concessions that apply.
       </p>
     ),
   },
@@ -204,16 +232,27 @@ export default function InvestmentPropertyTaxAccountantPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Owning a rental property can involve more than adding rent and expenses to a standard tax return. Loan use, ownership, private use, repairs, capital works, depreciating assets and a future sale can all affect how amounts are reported.
+              Owning a rental property can involve more than adding rent and
+              expenses to a standard tax return. Loan use, ownership, private
+              use, repairs, capital works, depreciating assets and a future sale
+              can all affect how amounts are reported.
             </span>
             <span className="block mt-2">
-              Financially Up Pty Ltd provides investment property tax assistance to residential property investors across Australia, including first-time landlords, joint owners and investors with one or multiple properties. We review the relevant records, prepare the rental property information for your individual tax return and explain matters that require further consideration.
+              Financially Up Pty Ltd provides investment property tax assistance
+              to residential property investors across Australia, including
+              first-time landlords, joint owners and investors with one or
+              multiple properties. We review the relevant records, prepare the
+              rental property information for your individual tax return and
+              explain matters that require further consideration.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Discussion:
               </span>
-              Book an appointment to discuss your property, ownership, rental income, expenses and records. The initial discussion helps us identify what needs to be reviewed, explain the relevant service scope and outline the next steps.
+              Book an appointment to discuss your property, ownership, rental
+              income, expenses and records. The initial discussion helps us
+              identify what needs to be reviewed, explain the relevant service
+              scope and outline the next steps.
             </div>
           </span>
         }

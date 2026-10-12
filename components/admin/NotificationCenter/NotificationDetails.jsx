@@ -20,10 +20,21 @@ import {
 import { getFileUrl } from "@/services";
 import { statusTagColor } from "@/components/admin/GlobalSearch/searchConfig";
 import styles from "./NotificationCenter.module.css";
-import { notificationVisual, TYPE_LABELS, formatDateTime, relativeTime } from "./notificationConfig";
+import {
+  notificationVisual,
+  TYPE_LABELS,
+  formatDateTime,
+  relativeTime,
+} from "./notificationConfig";
 
-const SOURCE_LABELS = { contact_page: "Contact page", contact_modal: "Contact Us popup" };
-const NEWSLETTER_SOURCE_LABELS = { blog_listing: "Blog page", blog_article: "Blog article" };
+const SOURCE_LABELS = {
+  contact_page: "Contact page",
+  contact_modal: "Contact Us popup",
+};
+const NEWSLETTER_SOURCE_LABELS = {
+  blog_listing: "Blog page",
+  blog_article: "Blog article",
+};
 
 function InfoRow({ icon, label, children }) {
   if (!children) return null;
@@ -32,7 +43,9 @@ function InfoRow({ icon, label, children }) {
       <span className="mt-0.5 text-slate-400 dark:text-zinc-500">{icon}</span>
       <span className="min-w-0 flex-1">
         <span className={`${styles.label} block`}>{label}</span>
-        <span className="block break-words text-[13px] text-slate-800 dark:text-zinc-100">{children}</span>
+        <span className="block break-words text-[13px] text-slate-800 dark:text-zinc-100">
+          {children}
+        </span>
       </span>
     </div>
   );
@@ -56,7 +69,17 @@ function Card({ title, children, accent }) {
  * Right-hand drawer with the full story behind one notification:
  * what happened, who did it, and the application / enquiry it points at.
  */
-export default function NotificationDetails({ open, loading, error, detail, now, onClose, onNavigate, onRetry, onRemove }) {
+export default function NotificationDetails({
+  open,
+  loading,
+  error,
+  detail,
+  now,
+  onClose,
+  onNavigate,
+  onRetry,
+  onRemove,
+}) {
   const notification = detail?.notification;
   const target = detail?.target;
   const visual = notification ? notificationVisual(notification) : null;
@@ -66,9 +89,9 @@ export default function NotificationDetails({ open, loading, error, detail, now,
     if (loading) {
       return (
         <div className="space-y-4 animate-pulse">
-          <div className="h-20 rounded-2xl bg-slate-100 dark:bg-zinc-800" />
-          <div className="h-36 rounded-2xl bg-slate-100 dark:bg-zinc-800" />
-          <div className="h-28 rounded-2xl bg-slate-100 dark:bg-zinc-800" />
+          <div className="h-20 rounded-lg bg-slate-100 dark:bg-zinc-800" />
+          <div className="h-36 rounded-lg bg-slate-100 dark:bg-zinc-800" />
+          <div className="h-28 rounded-lg bg-slate-100 dark:bg-zinc-800" />
         </div>
       );
     }
@@ -95,8 +118,11 @@ export default function NotificationDetails({ open, loading, error, detail, now,
         {/* Headline */}
         <div className="flex items-start gap-3">
           <span
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-lg"
-            style={{ backgroundColor: `${visual.color}1a`, color: visual.color }}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-lg"
+            style={{
+              backgroundColor: `${visual.color}1a`,
+              color: visual.color,
+            }}
           >
             {visual.icon}
           </span>
@@ -104,10 +130,13 @@ export default function NotificationDetails({ open, loading, error, detail, now,
             <Tag className="!m-0 !mb-1.5 !text-[10px]" color="green">
               {TYPE_LABELS[notification.type] || "Notification"}
             </Tag>
-            <h3 className="m-0 text-[16px] font-bold leading-snug text-slate-900 dark:text-zinc-50">{notification.title}</h3>
+            <h3 className="m-0 text-[16px] font-bold leading-snug text-slate-900 dark:text-zinc-50">
+              {notification.title}
+            </h3>
             <p className="m-0 mt-1 flex items-center gap-1.5 text-[12px] text-slate-500 dark:text-zinc-400">
               <ClockCircleOutlined />
-              {formatDateTime(notification.createdAt)} · {relativeTime(notification.createdAt, now)}
+              {formatDateTime(notification.createdAt)} ·{" "}
+              {relativeTime(notification.createdAt, now)}
             </p>
           </div>
         </div>
@@ -117,10 +146,13 @@ export default function NotificationDetails({ open, loading, error, detail, now,
           <Card title="What changed">
             <div className="flex flex-wrap items-center gap-2 py-2">
               <Tag color={statusTagColor(meta.fromStatus)} className="!m-0">
-                {meta.fromStatus || "—"}
+                {meta.fromStatus || "-"}
               </Tag>
               <ArrowRightOutlined className="text-[11px] text-slate-400" />
-              <Tag color={statusTagColor(meta.toStatus)} className="!m-0 font-semibold">
+              <Tag
+                color={statusTagColor(meta.toStatus)}
+                className="!m-0 font-semibold"
+              >
                 {meta.toStatus}
               </Tag>
             </div>
@@ -135,7 +167,9 @@ export default function NotificationDetails({ open, loading, error, detail, now,
 
         {notification.type === "submission" && (
           <Card title="New submission">
-            <p className="m-0 py-1.5 text-[13px] text-slate-700 dark:text-zinc-300">{notification.message}</p>
+            <p className="m-0 py-1.5 text-[13px] text-slate-700 dark:text-zinc-300">
+              {notification.message}
+            </p>
             <InfoRow icon={<UserOutlined />} label="Client">
               {meta.clientName}
             </InfoRow>
@@ -148,14 +182,19 @@ export default function NotificationDetails({ open, loading, error, detail, now,
             <Card title="Application" accent={target.color}>
               <div className="flex items-start justify-between gap-3 py-2">
                 <div className="min-w-0">
-                  <p className="m-0 truncate text-[15px] font-semibold text-slate-900 dark:text-zinc-50">{target.title}</p>
+                  <p className="m-0 truncate text-[15px] font-semibold text-slate-900 dark:text-zinc-50">
+                    {target.title}
+                  </p>
                   <p className="m-0 mt-0.5 text-[12px] text-slate-500 dark:text-zinc-400">
                     {target.moduleName}
                     {target.subtitle ? ` · ${target.subtitle}` : ""}
                   </p>
                 </div>
                 {target.status && (
-                  <Tag color={statusTagColor(target.status)} className="!m-0 shrink-0">
+                  <Tag
+                    color={statusTagColor(target.status)}
+                    className="!m-0 shrink-0"
+                  >
                     {target.status}
                   </Tag>
                 )}
@@ -165,10 +204,16 @@ export default function NotificationDetails({ open, loading, error, detail, now,
               </span>
               <div className="mt-2 border-t border-slate-100 dark:border-zinc-800">
                 <InfoRow icon={<MailOutlined />} label="Email">
-                  {target.email && <a href={`mailto:${target.email}`}>{target.email}</a>}
+                  {target.email && (
+                    <a href={`mailto:${target.email}`}>{target.email}</a>
+                  )}
                 </InfoRow>
                 <InfoRow icon={<PhoneOutlined />} label="Phone">
-                  {target.phone && <a href={`tel:${String(target.phone).replace(/\s/g, "")}`}>{target.phone}</a>}
+                  {target.phone && (
+                    <a href={`tel:${String(target.phone).replace(/\s/g, "")}`}>
+                      {target.phone}
+                    </a>
+                  )}
                 </InfoRow>
                 <InfoRow icon={<ClockCircleOutlined />} label="Submitted">
                   {target.submittedAt && formatDateTime(target.submittedAt)}
@@ -176,7 +221,12 @@ export default function NotificationDetails({ open, loading, error, detail, now,
               </div>
             </Card>
           ) : (
-            <Alert type="warning" showIcon title="This application no longer exists" description="It was deleted after this notification was sent." />
+            <Alert
+              type="warning"
+              showIcon
+              title="This application no longer exists"
+              description="It was deleted after this notification was sent."
+            />
           ))}
 
         {/* Website enquiry */}
@@ -186,19 +236,32 @@ export default function NotificationDetails({ open, loading, error, detail, now,
               <div className="flex items-start justify-between gap-3 py-2">
                 <div className="min-w-0">
                   <p className="m-0 truncate text-[15px] font-semibold text-slate-900 dark:text-zinc-50">
-                    {[target.enquiry.firstName, target.enquiry.lastName].filter(Boolean).join(" ")}
+                    {[target.enquiry.firstName, target.enquiry.lastName]
+                      .filter(Boolean)
+                      .join(" ")}
                   </p>
                   <span className="mt-1 inline-block rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[11px] font-semibold text-slate-600 dark:bg-zinc-800 dark:text-zinc-300">
                     {target.enquiry.referenceNumber}
                   </span>
                 </div>
-                <Tag color={target.enquiry.status === "New" ? "processing" : target.enquiry.status === "Closed" ? "default" : "success"} className="!m-0 shrink-0">
+                <Tag
+                  color={
+                    target.enquiry.status === "New"
+                      ? "processing"
+                      : target.enquiry.status === "Closed"
+                        ? "default"
+                        : "success"
+                  }
+                  className="!m-0 shrink-0"
+                >
                   {target.enquiry.status}
                 </Tag>
               </div>
 
               {target.enquiry.message && (
-                <blockquote className={`${styles.quote} m-0 my-2 whitespace-pre-line text-[13px] leading-relaxed text-slate-700 dark:text-zinc-200`}>
+                <blockquote
+                  className={`${styles.quote} m-0 my-2 whitespace-pre-line text-[13px] leading-relaxed text-slate-700 dark:text-zinc-200`}
+                >
                   {target.enquiry.message}
                 </blockquote>
               )}
@@ -208,23 +271,35 @@ export default function NotificationDetails({ open, loading, error, detail, now,
                   {target.enquiry.service}
                 </InfoRow>
                 <InfoRow icon={<MailOutlined />} label="Email">
-                  <a href={`mailto:${target.enquiry.email}`}>{target.enquiry.email}</a>
+                  <a href={`mailto:${target.enquiry.email}`}>
+                    {target.enquiry.email}
+                  </a>
                 </InfoRow>
                 <InfoRow icon={<PhoneOutlined />} label="Phone">
                   {target.enquiry.phone && (
-                    <a href={`tel:${String(target.enquiry.phone).replace(/\s/g, "")}`}>{target.enquiry.phone}</a>
+                    <a
+                      href={`tel:${String(target.enquiry.phone).replace(/\s/g, "")}`}
+                    >
+                      {target.enquiry.phone}
+                    </a>
                   )}
                 </InfoRow>
                 <InfoRow icon={<SendOutlined />} label="Prefers">
                   {target.enquiry.preferredContact}
                 </InfoRow>
                 <InfoRow icon={<GlobalOutlined />} label="Sent from">
-                  {SOURCE_LABELS[target.enquiry.source] || target.enquiry.source}
+                  {SOURCE_LABELS[target.enquiry.source] ||
+                    target.enquiry.source}
                 </InfoRow>
               </div>
             </Card>
           ) : (
-            <Alert type="warning" showIcon title="This enquiry no longer exists" description="It was deleted after this notification was sent." />
+            <Alert
+              type="warning"
+              showIcon
+              title="This enquiry no longer exists"
+              description="It was deleted after this notification was sent."
+            />
           ))}
 
         {/* Newsletter subscriber */}
@@ -232,17 +307,35 @@ export default function NotificationDetails({ open, loading, error, detail, now,
           (target.exists ? (
             <Card title="Newsletter subscriber" accent={visual.color}>
               <div className="flex items-start justify-between gap-3 py-2">
-                <p className="m-0 min-w-0 truncate text-[15px] font-semibold text-slate-900 dark:text-zinc-50">{target.subscriber.email}</p>
-                <Tag color={target.subscriber.status === "Subscribed" ? "success" : "default"} className="!m-0 shrink-0">
+                <div className="min-w-0">
+                  <p className="m-0 truncate text-[15px] font-semibold text-slate-900 dark:text-zinc-50">
+                    {target.subscriber.name || target.subscriber.email}
+                  </p>
+                  {target.subscriber.name && (
+                    <p className="m-0 truncate text-[12.5px] text-slate-500 dark:text-zinc-400">
+                      {target.subscriber.email}
+                    </p>
+                  )}
+                </div>
+                <Tag
+                  color={
+                    target.subscriber.status === "Subscribed"
+                      ? "success"
+                      : "default"
+                  }
+                  className="!m-0 shrink-0"
+                >
                   {target.subscriber.status}
                 </Tag>
               </div>
               <div className="border-t border-slate-100 dark:border-zinc-800">
                 <InfoRow icon={<CalendarOutlined />} label="Subscribed">
-                  {target.subscriber.subscribedAt && formatDateTime(target.subscriber.subscribedAt)}
+                  {target.subscriber.subscribedAt &&
+                    formatDateTime(target.subscriber.subscribedAt)}
                 </InfoRow>
                 <InfoRow icon={<GlobalOutlined />} label="Signed up from">
-                  {NEWSLETTER_SOURCE_LABELS[target.subscriber.source] || "Website"}
+                  {NEWSLETTER_SOURCE_LABELS[target.subscriber.source] ||
+                    "Website"}
                 </InfoRow>
                 <InfoRow icon={<NotificationOutlined />} label="Page">
                   {target.subscriber.sourcePage}
@@ -250,7 +343,11 @@ export default function NotificationDetails({ open, loading, error, detail, now,
               </div>
             </Card>
           ) : (
-            <Alert type="warning" showIcon title="This subscriber no longer exists" />
+            <Alert
+              type="warning"
+              showIcon
+              title="This subscriber no longer exists"
+            />
           ))}
       </div>
     );
@@ -265,11 +362,21 @@ export default function NotificationDetails({ open, loading, error, detail, now,
       footer = (
         <div className="flex flex-wrap items-center justify-end gap-2">
           {target.pdfUrl && (
-            <Button icon={<FilePdfOutlined className="text-red-500" />} href={getFileUrl(target.pdfUrl)} target="_blank" rel="noopener noreferrer">
+            <Button
+              icon={<FilePdfOutlined className="text-red-500" />}
+              href={getFileUrl(target.pdfUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View PDF
             </Button>
           )}
-          <Button type="primary" className="!bg-brand-primary" icon={<ArrowRightOutlined />} onClick={() => onNavigate(target.url)}>
+          <Button
+            type="primary"
+            className="!bg-brand-primary"
+            icon={<ArrowRightOutlined />}
+            onClick={() => onNavigate(target.url)}
+          >
             Open application
           </Button>
         </div>
@@ -277,10 +384,18 @@ export default function NotificationDetails({ open, loading, error, detail, now,
     } else if (target.kind === "subscriber") {
       footer = (
         <div className="flex flex-wrap items-center justify-end gap-2">
-          <Button icon={<MailOutlined />} href={`mailto:${target.subscriber.email}`}>
+          <Button
+            icon={<MailOutlined />}
+            href={`mailto:${target.subscriber.email}`}
+          >
             Email
           </Button>
-          <Button type="primary" className="!bg-brand-primary" icon={<ArrowRightOutlined />} onClick={() => onNavigate(target.url)}>
+          <Button
+            type="primary"
+            className="!bg-brand-primary"
+            icon={<ArrowRightOutlined />}
+            onClick={() => onNavigate(target.url)}
+          >
             Open in Newsletter
           </Button>
         </div>
@@ -290,7 +405,10 @@ export default function NotificationDetails({ open, loading, error, detail, now,
       footer = (
         <div className="flex flex-wrap items-center justify-end gap-2">
           {e.phone && (
-            <Button icon={<PhoneOutlined />} href={`tel:${String(e.phone).replace(/\s/g, "")}`}>
+            <Button
+              icon={<PhoneOutlined />}
+              href={`tel:${String(e.phone).replace(/\s/g, "")}`}
+            >
               Call
             </Button>
           )}
@@ -300,7 +418,12 @@ export default function NotificationDetails({ open, loading, error, detail, now,
           >
             Reply by email
           </Button>
-          <Button type="primary" className="!bg-brand-primary" icon={<ArrowRightOutlined />} onClick={() => onNavigate(target.url)}>
+          <Button
+            type="primary"
+            className="!bg-brand-primary"
+            icon={<ArrowRightOutlined />}
+            onClick={() => onNavigate(target.url)}
+          >
             Open in Enquiries
           </Button>
         </div>
@@ -313,12 +436,20 @@ export default function NotificationDetails({ open, loading, error, detail, now,
       open={open}
       onClose={onClose}
       size={460}
-      title={<span className="text-[15px] font-semibold">Notification details</span>}
+      title={
+        <span className="text-[15px] font-semibold">Notification details</span>
+      }
       extra={
         !loading &&
         notification &&
         onRemove && (
-          <Button size="small" type="text" danger icon={<DeleteOutlined />} onClick={() => onRemove(notification)}>
+          <Button
+            size="small"
+            type="text"
+            danger
+            icon={<DeleteOutlined />}
+            onClick={() => onRemove(notification)}
+          >
             Remove
           </Button>
         )

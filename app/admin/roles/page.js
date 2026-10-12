@@ -524,7 +524,7 @@ export default function RolesPage() {
               Available practice role profiles
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
             <KeyOutlined />
           </div>
         </div>
@@ -542,7 +542,7 @@ export default function RolesPage() {
               Immutable core practice roles
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl shrink-0">
             <LockOutlined />
           </div>
         </div>
@@ -560,7 +560,7 @@ export default function RolesPage() {
               Tailored organizational roles
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
             <SafetyOutlined />
           </div>
         </div>
@@ -578,7 +578,7 @@ export default function RolesPage() {
               Granular module permissions
             </div>
           </div>
-          <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl shrink-0">
             <SafetyCertificateOutlined />
           </div>
         </div>
@@ -870,7 +870,7 @@ export default function RolesPage() {
                   return (
                     <div
                       key={moduleName}
-                      className="border border-slate-200/80 dark:border-zinc-800 rounded-2xl p-4 bg-slate-50/60 dark:bg-zinc-800/30 transition-all"
+                      className="border border-slate-200/80 dark:border-zinc-800 rounded-lg p-4 bg-slate-50/60 dark:bg-zinc-800/30 transition-all"
                     >
                       {/* Module Header Strip */}
                       <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-zinc-700/80">

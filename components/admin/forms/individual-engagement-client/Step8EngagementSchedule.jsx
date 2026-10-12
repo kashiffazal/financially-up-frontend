@@ -143,7 +143,10 @@ export default function Step8EngagementSchedule({
   // card into view and run a short attention animation.
   useEffect(() => {
     if (!needsAttention || !scheduleCardRef.current) return;
-    scheduleCardRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    scheduleCardRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   }, [needsAttention]);
   const company = useCompany();
   const [hasOpenedSchedule, setHasOpenedSchedule] = useState(false);
@@ -209,13 +212,13 @@ export default function Step8EngagementSchedule({
             ? "Thank you for reviewing your custom Engagement Schedule. You may now proceed to Step 9."
             : "Under Tax Agent Professional Conduct Rules (TASA 2009), you must click 'View Engagement Schedule' to inspect all 12 schedule parameters before signing."
         }
-        className="rounded-xl p-4 !mb-4 shadow-sm"
+        className="rounded-lg p-4 !mb-4 shadow-sm"
       />
 
       {/* Main View Engagement Schedule Action Card */}
       <div
         ref={scheduleCardRef}
-        className={`p-6 rounded-xl bg-gradient-to-r from-emerald-50/80 via-slate-50 to-emerald-50/40 dark:from-emerald-950/40 dark:via-zinc-900 dark:to-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm ${
+        className={`p-6 rounded-lg bg-gradient-to-r from-emerald-50/80 via-slate-50 to-emerald-50/40 dark:from-emerald-950/40 dark:via-zinc-900 dark:to-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/50 shadow-sm ${
           needsAttention ? formStyles.scheduleAttention : ""
         }`}
       >
@@ -251,7 +254,7 @@ export default function Step8EngagementSchedule({
               icon={<EyeOutlined />}
               size="large"
               onClick={handleOpenScheduleModal}
-              className="bg-brand-primary hover:bg-brand-primary-hover font-extrabold rounded-xl px-7 h-12 shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2"
+              className="bg-brand-primary hover:bg-brand-primary-hover font-extrabold rounded-lg px-7 h-12 shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2"
             >
               View Engagement Schedule
             </Button>
@@ -266,7 +269,7 @@ export default function Step8EngagementSchedule({
             <LockOutlined className="text-brand-primary" /> Engagement Summary
             Overview
           </h3>
-          <Tag color="blue" className="font-semibold text-xs rounded-xl">
+          <Tag color="blue" className="font-semibold text-xs rounded-lg">
             12 Parameters Validated
           </Tag>
         </div>
@@ -274,7 +277,7 @@ export default function Step8EngagementSchedule({
         {scheduleData.map((item, index) => (
           <Card
             key={item.key}
-            className="rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all overflow-hidden dark:bg-zinc-950 !mb-4"
+            className="rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md transition-all overflow-hidden dark:bg-zinc-950 !mb-4"
             title={
               <div className="flex flex-wrap items-center justify-between gap-2 py-1">
                 <div className="flex items-center gap-2">
@@ -289,7 +292,7 @@ export default function Step8EngagementSchedule({
             }
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
                 <span className="font-extrabold text-slate-500 dark:text-zinc-400 block uppercase tracking-wider text-[10px]">
                   Year / Period
                 </span>
@@ -298,7 +301,7 @@ export default function Step8EngagementSchedule({
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
                 <span className="font-extrabold text-slate-500 dark:text-zinc-400 block uppercase tracking-wider text-[10px]">
                   Deliverable
                 </span>
@@ -307,7 +310,7 @@ export default function Step8EngagementSchedule({
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
                 <span className="font-extrabold text-slate-500 dark:text-zinc-400 block uppercase tracking-wider text-[10px]">
                   Expected Completion
                 </span>
@@ -316,7 +319,7 @@ export default function Step8EngagementSchedule({
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
                 <span className="font-extrabold text-amber-600 dark:text-amber-400 block uppercase tracking-wider text-[10px]">
                   Information Deadline
                 </span>
@@ -325,7 +328,7 @@ export default function Step8EngagementSchedule({
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 space-y-1">
                 <span className="font-extrabold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider text-[10px]">
                   Lodgment / Payment Deadline
                 </span>
@@ -334,7 +337,7 @@ export default function Step8EngagementSchedule({
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 md:col-span-2 space-y-1">
+              <div className="p-3 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 md:col-span-2 space-y-1">
                 <span className="font-extrabold text-emerald-700 dark:text-emerald-400 block uppercase tracking-wider text-[10px] flex items-center gap-1">
                   <CheckCircleOutlined /> Included Work
                 </span>
@@ -343,7 +346,7 @@ export default function Step8EngagementSchedule({
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40 space-y-1">
+              <div className="p-3 rounded-lg bg-rose-50/50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40 space-y-1">
                 <span className="font-extrabold text-rose-700 dark:text-rose-400 block uppercase tracking-wider text-[10px] flex items-center gap-1">
                   <CloseCircleOutlined /> Excluded Work
                 </span>
@@ -352,7 +355,7 @@ export default function Step8EngagementSchedule({
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 md:col-span-3 space-y-1">
+              <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-900/80 border border-slate-100 dark:border-zinc-800/80 md:col-span-3 space-y-1">
                 <span className="font-extrabold text-slate-500 dark:text-zinc-400 block uppercase tracking-wider text-[10px]">
                   Special Conditions
                 </span>
@@ -366,7 +369,7 @@ export default function Step8EngagementSchedule({
       </div>
 
       {/* Global General Conditions Box */}
-      <div className="p-5 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 text-xs">
+      <div className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 space-y-3 text-xs">
         <h4 className="font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wider text-xs">
           General Terms & Responsible Tax Agent Details
         </h4>
@@ -428,7 +431,7 @@ export default function Step8EngagementSchedule({
             <Button
               icon={<PrinterOutlined />}
               onClick={handlePrintSchedule}
-              className="rounded-xl font-bold border-slate-300 dark:border-zinc-700 h-10 px-5"
+              className="rounded-lg font-bold border-slate-300 dark:border-zinc-700 h-10 px-5"
             >
               Print / Save as PDF
             </Button>
@@ -437,7 +440,7 @@ export default function Step8EngagementSchedule({
               type="primary"
               icon={<CheckCircleFilled />}
               onClick={() => setModalVisible(false)}
-              className="bg-brand-primary hover:bg-brand-primary-hover rounded-xl font-bold px-7 h-10 shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
+              className="bg-brand-primary hover:bg-brand-primary-hover rounded-lg font-bold px-7 h-10 shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
             >
               I Have Reviewed the Engagement Schedule
             </Button>
@@ -459,7 +462,7 @@ export default function Step8EngagementSchedule({
             <div className="text-right">
               <Tag
                 color="green"
-                className="font-extrabold text-xs px-3 py-1 rounded-xl"
+                className="font-extrabold text-xs px-3 py-1 rounded-lg"
               >
                 ENGAGEMENT SCHEDULE
               </Tag>
@@ -470,7 +473,7 @@ export default function Step8EngagementSchedule({
           </div>
 
           {/* Document Title Banner */}
-          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
             <h2 className="text-lg font-extrabold text-slate-900 dark:text-zinc-100 uppercase tracking-wide m-0">
               INDIVIDUAL CLIENT ENGAGEMENT SCHEDULE & SCOPE OF WORKS
             </h2>
@@ -488,7 +491,7 @@ export default function Step8EngagementSchedule({
             {scheduleData.map((item, idx) => (
               <div
                 key={item.key}
-                className="border border-slate-200 dark:border-zinc-800 rounded-xl overflow-hidden"
+                className="border border-slate-200 dark:border-zinc-800 rounded-lg overflow-hidden"
               >
                 <div className="bg-emerald-50 dark:bg-emerald-950/60 p-3 border-b border-slate-200 dark:border-zinc-800 flex items-center justify-between">
                   <span className="font-extrabold text-sm text-brand-primary dark:text-emerald-400">
@@ -575,7 +578,7 @@ export default function Step8EngagementSchedule({
           </div>
 
           {/* General Terms Section */}
-          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 text-xs space-y-2">
+          <div className="bg-slate-50 dark:bg-zinc-900 p-4 rounded-lg border border-slate-200 dark:border-zinc-800 text-xs space-y-2">
             <h4 className="font-bold text-slate-900 dark:text-zinc-100 m-0 uppercase">
               General Terms & Compliance Declarations
             </h4>

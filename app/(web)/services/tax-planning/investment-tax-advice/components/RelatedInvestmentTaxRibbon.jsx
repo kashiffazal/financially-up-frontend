@@ -22,28 +22,36 @@ export default function RelatedInvestmentTaxRibbon() {
       title: "Share Trading & Investment Accountant",
       desc: "Annual reporting for shares, dividends, ETFs, foreign income and brokerage accounts.",
       href: "/services/individual-tax/share-trading-investment-accountant",
-      icon: <StockOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <StockOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       tag: "Pillar 1.5 • Compliance",
     },
     {
       title: "Capital Gains Tax Planning",
       desc: "Detailed CGT calculation, 50% general discount qualification and disposal timing.",
       href: "/services/tax-planning/cgt-planning",
-      icon: <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Pillar 3.7 • Advisory",
     },
     {
       title: "Investment Property Tax Accountant",
       desc: "Rental schedules, interest deductions, depreciation schedules and capital works.",
       href: "/services/individual-tax/investment-property-tax-accountant",
-      icon: <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Pillar 1.4 • Compliance",
     },
     {
       title: "Personal Tax Planning",
       desc: "Comprehensive strategy for salary, investment portfolios, deductions and tax minimization.",
       href: "/services/tax-planning/personal-tax-planning",
-      icon: <UserOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <UserOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Pillar 3.2 • Advisory",
     },
   ];
@@ -74,11 +82,11 @@ export default function RelatedInvestmentTaxRibbon() {
             <Link
               key={idx}
               href={item.href}
-              className="group bg-slate-50 dark:bg-zinc-800/50 hover:bg-white dark:hover:bg-zinc-800 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-primary/50 dark:hover:border-emerald-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="group bg-slate-50 dark:bg-zinc-800/50 hover:bg-white dark:hover:bg-zinc-800 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-primary/50 dark:hover:border-emerald-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-2xs group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold text-slate-400 dark:text-zinc-500 tracking-wider">

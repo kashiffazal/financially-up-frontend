@@ -130,7 +130,7 @@ export default function FaqSection({
     key: faq.key || String(idx + 1),
     label: (
       <div className="flex items-center gap-3">
-        <span className="w-7 h-7 rounded-xl bg-brand-primary-soft dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0">
+        <span className="w-7 h-7 rounded-lg bg-brand-primary-soft dark:bg-emerald-950 text-brand-primary dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0">
           {String(idx + 1).padStart(2, "0")}
         </span>
         <span className="text-slate-900 dark:text-zinc-50 font-bold text-sm sm:text-base">
@@ -216,14 +216,14 @@ export default function FaqSection({
             {/* ── Left Column: Rich Interactive Feature Card (Col 5) ── */}
             <div className="lg:col-span-5 space-y-6">
               <div
-                className={`relative rounded-xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 ${styles.imageCardFrame}`}
+                className={`relative rounded-lg overflow-hidden shadow-2xl border border-slate-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 ${styles.imageCardFrame}`}
               >
                 <Image
                   src={image}
                   alt={imageAlt}
                   width={500}
                   height={485}
-                  className="w-full h-[485px] object-cover rounded-xl"
+                  className="w-full h-[485px] object-cover rounded-lg"
                 />
 
                 {/* Floating Top Rating Badge */}
@@ -240,7 +240,7 @@ export default function FaqSection({
               </div>
 
               {/* Bottom Teaser Contact Card */}
-              <div className="p-6 rounded-xl bg-gradient-to-r from-brand-primary-soft to-emerald-50 dark:from-emerald-950/70 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-900/60 shadow-sm flex items-center justify-between gap-4">
+              <div className="p-6 rounded-lg bg-gradient-to-r from-brand-primary-soft to-emerald-50 dark:from-emerald-950/70 dark:to-zinc-900 border border-emerald-200/80 dark:border-emerald-900/60 shadow-sm flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-md">
                     <CustomerServiceOutlined className="text-lg" />
@@ -258,7 +258,7 @@ export default function FaqSection({
                 <Button
                   type="primary"
                   onClick={() => setIsContactModalOpen(true)}
-                  className="h-9 px-4 rounded-xl font-bold text-xs bg-brand-primary hover:bg-brand-primary-hover shadow-sm"
+                  className="h-9 px-4 rounded-lg font-bold text-xs bg-brand-primary hover:bg-brand-primary-hover shadow-sm"
                 >
                   Ask Agent
                 </Button>
@@ -266,9 +266,7 @@ export default function FaqSection({
             </div>
 
             {/* ── Right Column: Accordion List (Col 7) ── */}
-            <div className="lg:col-span-7">
-              {accordionContent}
-            </div>
+            <div className="lg:col-span-7">{accordionContent}</div>
           </div>
         ) : (
           /* ── Full-Width Accordion Layout (When Side Column is Hidden) ── */
@@ -276,9 +274,9 @@ export default function FaqSection({
             {accordionContent}
 
             {/* Compact Bottom Assistance Strip */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-brand-primary-soft/80 via-white to-brand-primary-soft/40 dark:from-zinc-900 dark:via-zinc-900 dark:to-emerald-950/40 border border-emerald-200/70 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+            <div className="p-5 sm:p-6 rounded-lg bg-gradient-to-r from-brand-primary-soft/80 via-white to-brand-primary-soft/40 dark:from-zinc-900 dark:via-zinc-900 dark:to-emerald-950/40 border border-emerald-200/70 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
               <div className="flex items-center gap-3.5 text-center sm:text-left">
-                <div className="w-10 h-10 rounded-xl bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-10 h-10 rounded-lg bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-sm">
                   <CustomerServiceOutlined className="text-lg" />
                 </div>
                 <div>
@@ -286,7 +284,8 @@ export default function FaqSection({
                     Still have unanswered questions?
                   </div>
                   <div className="text-xs text-slate-500 dark:text-zinc-400">
-                    Speak directly with our Australian registered CPA tax accounting team.
+                    Speak directly with our Australian registered CPA tax
+                    accounting team.
                   </div>
                 </div>
               </div>
@@ -294,7 +293,7 @@ export default function FaqSection({
               <Button
                 type="primary"
                 onClick={() => setIsContactModalOpen(true)}
-                className="h-10 px-5 rounded-xl font-bold text-xs bg-brand-primary hover:bg-brand-primary-hover shadow-sm shrink-0"
+                className="h-10 px-5 rounded-lg font-bold text-xs bg-brand-primary hover:bg-brand-primary-hover shadow-sm shrink-0"
               >
                 Ask Agent
               </Button>

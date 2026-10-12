@@ -28,7 +28,8 @@ export default function HowFinanciallyUpHelpsOverdue() {
 
   const services = [
     {
-      title: "Identify outstanding income years and likely lodgment requirements",
+      title:
+        "Identify outstanding income years and likely lodgment requirements",
       icon: <CalendarOutlined className="text-emerald-500 text-lg" />,
       desc: "Checking your complete historical lodgment status directly on the ATO Tax Agent Portal.",
     },
@@ -53,7 +54,8 @@ export default function HowFinanciallyUpHelpsOverdue() {
       desc: "Transmitting finalized returns securely through the digital ATO portal with full client sign-off.",
     },
     {
-      title: "Explain assessments, balances and ATO correspondence relating to the lodged returns",
+      title:
+        "Explain assessments, balances and ATO correspondence relating to the lodged returns",
       icon: <SafetyCertificateOutlined className="text-rose-500 text-lg" />,
       desc: "Providing clear explanations of Notices of Assessment, refunds, or payment balances issued by the ATO.",
     },
@@ -64,14 +66,20 @@ export default function HowFinanciallyUpHelpsOverdue() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Practical &amp; Non-Judgmental Support
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} assists individuals Australia-wide with organizing and preparing overdue tax returns in a practical, non-judgmental way. Depending on the agreed scope, we may help to:
+            {company?.legalName || "Financially Up Pty Ltd"} assists individuals
+            Australia-wide with organizing and preparing overdue tax returns in
+            a practical, non-judgmental way. Depending on the agreed scope, we
+            may help to:
           </p>
         </div>
 
@@ -90,10 +98,10 @@ export default function HowFinanciallyUpHelpsOverdue() {
             {services.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
+                className="flex flex-col justify-between p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 shadow-2xs hover:shadow-xs transition-shadow"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-zinc-700 mb-3.5">
                     {item.icon}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
@@ -110,13 +118,17 @@ export default function HowFinanciallyUpHelpsOverdue() {
           {/* Scope Boundaries Note */}
           <div className="mt-8 pt-6 border-t border-slate-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-400">
             <p className="m-0 max-w-2xl leading-relaxed">
-              Tax-return preparation and lodgment are separate from detailed tax advice, tax planning, objections, debt arrangements and requests for remission. If additional work is required, the proposed scope and fees can be confirmed separately before that work begins.
+              Tax-return preparation and lodgment are separate from detailed tax
+              advice, tax planning, objections, debt arrangements and requests
+              for remission. If additional work is required, the proposed scope
+              and fees can be confirmed separately before that work begins.
             </p>
             <Link
               href="/services/individual-tax"
               className="text-brand-primary dark:text-emerald-400 font-bold hover:underline inline-flex items-center gap-1 shrink-0"
             >
-              Explore Individual Tax Hub <ArrowRightOutlined className="text-xs" />
+              Explore Individual Tax Hub{" "}
+              <ArrowRightOutlined className="text-xs" />
             </Link>
           </div>
         </div>
@@ -131,7 +143,9 @@ export default function HowFinanciallyUpHelpsOverdue() {
               Ready to Catch Up on Missing Tax Returns?
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 mt-1 leading-relaxed">
-              Falling behind happens for many reasons. We provide a calm, structured path forward to help you become fully up to date with the ATO with confidence and complete peace of mind.
+              Falling behind happens for many reasons. We provide a calm,
+              structured path forward to help you become fully up to date with
+              the ATO with confidence and complete peace of mind.
             </p>
           </div>
 

@@ -20,17 +20,23 @@ import {
 export default function WhyTimingAndDeedMatter() {
   const coreFactors = [
     {
-      icon: <BookOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <BookOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Trust Deed Authority",
       desc: "The trustee’s legal authority comes from the trust deed. Distribution decisions must strictly conform to the definitions of income and powers specified within the deed.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Pre-30 June Resolution Deadline",
       desc: "For many discretionary trusts, written resolutions creating present entitlement must be executed by 30 June, though the deed may specify an earlier date.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Entitlement vs Cash Payment",
       desc: "Creating present entitlement does not require an immediate physical cash payment. Beneficiaries can become entitled even where funds remain unpaid as a credit balance.",
     },
@@ -50,8 +56,14 @@ export default function WhyTimingAndDeedMatter() {
         </div>
 
         {/* Verbatim Paragraph 1 */}
-        <div className="max-w-4xl mx-auto mb-10 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          The trustee’s authority comes from the trust deed, so distribution decisions must be made in accordance with its terms. For many discretionary trusts, resolutions affecting present entitlement for an income year generally need to be made by the end of that income year, but the deed may require earlier action or impose additional conditions. Some specific entitlement rules have their own recording requirements.
+        <div className="max-w-4xl mx-auto mb-10 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          The trustee’s authority comes from the trust deed, so distribution
+          decisions must be made in accordance with its terms. For many
+          discretionary trusts, resolutions affecting present entitlement for an
+          income year generally need to be made by the end of that income year,
+          but the deed may require earlier action or impose additional
+          conditions. Some specific entitlement rules have their own recording
+          requirements.
         </div>
 
         {/* 3 Core Factors Grid */}
@@ -59,10 +71,10 @@ export default function WhyTimingAndDeedMatter() {
           {coreFactors.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4 border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -77,12 +89,15 @@ export default function WhyTimingAndDeedMatter() {
         </div>
 
         {/* Verbatim Paragraph 2 on Pre-Year-End Documentation */}
-        <div className="max-w-4xl mx-auto mb-6 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
-          This is why family trust distribution advice is most useful before the relevant decision deadline. Waiting until after year-end can limit what can validly be changed. The trustee should also keep evidence of the resolution and the information used to make it.
+        <div className="max-w-4xl mx-auto mb-6 bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed shadow-sm">
+          This is why family trust distribution advice is most useful before the
+          relevant decision deadline. Waiting until after year-end can limit
+          what can validly be changed. The trustee should also keep evidence of
+          the resolution and the information used to make it.
         </div>
 
         {/* Verbatim Paragraph 3 on Present Entitlement vs Cash Payment */}
-        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-2xl p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
+        <div className="max-w-4xl mx-auto bg-amber-50/70 dark:bg-amber-950/20 rounded-lg p-6 sm:p-7 border border-amber-200/80 dark:border-amber-800/50">
           <div className="flex items-start gap-4">
             <ExclamationCircleOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <div className="space-y-2 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
@@ -90,7 +105,12 @@ export default function WhyTimingAndDeedMatter() {
                 Cash Payment vs Present Entitlement
               </h3>
               <p>
-                A distribution decision is not the same as physically paying cash to a beneficiary. A beneficiary can become presently entitled to trust income even where the amount remains unpaid, depending on the deed, resolution and circumstances. That distinction can affect both tax reporting and later trust-company transactions.
+                A distribution decision is not the same as physically paying
+                cash to a beneficiary. A beneficiary can become presently
+                entitled to trust income even where the amount remains unpaid,
+                depending on the deed, resolution and circumstances. That
+                distinction can affect both tax reporting and later
+                trust-company transactions.
               </p>
             </div>
           </div>

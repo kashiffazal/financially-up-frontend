@@ -116,7 +116,7 @@ export default function WhatToExpect() {
         />
 
         {/* 2. Official Australian TPB Registration & Practice Verification Card */}
-        <div className="mt-12 sm:mt-14 p-7 sm:p-9 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-lg relative overflow-hidden">
+        <div className="mt-12 sm:mt-14 p-7 sm:p-9 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-lg relative overflow-hidden">
           {/* Subtle Ambient Background Wash */}
           <div className="absolute -top-24 -right-24 w-80 h-80 bg-[var(--brand-primary)]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -129,7 +129,7 @@ export default function WhatToExpect() {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-zinc-50 tracking-tight m-0">
-                {company.legalName || "Financially Up Pty Ltd"} — Registered
+                {company.legalName || "Financially Up Pty Ltd"} - Registered
                 Australian Tax Practice
               </h3>
 
@@ -158,7 +158,7 @@ export default function WhatToExpect() {
             {/* Right: Contact Chips & Booking Action */}
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
               {company.address && (
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/60 text-xs font-medium text-slate-700 dark:text-zinc-300">
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/60 text-xs font-medium text-slate-700 dark:text-zinc-300">
                   <div className="w-8 h-8 rounded-lg bg-[var(--brand-primary-soft)] dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
                     <EnvironmentOutlined className="text-sm" />
                   </div>
@@ -172,7 +172,7 @@ export default function WhatToExpect() {
                 {company.phone && (
                   <a
                     href={`tel:${company.phone.replace(/\s/g, "")}`}
-                    className="flex-1 inline-flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/60 text-xs font-bold text-slate-800 dark:text-zinc-200 hover:text-[var(--brand-primary)] dark:hover:text-emerald-400 hover:border-[var(--brand-border-hover)] transition-all"
+                    className="flex-1 inline-flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/60 text-xs font-bold text-slate-800 dark:text-zinc-200 hover:text-[var(--brand-primary)] dark:hover:text-emerald-400 hover:border-[var(--brand-border-hover)] transition-all"
                   >
                     <PhoneOutlined className="text-[var(--brand-primary)] dark:text-emerald-400 text-sm" />
                     <span>{company.phone}</span>
@@ -182,7 +182,7 @@ export default function WhatToExpect() {
                 {company.email && (
                   <a
                     href={`mailto:${company.email}`}
-                    className="flex-1 inline-flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/60 text-xs font-bold text-slate-800 dark:text-zinc-200 hover:text-[var(--brand-primary)] dark:hover:text-emerald-400 hover:border-[var(--brand-border-hover)] transition-all"
+                    className="flex-1 inline-flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/60 text-xs font-bold text-slate-800 dark:text-zinc-200 hover:text-[var(--brand-primary)] dark:hover:text-emerald-400 hover:border-[var(--brand-border-hover)] transition-all"
                   >
                     <MailOutlined className="text-[var(--brand-primary)] dark:text-emerald-400 text-sm" />
                     <span>Email Us</span>
@@ -196,7 +196,7 @@ export default function WhatToExpect() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="w-full h-11 rounded-xl font-bold text-xs bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] border-none shadow-md shadow-[var(--brand-primary)]/20"
+                  className="w-full h-11 rounded-lg font-bold text-xs bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] border-none shadow-md shadow-[var(--brand-primary)]/20"
                 >
                   Book an Appointment
                 </Button>

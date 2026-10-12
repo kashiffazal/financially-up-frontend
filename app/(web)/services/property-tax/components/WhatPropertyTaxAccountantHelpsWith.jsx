@@ -44,49 +44,67 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
     {
       title: "Rental Income and Deductible Expenses",
       verbatim: "Rental income and deductible expenses",
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       desc: "Reconciling gross rent, managing agent statements, and claiming legitimate running expenses.",
     },
     {
       title: "Interest and the Purpose of Borrowings",
       verbatim: "Interest and the purpose of borrowings",
-      icon: <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       desc: "Tracing borrowed funds, loan redraws, and apportioning interest for income-producing purposes.",
     },
     {
       title: "Repairs, Maintenance, Depreciating Assets and Capital Works",
       verbatim: "Repairs, maintenance, depreciating assets and capital works",
-      icon: <LineChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       desc: "Distinguishing immediate deductible repairs from capital works and Division 40 & 43 write-offs.",
     },
     {
       title: "Ownership Percentages and Entity Reporting",
       verbatim: "Ownership percentages and entity reporting",
-      icon: <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ApartmentOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       desc: "Aligning tax reporting with legal titles across individuals, partnerships, trusts, and companies.",
     },
     {
       title: "Capital Gains Tax When an Investment Property is Sold",
       verbatim: "Capital gains tax when an investment property is sold",
-      icon: <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       desc: "Reconstructing 5-element cost bases, applying the 50% discount, and calculating CGT obligations.",
     },
     {
       title: "GST Where Activities Amount to an Enterprise or Taxable Supplies",
-      verbatim: "GST where property activities amount to an enterprise or involve taxable supplies",
-      icon: <BankOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      verbatim:
+        "GST where property activities amount to an enterprise or involve taxable supplies",
+      icon: (
+        <BankOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       desc: "Assessing enterprise thresholds, registration requirements, and margin scheme rules on sales.",
     },
     {
       title: "Year-End Accounting and Records for Property-Owning Entities",
       verbatim: "Year-end accounting and records for property-owning entities",
-      icon: <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       desc: "Preparing annual financial statements, trust distributions, and corporate compliance schedules.",
     },
     {
       title: "Interaction Between Property and Broader Business Tax",
-      verbatim: "The interaction between property transactions and broader business tax compliance.",
-      icon: <FileDoneOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      verbatim:
+        "The interaction between property transactions and broader business tax compliance.",
+      icon: (
+        <FileDoneOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       desc: "Integrating property asset transactions with business operations, payroll, BAS, and income tax.",
     },
   ];
@@ -106,7 +124,13 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
             What does a property tax accountant help with?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A property tax accountant reviews how Australian income tax, CGT, GST and accounting rules apply to property ownership and transactions. The work depends on the property’s use, the owner, the source and use of finance, and whether the activity is an investment, business or profit-making undertaking. An individual landlord with one long-term rental property therefore has different reporting issues from a company developing townhouses for sale.
+            A property tax accountant reviews how Australian income tax, CGT,
+            GST and accounting rules apply to property ownership and
+            transactions. The work depends on the property’s use, the owner, the
+            source and use of finance, and whether the activity is an
+            investment, business or profit-making undertaking. An individual
+            landlord with one long-term rental property therefore has different
+            reporting issues from a company developing townhouses for sale.
           </p>
         </div>
 
@@ -126,10 +150,10 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
           {exactReviewAreas.map((item, index) => (
             <div
               key={index}
-              className="group p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="group p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                   {item.icon}
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
@@ -148,14 +172,16 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
         </div>
 
         {/* Interactive Consultation Banner */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="space-y-2 max-w-2xl text-center lg:text-left">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white m-0">
                 Discuss Your Property Review Scope With Our Team
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                Whether you need assistance with rental deductions, loan interest apportionment, capital gains calculations, or development GST, Financially Up is here to help.
+                Whether you need assistance with rental deductions, loan
+                interest apportionment, capital gains calculations, or
+                development GST, Financially Up is here to help.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
@@ -165,7 +191,7 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                  className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -174,7 +200,7 @@ export default function WhatPropertyTaxAccountantHelpsWith() {
                 <Button
                   size="large"
                   icon={<EyeOutlined />}
-                  className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                  className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
                 >
                   Explore Services
                 </Button>

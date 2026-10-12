@@ -47,14 +47,18 @@ export default function WhatInformationNeededAndConnectedChanges() {
         {/* Subsection 1: What information is needed for an ASIC director update? */}
         <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-12">
-            <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Required Documentation
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What information is needed for an ASIC director update?
             </h2>
             <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal max-w-3xl mx-auto">
-              Different details are required depending on whether your company is appointing a new officeholder or recording a cessation.
+              Different details are required depending on whether your company
+              is appointing a new officeholder or recording a cessation.
             </p>
           </div>
 
@@ -63,7 +67,7 @@ export default function WhatInformationNeededAndConnectedChanges() {
             <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center">
                     <UserAddOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -71,7 +75,11 @@ export default function WhatInformationNeededAndConnectedChanges() {
                   </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal mb-5">
-                  For a new appointment, ASIC requires identifying and appointment information such as the director&apos;s name, date and place of birth, residential address and appointment date. The company should also hold written consent, and the proposed director should already have a director ID.
+                  For a new appointment, ASIC requires identifying and
+                  appointment information such as the director&apos;s name, date
+                  and place of birth, residential address and appointment date.
+                  The company should also hold written consent, and the proposed
+                  director should already have a director ID.
                 </p>
 
                 <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
@@ -89,7 +97,7 @@ export default function WhatInformationNeededAndConnectedChanges() {
             <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center">
                     <UserDeleteOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -97,7 +105,11 @@ export default function WhatInformationNeededAndConnectedChanges() {
                   </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal mb-5">
-                  For a cessation, the key information includes the director and the actual date they resigned, retired or otherwise ceased office. Company minutes, resolutions, resignation notices and other records may also be relevant depending on how the change occurred.
+                  For a cessation, the key information includes the director and
+                  the actual date they resigned, retired or otherwise ceased
+                  office. Company minutes, resolutions, resignation notices and
+                  other records may also be relevant depending on how the change
+                  occurred.
                 </p>
 
                 <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 dark:text-zinc-300">
@@ -122,15 +134,26 @@ export default function WhatInformationNeededAndConnectedChanges() {
             </h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-            A director appointment or resignation can happen alongside a change in shareholders, registered office, principal place of business or company control. Those are related but separate corporate updates. Our{" "}
-            <Link href="/services/asic/company-changes" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+            A director appointment or resignation can happen alongside a change
+            in shareholders, registered office, principal place of business or
+            company control. Those are related but separate corporate updates.
+            Our{" "}
+            <Link
+              href="/services/asic/company-changes"
+              className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+            >
               company changes service
             </Link>{" "}
-            covers broader ASIC company-detail changes, while this page focuses specifically on director appointments and cessations.
+            covers broader ASIC company-detail changes, while this page focuses
+            specifically on director appointments and cessations.
           </p>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal m-0 pt-3 border-t border-slate-100 dark:border-zinc-800">
-            If a new company is being established rather than an existing company changing directors, our{" "}
-            <Link href="/services/business-structures/company-registration" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+            If a new company is being established rather than an existing
+            company changing directors, our{" "}
+            <Link
+              href="/services/business-structures/company-registration"
+              className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+            >
               company registration service
             </Link>{" "}
             deals with the incorporation process and initial officeholder setup.

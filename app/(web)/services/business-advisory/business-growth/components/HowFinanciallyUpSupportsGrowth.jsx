@@ -26,22 +26,30 @@ import {
 export default function HowFinanciallyUpSupportsGrowth() {
   const supportSteps = [
     {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Reviewing Financial Statements",
       desc: "Analyzing historical profitability, margin stability, and working capital lines to understand current baseline strength.",
     },
     {
-      icon: <CommentOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <CommentOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Discussing the Proposed Opportunity",
       desc: "Talking through the expansion goals, commercial assumptions, competitive environment, and resource requirements.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Preparing Budgets or Cash Flow Forecasts",
       desc: "Building financial models to stress-test timing differences, funding needs, and down-side operational scenarios.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Meeting to Assess Actual Performance",
       desc: "Convening regular review meetings to track actual performance against the growth plan and adjust assumptions.",
     },
@@ -64,7 +72,7 @@ export default function HowFinanciallyUpSupportsGrowth() {
         </div>
 
         {/* Verbatim Paragraph 1 Card: 4-Point Support Process */}
-        <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
+        <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-12">
           <div className="max-w-3xl mb-6">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2">
               <CheckCircleOutlined />
@@ -86,7 +94,7 @@ export default function HowFinanciallyUpSupportsGrowth() {
             {supportSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
+                className="bg-white dark:bg-zinc-900 p-5 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-2xs"
               >
                 <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-3">
                   {step.icon}
@@ -106,12 +114,14 @@ export default function HowFinanciallyUpSupportsGrowth() {
         </div>
 
         {/* Verbatim Paragraph 2 Cross-Link Banner: Valuations & Acquisitions Scope */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
                 <SafetyCertificateOutlined />
-                <span>Investor Influx, Acquisitions &amp; Exit Due Diligence</span>
+                <span>
+                  Investor Influx, Acquisitions &amp; Exit Due Diligence
+                </span>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed m-0 font-normal">
                 If growth involves bringing in an investor, acquiring a
@@ -137,7 +147,7 @@ export default function HowFinanciallyUpSupportsGrowth() {
             <div className="shrink-0 flex flex-wrap gap-3">
               <Link href="/services/business-advisory/business-valuations">
                 <Button
-                  className="rounded-xl font-bold px-5 h-11 bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-white"
+                  className="rounded-lg font-bold px-5 h-11 bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-white"
                   icon={<SafetyCertificateOutlined />}
                 >
                   Business Valuations
@@ -147,7 +157,7 @@ export default function HowFinanciallyUpSupportsGrowth() {
                 <Button
                   type="primary"
                   icon={<ShopOutlined />}
-                  className="rounded-xl font-bold px-5 h-11 shadow-sm"
+                  className="rounded-lg font-bold px-5 h-11 shadow-sm"
                 >
                   M&amp;A Advisory
                 </Button>

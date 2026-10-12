@@ -2,7 +2,7 @@
 
 /**
  * ============================================================
- * SignatureCanvas — Reusable Signature Drawing Component
+ * SignatureCanvas - Reusable Signature Drawing Component
  * ============================================================
  *
  * Encapsulates Ant Design's <Form.Item> directly inside the component
@@ -46,7 +46,11 @@ import styles from "./SignatureCanvas.module.css";
  */
 export function cropSignatureDataUrl(dataUrl, padding = 10) {
   return new Promise((resolve) => {
-    if (!dataUrl || typeof window === "undefined" || typeof document === "undefined") {
+    if (
+      !dataUrl ||
+      typeof window === "undefined" ||
+      typeof document === "undefined"
+    ) {
       return resolve(dataUrl);
     }
 
@@ -111,8 +115,8 @@ export function cropSignatureDataUrl(dataUrl, padding = 10) {
         // Calculate bounded crop coordinates with padding
         const cropX = Math.max(0, minX - padding);
         const cropY = Math.max(0, minY - padding);
-        const cropW = Math.min(width - cropX, (maxX - minX + 1) + padding * 2);
-        const cropH = Math.min(height - cropY, (maxY - minY + 1) + padding * 2);
+        const cropW = Math.min(width - cropX, maxX - minX + 1 + padding * 2);
+        const cropH = Math.min(height - cropY, maxY - minY + 1 + padding * 2);
 
         if (cropW <= 0 || cropH <= 0) {
           return resolve(dataUrl);
@@ -129,8 +133,14 @@ export function cropSignatureDataUrl(dataUrl, padding = 10) {
 
         croppedCtx.drawImage(
           canvas,
-          cropX, cropY, cropW, cropH,
-          0, 0, cropW, cropH
+          cropX,
+          cropY,
+          cropW,
+          cropH,
+          0,
+          0,
+          cropW,
+          cropH,
         );
 
         // Enforce 100% transparent PNG background:
@@ -153,7 +163,10 @@ export function cropSignatureDataUrl(dataUrl, padding = 10) {
         const croppedDataUrl = croppedCanvas.toDataURL("image/png");
         resolve(croppedDataUrl);
       } catch (err) {
-        console.warn("SignatureCanvas: Automatic cropping failed, falling back to original image:", err);
+        console.warn(
+          "SignatureCanvas: Automatic cropping failed, falling back to original image:",
+          err,
+        );
         resolve(dataUrl);
       }
     };
@@ -179,7 +192,10 @@ export function clearAllSignatureStorage() {
     const keysToRemove = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key && (key.startsWith("sig_paths_") || key.startsWith("signature_"))) {
+      if (
+        key &&
+        (key.startsWith("sig_paths_") || key.startsWith("signature_"))
+      ) {
         keysToRemove.push(key);
       }
     }
@@ -195,13 +211,13 @@ export function clearSignatureStorage(storageKey) {
   try {
     localStorage.removeItem(`sig_paths_${storageKey}`);
     window.dispatchEvent(
-      new CustomEvent("resetSignatureCanvases", { detail: { storageKey } })
+      new CustomEvent("resetSignatureCanvases", { detail: { storageKey } }),
     );
   } catch (err) {
     console.error(
       "SignatureCanvas: Failed to clear signature storage for key:",
       storageKey,
-      err
+      err,
     );
   }
 }
@@ -230,7 +246,11 @@ const SignatureCanvasControl = ({
 
   // Only initialize hasDrawn from localStorage if value or initialImage exists
   const [internalHasDrawn, setInternalHasDrawn] = useState(() => {
-    if (typeof window !== "undefined" && storageKey && (value || initialImage)) {
+    if (
+      typeof window !== "undefined" &&
+      storageKey &&
+      (value || initialImage)
+    ) {
       const saved = localStorage.getItem(`sig_paths_${storageKey}`);
       if (saved && saved !== "false") {
         try {
@@ -477,13 +497,17 @@ const SignatureCanvasControl = ({
         </div>
 
         <div
-          className={`${styles.existingSignature} relative rounded-xl border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-transparent overflow-hidden shadow-inner flex items-center justify-center`}
+          className={`${styles.existingSignature} relative rounded-lg border-2 border-dashed border-slate-200 dark:border-zinc-700 bg-transparent overflow-hidden shadow-inner flex items-center justify-center`}
           style={{ height: heightStyle }}
         >
           {/* Natural size (never enlarged), so the signature looks exactly as it was drawn */}
           <div className="w-full h-full p-3 flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element -- base64 data URL / uploaded file */}
-            <img src={activeImage} alt="Saved signature" className="max-w-full max-h-full object-contain" />
+            <img
+              src={activeImage}
+              alt="Saved signature"
+              className="max-w-full max-h-full object-contain"
+            />
           </div>
         </div>
       </div>
@@ -507,7 +531,7 @@ const SignatureCanvasControl = ({
         onMouseDownCapture={handleInteractionStart}
         onTouchStartCapture={handleInteractionStart}
         className={`
-          relative rounded-xl border-2 border-dashed overflow-hidden shadow-inner
+          relative rounded-lg border-2 border-dashed overflow-hidden shadow-inner
           transition-all duration-200
           ${
             disabled
@@ -550,7 +574,7 @@ const SignatureCanvasControl = ({
         )}
       </div>
 
-      {/* Toolbar — status text / inline error in small mono font + action buttons */}
+      {/* Toolbar - status text / inline error in small mono font + action buttons */}
       <div className="flex items-center justify-between px-1 mt-1.5 min-h-[22px]">
         <span
           className={`text-[11px] font-mono leading-none transition-colors duration-150 ${

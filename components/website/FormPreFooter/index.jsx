@@ -26,7 +26,7 @@ export default function FormPreFooter() {
         {/* Top Header Row with Primary Color Text Link & Icon */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/60 dark:border-zinc-800/80 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-brand-primary-soft dark:bg-emerald-950/80 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <CustomerServiceOutlined />
             </div>
             <div>
@@ -56,8 +56,8 @@ export default function FormPreFooter() {
         {/* Compact 3-Column Support Bar */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* ITEM 1: Direct Support Phone & Email */}
-          <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+          <div className="p-4 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
+            <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <PhoneOutlined />
             </div>
             <div className="min-w-0">
@@ -82,8 +82,8 @@ export default function FormPreFooter() {
           </div>
 
           {/* ITEM 2: ATO Compliance & Privacy Protection */}
-          <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+          <div className="p-4 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
+            <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <LockOutlined />
             </div>
             <div className="min-w-0">
@@ -104,8 +104,8 @@ export default function FormPreFooter() {
           </div>
 
           {/* ITEM 3: Head Office */}
-          <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+          <div className="p-4 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/70 dark:border-zinc-800 flex items-start gap-3">
+            <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-zinc-900 text-brand-primary dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
               <SafetyCertificateOutlined />
             </div>
             <div className="min-w-0">

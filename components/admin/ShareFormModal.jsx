@@ -114,7 +114,7 @@ export default function ShareFormModal({
       centered
       title={
         <div className="flex items-center gap-2.5 pb-1">
-          <div className="w-8 h-8 rounded-xl bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-[var(--brand-primary-soft)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/20 flex items-center justify-center">
             <ShareAltOutlined />
           </div>
           <div>
@@ -178,7 +178,7 @@ export default function ShareFormModal({
         />
 
         {/* Direct Link Preview Box */}
-        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/70 border border-slate-200 dark:border-zinc-700/80 space-y-1.5">
+        <div className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-800/70 border border-slate-200 dark:border-zinc-700/80 space-y-1.5">
           <div className="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-zinc-400">
             <span>Direct Form URL</span>
             <button
@@ -189,7 +189,7 @@ export default function ShareFormModal({
               <CopyOutlined /> {copied ? "Copied" : "Copy Link"}
             </button>
           </div>
-          <div className="text-xs font-mono text-slate-700 dark:text-zinc-300 break-all bg-white dark:bg-zinc-900 p-2 rounded-xl border border-slate-200/80 dark:border-zinc-800">
+          <div className="text-xs font-mono text-slate-700 dark:text-zinc-300 break-all bg-white dark:bg-zinc-900 p-2 rounded-lg border border-slate-200/80 dark:border-zinc-800">
             {fullFormUrl}
           </div>
         </div>

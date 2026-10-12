@@ -56,7 +56,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
           <div className="lg:col-span-7 bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <FileProtectOutlined className="text-xl" />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
                 {records.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
                   >
                     <CheckCircleOutlined className="text-emerald-500 mt-0.5 shrink-0" />
                     <span>{item}</span>
@@ -120,7 +120,7 @@ export default function CryptoTaxRecordsAndReconciliation() {
                   the cost base of assets still held. Reconcile data from
                   multiple or foreign platforms.
                 </p>
-                <div className="p-3.5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed">
+                <div className="p-3.5 rounded-lg bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed">
                   <GlobalOutlined className="mr-1.5" />
                   Australian tax residents must also report worldwide crypto
                   transactions, including overseas exchanges, decentralized

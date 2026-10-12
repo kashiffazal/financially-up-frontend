@@ -66,8 +66,9 @@ export default function WhatMustBeInPlace() {
             What must be in place before a claim is lodged?
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Before an R&amp;D tax offset can be included in the company income tax return,
-            statutory registration and financial substantiation requirements must be rigorously addressed.
+            Before an R&amp;D tax offset can be included in the company income
+            tax return, statutory registration and financial substantiation
+            requirements must be rigorously addressed.
           </p>
         </div>
 
@@ -76,11 +77,11 @@ export default function WhatMustBeInPlace() {
           {requirements.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-2xl p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-500/40 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white dark:bg-zinc-900 rounded-lg p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-emerald-500/40 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center border border-emerald-100 dark:border-emerald-800/40">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center border border-emerald-100 dark:border-emerald-800/40">
                     {item.icon}
                   </div>
                   <Tag

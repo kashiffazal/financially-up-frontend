@@ -56,7 +56,7 @@ export default function PropertyCgtAndRecords() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <SafetyCertificateOutlined className="text-xl" />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ export default function PropertyCgtAndRecords() {
                   improvements, capital works deductions and other cost-base
                   adjustments.
                 </p>
-                <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
+                <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 space-y-2">
                   <span className="font-bold text-slate-900 dark:text-white block text-xs uppercase tracking-wider">
                     Key Timing &amp; Concession Rules:
                   </span>
@@ -117,7 +117,7 @@ export default function PropertyCgtAndRecords() {
           <div className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <FileProtectOutlined className="text-xl" />
                 </div>
                 <div>
@@ -140,7 +140,7 @@ export default function PropertyCgtAndRecords() {
                 {recordChecklist.map((rec, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-700 dark:text-zinc-200 font-medium"
+                    className="flex items-center gap-2 p-2 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-700 dark:text-zinc-200 font-medium"
                   >
                     <CheckCircleOutlined className="text-emerald-500 text-xs shrink-0" />
                     <span className="truncate">{rec}</span>
@@ -148,7 +148,7 @@ export default function PropertyCgtAndRecords() {
                 ))}
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed">
+              <div className="p-3.5 rounded-lg bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/40 text-xs text-blue-950 dark:text-blue-200 leading-relaxed">
                 <div className="flex items-center gap-2 font-bold mb-1">
                   <HistoryOutlined />
                   <span>Statutory Record Retention Requirements</span>

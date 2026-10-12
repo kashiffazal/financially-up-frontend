@@ -22,21 +22,27 @@ import {
 export default function WhichPenaltiesNeedReview() {
   const penaltyCategories = [
     {
-      icon: <FileExclamationOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FileExclamationOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Most Common",
       title: "Failure-to-Lodge (FTL) Penalties",
       lead: "Clients commonly seek assistance after receiving a failure-to-lodge penalty for an overdue tax return or activity statement.",
       desc: "Imposed automatically by ATO systems when statutory due dates are missed. Calculated in 28-day penalty units up to legislative caps.",
     },
     {
-      icon: <WarningOutlined className="text-xl text-red-600 dark:text-red-400" />,
+      icon: (
+        <WarningOutlined className="text-xl text-red-600 dark:text-red-400" />
+      ),
       tag: "Shortfall Penalties",
       title: "False or Misleading Statement Penalties",
       lead: "Other administrative penalties can involve inaccurate statements or different obligations and may have different remission or review pathways.",
       desc: "Assessed when an omitted income amount or disallowed deduction resulted from a failure to take reasonable care, recklessness, or intentional disregard.",
     },
     {
-      icon: <PercentageOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <PercentageOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Statutory Interest",
       title: "GIC & SIC (Interest vs Penalties)",
       lead: "General interest charge and shortfall interest charge are interest amounts, not failure-to-lodge penalties. They have separate remission considerations.",
@@ -49,14 +55,22 @@ export default function WhichPenaltiesNeedReview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="blue" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="blue"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Penalty Types & Procedures
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Which penalties may need review?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Clients commonly seek assistance after receiving a failure-to-lodge penalty for an overdue tax return or activity statement. Other administrative penalties can involve inaccurate statements or different obligations and may have different remission or review pathways. We check the actual ATO notice rather than assuming every penalty follows the same procedure.
+            Clients commonly seek assistance after receiving a failure-to-lodge
+            penalty for an overdue tax return or activity statement. Other
+            administrative penalties can involve inaccurate statements or
+            different obligations and may have different remission or review
+            pathways. We check the actual ATO notice rather than assuming every
+            penalty follows the same procedure.
           </p>
         </div>
 
@@ -65,11 +79,11 @@ export default function WhichPenaltiesNeedReview() {
           {penaltyCategories.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-2xl p-6 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:border-brand-emerald dark:hover:border-brand-emerald transition-all duration-300"
+              className="rounded-lg p-6 sm:p-8 bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm flex flex-col justify-between hover:border-brand-emerald dark:hover:border-brand-emerald transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-xs font-semibold text-slate-700 dark:text-zinc-300 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800">

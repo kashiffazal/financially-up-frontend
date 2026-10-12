@@ -30,25 +30,33 @@ export default function AtoResolutionProcess() {
       step: "01",
       phase: "Triage",
       desc: "confirm the notice, deadline, entity, tax period and immediate risk.",
-      icon: <SearchOutlined className="text-teal-600 dark:text-teal-400 text-xl" />,
+      icon: (
+        <SearchOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
+      ),
     },
     {
       step: "02",
       phase: "Reconcile",
       desc: "compare ATO accounts and lodged forms with your records.",
-      icon: <SyncOutlined className="text-blue-600 dark:text-blue-400 text-xl" />,
+      icon: (
+        <SyncOutlined className="text-blue-600 dark:text-blue-400 text-xl" />
+      ),
     },
     {
       step: "03",
       phase: "Complete",
       desc: "prepare missing lodgements, schedules, documents or corrections within scope.",
-      icon: <FormOutlined className="text-amber-600 dark:text-amber-400 text-xl" />,
+      icon: (
+        <FormOutlined className="text-amber-600 dark:text-amber-400 text-xl" />
+      ),
     },
     {
       step: "04",
       phase: "Respond",
       desc: "provide a clear, supported answer and track any further request or commitment.",
-      icon: <SendOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />,
+      icon: (
+        <SendOutlined className="text-emerald-600 dark:text-emerald-400 text-xl" />
+      ),
     },
   ];
 
@@ -75,11 +83,11 @@ export default function AtoResolutionProcess() {
           {processSteps.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold text-teal-600 dark:text-teal-400">
@@ -98,13 +106,14 @@ export default function AtoResolutionProcess() {
         </div>
 
         {/* Exact Verbatim Core Principle Note from Document */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-teal-200/80 dark:border-teal-800/60 p-6 sm:p-8 text-center sm:text-left flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shadow-xs">
-          <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-teal-200/80 dark:border-teal-800/60 p-6 sm:p-8 text-center sm:text-left flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shadow-xs">
+          <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
             <CheckCircleOutlined className="text-xl" />
           </div>
           <p className="text-sm sm:text-base text-slate-800 dark:text-zinc-200 font-medium leading-relaxed m-0">
-            This process helps avoid treating a symptom—such as an account balance—without resolving
-            the lodgement or record issue that produced it.
+            This process helps avoid treating a symptom-such as an account
+            balance-without resolving the lodgement or record issue that
+            produced it.
           </p>
         </div>
       </div>

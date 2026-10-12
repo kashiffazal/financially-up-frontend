@@ -91,7 +91,7 @@ export default function GlobalError({ error, reset }) {
           {/* Heading & Reassurance Message */}
           <div className="space-y-2">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-rose-500/15 text-rose-400 flex items-center justify-center shrink-0">
                 <WarningFilled className="text-xl" />
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight m-0">
@@ -99,7 +99,9 @@ export default function GlobalError({ error, reset }) {
               </h1>
             </div>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal pt-1 m-0">
-              An unexpected error occurred while processing your request. Your financial data remains protected. Please try reloading the application or contact our Australian support team directly below.
+              An unexpected error occurred while processing your request. Your
+              financial data remains protected. Please try reloading the
+              application or contact our Australian support team directly below.
             </p>
           </div>
 
@@ -127,10 +129,15 @@ export default function GlobalError({ error, reset }) {
           </div>
 
           {/* Company Details Contact Grid (Official Global Variables) */}
-          <div className="rounded-2xl bg-slate-950/60 border border-slate-800/80 p-5 space-y-4">
+          <div className="rounded-lg bg-slate-950/60 border border-slate-800/80 p-5 space-y-4">
             <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-emerald-400 border-b border-slate-800/80 pb-2.5">
-              <span>{company.legalName || "Financially Up Pty Ltd"} — Support &amp; Enquiries</span>
-              <span className="text-slate-400 font-normal normal-case">Tax Agent #{company.taxAgentNumber || "25800000"}</span>
+              <span>
+                {company.legalName || "Financially Up Pty Ltd"} - Support &amp;
+                Enquiries
+              </span>
+              <span className="text-slate-400 font-normal normal-case">
+                Tax Agent #{company.taxAgentNumber || "25800000"}
+              </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs text-slate-300">
@@ -138,7 +145,9 @@ export default function GlobalError({ error, reset }) {
               <div className="flex items-start gap-2.5">
                 <PhoneOutlined className="text-emerald-400 text-sm mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-slate-400 block text-[11px]">Direct Support Line</span>
+                  <span className="text-slate-400 block text-[11px]">
+                    Direct Support Line
+                  </span>
                   <a
                     href={`tel:${(company.phone || "1300328316").replace(/\s+/g, "")}`}
                     className="font-bold text-white hover:text-emerald-400 transition-colors"
@@ -152,7 +161,9 @@ export default function GlobalError({ error, reset }) {
               <div className="flex items-start gap-2.5">
                 <MailOutlined className="text-emerald-400 text-sm mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-slate-400 block text-[11px]">Official Email</span>
+                  <span className="text-slate-400 block text-[11px]">
+                    Official Email
+                  </span>
                   <a
                     href={`mailto:${company.email || "info@financiallyup.com.au"}`}
                     className="font-bold text-white hover:text-emerald-400 transition-colors"
@@ -166,9 +177,12 @@ export default function GlobalError({ error, reset }) {
               <div className="flex items-start gap-2.5 sm:col-span-2">
                 <EnvironmentOutlined className="text-emerald-400 text-sm mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-slate-400 block text-[11px]">Head Office</span>
+                  <span className="text-slate-400 block text-[11px]">
+                    Head Office
+                  </span>
                   <span className="text-slate-200">
-                    {company.address || "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
+                    {company.address ||
+                      "Level 5, 100 Walker St, North Sydney NSW 2060, Australia"}
                   </span>
                 </div>
               </div>
@@ -177,7 +191,10 @@ export default function GlobalError({ error, reset }) {
               <div className="flex items-start gap-2.5 sm:col-span-2 pt-1 border-t border-slate-900 text-[11px] text-slate-400 justify-between flex-wrap">
                 <span className="flex items-center gap-1.5">
                   <BankOutlined className="text-emerald-500" />
-                  ABN: <strong className="text-slate-200">{company.abn || "84 659 717 263"}</strong>
+                  ABN:{" "}
+                  <strong className="text-slate-200">
+                    {company.abn || "84 659 717 263"}
+                  </strong>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <SafetyCertificateOutlined className="text-emerald-500" />
@@ -196,13 +213,22 @@ export default function GlobalError({ error, reset }) {
                 className="text-xs text-slate-400 hover:text-slate-200 inline-flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <InfoCircleOutlined />
-                <span>{showDetails ? "Hide technical diagnostic details" : "Show technical diagnostic details"}</span>
+                <span>
+                  {showDetails
+                    ? "Hide technical diagnostic details"
+                    : "Show technical diagnostic details"}
+                </span>
               </button>
 
               {showDetails && (
-                <div className="mt-2.5 p-3 rounded-xl bg-black/60 border border-slate-800 text-[11px] font-mono text-slate-400 break-words max-h-36 overflow-y-auto">
-                  {error.message || "An unexpected runtime exception was caught by root GlobalError."}
-                  {error.digest && <div className="text-slate-400 pt-1">Digest: {error.digest}</div>}
+                <div className="mt-2.5 p-3 rounded-lg bg-black/60 border border-slate-800 text-[11px] font-mono text-slate-400 break-words max-h-36 overflow-y-auto">
+                  {error.message ||
+                    "An unexpected runtime exception was caught by root GlobalError."}
+                  {error.digest && (
+                    <div className="text-slate-400 pt-1">
+                      Digest: {error.digest}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

@@ -20,25 +20,33 @@ import {
 export default function InterestDeductionsTracing() {
   const tracingPrinciples = [
     {
-      icon: <CompassOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Use of Funds Principle",
       description:
         "The ATO applies the 'use test': interest deductibility is governed strictly by what the borrowed money was used to purchase, not what asset secures the mortgage.",
     },
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Redraws & Mixed Loans",
       description:
         "Redrawing funds from an investment mortgage to pay for personal items, holidays, or private debt creates a mixed-purpose loan requiring permanent interest apportionment.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Loan History Reconstruction",
       description:
         "Refinancing without maintaining clean loan schedules can obscure the deductible balance. Comprehensive transaction histories are essential to substantiate claims.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Loan Splitting & Structure",
       description:
         "Establishing separate sub-accounts or loan splits when borrowing keeps deductible debt isolated from private expenditure, safeguarding your full tax position.",
@@ -64,26 +72,32 @@ export default function InterestDeductionsTracing() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <ExclamationCircleOutlined />
               <span>Security vs Purpose of Borrowing</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Interest is not deductible merely because a loan is secured against a rental property. The use of the borrowed funds is central. If part of a loan is redrawn or refinanced for private purposes, the interest may need to be apportioned and the loan history can become difficult to reconstruct later.
+              Interest is not deductible merely because a loan is secured
+              against a rental property. The use of the borrowed funds is
+              central. If part of a loan is redrawn or refinanced for private
+              purposes, the interest may need to be apportioned and the loan
+              history can become difficult to reconstruct later.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-slate-50/80 dark:bg-zinc-900/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <CheckCircleOutlined />
               <span>Record-Keeping for Refinanced Facilities</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Keeping loan statements and records of each redraw or refinance can save substantial time when the rental property tax return is prepared.
+              Keeping loan statements and records of each redraw or refinance
+              can save substantial time when the rental property tax return is
+              prepared.
             </p>
           </div>
         </div>
@@ -93,7 +107,7 @@ export default function InterestDeductionsTracing() {
           {tracingPrinciples.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-3">
                 {item.icon}

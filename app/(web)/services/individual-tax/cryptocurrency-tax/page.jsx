@@ -27,7 +27,8 @@ export const metadata = {
     "crypto tax accountant Sydney",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/cryptocurrency-tax/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/cryptocurrency-tax/",
   },
   openGraph: {
     title: "Cryptocurrency Tax Accountant Australia-Wide | Financially Up",
@@ -58,32 +59,38 @@ const cryptoQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Crypto investors, active traders, DeFi yield farmers & airdrop recipients",
+    value:
+      "Crypto investors, active traders, DeFi yield farmers & airdrop recipients",
   },
   {
     icon: "file",
     label: "Tax Reporting Model",
-    value: "CGT schedule in individual tax return (or trading stock for trading business)",
+    value:
+      "CGT schedule in individual tax return (or trading stock for trading business)",
   },
   {
     icon: "percentage",
     label: "Disposal Tracking",
-    value: "Crypto-to-fiat sales, crypto-to-crypto swaps, staking rewards & merchant spends",
+    value:
+      "Crypto-to-fiat sales, crypto-to-crypto swaps, staking rewards & merchant spends",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "Software & Records",
-    value: "Koinly, CryptoTaxCalculator & exchange CSV reconciliation with 5-year retention",
+    value:
+      "Koinly, CryptoTaxCalculator & exchange CSV reconciliation with 5-year retention",
   },
 ];
 
@@ -96,7 +103,9 @@ const cryptoFaqs = [
     label: "Do I pay tax when I sell cryptocurrency?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Selling crypto may trigger a CGT event for an investor. The result depends on proceeds, cost base, losses and any available discount. Business treatment may apply in other circumstances.
+        Selling crypto may trigger a CGT event for an investor. The result
+        depends on proceeds, cost base, losses and any available discount.
+        Business treatment may apply in other circumstances.
       </p>
     ),
   },
@@ -105,7 +114,9 @@ const cryptoFaqs = [
     label: "Is swapping one cryptocurrency for another taxable?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Generally, yes. A swap usually disposes of the first asset and acquires the second. You normally need the Australian-dollar market value at the time of the swap.
+        Generally, yes. A swap usually disposes of the first asset and acquires
+        the second. You normally need the Australian-dollar market value at the
+        time of the swap.
       </p>
     ),
   },
@@ -114,7 +125,9 @@ const cryptoFaqs = [
     label: "Do I pay tax when transferring crypto between my own wallets?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A transfer between wallets you beneficially own is generally not a disposal by itself. Keep ownership and transfer records; fees or changed ownership may require review.
+        A transfer between wallets you beneficially own is generally not a
+        disposal by itself. Keep ownership and transfer records; fees or changed
+        ownership may require review.
       </p>
     ),
   },
@@ -123,7 +136,8 @@ const cryptoFaqs = [
     label: "Are staking rewards taxable?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Staking rewards may be ordinary income when derived, depending on the arrangement. A later sale or swap may create a separate CGT calculation.
+        Staking rewards may be ordinary income when derived, depending on the
+        arrangement. A later sale or swap may create a separate CGT calculation.
       </p>
     ),
   },
@@ -132,7 +146,9 @@ const cryptoFaqs = [
     label: "Are crypto airdrops taxable?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        They may be. The treatment depends on why and how the tokens were received. Some airdrops may be ordinary income; later disposal can also have CGT consequences.
+        They may be. The treatment depends on why and how the tokens were
+        received. Some airdrops may be ordinary income; later disposal can also
+        have CGT consequences.
       </p>
     ),
   },
@@ -141,7 +157,9 @@ const cryptoFaqs = [
     label: "How are crypto capital losses used?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Capital losses generally offset capital gains, not salary or other ordinary income. Unused net capital losses may usually be carried forward for future eligible capital gains.
+        Capital losses generally offset capital gains, not salary or other
+        ordinary income. Unused net capital losses may usually be carried
+        forward for future eligible capital gains.
       </p>
     ),
   },
@@ -150,7 +168,9 @@ const cryptoFaqs = [
     label: "What records do I need?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Keep transaction dates, quantities, Australian-dollar values, acquisition and disposal details, fees, exchange exports, wallet records, transfers, staking records and airdrop information.
+        Keep transaction dates, quantities, Australian-dollar values,
+        acquisition and disposal details, fees, exchange exports, wallet
+        records, transfers, staking records and airdrop information.
       </p>
     ),
   },
@@ -159,7 +179,9 @@ const cryptoFaqs = [
     label: "When should I use a cryptocurrency tax accountant?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Professional assistance may help with multiple platforms, many swaps, crypto income, missing records, unusual transactions or uncertain investor and business treatment.
+        Professional assistance may help with multiple platforms, many swaps,
+        crypto income, missing records, unusual transactions or uncertain
+        investor and business treatment.
       </p>
     ),
   },
@@ -202,16 +224,27 @@ export default function CryptocurrencyTaxPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Cryptocurrency tax can become difficult when activity spans exchanges and wallets or includes swaps, staking, airdrops and missing records. Financially Up Pty Ltd assists Australian individuals with reviewing and reporting crypto and digital-asset activity.
+              Cryptocurrency tax can become difficult when activity spans
+              exchanges and wallets or includes swaps, staking, airdrops and
+              missing records. Financially Up Pty Ltd assists Australian
+              individuals with reviewing and reporting crypto and digital-asset
+              activity.
             </span>
             <span className="block mt-2">
-              A cryptocurrency tax accountant can help identify relevant transactions, organize a crypto tax return, calculate gains and losses where applicable, and review crypto income. Treatment depends on each transaction, your purpose and your records.
+              A cryptocurrency tax accountant can help identify relevant
+              transactions, organize a crypto tax return, calculate gains and
+              losses where applicable, and review crypto income. Treatment
+              depends on each transaction, your purpose and your records.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              At your first appointment, we can discuss your activity, exchanges, wallets, records and tax-return requirements. We will explain the information needed, proposed scope and next steps. Book online or by phone; online meetings are available Australia-wide, with in-person meetings where available.
+              At your first appointment, we can discuss your activity,
+              exchanges, wallets, records and tax-return requirements. We will
+              explain the information needed, proposed scope and next steps.
+              Book online or by phone; online meetings are available
+              Australia-wide, with in-person meetings where available.
             </div>
           </span>
         }

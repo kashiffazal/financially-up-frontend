@@ -50,7 +50,7 @@ export default function TrustUpesAfterBendel() {
 
         {/* Verbatim High Court Decision Breakdown */}
         <div className="max-w-4xl mx-auto mb-12 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <ApartmentOutlined className="text-2xl text-brand-primary dark:text-emerald-400 mt-1 shrink-0" />
             <p>
               The High Court’s 10 June 2026 decision in Commissioner of Taxation
@@ -62,7 +62,7 @@ export default function TrustUpesAfterBendel() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400 mt-1 shrink-0" />
             <p>
               That does not mean all Division 7A issues involving trusts have
@@ -72,7 +72,7 @@ export default function TrustUpesAfterBendel() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-6 sm:p-8 rounded-lg border border-slate-200/80 dark:border-zinc-800 shadow-sm flex items-start gap-4">
             <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400 mt-1 shrink-0" />
             <p>
               Current Division 7A loan advice should therefore avoid treating
@@ -89,7 +89,7 @@ export default function TrustUpesAfterBendel() {
           {legalTakeaways.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-800 shadow-sm flex flex-col justify-between"
             >
               <div>
                 <CheckCircleOutlined className="text-emerald-500 text-lg mb-3" />
@@ -110,7 +110,7 @@ export default function TrustUpesAfterBendel() {
             <Button
               type="primary"
               size="large"
-              className="bg-brand-primary dark:bg-emerald-500 hover:bg-brand-primary/90 text-white font-bold px-8 h-12 rounded-xl text-sm shadow-md"
+              className="bg-brand-primary dark:bg-emerald-500 hover:bg-brand-primary/90 text-white font-bold px-8 h-12 rounded-lg text-sm shadow-md"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
             >

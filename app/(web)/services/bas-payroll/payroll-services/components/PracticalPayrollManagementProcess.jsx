@@ -54,10 +54,12 @@ export default function PracticalPayrollManagementProcess() {
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Part 1: A Practical Payroll Management Process */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <Tag color="purple" className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="purple"
+            className="brand-section-tag mb-4 font-bold tracking-wider uppercase text-xs"
+          >
             <SyncOutlined className="mr-1.5" />
             Repeatable Workflow
           </Tag>
@@ -67,7 +69,8 @@ export default function PracticalPayrollManagementProcess() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Effective payroll management services rely on a repeatable process. A typical engagement may involve:
+            Effective payroll management services rely on a repeatable process.
+            A typical engagement may involve:
           </p>
         </div>
 
@@ -76,7 +79,7 @@ export default function PracticalPayrollManagementProcess() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between"
+              className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between"
             >
               <div>
                 <span className="text-2xl font-black text-brand-primary dark:text-emerald-400 mb-3 block">
@@ -93,8 +96,10 @@ export default function PracticalPayrollManagementProcess() {
           ))}
         </div>
 
-        <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 mb-16 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 italic">
-          &ldquo;Where the underlying payroll data is incomplete or unclear, the issue should be resolved rather than estimated. Accurate source information is essential to reliable payroll processing.&rdquo;
+        <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 mb-16 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 italic">
+          &ldquo;Where the underlying payroll data is incomplete or unclear, the
+          issue should be resolved rather than estimated. Accurate source
+          information is essential to reliable payroll processing.&rdquo;
         </div>
 
         {/* Part 2: Payroll, Bookkeeping and BAS: What Is the Difference? */}
@@ -108,15 +113,22 @@ export default function PracticalPayrollManagementProcess() {
               Payroll, Bookkeeping and BAS: What Is the Difference?
             </h3>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Payroll is focused on employee pay and employer payroll reporting. Bookkeeping covers the broader recording and reconciliation of business transactions, while BAS preparation deals with activity statement obligations such as GST and PAYG amounts where applicable. These functions interact, but they are not the same service.
+              Payroll is focused on employee pay and employer payroll reporting.
+              Bookkeeping covers the broader recording and reconciliation of
+              business transactions, while BAS preparation deals with activity
+              statement obligations such as GST and PAYG amounts where
+              applicable. These functions interact, but they are not the same
+              service.
             </p>
             <p className="text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              If your records also need ongoing transaction processing and reconciliations, our Bookkeeping services may be relevant. For activity statement support, see our BAS Lodgement service.
+              If your records also need ongoing transaction processing and
+              reconciliations, our Bookkeeping services may be relevant. For
+              activity statement support, see our BAS Lodgement service.
             </p>
           </div>
 
           <div className="lg:col-span-5 space-y-4">
-            <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center justify-between gap-4">
+            <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center justify-between gap-4">
               <div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white">
                   Bookkeeping Services
@@ -126,13 +138,17 @@ export default function PracticalPayrollManagementProcess() {
                 </p>
               </div>
               <Link href="/services/bookkeeping">
-                <Button type="default" size="small" icon={<ArrowRightOutlined />}>
+                <Button
+                  type="default"
+                  size="small"
+                  icon={<ArrowRightOutlined />}
+                >
                   View
                 </Button>
               </Link>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center justify-between gap-4">
+            <div className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center justify-between gap-4">
               <div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white">
                   BAS Lodgement Services
@@ -142,14 +158,17 @@ export default function PracticalPayrollManagementProcess() {
                 </p>
               </div>
               <Link href="/services/bas-payroll/bas-lodgement">
-                <Button type="primary" size="small" icon={<ArrowRightOutlined />}>
+                <Button
+                  type="primary"
+                  size="small"
+                  icon={<ArrowRightOutlined />}
+                >
                   View
                 </Button>
               </Link>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

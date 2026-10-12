@@ -103,7 +103,7 @@ export default function HighIncomeCommonScenarios() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <div className="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center transition-transform group-hover:scale-110">
                     {item.icon}
                   </div>
                   <Tag className="text-xs font-bold uppercase tracking-wider bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border-none px-3 py-1">

@@ -42,52 +42,68 @@ export default function WhatInformationNeeded() {
     {
       icon: <UserOutlined className="text-teal-600 dark:text-teal-400" />,
       title: "Proposed owners or directors",
-      description: "Full legal names, residential addresses, dates of birth, and director identification numbers (Director IDs).",
+      description:
+        "Full legal names, residential addresses, dates of birth, and director identification numbers (Director IDs).",
     },
     {
       icon: <ShopOutlined className="text-emerald-600 dark:text-emerald-400" />,
       title: "Business activities",
-      description: "Detailed description of principal commercial activities, primary industry, and trading model.",
+      description:
+        "Detailed description of principal commercial activities, primary industry, and trading model.",
     },
     {
       icon: <CalendarOutlined className="text-blue-600 dark:text-blue-400" />,
       title: "Expected start date",
-      description: "Planned date of enterprise commencement or official commercial transaction start.",
+      description:
+        "Planned date of enterprise commencement or official commercial transaction start.",
     },
     {
-      icon: <PieChartOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <PieChartOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       title: "Ownership percentages",
-      description: "Proposed equity allocations, share classes, or partnership profit and loss distribution ratios.",
+      description:
+        "Proposed equity allocations, share classes, or partnership profit and loss distribution ratios.",
     },
     {
       icon: <ApartmentOutlined className="text-cyan-600 dark:text-cyan-400" />,
       title: "Existing entities",
-      description: "Details of any associated corporate entities, discretionary family trusts, or current trading setups.",
+      description:
+        "Details of any associated corporate entities, discretionary family trusts, or current trading setups.",
     },
     {
       icon: <IdcardOutlined className="text-amber-600 dark:text-amber-400" />,
       title: "Current ABNs or ACNs",
-      description: "Existing Australian Business Numbers or Australian Company Numbers linked to associates.",
+      description:
+        "Existing Australian Business Numbers or Australian Company Numbers linked to associates.",
     },
     {
       icon: <TeamOutlined className="text-indigo-600 dark:text-indigo-400" />,
       title: "Expected employees",
-      description: "Anticipated staff hiring plans to assess PAYG withholding, superannuation, and workers compensation setups.",
+      description:
+        "Anticipated staff hiring plans to assess PAYG withholding, superannuation, and workers compensation setups.",
     },
     {
-      icon: <LineChartOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Projected turnover",
-      description: "Estimated 12-month turnover to determine whether compulsory GST registration ($75k) applies from inception.",
+      description:
+        "Estimated 12-month turnover to determine whether compulsory GST registration ($75k) applies from inception.",
     },
     {
-      icon: <PropertySafetyOutlined className="text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <PropertySafetyOutlined className="text-teal-600 dark:text-teal-400" />
+      ),
       title: "Asset ownership",
-      description: "Details of business vehicles, plant, machinery, premises, and intellectual property being introduced or held.",
+      description:
+        "Details of business vehicles, plant, machinery, premises, and intellectual property being introduced or held.",
     },
     {
       icon: <FileTextOutlined className="text-rose-600 dark:text-rose-400" />,
       title: "Any existing agreements",
-      description: "Prior partnership pacts, shareholder agreements, existing leases, client contracts, or supplier commitments.",
+      description:
+        "Prior partnership pacts, shareholder agreements, existing leases, client contracts, or supplier commitments.",
     },
   ];
 
@@ -106,10 +122,15 @@ export default function WhatInformationNeeded() {
             What information may be needed?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The information required depends on what you are establishing or reviewing. It may include the proposed owners or directors, business activities, expected start date, ownership percentages, existing entities, current ABNs or ACNs, expected employees, projected turnover, asset ownership and any existing agreements.
+            The information required depends on what you are establishing or
+            reviewing. It may include the proposed owners or directors, business
+            activities, expected start date, ownership percentages, existing
+            entities, current ABNs or ACNs, expected employees, projected
+            turnover, asset ownership and any existing agreements.
           </p>
           <p className="mt-2 text-sm sm:text-base font-medium text-teal-700 dark:text-teal-300">
-            Providing this information early helps avoid registrations being created under the wrong entity or with inconsistent details.
+            Providing this information early helps avoid registrations being
+            created under the wrong entity or with inconsistent details.
           </p>
         </div>
 
@@ -118,11 +139,11 @@ export default function WhatInformationNeeded() {
           {informationChecklist.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between group"
+              className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm hover:border-teal-500/40 hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-lg group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-lg group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-sm" />
@@ -139,13 +160,14 @@ export default function WhatInformationNeeded() {
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
           <div>
             <h4 className="text-base font-bold text-slate-900 dark:text-white m-0">
               Ready to discuss what information applies to your proposed entity?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0 mt-1 font-normal">
-              Book an appointment with Financially Up to review your documents and establish your entity cleanly.
+              Book an appointment with Financially Up to review your documents
+              and establish your entity cleanly.
             </p>
           </div>
           <Link href="/book-an-appointment" className="shrink-0">
@@ -154,7 +176,7 @@ export default function WhatInformationNeeded() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20"
+              className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20"
             >
               Book an Appointment
             </Button>

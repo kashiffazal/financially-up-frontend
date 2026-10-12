@@ -42,7 +42,11 @@ import AddUserModal from "@/components/admin/users/AddUserModal";
 import EditUserModal from "@/components/admin/users/EditUserModal";
 import { HTTP, antdMsg } from "@/services";
 import { AntInput } from "@/services/antdFields";
-import { PASSWORD_HINT, passwordRules, generateStrongPassword } from "@/lib/passwordPolicy";
+import {
+  PASSWORD_HINT,
+  passwordRules,
+  generateStrongPassword,
+} from "@/lib/passwordPolicy";
 
 /**
  * ============================================================================
@@ -172,12 +176,21 @@ export default function UsersPage() {
     if (!selectedUser) return;
     setResetting(true);
     try {
-      const res = await HTTP("POST", `/users/${selectedUser.id}/reset-password`, {
-        mode: values.mode,
-        newPassword: values.mode === "manual" ? values.newPassword : undefined,
-      });
+      const res = await HTTP(
+        "POST",
+        `/users/${selectedUser.id}/reset-password`,
+        {
+          mode: values.mode,
+          newPassword:
+            values.mode === "manual" ? values.newPassword : undefined,
+        },
+      );
       if (res && res.success) {
-        antdMsg.success(res.message || "Password reset. The user has been signed out of all devices.", 6);
+        antdMsg.success(
+          res.message ||
+            "Password reset. The user has been signed out of all devices.",
+          6,
+        );
         setIsResetPasswordModalOpen(false);
         resetPasswordForm.resetFields();
       }
@@ -400,10 +413,12 @@ export default function UsersPage() {
         align: "center",
         render: (_, record) => {
           // Your own account: no role, password-reset or suspend actions (prevents
-          // locking yourself out — the API refuses them too). Change your password on My Profile.
+          // locking yourself out - the API refuses them too). Change your password on My Profile.
           const isSelf =
             String(currentUser?.id) === String(record.id) ||
-            (currentUser?.email && record.email && currentUser.email.toLowerCase() === record.email.toLowerCase());
+            (currentUser?.email &&
+              record.email &&
+              currentUser.email.toLowerCase() === record.email.toLowerCase());
           const allItems = [
             {
               key: "edit",
@@ -417,7 +432,11 @@ export default function UsersPage() {
             isSelf && {
               key: "myPassword",
               icon: <KeyOutlined className="text-amber-500" />,
-              label: <Link href="/admin/profile?tab=security">Change My Password</Link>,
+              label: (
+                <Link href="/admin/profile?tab=security">
+                  Change My Password
+                </Link>
+              ),
             },
             !isSelf && {
               key: "roles",
@@ -663,7 +682,10 @@ export default function UsersPage() {
           fetchUsers();
           // Edited your own account: reload it so the header (name, photo, job title)
           // and the rest of the portal show the new details straight away
-          if (String(currentUser?.id) === String(updatedUser?.id ?? selectedUser?.id)) {
+          if (
+            String(currentUser?.id) ===
+            String(updatedUser?.id ?? selectedUser?.id)
+          ) {
             refreshUser();
           }
         }}
@@ -674,8 +696,8 @@ export default function UsersPage() {
         centered
         title={
           <div className="flex items-center gap-2 text-base font-bold pb-2 border-b border-slate-100 dark:border-zinc-800">
-            <SafetyCertificateOutlined className="text-[var(--brand-primary)]" /> Assign
-            Roles: {selectedUser?.fullName}
+            <SafetyCertificateOutlined className="text-[var(--brand-primary)]" />{" "}
+            Assign Roles: {selectedUser?.fullName}
           </div>
         }
         open={isRoleModalOpen}
@@ -779,8 +801,13 @@ export default function UsersPage() {
                 icon={<ThunderboltOutlined />}
                 className="mt-[30px]"
                 onClick={() => {
-                  resetPasswordForm.setFieldValue("newPassword", generateStrongPassword());
-                  resetPasswordForm.validateFields(["newPassword"]).catch(() => {});
+                  resetPasswordForm.setFieldValue(
+                    "newPassword",
+                    generateStrongPassword(),
+                  );
+                  resetPasswordForm
+                    .validateFields(["newPassword"])
+                    .catch(() => {});
                 }}
               >
                 Generate
@@ -804,7 +831,9 @@ export default function UsersPage() {
               loading={resetting}
               className="rounded-pill px-5"
             >
-              {resetMode === "manual" ? "Set Password & Sign Out" : "Send Reset Email"}
+              {resetMode === "manual"
+                ? "Set Password & Sign Out"
+                : "Send Reset Email"}
             </Button>
           </div>
         </Form>
@@ -851,7 +880,7 @@ export default function UsersPage() {
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 font-mono">
                     {new Date(log.createdAt).toLocaleString("en-AU")} • IP:{" "}
-                    {log.ipAddress || "—"}
+                    {log.ipAddress || "-"}
                   </div>
                 </div>
               ),

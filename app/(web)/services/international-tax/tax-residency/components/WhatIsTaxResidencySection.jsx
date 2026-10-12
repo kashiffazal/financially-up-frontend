@@ -36,7 +36,9 @@ export default function WhatIsTaxResidencySection() {
             What Is Australian Tax Residency?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Australian tax residency determines whether you are treated as an Australian resident or foreign resident for Australian income-tax purposes. It is not the same as:
+            Australian tax residency determines whether you are treated as an
+            Australian resident or foreign resident for Australian income-tax
+            purposes. It is not the same as:
           </p>
         </div>
 
@@ -45,7 +47,7 @@ export default function WhatIsTaxResidencySection() {
           {notTheSameAs.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex items-start gap-3 shadow-xs"
+              className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 flex items-start gap-3 shadow-xs"
             >
               <CloseCircleOutlined className="text-rose-500 text-lg mt-0.5 shrink-0" />
               <span className="text-sm font-semibold text-slate-800 dark:text-zinc-200 leading-snug">
@@ -55,9 +57,12 @@ export default function WhatIsTaxResidencySection() {
           ))}
         </div>
 
-        <div className="p-6 rounded-2xl bg-teal-50/80 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-800/60 mb-12">
+        <div className="p-6 rounded-lg bg-teal-50/80 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-800/60 mb-12">
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-            A person can therefore be an Australian citizen and a foreign resident for Australian tax purposes, or hold a temporary visa while being an Australian resident for tax purposes. The outcome depends on the applicable tax rules and your actual circumstances.
+            A person can therefore be an Australian citizen and a foreign
+            resident for Australian tax purposes, or hold a temporary visa while
+            being an Australian resident for tax purposes. The outcome depends
+            on the applicable tax rules and your actual circumstances.
           </p>
         </div>
 
@@ -66,36 +71,47 @@ export default function WhatIsTaxResidencySection() {
           {/* Card 1: Does Owning an Australian Home Make Me a Tax Resident? */}
           <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-5">
                 <HomeOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 Does Owning an Australian Home Make Me a Tax Resident?
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                Not by itself. Owning or retaining a home in Australia can be relevant evidence, but it is only part of the overall residency analysis. The way the property is used can also matter. A home kept available for personal use may carry different factual significance from an investment property leased commercially for a long period.
+                Not by itself. Owning or retaining a home in Australia can be
+                relevant evidence, but it is only part of the overall residency
+                analysis. The way the property is used can also matter. A home
+                kept available for personal use may carry different factual
+                significance from an investment property leased commercially for
+                a long period.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 font-normal">
-              Factual distinction between vacant retention, family availability, and arm's-length leasing.
+              Factual distinction between vacant retention, family availability,
+              and arm's-length leasing.
             </div>
           </div>
 
           {/* Card 2: Does Australian Citizenship Determine Tax Residency? */}
           <div className="p-7 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-5">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl mb-5">
                 <IdcardOutlined />
               </div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 Does Australian Citizenship Determine Tax Residency?
               </h3>
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                No. Citizenship and tax residency are different legal concepts. An Australian citizen can become a foreign resident for Australian tax purposes, while a non-citizen can become an Australian resident for tax purposes. The residency tests and the person's factual circumstances determine the tax position.
+                No. Citizenship and tax residency are different legal concepts.
+                An Australian citizen can become a foreign resident for
+                Australian tax purposes, while a non-citizen can become an
+                Australian resident for tax purposes. The residency tests and
+                the person's factual circumstances determine the tax position.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400 font-normal">
-              Governed strictly by Section 6(1) of the Income Tax Assessment Act 1936 (ITAA 1936).
+              Governed strictly by Section 6(1) of the Income Tax Assessment Act
+              1936 (ITAA 1936).
             </div>
           </div>
         </div>

@@ -59,26 +59,35 @@ export default function GstWithholdingAtSettlement() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <BankOutlined />
               <span>Direct Remittance to the ATO</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Purchasers of certain new residential premises and potential residential land must withhold an amount from the contract price and pay it directly to the ATO. The purchaser pays the remaining balance to the supplier. The withholding amount depends on the transaction and whether the margin scheme applies; it is not necessarily the supplier's final GST liability.
+              Purchasers of certain new residential premises and potential
+              residential land must withhold an amount from the contract price
+              and pay it directly to the ATO. The purchaser pays the remaining
+              balance to the supplier. The withholding amount depends on the
+              transaction and whether the margin scheme applies; it is not
+              necessarily the supplier's final GST liability.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <FileProtectOutlined />
               <span>Supplier Notification &amp; BAS Reconciliation</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Suppliers of residential premises or potential residential land must generally notify the purchaser in writing whether withholding is required and, when it is, provide the prescribed information. The supplier still reports the taxable sale in its activity statement and receives credit for the amount withheld.
+              Suppliers of residential premises or potential residential land
+              must generally notify the purchaser in writing whether withholding
+              is required and, when it is, provide the prescribed information.
+              The supplier still reports the taxable sale in its activity
+              statement and receives credit for the amount withheld.
             </p>
           </div>
         </div>
@@ -88,7 +97,7 @@ export default function GstWithholdingAtSettlement() {
           {withholdingSteps.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 shadow-2xs hover:border-emerald-400/50 transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 shadow-2xs hover:border-emerald-400/50 transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="text-xl font-black text-emerald-600/40 dark:text-emerald-400/40 block mb-2">

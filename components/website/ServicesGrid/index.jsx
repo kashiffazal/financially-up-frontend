@@ -188,7 +188,7 @@ export default function ServicesGrid({
                 <Link
                   key={cardKey}
                   href={svc.href}
-                  className={`group bg-gradient-to-br from-[var(--brand-primary)] via-[var(--brand-primary-hover)] to-[var(--brand-primary-active)] dark:from-[var(--brand-primary-active)] dark:via-zinc-900 dark:to-zinc-950 text-white rounded-xl p-6 sm:p-7 border border-[var(--brand-border-hover)]/40 dark:border-[var(--brand-border-hover)]/30 flex flex-col justify-between shadow-lg shadow-[var(--brand-primary)]/20 ${styles.ctaCard}`}
+                  className={`group bg-gradient-to-br from-[var(--brand-primary)] via-[var(--brand-primary-hover)] to-[var(--brand-primary-active)] dark:from-[var(--brand-primary-active)] dark:via-zinc-900 dark:to-zinc-950 text-white rounded-lg p-6 sm:p-7 border border-[var(--brand-border-hover)]/40 dark:border-[var(--brand-border-hover)]/30 flex flex-col justify-between shadow-lg shadow-[var(--brand-primary)]/20 ${styles.ctaCard}`}
                 >
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-5">
@@ -225,7 +225,7 @@ export default function ServicesGrid({
               <Link
                 key={cardKey}
                 href={svc.href}
-                className={`group bg-white dark:bg-zinc-900 rounded-xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between ${styles.servicesCard}`}
+                className={`group bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 flex flex-col justify-between ${styles.servicesCard}`}
               >
                 <div>
                   {/* Top Row: Icon Container and Optional Micro-Tag */}

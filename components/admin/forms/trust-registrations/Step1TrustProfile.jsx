@@ -49,7 +49,7 @@ export default function Step1TrustProfile() {
           emptyFirstVal="- Select Trust Type -"
           reqMsg="Trust type is required"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
 
@@ -65,7 +65,7 @@ export default function Step1TrustProfile() {
           emptyFirstVal="- Select State -"
           reqMsg="Jurisdiction state is required"
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
@@ -83,7 +83,7 @@ export default function Step1TrustProfile() {
           reqMsg="Trust name is required"
           preIconAnt={<BankOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
 
@@ -99,12 +99,12 @@ export default function Step1TrustProfile() {
           reqMsg="Establishment date is required"
           preIconAnt={<CalendarOutlined className="text-slate-400" />}
           size="large"
-          className="w-full rounded-xl"
+          className="w-full rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-2">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-2">
         <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200 block mb-1">
           ATO Tax Registrations Required for Trust
         </span>

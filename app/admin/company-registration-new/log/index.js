@@ -16,8 +16,14 @@ import {
 import CompanyRegistrationMainLog from "./partial/mainLog";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
-import SearchFilterBanner, { filterStatusMapByIds } from "@/components/admin/SearchFilterBanner";
-import { useLiveNotifications, upsertIntoStatusMap, FRESH_ROW_MS } from "@/components/admin/NotificationCenter/liveEvents";
+import SearchFilterBanner, {
+  filterStatusMapByIds,
+} from "@/components/admin/SearchFilterBanner";
+import {
+  useLiveNotifications,
+  upsertIntoStatusMap,
+  FRESH_ROW_MS,
+} from "@/components/admin/NotificationCenter/liveEvents";
 
 /**
  * ============================================================================
@@ -113,13 +119,13 @@ export default function CompanyRegistrationLogModule() {
   // True once the first fetch has finished (gates `?open=<id>` deep links)
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  // Record requested via `?open=<id>` (Global Search) — opened by the "All" tab log
+  // Record requested via `?open=<id>` (Global Search) - opened by the "All" tab log
   const [autoOpenRecord, setAutoOpenRecord] = useState(null);
-  // Global Search "View all" filter (?ids=…&q=…) — narrows every status tab
+  // Global Search "View all" filter (?ids=…&q=…) - narrows every status tab
   const [searchFilter, setSearchFilter] = useState(null);
   const visibleByStatus = useMemo(
     () => filterStatusMapByIds(listDataByStatus, searchFilter?.ids),
-    [listDataByStatus, searchFilter]
+    [listDataByStatus, searchFilter],
   );
 
   // --------------------------------------------------------------------------
@@ -179,10 +185,16 @@ export default function CompanyRegistrationLogModule() {
   }, [fetchRecords]);
 
   // --------------------------------------------------------------------------
-  // DEEP LINK (?open=<id>) — OPEN A RECORD FROM GLOBAL SEARCH
+  // DEEP LINK (?open=<id>) - OPEN A RECORD FROM GLOBAL SEARCH
   // --------------------------------------------------------------------------
   const fetchRecordById = useCallback(async (id) => {
-    const res = await HTTP("GET", `/new-company-registrations/${id}`, undefined, false, true);
+    const res = await HTTP(
+      "GET",
+      `/new-company-registrations/${id}`,
+      undefined,
+      false,
+      true,
+    );
     const record = res?.data;
     return record?.id ? { ...record, key: record.id } : null;
   }, []);
@@ -210,16 +222,27 @@ export default function CompanyRegistrationLogModule() {
       fetchRecords({ silent: true });
       return;
     }
-    const res = await HTTP("GET", "/new-company-registrations", { id: notification.recordId, limit: 1 }, false, true);
+    const res = await HTTP(
+      "GET",
+      "/new-company-registrations",
+      { id: notification.recordId, limit: 1 },
+      false,
+      true,
+    );
     const row = (res?.data?.records || [])[0];
     if (!row?.id) {
       fetchRecords({ silent: true }); // not readable → silent full refresh
       return;
     }
-    setListDataByStatus((prev) => upsertIntoStatusMap(prev, { ...row, key: row.id }, "Submitted"));
+    setListDataByStatus((prev) =>
+      upsertIntoStatusMap(prev, { ...row, key: row.id }, "Submitted"),
+    );
     const id = String(row.id);
     setFreshIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
-    setTimeout(() => setFreshIds((prev) => prev.filter((x) => x !== id)), FRESH_ROW_MS);
+    setTimeout(
+      () => setFreshIds((prev) => prev.filter((x) => x !== id)),
+      FRESH_ROW_MS,
+    );
   });
 
   // --------------------------------------------------------------------------
@@ -361,7 +384,10 @@ export default function CompanyRegistrationLogModule() {
         onOpen={handleOpenFromUrl}
         onFilter={handleSearchFilter}
       />
-      <SearchFilterBanner filter={searchFilter} shownCount={visibleByStatus.All?.length || 0} />
+      <SearchFilterBanner
+        filter={searchFilter}
+        shownCount={visibleByStatus.All?.length || 0}
+      />
       <Tabs
         activeKey={activeStatusKey}
         onChange={setActiveStatusKey}

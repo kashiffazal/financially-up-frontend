@@ -40,17 +40,23 @@ export default function AnnualLrbaComplianceAndRecords() {
 
   const credentials = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       desc: `${company.legalName || "Financially Up Pty Ltd"} is a registered tax agent (registration number ${company.tpbNumber || "26242127"}) with more than 10 years of experience.`,
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Professionals",
       desc: "Our qualified specialists include CPA and IPA professionals with deep experience across complex superannuation borrowing compliance.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Australia-Wide Support",
       desc: "We provide Australia-wide support through online appointments, with in-person appointments also available. Our LRBA work focuses on accurate accounting, tax reporting and practical compliance support.",
     },
@@ -62,14 +68,18 @@ export default function AnnualLrbaComplianceAndRecords() {
         {/* Section: Annual LRBA Records Checklist */}
         <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-sm mb-16">
           <div className="max-w-3xl mb-8">
-            <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center mb-3">
+            <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center mb-3">
               <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />
             </div>
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
               Annual LRBA compliance and records
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The LRBA must be reflected in the SMSF&apos;s annual accounts, tax calculations and audit file. Where the acquired asset is property, the ordinary property rules also apply, including annual market-value evidence, related-party restrictions and correct treatment of income and expenses.
+              The LRBA must be reflected in the SMSF&apos;s annual accounts, tax
+              calculations and audit file. Where the acquired asset is property,
+              the ordinary property rules also apply, including annual
+              market-value evidence, related-party restrictions and correct
+              treatment of income and expenses.
             </p>
           </div>
 
@@ -77,7 +87,7 @@ export default function AnnualLrbaComplianceAndRecords() {
             {lrbaChecklist.map((rec, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/70 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
+                className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 dark:bg-zinc-950/60 border border-slate-200/70 dark:border-zinc-800 text-xs sm:text-sm text-slate-700 dark:text-zinc-300"
               >
                 <CheckCircleOutlined className="text-emerald-500 text-base mt-0.5 shrink-0" />
                 <span>{rec}</span>
@@ -85,17 +95,32 @@ export default function AnnualLrbaComplianceAndRecords() {
             ))}
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 dark:text-zinc-400">
-            <span>Explore related services for detailed property or general annual accounts:</span>
+          <div className="p-4 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 dark:text-zinc-400">
+            <span>
+              Explore related services for detailed property or general annual
+              accounts:
+            </span>
             <div className="flex items-center gap-3">
               <Link href="/services/smsf/property">
-                <Button type="link" size="small" className="text-purple-600 dark:text-purple-400 p-0 font-semibold" icon={<ArrowRightOutlined />} iconPlacement="end">
+                <Button
+                  type="link"
+                  size="small"
+                  className="text-purple-600 dark:text-purple-400 p-0 font-semibold"
+                  icon={<ArrowRightOutlined />}
+                  iconPlacement="end"
+                >
                   SMSF Property
                 </Button>
               </Link>
               <span className="text-slate-300 dark:text-zinc-700">•</span>
               <Link href="/services/smsf/accounting">
-                <Button type="link" size="small" className="text-purple-600 dark:text-purple-400 p-0 font-semibold" icon={<ArrowRightOutlined />} iconPlacement="end">
+                <Button
+                  type="link"
+                  size="small"
+                  className="text-purple-600 dark:text-purple-400 p-0 font-semibold"
+                  icon={<ArrowRightOutlined />}
+                  iconPlacement="end"
+                >
                   SMSF Accounting
                 </Button>
               </Link>
@@ -106,17 +131,27 @@ export default function AnnualLrbaComplianceAndRecords() {
         {/* Section: How Financially Up Can Help */}
         <div className="mb-16">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Professional Service Scope
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               How Financially Up can help with SMSF LRBA compliance
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up can review the records against the LRBA, reconcile the borrowing, prepare asset and liability balances, account for income and expenses, prepare audit schedules and coordinate the arrangement with the annual accounts and tax return.
+              Financially Up can review the records against the LRBA, reconcile
+              the borrowing, prepare asset and liability balances, account for
+              income and expenses, prepare audit schedules and coordinate the
+              arrangement with the annual accounts and tax return.
             </p>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              For a proposed arrangement, our role can help identify the accounting records and entity details required. A new fund may also need our SMSF establishment service. Legal structure, lending and financial product advice remain separate professional services.
+              For a proposed arrangement, our role can help identify the
+              accounting records and entity details required. A new fund may
+              also need our SMSF establishment service. Legal structure, lending
+              and financial product advice remain separate professional
+              services.
             </p>
           </div>
         </div>
@@ -124,14 +159,23 @@ export default function AnnualLrbaComplianceAndRecords() {
         {/* Section: Why Choose Financially Up? */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Credentials & Trust
             </Tag>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Why choose Financially Up?
             </h3>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Financially Up Pty Ltd is a registered tax agent (registration number {company.tpbNumber || "26242127"}) with more than 10 years of experience. Our team includes CPA and IPA professionals. We provide Australia-wide support through online appointments, with in-person appointments also available. Our LRBA work focuses on accurate accounting, tax reporting and practical compliance support.
+              Financially Up Pty Ltd is a registered tax agent (registration
+              number {company.tpbNumber || "26242127"}) with more than 10 years
+              of experience. Our team includes CPA and IPA professionals. We
+              provide Australia-wide support through online appointments, with
+              in-person appointments also available. Our LRBA work focuses on
+              accurate accounting, tax reporting and practical compliance
+              support.
             </p>
           </div>
 
@@ -139,10 +183,10 @@ export default function AnnualLrbaComplianceAndRecords() {
             {credentials.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-purple-400/60 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-purple-400/60 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
                   <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -163,7 +207,8 @@ export default function AnnualLrbaComplianceAndRecords() {
                 Have questions about your SMSF borrowing arrangement?
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 dark:text-zinc-400 max-w-xl font-normal">
-                Book an appointment to review borrowing records, arrangement dates, and audit readiness.
+                Book an appointment to review borrowing records, arrangement
+                dates, and audit readiness.
               </p>
             </div>
             <div className="flex items-center gap-3 shrink-0">

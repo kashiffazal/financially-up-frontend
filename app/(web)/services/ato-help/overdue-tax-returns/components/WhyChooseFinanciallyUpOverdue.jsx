@@ -26,24 +26,32 @@ export default function WhyChooseFinanciallyUpOverdue() {
 
   const firmStrengths = [
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Registered Tax Agent",
       description: `Officially registered with the Tax Practitioners Board (TPB #${company?.tpb || "26234055"}), authorized to access prior-year ATO client records and lodge multi-year back returns.`,
     },
     {
-      icon: <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "CPA & IPA Members",
       description:
         "Our professional team includes CPA and IPA members who ensure each historical return applies the exact tax legislation of that financial year.",
     },
     {
-      icon: <IdcardOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <IdcardOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "10+ Years of Experience",
       description:
         "More than a decade of proven expertise bringing complex, multi-year back tax returns up to date for individuals, contractors, and businesses.",
     },
     {
-      icon: <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <GlobalOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Australia-Wide Appointments",
       description: `Assisting clients nationwide through secure digital meetings, with head office appointments at ${company?.address || "Level 5, 100 Walker St, North Sydney NSW 2060"}.`,
     },
@@ -62,10 +70,15 @@ export default function WhyChooseFinanciallyUpOverdue() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why choose {company?.legalName || company?.name || "Financially Up"}?
+            Why choose {company?.legalName || company?.name || "Financially Up"}
+            ?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up is a registered tax agent with more than 10 years of experience. Our professional team includes CPA and IPA members and assists clients Australia-wide through online and in-person appointments. We provide a clear scope for each outstanding year and explain the proposed figures before lodgment.
+            Financially Up is a registered tax agent with more than 10 years of
+            experience. Our professional team includes CPA and IPA members and
+            assists clients Australia-wide through online and in-person
+            appointments. We provide a clear scope for each outstanding year and
+            explain the proposed figures before lodgment.
           </p>
         </div>
 
@@ -74,10 +87,10 @@ export default function WhyChooseFinanciallyUpOverdue() {
           {firmStrengths.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-2xl p-6 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-emerald dark:hover:border-brand-emerald transition-all duration-300 hover:shadow-md flex flex-col justify-between"
+              className="rounded-lg p-6 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-emerald dark:hover:border-brand-emerald transition-all duration-300 hover:shadow-md flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-slate-200/60 dark:border-zinc-700 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 shadow-sm border border-slate-200/60 dark:border-zinc-700 flex items-center justify-center mb-5">
                   {item.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -96,7 +109,7 @@ export default function WhyChooseFinanciallyUpOverdue() {
         </div>
 
         {/* Direct Contact Ribbon */}
-        <div className="rounded-2xl p-6 bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="rounded-lg p-6 bg-gradient-to-r from-slate-900 to-slate-800 dark:from-zinc-900 dark:to-zinc-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
               <PhoneOutlined className="text-lg" />
@@ -106,13 +119,14 @@ export default function WhyChooseFinanciallyUpOverdue() {
                 Resolve Unlodged Tax Years Today
               </p>
               <p className="text-sm sm:text-base font-bold text-white">
-                Call {company?.phone || "1300 328 316"} to Book Your Catch-Up Consultation
+                Call {company?.phone || "1300 328 316"} to Book Your Catch-Up
+                Consultation
               </p>
             </div>
           </div>
           <a
             href={`tel:${(company?.phone || "1300 328 316").replace(/\s/g, "")}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm transition-colors shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm transition-colors shrink-0"
           >
             Call {company?.phone || "1300 328 316"}
           </a>

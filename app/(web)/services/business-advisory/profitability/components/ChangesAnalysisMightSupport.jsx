@@ -25,37 +25,50 @@ import {
 export default function ChangesAnalysisMightSupport() {
   const actionsList = [
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Pricing Calibration",
       action: "Reviewing prices against direct costs and demand",
       desc: "Realigning charge-out rates and retail margins with true direct labour and input inflation.",
     },
     {
-      icon: <PieChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <PieChartOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Portfolio Optimization",
       action: "Adjusting the mix of products, services or customers",
       desc: "Pruning unprofitable low-margin work while expanding high-contribution customer segments.",
     },
     {
-      icon: <FieldTimeOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FieldTimeOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Costing Precision",
       action: "Improving quoting, job costing or time recording",
       desc: "Establishing accurate tracking for labour hours, materials, and job milestones to stop margin slippage.",
     },
     {
-      icon: <ShopOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Procurement Efficiency",
-      action: "Renegotiating a supplier arrangement or reducing avoidable waste",
+      action:
+        "Renegotiating a supplier arrangement or reducing avoidable waste",
       desc: "Securing better terms, rationalizing suppliers, and targeting operational rework.",
     },
     {
-      icon: <ControlOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <ControlOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Overhead Scrutiny",
       action: "Examining recurring overhead before adding capacity",
       desc: "Auditing fixed administrative and subscription costs before committing to expanded facilities.",
     },
     {
-      icon: <FundProjectionScreenOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FundProjectionScreenOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Target Tracking",
       action: "Setting a budget and tracking a small set of margin measures",
       desc: "Locking in an annual baseline and monitoring key contribution margins month-on-month.",
@@ -87,10 +100,10 @@ export default function ChangesAnalysisMightSupport() {
           {actionsList.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -108,9 +121,9 @@ export default function ChangesAnalysisMightSupport() {
         </div>
 
         {/* Scenario Modelling Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
+        <div className="p-6 sm:p-8 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs">
           <div className="flex items-start gap-4">
-            <span className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
+            <span className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
               <ExperimentOutlined className="text-xl" />
             </span>
             <div>

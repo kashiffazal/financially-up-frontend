@@ -135,7 +135,7 @@ export default function ServicesHero({
 
           <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-emerald-100/90 max-w-3xl mx-auto font-normal leading-relaxed">
             From individual tax returns and property investments to complex
-            corporate structures, trust management, and Virtual CFO leadership —
+            corporate structures, trust management, and Virtual CFO leadership -
             explore our complete suite of 15 registered practice pillars
             designed for Australians nationwide.
           </p>
@@ -148,7 +148,7 @@ export default function ServicesHero({
               e.preventDefault();
               if (onSearchSubmit) onSearchSubmit();
             }}
-            className="relative flex items-center bg-white dark:bg-white/10 backdrop-blur-md rounded-2xl p-1.5 border border-slate-300 dark:border-emerald-400/30 shadow-xl dark:shadow-2xl transition-all focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-500/20"
+            className="relative flex items-center bg-white dark:bg-white/10 backdrop-blur-md rounded-lg p-1.5 border border-slate-300 dark:border-emerald-400/30 shadow-xl dark:shadow-2xl transition-all focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-500/20"
           >
             <div className="pl-3.5 pr-2 text-brand-primary dark:text-emerald-300">
               <SearchOutlined className="text-lg" />
@@ -175,7 +175,7 @@ export default function ServicesHero({
               htmlType="submit"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="hidden sm:inline-flex rounded-xl font-semibold text-xs sm:text-sm h-10 px-5 shrink-0"
+              className="hidden sm:inline-flex rounded-lg font-semibold text-xs sm:text-sm h-10 px-5 shrink-0"
             >
               Explore
             </Button>
@@ -190,7 +190,7 @@ export default function ServicesHero({
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-semibold h-12 px-6 shadow-md shadow-brand-primary/25 hover:scale-[1.02] transition-transform"
+              className="rounded-lg font-semibold h-12 px-6 shadow-md shadow-brand-primary/25 hover:scale-[1.02] transition-transform"
             >
               Book an Appointment
             </Button>
@@ -203,7 +203,7 @@ export default function ServicesHero({
                 icon={
                   <PhoneOutlined className="text-brand-primary dark:text-emerald-300" />
                 }
-                className="rounded-xl font-semibold h-12 px-6 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/15 border-slate-200 dark:border-white/20 text-slate-800 dark:text-white shadow-xs"
+                className="rounded-lg font-semibold h-12 px-6 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/15 border-slate-200 dark:border-white/20 text-slate-800 dark:text-white shadow-xs"
               >
                 Call {company.phone}
               </Button>
@@ -216,7 +216,7 @@ export default function ServicesHero({
           {trustMetrics.map((metric, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-3 p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 backdrop-blur-sm shadow-2xs"
+              className="flex items-center gap-3 p-3 rounded-lg bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 backdrop-blur-sm shadow-2xs"
             >
               <div className="p-2 sm:p-2.5 rounded-lg bg-emerald-100/70 dark:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-700/50 shrink-0">
                 {metric.icon}

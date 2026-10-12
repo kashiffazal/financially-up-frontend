@@ -49,7 +49,9 @@ export default function HowFinanciallyUpHelpsSmsfTrustees() {
             How {company?.legalName || "Financially Up"} Helps SMSF Trustees
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            We provide practical tax and accounting support while making clear which questions belong with your solicitor, auditor, lender, or authorized financial adviser.
+            We provide practical tax and accounting support while making clear
+            which questions belong with your solicitor, auditor, lender, or
+            authorized financial adviser.
           </p>
         </div>
 
@@ -57,13 +59,17 @@ export default function HowFinanciallyUpHelpsSmsfTrustees() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="p-3 bg-slate-50 w-fit rounded-xl border border-slate-100 mb-5">
+              <div className="p-3 bg-slate-50 w-fit rounded-lg border border-slate-100 mb-5">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {item.title}
+              </h3>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -78,30 +84,43 @@ export default function HowFinanciallyUpHelpsSmsfTrustees() {
               Why Choose {company?.legalName || "Financially Up"}?
             </h3>
             <p className="text-emerald-200 text-sm sm:text-base mt-3 leading-relaxed">
-              {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience across Australian superannuation taxation, accounting, and property compliance. Our team includes CPA and IPA professionals supporting trustees nationwide.
+              {company?.legalName || "Financially Up"} is a registered tax agent
+              with more than 10 years of experience across Australian
+              superannuation taxation, accounting, and property compliance. Our
+              team includes CPA and IPA professionals supporting trustees
+              nationwide.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <TeamOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">CPA & IPA Certified</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                CPA & IPA Certified
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Rigorous technical mastery of SIS Act regulations, NALI provisions, and LRBA safe-harbours.
+                Rigorous technical mastery of SIS Act regulations, NALI
+                provisions, and LRBA safe-harbours.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <SafetyCertificateOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">10+ Years Experience</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                10+ Years Experience
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Proven track record in SMSF property accounting, independent audit liaison, and ATO reporting.
+                Proven track record in SMSF property accounting, independent
+                audit liaison, and ATO reporting.
               </p>
             </div>
-            <div className="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6">
+            <div className="bg-emerald-900/40 border border-emerald-800 rounded-lg p-6">
               <GlobalOutlined className="text-3xl text-emerald-400 mb-3" />
-              <h4 className="text-lg font-bold text-white mb-1">Australia-Wide Service</h4>
+              <h4 className="text-lg font-bold text-white mb-1">
+                Australia-Wide Service
+              </h4>
               <p className="text-emerald-300 text-xs sm:text-sm">
-                Available through secure online consultations and in-person appointments in North Sydney.
+                Available through secure online consultations and in-person
+                appointments in North Sydney.
               </p>
             </div>
           </div>

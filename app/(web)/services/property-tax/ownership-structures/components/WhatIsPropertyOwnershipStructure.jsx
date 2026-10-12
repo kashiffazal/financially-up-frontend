@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Card } from "antd";
-import { UserOutlined, UsergroupAddOutlined, ApartmentOutlined, BankOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  UsergroupAddOutlined,
+  ApartmentOutlined,
+  BankOutlined,
+} from "@ant-design/icons";
 
 /**
  * WhatIsPropertyOwnershipStructure Component
@@ -43,7 +48,10 @@ export default function WhatIsPropertyOwnershipStructure() {
             What Is a Property Ownership Structure?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            A property ownership structure identifies who legally holds title to the real estate and, where separate, who holds the beneficial interest. Each option carries distinct tax, legal, and operational consequences.
+            A property ownership structure identifies who legally holds title to
+            the real estate and, where separate, who holds the beneficial
+            interest. Each option carries distinct tax, legal, and operational
+            consequences.
           </p>
         </div>
 
@@ -51,23 +59,31 @@ export default function WhatIsPropertyOwnershipStructure() {
           {structures.map((item, idx) => (
             <Card
               key={idx}
-              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl flex flex-col justify-between"
+              className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg flex flex-col justify-between"
               styles={{ body: { padding: "24px" } }}
             >
               <div>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 w-fit mb-4">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 w-fit mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </Card>
           ))}
         </div>
 
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto">
+        <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 sm:p-8 text-center max-w-4xl mx-auto">
           <p className="text-slate-700 font-medium text-base sm:text-lg leading-relaxed">
-            <strong>There is no universally best structure.</strong> An arrangement that suits a long-term residential rental may be entirely unsuitable for a commercial development project or premises used by an operating family business. Intended use, funding, and exit strategy must be analyzed before committing.
+            <strong>There is no universally best structure.</strong> An
+            arrangement that suits a long-term residential rental may be
+            entirely unsuitable for a commercial development project or premises
+            used by an operating family business. Intended use, funding, and
+            exit strategy must be analyzed before committing.
           </p>
         </div>
       </div>

@@ -145,7 +145,7 @@ A GST registration service helps a business determine whether it needs to regist
 For most businesses and enterprises, GST registration is generally required when the $75,000 GST turnover test is met. The test considers current and projected GST turnover rather than accounting profit or cash receipts. Different rules apply to some organisations and activities, including non-profit bodies, taxi, limousine and ride-sourcing services, and businesses claiming fuel tax credits. Registration can also be voluntary in some circumstances.
 If you are unsure whether registration is required or what happens after registration, book an appointment to review your circumstances before making assumptions. Book an Appointment
 When do you need to register for GST?
-For most businesses or enterprises, the compulsory registration threshold is $75,000 of GST turnover. The test considers both current GST turnover—the current month and previous 11 months—and projected GST turnover—the current month and next 11 months. A business with current GST turnover at or above the threshold may not need to register if its projected GST turnover is below the threshold. New businesses must also consider whether projected turnover is likely to meet the threshold.
+For most businesses or enterprises, the compulsory registration threshold is $75,000 of GST turnover. The test considers both current GST turnover-the current month and previous 11 months-and projected GST turnover-the current month and next 11 months. A business with current GST turnover at or above the threshold may not need to register if its projected GST turnover is below the threshold. New businesses must also consider whether projected turnover is likely to meet the threshold.
 Some registration rules apply regardless of the ordinary turnover threshold, including when an enterprise provides taxi, limousine or ride-sourcing travel. Registration is also required if the business wants to claim fuel tax credits. Once a business is required to register, the ATO generally requires registration within 21 days. A GST registration accountant can help identify which rule applies before the registration is completed.
 What happens after GST registration?
 Once registered, a business generally needs to include GST in the price of taxable sales, issue appropriate tax invoices where required, keep records supporting GST treatment and report GST through activity statements. The business may also be able to claim GST credits on eligible business purchases, subject to the GST rules and documentation requirements.
@@ -195,7 +195,7 @@ Once GST registration is active, the ATO will generally issue activity statement
 Book an Appointment
 Book an appointment to discuss your turnover, business activities, expected growth, current registrations and accounting setup. We can help establish whether GST registration needs to be considered and what practical steps follow if you register.
 Get help with GST registration and the BAS setup that follows. Book an Appointment
-Page 4 — Payroll Services
+Page 4 - Payroll Services
 URL
 financiallyup.com.au/services/bas-payroll/payroll-services/
 Primary Keyword
@@ -258,7 +258,7 @@ A payroll accountant can help establish a more structured payroll process as emp
 Book an Appointment
 Discuss your current payroll process, employee numbers, software, reporting requirements and any recurring payroll issues. We can then clarify the appropriate payroll service scope and any related bookkeeping or tax support required.
 Book an Appointment with Financially Up. Book an Appointment
-Page 5 — Single Touch Payroll (STP)
+Page 5 - Single Touch Payroll (STP)
 URL
 financiallyup.com.au/services/bas-payroll/stp/
 Primary Keyword
@@ -320,7 +320,7 @@ No. Payroll processing calculates and records employee pay. STP is the reporting
 Book an Appointment
 An initial discussion can cover your payroll system, STP setup, any ATO errors or notices, year-to-date figures, finalization status and the broader payroll process. We can then confirm whether you need one-off STP assistance or ongoing payroll support.
 Book an Appointment with Financially Up. Book an Appointment
-Page 6 — Fringe Benefits Tax
+Page 6 - Fringe Benefits Tax
 URL
 financiallyup.com.au/services/bas-payroll/fringe-benefits-tax/
 Primary Keyword

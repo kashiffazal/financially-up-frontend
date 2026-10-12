@@ -24,47 +24,70 @@ import {
 export default function CommonAdministrationTasksDuringYear() {
   const adminTasks = [
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Reconciling the SMSF bank account and investment cash accounts",
       desc: "Regular matching of primary bank accounts, broker cash accounts, and term deposit records.",
     },
     {
-      icon: <StockOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
-      title: "Processing investment purchases, sales, distributions, dividends and interest",
+      icon: (
+        <StockOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
+      title:
+        "Processing investment purchases, sales, distributions, dividends and interest",
       desc: "Capturing equities trades, dividend reinvestments, franking credits, and managed fund distribution statements.",
     },
     {
-      icon: <UserAddOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Recording contributions and preserving evidence about their source and classification",
+      icon: (
+        <UserAddOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "Recording contributions and preserving evidence about their source and classification",
       desc: "Classifying employer SG, salary sacrifice, personal concessional, and non-concessional member contributions.",
     },
     {
-      icon: <WalletOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
-      title: "Recording benefits and pension payments from trustee instructions and supporting records",
+      icon: (
+        <WalletOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
+      title:
+        "Recording benefits and pension payments from trustee instructions and supporting records",
       desc: "Monitoring minimum pension drawdown thresholds and recording lump sum payments from trustee minutes.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Maintaining property income and expense records",
       desc: "Collating monthly rental statements, outgoings invoices, municipal rates, and tenant lease agreements.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Tracking permitted borrowing and repayments under an LRBA",
       desc: "Recording bare trust loan repayments, interest breakdowns, and lender statements under compliant terms.",
     },
     {
-      icon: <FolderOpenOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Organizing contracts, invoices, investment statements and year-end reports",
+      icon: (
+        <FolderOpenOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      title:
+        "Organizing contracts, invoices, investment statements and year-end reports",
       desc: "Assembling a central, audit-ready digital repository of third-party contracts, tax invoices, and statements.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
-      title: "Maintaining schedules for member balances and investment activity",
+      icon: (
+        <TeamOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
+      title:
+        "Maintaining schedules for member balances and investment activity",
       desc: "Tracking accumulation and retirement-phase member equity, profit allocations, and tax-free percentages.",
     },
     {
-      icon: <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileSearchOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Identifying missing information before annual accounting begins",
       desc: "Proactively detecting gaps, missing dividend statements, or unclassified items well before audit deadlines.",
     },
@@ -75,14 +98,19 @@ export default function CommonAdministrationTasksDuringYear() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="green"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Year-Round Administrative Workflow
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Common SMSF administration tasks during the year
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Maintaining routine administrative rigor throughout the income year ensures all records, member events, and tax transactions are accurately tracked:
+            Maintaining routine administrative rigor throughout the income year
+            ensures all records, member events, and tax transactions are
+            accurately tracked:
           </p>
         </div>
 
@@ -91,10 +119,10 @@ export default function CommonAdministrationTasksDuringYear() {
           {adminTasks.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-900/60 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 group flex flex-col justify-between"
+              className="bg-slate-50/70 dark:bg-zinc-900/60 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md hover:border-emerald-400/60 transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                   {item.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-start gap-2">

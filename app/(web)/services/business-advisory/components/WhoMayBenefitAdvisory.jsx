@@ -27,40 +27,63 @@ export default function WhoMayBenefitAdvisory() {
   // Exact 6 criteria from the client document:
   const benefitCriteria = [
     {
-      icon: <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Cash & Profit Disconnect",
       title: "unsure why profit is not translating into available cash",
-      description: "Understanding working capital timing differences, debtor lags, and where cash is being absorbed.",
+      description:
+        "Understanding working capital timing differences, debtor lags, and where cash is being absorbed.",
     },
     {
-      icon: <RocketOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <RocketOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Growth Commitments",
-      title: "planning growth, hiring, new premises, equipment or another major commitment",
-      description: "Testing financial assumptions and cash buffer requirements before committing to major expenses.",
+      title:
+        "planning growth, hiring, new premises, equipment or another major commitment",
+      description:
+        "Testing financial assumptions and cash buffer requirements before committing to major expenses.",
     },
     {
-      icon: <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CalculatorOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       tag: "Commercial Changes",
-      title: "considering changes to pricing, costs, product mix or service delivery",
-      description: "Evaluating gross margins, cost structures, and contribution per product or service line.",
+      title:
+        "considering changes to pricing, costs, product mix or service delivery",
+      description:
+        "Evaluating gross margins, cost structures, and contribution per product or service line.",
     },
     {
-      icon: <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       tag: "Planning & Reporting",
-      title: "working without a reliable budget, forecast or management reporting process",
-      description: "Establishing structured financial planning and ongoing variance reviews to steer the business.",
+      title:
+        "working without a reliable budget, forecast or management reporting process",
+      description:
+        "Establishing structured financial planning and ongoing variance reviews to steer the business.",
     },
     {
-      icon: <BankOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Finance & Lenders",
-      title: "preparing for finance discussions and need clearer financial information",
-      description: "Assembling reliable projections, balance-sheet clarity, and assumptions for lender conversations.",
+      title:
+        "preparing for finance discussions and need clearer financial information",
+      description:
+        "Assembling reliable projections, balance-sheet clarity, and assumptions for lender conversations.",
     },
     {
-      icon: <CompassOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       tag: "Objective Direction",
-      title: "wanting a more objective view of business performance and financial priorities",
-      description: "Gaining an independent commercial perspective grounded in accurate accounting records.",
+      title:
+        "wanting a more objective view of business performance and financial priorities",
+      description:
+        "Gaining an independent commercial perspective grounded in accurate accounting records.",
     },
   ];
 
@@ -76,7 +99,10 @@ export default function WhoMayBenefitAdvisory() {
             Who may benefit from business advisory services?
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            Business advisory is commonly useful for established small and medium businesses, growing owner-managed businesses, professional practices and business owners facing a change in direction. You may benefit from a business advisor if you are:
+            Business advisory is commonly useful for established small and
+            medium businesses, growing owner-managed businesses, professional
+            practices and business owners facing a change in direction. You may
+            benefit from a business advisor if you are:
           </p>
         </div>
 
@@ -85,11 +111,11 @@ export default function WhoMayBenefitAdvisory() {
           {benefitCriteria.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:border-teal-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">

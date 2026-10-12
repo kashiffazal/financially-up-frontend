@@ -20,24 +20,36 @@ import {
 export default function TimingMattersBeforeContracts() {
   const milestoneAlerts = [
     {
-      icon: <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Contract Execution",
-      description: "Once contracts are exchanged, GST clauses, margin scheme elections, and purchaser settlement withholding provisions become legally binding and cannot be altered retrospectively.",
+      description:
+        "Once contracts are exchanged, GST clauses, margin scheme elections, and purchaser settlement withholding provisions become legally binding and cannot be altered retrospectively.",
     },
     {
-      icon: <BranchesOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BranchesOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Shift in Project Intention",
-      description: "Changing plans from building long-term rental units to selling off-the-plan triggers significant tax characterization shifts from capital assets to trading stock.",
+      description:
+        "Changing plans from building long-term rental units to selling off-the-plan triggers significant tax characterization shifts from capital assets to trading stock.",
     },
     {
-      icon: <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ClockCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Financing & Debt Structuring",
-      description: "Introducing mezzanine lenders, related-party equity, or private loans requires formal loan agreements and benchmark interest rate substantiation before drawdowns occur.",
+      description:
+        "Introducing mezzanine lenders, related-party equity, or private loans requires formal loan agreements and benchmark interest rate substantiation before drawdowns occur.",
     },
     {
-      icon: <HistoryOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <HistoryOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Changes in Project Scope",
-      description: "Adding units, subdividing additional parcels, or altering the builder contract affects project budgets, feasibility models, and ongoing monthly/quarterly BAS returns.",
+      description:
+        "Adding units, subdividing additional parcels, or altering the builder contract affects project budgets, feasibility models, and ongoing monthly/quarterly BAS returns.",
     },
   ];
 
@@ -60,26 +72,36 @@ export default function TimingMattersBeforeContracts() {
         {/* 2 Verbatim Text Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Paragraph 1 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
               <ExclamationCircleOutlined />
               <span>Irreversible Commercial Milestones</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              Property development tax issues are often easier to manage before a commercial step becomes irreversible. A contract can affect GST wording, the margin scheme and settlement obligations. A change in project intention can affect whether land is being held as an investment, committed to a profit-making undertaking or used in a development business. Entity changes can also create separate tax and legal consequences.
+              Property development tax issues are often easier to manage before
+              a commercial step becomes irreversible. A contract can affect GST
+              wording, the margin scheme and settlement obligations. A change in
+              project intention can affect whether land is being held as an
+              investment, committed to a profit-making undertaking or used in a
+              development business. Entity changes can also create separate tax
+              and legal consequences.
             </p>
           </div>
 
           {/* Paragraph 2 */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
               <CheckCircleOutlined />
               <span>Continuous Communication with Your Accountant</span>
             </div>
             {/* Verbatim text from official document */}
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-              For this reason, developers should keep their accountant informed when the project scope, financing, ownership, sales strategy or intended use changes. Early accounting input does not guarantee a particular tax outcome, but it can help ensure the records and reporting approach match the actual project.
+              For this reason, developers should keep their accountant informed
+              when the project scope, financing, ownership, sales strategy or
+              intended use changes. Early accounting input does not guarantee a
+              particular tax outcome, but it can help ensure the records and
+              reporting approach match the actual project.
             </p>
           </div>
         </div>
@@ -89,7 +111,7 @@ export default function TimingMattersBeforeContracts() {
           {milestoneAlerts.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
             >
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-3">
                 {item.icon}

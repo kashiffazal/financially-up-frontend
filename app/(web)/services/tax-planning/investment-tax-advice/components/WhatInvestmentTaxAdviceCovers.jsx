@@ -18,25 +18,33 @@ import {
 export default function WhatInvestmentTaxAdviceCovers() {
   const corePrinciples = [
     {
-      icon: <LineChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-2xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Transaction Tax Application",
       description:
         "Investment tax advice considers how the tax law applies to an investor’s actual or proposed transactions. The scope can include investment income, CGT, capital losses, cost-base records, ownership and timing.",
     },
     {
-      icon: <CompassOutlined className="text-2xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <CompassOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Commercial Reality Beyond Tax",
       description:
         "Tax is only one factor in an investment decision. A lower-tax outcome is not automatically a better financial decision.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-2xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Strict Tax Scope",
       description:
         "Financially Up’s service is limited to tax advice and does not include recommendations to buy, sell or hold specific financial products.",
     },
     {
-      icon: <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <WarningOutlined className="text-2xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Licensed Adviser Boundaries",
       description:
         "Where financial product advice is needed, an appropriately authorised financial adviser may be required.",
@@ -58,11 +66,20 @@ export default function WhatInvestmentTaxAdviceCovers() {
 
         {/* Verbatim Content Paragraphs */}
         <div className="max-w-4xl mx-auto mb-14 space-y-6 text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed">
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            Investment tax advice considers how the tax law applies to an investor’s actual or proposed transactions. The scope can include investment income, CGT, capital losses, cost-base records, ownership and the timing of transactions where timing is genuinely relevant to the tax outcome.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            Investment tax advice considers how the tax law applies to an
+            investor’s actual or proposed transactions. The scope can include
+            investment income, CGT, capital losses, cost-base records, ownership
+            and the timing of transactions where timing is genuinely relevant to
+            the tax outcome.
           </p>
-          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
-            Tax is only one factor in an investment decision. A lower-tax outcome is not automatically a better financial decision. Financially Up’s service is limited to tax advice and does not include recommendations to buy, sell or hold specific financial products. Where financial product advice is needed, an appropriately authorised financial adviser may be required.
+          <p className="bg-slate-50 dark:bg-zinc-800/60 p-6 sm:p-7 rounded-lg border border-slate-200/80 dark:border-zinc-700/80 shadow-sm">
+            Tax is only one factor in an investment decision. A lower-tax
+            outcome is not automatically a better financial decision.
+            Financially Up’s service is limited to tax advice and does not
+            include recommendations to buy, sell or hold specific financial
+            products. Where financial product advice is needed, an appropriately
+            authorised financial adviser may be required.
           </p>
         </div>
 
@@ -71,10 +88,10 @@ export default function WhatInvestmentTaxAdviceCovers() {
           {corePrinciples.map((item, index) => (
             <div
               key={index}
-              className="bg-slate-50 dark:bg-zinc-800/50 rounded-2xl p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/50 rounded-lg p-6 border border-slate-200/70 dark:border-zinc-700/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-5 border border-slate-200/80 dark:border-zinc-700/80 shadow-xs">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">

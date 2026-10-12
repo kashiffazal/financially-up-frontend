@@ -73,9 +73,9 @@ export default function BeneficiaryReportingAndTFN() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Verbatim Editorial Explanations */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-sm space-y-5">
+            <div className="bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 p-6 sm:p-8 rounded-lg border border-slate-200 dark:border-zinc-800 shadow-sm space-y-5">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-1">
+                <div className="w-10 h-10 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-1">
                   <ExclamationCircleOutlined className="text-lg" />
                 </div>
                 <div>
@@ -95,7 +95,7 @@ export default function BeneficiaryReportingAndTFN() {
               <div className="h-px bg-slate-200 dark:bg-zinc-800 my-2" />
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-1">
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-1">
                   <CheckCircleOutlined className="text-lg" />
                 </div>
                 <div>
@@ -116,7 +116,7 @@ export default function BeneficiaryReportingAndTFN() {
               <Link href="/services/individual-tax/individual-tax-returns">
                 <Button
                   type="default"
-                  className="brand-btn-outline inline-flex items-center gap-2 text-xs sm:text-sm font-semibold rounded-xl"
+                  className="brand-btn-outline inline-flex items-center gap-2 text-xs sm:text-sm font-semibold rounded-lg"
                   icon={<ArrowRightOutlined className="text-xs" />}
                   iconPlacement="end"
                 >
@@ -131,9 +131,9 @@ export default function BeneficiaryReportingAndTFN() {
             {reportingPillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md group flex items-start gap-4"
+                className="p-5 sm:p-6 rounded-lg bg-white dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md group flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-100 dark:border-zinc-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                   {pillar.icon}
                 </div>
                 <div>

@@ -379,7 +379,7 @@ export const SERVICES_LIST = [
     category: "advisory-cfo",
     tag: "Executive Finance",
     description:
-      "Senior-level executive financial leadership on a flexible fractional basis—covering 3-way forecasting, board reporting, and capital strategy.",
+      "Senior-level executive financial leadership on a flexible fractional basis-covering 3-way forecasting, board reporting, and capital strategy.",
     highlights: [
       "Fractional executive financial leadership",
       "3-way financial forecasting (P&L, balance sheet, cash flow)",
@@ -436,7 +436,7 @@ export const SERVICES_LIST = [
     category: "business-tax",
     tag: "Innovation & Offsets",
     description:
-      "Unlock government tax offsets for Australian innovation—assessing eligibility, documentation, AusIndustry registration, and company tax claims.",
+      "Unlock government tax offsets for Australian innovation-assessing eligibility, documentation, AusIndustry registration, and company tax claims.",
     highlights: [
       "Core vs supporting R&D activity eligibility assessments",
       "Eligible expenditure tracking & contractor apportionment",
@@ -489,12 +489,7 @@ export const CLIENT_PERSONAS = [
     icon: "bank",
     description:
       "For Australian proprietary limited entities requiring reliable corporate returns, Division 7A planning, ASIC governance, and payroll.",
-    recommendedSlugs: [
-      "business-tax",
-      "bas-payroll",
-      "asic",
-      "bookkeeping",
-    ],
+    recommendedSlugs: ["business-tax", "bas-payroll", "asic", "bookkeeping"],
   },
   {
     id: "property-investors",
@@ -504,11 +499,7 @@ export const CLIENT_PERSONAS = [
     icon: "home",
     description:
       "For landlords holding residential or commercial portfolios, property renovators, and developers managing GST margin scheme requirements.",
-    recommendedSlugs: [
-      "property-tax",
-      "tax-planning",
-      "business-structures",
-    ],
+    recommendedSlugs: ["property-tax", "tax-planning", "business-structures"],
   },
   {
     id: "trusts-smsf",
@@ -528,10 +519,6 @@ export const CLIENT_PERSONAS = [
     icon: "rise",
     description:
       "For expanding companies requiring high-level Virtual CFO leadership, 3-way financial modeling, growth advisory, and R&D tax incentives.",
-    recommendedSlugs: [
-      "virtual-cfo",
-      "business-advisory",
-      "rd-tax-incentive",
-    ],
+    recommendedSlugs: ["virtual-cfo", "business-advisory", "rd-tax-incentive"],
   },
 ];

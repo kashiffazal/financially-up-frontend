@@ -22,37 +22,51 @@ import {
 export default function WhenToSeekCgtAdvice() {
   const scenarios = [
     {
-      icon: <HomeOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Real Estate & Property Disposals",
       text: "Selling an investment property, former home or other real estate.",
     },
     {
-      icon: <FundOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FundOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Significant Shareholdings & Portfolios",
       text: "Selling a large shareholding or investment portfolio position.",
     },
     {
-      icon: <ShopOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Business Asset Disposals",
       text: "Disposing of business assets or interests where business CGT concessions may need separate review.",
     },
     {
-      icon: <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SwapOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Related Party Transfers",
       text: "Transferring an asset between related parties or entities.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Carried-Forward Losses",
       text: "Dealing with carried-forward capital losses.",
     },
     {
-      icon: <SyncOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Asset Use Changes",
       text: "Changing how a property or other asset is used.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Transaction Timing & Tax Years",
       text: "Reviewing a proposed transaction where the timing may affect which income year the gain or loss falls into.",
     },
@@ -70,7 +84,11 @@ export default function WhenToSeekCgtAdvice() {
             When Should You Seek Capital Gains Tax Advice?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Capital gains tax advice may be worthwhile before you sign a contract, sell an investment, transfer ownership, restructure an asset-holding arrangement or make a significant business disposal. Once the relevant CGT event has happened, some planning choices may no longer be available.
+            Capital gains tax advice may be worthwhile before you sign a
+            contract, sell an investment, transfer ownership, restructure an
+            asset-holding arrangement or make a significant business disposal.
+            Once the relevant CGT event has happened, some planning choices may
+            no longer be available.
           </p>
         </div>
 
@@ -79,13 +97,13 @@ export default function WhenToSeekCgtAdvice() {
           {scenarios.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+              className={`bg-white dark:bg-zinc-900 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
                 idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-11 h-11 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {item.icon}
                   </div>
                   <CheckCircleFilled className="text-emerald-500 text-lg" />

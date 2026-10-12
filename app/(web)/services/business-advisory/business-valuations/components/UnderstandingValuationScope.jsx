@@ -43,7 +43,7 @@ export default function UnderstandingValuationScope() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Card 1: Commercial Planning Valuation */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-3">
                 <AuditOutlined />
@@ -59,12 +59,13 @@ export default function UnderstandingValuationScope() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Clear articulation of purpose, information relied upon, and limitations.
+              Clear articulation of purpose, information relied upon, and
+              limitations.
             </div>
           </div>
 
           {/* Card 2: Legal Disputes & Expert Evidence Boundaries */}
-          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-3">
                 <SafetyCertificateOutlined />
@@ -82,13 +83,14 @@ export default function UnderstandingValuationScope() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Transparent demarcation between internal planning and expert witness evidence.
+              Transparent demarcation between internal planning and expert
+              witness evidence.
             </div>
           </div>
         </div>
 
         {/* Verbatim Paragraph 3 Cross-Link Feature Banner */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
@@ -118,7 +120,7 @@ export default function UnderstandingValuationScope() {
             <div className="shrink-0 flex flex-wrap gap-3">
               <Link href="/services/business-advisory/buying-selling-business">
                 <Button
-                  className="rounded-xl font-bold px-5 h-11 bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-white"
+                  className="rounded-lg font-bold px-5 h-11 bg-white dark:bg-zinc-900 border-slate-200 dark:border-zinc-700 text-slate-800 dark:text-white"
                   icon={<ShopOutlined />}
                 >
                   Buying &amp; Selling
@@ -128,7 +130,7 @@ export default function UnderstandingValuationScope() {
                 <Button
                   type="primary"
                   icon={<RiseOutlined />}
-                  className="rounded-xl font-bold px-5 h-11 shadow-sm"
+                  className="rounded-lg font-bold px-5 h-11 shadow-sm"
                 >
                   Business Growth
                 </Button>

@@ -27,7 +27,8 @@ export const metadata = {
     "executive remuneration tax",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/high-income-professionals/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/high-income-professionals/",
   },
   openGraph: {
     title: "High Income Tax Accountant Australia | Financially Up",
@@ -58,32 +59,38 @@ const highIncomeQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Executives, professionals, high earners, multi-source income & equity holders",
+    value:
+      "Executives, professionals, high earners, multi-source income & equity holders",
   },
   {
     icon: "trophy",
     label: "Executive Packages",
-    value: "Bonuses, commissions, salary packaging & employee share schemes (ESS)",
+    value:
+      "Bonuses, commissions, salary packaging & employee share schemes (ESS)",
   },
   {
     icon: "lineChart",
     label: "Portfolio Oversight",
-    value: "Rental properties, share trading, crypto assets & capital gains calculations",
+    value:
+      "Rental properties, share trading, crypto assets & capital gains calculations",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "Proactive Tax Planning",
-    value: "Pre-year-end strategy, investment timing & forward-looking advisory scope",
+    value:
+      "Pre-year-end strategy, investment timing & forward-looking advisory scope",
   },
 ];
 
@@ -96,7 +103,9 @@ const highIncomeFaqs = [
     label: "Do I need a high income tax accountant?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Not necessarily. Specialist assistance may help when remuneration, investments, capital gains or substantial deductions make your return difficult or time-consuming.
+        Not necessarily. Specialist assistance may help when remuneration,
+        investments, capital gains or substantial deductions make your return
+        difficult or time-consuming.
       </p>
     ),
   },
@@ -105,16 +114,21 @@ const highIncomeFaqs = [
     label: "What makes a high-income tax return more complex?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Complexity usually comes from income sources, remuneration arrangements, investments, transactions and deductions—not income level alone.
+        Complexity usually comes from income sources, remuneration arrangements,
+        investments, transactions and deductions-not income level alone.
       </p>
     ),
   },
   {
     key: "3",
-    label: "What is the difference between tax return preparation and tax planning?",
+    label:
+      "What is the difference between tax return preparation and tax planning?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Tax return preparation reports income, deductions and transactions from a completed financial year. Tax planning considers how proposed decisions or changing circumstances may affect a future tax position. Planning is separately scoped where required.
+        Tax return preparation reports income, deductions and transactions from
+        a completed financial year. Tax planning considers how proposed
+        decisions or changing circumstances may affect a future tax position.
+        Planning is separately scoped where required.
       </p>
     ),
   },
@@ -123,7 +137,9 @@ const highIncomeFaqs = [
     label: "Can you help with tax planning for high income earners?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. We can consider prospective matters within our authorized scope. The work depends on your circumstances, and no particular outcome is guaranteed.
+        Yes. We can consider prospective matters within our authorized scope.
+        The work depends on your circumstances, and no particular outcome is
+        guaranteed.
       </p>
     ),
   },
@@ -132,7 +148,9 @@ const highIncomeFaqs = [
     label: "What records do executives need for bonuses or employee shares?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Records may include ATO income statements, remuneration documents, employee share scheme statements and transaction records. We will confirm what applies.
+        Records may include ATO income statements, remuneration documents,
+        employee share scheme statements and transaction records. We will
+        confirm what applies.
       </p>
     ),
   },
@@ -141,7 +159,9 @@ const highIncomeFaqs = [
     label: "Can the service be completed online?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Yes. Clients Australia-wide can book online or by phone, meet online and provide records remotely. In-person appointments are available by arrangement.
+        Yes. Clients Australia-wide can book online or by phone, meet online and
+        provide records remotely. In-person appointments are available by
+        arrangement.
       </p>
     ),
   },
@@ -184,16 +204,28 @@ export default function HighIncomeProfessionalsPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              When your income and financial arrangements become more complex, preparing an individual tax return may involve more than reporting salary and claiming routine deductions. Bonuses, executive remuneration, employee share interests, investments, rental properties, capital gains and changing employment arrangements can all affect what must be reviewed and reported.
+              When your income and financial arrangements become more complex,
+              preparing an individual tax return may involve more than reporting
+              salary and claiming routine deductions. Bonuses, executive
+              remuneration, employee share interests, investments, rental
+              properties, capital gains and changing employment arrangements can
+              all affect what must be reviewed and reported.
             </span>
             <span className="block mt-2">
-              If you need a high income tax accountant, Financially Up Pty Ltd supports professionals, executives and other individuals across Australia with complex tax affairs. We prepare individual tax returns and consider whether proactive tax planning is relevant to your circumstances.
+              If you need a high income tax accountant, Financially Up Pty Ltd
+              supports professionals, executives and other individuals across
+              Australia with complex tax affairs. We prepare individual tax
+              returns and consider whether proactive tax planning is relevant to
+              your circumstances.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your First Appointment:
               </span>
-              During your first appointment, we will discuss your income, investments, employment arrangements and areas of concern. We will then explain the relevant service scope, the information required and the next steps.
+              During your first appointment, we will discuss your income,
+              investments, employment arrangements and areas of concern. We will
+              then explain the relevant service scope, the information required
+              and the next steps.
             </div>
           </span>
         }

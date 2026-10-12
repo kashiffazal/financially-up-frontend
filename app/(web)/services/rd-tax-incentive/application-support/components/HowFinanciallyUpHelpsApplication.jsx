@@ -41,8 +41,8 @@ export default function HowFinanciallyUpHelpsApplication() {
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Within an agreed scope, Financially Up provides end-to-end guidance from initial readiness
-            checks to ATO return lodgement.
+            Within an agreed scope, Financially Up provides end-to-end guidance
+            from initial readiness checks to ATO return lodgement.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function HowFinanciallyUpHelpsApplication() {
           {serviceScope.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 hover:border-emerald-500/40 transition-colors"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 flex items-start gap-3.5 hover:border-emerald-500/40 transition-colors"
             >
               <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-1 shrink-0 text-base" />
               <div>
@@ -68,26 +68,28 @@ export default function HowFinanciallyUpHelpsApplication() {
 
         {/* 2 Advisory Distinction Notes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80">
+          <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80">
             <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">
               Government Grants &amp; Broader Compliance
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Related government grant support should be scoped separately because funding can affect
-              the accounting and tax analysis. Our company tax return services can support broader
-              compliance where agreed.
+              Related government grant support should be scoped separately
+              because funding can affect the accounting and tax analysis. Our
+              company tax return services can support broader compliance where
+              agreed.
             </p>
           </div>
 
-          <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80">
+          <div className="bg-slate-100/70 dark:bg-zinc-800/40 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80">
             <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">
               Responsibility &amp; Specialist Boundaries
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              The company remains responsible for the accuracy of information supplied and for
-              self-assessing eligibility. Where legal interpretation, specialist science, engineering
-              or other technical expertise is needed beyond our scope, additional professional advice
-              may be required.
+              The company remains responsible for the accuracy of information
+              supplied and for self-assessing eligibility. Where legal
+              interpretation, specialist science, engineering or other technical
+              expertise is needed beyond our scope, additional professional
+              advice may be required.
             </p>
           </div>
         </div>

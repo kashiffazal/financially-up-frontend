@@ -18,11 +18,26 @@ import {
  */
 export default function HowWeDevelopBoardReportingProcess() {
   const processSteps = [
-    { title: "Review Meeting Frequency & Decisions", desc: "Align with board calendars, director committee priorities, and key strategic choices." },
-    { title: "Assess Current Reports & Data Sources", desc: "Audit existing management packs, chart of accounts consistency, and general ledger feeds." },
-    { title: "Establish Agreed Pack Structure", desc: "Standardize schedules for P&L, balance sheets, cash forecasting, and operational KPIs." },
-    { title: "Enforce Cut-Offs & Reconciliation", desc: "Allow adequate buffer for management to close ledgers, reconcile balances, and investigate variances." },
-    { title: "Draft Commentary & Review Prior to Distribution", desc: "Draft objective explanations of material swings and review numbers with executives before release." },
+    {
+      title: "Review Meeting Frequency & Decisions",
+      desc: "Align with board calendars, director committee priorities, and key strategic choices.",
+    },
+    {
+      title: "Assess Current Reports & Data Sources",
+      desc: "Audit existing management packs, chart of accounts consistency, and general ledger feeds.",
+    },
+    {
+      title: "Establish Agreed Pack Structure",
+      desc: "Standardize schedules for P&L, balance sheets, cash forecasting, and operational KPIs.",
+    },
+    {
+      title: "Enforce Cut-Offs & Reconciliation",
+      desc: "Allow adequate buffer for management to close ledgers, reconcile balances, and investigate variances.",
+    },
+    {
+      title: "Draft Commentary & Review Prior to Distribution",
+      desc: "Draft objective explanations of material swings and review numbers with executives before release.",
+    },
   ];
 
   return (
@@ -31,7 +46,10 @@ export default function HowWeDevelopBoardReportingProcess() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Verbatim Strategic Explanation */}
           <div className="lg:col-span-7">
-            <Tag color="green" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Process Architecture
             </Tag>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -39,17 +57,29 @@ export default function HowWeDevelopBoardReportingProcess() {
             </h2>
             <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
               <p>
-                We start by discussing meeting frequency, the decisions directors face and the reports already produced. We then review accounting data, reporting cut-offs, budgets and any operational measures management can support. Our board pack preparation services can include an agreed pack structure, recurring financial schedules, variance commentary and discussion of the figures before distribution.
+                We start by discussing meeting frequency, the decisions
+                directors face and the reports already produced. We then review
+                accounting data, reporting cut-offs, budgets and any operational
+                measures management can support. Our board pack preparation
+                services can include an agreed pack structure, recurring
+                financial schedules, variance commentary and discussion of the
+                figures before distribution.
               </p>
               <p>
-                A practical preparation cycle gives management time to reconcile material balances, investigate exceptions and approve factual explanations. If the accounts are incomplete, the pack should make that clear and prioritize the work needed for reliable reporting. Consistency helps directors compare periods, while the content should change when the business's risks or decisions change.
+                A practical preparation cycle gives management time to reconcile
+                material balances, investigate exceptions and approve factual
+                explanations. If the accounts are incomplete, the pack should
+                make that clear and prioritize the work needed for reliable
+                reporting. Consistency helps directors compare periods, while
+                the content should change when the business's risks or decisions
+                change.
               </p>
             </div>
           </div>
 
           {/* Right Column: Process Steps Card */}
           <div className="lg:col-span-5">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 shadow-sm space-y-4">
+            <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 shadow-sm space-y-4">
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-2">
                 Five-Stage Board Pack Delivery Cadence
               </h3>

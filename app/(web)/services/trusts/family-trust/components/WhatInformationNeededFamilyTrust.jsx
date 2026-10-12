@@ -40,12 +40,16 @@ export default function WhatInformationNeededFamilyTrust() {
       text: "bank and investment statements",
     },
     {
-      icon: <DollarCircleOutlined className="text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-amber-600 dark:text-amber-400" />
+      ),
       title: "Business, Rental & Investment Income",
       text: "business, rental or investment income records",
     },
     {
-      icon: <FileSearchOutlined className="text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FileSearchOutlined className="text-purple-600 dark:text-purple-400" />
+      ),
       title: "Expense Invoices & Receipts",
       text: "expense invoices and supporting documents",
     },
@@ -60,7 +64,9 @@ export default function WhatInformationNeededFamilyTrust() {
       text: "beneficiary details and prior distribution schedules",
     },
     {
-      icon: <FileSearchOutlined className="text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <FileSearchOutlined className="text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Trustee Minutes & Resolutions",
       text: "trustee resolutions, minutes and other relevant trust records",
     },
@@ -76,14 +82,18 @@ export default function WhatInformationNeededFamilyTrust() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Client Preparation Checklist
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What information does a family trust accountant need?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            The exact records depend on the trust’s activities. Common information includes:
+            The exact records depend on the trust’s activities. Common
+            information includes:
           </p>
         </div>
 
@@ -92,9 +102,9 @@ export default function WhatInformationNeededFamilyTrust() {
           {documents.map((doc, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex items-start gap-4"
+              className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm hover:shadow-md flex items-start gap-4"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 mt-0.5">
                 {doc.icon}
               </div>
               <div>
@@ -111,8 +121,8 @@ export default function WhatInformationNeededFamilyTrust() {
         </div>
 
         {/* Verbatim Deed Advisory Callout */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/70 dark:bg-zinc-900 border border-amber-200 dark:border-amber-900/60 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-5">
-          <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 border border-amber-300 dark:border-amber-700 flex items-center justify-center shrink-0">
+        <div className="p-6 sm:p-8 rounded-lg bg-amber-50/70 dark:bg-zinc-900 border border-amber-200 dark:border-amber-900/60 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-5">
+          <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 border border-amber-300 dark:border-amber-700 flex items-center justify-center shrink-0">
             <ExclamationCircleOutlined className="text-xl text-amber-600 dark:text-amber-400" />
           </div>
           <div className="space-y-1 max-w-4xl">
@@ -120,9 +130,10 @@ export default function WhatInformationNeededFamilyTrust() {
               Deed Integrity & Legal Verification
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              If the deed cannot be located or has been amended over time, this should be addressed early. The
-              accounting and tax treatment often depends on the deed, while replacement deeds, deed interpretation or
-              legal amendments may require a legal adviser.
+              If the deed cannot be located or has been amended over time, this
+              should be addressed early. The accounting and tax treatment often
+              depends on the deed, while replacement deeds, deed interpretation
+              or legal amendments may require a legal adviser.
             </p>
           </div>
         </div>

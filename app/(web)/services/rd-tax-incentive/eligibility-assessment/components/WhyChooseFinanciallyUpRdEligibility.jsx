@@ -67,7 +67,8 @@ export default function WhyChooseFinanciallyUpRdEligibility() {
             Trusted Practice
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Why choose {company?.tradingName || company?.legalName || "Financially Up"}?
+            Why choose{" "}
+            {company?.tradingName || company?.legalName || "Financially Up"}?
           </h2>
         </div>
 
@@ -78,11 +79,12 @@ export default function WhyChooseFinanciallyUpRdEligibility() {
             <span>Honest Evaluation &amp; Regulatory Alignment</span>
           </div>
           <p className="text-base sm:text-lg text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax agent with more than
-            10 years of experience and a team including CPA and IPA members. We work with businesses
-            across Australia through online and in-person appointments. We focus on an honest
-            assessment of records, scope and tax consequences rather than promising that a project will
-            qualify or an offset will be paid.
+            {company?.legalName || "Financially Up Pty Ltd"} is a registered tax
+            agent with more than 10 years of experience and a team including CPA
+            and IPA members. We work with businesses across Australia through
+            online and in-person appointments. We focus on an honest assessment
+            of records, scope and tax consequences rather than promising that a
+            project will qualify or an offset will be paid.
           </p>
         </div>
 
@@ -91,9 +93,9 @@ export default function WhyChooseFinanciallyUpRdEligibility() {
           {credentials.map((cred, idx) => (
             <div
               key={idx}
-              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 text-center shadow-xs flex flex-col items-center justify-center hover:border-emerald-500/40 transition-colors"
+              className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-5 sm:p-6 border border-slate-200/80 dark:border-zinc-800 text-center shadow-xs flex flex-col items-center justify-center hover:border-emerald-500/40 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center mb-3 border border-slate-200/60 dark:border-zinc-800">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center mb-3 border border-slate-200/60 dark:border-zinc-800">
                 {cred.icon}
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -112,7 +114,7 @@ export default function WhyChooseFinanciallyUpRdEligibility() {
             <Button
               type="primary"
               size="large"
-              className="bg-emerald-600 hover:bg-emerald-700 border-emerald-600 font-semibold px-8 h-12 rounded-xl shadow-xs"
+              className="bg-emerald-600 hover:bg-emerald-700 border-emerald-600 font-semibold px-8 h-12 rounded-lg shadow-xs"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
             >
@@ -123,7 +125,7 @@ export default function WhyChooseFinanciallyUpRdEligibility() {
             <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
               <Button
                 size="large"
-                className="font-semibold px-6 h-12 rounded-xl border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400"
+                className="font-semibold px-6 h-12 rounded-lg border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400"
                 icon={<PhoneOutlined />}
               >
                 Call {company.phone}

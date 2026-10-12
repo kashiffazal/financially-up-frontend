@@ -94,15 +94,19 @@ export default function WhatInformationNeededInternational() {
             Currency Conversion and Record Keeping
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Foreign amounts generally need to be converted into Australian dollars when preparing Australian tax information. The appropriate exchange rate can depend on the type of amount and the circumstances. ATO exchange-rate information and accepted conversion methods should be used where applicable.
+            Foreign amounts generally need to be converted into Australian
+            dollars when preparing Australian tax information. The appropriate
+            exchange rate can depend on the type of amount and the
+            circumstances. ATO exchange-rate information and accepted conversion
+            methods should be used where applicable.
           </p>
         </div>
 
         {/* Currency Conversion Context Banner */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 mb-12 shadow-sm">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 p-6 sm:p-8 mb-12 shadow-sm">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center shrink-0">
                 <DollarOutlined className="text-teal-600 dark:text-teal-400 text-xl" />
               </div>
               <div className="space-y-1.5">
@@ -110,7 +114,11 @@ export default function WhatInformationNeededInternational() {
                   ATO Prescribed Conversion Methods
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed m-0">
-                  Depending on whether your foreign income consists of periodic salary, sporadic dividends, or real estate capital transactions, conversion into AUD requires either transaction-date spot rates or approved ATO annual average exchange rates.
+                  Depending on whether your foreign income consists of periodic
+                  salary, sporadic dividends, or real estate capital
+                  transactions, conversion into AUD requires either
+                  transaction-date spot rates or approved ATO annual average
+                  exchange rates.
                 </p>
               </div>
             </div>
@@ -119,7 +127,7 @@ export default function WhatInformationNeededInternational() {
                 type="primary"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="font-semibold h-10 px-5 rounded-xl shadow-xs"
+                className="font-semibold h-10 px-5 rounded-lg shadow-xs"
               >
                 Book Review
               </Button>
@@ -140,7 +148,7 @@ export default function WhatInformationNeededInternational() {
             {usefulRecords.map((record, idx) => (
               <div
                 key={idx}
-                className="p-4 sm:p-5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-teal-500/40 hover:shadow-sm transition-all flex items-start gap-3.5"
+                className="p-4 sm:p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:border-teal-500/40 hover:shadow-sm transition-all flex items-start gap-3.5"
               >
                 <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/50 flex items-center justify-center shrink-0 mt-0.5">
                   <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-sm" />

@@ -24,7 +24,9 @@ import {
 export default function WhatToBringToTransactionMeeting() {
   const commonRecords = [
     {
-      icon: <DollarOutlined className="text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-emerald-600 dark:text-emerald-400" />
+      ),
       text: "Proposed price, terms, or formal purchase offer",
     },
     {
@@ -36,7 +38,9 @@ export default function WhatToBringToTransactionMeeting() {
       text: "Latest statutory financial statements and lodged tax returns",
     },
     {
-      icon: <FolderOpenOutlined className="text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-amber-600 dark:text-amber-400" />
+      ),
       text: "Year-to-date management accounts and trial balances",
     },
     {
@@ -78,7 +82,7 @@ export default function WhatToBringToTransactionMeeting() {
             {commonRecords.map((rec, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800"
+                className="flex items-start gap-3 p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-zinc-800"
               >
                 <span className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center shrink-0 mt-0.5 text-base">
                   {rec.icon}
@@ -94,9 +98,9 @@ export default function WhatToBringToTransactionMeeting() {
         {/* Tailored Instructions: Buyer vs Seller */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Buyer Specifics */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-50/50 via-white to-slate-50/50 dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50 shadow-2xs">
+          <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-emerald-50/50 via-white to-slate-50/50 dark:from-emerald-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-emerald-200/80 dark:border-emerald-800/50 shadow-2xs">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-emerald-700 dark:text-emerald-300">
+              <span className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-emerald-700 dark:text-emerald-300">
                 <CalendarOutlined className="text-xl" />
               </span>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -111,9 +115,9 @@ export default function WhatToBringToTransactionMeeting() {
           </div>
 
           {/* Seller Specifics */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-blue-50/50 via-white to-slate-50/50 dark:from-blue-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-blue-200/80 dark:border-blue-800/50 shadow-2xs">
+          <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-blue-50/50 via-white to-slate-50/50 dark:from-blue-950/20 dark:via-zinc-900 dark:to-zinc-950/40 border border-blue-200/80 dark:border-blue-800/50 shadow-2xs">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-700 dark:text-blue-300">
+              <span className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-700 dark:text-blue-300">
                 <SwapOutlined className="text-xl" />
               </span>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white m-0">
@@ -123,7 +127,8 @@ export default function WhatToBringToTransactionMeeting() {
             <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal m-0">
               Explain the desired timetable and which assets or interests you
               intend to transfer. Clarifying inclusions and exclusions upfront
-              prevents protracted negotiations and last-minute deal renegotiation.
+              prevents protracted negotiations and last-minute deal
+              renegotiation.
             </p>
           </div>
         </div>

@@ -24,66 +24,93 @@ export default function FactorsToConsiderChoosingStructure() {
   const factors = [
     {
       number: "01",
-      icon: <UsergroupAddOutlined className="text-xl text-brand-primary dark:text-emerald-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-brand-primary dark:text-emerald-400" />
+      ),
       title: "Ownership & Control",
       text: "Who will own, control and work in the business",
-      description: "Directorship, shareholding, partnership splits and who makes commercial and operational decisions daily.",
+      description:
+        "Directorship, shareholding, partnership splits and who makes commercial and operational decisions daily.",
     },
     {
       number: "02",
-      icon: <FundProjectionScreenOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FundProjectionScreenOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Profits & Distributions",
       text: "Expected profit levels and how profits may be used or distributed",
-      description: "Whether profits will be reinvested in working capital, distributed to family beneficiaries, or drawn as dividends.",
+      description:
+        "Whether profits will be reinvested in working capital, distributed to family beneficiaries, or drawn as dividends.",
     },
     {
       number: "03",
-      icon: <UserSwitchOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <UserSwitchOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Future Partners & Investors",
       text: "Whether new partners, shareholders or investors may join",
-      description: "Ease of issuing equity, introducing key employees into ownership, or welcoming venture and angel capital.",
+      description:
+        "Ease of issuing equity, introducing key employees into ownership, or welcoming venture and angel capital.",
     },
     {
       number: "04",
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Assets & Commercial Risk",
       text: "Business assets, liabilities and commercial risk",
-      description: "Protecting valuable plant, equipment, IP or family wealth against commercial lawsuits, suppliers and trade debts.",
+      description:
+        "Protecting valuable plant, equipment, IP or family wealth against commercial lawsuits, suppliers and trade debts.",
     },
     {
       number: "05",
-      icon: <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Employees & Contractors",
       text: "Employee and contractor arrangements",
-      description: "Workcover, superannuation guarantee, payroll tax thresholds, and contractor vs employee legal distinctions.",
+      description:
+        "Workcover, superannuation guarantee, payroll tax thresholds, and contractor vs employee legal distinctions.",
     },
     {
       number: "06",
-      icon: <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "Administration & Compliance Costs",
       text: "Administrative cost and ongoing reporting obligations",
-      description: "Accounting fees, ASIC annual reviews, multiple entity tax returns, and corporate secretarial maintenance.",
+      description:
+        "Accounting fees, ASIC annual reviews, multiple entity tax returns, and corporate secretarial maintenance.",
     },
     {
       number: "07",
-      icon: <FileDoneOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Tax Registrations",
       text: "GST, PAYG withholding and other registrations where relevant",
-      description: "ABN, TFN, GST threshold turnover, PAYG instalment entry, and fringe benefits tax considerations.",
+      description:
+        "ABN, TFN, GST threshold turnover, PAYG instalment entry, and fringe benefits tax considerations.",
     },
     {
       number: "08",
-      icon: <CompassOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <CompassOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Succession & Exit Strategy",
       text: "Succession, sale or future restructure plans",
-      description: "Small business CGT concessions eligibility, asset sales vs share sales, and passing wealth to the next generation.",
+      description:
+        "Small business CGT concessions eligibility, asset sales vs share sales, and passing wealth to the next generation.",
     },
     {
       number: "09",
-      icon: <WalletOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <WalletOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Separation of Funds",
       text: "How personal and business money will be kept separate",
-      description: "Avoiding Division 7A shareholder loan traps, separate bank accounts, and maintaining clean financial records.",
+      description:
+        "Avoiding Division 7A shareholder loan traps, separate bank accounts, and maintaining clean financial records.",
     },
   ];
 
@@ -99,7 +126,8 @@ export default function FactorsToConsiderChoosingStructure() {
             Factors to Consider When Choosing a Structure
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed">
-            Business structure tax advice commonly considers several issues together rather than in isolation.
+            Business structure tax advice commonly considers several issues
+            together rather than in isolation.
           </p>
         </div>
 
@@ -108,11 +136,11 @@ export default function FactorsToConsiderChoosingStructure() {
           {factors.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 dark:bg-zinc-800/60 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md hover:border-brand-primary/30 dark:hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-zinc-800/60 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-700/80 shadow-sm hover:shadow-md hover:border-brand-primary/30 dark:hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200/80 dark:border-zinc-700 shadow-xs">
                     {item.icon}
                   </div>
                   <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-zinc-700 text-slate-700 dark:text-zinc-300">

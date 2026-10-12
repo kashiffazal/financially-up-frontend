@@ -27,27 +27,37 @@ import {
 export default function WhenBusinessNeedsGrowthAdvice() {
   const expansionTriggers = [
     {
-      icon: <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Another Location or Site",
       desc: "Evaluating multi-site lease commitments, duplicate overheads, and initial fit-out capital.",
     },
     {
-      icon: <UserAddOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <UserAddOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "New Staff & Recruitment",
       desc: "Checking wage affordability, onboarding lead times, and productivity ramp-up periods.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Winning a Larger Contract",
       desc: "Funding front-loaded materials and labor outlays before client invoice payments arrive.",
     },
     {
-      icon: <ToolOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
       title: "Additional Equipment",
       desc: "Analyzing machinery payback periods, finance leases, and productive capacity gains.",
     },
     {
-      icon: <AppstoreAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <AppstoreAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Launching a New Service",
       desc: "Modeling unit economics, direct cost structures, and break-even sales thresholds.",
     },
@@ -72,7 +82,7 @@ export default function WhenBusinessNeedsGrowthAdvice() {
         {/* 2 Primary Verbatim Text Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mb-12">
           {/* Card 1: Expansion Decisions & Busy Owner Trap */}
-          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-4">
                 <RiseOutlined />
@@ -80,19 +90,20 @@ export default function WhenBusinessNeedsGrowthAdvice() {
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
                 You may be considering another location, new staff, a larger
-                contract, additional equipment or a new service. You may
-                already be growing but find that cash is tighter and the owner
-                is busier. Both situations benefit from a closer look at
-                margins, capacity and working capital.
+                contract, additional equipment or a new service. You may already
+                be growing but find that cash is tighter and the owner is
+                busier. Both situations benefit from a closer look at margins,
+                capacity and working capital.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              When revenue increases while cash reserves decrease, margins need immediate review.
+              When revenue increases while cash reserves decrease, margins need
+              immediate review.
             </div>
           </div>
 
           {/* Card 2: Hard-to-Reverse Commitments */}
-          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
+          <div className="bg-slate-50/80 dark:bg-zinc-950/80 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-4">
                 <AlertOutlined />
@@ -101,13 +112,14 @@ export default function WhenBusinessNeedsGrowthAdvice() {
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-200 leading-relaxed font-normal">
                 There is no set turnover at which an adviser becomes useful. A
                 small business growth consultant can be most valuable when a
-                decision requires money or commitments that are hard to
-                reverse. The aim is to establish what the business can afford,
-                which outcomes matter and how progress will be measured.
+                decision requires money or commitments that are hard to reverse.
+                The aim is to establish what the business can afford, which
+                outcomes matter and how progress will be measured.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-zinc-800 text-xs text-slate-500 dark:text-zinc-400">
-              Clarity on what the balance sheet can afford before entering binding commitments.
+              Clarity on what the balance sheet can afford before entering
+              binding commitments.
             </div>
           </div>
         </div>
@@ -117,9 +129,9 @@ export default function WhenBusinessNeedsGrowthAdvice() {
           {expansionTriggers.map((trig, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-950 rounded-2xl p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-all group"
+              className="bg-white dark:bg-zinc-950 rounded-lg p-5 border border-slate-200/80 dark:border-zinc-800 shadow-2xs hover:shadow-md transition-all group"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
                 {trig.icon}
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1.5">
@@ -140,7 +152,7 @@ export default function WhenBusinessNeedsGrowthAdvice() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Evaluate Your Growth Move
             </Button>

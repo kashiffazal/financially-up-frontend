@@ -27,38 +27,53 @@ export default function HowFinanciallyUpHelps() {
    */
   const servicePillars = [
     {
-      icon: <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
-      title: "Day-to-day transaction recording and coding, where included in scope",
+      icon: (
+        <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
+      title:
+        "Day-to-day transaction recording and coding, where included in scope",
       description:
         "Consistent recording and classification of daily sales, operating expenses, and banking transactions.",
     },
     {
-      icon: <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <FileTextOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Bank and credit-card reconciliations",
       description:
         "Matching accounting file transactions against official bank and card statements to ensure accurate balances.",
     },
     {
-      icon: <ClearOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <ClearOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Review and clean-up of bookkeeping records",
       description:
         "Investigating unexplained balances, historical coding errors, and clearing suspense items.",
     },
     {
-      icon: <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <UsergroupAddOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Customer and supplier transaction support where relevant",
       description:
         "Processing supplier bills, managing accounts payable, customer invoices, and debtor records.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
-      title: "Preparation of bookkeeping records for BAS, tax or accounting work",
+      icon: (
+        <FileDoneOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
+      title:
+        "Preparation of bookkeeping records for BAS, tax or accounting work",
       description:
         "Structuring and validating underlying records so accountants can prepare compliance lodgements efficiently.",
     },
     {
-      icon: <InteractionOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
-      title: "Coordination with separately scoped payroll, BAS, tax and accounting services",
+      icon: (
+        <InteractionOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
+      title:
+        "Coordination with separately scoped payroll, BAS, tax and accounting services",
       description:
         "Seamless alignment between day-to-day bookkeeping routines and registered tax agent compliance services.",
     },
@@ -90,10 +105,10 @@ export default function HowFinanciallyUpHelps() {
           {servicePillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-7 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-zinc-800 flex items-center justify-center mb-4">
                   {pillar.icon}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">

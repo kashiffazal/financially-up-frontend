@@ -1,5 +1,5 @@
 /**
- * POST /api/revalidate — called by the backend after blog changes so the website
+ * POST /api/revalidate - called by the backend after blog changes so the website
  * shows them immediately (otherwise cached blog data refreshes within 60s).
  *
  * Header:  x-revalidate-secret: <REVALIDATE_SECRET>   (same value in backend + frontend env)
@@ -14,7 +14,10 @@ const ALLOWED_TAGS = new Set(["blog", "settings"]);
 export async function POST(request) {
   const secret = process.env.REVALIDATE_SECRET;
   if (!secret || request.headers.get("x-revalidate-secret") !== secret) {
-    return NextResponse.json({ success: false, message: "Not allowed." }, { status: 401 });
+    return NextResponse.json(
+      { success: false, message: "Not allowed." },
+      { status: 401 },
+    );
   }
 
   let tags = ["blog"];

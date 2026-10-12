@@ -30,64 +30,84 @@ import {
 export default function WhatGoesIntoCashFlowForecast() {
   const forecastInputs = [
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "opening bank balances and available cash",
       category: "Starting Position",
       description:
         "Reconciled transaction account balances, working capital lines, and immediate liquidity reserves.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "expected customer receipts and debtor collection patterns",
       category: "Inflows",
       description:
         "Realistic collection timeframes based on actual debtor payment behaviour, terms, and seasonality.",
     },
     {
-      icon: <ShopOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />,
+      icon: (
+        <ShopOutlined className="text-xl text-cyan-600 dark:text-cyan-400" />
+      ),
       title: "supplier payments and aged payables",
       category: "Trade Outflows",
       description:
         "Aged creditor schedules, credit terms, trade accounts, and critical supplier delivery deadlines.",
     },
     {
-      icon: <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <TeamOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "wages, superannuation and payroll-related costs",
       category: "Employment",
       description:
         "Gross payroll cycles, PAYG withholding liabilities, superannuation guarantee, and payroll tax.",
     },
     {
-      icon: <FileProtectOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />,
-      title: "GST, PAYG instalments, PAYG withholding and other tax payments where applicable",
+      icon: (
+        <FileProtectOutlined className="text-xl text-indigo-600 dark:text-indigo-400" />
+      ),
+      title:
+        "GST, PAYG instalments, PAYG withholding and other tax payments where applicable",
       category: "Compliance",
       description:
         "Quarterly or monthly BAS lodgement schedules, income tax liabilities, and ATO payment plans.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "loan, lease and finance repayments",
       category: "Financing",
       description:
         "Equipment finance, commercial chattel mortgages, overdraft reductions, and interest charges.",
     },
     {
-      icon: <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <HomeOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "rent, insurance, subscriptions and other recurring overheads",
       category: "Fixed Overheads",
       description:
         "Premises leases, commercial insurance renewals, software subscriptions, and utility obligations.",
     },
     {
-      icon: <ToolOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <ToolOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "capital expenditure and one-off payments",
       category: "Capital Outlays",
       description:
         "Asset investments, office fit-outs, software development, and non-recurring project costs.",
     },
     {
-      icon: <UserOutlined className="text-xl text-emerald-700 dark:text-emerald-300" />,
-      title: "owner drawings, distributions or other planned cash movements where relevant",
+      icon: (
+        <UserOutlined className="text-xl text-emerald-700 dark:text-emerald-300" />
+      ),
+      title:
+        "owner drawings, distributions or other planned cash movements where relevant",
       category: "Equity & Drawings",
       description:
         "Trust distributions, director loan movements, dividends, and planned proprietor cash extractions.",
@@ -121,11 +141,11 @@ export default function WhatGoesIntoCashFlowForecast() {
           {forecastInputs.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-2xl p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-slate-50/70 dark:bg-zinc-950/70 rounded-lg p-6 sm:p-7 border border-slate-200/80 dark:border-zinc-800 shadow-xs hover:shadow-lg hover:border-emerald-400/60 transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-11 h-11 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
                   <Tag
@@ -154,7 +174,7 @@ export default function WhatGoesIntoCashFlowForecast() {
         </div>
 
         {/* Horizon Selector Banner: Verbatim Note on Forecast Periods */}
-        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-2xl p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-slate-50 dark:from-emerald-950/30 dark:via-zinc-950 dark:to-zinc-900 rounded-lg p-7 sm:p-9 border border-emerald-200/80 dark:border-emerald-800/40 shadow-xs mb-12">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
@@ -169,7 +189,7 @@ export default function WhatGoesIntoCashFlowForecast() {
             </div>
 
             <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+              <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
                 <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase">
                   13-Week Rolling
                 </div>
@@ -177,7 +197,7 @@ export default function WhatGoesIntoCashFlowForecast() {
                   Liquidity &amp; Payroll Control
                 </div>
               </div>
-              <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 text-center">
+              <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-lg border border-slate-200 dark:border-zinc-800 text-center">
                 <div className="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase">
                   12-Month Monthly
                 </div>
@@ -197,7 +217,7 @@ export default function WhatGoesIntoCashFlowForecast() {
               size="large"
               icon={<ArrowRightOutlined />}
               iconPlacement="end"
-              className="rounded-xl font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
+              className="rounded-lg font-bold px-7 h-12 shadow-md shadow-brand-primary/20"
             >
               Build Your Cash Flow Model
             </Button>

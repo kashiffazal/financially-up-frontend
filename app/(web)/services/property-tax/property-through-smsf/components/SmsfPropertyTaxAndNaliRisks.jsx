@@ -2,7 +2,12 @@
 
 import React from "react";
 import { Alert } from "antd";
-import { DollarOutlined, WarningOutlined, ToolOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import {
+  DollarOutlined,
+  WarningOutlined,
+  ToolOutlined,
+  CheckCircleOutlined,
+} from "@ant-design/icons";
 
 /**
  * SmsfPropertyTaxAndNaliRisks Component
@@ -39,7 +44,9 @@ export default function SmsfPropertyTaxAndNaliRisks() {
             Tax and Reporting During SMSF Property Ownership
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            While superannuation provides significant tax concessions, non-arm’s length dealings or breaching borrowing rules can trigger severe tax consequences.
+            While superannuation provides significant tax concessions, non-arm’s
+            length dealings or breaching borrowing rules can trigger severe tax
+            consequences.
           </p>
         </div>
 
@@ -47,14 +54,18 @@ export default function SmsfPropertyTaxAndNaliRisks() {
           {points.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-lg p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 w-fit mb-5">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 w-fit mb-5">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -67,10 +78,15 @@ export default function SmsfPropertyTaxAndNaliRisks() {
           title="Strict Evidence of Arm's Length Terms Required"
           description={
             <div className="text-slate-700 text-sm sm:text-base leading-relaxed mt-1">
-              Transactions with related parties must be executed on strict arm's length commercial terms. Written commercial lease agreements, annual third-party market rental appraisals, proof of timely rent payments, and formal debt documentation are mandatory to defend against NALI penalties during the mandatory annual independent fund audit.
+              Transactions with related parties must be executed on strict arm's
+              length commercial terms. Written commercial lease agreements,
+              annual third-party market rental appraisals, proof of timely rent
+              payments, and formal debt documentation are mandatory to defend
+              against NALI penalties during the mandatory annual independent
+              fund audit.
             </div>
           }
-          className="border border-rose-200 bg-rose-50/60 rounded-xl p-5"
+          className="border border-rose-200 bg-rose-50/60 rounded-lg p-5"
         />
       </div>
     </section>

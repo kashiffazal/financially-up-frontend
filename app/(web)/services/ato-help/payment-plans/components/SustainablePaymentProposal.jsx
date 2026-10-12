@@ -22,19 +22,25 @@ import {
 export default function SustainablePaymentProposal() {
   const pillars = [
     {
-      icon: <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <LineChartOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Current Figures & Fluctuation Buffers",
       lead: "A workable proposal uses current figures, allows for normal fluctuations and shows how both the instalments and new tax will be funded.",
       desc: "Allowing a cash cushion for seasonal lulls, debtor delays, and supplier price rises ensures instalments never default.",
     },
     {
-      icon: <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <DollarCircleOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Real-Time Tax Quarantine",
       lead: "For a business, this may require separating GST, PAYG withholding or income-tax amounts as they arise rather than waiting for the next due date.",
       desc: "Setting up automated transfers to a separate tax savings account prevents routine operational expenses from consuming statutory funds.",
     },
     {
-      icon: <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <StopOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Fixing Underlying Shortfalls First",
       lead: "If the cash-flow forecast shows another shortfall, the underlying cause should be addressed before an instalment amount is proposed.",
       desc: "A payment plan is an administration tool, not a substitute for viable cash-flow management.",
@@ -46,14 +52,24 @@ export default function SustainablePaymentProposal() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <Tag color="cyan" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+          >
             Financial Realism
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             What makes a payment proposal sustainable?
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A workable proposal uses current figures, allows for normal fluctuations and shows how both the instalments and new tax will be funded. For a business, this may require separating GST, PAYG withholding or income-tax amounts as they arise rather than waiting for the next due date. If the cash-flow forecast shows another shortfall, the underlying cause should be addressed before an instalment amount is proposed. A payment plan is an administration tool, not a substitute for viable cash-flow management.
+            A workable proposal uses current figures, allows for normal
+            fluctuations and shows how both the instalments and new tax will be
+            funded. For a business, this may require separating GST, PAYG
+            withholding or income-tax amounts as they arise rather than waiting
+            for the next due date. If the cash-flow forecast shows another
+            shortfall, the underlying cause should be addressed before an
+            instalment amount is proposed. A payment plan is an administration
+            tool, not a substitute for viable cash-flow management.
           </p>
         </div>
 
@@ -62,10 +78,10 @@ export default function SustainablePaymentProposal() {
           {pillars.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-2xl p-6 sm:p-8 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-emerald dark:hover:border-brand-emerald transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+              className="rounded-lg p-6 sm:p-8 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-emerald dark:hover:border-brand-emerald transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-5">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">

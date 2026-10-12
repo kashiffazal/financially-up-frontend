@@ -58,7 +58,7 @@ export default function RelatedSixYearRuleRibbon() {
             <Link
               key={idx}
               href={service.slug}
-              className="group bg-slate-50 hover:bg-white rounded-xl p-6 border border-slate-200 hover:border-emerald-500 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="group bg-slate-50 hover:bg-white rounded-lg p-6 border border-slate-200 hover:border-emerald-500 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors mb-2">

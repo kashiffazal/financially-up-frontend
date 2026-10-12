@@ -32,12 +32,13 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
   return (
     <section className="py-16 sm:py-24 bg-slate-50 dark:bg-zinc-950/70 border-b border-slate-200/80 dark:border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
           {/* Part 1: What should you decide before an ABN application? */}
           <div className="lg:col-span-5 space-y-6">
-            <Tag color="blue" className="brand-section-tag font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="blue"
+              className="brand-section-tag font-bold tracking-wider uppercase text-xs"
+            >
               Entity Decision First
             </Tag>
 
@@ -46,7 +47,11 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Before you apply for an ABN, you should know which entity will operate the business. A sole trader, partnership, company and trust have different registration and tax consequences. The Australian Business Register specifically recommends deciding the business structure before the ABN application is completed.
+              Before you apply for an ABN, you should know which entity will
+              operate the business. A sole trader, partnership, company and
+              trust have different registration and tax consequences. The
+              Australian Business Register specifically recommends deciding the
+              business structure before the ABN application is completed.
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
@@ -62,7 +67,8 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              If the intended entity is a company that has not yet been incorporated, the{" "}
+              If the intended entity is a company that has not yet been
+              incorporated, the{" "}
               <Link
                 href="/services/business-structures/company-registration"
                 className="font-semibold text-brand-primary dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
@@ -70,7 +76,8 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
                 company registration
                 <ArrowRightOutlined className="text-xs" />
               </Link>{" "}
-              step generally comes first because the company receives its ACN when registered.
+              step generally comes first because the company receives its ACN
+              when registered.
             </p>
           </div>
 
@@ -78,7 +85,7 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
           <div className="lg:col-span-7">
             <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 shadow-xs space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
                   <FolderOpenOutlined className="text-xl" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -87,16 +94,23 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
               </div>
 
               <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-                The exact information depends on the entity and circumstances. The Australian Business Register may require details such as tax file numbers of relevant associates, an ACN for a company, the date the ABN is required, business activity information and details of associates such as partners, directors or trustees.
+                The exact information depends on the entity and circumstances.
+                The Australian Business Register may require details such as tax
+                file numbers of relevant associates, an ACN for a company, the
+                date the ABN is required, business activity information and
+                details of associates such as partners, directors or trustees.
               </p>
 
-              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-3">
+              <div className="p-5 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/80 space-y-3">
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
                   Application Information Checklist:
                 </h4>
                 <ul className="space-y-2.5">
                   {applicationInfo.map((info, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300"
+                    >
                       <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                       <span>{info}</span>
                     </li>
@@ -104,17 +118,19 @@ export default function DecisionsBeforeAbnAndInformationNeeded() {
                 </ul>
               </div>
 
-              <div className="p-4 rounded-xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-900/40 flex items-start gap-3 text-xs text-slate-600 dark:text-zinc-300">
+              <div className="p-4 rounded-lg bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-900/40 flex items-start gap-3 text-xs text-slate-600 dark:text-zinc-300">
                 <InfoCircleOutlined className="text-base text-blue-600 shrink-0 mt-0.5" />
                 <span>
-                  The start date should reflect when the entity starts, or takes genuine steps to start, the relevant business or enterprise. The ABR may review entitlement and ask for evidence that commencement activities occurred from the date stated in the application.
+                  The start date should reflect when the entity starts, or takes
+                  genuine steps to start, the relevant business or enterprise.
+                  The ABR may review entitlement and ask for evidence that
+                  commencement activities occurred from the date stated in the
+                  application.
                 </span>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

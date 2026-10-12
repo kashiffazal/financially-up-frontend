@@ -27,7 +27,8 @@ export const metadata = {
     "cost base review property sale",
   ],
   alternates: {
-    canonical: "https://financiallyup.com.au/services/individual-tax/capital-gains-tax/",
+    canonical:
+      "https://financiallyup.com.au/services/individual-tax/capital-gains-tax/",
   },
   openGraph: {
     title: "Capital Gains Tax Accountant Australia | Financially Up",
@@ -58,32 +59,38 @@ const cgtQuickSpecs = [
   {
     icon: "team",
     label: "Suitable For",
-    value: "Homeowners, property investors, share traders & multi-asset investors",
+    value:
+      "Homeowners, property investors, share traders & multi-asset investors",
   },
   {
     icon: "file",
     label: "Tax Reporting Model",
-    value: "Net capital gains declared in individual tax return at marginal tax rate",
+    value:
+      "Net capital gains declared in individual tax return at marginal tax rate",
   },
   {
     icon: "bank",
     label: "Cost-Base Elements",
-    value: "Purchase costs, incidental costs, ownership costs, improvements & title costs",
+    value:
+      "Purchase costs, incidental costs, ownership costs, improvements & title costs",
   },
   {
     icon: "desktop",
     label: "Delivery Format",
-    value: "100% online video meetings (Outlook Calendar) or in-person by arrangement",
+    value:
+      "100% online video meetings (Outlook Calendar) or in-person by arrangement",
   },
   {
     icon: "send",
     label: "ATO Lodgement",
-    value: "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
+    value:
+      "Direct electronic ATO portal lodgement by Registered Tax Agent #26242127",
   },
   {
     icon: "safety",
     label: "Concessions & Rules",
-    value: "Main residence exemption, 6-year absence rule, first income date valuation & 50% CGT discount",
+    value:
+      "Main residence exemption, 6-year absence rule, first income date valuation & 50% CGT discount",
   },
 ];
 
@@ -96,7 +103,10 @@ const cgtFaqs = [
     label: "What does a capital gains tax accountant do?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A CGT accountant reviews the asset, ownership and use history, capital proceeds, cost-base records and relevant CGT rules. The work may include calculating a gain or loss, preparing tax-return disclosures or providing separately scoped advice.
+        A CGT accountant reviews the asset, ownership and use history, capital
+        proceeds, cost-base records and relevant CGT rules. The work may include
+        calculating a gain or loss, preparing tax-return disclosures or
+        providing separately scoped advice.
       </p>
     ),
   },
@@ -105,7 +115,10 @@ const cgtFaqs = [
     label: "When does CGT apply?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        CGT may apply when a CGT event happens, including when an individual sells, transfers or otherwise disposes of a relevant asset. Whether a taxable gain results depends on the asset, available records and the applicable exemptions, losses and concessions.
+        CGT may apply when a CGT event happens, including when an individual
+        sells, transfers or otherwise disposes of a relevant asset. Whether a
+        taxable gain results depends on the asset, available records and the
+        applicable exemptions, losses and concessions.
       </p>
     ),
   },
@@ -114,7 +127,10 @@ const cgtFaqs = [
     label: "How is a capital gain calculated?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A capital gain generally starts with capital proceeds less the relevant cost base. The wider calculation may then involve exemptions or concessions, capital losses and an eligible CGT discount before the resulting net capital gain is included in assessable income.
+        A capital gain generally starts with capital proceeds less the relevant
+        cost base. The wider calculation may then involve exemptions or
+        concessions, capital losses and an eligible CGT discount before the
+        resulting net capital gain is included in assessable income.
       </p>
     ),
   },
@@ -123,7 +139,10 @@ const cgtFaqs = [
     label: "How does CGT apply when selling an investment property?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        The calculation may consider the purchase and sale amounts, eligible transaction and ownership costs, capital improvements, periods of private use, ownership interests, capital losses and any available CGT discount or exemption.
+        The calculation may consider the purchase and sale amounts, eligible
+        transaction and ownership costs, capital improvements, periods of
+        private use, ownership interests, capital losses and any available CGT
+        discount or exemption.
       </p>
     ),
   },
@@ -132,7 +151,11 @@ const cgtFaqs = [
     label: "How does CGT apply when a former home becomes a rental property?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        A former home may qualify for a full or partial main residence exemption, the conditional six-year absence rule or the first-used-to-produce-income market value rule. The applicable treatment depends on the property&apos;s dates, use history and the taxpayer&apos;s circumstances.
+        A former home may qualify for a full or partial main residence
+        exemption, the conditional six-year absence rule or the
+        first-used-to-produce-income market value rule. The applicable treatment
+        depends on the property&apos;s dates, use history and the
+        taxpayer&apos;s circumstances.
       </p>
     ),
   },
@@ -141,7 +164,10 @@ const cgtFaqs = [
     label: "Do I qualify for the CGT discount?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        An eligible individual may generally qualify for a 50% CGT discount on an eligible capital gain where the asset has been owned for at least 12 months and the other conditions are satisfied. The discount is not automatic and is not a reduction in the tax rate.
+        An eligible individual may generally qualify for a 50% CGT discount on
+        an eligible capital gain where the asset has been owned for at least 12
+        months and the other conditions are satisfied. The discount is not
+        automatic and is not a reduction in the tax rate.
       </p>
     ),
   },
@@ -150,7 +176,10 @@ const cgtFaqs = [
     label: "Can capital losses reduce my capital gains?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Capital losses can generally reduce capital gains and are applied before an eligible CGT discount. They are not generally deducted from salary or ordinary income, and unused net capital losses may generally be carried forward.
+        Capital losses can generally reduce capital gains and are applied before
+        an eligible CGT discount. They are not generally deducted from salary or
+        ordinary income, and unused net capital losses may generally be carried
+        forward.
       </p>
     ),
   },
@@ -159,7 +188,9 @@ const cgtFaqs = [
     label: "How does CGT apply to jointly owned property?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Each legal owner generally reports their share of a capital gain or capital loss according to their ownership interest. Ownership changes, beneficial ownership or other arrangements may require further review.
+        Each legal owner generally reports their share of a capital gain or
+        capital loss according to their ownership interest. Ownership changes,
+        beneficial ownership or other arrangements may require further review.
       </p>
     ),
   },
@@ -168,7 +199,11 @@ const cgtFaqs = [
     label: "What records should I keep for CGT?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Keep acquisition and disposal documents, contracts, settlement statements, eligible cost records, improvement invoices, ownership information and valuations where relevant. These records generally need to be kept for at least five years after the CGT event, with longer requirements possible for carried-forward losses.
+        Keep acquisition and disposal documents, contracts, settlement
+        statements, eligible cost records, improvement invoices, ownership
+        information and valuations where relevant. These records generally need
+        to be kept for at least five years after the CGT event, with longer
+        requirements possible for carried-forward losses.
       </p>
     ),
   },
@@ -177,7 +212,11 @@ const cgtFaqs = [
     label: "How are inherited assets treated for CGT purposes?",
     children: (
       <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-        Inheritance does not necessarily trigger CGT for the beneficiary at the time the asset is received. CGT may arise on a later disposal, and the cost base or available exemption can depend on the asset, the deceased person&apos;s acquisition and use, and the beneficiary&apos;s circumstances.
+        Inheritance does not necessarily trigger CGT for the beneficiary at the
+        time the asset is received. CGT may arise on a later disposal, and the
+        cost base or available exemption can depend on the asset, the deceased
+        person&apos;s acquisition and use, and the beneficiary&apos;s
+        circumstances.
       </p>
     ),
   },
@@ -220,16 +259,32 @@ export default function CapitalGainsTaxPage() {
         description={
           <span className="space-y-3 block">
             <span className="block">
-              Selling property, shares or another investment can create capital gains tax consequences that are easy to miscalculate. Financially Up Pty Ltd assists Australian homeowners, property investors, joint owners and individual investors with understanding CGT, reviewing cost-base information, calculating capital gains or capital losses, and preparing the relevant tax return disclosures where appropriate.
+              Selling property, shares or another investment can create capital
+              gains tax consequences that are easy to miscalculate. Financially
+              Up Pty Ltd assists Australian homeowners, property investors,
+              joint owners and individual investors with understanding CGT,
+              reviewing cost-base information, calculating capital gains or
+              capital losses, and preparing the relevant tax return disclosures
+              where appropriate.
             </span>
             <span className="block mt-2">
-              Working with a capital gains tax accountant can be particularly useful when an asset has changed use, records are incomplete, a property was once your home, ownership is shared, capital losses are available or more than one CGT event has occurred. The treatment can depend on the asset, ownership history, use of the asset, residency and your individual circumstances.
+              Working with a capital gains tax accountant can be particularly
+              useful when an asset has changed use, records are incomplete, a
+              property was once your home, ownership is shared, capital losses
+              are available or more than one CGT event has occurred. The
+              treatment can depend on the asset, ownership history, use of the
+              asset, residency and your individual circumstances.
             </span>
-            <div className="mt-4 p-4 rounded-xl bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
+            <div className="mt-4 p-4 rounded-lg bg-emerald-50/95 dark:bg-emerald-950/40 border border-emerald-200/90 dark:border-emerald-700/50 text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium shadow-2xs">
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block mb-1">
                 Your Initial Appointment:
               </span>
-              Your first appointment can cover the asset being sold or considered for sale, purchase and sale details, ownership history, how the asset has been used, available records, potential CGT considerations and appropriate next steps. A specific CGT outcome cannot be confirmed until your circumstances and documents have been reviewed.
+              Your first appointment can cover the asset being sold or
+              considered for sale, purchase and sale details, ownership history,
+              how the asset has been used, available records, potential CGT
+              considerations and appropriate next steps. A specific CGT outcome
+              cannot be confirmed until your circumstances and documents have
+              been reviewed.
             </div>
           </span>
         }

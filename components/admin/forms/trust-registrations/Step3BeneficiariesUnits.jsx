@@ -29,7 +29,7 @@ export default function Step3BeneficiariesUnits() {
         </p>
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
           Primary Beneficiary 1 / Unitholder
         </span>
@@ -47,7 +47,7 @@ export default function Step3BeneficiariesUnits() {
             reqMsg="Beneficiary name is required"
             preIconAnt={<UserOutlined className="text-slate-400" />}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -64,7 +64,7 @@ export default function Step3BeneficiariesUnits() {
             reqMsg="Date of birth is required"
             preIconAnt={<CalendarOutlined className="text-slate-400" />}
             size="large"
-            className="w-full rounded-xl"
+            className="w-full rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -81,7 +81,7 @@ export default function Step3BeneficiariesUnits() {
             placeholder="e.g. 15 Ocean Drive, Surfers Paradise QLD 4217"
             reqMsg="Residential address is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -96,13 +96,13 @@ export default function Step3BeneficiariesUnits() {
             placeholder="e.g. 50% or 50 Units"
             reqMsg="Units / percentage is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-zinc-300 block mb-1">
           Primary Beneficiary 2 / Secondary Unitholder (Optional)
         </span>
@@ -119,7 +119,7 @@ export default function Step3BeneficiariesUnits() {
             placeholder="e.g. Sarah Jane Harrison"
             noRequired={true}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -134,7 +134,7 @@ export default function Step3BeneficiariesUnits() {
             placeholder="e.g. 50% or 50 Units"
             noRequired={true}
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

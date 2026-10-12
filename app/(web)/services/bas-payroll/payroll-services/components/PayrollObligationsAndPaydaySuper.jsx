@@ -79,9 +79,9 @@ export default function PayrollObligationsAndPaydaySuper() {
           {obligations.map((item, index) => (
             <div
               key={index}
-              className="p-7 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
+              className="p-7 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200/80 dark:border-zinc-700/80 hover:border-emerald-400/60 transition-all flex items-start gap-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-700/60 border border-slate-200/60 dark:border-zinc-600/40 flex items-center justify-center shrink-0 mt-0.5">
                 {item.icon}
               </div>
               <div>
@@ -97,7 +97,7 @@ export default function PayrollObligationsAndPaydaySuper() {
         </div>
 
         {/* Cross-Link Card for Single Touch Payroll */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/40 dark:from-zinc-800/80 dark:via-zinc-900 dark:to-zinc-800/60 border border-emerald-200/80 dark:border-zinc-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="p-8 rounded-lg bg-gradient-to-r from-emerald-50/60 via-white to-teal-50/40 dark:from-zinc-800/80 dark:via-zinc-900 dark:to-zinc-800/60 border border-emerald-200/80 dark:border-zinc-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-sm">
               <ThunderboltOutlined />

@@ -35,42 +35,58 @@ export default function InternationalTaxForExpats() {
    */
   const reviewConsiderations = [
     {
-      icon: <CalendarOutlined className="text-teal-600 dark:text-teal-400 text-lg" />,
+      icon: (
+        <CalendarOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
+      ),
       title: "Residency Timing",
       text: "When Australian tax residency started or ended",
     },
     {
-      icon: <DollarOutlined className="text-blue-600 dark:text-blue-400 text-lg" />,
+      icon: (
+        <DollarOutlined className="text-blue-600 dark:text-blue-400 text-lg" />
+      ),
       title: "Income Apportionment",
       text: "Australian and foreign income during different periods",
     },
     {
-      icon: <LineChartOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />,
+      icon: (
+        <LineChartOutlined className="text-emerald-600 dark:text-emerald-400 text-lg" />
+      ),
       title: "Offshore Portfolios",
       text: "Foreign investments",
     },
     {
-      icon: <HomeOutlined className="text-purple-600 dark:text-purple-400 text-lg" />,
+      icon: (
+        <HomeOutlined className="text-purple-600 dark:text-purple-400 text-lg" />
+      ),
       title: "Real Estate",
       text: "Property ownership",
     },
     {
-      icon: <AuditOutlined className="text-amber-600 dark:text-amber-400 text-lg" />,
+      icon: (
+        <AuditOutlined className="text-amber-600 dark:text-amber-400 text-lg" />
+      ),
       title: "Capital Gains",
       text: "Capital gains tax considerations",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-rose-600 dark:text-rose-400 text-lg" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-rose-600 dark:text-rose-400 text-lg" />
+      ),
       title: "Foreign Tax Offsets",
       text: "Foreign tax already paid",
     },
     {
-      icon: <GlobalOutlined className="text-cyan-600 dark:text-cyan-400 text-lg" />,
+      icon: (
+        <GlobalOutlined className="text-cyan-600 dark:text-cyan-400 text-lg" />
+      ),
       title: "Bilateral Treaties",
       text: "Applicable tax treaties",
     },
     {
-      icon: <FileDoneOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />,
+      icon: (
+        <FileDoneOutlined className="text-indigo-600 dark:text-indigo-400 text-lg" />
+      ),
       title: "Compliance Records",
       text: "Documentation and record keeping",
     },
@@ -100,7 +116,12 @@ export default function InternationalTaxForExpats() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
-            An expat tax accountant Australia service is often required where a person has connections with both Australia and another country. Examples include Australians working overseas, people returning to Australia after several years abroad, temporary residents working in Australia and foreign nationals who have established significant ties here.
+            An expat tax accountant Australia service is often required where a
+            person has connections with both Australia and another country.
+            Examples include Australians working overseas, people returning to
+            Australia after several years abroad, temporary residents working in
+            Australia and foreign nationals who have established significant
+            ties here.
           </p>
         </div>
 
@@ -109,7 +130,7 @@ export default function InternationalTaxForExpats() {
           {expatExamples.map((example, idx) => (
             <div
               key={idx}
-              className="p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-zinc-900/70 border border-slate-200/80 dark:border-zinc-800 flex items-center gap-3"
+              className="p-3.5 sm:p-4 rounded-lg bg-slate-50 dark:bg-zinc-900/70 border border-slate-200/80 dark:border-zinc-800 flex items-center gap-3"
             >
               <TeamOutlined className="text-teal-600 dark:text-teal-400 text-base shrink-0" />
               <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-zinc-200">
@@ -120,13 +141,14 @@ export default function InternationalTaxForExpats() {
         </div>
 
         {/* 8 Review Considerations Grid */}
-        <div className="rounded-2xl bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 lg:p-10 mb-10">
+        <div className="rounded-lg bg-slate-50/70 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 p-6 sm:p-8 lg:p-10 mb-10">
           <div className="max-w-2xl mb-8">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
               An international tax review may consider:
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 m-0">
-              Cross-border situations require examining both domestic tax law and international treaties to ensure complete accuracy.
+              Cross-border situations require examining both domestic tax law
+              and international treaties to ensure complete accuracy.
             </p>
           </div>
 
@@ -134,7 +156,7 @@ export default function InternationalTaxForExpats() {
             {reviewConsiderations.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-sm transition-all flex flex-col justify-between"
+                className="p-5 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/40 hover:shadow-sm transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800 flex items-center justify-center mb-3.5">
@@ -152,11 +174,13 @@ export default function InternationalTaxForExpats() {
           </div>
 
           {/* Golden Principle Reassurance Callout (Verbatim from document) */}
-          <div className="p-5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="p-5 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-start gap-3">
               <CheckCircleOutlined className="text-emerald-600 dark:text-emerald-400 text-lg mt-0.5 shrink-0" />
               <p className="text-xs sm:text-sm font-semibold text-emerald-950 dark:text-emerald-200 m-0 leading-relaxed">
-                Residency should be reviewed based on the actual facts rather than assumptions based on a visa, passport or number of days alone.
+                Residency should be reviewed based on the actual facts rather
+                than assumptions based on a visa, passport or number of days
+                alone.
               </p>
             </div>
             <Link href="/book-an-appointment" className="shrink-0">

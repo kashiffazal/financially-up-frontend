@@ -84,7 +84,7 @@ export default function ComplexInvestorSituationsAndGearing() {
                 {complexTriggers.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
+                    className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-100 dark:border-zinc-700/50 text-xs sm:text-sm text-slate-700 dark:text-zinc-200 font-medium"
                   >
                     <span className="text-base shrink-0 mt-0.5">
                       {item.icon}
@@ -94,7 +94,7 @@ export default function ComplexInvestorSituationsAndGearing() {
                 ))}
               </div>
 
-              <div className="space-y-3 p-4 rounded-2xl bg-slate-50/80 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
+              <div className="space-y-3 p-4 rounded-lg bg-slate-50/80 dark:bg-zinc-800/60 border border-slate-200/70 dark:border-zinc-700/70 text-xs text-slate-600 dark:text-zinc-300 leading-relaxed">
                 <p>
                   <strong>Former Home Conversion:</strong> For a former home,
                   the date it first produced income, its market value at that
@@ -146,7 +146,7 @@ export default function ComplexInvestorSituationsAndGearing() {
               </div>
 
               <div className="space-y-4 mb-6">
-                <div className="p-4 rounded-2xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40">
+                <div className="p-4 rounded-lg bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40">
                   <div className="flex items-center gap-2 font-bold text-rose-700 dark:text-rose-400 text-sm mb-1">
                     <FallOutlined />
                     <span>Negative Gearing</span>
@@ -157,7 +157,7 @@ export default function ComplexInvestorSituationsAndGearing() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40">
+                <div className="p-4 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40">
                   <div className="flex items-center gap-2 font-bold text-emerald-700 dark:text-emerald-400 text-sm mb-1">
                     <RiseOutlined />
                     <span>Positive Gearing</span>
@@ -169,7 +169,7 @@ export default function ComplexInvestorSituationsAndGearing() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+              <div className="p-4 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
                 <span className="font-bold block mb-1">
                   Our Professional Advisory Note:
                 </span>

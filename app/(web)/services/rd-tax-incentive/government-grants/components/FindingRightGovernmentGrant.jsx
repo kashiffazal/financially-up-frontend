@@ -47,11 +47,14 @@ export default function FindingRightGovernmentGrant() {
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-teal-600 dark:text-teal-400">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-teal-600 dark:text-teal-400">
                   <GlobalOutlined className="text-2xl" />
                 </div>
                 <div>
-                  <Tag color="cyan" className="m-0 font-semibold uppercase text-[11px] mb-1">
+                  <Tag
+                    color="cyan"
+                    className="m-0 font-semibold uppercase text-[11px] mb-1"
+                  >
                     Multi-Tier Programs
                   </Tag>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -60,11 +63,13 @@ export default function FindingRightGovernmentGrant() {
                 </div>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-6">
-                Australia has federal, state, territory and local government grants and support
-                programs. They vary substantially in purpose and availability. A program may support
-                innovation, research, commercialization, export development, regional activity, energy
-                efficiency, workforce capability or a particular industry. Some opportunities are open
-                continuously; others have fixed rounds, closing dates or limited funding.
+                Australia has federal, state, territory and local government
+                grants and support programs. They vary substantially in purpose
+                and availability. A program may support innovation, research,
+                commercialization, export development, regional activity, energy
+                efficiency, workforce capability or a particular industry. Some
+                opportunities are open continuously; others have fixed rounds,
+                closing dates or limited funding.
               </p>
             </div>
 
@@ -83,11 +88,14 @@ export default function FindingRightGovernmentGrant() {
           <div className="bg-slate-50/70 dark:bg-zinc-950/70 rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-emerald-600 dark:text-emerald-400">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-900 flex items-center justify-center border border-slate-200 dark:border-zinc-800 text-emerald-600 dark:text-emerald-400">
                   <CompassOutlined className="text-2xl" />
                 </div>
                 <div>
-                  <Tag color="green" className="m-0 font-semibold uppercase text-[11px] mb-1">
+                  <Tag
+                    color="green"
+                    className="m-0 font-semibold uppercase text-[11px] mb-1"
+                  >
                     Strategic First Step
                   </Tag>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -96,33 +104,36 @@ export default function FindingRightGovernmentGrant() {
                 </div>
               </div>
               <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal mb-4">
-                The first step is not to start writing. It is to confirm that the opportunity matches
-                the business and the proposed project. Official grant information is available through
-                government sources, including the business.gov.au grants and programs finder and
-                individual program websites. Eligibility, eligible costs and application instructions
-                should always be checked against the current opportunity guidelines for the relevant
+                The first step is not to start writing. It is to confirm that
+                the opportunity matches the business and the proposed project.
+                Official grant information is available through government
+                sources, including the business.gov.au grants and programs
+                finder and individual program websites. Eligibility, eligible
+                costs and application instructions should always be checked
+                against the current opportunity guidelines for the relevant
                 round.
               </p>
             </div>
 
-            <div className="bg-emerald-50/60 dark:bg-emerald-950/30 rounded-xl p-4 border border-emerald-100 dark:border-emerald-900/40">
+            <div className="bg-emerald-50/60 dark:bg-emerald-950/30 rounded-lg p-4 border border-emerald-100 dark:border-emerald-900/40">
               <p className="text-xs text-emerald-900 dark:text-emerald-200 leading-relaxed font-normal">
-                <strong>Public Access Transparency:</strong> Official grant information is available
-                free through government websites. Financially Up does not sell access to government
-                grant information; our professional service relates to assessment, accounting and
-                application support.
+                <strong>Public Access Transparency:</strong> Official grant
+                information is available free through government websites.
+                Financially Up does not sell access to government grant
+                information; our professional service relates to assessment,
+                accounting and application support.
               </p>
             </div>
           </div>
         </div>
 
         {/* Verbatim Disclaimer Banner */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center gap-4">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 border border-slate-200/80 dark:border-zinc-800 shadow-xs flex items-center gap-4">
           <InfoCircleOutlined className="text-xl text-slate-400 shrink-0" />
           <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            Financially Up does not sell access to government grant information. Our professional
-            service relates to assessment, accounting and application support where a business chooses
-            to engage us.
+            Financially Up does not sell access to government grant information.
+            Our professional service relates to assessment, accounting and
+            application support where a business chooses to engage us.
           </p>
         </div>
       </div>

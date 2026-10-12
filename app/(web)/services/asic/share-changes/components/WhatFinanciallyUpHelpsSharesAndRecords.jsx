@@ -39,13 +39,25 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
   ];
 
   const infoList = [
-    { icon: <FileTextOutlined />, label: "Current ASIC company extract or annual statement" },
+    {
+      icon: <FileTextOutlined />,
+      label: "Current ASIC company extract or annual statement",
+    },
     { icon: <SolutionOutlined />, label: "Existing statutory share register" },
     { icon: <FileTextOutlined />, label: "Historical share certificates" },
-    { icon: <SwapOutlined />, label: "Prior share issue or transfer documents" },
+    {
+      icon: <SwapOutlined />,
+      label: "Prior share issue or transfer documents",
+    },
     { icon: <TeamOutlined />, label: "Board or member resolutions" },
-    { icon: <SolutionOutlined />, label: "Company constitution & shareholders agreement" },
-    { icon: <TeamOutlined />, label: "Incoming and outgoing shareholder details" },
+    {
+      icon: <SolutionOutlined />,
+      label: "Company constitution & shareholders agreement",
+    },
+    {
+      icon: <TeamOutlined />,
+      label: "Incoming and outgoing shareholder details",
+    },
   ];
 
   const credentials = [
@@ -61,21 +73,33 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
         {/* Subsection 1: What Financially Up can help with */}
         <div className="w-full mb-16 sm:mb-20">
           <div className="text-center mb-10">
-            <Tag color="green" className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="green"
+              className="brand-section-tag mb-3 font-bold tracking-wider uppercase text-xs"
+            >
               Service Scope & Register Integrity
             </Tag>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What Financially Up can help with
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              Our share change support can be scoped around the transaction and the condition of the existing company records. Depending on the matter, assistance may include reviewing current ASIC details, checking the company&apos;s register of members, identifying the type of share change, preparing or lodging relevant ASIC updates, and bringing shareholder information into line with the completed transaction.
+              Our share change support can be scoped around the transaction and
+              the condition of the existing company records. Depending on the
+              matter, assistance may include reviewing current ASIC details,
+              checking the company&apos;s register of members, identifying the
+              type of share change, preparing or lodging relevant ASIC updates,
+              and bringing shareholder information into line with the completed
+              transaction.
             </p>
           </div>
 
           <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-zinc-800 shadow-xs mb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {scopePoints.map((point, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/60 dark:border-zinc-800">
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/60 dark:border-zinc-800"
+                >
                   <CheckCircleOutlined className="text-brand-primary dark:text-emerald-400 mt-1 shrink-0 text-sm" />
                   <span className="text-xs sm:text-sm text-slate-800 dark:text-zinc-200 font-medium">
                     {point}
@@ -85,11 +109,17 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal pt-4 mt-6 border-t border-slate-100 dark:border-zinc-800 m-0">
-              Where an ownership change is happening alongside a director appointment or cessation, our{" "}
-              <Link href="/services/asic/director-changes" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+              Where an ownership change is happening alongside a director
+              appointment or cessation, our{" "}
+              <Link
+                href="/services/asic/director-changes"
+                className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+              >
                 Director Changes service
               </Link>{" "}
-              may also be relevant. The corporate and shareholder changes should be documented as separate events even when they occur as part of the same transaction.
+              may also be relevant. The corporate and shareholder changes should
+              be documented as separate events even when they occur as part of
+              the same transaction.
             </p>
           </div>
 
@@ -99,14 +129,20 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
               Information we may ask you to provide
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed font-normal mb-6">
-              Useful records can include the current ASIC company extract or annual statement, existing share register, share certificates, prior share issue or transfer documents, board or member resolutions, company constitution, shareholder agreements and details of the incoming and outgoing shareholders. If the records are incomplete, we can first identify what can be established from the material available.
+              Useful records can include the current ASIC company extract or
+              annual statement, existing share register, share certificates,
+              prior share issue or transfer documents, board or member
+              resolutions, company constitution, shareholder agreements and
+              details of the incoming and outgoing shareholders. If the records
+              are incomplete, we can first identify what can be established from
+              the material available.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {infoList.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800 flex items-center gap-2.5 text-xs text-slate-700 dark:text-zinc-300 font-medium"
+                  className="p-3.5 rounded-lg bg-slate-50 dark:bg-zinc-950/70 border border-slate-200/70 dark:border-zinc-800 flex items-center gap-2.5 text-xs text-slate-700 dark:text-zinc-300 font-medium"
                 >
                   <span className="text-emerald-600 dark:text-emerald-400 text-sm shrink-0">
                     {item.icon}
@@ -128,7 +164,11 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
               Why choose Financially Up
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl font-normal mb-8">
-              Financially Up combines ASIC administration with accounting and tax context. We are a registered tax agent with more than 10 years of experience, and our professional team includes CPA and IPA members. We support clients Australia-wide through online appointments, with in-person appointments also available.
+              Financially Up combines ASIC administration with accounting and
+              tax context. We are a registered tax agent with more than 10 years
+              of experience, and our professional team includes CPA and IPA
+              members. We support clients Australia-wide through online
+              appointments, with in-person appointments also available.
             </p>
 
             {/* Metrics */}
@@ -153,7 +193,7 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPosition="end"
-                  className="w-full sm:w-auto rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
+                  className="w-full sm:w-auto rounded-lg font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 border-none h-11"
                 >
                   Book an Appointment
                 </Button>
@@ -167,7 +207,7 @@ export default function WhatFinanciallyUpHelpsSharesAndRecords() {
                   <Button
                     size="large"
                     icon={<PhoneOutlined />}
-                    className="w-full sm:w-auto rounded-xl font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
+                    className="w-full sm:w-auto rounded-lg font-bold bg-transparent border-slate-700 text-slate-200 hover:border-emerald-400 hover:text-white h-11"
                   >
                     Call {company.phone}
                   </Button>

@@ -74,7 +74,7 @@ export default function WhatIsInvestmentPropertyTax() {
               className="group bg-slate-50/70 dark:bg-zinc-800/60 rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-zinc-700/80 hover:border-brand-primary/40 dark:hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-700/80 border border-slate-200 dark:border-zinc-600 flex items-center justify-center shadow-xs mb-5 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-700/80 border border-slate-200 dark:border-zinc-600 flex items-center justify-center shadow-xs mb-5 group-hover:scale-105 transition-transform">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">

@@ -46,7 +46,7 @@ export default function Step2TrusteeAppointer() {
         emptyFirstVal="- Select Structure -"
         reqMsg="Trustee structure type is required"
         size="large"
-        className="rounded-xl"
+        className="rounded-lg"
         containerClassName="!mb-2"
       />
 
@@ -63,7 +63,7 @@ export default function Step2TrusteeAppointer() {
           reqMsg="Trustee name is required"
           preIconAnt={<BankOutlined className="text-slate-400" />}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
 
@@ -78,12 +78,12 @@ export default function Step2TrusteeAppointer() {
           placeholder="e.g. 123456789"
           noRequired={true}
           size="large"
-          className="rounded-xl"
+          className="rounded-lg"
           containerClassName="!mb-2"
         />
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-3">
         <span className="text-xs font-black uppercase tracking-wider text-brand-primary dark:text-emerald-400 block mb-1">
           Appointer (Guardian) & Settlor Details
         </span>
@@ -100,7 +100,7 @@ export default function Step2TrusteeAppointer() {
             placeholder="e.g. David Harrison"
             reqMsg="Appointer name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
 
@@ -115,13 +115,13 @@ export default function Step2TrusteeAppointer() {
             placeholder="e.g. Independent Accountant / Solicitor"
             reqMsg="Settlor name is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
       </div>
 
-      <div className="p-4 rounded-xl bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
+      <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200/80 dark:border-zinc-800 space-y-4">
         <div className="flex items-center gap-2 mb-1">
           <EnvironmentOutlined className="text-brand-primary text-sm" />
           <span className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-zinc-200">
@@ -141,7 +141,7 @@ export default function Step2TrusteeAppointer() {
             placeholder="e.g. 35"
             reqMsg="House number is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -155,7 +155,7 @@ export default function Step2TrusteeAppointer() {
             placeholder="e.g. Queen Street"
             reqMsg="Street is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>
@@ -172,7 +172,7 @@ export default function Step2TrusteeAppointer() {
             placeholder="e.g. Brisbane"
             reqMsg="Suburb is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -189,7 +189,7 @@ export default function Step2TrusteeAppointer() {
             patternMsg="Must be 4 digits"
             reqMsg="Postcode is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
           <AntInput
@@ -204,7 +204,7 @@ export default function Step2TrusteeAppointer() {
             emptyFirstVal="- Select State -"
             reqMsg="State is required"
             size="large"
-            className="rounded-xl"
+            className="rounded-lg"
             containerClassName="!mb-0"
           />
         </div>

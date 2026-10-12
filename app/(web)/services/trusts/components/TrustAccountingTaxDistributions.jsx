@@ -29,21 +29,27 @@ import Link from "next/link";
 export default function TrustAccountingTaxDistributions() {
   const taxPrinciples = [
     {
-      icon: <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       tag: "Assessment Nuance",
       title: "Present Entitlement vs Trustee Assessment",
       description:
         "A trust is neither simply taxed like a company nor automatically taxed through beneficiaries in every situation. Income tax depends on who is presently entitled or specifically entitled, or whether the trustee is assessed directly.",
     },
     {
-      icon: <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <CalendarOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       tag: "Year-End Deadlines",
       title: "Timing & Wording of Trustee Decisions",
       description:
         "For discretionary trusts, trustee resolutions are commonly needed before the end of the income year (30 June) to establish beneficiary entitlements under the deed's specific terms and conditions.",
     },
     {
-      icon: <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <DollarOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       tag: "Streaming Rules",
       title: "Capital Gains & Franked Distributions",
       description:
@@ -70,21 +76,25 @@ export default function TrustAccountingTaxDistributions() {
 
           {/* Exact Verbatim Paragraph 1 from Document */}
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A trust is not simply &ldquo;taxed like a company&rdquo; or &ldquo;taxed through the
-            beneficiaries&rdquo; in every situation. The income-tax treatment depends on the trust
-            and on who is presently entitled to trust income or specifically entitled to certain
-            amounts. In some cases the trustee may be assessed instead. This makes the accounting
-            records and the timing and wording of trustee decisions important.
+            A trust is not simply &ldquo;taxed like a company&rdquo; or
+            &ldquo;taxed through the beneficiaries&rdquo; in every situation.
+            The income-tax treatment depends on the trust and on who is
+            presently entitled to trust income or specifically entitled to
+            certain amounts. In some cases the trustee may be assessed instead.
+            This makes the accounting records and the timing and wording of
+            trustee decisions important.
           </p>
 
           {/* Exact Verbatim Paragraph 2 from Document */}
           <p className="mt-3 text-sm sm:text-base text-slate-500 dark:text-zinc-400 leading-relaxed font-normal">
-            For discretionary trusts, trustee resolutions are commonly needed before the end of the
-            income year to establish beneficiary entitlements. The trust deed can impose its own
-            requirements, and different rules can apply to capital gains and franked distributions.
-            Financially Up can prepare the accounting and tax information needed for the trust&apos;s
-            annual compliance and can separately scope tax advice where distribution planning or a
-            more complex tax issue needs to be considered.
+            For discretionary trusts, trustee resolutions are commonly needed
+            before the end of the income year to establish beneficiary
+            entitlements. The trust deed can impose its own requirements, and
+            different rules can apply to capital gains and franked
+            distributions. Financially Up can prepare the accounting and tax
+            information needed for the trust&apos;s annual compliance and can
+            separately scope tax advice where distribution planning or a more
+            complex tax issue needs to be considered.
           </p>
         </div>
 
@@ -93,11 +103,11 @@ export default function TrustAccountingTaxDistributions() {
           {taxPrinciples.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-lg bg-slate-50/80 dark:bg-zinc-900/60 border border-slate-200/80 dark:border-zinc-800 hover:border-teal-500/50 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-zinc-800 shadow-2xs flex items-center justify-center">
                     {item.icon}
                   </div>
                   <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">
@@ -116,7 +126,7 @@ export default function TrustAccountingTaxDistributions() {
         </div>
 
         {/* Distribution Planning & Scoping Reassurance Banner */}
-        <div className="rounded-2xl bg-gradient-to-r from-teal-900 via-slate-900 to-slate-950 p-6 sm:p-8 lg:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-lg bg-gradient-to-r from-teal-900 via-slate-900 to-slate-950 p-6 sm:p-8 lg:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-teal-300 uppercase tracking-wider">
               <ClockCircleOutlined />
@@ -126,9 +136,10 @@ export default function TrustAccountingTaxDistributions() {
               Need Distribution Planning or Complex Tax Advice Scoped?
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed m-0 font-normal">
-              Ensure your discretionary trust resolutions reflect the latest ATO rulings and deed
-              requirements before 30 June. We clarify your annual compliance and separately scope
-              strategic distribution advice.
+              Ensure your discretionary trust resolutions reflect the latest ATO
+              rulings and deed requirements before 30 June. We clarify your
+              annual compliance and separately scope strategic distribution
+              advice.
             </p>
           </div>
 
@@ -139,7 +150,7 @@ export default function TrustAccountingTaxDistributions() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
-                className="h-11 px-6 rounded-xl font-semibold shadow-md bg-teal-500 hover:bg-teal-400 border-none text-slate-950 hover:scale-[1.02] transition-all"
+                className="h-11 px-6 rounded-lg font-semibold shadow-md bg-teal-500 hover:bg-teal-400 border-none text-slate-950 hover:scale-[1.02] transition-all"
               >
                 Book an Appointment
               </Button>

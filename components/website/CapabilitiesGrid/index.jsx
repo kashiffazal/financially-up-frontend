@@ -69,7 +69,8 @@ const THEME_PRESETS = {
     badge:
       "bg-emerald-50 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border-emerald-200/80 dark:border-emerald-800/80",
     topGradient: "from-emerald-500 via-teal-400 to-emerald-400",
-    hoverTitle: "group-hover:text-emerald-700 dark:group-hover:text-emerald-400",
+    hoverTitle:
+      "group-hover:text-emerald-700 dark:group-hover:text-emerald-400",
   },
   teal: {
     cardClass: styles.themeTeal,
@@ -146,7 +147,9 @@ export default function CapabilitiesGrid({
   containerClassName = "max-w-7xl",
 }) {
   // If an important item was passed inside items, separate it out
-  const capabilityCards = items.filter((item) => !item.isImportant && !item.isNotice);
+  const capabilityCards = items.filter(
+    (item) => !item.isImportant && !item.isNotice,
+  );
   const activeNotice =
     importantNotice || items.find((item) => item.isImportant || item.isNotice);
 
@@ -206,7 +209,7 @@ export default function CapabilitiesGrid({
             return (
               <div
                 key={cardKey}
-                className={`group relative p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-white to-slate-50/70 dark:from-zinc-900 dark:to-zinc-900/80 border border-slate-200/90 dark:border-zinc-800 shadow-xs flex flex-col justify-between overflow-hidden ${colSpanClass} ${styles.capabilityCard} ${theme.cardClass}`}
+                className={`group relative p-6 sm:p-7 rounded-lg bg-gradient-to-b from-white to-slate-50/70 dark:from-zinc-900 dark:to-zinc-900/80 border border-slate-200/90 dark:border-zinc-800 shadow-xs flex flex-col justify-between overflow-hidden ${colSpanClass} ${styles.capabilityCard} ${theme.cardClass}`}
               >
                 {/* Top Accent Gradient Bar on Hover */}
                 <div
@@ -217,7 +220,7 @@ export default function CapabilitiesGrid({
                   {/* Header Row: Themed Icon & Themed Step Badge */}
                   <div className="flex items-center justify-between">
                     <div
-                      className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-md ${theme.iconBox}`}
+                      className={`w-12 h-12 rounded-lg border flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-md ${theme.iconBox}`}
                     >
                       {renderCapabilityIcon(item.icon)}
                     </div>
@@ -256,7 +259,10 @@ export default function CapabilitiesGrid({
                 {isFifthBox && (
                   <div className="pt-4 mt-6 border-t border-purple-100 dark:border-purple-950/80 flex items-center gap-2 text-xs font-semibold text-purple-700 dark:text-purple-400">
                     <SafetyCertificateOutlined className="text-xs shrink-0" />
-                    <span>Defensible planning before commitments or contracts are signed</span>
+                    <span>
+                      Defensible planning before commitments or contracts are
+                      signed
+                    </span>
                   </div>
                 )}
               </div>
@@ -267,9 +273,9 @@ export default function CapabilitiesGrid({
         {/* 4. Full-Width Important Note Box Directly Below Grid */}
         {activeNotice && (
           <div
-            className={`mt-8 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[var(--brand-primary-soft)]/70 via-white to-emerald-50/50 dark:from-emerald-950/40 dark:via-zinc-900 dark:to-zinc-900 border border-[var(--brand-border-hover)]/40 dark:border-emerald-800/60 shadow-xs flex flex-col sm:flex-row items-start sm:items-center gap-5 transition-all ${styles.importantBanner}`}
+            className={`mt-8 p-6 sm:p-7 rounded-lg bg-gradient-to-r from-[var(--brand-primary-soft)]/70 via-white to-emerald-50/50 dark:from-emerald-950/40 dark:via-zinc-900 dark:to-zinc-900 border border-[var(--brand-border-hover)]/40 dark:border-emerald-800/60 shadow-xs flex flex-col sm:flex-row items-start sm:items-center gap-5 transition-all ${styles.importantBanner}`}
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-primary-hover)] text-white flex items-center justify-center shrink-0 shadow-md shadow-[var(--brand-primary)]/20 text-xl">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-primary-hover)] text-white flex items-center justify-center shrink-0 shadow-md shadow-[var(--brand-primary)]/20 text-xl">
               <InfoCircleOutlined />
             </div>
 

@@ -30,37 +30,49 @@ export default function WhatBookkeepingIncludes() {
    */
   const assistanceAreas = [
     {
-      icon: <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />,
+      icon: (
+        <SyncOutlined className="text-xl text-teal-600 dark:text-teal-400" />
+      ),
       title: "Transaction Processing",
       description:
         "Accurate recording and categorisation of day-to-day business income, payments, and expenses.",
     },
     {
-      icon: <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />,
+      icon: (
+        <BankOutlined className="text-xl text-emerald-600 dark:text-emerald-400" />
+      ),
       title: "Bank & Credit-Card Reconciliations",
       description:
         "Matching accounting feeds against actual statements to confirm all cash transactions balance.",
     },
     {
-      icon: <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />,
+      icon: (
+        <AuditOutlined className="text-xl text-blue-600 dark:text-blue-400" />
+      ),
       title: "Review of Income & Expense Coding",
       description:
         "Ensuring consistent classification and GST coding across every transaction in the ledger.",
     },
     {
-      icon: <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />,
+      icon: (
+        <FolderOpenOutlined className="text-xl text-purple-600 dark:text-purple-400" />
+      ),
       title: "Supplier & Customer Records",
       description:
         "Organising bills, invoices, receipts, and ledger accounts for accounts payable and receivable.",
     },
     {
-      icon: <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />,
+      icon: (
+        <SafetyCertificateOutlined className="text-xl text-amber-600 dark:text-amber-400" />
+      ),
       title: "Bookkeeping Clean-Up",
       description:
         "Investigating unreconciled items, correcting historical errors, and clearing suspense accounts.",
     },
     {
-      icon: <FileDoneOutlined className="text-xl text-rose-600 dark:text-rose-400" />,
+      icon: (
+        <FileDoneOutlined className="text-xl text-rose-600 dark:text-rose-400" />
+      ),
       title: "Preparation for Reporting & Tax",
       description:
         "Structuring underlying records so BAS preparation and year-end accounting proceed smoothly.",
@@ -81,15 +93,15 @@ export default function WhatBookkeepingIncludes() {
           {/* Document Paragraph 1 - Verbatim */}
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-normal leading-relaxed">
             Bookkeeping is the ongoing process of recording and organising
-            business transactions so the accounting records reflect the
-            activity of the business. Good bookkeeping is more than entering
-            receipts: it involves consistent coding, reconciliation and review
-            so the underlying data is useful for compliance and reporting.
+            business transactions so the accounting records reflect the activity
+            of the business. Good bookkeeping is more than entering receipts: it
+            involves consistent coding, reconciliation and review so the
+            underlying data is useful for compliance and reporting.
           </p>
         </div>
 
         {/* Document Paragraph 2 Breakdown - Verbatim Narrative & Visual Pillars */}
-        <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 mb-12">
+        <div className="rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm p-6 sm:p-8 lg:p-10 mb-12">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider mb-2 block">
               Agreed Scope & Core Capabilities
@@ -114,7 +126,7 @@ export default function WhatBookkeepingIncludes() {
             {assistanceAreas.map((area, index) => (
               <div
                 key={index}
-                className="group p-5 rounded-xl bg-slate-50/80 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 hover:border-teal-500/50 transition-all flex flex-col justify-between"
+                className="group p-5 rounded-lg bg-slate-50/80 dark:bg-zinc-800/60 border border-slate-200/80 dark:border-zinc-700/60 hover:border-teal-500/50 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-700 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
@@ -140,7 +152,7 @@ export default function WhatBookkeepingIncludes() {
                   size="large"
                   icon={<ArrowRightOutlined />}
                   iconPlacement="end"
-                  className="h-11 px-6 rounded-xl font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="h-11 px-6 rounded-lg font-semibold shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   Book an Appointment
                 </Button>
@@ -149,14 +161,15 @@ export default function WhatBookkeepingIncludes() {
                 <Button
                   size="large"
                   icon={<EyeOutlined />}
-                  className="h-11 px-5 rounded-xl font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
+                  className="h-11 px-5 rounded-lg font-semibold border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-all"
                 >
                   Explore Services
                 </Button>
               </Link>
             </div>
             <p className="text-xs text-slate-500 dark:text-zinc-400 m-0 italic">
-              Payroll, BAS and compliance services scoped separately as required.
+              Payroll, BAS and compliance services scoped separately as
+              required.
             </p>
           </div>
         </div>

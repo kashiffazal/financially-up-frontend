@@ -20,19 +20,23 @@ export default function RevenueVsCapitalDevelopment() {
   const criteriaFactors = [
     {
       title: "Original & Evolving Intention",
-      description: "Did you acquire the land with an intention of resale at a profit, or was it long-held passive investment that changed purpose?",
+      description:
+        "Did you acquire the land with an intention of resale at a profit, or was it long-held passive investment that changed purpose?",
     },
     {
       title: "Scale, Size & Repetition",
-      description: "The number of lots, total financial turnover, and whether this project is part of a repeated series of property transactions.",
+      description:
+        "The number of lots, total financial turnover, and whether this project is part of a repeated series of property transactions.",
     },
     {
       title: "Funding & Commercial Organization",
-      description: "How the acquisition was financed (e.g. high-gearing mezzanine debt vs equity), whether a formal business plan and entity exist.",
+      description:
+        "How the acquisition was financed (e.g. high-gearing mezzanine debt vs equity), whether a formal business plan and entity exist.",
     },
     {
       title: "Development Activity Level",
-      description: "The extent of physical alteration, civil infrastructure works, rezoning applications, and active marketing coordination.",
+      description:
+        "The extent of physical alteration, civil infrastructure works, rezoning applications, and active marketing coordination.",
     },
   ];
 
@@ -52,25 +56,30 @@ export default function RevenueVsCapitalDevelopment() {
           </h2>
           {/* Verbatim Paragraph 1 */}
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            A development project can be treated very differently from a long-term investment. Profits from property sales may be ordinary income where the taxpayer is carrying on a property development business or undertaking a commercial profit-making scheme. In other circumstances, a disposal may fall within the CGT rules.
+            A development project can be treated very differently from a
+            long-term investment. Profits from property sales may be ordinary
+            income where the taxpayer is carrying on a property development
+            business or undertaking a commercial profit-making scheme. In other
+            circumstances, a disposal may fall within the CGT rules.
           </p>
         </div>
 
         {/* Side-by-side Revenue vs Capital Comparison */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Column 1: Ordinary Income (Revenue Account) */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border-2 border-emerald-500/40 dark:border-emerald-500/30 shadow-xs relative overflow-hidden">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border-2 border-emerald-500/40 dark:border-emerald-500/30 shadow-xs relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">
               Ordinary Income
             </div>
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-6">
               <DollarOutlined className="text-2xl text-emerald-600 dark:text-emerald-400" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
               Trading Stock / Profit-Making Undertaking
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-6 font-normal">
-              Applies where property is acquired or developed with the dominant commercial purpose of resale at a profit.
+              Applies where property is acquired or developed with the dominant
+              commercial purpose of resale at a profit.
             </p>
             <ul className="space-y-3">
               {[
@@ -79,7 +88,10 @@ export default function RevenueVsCapitalDevelopment() {
                 "Land held as trading stock under Division 70",
                 "Holding costs may be included in cost of trading stock",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300"
+                >
                   <CheckCircleOutlined className="text-emerald-500 mt-1 shrink-0 font-bold" />
                   <span>{item}</span>
                 </li>
@@ -88,18 +100,19 @@ export default function RevenueVsCapitalDevelopment() {
           </div>
 
           {/* Column 2: Capital Gains Tax (Capital Account) */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs relative overflow-hidden">
+          <div className="bg-white dark:bg-zinc-900 rounded-lg p-7 sm:p-9 border border-slate-200/80 dark:border-zinc-800 shadow-xs relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">
               Capital Account
             </div>
-            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center mb-6">
               <LineChartOutlined className="text-2xl text-blue-600 dark:text-blue-400" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3">
               Capital Gains Tax (CGT) Disposal
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed mb-6 font-normal">
-              Applies to long-term passive investments held to generate rental yields, later realized in a mere realization.
+              Applies to long-term passive investments held to generate rental
+              yields, later realized in a mere realization.
             </p>
             <ul className="space-y-3">
               {[
@@ -108,7 +121,10 @@ export default function RevenueVsCapitalDevelopment() {
                 "Calculated using 5-element CGT cost base",
                 "Capital works deductions adjust the cost base upon disposal",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300"
+                >
                   <CheckCircleOutlined className="text-blue-500 mt-1 shrink-0 font-bold" />
                   <span>{item}</span>
                 </li>
@@ -118,8 +134,8 @@ export default function RevenueVsCapitalDevelopment() {
         </div>
 
         {/* Verbatim Paragraph 2 Banner */}
-        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+        <div className="bg-slate-900 text-white dark:bg-zinc-900 rounded-lg p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+          <div className="w-12 h-12 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
             <AlertOutlined className="text-2xl" />
           </div>
           <div>
@@ -128,7 +144,12 @@ export default function RevenueVsCapitalDevelopment() {
             </span>
             {/* Verbatim copy from official document */}
             <p className="text-xs sm:text-sm md:text-base text-slate-200 dark:text-zinc-200 leading-relaxed font-normal">
-              There is no single label that decides the answer. Intention, scale, repetition, funding, development activity, the way the project is organized and changes in the purpose for which land is held can all matter. This is why the accounting and tax position should be reviewed before assuming that a development profit will be a capital gain.
+              There is no single label that decides the answer. Intention,
+              scale, repetition, funding, development activity, the way the
+              project is organized and changes in the purpose for which land is
+              held can all matter. This is why the accounting and tax position
+              should be reviewed before assuming that a development profit will
+              be a capital gain.
             </p>
           </div>
         </div>
@@ -138,7 +159,7 @@ export default function RevenueVsCapitalDevelopment() {
           {criteriaFactors.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-5 border border-slate-200/70 dark:border-zinc-800 hover:border-emerald-400/50 transition-all shadow-2xs"
             >
               <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-3">
                 <BranchesOutlined className="text-emerald-600 dark:text-emerald-400" />

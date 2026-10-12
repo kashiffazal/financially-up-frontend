@@ -57,14 +57,20 @@ export default function HowFinanciallyUpHelpsDivision7A() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section 1: How Financially Up Can Help */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+          <Tag
+            color="cyan"
+            className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+          >
             Expert Advisory & Compliance
           </Tag>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Financially Up Can Help
           </h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-            {company?.legalName || "Financially Up"} can assist with Division 7A reviews, loan-account reconciliations, minimum yearly repayment information, company tax-return preparation and identifying transactions that require further analysis.
+            {company?.legalName || "Financially Up"} can assist with Division 7A
+            reviews, loan-account reconciliations, minimum yearly repayment
+            information, company tax-return preparation and identifying
+            transactions that require further analysis.
           </p>
         </div>
 
@@ -73,9 +79,9 @@ export default function HowFinanciallyUpHelpsDivision7A() {
           {servicesList.map((srv, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm"
+              className="p-6 rounded-lg bg-slate-50/70 dark:bg-zinc-800/80 border border-slate-200/80 dark:border-zinc-700/80 hover:border-teal-400 dark:hover:border-teal-500/50 transition-all duration-300 shadow-sm"
             >
-              <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 flex items-center justify-center mb-4">
                 <CheckCircleOutlined className="text-teal-600 dark:text-teal-400 text-lg" />
               </div>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -89,7 +95,7 @@ export default function HowFinanciallyUpHelpsDivision7A() {
         </div>
 
         {/* Cross-Service Links & Scope Callout (Verbatim) */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 mb-16 space-y-4">
+        <div className="p-6 sm:p-8 rounded-lg bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 mb-16 space-y-4">
           <p className="text-sm sm:text-base text-slate-700 dark:text-zinc-300 leading-relaxed font-normal">
             For the broader company return, see our{" "}
             <Link
@@ -98,32 +104,39 @@ export default function HowFinanciallyUpHelpsDivision7A() {
             >
               Company Tax Returns
             </Link>{" "}
-            service. Where Division 7A issues are identified during annual close work, our{" "}
+            service. Where Division 7A issues are identified during annual close
+            work, our{" "}
             <Link
               href="/services/business-tax/year-end-accounting"
               className="text-teal-600 dark:text-teal-400 font-semibold underline underline-offset-4 hover:text-teal-700"
             >
               Year-End Accounting
             </Link>{" "}
-            service can help reconcile the underlying balances before tax treatment is finalized.
+            service can help reconcile the underlying balances before tax
+            treatment is finalized.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700">
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
                 <SolutionOutlined className="text-teal-600 dark:text-teal-400" />
                 Scope of Detailed Advice
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 font-normal leading-relaxed">
-                Detailed Division 7A tax advice, restructuring, applications to the Commissioner or other specialist work is not automatically included in routine compliance. The scope should be confirmed after the facts and prior-year history are reviewed.
+                Detailed Division 7A tax advice, restructuring, applications to
+                the Commissioner or other specialist work is not automatically
+                included in routine compliance. The scope should be confirmed
+                after the facts and prior-year history are reviewed.
               </p>
             </div>
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700">
+            <div className="p-4 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700">
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-2">
                 <FileProtectOutlined className="text-teal-600 dark:text-teal-400" />
                 Legal Drafting Coordination
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 font-normal leading-relaxed">
-                Where legal drafting or legal review of an agreement is required, that work may need to be completed by an appropriately qualified legal adviser and coordinated with the tax treatment.
+                Where legal drafting or legal review of an agreement is
+                required, that work may need to be completed by an appropriately
+                qualified legal adviser and coordinated with the tax treatment.
               </p>
             </div>
           </div>
@@ -132,14 +145,21 @@ export default function HowFinanciallyUpHelpsDivision7A() {
         {/* Section 2: Why Choose Financially Up? */}
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-bg-lighter via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 border border-slate-200 dark:border-zinc-800 shadow-sm">
           <div className="max-w-3xl mb-8">
-            <Tag color="cyan" className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs">
+            <Tag
+              color="cyan"
+              className="brand-section-tag mb-2 font-bold tracking-wider uppercase text-xs"
+            >
               Client Trust & Qualifications
             </Tag>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Why Choose Financially Up?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-300 leading-relaxed font-normal">
-              {company?.legalName || "Financially Up"} is a registered tax agent with more than 10 years of experience in accounting and taxation. Our professional team includes CPA and IPA members. We support clients Australia-wide through online appointments, with in-person appointments also available where preferred.
+              {company?.legalName || "Financially Up"} is a registered tax agent
+              with more than 10 years of experience in accounting and taxation.
+              Our professional team includes CPA and IPA members. We support
+              clients Australia-wide through online appointments, with in-person
+              appointments also available where preferred.
             </p>
           </div>
 
@@ -159,7 +179,7 @@ export default function HowFinanciallyUpHelpsDivision7A() {
               <Button
                 type="primary"
                 size="large"
-                className="brand-btn-primary font-semibold rounded-xl"
+                className="brand-btn-primary font-semibold rounded-lg"
                 icon={<CalendarOutlined />}
               >
                 Book an Appointment
@@ -169,7 +189,7 @@ export default function HowFinanciallyUpHelpsDivision7A() {
               <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
                 <Button
                   size="large"
-                  className="font-semibold rounded-xl border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:border-teal-500 hover:text-teal-600"
+                  className="font-semibold rounded-lg border-slate-300 dark:border-zinc-700 dark:text-zinc-200 hover:border-teal-500 hover:text-teal-600"
                   icon={<PhoneOutlined />}
                 >
                   Call {company.phone}
