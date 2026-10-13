@@ -1,20 +1,26 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import { Tag, Button, Dropdown, Modal, App } from "antd";
+import { Tag, Button, Dropdown, Modal } from "antd";
 import {
   EyeOutlined,
   EditOutlined,
   FilePdfOutlined,
   MoreOutlined,
-  SwapOutlined,
-  ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import DataTable from "@/components/mutual/andt-data-table-component";
 import ExportButtons from "@/components/admin/ExportButtons";
 import CompanyRegistrationViewDetails from "../../viewDetails";
 import CompanyRegistrationAdminForm from "@/components/admin/forms/company-registration-admin";
 import { HTTP, antdMsg, getFileUrl } from "@/services";
+import {
+  useTrashActions,
+  TRASH_KEY,
+} from "@/components/admin/FormLogModule/trash";
+import {
+  useRegeneratePdfs,
+  PdfMissingTag,
+} from "@/components/admin/RegeneratePdfs";
 
 /**
  * ============================================================================
@@ -44,7 +50,17 @@ export default function CompanyRegistrationMainLog({
   freshIds = [],
 }) {
   // Context-aware Ant Design dynamic instances (Modal, Message, Notification)
-  const { modal } = App.useApp();
+  const trash = useTrashActions({
+    moduleKey: "new-company",
+    onChanged: () =>
+      typeof fetchData === "function" && fetchData({ silent: true }),
+  });
+  // Regenerate PDFs (identical to the originals; same links)
+  const regen = useRegeneratePdfs({
+    moduleKey: "new-company",
+    onDone: () =>
+      typeof fetchData === "function" && fetchData({ silent: true }),
+  });
 
   // --------------------------------------------------------------------------
   // 1. LOCAL COMPONENT STATE (MODALS & LOADERS)
@@ -57,9 +73,29 @@ export default function CompanyRegistrationMainLog({
   // Controls Admin Compliance Review modal visibility & active record
   const [reviewRecord, setReviewRecord] = useState(null);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [isReviewSubmitting, setIsReviewSubmitting] = useState(false);
 
-  // Tracks individual row status loaders during async updates
-  const [statusLoader, setStatusLoader] = useState({});
+  /**
+   * Review & Decision -> PUT /new-company-registrations/:id/decision
+   * Saves the review + reviewer signature, sets the status from the decision,
+   * builds the Admin Review (and, when approved, the Acceptance) PDF and emails
+   * the client and staff. Errors are shown by HTTP().
+   */
+  const handleAdminDecisionSubmit = async (values) => {
+    if (!reviewRecord?.id) return;
+    setIsReviewSubmitting(true);
+    try {
+      const res = await HTTP("PUT", `/new-company-registrations/${reviewRecord.id}/decision`, values);
+      if (!res?.success) return;
+      antdMsg.success(res.message || "Decision saved.");
+      setIsReviewModalOpen(false);
+      setReviewRecord(null);
+      if (typeof fetchData === "function") fetchData();
+    } finally {
+      setIsReviewSubmitting(false);
+    }
+  };
+
 
   // Open View Details for a record requested via `?open=<id>` (Global Search).
   // Adjusted during render (not in an effect) so the modal opens in the same pass.
@@ -97,110 +133,22 @@ export default function CompanyRegistrationMainLog({
     }
   }, []);
 
-  // --------------------------------------------------------------------------
-  // 3. ROW ACTIONS: STATUS CHANGE CONFIRMATION MODAL
-  // --------------------------------------------------------------------------
-
-  /**
-   * confirmStatusChange()
-   * Opens an Ant Design confirmation modal before applying a status change.
-   * Uses context-aware `modal.confirm` from Ant Design's `<App>` provider.
-   * On confirmation, performs PUT /new-company-registrations/:id/status
-   * and invokes the parent's `changeStatus` callback for real-time synchronization.
-   */
-  const confirmStatusChange = useCallback(
-    (record, targetStatus) => {
-      modal.confirm({
-        title: "Update Company Registration Status",
-        icon: <ExclamationCircleOutlined className="text-brand-primary" />,
-        content: (
-          <div className="py-2 space-y-2">
-            <div>
-              Are you sure you want to update the status of{" "}
-              <strong>{record.companyName1 || record.referenceNumber}</strong>?
-            </div>
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-slate-500">From:</span>
-              <Tag color={getStatusTagColor(record.status)}>
-                {record.status}
-              </Tag>
-              <span className="text-slate-500">To:</span>
-              <Tag
-                color={getStatusTagColor(
-                  targetStatus.key || targetStatus.label,
-                )}
-              >
-                {targetStatus.label || targetStatus.key}
-              </Tag>
-            </div>
-          </div>
-        ),
-        okText: "Yes, Update Status",
-        cancelText: "Cancel",
-        okButtonProps: {
-          className: "!bg-brand-primary hover:!bg-brand-primary/90",
-        },
-        onOk: async () => {
-          const recordId = record.id || record._id || record.key;
-          setStatusLoader((prev) => ({ ...prev, [recordId]: true }));
-          try {
-            const newStatusKey = targetStatus.key || targetStatus.label;
-            await HTTP("PUT", `/new-company-registrations/${recordId}/status`, {
-              status: newStatusKey,
-            });
-
-            antdMsg.success(
-              `Status updated to '${newStatusKey}' successfully.`,
-            );
-
-            // Notify parent component to update state in real-time
-            if (typeof changeStatus === "function") {
-              changeStatus(record, targetStatus, record.status);
-            } else if (typeof fetchData === "function") {
-              fetchData();
-            }
-          } catch (err) {
-            antdMsg.error(`Failed to update status: ${err.message || "Error"}`);
-          } finally {
-            setStatusLoader((prev) => ({ ...prev, [recordId]: false }));
-          }
-        },
-      });
-    },
-    [changeStatus, fetchData, getStatusTagColor, modal],
-  );
+  // Status is only changed through the Review & Decision form (no direct status menu).
 
   // Records are never deleted (kept for compliance record-keeping): no delete
   // row action or bulk delete, and the API refuses DELETE requests.
 
   // --------------------------------------------------------------------------
-  // 5. BULK ACTION HANDLER (MULTI-ROW SELECTION) - status changes only
+  // 5. BULK ACTION HANDLER (MULTI-ROW SELECTION) - Move to Trash / Restore
   // --------------------------------------------------------------------------
   const handleBulkAction = useCallback(
     async (selectedRowsInfo, actionValue) => {
       const { selectedRowKeys } = selectedRowsInfo;
       if (!selectedRowKeys || selectedRowKeys.length === 0) return;
-
-      try {
-        await Promise.all(
-          selectedRowKeys.map((id) =>
-            HTTP("PUT", `/new-company-registrations/${id}/status`, {
-              status: actionValue,
-            }),
-          ),
-        );
-        antdMsg.success(
-          `Updated ${selectedRowKeys.length} records to '${actionValue}'.`,
-        );
-
-        if (typeof fetchData === "function") {
-          fetchData();
-        }
-      } catch (err) {
-        antdMsg.error(`Bulk action failed: ${err.message || "Error"}`);
-      }
+      // Bulk actions are Move to Trash / Restore only
+      await trash.handleBulk(actionValue, selectedRowKeys);
     },
-    [fetchData],
+    [trash],
   );
 
   // --------------------------------------------------------------------------
@@ -308,13 +256,16 @@ export default function CompanyRegistrationMainLog({
         dataIndex: "status",
         key: "status",
         width: 140,
-        render: (status) => (
-          <Tag
-            color={getStatusTagColor(status)}
-            className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill"
-          >
-            {status || "Submitted"}
-          </Tag>
+        render: (status, record) => (
+          <div className="flex flex-col items-start">
+            <Tag
+              color={getStatusTagColor(status)}
+              className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill"
+            >
+              {status || "Submitted"}
+            </Tag>
+            <PdfMissingTag count={record.pdfMissing} />
+          </div>
         ),
       },
       {
@@ -323,24 +274,61 @@ export default function CompanyRegistrationMainLog({
         fixed: "right",
         width: 110,
         render: (_, record) => {
-          const pdfUrl = getFileUrl(record.pdf_path || record.pdfPath);
-
-          // Change Status Submenu Items
-          const statusChangeItems = statusList
-            .filter((s) => s.key !== record.status && s.label !== record.status)
-            .map((s) => ({
-              key: `status_${s.key || s.label}`,
+          const officialPdfs = [
+            ...(record.acceptancePdfPath
+              ? [
+                  {
+                    key: "pdf_acceptance",
+                    icon: <FilePdfOutlined className="text-brand-primary" />,
+                    label: (
+                      <a
+                        href={getFileUrl(record.acceptancePdfPath)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-inherit"
+                      >
+                        Notice of Acceptance
+                      </a>
+                    ),
+                  },
+                ]
+              : []),
+            ...(record.adminPdfPath
+              ? [
+                  {
+                    key: "pdf_admin",
+                    icon: <FilePdfOutlined className="text-brand-primary" />,
+                    label: (
+                      <a
+                        href={getFileUrl(record.adminPdfPath)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-inherit"
+                      >
+                        Admin Compliance Review
+                      </a>
+                    ),
+                  },
+                ]
+              : []),
+            ...(record.consentPdfs || []).map((c) => ({
+              key: `pdf_${c.type}_${c.personName}`,
+              icon: <FilePdfOutlined className="text-emerald-600" />,
               label: (
-                <div
-                  className="flex items-center gap-2 py-0.5"
-                  onClick={() => confirmStatusChange(record, s)}
+                <a
+                  href={getFileUrl(c.filePath)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-inherit"
                 >
-                  <Tag color={s.color || "default"} className="!mr-0 text-xs">
-                    {s.label || s.key}
-                  </Tag>
-                </div>
+                  {c.type === "DirectorConsent"
+                    ? "Director Consent"
+                    : "Member Consent"}{" "}
+                  - {c.personName}
+                </a>
               ),
-            }));
+            })),
+          ];
 
           // Action Menu Items
           const menuItems = [
@@ -362,34 +350,46 @@ export default function CompanyRegistrationMainLog({
                 setIsReviewModalOpen(true);
               },
             },
-            pdfUrl && pdfUrl !== "#"
+            {
+              key: "client_pdf",
+              icon: <FilePdfOutlined className="text-red-500" />,
+              label: "Client Application PDF",
+              onClick: () => {
+                if (record.clientPdfPath) {
+                  window.open(getFileUrl(record.clientPdfPath), "_blank");
+                } else {
+                  antdMsg.info(
+                    "The Client Application PDF is not generated yet - use Regenerate PDFs.",
+                  );
+                }
+              },
+            },
+            // Official PDFs: Admin Compliance Review + each Director / Member Consent
+            officialPdfs.length > 0
               ? {
-                  key: "view_pdf",
-                  icon: <FilePdfOutlined className="text-emerald-600" />,
-                  label: (
-                    <a
-                      href={pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-inherit"
-                    >
-                      View Official PDF
-                    </a>
-                  ),
+                  key: "pdf_menu",
+                  icon: <FilePdfOutlined className="text-brand-primary" />,
+                  label: "Official PDFs",
+                  children: officialPdfs,
                 }
               : null,
-            { type: "divider" },
-            {
-              key: "change_status",
-              icon: <SwapOutlined className="text-amber-500" />,
-              label: "Change Status to...",
-              children: statusChangeItems,
-            },
           ].filter(Boolean);
+
+          // Move to Trash (or, in Trash, only View Details + Restore)
+          const trashItem = trash.menuItem(record);
+          const items =
+            record.status === TRASH_KEY && trashItem
+              ? [menuItems[0], { type: "divider" }, trashItem]
+              : [
+                  ...menuItems,
+                  { type: "divider" },
+                  regen.menuItem(record),
+                  ...(trashItem ? [{ type: "divider" }, trashItem] : []),
+                ];
 
           return (
             <Dropdown
-              menu={{ items: menuItems }}
+              menu={{ items }}
               trigger={["click"]}
               placement="bottomRight"
             >
@@ -401,36 +401,15 @@ export default function CompanyRegistrationMainLog({
         },
       },
     ];
-  }, [confirmStatusChange, getStatusTagColor, statusList]);
+  }, [getStatusTagColor, trash, regen]);
 
   // --------------------------------------------------------------------------
   // 7. BULK ACTIONS LIST
   // --------------------------------------------------------------------------
   const bulkActionOptions = useMemo(() => {
-    return [
-      {
-        label: "Mark as Approved",
-        value: "Approved",
-        bulkActionMsg:
-          "Are you sure you want to mark all selected records as Approved?",
-      },
-      {
-        label: "Mark as Under Review",
-        value: "Under Review",
-        bulkActionMsg: "Move selected records to Under Review?",
-      },
-      {
-        label: "Mark as On Hold",
-        value: "On Hold",
-        bulkActionMsg: "Place selected records on administrative hold?",
-      },
-      {
-        label: "Mark as Lodged with ASIC",
-        value: "Lodged with ASIC",
-        bulkActionMsg: "Update selected records as Lodged with ASIC?",
-      },
-    ];
-  }, []);
+    if (statusName === TRASH_KEY) return trash.bulkOptions(true);
+    return [...trash.bulkOptions(false)];
+  }, [statusName, trash]);
 
   // --------------------------------------------------------------------------
   // 8. CUSTOM SEARCH FILTER COLUMNS
@@ -493,10 +472,19 @@ export default function CompanyRegistrationMainLog({
         }
       />
 
+      {regen.modal}
+
       {/* View Details Modal */}
       <CompanyRegistrationViewDetails
         visible={isViewDetailsOpen}
         data={viewDetailsRecord}
+        onReview={(record) => {
+          // From the details modal straight into Review & Decision
+          setIsViewDetailsOpen(false);
+          setViewDetailsRecord(null);
+          setReviewRecord(record);
+          setIsReviewModalOpen(true);
+        }}
         onClose={() => {
           setIsViewDetailsOpen(false);
           setViewDetailsRecord(null);
@@ -526,12 +514,12 @@ export default function CompanyRegistrationMainLog({
         {reviewRecord && (
           <CompanyRegistrationAdminForm
             record={reviewRecord}
-            onFinish={() => {
+            onFinish={handleAdminDecisionSubmit}
+            isSubmitting={isReviewSubmitting}
+            onCancel={() => {
+              if (isReviewSubmitting) return;
               setIsReviewModalOpen(false);
               setReviewRecord(null);
-              if (typeof fetchData === "function") {
-                fetchData();
-              }
             }}
           />
         )}

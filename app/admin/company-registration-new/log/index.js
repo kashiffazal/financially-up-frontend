@@ -10,11 +10,14 @@ import {
   QuestionCircleOutlined,
   RocketOutlined,
   CloseCircleOutlined,
-  FormOutlined,
   AppstoreOutlined,
 } from "@ant-design/icons";
 import CompanyRegistrationMainLog from "./partial/mainLog";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
+import {
+  TRASH_STATUS,
+  bucketByStatus,
+} from "@/components/admin/FormLogModule/trash";
 import OpenRecordFromUrl from "@/components/admin/OpenRecordFromUrl";
 import SearchFilterBanner, {
   filterStatusMapByIds,
@@ -81,12 +84,6 @@ export const COMPANY_REG_STATUS_LIST = [
     color: "error",
     icon: <CloseCircleOutlined />,
   },
-  {
-    key: "Draft",
-    label: "Draft",
-    color: "default",
-    icon: <FormOutlined />,
-  },
 ];
 
 /**
@@ -151,26 +148,15 @@ export default function CompanyRegistrationLogModule() {
         ? records.map((r) => ({ ...r, key: r.id || r._id }))
         : [];
 
-      // Step A: Initialize empty array buckets for all defined statuses
-      const statusMap = {
-        All: normalizedRecords,
-      };
-
-      COMPANY_REG_STATUS_LIST.forEach((st) => {
-        statusMap[st.key] = [];
-      });
-
-      // Step B: Push records into their respective status buckets
-      normalizedRecords.forEach((item) => {
-        const itemStatus = item.status || "Submitted";
-        if (!statusMap[itemStatus]) {
-          statusMap[itemStatus] = [];
-        }
-        statusMap[itemStatus].push(item);
-      });
-
-      // Step C: Update state
-      setListDataByStatus(statusMap);
+      // One bucket per status; "All" leaves trashed records out (Trash tab only)
+      setListDataByStatus(
+        bucketByStatus(
+          normalizedRecords,
+          COMPANY_REG_STATUS_LIST,
+          "Submitted",
+          true,
+        ),
+      );
     } catch (err) {
       antdMsg.error("Failed to load company registration logs.");
     } finally {
@@ -327,7 +313,7 @@ export default function CompanyRegistrationLogModule() {
     };
 
     // 2. Status-specific tabs
-    const statusTabs = COMPANY_REG_STATUS_LIST.map((st) => {
+    const statusTabs = [...COMPANY_REG_STATUS_LIST, TRASH_STATUS].map((st) => {
       const count = visibleByStatus[st.key]?.length || 0;
       return {
         key: st.key,

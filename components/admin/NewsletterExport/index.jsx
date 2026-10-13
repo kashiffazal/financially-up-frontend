@@ -88,6 +88,8 @@ export default function NewsletterExport({ columns }) {
     if (range.from) params.set("from", range.from);
     if (range.to) params.set("to", range.to);
     if (status !== "all") params.set("status", status);
+    // Trashed subscribers are never exported
+    params.set("excludeTrash", "1");
     const res = await HTTP(
       "GET",
       `/newsletter-subscribers?${params.toString()}`,

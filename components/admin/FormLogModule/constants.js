@@ -77,6 +77,7 @@ export function getStatusColor(status, statusList = STANDARD_FORM_STATUS_LIST) {
   if (found) return found.color;
 
   const lower = status.toLowerCase();
+  if (lower === "trash") return "error";
   if (lower.includes("approv") || lower.includes("accept")) return "success";
   if (lower.includes("pend") || lower.includes("submi")) return "warning";
   if (lower.includes("review") || lower.includes("process") || lower.includes("new")) return "processing";

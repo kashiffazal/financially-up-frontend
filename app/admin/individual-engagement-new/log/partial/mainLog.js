@@ -16,6 +16,14 @@ import IndividualEngagementAdminForm from "@/components/admin/forms/individual-e
 import IndividualEngagementViewDetails from "../../viewDetails";
 import RiskLevelExplainer from "@/components/admin/RiskLevelExplainer";
 import { HTTP, antdMsg, getFileUrl } from "@/services";
+import {
+  useTrashActions,
+  TRASH_KEY,
+} from "@/components/admin/FormLogModule/trash";
+import {
+  useRegeneratePdfs,
+  PdfMissingTag,
+} from "@/components/admin/RegeneratePdfs";
 
 const EXPORT_COLUMNS = [
   { header: "Reference", key: "referenceNumber" },
@@ -53,6 +61,18 @@ export default function IndividualEngagementMainLog({
   onAutoOpenHandled,
   freshIds = [],
 }) {
+  // Move to Trash / Restore (row action + bulk)
+  const trash = useTrashActions({
+    moduleKey: "new-individual",
+    onChanged: () =>
+      typeof fetchData === "function" && fetchData({ silent: true }),
+  });
+  // Regenerate PDFs (identical to the originals; same links)
+  const regen = useRegeneratePdfs({
+    moduleKey: "new-individual",
+    onDone: () =>
+      typeof fetchData === "function" && fetchData({ silent: true }),
+  });
   // --------------------------------------------------------------------------
   // 1. LOCAL COMPONENT STATE (MODALS & LOADERS)
   // --------------------------------------------------------------------------
@@ -372,13 +392,16 @@ export default function IndividualEngagementMainLog({
         dataIndex: "status",
         key: "status",
         width: 140,
-        render: (status) => (
-          <Tag
-            color={getStatusTagColor(status)}
-            className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill"
-          >
-            {status || "Pending Review"}
-          </Tag>
+        render: (status, record) => (
+          <div className="flex flex-col items-start">
+            <Tag
+              color={getStatusTagColor(status)}
+              className="font-semibold text-[11.5px] py-0.5 px-2.5 rounded-pill"
+            >
+              {status || "Pending Review"}
+            </Tag>
+            <PdfMissingTag count={record.pdfMissing} />
+          </div>
         ),
       },
       {
@@ -481,9 +504,21 @@ export default function IndividualEngagementMainLog({
               : []),
           ].filter(Boolean);
 
+          // Move to Trash (or, in Trash, only View Details + Restore)
+          const trashItem = trash.menuItem(record);
+          const items =
+            record.status === TRASH_KEY && trashItem
+              ? [menuItems[0], { type: "divider" }, trashItem]
+              : [
+                  ...menuItems,
+                  { type: "divider" },
+                  regen.menuItem(record),
+                  ...(trashItem ? [{ type: "divider" }, trashItem] : []),
+                ];
+
           return (
             <Dropdown
-              menu={{ items: menuItems }}
+              menu={{ items }}
               trigger={["click"]}
               placement="bottomRight"
             >
@@ -495,7 +530,7 @@ export default function IndividualEngagementMainLog({
         },
       },
     ];
-  }, [getRiskColor, getStatusTagColor]);
+  }, [getRiskColor, getStatusTagColor, trash, regen]);
 
   // --------------------------------------------------------------------------
   // 7. DATA PROVIDER FOR CSV/EXCEL EXPORT
@@ -538,6 +573,10 @@ export default function IndividualEngagementMainLog({
             filename={`Individual_Engagements_${statusName}`}
           />
         }
+        bulkAction={trash.bulkOptions(statusName === TRASH_KEY)}
+        bulkActionHandler={(selected, value) =>
+          trash.handleBulk(value, selected?.selectedRowKeys || [])
+        }
         scroll={{ x: 1200 }}
       />
 
@@ -547,6 +586,8 @@ export default function IndividualEngagementMainLog({
         record={riskRecord}
         onClose={() => setRiskRecord(null)}
       />
+
+      {regen.modal}
 
       {/* Read-only Engagement Details Modal */}
       <IndividualEngagementViewDetails

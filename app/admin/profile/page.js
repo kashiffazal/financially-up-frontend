@@ -742,11 +742,12 @@ function ProfilePage() {
 
             {/* Interactive Avatar with Upload & Crop */}
             <div className="relative z-10 pt-7 mb-3 flex flex-col items-center">
-              <div className="p-1 rounded-full bg-white dark:bg-zinc-900 shadow-lg relative">
+              {/* flex: no text-baseline gap under the photo (keeps the white ring even) */}
+              <div className="p-1 rounded-full bg-white dark:bg-zinc-900 shadow-lg relative flex">
                 <UploadAndCropImage
                   value={user?.avatar}
                   onChange={handleAvatarChange}
-                  width={96}
+                  width={120}
                   imageType="circle"
                   title="Update Staff Avatar"
                   showActionButtons={false}
@@ -759,7 +760,8 @@ function ProfilePage() {
               </div>
 
               {/* Staff Full Name */}
-              <h2 className="text-lg font-bold text-slate-900 dark:text-zinc-50 mt-3 mb-0.5">
+              {/* "!" so antd's heading margin reset doesn't remove the gap under the photo */}
+              <h2 className="text-lg font-bold text-slate-900 dark:text-zinc-50 mt-5! mb-1!">
                 {user?.fullName ||
                   `${user?.firstName || "Staff"} ${user?.lastName || "Member"}`}
               </h2>

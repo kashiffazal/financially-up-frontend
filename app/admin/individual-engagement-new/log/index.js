@@ -23,6 +23,10 @@ import {
   FRESH_ROW_MS,
 } from "@/components/admin/NotificationCenter/liveEvents";
 import { HTTP, antdMsg } from "@/services";
+import {
+  TRASH_STATUS,
+  bucketByStatus,
+} from "@/components/admin/FormLogModule/trash";
 
 /**
  * ============================================================================
@@ -119,26 +123,15 @@ export default function IndividualEngagementLogModule() {
         ? records.map((r) => ({ ...r, key: r.id || r._id }))
         : [];
 
-      // Step A: Initialize empty array buckets for all defined statuses
-      const statusMap = {
-        All: normalizedRecords,
-      };
-
-      INDIVIDUAL_ENG_STATUS_LIST.forEach((st) => {
-        statusMap[st.key] = [];
-      });
-
-      // Step B: Push records into their respective status buckets
-      normalizedRecords.forEach((item) => {
-        const itemStatus = item.status || "Pending Review";
-        if (!statusMap[itemStatus]) {
-          statusMap[itemStatus] = [];
-        }
-        statusMap[itemStatus].push(item);
-      });
-
-      // Step C: Update state
-      setListDataByStatus(statusMap);
+      // One bucket per status; "All" leaves trashed records out (Trash tab only)
+      setListDataByStatus(
+        bucketByStatus(
+          normalizedRecords,
+          INDIVIDUAL_ENG_STATUS_LIST,
+          "Pending Review",
+          true,
+        ),
+      );
     } catch (err) {
       antdMsg.error("Failed to load individual engagement records.");
     } finally {
@@ -241,37 +234,39 @@ export default function IndividualEngagementLogModule() {
     };
 
     // 2. Status-specific tabs
-    const statusTabs = INDIVIDUAL_ENG_STATUS_LIST.map((st) => {
-      const count = visibleByStatus[st.key]?.length || 0;
-      return {
-        key: st.key,
-        label: (
-          <span className="flex items-center gap-1.5 font-medium">
-            {st.icon}
-            <span>{st.label}</span>
-            {/* Live Count Badge */}
-            <span
-              className={`text-xs px-1.5 py-0.2 rounded-pill font-mono ${
-                count > 0
-                  ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 font-semibold"
-                  : "bg-slate-100 dark:bg-zinc-800 text-slate-400"
-              }`}
-            >
-              {count}
+    const statusTabs = [...INDIVIDUAL_ENG_STATUS_LIST, TRASH_STATUS].map(
+      (st) => {
+        const count = visibleByStatus[st.key]?.length || 0;
+        return {
+          key: st.key,
+          label: (
+            <span className="flex items-center gap-1.5 font-medium">
+              {st.icon}
+              <span>{st.label}</span>
+              {/* Live Count Badge */}
+              <span
+                className={`text-xs px-1.5 py-0.2 rounded-pill font-mono ${
+                  count > 0
+                    ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 font-semibold"
+                    : "bg-slate-100 dark:bg-zinc-800 text-slate-400"
+                }`}
+              >
+                {count}
+              </span>
             </span>
-          </span>
-        ),
-        children: (
-          <IndividualEngagementMainLog
-            data={visibleByStatus[st.key] || []}
-            statusName={st.label}
-            fetchData={fetchRecords}
-            freshIds={freshIds}
-            loading={loading}
-          />
-        ),
-      };
-    });
+          ),
+          children: (
+            <IndividualEngagementMainLog
+              data={visibleByStatus[st.key] || []}
+              statusName={st.label}
+              fetchData={fetchRecords}
+              freshIds={freshIds}
+              loading={loading}
+            />
+          ),
+        };
+      },
+    );
 
     return [allTab, ...statusTabs];
   }, [

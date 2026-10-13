@@ -14,6 +14,7 @@ import ExportButtons from "@/components/admin/ExportButtons";
 import GenericViewDetailsModal from "./GenericViewDetailsModal";
 import { HTTP, antdMsg, getFileUrl } from "@/services";
 import { getStatusColor, STANDARD_FORM_STATUS_LIST } from "./constants";
+import { useTrashActions, trashModuleOf, TRASH_KEY } from "./trash";
 
 /**
  * ============================================================================
@@ -53,6 +54,19 @@ export default function GenericMainLog({
 }) {
   const { modal } = App.useApp();
 
+  // Trash: "Move to Trash" everywhere; in the Trash tab only View Details + Restore
+  const inTrashTab = statusName === TRASH_KEY;
+  const trash = useTrashActions({
+    moduleKey: trashModuleOf(endpoint),
+    onChanged: () =>
+      typeof fetchData === "function" && fetchData({ silent: true }),
+  });
+  // Trash has its own actions, never the "Change Status to..." list
+  const changeableStatuses = useMemo(
+    () => (statusList || []).filter((st) => st.key !== TRASH_KEY),
+    [statusList],
+  );
+
   // --------------------------------------------------------------------------
   // LOCAL COMPONENT STATE (MODALS & LOADERS)
   // --------------------------------------------------------------------------
@@ -77,7 +91,9 @@ export default function GenericMainLog({
       const recordTitle =
         record.referenceNumber ||
         record.reference_number ||
-        (record.name && record.email ? `${record.name} (${record.email})` : record.name) ||
+        (record.name && record.email
+          ? `${record.name} (${record.email})`
+          : record.name) ||
         record.legalName ||
         record.LegalName ||
         record.companyName1 ||
@@ -104,7 +120,7 @@ export default function GenericMainLog({
               <Tag
                 color={getStatusColor(
                   targetStatus.key || targetStatus.label,
-                  statusList
+                  statusList,
                 )}
               >
                 {targetStatus.label || targetStatus.key}
@@ -122,25 +138,37 @@ export default function GenericMainLog({
           setStatusLoader((prev) => ({ ...prev, [recordId]: true }));
           try {
             const newStatusKey = targetStatus.key || targetStatus.label;
-            const targetUrl = typeof statusUpdateEndpoint === "function"
-              ? statusUpdateEndpoint(recordId, newStatusKey)
-              : statusUpdateEndpoint || `${endpoint}/${recordId}`;
+            const targetUrl =
+              typeof statusUpdateEndpoint === "function"
+                ? statusUpdateEndpoint(recordId, newStatusKey)
+                : statusUpdateEndpoint || `${endpoint}/${recordId}`;
 
             const res = await HTTP("PUT", targetUrl, {
               status: newStatusKey,
             });
             if (!res?.success) return; // the API's error message is already shown
 
-            antdMsg.success(`Status updated to "${newStatusKey}" successfully.`);
+            antdMsg.success(
+              `Status updated to "${newStatusKey}" successfully.`,
+            );
 
             // Use the server's updated record when it sends one (e.g. dates it set,
             // "changed by"), so View Details shows current values without a refresh
             const serverRow =
-              res.data && typeof res.data === "object" && !Array.isArray(res.data) && res.data.id === record.id ? res.data : null;
+              res.data &&
+              typeof res.data === "object" &&
+              !Array.isArray(res.data) &&
+              res.data.id === record.id
+                ? res.data
+                : null;
 
             // Real-time optimistic update across tab buckets
             if (typeof changeStatus === "function") {
-              changeStatus(serverRow ? { ...record, ...serverRow } : record, targetStatus, record.status);
+              changeStatus(
+                serverRow ? { ...record, ...serverRow } : record,
+                targetStatus,
+                record.status,
+              );
             } else if (typeof fetchData === "function") {
               fetchData();
             }
@@ -152,7 +180,14 @@ export default function GenericMainLog({
         },
       });
     },
-    [endpoint, statusUpdateEndpoint, changeStatus, fetchData, modal, statusList]
+    [
+      endpoint,
+      statusUpdateEndpoint,
+      changeStatus,
+      fetchData,
+      modal,
+      statusList,
+    ],
   );
 
   // Records are never deleted (kept for compliance record-keeping), so there is
@@ -167,7 +202,7 @@ export default function GenericMainLog({
       const isUpdating = Boolean(statusLoader[recordId]);
 
       // Status change submenu (exclude current status)
-      const statusSubmenu = statusList
+      const statusSubmenu = changeableStatuses
         .filter((st) => st.key !== record.status && st.label !== record.status)
         .map((st) => ({
           key: `status-${st.key}`,
@@ -175,7 +210,10 @@ export default function GenericMainLog({
           label: (
             <span className="flex items-center justify-between gap-3">
               <span>{st.label}</span>
-              <Tag color={getStatusColor(st.key, statusList)} className="mr-0 text-[10px]">
+              <Tag
+                color={getStatusColor(st.key, statusList)}
+                className="mr-0 text-[10px]"
+              >
                 {st.key}
               </Tag>
             </span>
@@ -183,51 +221,68 @@ export default function GenericMainLog({
           onClick: () => confirmStatusChange(record, st),
         }));
 
-      const pdfUrl = record.pdfUrl || record.pdf_path || record.pdfPath || record.clientPdfPath;
+      const pdfUrl =
+        record.pdfUrl ||
+        record.pdf_path ||
+        record.pdfPath ||
+        record.clientPdfPath;
       const resolvedPdfUrl = pdfUrl ? getFileUrl(pdfUrl) : null;
 
       // Resolve custom extra actions if provided
-      const resolvedExtraActions = typeof extraActions === "function"
-        ? extraActions(record)
-        : Array.isArray(extraActions)
-        ? extraActions
-        : [];
+      const resolvedExtraActions =
+        typeof extraActions === "function"
+          ? extraActions(record)
+          : Array.isArray(extraActions)
+            ? extraActions
+            : [];
 
-      const menuItems = [
-        {
-          key: "view-details",
-          icon: <EyeOutlined className="text-blue-500" />,
-          label: "View Details",
-          onClick: () => {
-            setViewDetailsRecord(record);
-            setIsViewDetailsOpen(true);
-          },
+      const viewDetailsItem = {
+        key: "view-details",
+        icon: <EyeOutlined className="text-blue-500" />,
+        label: "View Details",
+        onClick: () => {
+          setViewDetailsRecord(record);
+          setIsViewDetailsOpen(true);
         },
-        ...resolvedExtraActions,
-        ...(resolvedPdfUrl
-          ? [
+      };
+      const trashItem = trash.menuItem(record);
+
+      // In Trash: look at it or restore it, nothing else
+      const menuItems =
+        record.status === TRASH_KEY && trashItem
+          ? [viewDetailsItem, { type: "divider" }, trashItem]
+          : [
+              viewDetailsItem,
+              ...resolvedExtraActions,
+              ...(resolvedPdfUrl
+                ? [
+                    {
+                      key: "view-pdf",
+                      icon: <FilePdfOutlined className="text-red-500" />,
+                      label: "View Official PDF",
+                      onClick: () => window.open(resolvedPdfUrl, "_blank"),
+                    },
+                  ]
+                : []),
               {
-                key: "view-pdf",
-                icon: <FilePdfOutlined className="text-red-500" />,
-                label: "View Official PDF",
-                onClick: () => window.open(resolvedPdfUrl, "_blank"),
+                type: "divider",
               },
-            ]
-          : []),
-        {
-          type: "divider",
-        },
-        {
-          key: "change-status",
-          icon: <SwapOutlined className="text-amber-500" />,
-          label: "Change Status to...",
-          disabled: isUpdating,
-          children: statusSubmenu,
-        },
-      ];
+              {
+                key: "change-status",
+                icon: <SwapOutlined className="text-amber-500" />,
+                label: "Change Status to...",
+                disabled: isUpdating,
+                children: statusSubmenu,
+              },
+              ...(trashItem ? [{ type: "divider" }, trashItem] : []),
+            ];
 
       return (
-        <Dropdown menu={{ items: menuItems }} trigger={["click"]} placement="bottomRight">
+        <Dropdown
+          menu={{ items: menuItems }}
+          trigger={["click"]}
+          placement="bottomRight"
+        >
           <Button
             type="text"
             size="small"
@@ -239,7 +294,14 @@ export default function GenericMainLog({
         </Dropdown>
       );
     },
-    [confirmStatusChange, extraActions, statusList, statusLoader]
+    [
+      confirmStatusChange,
+      extraActions,
+      statusList,
+      changeableStatuses,
+      statusLoader,
+      trash,
+    ],
   );
 
   // --------------------------------------------------------------------------
@@ -256,12 +318,18 @@ export default function GenericMainLog({
     };
 
     if (typeof customColumns === "function") {
-      return customColumns({ renderActionDropdown, getStatusColor, confirmStatusChange });
+      return customColumns({
+        renderActionDropdown,
+        getStatusColor,
+        confirmStatusChange,
+      });
     }
 
     if (Array.isArray(customColumns)) {
       // Append action column if not already present
-      const hasAction = customColumns.some((col) => col.key === "actions" || col.key === "action");
+      const hasAction = customColumns.some(
+        (col) => col.key === "actions" || col.key === "action",
+      );
       if (!hasAction) {
         return [...customColumns, actionColumn];
       }
@@ -279,13 +347,18 @@ export default function GenericMainLog({
   // changes always use statuses the server accepts.
   const bulkActionOptions = useMemo(
     () =>
-      (statusList || []).map((st) => ({
-        label: `Mark as ${st.label}`,
-        value: st.key,
-        bulkActionMsg: `Change all selected records to "${st.label}"?`,
-        bulkActionBottomBtnLabel: `Set ${st.label}`,
-      })),
-    [statusList]
+      inTrashTab
+        ? trash.bulkOptions(true)
+        : [
+            ...changeableStatuses.map((st) => ({
+              label: `Mark as ${st.label}`,
+              value: st.key,
+              bulkActionMsg: `Change all selected records to "${st.label}"?`,
+              bulkActionBottomBtnLabel: `Set ${st.label}`,
+            })),
+            ...trash.bulkOptions(false),
+          ],
+    [changeableStatuses, inTrashTab, trash],
   );
 
   const handleBulkAction = useCallback(
@@ -295,6 +368,8 @@ export default function GenericMainLog({
         antdMsg.warning("No records selected.");
         return;
       }
+      // Move to Trash / Restore
+      if (await trash.handleBulk(actionValue, selectedIds)) return;
 
       try {
         const target = (statusList || []).find((st) => st.key === actionValue);
@@ -302,13 +377,25 @@ export default function GenericMainLog({
           // hideErrorMsg: one summary message instead of a toast per record
           const results = await Promise.all(
             selectedIds.map((id) =>
-              HTTP("PUT", `${endpoint}/${id}`, { status: target.key }, false, true).catch(() => null)
-            )
+              HTTP(
+                "PUT",
+                `${endpoint}/${id}`,
+                { status: target.key },
+                false,
+                true,
+              ).catch(() => null),
+            ),
           );
           const done = results.filter((r) => r?.success).length;
           const failed = selectedIds.length - done;
-          if (done) antdMsg.success(`${done} record${done === 1 ? "" : "s"} set to "${target.label}".`);
-          if (failed) antdMsg.error(`${failed} record${failed === 1 ? "" : "s"} couldn't be updated.`);
+          if (done)
+            antdMsg.success(
+              `${done} record${done === 1 ? "" : "s"} set to "${target.label}".`,
+            );
+          if (failed)
+            antdMsg.error(
+              `${failed} record${failed === 1 ? "" : "s"} couldn't be updated.`,
+            );
         }
 
         if (typeof fetchData === "function") {
@@ -318,7 +405,7 @@ export default function GenericMainLog({
         antdMsg.error("Bulk action failed partially or completely.");
       }
     },
-    [endpoint, fetchData, statusList]
+    [endpoint, fetchData, statusList, trash],
   );
 
   // --------------------------------------------------------------------------
@@ -328,7 +415,9 @@ export default function GenericMainLog({
     <div className="w-full space-y-4">
       {/* Main Reusable DataTable Component */}
       <DataTable
-        rowClassName={(record) => (freshIds.includes(String(record.id)) ? "live-new-row" : "")}
+        rowClassName={(record) =>
+          freshIds.includes(String(record.id)) ? "live-new-row" : ""
+        }
         columns={columns}
         dataSource={data}
         loading={loading}
@@ -360,7 +449,8 @@ export default function GenericMainLog({
         onClose={() => {
           setIsViewDetailsOpen(false);
           setViewDetailsRecord(null);
-          if (autoOpenRecord && typeof onAutoOpenHandled === "function") onAutoOpenHandled();
+          if (autoOpenRecord && typeof onAutoOpenHandled === "function")
+            onAutoOpenHandled();
         }}
         title={viewDetailsTitle}
         icon={viewDetailsIcon}

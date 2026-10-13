@@ -16,6 +16,7 @@ import {
 } from "@/components/admin/NotificationCenter/liveEvents";
 import { HTTP, antdMsg, LogDeleteRow, LogResetList } from "@/services";
 import { STANDARD_FORM_STATUS_LIST } from "./constants";
+import { TRASH_STATUS, trashModuleOf, bucketByStatus } from "./trash";
 import { parseSubmissionData } from "./SubmittedAnswers";
 
 /**
@@ -71,6 +72,8 @@ export default function FormLogModule({
   // --------------------------------------------------------------------------
   const [loading, setLoading] = useState(false);
   const [activeStatusKey, setActiveStatusKey] = useState("All");
+  // Trash tab (every application log + newsletter; not enquiries)
+  const trashModule = trashModuleOf(endpoint);
   const [listDataByStatus, setListDataByStatus] = useState({ All: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   // Record requested via `?open=<id>` (Global Search) - opened by the "All" tab log
@@ -112,25 +115,15 @@ export default function FormLogModule({
           };
         });
 
-        // Initialize empty array buckets for All and all defined statuses
-        const statusMap = {
-          All: normalizedRecords,
-        };
-
-        statusList.forEach((st) => {
-          statusMap[st.key] = [];
-        });
-
-        // Push records into corresponding status buckets
-        normalizedRecords.forEach((item) => {
-          const itemStatus = item.status || defaultStatus;
-          if (!statusMap[itemStatus]) {
-            statusMap[itemStatus] = [];
-          }
-          statusMap[itemStatus].push(item);
-        });
-
-        setListDataByStatus(statusMap);
+        // One bucket per status; "All" leaves trashed records out (Trash tab only)
+        setListDataByStatus(
+          bucketByStatus(
+            normalizedRecords,
+            statusList,
+            defaultStatus,
+            Boolean(trashModule),
+          ),
+        );
       } catch (err) {
         antdMsg.error(
           err?.message || `Failed to load ${filenamePrefix} records.`,
@@ -147,6 +140,7 @@ export default function FormLogModule({
       statusList,
       defaultStatus,
       filenamePrefix,
+      trashModule,
     ],
   );
 
@@ -305,8 +299,11 @@ export default function FormLogModule({
       ),
     };
 
-    // 2. Status-specific tabs
-    const statusTabs = statusList.map((st) => {
+    // 2. Status-specific tabs (+ Trash last)
+    const tabStatuses = trashModule
+      ? [...statusList, TRASH_STATUS]
+      : statusList;
+    const statusTabs = tabStatuses.map((st) => {
       const count = visibleByStatus[st.key]?.length || 0;
       return {
         key: st.key,
@@ -356,6 +353,7 @@ export default function FormLogModule({
   }, [
     visibleByStatus,
     statusList,
+    trashModule,
     handleUpdateListOnChangeStatus,
     fetchRecords,
     loading,

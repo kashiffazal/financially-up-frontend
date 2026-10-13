@@ -4,8 +4,6 @@ import React from "react";
 import { Modal, Tag, Button, Tabs, Dropdown, Space, Tooltip } from "antd";
 import {
   FilePdfOutlined,
-  FileImageOutlined,
-  FileTextOutlined,
   EditOutlined,
   DownOutlined,
   CopyOutlined,
@@ -25,11 +23,25 @@ import {
   FolderOpenOutlined,
   SignatureOutlined,
   AuditOutlined,
-  ExportOutlined,
   ClockCircleOutlined,
 } from "@ant-design/icons";
 import { getFileUrl, antdMsg } from "@/services";
-import styles from "./ViewDetails.module.css";
+import {
+  styles,
+  formatDate,
+  yesNo,
+  tagList,
+  textValue,
+  maskAccount,
+  riskColor,
+  initialsOf,
+  fileIcon,
+  Section,
+  Fact,
+  FileTile,
+  EmptyState,
+  tabLabel,
+} from "@/components/admin/ViewDetailsKit";
 
 /**
  * ============================================================================
@@ -44,100 +56,7 @@ import styles from "./ViewDetails.module.css";
  * Empty fields and empty sections are hidden; only the masked TFN is shown.
  */
 
-// ----------------------------------------------------------------------------
-// VALUE HELPERS
-// ----------------------------------------------------------------------------
-const isEmpty = (v) =>
-  v === null ||
-  v === undefined ||
-  v === "" ||
-  v === false ||
-  (Array.isArray(v) && v.length === 0);
-
-const parseJson = (val) => {
-  if (!val) return null;
-  if (typeof val === "object") return val;
-  if (typeof val !== "string" || !/^[[{]/.test(val.trim())) return null;
-  try {
-    return JSON.parse(val);
-  } catch {
-    return null;
-  }
-};
-
-const formatDate = (val, withTime = false) => {
-  if (!val) return null;
-  const d = new Date(val);
-  if (Number.isNaN(d.getTime())) return String(val);
-  return withTime
-    ? d.toLocaleString("en-AU", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-      })
-    : d.toLocaleDateString("en-AU", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      });
-};
-
-const yesNo = (val) => {
-  if (val === null || val === undefined || val === "") return null;
-  if (val === true || val === 1 || val === "1") return "Yes";
-  if (val === false || val === 0 || val === "0") return "No";
-  return String(val);
-};
-
-const toList = (val) => {
-  const parsed = Array.isArray(val) ? val : parseJson(val);
-  if (!Array.isArray(parsed)) return [];
-  return parsed
-    .filter((v) => !isEmpty(v))
-    .map((v) =>
-      typeof v === "object"
-        ? Object.values(v).filter(Boolean).join(" ")
-        : String(v),
-    );
-};
-
-const tagList = (val) => {
-  const items = toList(val);
-  if (!items.length) return null;
-  return (
-    <div className="flex flex-wrap gap-1.5">
-      {items.map((v, i) => (
-        <Tag
-          key={i}
-          className="!m-0 !rounded-md !border-slate-200 !bg-slate-50 dark:!border-zinc-700 dark:!bg-zinc-800"
-        >
-          {v}
-        </Tag>
-      ))}
-    </div>
-  );
-};
-
-const textValue = (val) => {
-  const parsed = parseJson(val);
-  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-    return (
-      Object.values(parsed)
-        .filter((v) => !isEmpty(v))
-        .join(", ") || null
-    );
-  }
-  return isEmpty(val) ? null : String(val);
-};
-
-const maskAccount = (val) => {
-  if (isEmpty(val)) return null;
-  const s = String(val).replace(/\s/g, "");
-  return s.length > 3 ? `${"•".repeat(s.length - 3)}${s.slice(-3)}` : s;
-};
-
+// Individual Engagement statuses (shared helpers and blocks: components/admin/ViewDetailsKit)
 const STATUS_COLORS = {
   Accepted: "success",
   "Conditional Accept": "processing",
@@ -147,165 +66,6 @@ const STATUS_COLORS = {
   Declined: "error",
 };
 const statusColor = (status) => STATUS_COLORS[status] || "warning";
-
-const riskColor = (risk) => {
-  const r = String(risk || "").toLowerCase();
-  if (r.includes("high")) return "error";
-  if (r.includes("medium")) return "warning";
-  return "success";
-};
-
-const initialsOf = (name) =>
-  String(name || "")
-    .split(/\s+/)
-    .filter((p) => /^[a-z]/i.test(p))
-    .slice(0, 2)
-    .map((p) => p[0].toUpperCase())
-    .join("") || "IE";
-
-const fileIcon = (path) => {
-  const p = String(path || "").toLowerCase();
-  if (p.endsWith(".pdf")) return <FilePdfOutlined className="text-red-500" />;
-  if (/\.(png|jpe?g|gif|webp|heic)$/.test(p))
-    return <FileImageOutlined className="text-sky-500" />;
-  return <FileTextOutlined className="text-slate-500" />;
-};
-
-// ----------------------------------------------------------------------------
-// PRESENTATIONAL BUILDING BLOCKS
-// ----------------------------------------------------------------------------
-
-/** Titled card with a responsive label/value grid. Hidden when nothing to show. */
-function Section({ icon, title, fields = [], children }) {
-  const visible = fields.filter(([, value]) => !isEmpty(value));
-  if (!visible.length && !children) return null;
-
-  return (
-    <section className={`${styles.section} overflow-hidden`}>
-      <header
-        className={`${styles.sectionHeader} flex items-center gap-2 px-4 py-2.5`}
-      >
-        <span className="text-brand-primary dark:text-emerald-400">{icon}</span>
-        <h4 className="m-0 text-[13px] font-semibold text-slate-800 dark:text-zinc-100">
-          {title}
-        </h4>
-      </header>
-      {visible.length > 0 && (
-        <dl className="m-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 p-4">
-          {visible.map(([label, value, full]) => (
-            <div
-              key={label}
-              className={`min-w-0 ${full ? "sm:col-span-2 lg:col-span-3" : ""}`}
-            >
-              <dt className={styles.fieldLabel}>{label}</dt>
-              <dd className="m-0 mt-1 text-[13px] leading-relaxed text-slate-800 dark:text-zinc-100 break-words">
-                {value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      )}
-      {children && <div className="p-4 pt-3">{children}</div>}
-    </section>
-  );
-}
-
-/** Quick-glance fact card under the header. */
-function Fact({ icon, label, value, href }) {
-  if (isEmpty(value)) return null;
-  const content = (
-    <>
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-primary-soft text-brand-primary dark:bg-emerald-950/50 dark:text-emerald-400">
-        {icon}
-      </span>
-      <span className="min-w-0">
-        <span className={`${styles.fieldLabel} block`}>{label}</span>
-        <span className="block truncate text-[13px] font-medium text-slate-800 dark:text-zinc-100">
-          {value}
-        </span>
-      </span>
-    </>
-  );
-  return href ? (
-    <a
-      href={href}
-      className={`${styles.fact} flex items-center gap-3 px-3 py-2.5 min-w-0 hover:!border-brand-primary/40`}
-    >
-      {content}
-    </a>
-  ) : (
-    <div
-      className={`${styles.fact} flex items-center gap-3 px-3 py-2.5 min-w-0`}
-    >
-      {content}
-    </div>
-  );
-}
-
-/** Clickable file tile (opens in a new tab). */
-function FileTile({ icon, title, subtitle, url }) {
-  return (
-    <a
-      href={getFileUrl(url)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${styles.tile} flex items-center gap-3 px-3 py-3 min-w-0`}
-    >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-50 dark:bg-zinc-800 text-lg">
-        {icon}
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block truncate text-[13px] font-semibold text-slate-800 dark:text-zinc-100">
-          {title}
-        </span>
-        {subtitle && (
-          <span className="block truncate text-[11px] text-slate-500 dark:text-zinc-400">
-            {subtitle}
-          </span>
-        )}
-      </span>
-      <ExportOutlined
-        className={`${styles.tileAction} text-brand-primary dark:text-emerald-400`}
-      />
-    </a>
-  );
-}
-
-function EmptyState({ icon, title, description, action }) {
-  return (
-    <div className="flex flex-col items-center px-6 py-12 text-center">
-      <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100 dark:bg-zinc-800 text-xl text-slate-400 dark:text-zinc-500">
-        {icon}
-      </span>
-      <p className="m-0 text-[14px] font-semibold text-slate-800 dark:text-zinc-100">
-        {title}
-      </p>
-      {description && (
-        <p className="m-0 mt-1 max-w-sm text-[12px] text-slate-500 dark:text-zinc-400">
-          {description}
-        </p>
-      )}
-      {action && <div className="mt-4">{action}</div>}
-    </div>
-  );
-}
-
-const tabLabel = (icon, text, count, pending = false) => (
-  <span className="flex items-center gap-1.5 text-[13px] font-medium">
-    {icon}
-    {text}
-    {typeof count === "number" && (
-      <span className="rounded-pill bg-slate-100 dark:bg-zinc-800 px-1.5 font-mono text-[10px] text-slate-500 dark:text-zinc-400">
-        {count}
-      </span>
-    )}
-    {pending && (
-      <span className="rounded-pill bg-amber-50 px-1.5 text-[10px] font-semibold text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">
-        Pending
-      </span>
-    )}
-  </span>
-);
 
 // ============================================================================
 // MODAL
@@ -834,7 +594,7 @@ export default function IndividualEngagementViewDetails({
           <span
             className={`${styles.avatar} flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-base font-bold text-white`}
           >
-            {initialsOf(clientName)}
+            {initialsOf(clientName, "IE")}
           </span>
           <div className="min-w-0 flex-1">
             <h3 className="m-0 truncate text-[18px] font-bold leading-tight text-slate-900 dark:text-zinc-50">
